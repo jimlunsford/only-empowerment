@@ -167,6 +167,7 @@ p + p {
 }
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 26px;
   margin-top: 30px;
@@ -924,4 +925,12 @@ main {
     orphans: 3;
     widows: 3;
   }
+}
+
+/* Keep the keyboard-only link hidden even in full-page captures after scrolling. */
+.skip-link:not(:focus) {
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }

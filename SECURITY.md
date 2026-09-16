@@ -8,6 +8,6 @@ Use local assets, restrictive CSP, secure HTTPS and referrer/security headers. K
 
 ## Reporting
 
-Do not open a public issue containing private responses, credentials, or an exploit that exposes users. GitHub private vulnerability reporting must be verified/enabled before it is advertised as available. Until then, use the [contact page](https://jimlunsford.com/contact/) to request a private security-reporting channel without sending exploit details or sensitive data in the initial message. No guaranteed response time is currently promised.
+Do not open a public issue containing private responses, credentials, or an exploit that exposes users. GitHub private vulnerability reporting is enabled and was verified on 2026-09-16. Use the repository's Security tab and **Report a vulnerability** to submit a private report. Keep any reproduction synthetic and omit real tool answers or unrelated secrets. No guaranteed response time is currently promised.
 
 This pre-release has no production support commitment. The current development branch is the review target. See docs/PRIVACY-ARCHITECTURE.md and docs/RELEASE-STANDARD.md for the trust boundary and release gates.

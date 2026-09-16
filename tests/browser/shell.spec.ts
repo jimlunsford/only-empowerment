@@ -143,3 +143,18 @@ test('source footer and metadata identify the same build', async ({ page, reques
   if (!metadata.dirty)
     await expect(page.locator('.footer-meta a').last()).toHaveAttribute('href', metadata.source);
 });
+
+test('320px layout and long answers reflow without horizontal scrolling', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/');
+  await expect(page.locator('h1')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.goto('/#/preview');
+  await page
+    .getByRole('textbox', { name: 'What is one action you could finish?' })
+    .fill('x'.repeat(600));
+  await page.getByRole('button', { name: 'Review the sample card' }).click();
+  await expect(page.locator('.answer')).toHaveText('x'.repeat(600));
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

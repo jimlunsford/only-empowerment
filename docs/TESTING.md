@@ -8,7 +8,7 @@ Test meaningful user behavior and trust boundaries. Coverage percentages are not
 - Plain-text output preserves entered text and states that a planned action is not completion.
 - Source guard rejects current runtime network/persistence/evaluation/unsafe HTML APIs. It is a regression alarm, not a complete security proof.
 - HTML CSP includes local-only scripts and no network/form answer submission.
-- Browser tests visit all routes, run axe, and check viewport overflow.
+- Browser tests visit all routes, run axe, and check viewport overflow; a 320px regression exercises reduced-motion mode and a maximum-length unbroken answer.
 - Preview validation, focus, text escaping, backward edit, cancel/confirm clear.
 - Synthetic private marker remains out of requests; no cookies/local/session storage; reload and route exit discard app state.
 - Keyboard skip link, route heading focus, missing-route recovery.

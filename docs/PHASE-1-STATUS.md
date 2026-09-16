@@ -17,13 +17,13 @@ Public DNS was inspected from the connected workstation, including direct querie
 | dev | NXDOMAIN |
 | Apex MX/TXT | No answers; authoritative SOA returned |
 | _dmarc TXT | NXDOMAIN |
-| CAA | Not verified; Windows Resolve-DnsName did not support the named type |
+| CAA | No CAA data returned by Node DNS query; Windows named-type query unsupported |
 | HTTP apex and www | 404, nginx/1.24.0 (Ubuntu), no redirect observed |
 | HTTPS apex and www | Certificate hostname validation fails; no bypass performed |
 
 Absence of MX does not prove no mail use (implicit A-record delivery and undiscovered subdomains remain possible). DNS and mail settings were preserved. Current host is consistent with the VPS address and Nginx response, not Shopify.
 
-The VPS connected as jim and hostname verified vps1.phoenix233.com. No matching Only Empowerment root was found under /var/www; no matching enabled Nginx block or Certbot renewal lineage was listed. Some protected configuration cannot be fully inspected without elevation. `sudo -n true` required a password. A later read-only Commander call timed out, so inspection must resume before deployment.
+The VPS connected as jim and hostname verified vps1.phoenix233.com. No matching Only Empowerment root was found under /var/www; no matching enabled Nginx block or Certbot renewal lineage was listed. Some protected configuration cannot be fully inspected without elevation. `sudo -n true` required a password. Two later read-only Commander calls timed out and the device subsequently showed offline, so inspection must resume before deployment.
 
 The existing vps-backup.service last completed at 2026-09-16 06:38:13 UTC with exit status 0. Both existing backup/maintenance timers were present. This proves successful service execution, not a restore test or verified new-site snapshot. No VPS configuration, public content, DNS, mail, or TLS was changed.
 
@@ -35,13 +35,15 @@ Version/source metadata includes full commit, tag, dirty flag, source URL, plus 
 
 ## Verification status
 
-Unit/privacy checks: four passed locally. TypeScript and production build passed. Browser suite is defined for Chromium, mobile Chromium, Firefox, and WebKit. Local browser downloads timed out; CI is the planned execution path. Browser/accessibility/mobile/print acceptance is not yet claimed here. This status will be updated with actual CI evidence.
+Four unit/privacy checks, TypeScript, production build, formatting, and all 24 browser scenarios passed in [CI run 35076142908](https://github.com/jimlunsford/only-empowerment/actions/runs/35076142908) at implementation commit `9be95c47cbb586fa8035699525a8758a58b02ece`. The browser matrix covers Chromium, mobile Chromium, Firefox, and WebKit. Desktop/mobile homepage, reflection, and output screenshots were visually inspected. A follow-up 320px/long-answer regression extends the suite to 28 scenarios; consult the current PR checks for its result. Local browser downloads were blocked, so hosted CI supplied the browser execution evidence.
+
+Earlier CI found and prompted fixes for footer target spacing, a missing development-status landmark, ambiguous test selectors, and a rapid navigation privacy race. The passing run verifies the corrections. npm audit reported zero known vulnerabilities in the current lockfile on 2026-09-16. Strict-build rejection of dirty source and correct clean commit metadata were directly verified. These checks do not constitute manual screen-reader or real-device certification.
 
 ## Open operational gates
 
 Staging URL reserved in the plan: https://dev.onlyempowerment.com, not live. Need complete authenticated VPS inspection, authorized elevation, DNS dev record, existing-account TLS, verified artifact deployment, browser acceptance and existing-backup coverage verification. Follow STAGING-RUNBOOK.md.
 
-License decision remains pending. AGPL-3.0-or-later recommendation is documented. No open-source license grant is assumed. Real-device and manual screen-reader validation remain production gates.
+GitHub private vulnerability reporting is enabled and verified. License decision remains pending. AGPL-3.0-or-later recommendation is documented. No open-source license grant is assumed. Real-device and manual screen-reader validation remain production gates.
 
 ## Definition-of-done index
 
