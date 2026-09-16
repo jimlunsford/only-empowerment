@@ -74,6 +74,7 @@ test('preview validates, escapes text, edits, and clears in-memory work', async 
 test('private marker stays out of requests and storage; reload and exit discard it', async ({
   page,
   context,
+  baseURL,
 }) => {
   const requests: { url: string; method: string; data: string | null }[] = [];
   page.on('request', (r) =>
@@ -88,12 +89,13 @@ test('private marker stays out of requests and storage; reload and exit discard 
     requests.every(
       (r) =>
         r.method === 'GET' &&
-        new URL(r.url).origin === 'http://127.0.0.1:4173' &&
+        new URL(r.url).origin === new URL(baseURL!).origin &&
         !JSON.stringify(r).includes(marker),
     ),
   ).toBe(true);
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
   expect(await context.cookies()).toEqual([]);
+  expect(await page.evaluate(() => indexedDB.databases())).toEqual([]);
   await page.reload();
   await expect(
     page.getByRole('textbox', { name: 'What is one action you could finish?' }),
