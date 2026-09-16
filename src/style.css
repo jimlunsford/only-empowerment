@@ -363,6 +363,9 @@ p + p {
 }
 .footer-meta > a {
   font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 .narrow {
   max-width: 820px;

@@ -43,9 +43,11 @@ test('preview validates, escapes text, edits, and clears in-memory work', async 
   await page.goto('/#/preview');
   await page.getByRole('button', { name: 'Review the sample card' }).click();
   await expect(page.getByRole('alert')).toContainText('Name one action');
-  await expect(page.getByLabel('What is one action you could finish?')).toBeFocused();
+  await expect(
+    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
+  ).toBeFocused();
   await page
-    .getByLabel('What is one action you could finish?')
+    .getByRole('textbox', { name: 'What is one action you could finish?' })
     .fill('<img src=x onerror=alert(1)> Send one question.');
   await page.getByRole('button', { name: 'Review the sample card' }).click();
   await expect(page.getByRole('heading', { name: 'Sample action card' })).toBeFocused();
@@ -55,17 +57,19 @@ test('preview validates, escapes text, edits, and clears in-memory work', async 
     await page.screenshot({ path: testInfo.outputPath('output.png'), fullPage: true });
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await page.getByRole('button', { name: 'Edit response' }).click();
-  await expect(page.getByLabel('What is one action you could finish?')).toHaveValue(
-    /Send one question/,
-  );
+  await expect(
+    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
+  ).toHaveValue(/Send one question/);
   await page.getByRole('button', { name: 'Clear preview', exact: true }).click();
   await page.getByRole('button', { name: 'Keep working' }).click();
-  await expect(page.getByLabel('What is one action you could finish?')).toHaveValue(
-    /Send one question/,
-  );
+  await expect(
+    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
+  ).toHaveValue(/Send one question/);
   await page.getByRole('button', { name: 'Clear preview', exact: true }).click();
   await page.getByRole('button', { name: 'Clear this preview', exact: true }).click();
-  await expect(page.getByLabel('What is one action you could finish?')).toHaveValue('');
+  await expect(
+    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
+  ).toHaveValue('');
 });
 test('private marker stays out of requests and storage; reload and exit discard it', async ({
   page,
@@ -77,7 +81,7 @@ test('private marker stays out of requests and storage; reload and exit discard 
   );
   await page.goto('/#/preview');
   const marker = 'PRIVATE-SYNTHETIC-OE-9136';
-  await page.getByLabel('What is one action you could finish?').fill(marker);
+  await page.getByRole('textbox', { name: 'What is one action you could finish?' }).fill(marker);
   await page.getByRole('button', { name: 'Review the sample card' }).click();
   await expect(page.locator('.answer')).toHaveText(marker);
   expect(
@@ -91,11 +95,15 @@ test('private marker stays out of requests and storage; reload and exit discard 
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
   expect(await context.cookies()).toEqual([]);
   await page.reload();
-  await expect(page.getByLabel('What is one action you could finish?')).toHaveValue('');
-  await page.getByLabel('What is one action you could finish?').fill(marker);
+  await expect(
+    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
+  ).toHaveValue('');
+  await page.getByRole('textbox', { name: 'What is one action you could finish?' }).fill(marker);
   await page.getByRole('link', { name: 'The approach', exact: true }).click();
   await page.goBack();
-  await expect(page.getByLabel('What is one action you could finish?')).toHaveValue('');
+  await expect(
+    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
+  ).toHaveValue('');
 });
 test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
   await page.goto('/');
@@ -115,7 +123,9 @@ test('copy failure is explained and long output has a print layout', async ({ pa
     }),
   );
   await page.goto('/#/preview');
-  await page.getByLabel('What is one action you could finish?').fill('Long sample '.repeat(45));
+  await page
+    .getByRole('textbox', { name: 'What is one action you could finish?' })
+    .fill('Long sample '.repeat(45));
   await page.getByRole('button', { name: 'Review the sample card' }).click();
   await page.getByRole('button', { name: 'Copy card', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('Select the text');
