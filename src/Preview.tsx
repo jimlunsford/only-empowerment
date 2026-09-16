@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { Lesson, PageIntro, SourceNote } from './components/shared';
 import { MAX_RESPONSE, previewText, validateResponse } from './preview-model.mjs';
 export function Preview() {
@@ -12,6 +12,20 @@ export function Preview() {
   useEffect(() => {
     if (step === 'review') output.current?.focus();
   }, [step]);
+  useLayoutEffect(() => {
+    // Clear even if a rapid Back action causes route renders to be batched.
+    const discardOnExit = (event: HashChangeEvent) => {
+      if (new URL(event.newURL).hash !== '#/preview') {
+        setAction('');
+        setStep('write');
+        setError('');
+        setStatus('');
+        setConfirmClear(false);
+      }
+    };
+    window.addEventListener('hashchange', discardOnExit);
+    return () => window.removeEventListener('hashchange', discardOnExit);
+  }, []);
   function review() {
     const message = validateResponse(action);
     setError(message);

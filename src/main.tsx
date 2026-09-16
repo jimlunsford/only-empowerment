@@ -372,7 +372,7 @@ function App() {
           </a>
         </nav>
       </header>
-      <div class="staging-banner">
+      <div class="staging-banner" role="region" aria-label="Development status">
         <span class="stage-label">Foundation preview</span>
         <span>The tools are in development. Explore the direction.</span>
         <a href="#/preview">
