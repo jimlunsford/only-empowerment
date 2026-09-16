@@ -45,3 +45,11 @@ Live staging, TLS issuance/renewal, deployed browser/privacy/accessibility check
 ## License and scope
 
 The exact review proposal is in LICENSING-PROPOSAL.md. It is not an operative license grant. No Phase 2 feature work or production release occurred.
+
+## First deployment attempt and recovery preparation
+
+The user added the dev A record and ran the scoped deployment. DNS/preflight and the pre-change VPS-wide backup passed. Certbot created `dev.onlyempowerment.com.conf`; the accepted release and current symlink exist. The first HTTPS curl returned exit 60, and the script removed the new enabled Nginx link and retained the candidate configuration for inspection. Nginx remains active. All seven release file hashes were reverified successfully.
+
+The original script checked HTTPS immediately after requesting reload. Nginx reload is asynchronous, so a request can encounter the prior TLS configuration before new workers are ready. This is a plausible cause, not yet proven as the specific failure. Root-protected certificate validation and retained configuration checks are performed by the recovery preflight before it changes anything.
+
+`ops/resume-staging-foundation.py` reuses the existing certificate and immutable release. It pins the original helper and retained Nginx configuration by SHA-256, validates certificate trust/hostname locally, restores only the inspected staging host, and uses bounded HTTPS readiness probes with normal TLS validation on every attempt. It does not reissue the certificate, replace app files, relax trust, or weaken sudo. Later renewal/backup verification resumes using existing infrastructure. User-authenticated sudo remains required.
