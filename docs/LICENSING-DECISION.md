@@ -15,7 +15,7 @@ The desired direction is permission to inspect, use, modify, and redistribute wh
 | MIT | Broad reuse with notices | Allows closed derivatives | Simple but weaker protection of ongoing openness |
 | No license yet | Public inspection does not grant broad reuse rights | No open-source grant | Suitable temporary decision state, poor long-term contribution basis |
 
-Primary references for the final decision: [GNU AGPL](https://www.gnu.org/licenses/agpl-3.0.html), [GitHub licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository). Read the full license before adoption; this recommendation is product-policy reasoning, not a substitute for the license text.
+References reviewed on 2026-09-16: [GitHub’s AGPL explanation and full text](https://choosealicense.com/licenses/agpl-3.0/), [GitHub licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository). GitHub viewing/forking permissions still apply to a public repository; no broader software license is inferred. Primary reference for the final decision: [GNU AGPL](https://www.gnu.org/licenses/agpl-3.0.html), [GitHub licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository). Read the full license before adoption; this recommendation is product-policy reasoning, not a substitute for the license text.
 
 ## Authorship and content boundary
 
