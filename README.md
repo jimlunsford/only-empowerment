@@ -61,6 +61,12 @@ Preact + TypeScript + Vite. Static deployment with no server application runtime
 - [Phase 1 status](docs/PHASE-1-STATUS.md)
 - [Contributing](CONTRIBUTING.md), [security](SECURITY.md), [changelog](CHANGELOG.md)
 
-## License status
+## License
 
-**Public source; licensing decision pending.** No open-source license has yet been granted for original project material. AGPL-3.0-or-later is recommended for owner consideration. Do not infer a permissive grant from repository visibility. Third-party dependencies retain their own licenses. See [third-party notices](THIRD_PARTY_NOTICES.md).
+Copyright (C) 2026 Jim Lunsford.
+
+Original application code, build and test code, repository documentation, and the concise lesson adaptations included here are licensed under the **GNU Affero General Public License, version 3 or later (AGPL-3.0-or-later)**. See [LICENSE](LICENSE) and [COPYRIGHT](COPYRIGHT).
+
+Linked framework articles on JimLunsford.com remain under their existing terms. This software license does not grant a trademark license or imply endorsement by Jim Lunsford. User-created answers and exported records remain the user's work.
+
+Third-party components retain their own licenses and notices. See [third-party notices](THIRD_PARTY_NOTICES.md).
