@@ -28,3 +28,9 @@ Manual keyboard review, readable focus and zoom/reflow at 320px, 200% text and 4
 Axe cannot certify WCAG compliance. Network tests exercise known paths and synthetic inputs; they do not prove absence of malicious behavior in every possible deployment. A screenshot is not proof that keyboard or screen-reader behavior works.
 
 Use `docs/PHASE-1-STATUS.md` for executed results and remaining gates. Planned tests must not be reported as passes.
+
+## Deployed staging verification
+
+Use `npx playwright test --config playwright.staging.config.ts` to run against the fixed HTTPS staging URL. This does not start a local server or deploy anything. The foundation workflow also offers the manual `verify_staging` boolean input. Ordinary PR/main runs do not depend on VPS availability.
+
+The staging config uses zero retries and checks the deployed foundation commit, headers, redirects, cookies, local/session storage, IndexedDB, caches, service workers, synthetic answer request capture, and laptop/mobile/print layouts. Its expected commit is deliberately pinned to the accepted Phase 1 deployment. Change that pin only as part of a reviewed future staging acceptance. Generated artifacts expire after seven days; the permanent acceptance record summarizes executed results and limitations.

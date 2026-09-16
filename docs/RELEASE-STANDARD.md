@@ -4,7 +4,7 @@
 
 Feature branch → PR + CI + product review → accepted main → staging → deliberate version tag/release → production.
 
-Main represents accepted source, not an automatic production deploy. Phase 1 uses `foundation/phase-1` for review. Staging may temporarily review a clearly identified PR head; record that exception and never call it accepted main. No production release or apex cutover is authorized by Phase 1.
+Main represents accepted source, not an automatic production deploy. Phase 1 foundation was accepted through `foundation/phase-1`; operational closure uses `ops/phase-1-staging-closure`. Staging may temporarily review a clearly identified PR head; record that exception and never call it accepted main. No production release or apex cutover is authorized by Phase 1.
 
 ## Versions and evidence
 
@@ -35,3 +35,9 @@ Owner authorizes the specific release and cutover. Resolve license; complete too
 GitHub documentation reviewed 2026-09-16 says standard hosted runners are free for public repositories. Older private-repository minute exhaustion is not assumed to block this project. Larger runners and artifact/cache storage have separate billing rules. Use standard Ubuntu runners, bounded jobs, least-privilege `contents: read`, short artifact retention, and no deployment credentials in CI.
 
 Source: [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions).
+
+## Current repository protection and operational checkpoint
+
+Main requires a PR and GitHub Actions app 15368 check `verify`, with strict up-to-date branches and zero required additional approving reviews. Admin enforcement is enabled; force pushes and deletion are disabled. The owner retains settings access for deliberate emergency recovery. No CI credential or automatic bypass was created.
+
+Staging currently represents accepted foundation commit `701664c1b4af37287f4b16fcf8a76a41d09f00c7`. Operational closure adds tests, scripts and documentation without changing application files. Merging those records need not redeploy identical application behavior solely to replace its truthful source label. The acceptance record distinguishes deployed source from later operational/documentation commits. Any future application change requires a new verified artifact and explicit staging acceptance.

@@ -8,7 +8,7 @@ Built by [Jim Lunsford](https://jimlunsford.com/).
 
 ## Status
 
-Phase 1 foundation, version `0.1.0-dev.1`. Six tools are planned; none is complete. The shell includes tool outlines and a limited interaction preview, not a finished Next Move workflow. The production domain is preserved. See [Phase 1 status](docs/PHASE-1-STATUS.md) for current verification and staging status.
+Phase 1 foundation, version `0.1.0-dev.1`. Six tools are planned; none is complete. The shell includes tool outlines and a limited interaction preview, not a finished Next Move workflow. The production domain is preserved. Review the [live staging foundation](https://dev.onlyempowerment.com/) and its [operational acceptance](docs/STAGING-ACCEPTANCE-2026-09-16.md). See [Phase 1 status](docs/PHASE-1-STATUS.md) for current verification and staging status.
 
 ## Product family
 

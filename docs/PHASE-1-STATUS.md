@@ -1,6 +1,6 @@
 # Phase 1 checkpoint
 
-Date: 2026-09-16. Foundation implementation; no production launch and no Phase 2 work.
+Date: 2026-09-16. Foundation implemented and staging verified; no production launch and no Phase 2 work. See [operational acceptance](STAGING-ACCEPTANCE-2026-09-16.md) for current deployment evidence. The starting-state section below is historical.
 
 ## Starting state
 
@@ -35,15 +35,19 @@ Version/source metadata includes full commit, tag, dirty flag, source URL, plus 
 
 ## Verification status
 
-Four unit/privacy checks, TypeScript, production build, formatting, and all 24 browser scenarios passed in [CI run 35076142908](https://github.com/jimlunsford/only-empowerment/actions/runs/35076142908) at implementation commit `9be95c47cbb586fa8035699525a8758a58b02ece`. The browser matrix covers Chromium, mobile Chromium, Firefox, and WebKit. Desktop/mobile homepage, reflection, and output screenshots were visually inspected. A follow-up 320px/long-answer regression extends the suite to 28 scenarios; consult the current PR checks for its result. Local browser downloads were blocked, so hosted CI supplied the browser execution evidence.
+The accepted foundation at `701664c1b4af37287f4b16fcf8a76a41d09f00c7` passed four unit/privacy checks and 28 browser scenarios in [main CI run 35076785285](https://github.com/jimlunsford/only-empowerment/actions/runs/35076785285). Operational test source `38e6beaf88fd2d59b21e63e23a1815990279c84f` then passed all 40 deployed-staging scenarios in [run 35088285035](https://github.com/jimlunsford/only-empowerment/actions/runs/35088285035), across Chromium, mobile Chromium, Firefox and WebKit. No retries were configured for the deployed run. Its local verification also passed four unit checks and 28 browser cases; 12 staging-only cases were intentionally skipped locally.
+
+Live desktop, laptop/mobile/narrow screenshots, keyboard focus, successful clipboard copying, privacy disclosures, and the one-page browser-generated PDF were reviewed. Manual screen-reader, real-device, native 200% text/400% zoom and physical-printer checks remain release gates, not claimed passes. The PDF is untagged and contains a blank page-background region when background printing is enabled, a preview polish limitation.
 
 Earlier CI found and prompted fixes for footer target spacing, a missing development-status landmark, ambiguous test selectors, and a rapid navigation privacy race. The passing run verifies the corrections. npm audit reported zero known vulnerabilities in the current lockfile on 2026-09-16. Strict-build rejection of dirty source and correct clean commit metadata were directly verified. These checks do not constitute manual screen-reader or real-device certification.
 
-## Open operational gates
+## Operational closure and remaining decision
 
-Staging URL reserved in the plan: https://dev.onlyempowerment.com, not live. Need complete authenticated VPS inspection, authorized elevation, DNS dev record, existing-account TLS, verified artifact deployment, browser acceptance and existing-backup coverage verification. Follow STAGING-RUNBOOK.md.
+Staging is live at https://dev.onlyempowerment.com/ with accepted source `701664c1b4af37287f4b16fcf8a76a41d09f00c7`, version `0.1.0-dev.1`. DNS, trusted TLS, lineage-specific renewal dry run, noindex/security headers, source metadata, seven file hash comparisons, live privacy behavior, and neighboring site health were verified. The existing VPS-wide snapshot `d2e0fd14e49555a13105176192a10accf81ec3f56e2f8b0cc52f240a8a409928` restored 19 site/config/TLS/support files to memory with matching SHA-256 hashes.
 
-GitHub private vulnerability reporting is enabled and verified. License decision remains pending. AGPL-3.0-or-later recommendation is documented. No open-source license grant is assumed. Real-device and manual screen-reader validation remain production gates.
+Main protection requires PRs and the real GitHub Actions `verify` check, strict up-to-date branches, no force push or deletion, including admins. Owner settings remain available for deliberate emergency recovery. Private vulnerability reporting remains enabled.
+
+Licensing is pending explicit owner approval. [The exact AGPL proposal](LICENSING-PROPOSAL.md) and full reference text are prepared; no grant has been applied. Product-level manual accessibility and print refinement gates remain as documented. Production is unchanged.
 
 ## Definition-of-done index
 
