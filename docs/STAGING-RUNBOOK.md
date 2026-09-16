@@ -1,6 +1,6 @@
 # Staging runbook
 
-Status: prepared operating plan. Not a claim of a live deployment.
+Status: staging deployed and verified on 2026-09-16. See STAGING-ACCEPTANCE-2026-09-16.md for exact commit, evidence, and limitations. The steps below are the operating standard; the ops/ first-deployment and recovery scripts are historical, narrowly pinned scripts and must not be rerun as a general updater.
 
 Target: dev.onlyempowerment.com. Production apex and www remain untouched. Use current VPS source rules; no parallel backup or server-management system.
 
@@ -44,6 +44,6 @@ Add only `dev` A → the verified VPS IPv4 address once the host is ready. No AA
 
 Verify trusted TLS/SAN/expiry, HTTP redirect and www/apex preservation, browser navigation and preview, mobile layout, copy/print, source footer/build.json, CSP and headers, request capture, and 404 for .git/config, .env, package.json, private configs, and unknown paths. Compare deployed bytes with the reviewed artifact.
 
-Reload Nginx only after validation. If verification fails, atomically restore the previous current symlink; for first deployment remove only the newly added enabled link and restore any explicitly backed-up config. Validate/reload and preserve diagnosis. Do not delete unrelated roots or records.
+Reload Nginx only after validation. A successful reload command does not prove new workers are serving yet. Use a bounded readiness check with normal TLS validation on every probe before evaluating deployment failure; never bypass certificate checks. If verification fails, atomically restore the previous current symlink; for first deployment remove only the newly added enabled link and restore any explicitly backed-up config. Validate/reload and preserve diagnosis. Do not delete unrelated roots or records.
 
 Run the existing VPS-wide backup and verify this root, Nginx config, and Certbot renewal material are covered. No new Restic repository, backup timer, rclone sync, or product backup workflow.

@@ -45,3 +45,11 @@ A public build commit and checksums provide inspectable traceability, not crypto
 ## Audit gates
 
 Inspect runtime source and dependencies; assert no persistence APIs in current source; capture browser requests while entering a unique synthetic marker; verify only local asset GETs and no marker in URLs/bodies; verify clear, route exit, reload, copy failure, text escaping, CSP and security headers. Inspect host logging and retention separately before publishing a complete infrastructure privacy statement. Automated tests cannot prove behavior of every device, extension, or compromised host.
+
+## Observed staging host behavior, 2026-09-16
+
+Staging is now deployed. The live browser matrix observed only same-origin static GET requests during synthetic answer entry, edit, clear, reload and navigation. No synthetic answer marker appeared in the captured URLs or request bodies. Cookies, localStorage, sessionStorage, IndexedDB, Cache Storage and service-worker registrations were empty in fresh test contexts. No analytics, AI, remote-font, third-party-script or form-processor traffic appeared. These are observed results for exercised paths, not a universal privacy proof.
+
+The host has separate Nginx access and error logs. Its current shared logrotate policy runs daily, retains up to 14 rotated logs, compresses older logs and skips empty files. That is not a guaranteed 14-calendar-day erasure promise. Exact server-wide backup retention and any provider logs must be treated separately; no claim that every infrastructure copy disappears after 14 days is made. The established backup standard lists 7 daily, 4 weekly and 12 monthly snapshots, but this execution did not independently re-audit all backup exclusions or provider log retention. The application has no answer submission, so ordinary application use does not place answers in these access logs by design.
+
+The unchanged foundation privacy page retains conservative language about deployment-specific logs. Current verified host details and remaining limits are recorded in STAGING-ACCEPTANCE-2026-09-16.md. Do not add a stronger deletion guarantee without its own infrastructure evidence.

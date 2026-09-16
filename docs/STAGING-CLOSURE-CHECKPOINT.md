@@ -1,6 +1,6 @@
 # Phase 1 staging closure checkpoint
 
-Date: 2026-09-16. Operational closure is in progress, not complete.
+Historical work log, 2026-09-16. The blockers recorded below were subsequently resolved. See STAGING-ACCEPTANCE-2026-09-16.md for completed staging evidence and current limitations.
 
 ## Verified accepted source
 
@@ -34,7 +34,7 @@ The script checks authoritative and public DNS before changes, refuses existing 
 
 Existing neighboring sites are checked before and after. Firewall configuration and listening ports must remain unchanged. Failed initial serving validation removes only the new staging enabled link and preserves diagnosis. If later renewal/backup verification fails, do not blindly rerun the first-deployment script; inspect and resume only the failed verification.
 
-## Current blockers
+## Blockers at this historical checkpoint
 
 The WordPress connector returned: `wpcom/domain-update-dns-records` is not enabled in MCP settings. The attempted addition was not applied. The user must enable that specific capability or add only `dev` A `104.36.229.165`, TTL 300, through the authoritative DNS interface.
 
