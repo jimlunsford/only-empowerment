@@ -298,7 +298,15 @@ function Privacy() {
           <a class="button" href={repository} rel="noreferrer">
             View the source on GitHub ↗
           </a>
-          <p class="small">Public source. Licensing decision pending.</p>
+          <p class="small">
+            Copyright (C) 2026 Jim Lunsford. Only Empowerment is free software under
+            AGPL-3.0-or-later and comes without warranty. You may use, modify, and redistribute it
+            under that license. View the <a href="/LICENSE.txt">license</a> and this build’s{' '}
+            <a href={__BUILD__.source} rel="noreferrer">
+              corresponding source
+            </a>
+            .
+          </p>
         </section>
       </div>
     </div>

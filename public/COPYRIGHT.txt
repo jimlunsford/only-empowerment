@@ -1,0 +1,27 @@
+Only Empowerment
+Copyright (C) 2026 Jim Lunsford
+SPDX-License-Identifier: AGPL-3.0-or-later
+
+Original application code, build and test code, repository documentation,
+and the concise lesson adaptations included in this repository are licensed
+under the GNU Affero General Public License, version 3 or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See LICENSE for the complete terms.
+
+Third-party components retain their own copyright and license notices.
+See THIRD_PARTY_NOTICES.md, distributed as THIRD_PARTY_NOTICES.txt.
+
+Articles and other materials hosted on JimLunsford.com are not licensed by
+this repository's software license merely because the application links
+to them. Their existing terms remain applicable.
+
+No trademark license or endorsement is granted for the Only Empowerment
+name, Jim Lunsford name, framework names, logos, or brand identity. This
+notice does not narrow the AGPL permissions for covered copyright material
+or prohibit accurate attribution and other uses permitted by law.
+
+User-created answers and exported records remain the user's work. Using
+Only Empowerment does not subject that work to this software license.

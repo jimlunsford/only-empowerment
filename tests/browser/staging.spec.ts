@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const staging = 'https://dev.onlyempowerment.com';
-const accepted = '701664c1b4af37287f4b16fcf8a76a41d09f00c7';
+const accepted = process.env.OE_STAGING_COMMIT || '701664c1b4af37287f4b16fcf8a76a41d09f00c7';
+if (!/^[a-f0-9]{40}$/.test(accepted)) throw new Error('OE_STAGING_COMMIT must be a full Git SHA.');
 test.beforeEach(({ baseURL }) => {
   test.skip(baseURL !== staging, 'These checks target the deployed staging host only.');
 });

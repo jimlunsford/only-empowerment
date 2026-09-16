@@ -1,6 +1,6 @@
-# Proposed license adoption, not approved or applied
+# Approved licensing proposal (historical wording)
 
-This document is a review proposal only. It grants no new rights. The repository remains public source with original material UNLICENSED until Jim explicitly approves adoption and an adoption PR is merged.
+Jim explicitly approved this proposal on 2026-09-16. The proposal text below is preserved as the decision record, not current implementation status. See LICENSING-DECISION.md and the operative root LICENSE/COPYRIGHT for adoption.
 
 ## Exact proposed implementation
 

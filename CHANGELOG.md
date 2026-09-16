@@ -7,4 +7,4 @@
 - Add a limited in-memory workflow preview with validation, clear, edit, copy and print.
 - Add source/version metadata, checksums, unit/privacy guards and cross-browser CI foundation.
 - No complete tools, local saved responses, production release, or apex cutover.
-- Licensing decision remains pending owner approval.
+- Adopt AGPL-3.0-or-later with explicit owner approval on 2026-09-16; distribute the license and copyright notice and link the license and corresponding source in the application.

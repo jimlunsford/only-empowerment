@@ -47,7 +47,7 @@ Staging is live at https://dev.onlyempowerment.com/ with accepted source `701664
 
 Main protection requires PRs and the real GitHub Actions `verify` check, strict up-to-date branches, no force push or deletion, including admins. Owner settings remain available for deliberate emergency recovery. Private vulnerability reporting remains enabled.
 
-Licensing is pending explicit owner approval. [The exact AGPL proposal](LICENSING-PROPOSAL.md) and full reference text are prepared; no grant has been applied. Product-level manual accessibility and print refinement gates remain as documented. Production is unchanged.
+Jim explicitly approved AGPL-3.0-or-later on 2026-09-16. The repository now includes the operative license, copyright, contribution terms and built notices. See [licensing decision](LICENSING-DECISION.md). The deployed foundation checkpoint above predates adoption; updating staging requires a new verified artifact. Product-level manual accessibility and print refinement gates remain as documented. Production is unchanged.
 
 ## Definition-of-done index
 
