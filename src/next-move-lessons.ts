@@ -9,7 +9,7 @@ const source = {
 export const lessons = [
   {
     title: 'Name what is stalled.',
-    text: 'Give this action enough context to make sense later. A sentence or two is enough; private background is optional.',
+    text: 'Give the situation enough context to make sense later. A sentence or two is enough. Private background is optional.',
     question: 'What needs movement?',
     field: 'situation',
   },
