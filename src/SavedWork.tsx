@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { PageIntro } from './components/shared';
 import { ConfirmDialog } from './components/work';
 import { browserStorage, deleteAll, deleteCard, type SavedEntry } from './local-cards';
@@ -59,6 +59,9 @@ export function LocalDataControls({ work }: { work: LocalWork }) {
   );
 }
 export function SavedWork({ work }: { work: LocalWork }) {
+  useEffect(() => {
+    work.refresh();
+  }, []);
   const [deleting, setDeleting] = useState<SavedEntry | null>(null);
   const [opening, setOpening] = useState<SavedEntry | null>(null);
   const [status, setStatus] = useState('');

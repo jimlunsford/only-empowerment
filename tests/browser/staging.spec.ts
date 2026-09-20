@@ -1,13 +1,15 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const staging = 'https://dev.onlyempowerment.com';
-const accepted = process.env.OE_STAGING_COMMIT || '701664c1b4af37287f4b16fcf8a76a41d09f00c7';
+const accepted = process.env.OE_STAGING_COMMIT || 'bd984a8986a658c6bd0d0d663c4e30f5c2f09d80';
 if (!/^[a-f0-9]{40}$/.test(accepted)) throw new Error('OE_STAGING_COMMIT must be a full Git SHA.');
 test.beforeEach(({ baseURL }) => {
   test.skip(baseURL !== staging, 'These checks target the deployed staging host only.');
 });
 
-test('deployed TLS response, headers and source match accepted foundation', async ({ request }) => {
+test('deployed TLS response, headers and source match independently pinned source', async ({
+  request,
+}) => {
   const response = await request.get('/');
   expect(response.status()).toBe(200);
   const headers = response.headers();
@@ -21,7 +23,7 @@ test('deployed TLS response, headers and source match accepted foundation', asyn
   expect(headers['set-cookie']).toBeUndefined();
   const metadata = await (await request.get('/build.json')).json();
   expect(metadata).toEqual({
-    version: '0.1.0-dev.1',
+    version: '0.1.0-dev.2',
     commit: accepted,
     dirty: false,
     tag: null,

@@ -41,3 +41,18 @@ Pure Execution Mode addresses hesitation around a next move. It does not replace
 ## Source governance
 
 Jim owns the framework authorship. Store concise original lesson adaptations with source key, reviewed date, tool, next question, and reviewer. Do not copy full articles into the application. Review the live canonical source when a lesson materially changes, recording any changed interpretation. The user can open the authoritative source when useful; no prior study is required.
+
+## Next Move reference adaptation, 2026-09-20
+
+Re-read the live [Pure Execution Mode](https://jimlunsford.com/pure-execution-mode/) and [Core Frameworks](https://jimlunsford.com/core-frameworks/) pages before drafting Phase 2 lessons. The executable lesson registry is `src/next-move-lessons.ts`. Every entry contains framework, canonical URL, review date, tool, next question, and reviewer. Codex performed the implementation review; Jim's product approval is pending.
+
+| Lesson | Next question / purpose | Interpretation |
+| --- | --- | --- |
+| Name what is stalled | What needs movement? | Enough context for portable work without a personal-history intake |
+| Choose an action you own | What is your next useful action? | Control versus influence; observable, manageable, meaningful action |
+| Check before you commit | Is this ready to become an action plan? | Execution presupposes a chosen direction and adequate information/support |
+| Separate friction from a blocker | What is likely to get in the way? | User identifies the obstacle; no psychological classifier |
+| Make the beginning recognizable | What will start this action? | Time, event, or prerequisite; no artificial urgency or scheduler |
+| Give the action an edge | What will count as complete? | Boundary depends on the action rather than an external outcome |
+
+Interpretation: the article's execution role is adapted within the accepted product doctrine and the owner's Phase 2 boundaries. Useful challenge does not override uncertainty, safety, law, required authorization, professional guidance, or support. Next Move produces a plan; the article's later action/proof/repetition stages are not claimed by completing the workflow. No doctrine changes were needed.

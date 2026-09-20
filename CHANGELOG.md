@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-dev.2 (Phase 2 candidate)
+
+- Implement Next Move with concise lessons, readiness/blocker pauses, editable review and a Planned Execution Card.
+- Preserve user wording and memory during internal navigation; add plain-text copy with manual fallback and monochrome multi-page print.
+- Add explicit device-only artifact saving, schema validation, saved-card editing/deletion, all-version local deletion and cross-tab synchronization.
+- Add behavioral, privacy, security, storage and four-browser accessibility regression coverage.
+- Keep the other five tools unavailable. Staging product review is required before merge; production remains untouched.
+
+
 ## Unreleased, 0.1.0-dev.1
 
 - Establish the product doctrine, four-framework mapping, six-tool responsibilities, privacy model, architecture, accessibility and release standards.

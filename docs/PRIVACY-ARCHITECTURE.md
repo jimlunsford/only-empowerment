@@ -1,6 +1,6 @@
 # Privacy architecture
 
-## Current implementation
+## Phase 1 baseline (historical)
 
 No account, cookies, localStorage, sessionStorage, IndexedDB, service worker, server answer endpoint, database, analytics, advertising, session replay, third-party forms, remote fonts, or AI API.
 
@@ -22,7 +22,7 @@ Host → browser: static application assets. Browser memory → rendered DOM: lo
 
 Production and staging are different origins and must never share browser storage or draft data. If later saved work exists, moving from staging to production requires user-directed export/import. No invisible migration or syncing.
 
-## Planned v1 persistence, not implemented
+## Persistence design accepted in Phase 1 (implemented below)
 
 Memory is default. Offer an explicit “Save on this device” action with a shared-device warning. Use a versioned `oe:` storage namespace and schema validation. Saved records persist until deletion, site-data clearing, browser eviction, or device loss. There is no guaranteed retention and no server recovery.
 
@@ -44,7 +44,7 @@ A public build commit and checksums provide inspectable traceability, not crypto
 
 ## Audit gates
 
-Inspect runtime source and dependencies; assert no persistence APIs in current source; capture browser requests while entering a unique synthetic marker; verify only local asset GETs and no marker in URLs/bodies; verify clear, route exit, reload, copy failure, text escaping, CSP and security headers. Inspect host logging and retention separately before publishing a complete infrastructure privacy statement. Automated tests cannot prove behavior of every device, extension, or compromised host.
+Inspect runtime source and dependencies; assert persistence access is confined to the explicit artifact service; capture browser requests while entering a unique synthetic marker; verify only local asset GETs and no marker in URLs/bodies; verify clear, route exit, reload, copy failure, text escaping, CSP and security headers. Inspect host logging and retention separately before publishing a complete infrastructure privacy statement. Automated tests cannot prove behavior of every device, extension, or compromised host.
 
 ## Observed staging host behavior, 2026-09-16
 
@@ -53,3 +53,16 @@ Staging is now deployed. The live browser matrix observed only same-origin stati
 The host has separate Nginx access and error logs. Its current shared logrotate policy runs daily, retains up to 14 rotated logs, compresses older logs and skips empty files. That is not a guaranteed 14-calendar-day erasure promise. Exact server-wide backup retention and any provider logs must be treated separately; no claim that every infrastructure copy disappears after 14 days is made. The established backup standard lists 7 daily, 4 weekly and 12 monthly snapshots, but this execution did not independently re-audit all backup exclusions or provider log retention. The application has no answer submission, so ordinary application use does not place answers in these access logs by design.
 
 The unchanged foundation privacy page retains conservative language about deployment-specific logs. Current verified host details and remaining limits are recorded in STAGING-ACCEPTANCE-2026-09-16.md. Do not add a stronger deletion guarantee without its own infrastructure evidence.
+
+
+## Phase 2 Next Move implementation
+
+Default remains memory only. App-owned session state survives internal routes and browser Back between routes, but not reload/close. No draft saving, keystroke storage, account, cookie, sessionStorage, IndexedDB, service worker, analytics, AI, or answer request was added. Storage is read to display saved work; only a confirmed explicit Save action writes an artifact.
+
+Each card uses `oe:execution-card:v1:<random-local-UUID-v4>`. JSON shape: `{schemaVersion:1,id,tool:"next-move",status:"Planned",card:{situation,action,start,obstacle,completion}}`. No timestamps, readiness reasons, analytics IDs, or abandonment history. IDs stay local. At most 50 app records may be created; unknown records count toward the bound. Fields are bounded per OUTPUT-ARTIFACT-STANDARD. Read validation checks object shape, schema, ID/key agreement, tool/status, every required field, lengths, and a 60,000-character serialized ceiling. Unknown/corrupt records remain untouched, are counted visibly, and can be removed by Delete my local data. No silent migrations.
+
+Every save explains device/profile scope, inability to recover on another device, shared-profile visibility, site-data clearing, and no server transmission. It writes synchronously and reads back exact bytes before claiming success. Quota, denial, and verification failures produce an honest error while preserving current memory. Saved edits compare the original serialized record before writing; a changed or removed record is rejected. Storage is not a transactional multi-user database: simultaneous explicit saves can still race. There is no automatic write or recovery that restores deleted data.
+
+Per-record deletion verifies the selected key is gone. Delete my local data removes every `oe:` key, including unsupported versions, verifies no owned keys remain, and clears current Next Move and preview state. Unrelated origin storage is preserved. Storage events and the same-origin `oe:local-data` BroadcastChannel update open tabs. A delete-all broadcast also clears unsaved sessions even when no key existed; where BroadcastChannel is unavailable, storage events synchronize saved-record deletion but cannot announce deletion of a completely memory-only session with no storage change. Visibility rechecks catch saved records removed while a tab was suspended. UI reports failures instead of promising erasure.
+
+Staging and production are separate origins. There is no migration, import/export, cross-origin channel, or server sync. Clipboard/print/PDF/device backups remain outside app deletion. Restrictive CSP stays intact, including `connect-src 'none'`. The public runtime contains no request API, external submission, raw HTML rendering, or remote font/image/script dependency. Tests use synthetic content only.

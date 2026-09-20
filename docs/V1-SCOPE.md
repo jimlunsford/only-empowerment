@@ -35,3 +35,7 @@ Next Move tests the common system with less product ambiguity. Decision Room sho
 3. Add explicit local draft/artifact saving, schema validation, storage failures, per-record delete, Delete my local data, and multi-tab deletion tests before offering persistence.
 4. Add copy/print/output polish, mobile/keyboard/screen-reader checks, privacy marker tests, and a reviewed handoff contract without pretending unbuilt tools are usable.
 5. Resolve license approval and remaining staging operational gates; accept the reference workflow through a PR. Do not infer production launch authorization.
+
+## Phase 2 candidate status
+
+Next Move is the only tool implemented in this candidate: six-step clarification, pause, editable review, Planned Execution Card, copy/print, explicit local artifact saving, saved work, and deletion. The remaining five tools retain outlines only. Phase 1 is closed. Product acceptance and staged verification are tracked in PHASE-2-ACCEPTANCE.md; implementation does not imply owner approval or a production launch.

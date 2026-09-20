@@ -364,7 +364,9 @@ test('long hostile input, bounds, 320px reflow, forced colors, text scale and mu
   await page.emulateMedia({ forcedColors: 'active' });
   await page.screenshot({ path: info.outputPath('forced-colors.png'), fullPage: true });
   await page.emulateMedia({ forcedColors: 'none' });
-  await page.addStyleTag({ content: 'html { font-size: 200% !important; }' });
+  await page.evaluate(() => {
+    document.documentElement.style.fontSize = '200%';
+  });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: info.outputPath('text-200.png'), fullPage: true });
   await page.emulateMedia({ media: 'print' });

@@ -19,6 +19,7 @@ export function useLocalWork() {
   const [rejected, setRejected] = useState<string[]>([]);
   const [storageError, setStorageError] = useState('');
   const [notice, setNotice] = useState('');
+  const [clearEpoch, setClearEpoch] = useState(0);
   function refresh() {
     try {
       const result = readCards(browserStorage());
@@ -35,6 +36,7 @@ export function useLocalWork() {
   }
   function clearEvent(event: LocalEvent) {
     if (event.type === 'delete-all') {
+      setClearEpoch((value) => value + 1);
       setSession(newSession());
       setNotice('Local data and current Next Move work were cleared.');
     } else if (event.type === 'delete-one') {
@@ -103,6 +105,7 @@ export function useLocalWork() {
     };
   }, []);
   return {
+    clearEpoch,
     session,
     setSession,
     entries,

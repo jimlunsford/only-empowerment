@@ -347,7 +347,7 @@ function App() {
   else if (path === '/privacy') content = <Privacy work={work} />;
   else if (path === '/saved') content = <SavedWork work={work} />;
   else if (path === '/tools/next-move') content = <NextMove work={work} />;
-  else if (path === '/preview') content = <Preview />;
+  else if (path === '/preview') content = <Preview key={work.clearEpoch} />;
   else if (path.startsWith('/tools/')) content = <ToolPage id={path.slice(7)} />;
   else content = <NotFound />;
   return (

@@ -26,3 +26,11 @@ Keep framework attribution secondary and builder attribution small. Include sour
 ## Phase 1
 
 The sample card is a design artifact only. It records one sample action and labels it planned. It is not an Execution Card reference implementation or a completed Action Record. Copy and print establish the basic rendering boundary; full six-tool outputs remain unbuilt.
+
+## Implemented Next Move candidate
+
+Execution Card order: Situation, My next move, Start condition, Likely obstacle or negotiation, Completion boundary. Status is always **Planned**. The artifact retains exact strings, including leading/trailing whitespace and line breaks, subject to native textarea newline normalization. No semantic transformation, automatic links, inference, or HTML rendering occurs.
+
+All five fields are editable before confirmation and after confirmation in the same session. Saved-card edits require another explicit save. Copy uses these labels and plain text headed `ONLY EMPOWERMENT` and `Execution Card`, ending `Status` / `Planned`. Failed clipboard access exposes a labeled, selected, read-only text area. Print uses only the card, small attribution, monochrome text, 18mm margins, and flowing multi-page paragraphs. Browser PDF tagging is not claimed.
+
+Bounds are 2,000 UTF-16 code units per situation/action/obstacle/completion field and 1,000 for start condition. The UI calls these characters using the browser's string-length convention. Text exceeding a limit remains visible and editable; validation never truncates it. These bounds allow meaningful paragraphs, 600+ character unbroken strings, and several printed pages while limiting record size. The final card excludes readiness choices and other intermediate reflection state.

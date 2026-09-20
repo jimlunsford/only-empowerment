@@ -1,5 +1,10 @@
 # Only Empowerment
 
+**Phase 2 candidate: Next Move.** Turn a stalled direction into a clear, user-authored Execution Card. Six focused steps, a legitimate pause, editable review, copy/print, and optional saving in this browser. Card status is always Planned. No account, analytics, AI, or answer submission.
+
+This feature candidate awaits product review. It is not accepted main or a production release. The other five tools remain outlines. [Candidate acceptance](docs/PHASE-2-ACCEPTANCE.md) records verification and remaining gates.
+
+
 **Practical tools for clear thinking, personal standards, and deliberate action.**
 
 Only Empowerment helps people examine a decision, define a standard, correct course, rebuild structure, and identify what they can do next. Short lessons teach useful distinctions inside the workflow. The user makes the decision and leaves with something they can use.
@@ -8,7 +13,7 @@ Built by [Jim Lunsford](https://jimlunsford.com/).
 
 ## Status
 
-Phase 1 foundation, version `0.1.0-dev.1`. Six tools are planned; none is complete. The shell includes tool outlines and a limited interaction preview, not a finished Next Move workflow. The production domain is preserved. Review the [live staging foundation](https://dev.onlyempowerment.com/) and its [operational acceptance](docs/STAGING-ACCEPTANCE-2026-09-16.md). See [Phase 1 status](docs/PHASE-1-STATUS.md) for current verification and staging status.
+Phase 1 is closed. This `0.1.0-dev.2` feature branch implements Next Move for staging product review. It has not been merged or launched to production. See [Phase 2 acceptance](docs/PHASE-2-ACCEPTANCE.md) for actual verification and review status. The previous [Phase 1 record](docs/PHASE-1-STATUS.md) remains historical evidence.
 
 ## Product family
 
@@ -25,9 +30,9 @@ The teaching model is lesson → reflection → decision → action → result. 
 
 ## Privacy
 
-No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. The current preview keeps text in browser memory only and does not intentionally submit it. Copy/print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
+No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. Next Move keeps text in memory by default and never submits answers. Explicit saving stores only the Execution Card in the current browser profile. Copy/print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
 
-Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md). Optional browser-local saving and deletion are planned, not implemented.
+Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md). Local saving, per-card deletion, and Delete my local data are implemented in this candidate.
 
 ## Develop
 

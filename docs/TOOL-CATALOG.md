@@ -24,3 +24,7 @@ Build a Standard does not impose the author's standard. Record the user's line, 
 Rebuild Map is a map, not a promise of transformation. Record the chain linking changed standard to repeated behavior and expected evidence. Separate hoped-for identity changes from observable actions.
 
 Do It Now is short. Record the known task, smallest real action, begin state, and user-reported completion/partial result/blocker. Timer expiry never marks completion. A timer is optional and not a Phase 1 deliverable.
+
+## Phase 2 implementation status
+
+Next Move is now the sole reference implementation on the feature candidate. Its output remains Planned. See PHASE-2-ACCEPTANCE.md for review status. Decision Room, Reset, Build a Standard, Rebuild Map and Do It Now are outlines, not available workflows.

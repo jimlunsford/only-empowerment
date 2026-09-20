@@ -38,3 +38,11 @@ PowerShell equivalent: set `$env:OE_RELEASE_BUILD='1'`, then run `npm.cmd run bu
 - `public/`: local icon and staging robots policy.
 
 Use exact dependency versions and review lockfile changes. One runtime dependency, Preact, currently exists. Do not add a component kit, analytics library, global store, or persistence abstraction without a real workflow need. No HTML injection or user-controlled link rendering.
+
+## Next Move reference
+
+`NextMove.tsx` owns explicit workflow transitions and transient UI. `next-move-model.ts` owns fields, validation, copy and future handoff contract. `next-move-lessons.ts` is the source-governed lesson registry. `local-cards.ts` confines localStorage access to a small artifact API; `use-local-work.ts` owns app-lifetime memory and cross-tab notifications. `SavedWork.tsx` exposes local records and deletion. `components/work.tsx` holds primitives proven by this tool.
+
+The development version is `0.1.0-dev.2`. No dependency was added. Node's built-in TypeScript stripping executes pure model/storage tests; imports for those modules include `.ts` and TypeScript explicitly permits those extensions in this no-emit build.
+
+Normal PR verification has no staging dependency. Optional staging execution runs the same workflow tests against the fixed staging origin, plus host policy checks. Set `OE_STAGING_COMMIT` from independently accepted candidate evidence, never from the live host. The manual CI staging step pins it to the dispatched source commit.
