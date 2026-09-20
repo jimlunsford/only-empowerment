@@ -1,11 +1,15 @@
 # Phase 2: Next Move reference candidate
 
-Status: implementation in progress, not accepted. Phase 1 is closed.
+Status: implemented, verification in progress, not accepted. Phase 1 is closed.
 
-Branch: `feature/next-move-v1`, based on accepted main `bd984a8986a658c6bd0d0d663c4e30f5c2f09d80`.
+Branch: `feature/next-move-v1`, PR #4 (draft), based on accepted main `bd984a8986a658c6bd0d0d663c4e30f5c2f09d80`. Version `0.1.0-dev.2`. No new dependencies.
 
-Build only Next Move. Produce an editable, portable Execution Card with Planned status. Default to memory; local artifact saving requires explicit consent. Preserve the right to pause, authorship, restrictive CSP, and separation of planning from proof.
+Next Move alone is implemented. Six lessons/questions lead through situation, owned action, readiness, obstacle, start condition, and completion boundary. A clean pause is valid. Editable review produces a Planned Execution Card. Copy, fallback text, print, explicit saving, saved work, per-record/all-version deletion, and cross-tab notifications are implemented. Other tools remain outlines.
 
-The owner authorized deployment of the exact verified feature candidate to staging for product review. Keep the PR draft and unmerged. Production and tags remain untouched. Acceptance requires browser, privacy, persistence, accessibility, visual, provenance, rollback and VPS backup evidence. Record actual results here, including limitations, before requesting product approval.
+Source registry: `src/next-move-lessons.ts`. Pure Execution Mode and Core Frameworks live pages re-reviewed 2026-09-20. Product doctrine unchanged. Jim's lesson and product approval remains pending.
 
-Live Pure Execution Mode and Core Frameworks sources re-reviewed 2026-09-20. Lesson adaptations and interpretations will be recorded alongside implementation.
+Executed locally: 13 model/storage/privacy tests pass; TypeScript passes; production build passes; npm audit reports zero vulnerabilities. Local browser download timed out, and the cloud browser cannot open the local preview. Four-engine CI, visual inspection, deployed browser tests, source/artifact byte comparison, and VPS backup verification remain pending. No WCAG conformance claim is made. True assistive-technology and physical phone keyboard testing have not been performed.
+
+VPS read-only inspection confirmed `vps1.phoenix233.com`, accepted foundation current pointer, existing restrictive CSP/noindex, and active VPS-wide backup/maintenance timers. Last daily service result was success. Privileged Nginx/backup/deployment steps need the owner's sudo invocation because this connection has no noninteractive elevation. Do not change sudoers or credentials.
+
+The owner authorized deployment of the exact verified feature candidate to staging for product review. Preserve immutable releases and rollback. Keep PR draft/unmerged. Production and tags remain untouched. This record must be completed with actual acceptance evidence before reporting the candidate ready.
