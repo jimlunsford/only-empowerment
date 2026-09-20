@@ -65,6 +65,14 @@ export function SavedWork({ work }: { work: LocalWork }) {
   const [deleting, setDeleting] = useState<SavedEntry | null>(null);
   const [opening, setOpening] = useState<SavedEntry | null>(null);
   const [status, setStatus] = useState('');
+  useEffect(() => {
+    setOpening(null);
+    setDeleting(null);
+  }, [work.clearEpoch]);
+  useEffect(() => {
+    if (opening && !work.entries.some((entry) => entry.key === opening.key)) setOpening(null);
+    if (deleting && !work.entries.some((entry) => entry.key === deleting.key)) setDeleting(null);
+  }, [work.entries]);
   function open(entry: SavedEntry) {
     try {
       if (browserStorage().getItem(entry.key) !== entry.raw) {

@@ -1365,3 +1365,35 @@ input:focus-visible {
     display: none !important;
   }
 }
+/* Text enlargement must not force brand/navigation content beyond the viewport. */
+.wordmark {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.staging-banner > a {
+  white-space: normal;
+}
+.work-orientation {
+  flex-shrink: 1;
+}
+.button {
+  white-space: normal;
+  text-align: center;
+}
+.lesson-example summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 8px 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+summary:focus-visible {
+  outline: 3px solid #946014;
+  outline-offset: 4px;
+}
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}

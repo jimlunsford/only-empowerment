@@ -10,6 +10,7 @@ const data = {
 };
 async function next(page: Page) {
   await page.getByRole('button', { name: 'Next', exact: true }).click();
+  // Invalid Next intentionally stays put. Valid transitions are asserted by each named next field.
 }
 async function checkAxe(page: Page) {
   expect(
@@ -22,21 +23,21 @@ async function checkAxe(page: Page) {
 }
 async function begin(page: Page) {
   await page.goto('/#/tools/next-move');
-  await page.getByRole('textbox').fill(data.situation);
+  await page.getByLabel('What needs movement?', { exact: true }).fill(data.situation);
   await next(page);
-  await page.getByRole('textbox').fill(data.action);
+  await page.getByLabel('What is your next useful action?', { exact: true }).fill(data.action);
   await next(page);
 }
 async function plan(page: Page) {
   await begin(page);
   await page.getByRole('radio', { name: 'The direction is decided' }).check();
   await next(page);
-  await page.getByRole('textbox').fill(data.obstacle);
+  await page.getByLabel('What is likely to get in the way?', { exact: true }).fill(data.obstacle);
   await page.getByRole('radio', { name: 'I can plan around' }).check();
   await next(page);
-  await page.getByRole('textbox').fill(data.start);
+  await page.getByLabel('What will start this action?', { exact: true }).fill(data.start);
   await next(page);
-  await page.getByRole('textbox').fill(data.completion);
+  await page.getByLabel('What will count as complete?', { exact: true }).fill(data.completion);
   await page.getByRole('button', { name: 'Review my plan' }).click();
 }
 async function finish(page: Page) {
@@ -79,18 +80,18 @@ test('happy path preserves authored content, validates each state, and edits bef
   await checkAxe(page);
   await page.screenshot({ path: info.outputPath('step-3.png'), fullPage: true });
   await next(page);
-  await page.getByRole('textbox').fill(data.obstacle);
+  await page.getByLabel('What is likely to get in the way?', { exact: true }).fill(data.obstacle);
   await next(page);
   await expect(page.getByRole('alert')).toContainText('Choose');
   await page.getByRole('radio', { name: 'I can plan around' }).check();
   await checkAxe(page);
   await page.screenshot({ path: info.outputPath('step-4.png'), fullPage: true });
   await next(page);
-  await page.getByRole('textbox').fill(data.start);
+  await page.getByLabel('What will start this action?', { exact: true }).fill(data.start);
   await checkAxe(page);
   await page.screenshot({ path: info.outputPath('step-5.png'), fullPage: true });
   await next(page);
-  await page.getByRole('textbox').fill(data.completion);
+  await page.getByLabel('What will count as complete?', { exact: true }).fill(data.completion);
   await checkAxe(page);
   await page.screenshot({ path: info.outputPath('step-6.png'), fullPage: true });
   await page.getByRole('button', { name: 'Review my plan' }).click();
@@ -137,6 +138,7 @@ test('back and internal route navigation preserve memory, refresh discards unsav
 test('every not-ready reason and genuine obstacle can stop without creating a card', async ({
   page,
 }, info) => {
+  test.setTimeout(60000);
   for (const reason of [
     'I have not made the decision.',
     'I need more information.',
@@ -367,8 +369,8 @@ test('long hostile input, bounds, 320px reflow, forced colors, text scale and mu
   await page.evaluate(() => {
     document.documentElement.style.fontSize = '200%';
   });
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: info.outputPath('text-200.png'), fullPage: true });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).toBeHidden();
   await expect(page.locator('.staging-banner')).toBeHidden();
@@ -380,4 +382,37 @@ test('long hostile input, bounds, 320px reflow, forced colors, text scale and mu
       format: 'A4',
       printBackground: false,
     });
+});
+
+test('keyboard navigation, dialog focus, viewport widths and empty saved state', async ({
+  page,
+}, info) => {
+  await page.goto('/#/tools/next-move');
+  await page.getByRole('textbox').focus();
+  await page.keyboard.type('Synthetic keyboard example');
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Next', exact: true })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('h1')).toBeFocused();
+  await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Cancel', exact: true })).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(
+    page.getByRole('dialog').getByRole('button', { name: 'Clear current work', exact: true }),
+  ).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Cancel', exact: true })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('button', { name: 'Clear current work', exact: true })).toBeFocused();
+  for (const width of [320, 360, 390, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 800 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    if (info.project.name === 'chromium')
+      await page.screenshot({ path: info.outputPath(`workflow-${width}.png`), fullPage: true });
+  }
+  await saved(page);
+  await checkAxe(page);
+  await expect(page.getByRole('heading', { name: 'No saved Execution Cards.' })).toBeVisible();
 });

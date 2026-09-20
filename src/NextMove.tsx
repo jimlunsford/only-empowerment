@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { SourceNote } from './components/shared';
 import { ConfirmDialog, ExecutionCard, FieldInput, LocalNotice } from './components/work';
 import {
@@ -12,7 +12,7 @@ import {
   type Step,
 } from './next-move-model';
 import { lessons } from './next-move-lessons';
-import { browserStorage, saveCard } from './local-cards';
+import { browserStorage, saveCard, CardStorageError } from './local-cards';
 import { broadcast, type LocalWork } from './use-local-work';
 export function NextMove({ work }: { work: LocalWork }) {
   const { session, setSession } = work;
@@ -23,7 +23,7 @@ export function NextMove({ work }: { work: LocalWork }) {
   const [fallback, setFallback] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
   const copyArea = useRef<HTMLTextAreaElement>(null);
-  useEffect(() => {
+  useLayoutEffect(() => {
     heading.current?.focus();
     setErrors({});
     setStatus('');
@@ -101,7 +101,7 @@ export function NextMove({ work }: { work: LocalWork }) {
   function save() {
     setDialog(null);
     try {
-      if (session.savedKey && !session.savedRaw) throw new Error('changed');
+      if (session.savedKey && !session.savedRaw) throw new CardStorageError('changed');
       const saved = saveCard(
         browserStorage(),
         card,
@@ -114,7 +114,7 @@ export function NextMove({ work }: { work: LocalWork }) {
       broadcast({ type: 'refresh' });
       setStatus('Saved on this device.');
     } catch (error) {
-      const code = error instanceof Error ? error.message : '';
+      const code = error instanceof CardStorageError ? error.message : '';
       setStatus(
         code === 'changed'
           ? 'Not saved. This saved record changed or was deleted in another tab. Reopen it from Saved on this device before editing; copy this plan first if you want to keep these words.'
@@ -164,9 +164,15 @@ export function NextMove({ work }: { work: LocalWork }) {
             </span>
             <h2>{lesson.title}</h2>
             <p>{lesson.text}</p>
-            {lesson.example && <p class="lesson-example">{lesson.example}</p>}
+            {lesson.example && (
+              <details class="lesson-example">
+                <summary>See an action example</summary>
+                <p>{lesson.example}</p>
+              </details>
+            )}
           </aside>
           <form
+            key={number}
             class="work-panel"
             noValidate
             onSubmit={(e) => {
@@ -272,8 +278,9 @@ export function NextMove({ work }: { work: LocalWork }) {
               : 'Information, permission, resources, safety, support, or changed circumstances can change the plan. You decide whether to wait, seek help, or choose a different action.'}
           </p>
           <p>
-            No Execution Card has been finalized. Your words remain in memory while this page stays
-            open. You can leave or return when the situation is clearer.
+            This pause does not finalize an Execution Card. Earlier saved cards remain saved. Your
+            words remain in memory while this page stays open. You can leave or return when the
+            situation is clearer.
           </p>
           <div class="actions">
             <button class="button" onClick={() => go(1)}>

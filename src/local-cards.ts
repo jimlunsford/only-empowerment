@@ -1,4 +1,5 @@
 import { validCard, type Card } from './next-move-model.ts';
+export class CardStorageError extends Error {}
 export const PREFIX = 'oe:';
 export const CARD_PREFIX = 'oe:execution-card:v1:';
 export const MAX_RECORDS = 50;
@@ -54,9 +55,9 @@ export function saveCard(
   prior?: { key: string; raw: string },
   id = crypto.randomUUID(),
 ): SavedEntry {
-  if (!validCard(card)) throw new Error('invalid');
-  if (prior && storage.getItem(prior.key) !== prior.raw) throw new Error('changed');
-  if (!prior && ownedKeys(storage).length >= MAX_RECORDS) throw new Error('full');
+  if (!validCard(card)) throw new CardStorageError('invalid');
+  if (prior && storage.getItem(prior.key) !== prior.raw) throw new CardStorageError('changed');
+  if (!prior && ownedKeys(storage).length >= MAX_RECORDS) throw new CardStorageError('full');
   const record: SavedRecord = {
     schemaVersion: 1,
     id: prior ? parseRecord(prior.raw, prior.key)!.id : id,
@@ -66,17 +67,17 @@ export function saveCard(
   };
   const key = CARD_PREFIX + record.id,
     raw = JSON.stringify(record);
-  if (!parseRecord(raw, key)) throw new Error('invalid');
+  if (!parseRecord(raw, key)) throw new CardStorageError('invalid');
   storage.setItem(key, raw);
-  if (storage.getItem(key) !== raw) throw new Error('verification');
+  if (storage.getItem(key) !== raw) throw new CardStorageError('verification');
   return { key, raw, record };
 }
 export function deleteCard(storage: StorageLike, key: string) {
-  if (!key.startsWith(PREFIX)) throw new Error('scope');
+  if (!key.startsWith(PREFIX)) throw new CardStorageError('scope');
   storage.removeItem(key);
-  if (storage.getItem(key) !== null) throw new Error('verification');
+  if (storage.getItem(key) !== null) throw new CardStorageError('verification');
 }
 export function deleteAll(storage: StorageLike) {
   for (const key of ownedKeys(storage)) storage.removeItem(key);
-  if (ownedKeys(storage).length) throw new Error('verification');
+  if (ownedKeys(storage).length) throw new CardStorageError('verification');
 }
