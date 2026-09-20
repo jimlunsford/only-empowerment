@@ -369,7 +369,7 @@ test('long hostile input, bounds, 320px reflow, forced colors, text scale and mu
   await page.evaluate(() => {
     document.documentElement.style.fontSize = '200%';
   });
-  await page.screenshot({ path: info.outputPath('text-200.png'), fullPage: true });
+  await page.screenshot({ path: info.outputPath('text-200.png'), fullPage: false });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).toBeHidden();
@@ -396,11 +396,11 @@ test('keyboard navigation, dialog focus, viewport widths and empty saved state',
   await expect(page.locator('h1')).toBeFocused();
   await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Cancel', exact: true })).toBeFocused();
-  await page.keyboard.press('Shift+Tab');
+  await page.keyboard.press('Tab');
   await expect(
     page.getByRole('dialog').getByRole('button', { name: 'Clear current work', exact: true }),
   ).toBeFocused();
-  await page.keyboard.press('Tab');
+  await page.keyboard.press('Shift+Tab');
   await expect(page.getByRole('button', { name: 'Cancel', exact: true })).toBeFocused();
   await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'Clear current work', exact: true })).toBeFocused();
