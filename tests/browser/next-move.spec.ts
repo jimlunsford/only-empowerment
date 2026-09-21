@@ -155,7 +155,7 @@ test('every not-ready reason and genuine obstacle can stop without creating a ca
     await expect(page.locator('.execution-card')).toHaveCount(0);
     await checkAxe(page);
     if (reason.startsWith('I have not'))
-      await expect(page.locator('.pause-panel')).toContainText('not available yet');
+      await expect(page.getByRole('link', { name: 'Open Decision Room' })).toBeVisible();
     await page.reload();
   }
   await begin(page);
@@ -245,7 +245,7 @@ test('explicit save, reopen, edit, multiple cards, per-record deletion and all-v
   });
   await deleteAll(page);
   expect(await page.evaluate(() => Object.keys(localStorage))).toEqual(['other-app']);
-  await expect(page.getByRole('heading', { name: 'No saved Execution Cards.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'No saved work.' })).toBeVisible();
   await checkAxe(page);
 });
 test('corruption and unknown versions stay unreadable and storage failures are honest', async ({
@@ -414,5 +414,5 @@ test('keyboard navigation, dialog focus, viewport widths and empty saved state',
   }
   await saved(page);
   await checkAxe(page);
-  await expect(page.getByRole('heading', { name: 'No saved Execution Cards.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'No saved work.' })).toBeVisible();
 });

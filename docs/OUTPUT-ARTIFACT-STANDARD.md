@@ -34,3 +34,8 @@ Execution Card order: Situation, My next move, Start condition, Likely obstacle 
 All five fields are editable before confirmation and after confirmation in the same session. Saved-card edits require another explicit save. Copy uses these labels and plain text headed `ONLY EMPOWERMENT` and `Execution Card`, ending `Status` / `Planned`. Failed clipboard access exposes a labeled, selected, read-only text area. Print uses only the card, small attribution, monochrome text, 18mm margins, and flowing multi-page paragraphs. Browser PDF tagging is not claimed.
 
 Bounds are 2,000 UTF-16 code units per situation/action/obstacle/completion field and 1,000 for start condition. The UI calls these characters using the browser's string-length convention. Text exceeding a limit remains visible and editable; validation never truncates it. These bounds allow meaningful paragraphs, 600+ character unbroken strings, and several printed pages while limiting record size. The final card excludes readiness choices and other intermediate reflection state.
+
+
+## Phase 3 Decision Room candidate
+
+Decision Records are implemented with explicit Decided status, all six distinct reflections, per-option tradeoffs/reversibility, uncertainty, user-selected option, rationale and first move. Confirmation remains editable. Field bounds, exact copy order and print behavior are in DECISION-ROOM.md.

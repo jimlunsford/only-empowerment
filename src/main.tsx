@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { frameworks, tools } from './model';
 import { PageIntro, SourceNote } from './components/shared';
 import { Preview } from './Preview';
+import { DecisionRoom } from './DecisionRoom';
 import { NextMove } from './NextMove';
 import { SavedWork, LocalDataControls } from './SavedWork';
 import { useLocalWork, type LocalWork } from './use-local-work';
@@ -69,7 +70,7 @@ function Home() {
             <h2 id="tools-title">Start with what is in front of you.</h2>
           </div>
           <p>
-            Next Move is ready for review.
+            Decision Room and Next Move are available on staging.
             <br />
             Each has a different job.
           </p>
@@ -83,8 +84,8 @@ function Home() {
         </div>
         <div>
           <p>
-            No accounts or analytics. Work stays in memory unless you choose to save an Execution
-            Card on this device. Read how saving and deletion work.
+            No accounts or analytics. Work stays in memory unless you choose to save a Decision
+            Record or Execution Card on this device. Read how saving and deletion work.
           </p>
           <a href="#/privacy">
             Understand your privacy <span aria-hidden="true">↗</span>
@@ -102,7 +103,11 @@ function ToolGrid() {
           <div class="card-top">
             <span class="tool-number">0{i + 1}</span>
             <span class="availability">
-              {tool.id === 'next-move' ? 'Try Next Move' : 'In development'}
+              {tool.id === 'next-move'
+                ? 'Try Next Move'
+                : tool.id === 'decision-room'
+                  ? 'Try Decision Room'
+                  : 'In development'}
             </span>
           </div>
           <p class="situation">{tool.situation}</p>
@@ -122,8 +127,8 @@ function ToolsPage() {
     <>
       <PageIntro label="The tool collection" title="Different situations. Useful next steps.">
         <p>
-          Use Next Move to define an executable action. The other five tools are in development;
-          their pages describe the intended purpose.
+          Use Decision Room to choose a direction, or Next Move to define an executable action. The
+          other four tools are in development; their pages describe the intended purpose.
         </p>
       </PageIntro>
       <ToolGrid />
@@ -229,8 +234,8 @@ function Privacy({ work }: { work: LocalWork }) {
     <div class="narrow">
       <PageIntro label="Privacy & source" title="Your answers are not ours to collect.">
         <p>
-          Next Move works without an account or answer submission. Saving is a choice you make on
-          this device.
+          Decision Room and Next Move work without an account or answer submission. Saving is a
+          choice you make on this device.
         </p>
       </PageIntro>
       <LocalDataControls work={work} />
@@ -238,14 +243,15 @@ function Privacy({ work }: { work: LocalWork }) {
         <section>
           <h2>What stays in the page</h2>
           <p>
-            Next Move keeps answers in memory during navigation within this site. Reloading or
-            closing the tab can discard unsaved work. Nothing is automatically saved. The older
-            interaction preview remains disposable when you leave it.
+            Decision Room and Next Move keep answers in memory during navigation within this site.
+            Reloading or closing the tab can discard unsaved work. Nothing is automatically saved.
+            The older interaction preview remains disposable when you leave it.
           </p>
           <p>
-            Choose “Save on this device” to store only the confirmed Execution Card in this browser
-            profile. Someone using this profile may see it. Clearing site data can remove it. There
-            is no server recovery, device sync, or transfer from staging to production.
+            Choose “Save on this device” to store only the confirmed Decision Record or Execution
+            Card in this browser profile. Someone using this profile may see it. Clearing site data
+            can remove it. There is no server recovery, device sync, or transfer from staging to
+            production.
           </p>
         </section>
         <section>
@@ -273,7 +279,7 @@ function Privacy({ work }: { work: LocalWork }) {
         <section>
           <h2>Copy and print are your choice</h2>
           <p>
-            Copying puts the card on your device’s clipboard. Your operating system may sync that
+            Copying puts the record on your device’s clipboard. Your operating system may sync that
             clipboard. Printing or saving a PDF passes content to your browser and printing system.
             Those copies are yours to manage and are not removed by deleting local data.
           </p>
@@ -346,6 +352,7 @@ function App() {
   else if (path === '/approach') content = <Approach />;
   else if (path === '/privacy') content = <Privacy work={work} />;
   else if (path === '/saved') content = <SavedWork work={work} />;
+  else if (path === '/tools/decision-room') content = <DecisionRoom work={work} />;
   else if (path === '/tools/next-move') content = <NextMove work={work} />;
   else if (path === '/preview') content = <Preview key={work.clearEpoch} />;
   else if (path.startsWith('/tools/')) content = <ToolPage id={path.slice(7)} />;
@@ -386,7 +393,7 @@ function App() {
       </header>
       <div class="staging-banner" role="region" aria-label="Development status">
         <span class="stage-label">Development staging</span>
-        <span>Next Move reference tool. Not a production release.</span>
+        <span>Current tools are staged for development and review. Not a production release.</span>
         <a href="#/tools/next-move">
           Try Next Move <span aria-hidden="true">↗</span>
         </a>

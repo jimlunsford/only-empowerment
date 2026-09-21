@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'preact/hooks';
 import { PageIntro } from './components/shared';
 import { ConfirmDialog } from './components/work';
-import { browserStorage, deleteAll, deleteCard, type SavedEntry } from './local-cards';
+import { browserStorage, deleteAll, deleteCard } from './local-cards';
+import { type ArtifactEntry } from './local-decisions';
+import { newDecisionSession, decisionFields } from './decision-room-model';
 import { newSession } from './next-move-model';
 import { broadcast, type LocalWork } from './use-local-work';
 export function LocalDataControls({ work }: { work: LocalWork }) {
@@ -50,7 +52,7 @@ export function LocalDataControls({ work }: { work: LocalWork }) {
           onConfirm={remove}
         >
           <p>
-            All Only Empowerment saved cards and current work will be cleared from this browser
+            All Only Empowerment saved records and current work will be cleared from this browser
             profile. The app cannot undo this. Unrelated site data will be left alone.
           </p>
         </ConfirmDialog>
@@ -62,8 +64,8 @@ export function SavedWork({ work }: { work: LocalWork }) {
   useEffect(() => {
     work.refresh();
   }, []);
-  const [deleting, setDeleting] = useState<SavedEntry | null>(null);
-  const [opening, setOpening] = useState<SavedEntry | null>(null);
+  const [deleting, setDeleting] = useState<ArtifactEntry | null>(null);
+  const [opening, setOpening] = useState<ArtifactEntry | null>(null);
   const [status, setStatus] = useState('');
   useEffect(() => {
     setOpening(null);
@@ -73,7 +75,7 @@ export function SavedWork({ work }: { work: LocalWork }) {
     if (opening && !work.entries.some((entry) => entry.key === opening.key)) setOpening(null);
     if (deleting && !work.entries.some((entry) => entry.key === deleting.key)) setDeleting(null);
   }, [work.entries]);
-  function open(entry: SavedEntry) {
+  function open(entry: ArtifactEntry) {
     try {
       if (browserStorage().getItem(entry.key) !== entry.raw) {
         work.refresh();
@@ -81,7 +83,20 @@ export function SavedWork({ work }: { work: LocalWork }) {
         return;
       }
     } catch {
-      setStatus('This saved card could not be read. Browser storage is unavailable.');
+      setStatus('This saved record could not be read. Browser storage is unavailable.');
+      return;
+    }
+    if (entry.record.tool === 'decision-room') {
+      work.setDecisionSession({
+        ...newDecisionSession(),
+        decision: structuredClone(entry.record.decision),
+        step: 'record',
+        readiness: 'ready',
+        savedKey: entry.key,
+        savedRaw: entry.raw,
+      });
+      setOpening(null);
+      location.hash = '/tools/decision-room';
       return;
     }
     work.setSession({
@@ -96,13 +111,17 @@ export function SavedWork({ work }: { work: LocalWork }) {
     setOpening(null);
     location.hash = '/tools/next-move';
   }
-  function remove(entry: SavedEntry) {
+  function remove(entry: ArtifactEntry) {
     setDeleting(null);
     try {
       deleteCard(browserStorage(), entry.key);
       work.clearEvent({ type: 'delete-one', key: entry.key });
       broadcast({ type: 'delete-one', key: entry.key });
-      setStatus('Card deleted. Removal was verified.');
+      setStatus(
+        entry.record.tool === 'next-move'
+          ? 'Card deleted. Removal was verified.'
+          : 'Decision Record deleted. Removal was verified.',
+      );
     } catch {
       work.refresh();
       setStatus(
@@ -114,8 +133,9 @@ export function SavedWork({ work }: { work: LocalWork }) {
     <div class="narrow">
       <PageIntro label="Local work" title="Saved on this device">
         <p>
-          Execution Cards in this browser profile only. There is no account or cloud recovery. Open
-          a card to edit, copy, or print it.
+          Execution Cards and Decision Records in this browser profile only. There is no account or
+          cloud recovery. Open a record to edit, copy, or print it. Up to 50 app records can be
+          saved here in total.
         </p>
       </PageIntro>
       {work.storageError && (
@@ -131,69 +151,106 @@ export function SavedWork({ work }: { work: LocalWork }) {
       )}
       {work.entries.length === 0 ? (
         <section class="empty-state">
-          <h2>No saved Execution Cards.</h2>
-          <p>Work stays in memory unless you choose “Save on this device” on a finished card.</p>
-          <a class="button primary" href="#/tools/next-move">
-            Open Next Move
-          </a>
+          <h2>No saved work.</h2>
+          <p>
+            Work stays in memory unless you choose “Save on this device” on a confirmed card or
+            record.
+          </p>
+          <div class="actions">
+            <a class="button" href="#/tools/decision-room">
+              Open Decision Room
+            </a>
+            <a class="button" href="#/tools/next-move">
+              Open Next Move
+            </a>
+          </div>
         </section>
       ) : (
         <ul class="saved-list">
-          {work.entries.map((entry, index) => (
-            <li key={entry.key}>
-              <div>
-                <p class="eyebrow">Execution Card {index + 1} · Planned</p>
-                <h2>{entry.record.card.situation}</h2>
-                <p class="saved-action">{entry.record.card.action}</p>
-              </div>
-              <div class="actions">
-                <button
-                  class="button"
-                  aria-label={`Open Execution Card ${index + 1}`}
-                  onClick={() => {
-                    if (Object.values(work.session.card).some(Boolean)) setOpening(entry);
-                    else open(entry);
-                  }}
-                >
-                  Open card
-                </button>
-                <button
-                  class="text-button"
-                  aria-label={`Delete Execution Card ${index + 1}`}
-                  onClick={() => setDeleting(entry)}
-                >
-                  Delete
-                </button>
-              </div>
-            </li>
-          ))}
+          {work.entries.map((entry, index) => {
+            const type = entry.record.tool === 'next-move' ? 'Execution Card' : 'Decision Record';
+            const situation =
+              entry.record.tool === 'next-move'
+                ? entry.record.card.situation
+                : entry.record.decision.decision;
+            const action =
+              entry.record.tool === 'next-move'
+                ? entry.record.card.action
+                : entry.record.decision.firstMove;
+            return (
+              <li key={entry.key}>
+                <div>
+                  <p class="eyebrow">
+                    {type} {index + 1} · {entry.record.status}
+                  </p>
+                  <h2>{situation}</h2>
+                  <p class="saved-action">{action}</p>
+                </div>
+                <div class="actions">
+                  <button
+                    class="button"
+                    aria-label={`Open ${type} ${index + 1}`}
+                    onClick={() => {
+                      if (
+                        entry.record.tool === 'next-move'
+                          ? Object.values(work.session.card).some(Boolean) ||
+                            !!work.session.readiness ||
+                            !!work.session.obstacleKind
+                          : decisionFields.some((f) => !!work.decisionSession.decision[f]) ||
+                            work.decisionSession.decision.options.some(
+                              (o) => !!o.label || !!o.tradeoff,
+                            ) ||
+                            !!work.decisionSession.readiness
+                      )
+                        setOpening(entry);
+                      else open(entry);
+                    }}
+                  >
+                    {entry.record.tool === 'next-move' ? 'Open card' : 'Open record'}
+                  </button>
+                  <button
+                    class="text-button"
+                    aria-label={`Delete ${type} ${index + 1}`}
+                    onClick={() => setDeleting(entry)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       )}
       <p role="status">{status}</p>
       <LocalDataControls work={work} />
       {deleting && (
         <ConfirmDialog
-          title="Delete this Execution Card?"
-          confirm="Delete this card"
+          title={
+            deleting.record.tool === 'next-move'
+              ? 'Delete this Execution Card?'
+              : 'Delete this Decision Record?'
+          }
+          confirm={deleting.record.tool === 'next-move' ? 'Delete this card' : 'Delete this record'}
           onCancel={() => setDeleting(null)}
           onConfirm={() => remove(deleting)}
         >
           <p>
-            This removes this saved card and clears open app copies of it where synchronization is
-            available. Other saved cards stay.
+            This removes this saved record and clears open app copies of it where synchronization is
+            available. Other saved records stay.
           </p>
         </ConfirmDialog>
       )}
       {opening && (
         <ConfirmDialog
           title="Replace current in-memory work?"
-          confirm="Open saved card"
+          confirm={opening.record.tool === 'next-move' ? 'Open saved card' : 'Open saved record'}
           onCancel={() => setOpening(null)}
           onConfirm={() => open(opening)}
         >
           <p>
-            Opening this card replaces the current Next Move session. Copy or save any work you want
-            to keep first. Your other saved records will stay.
+            Opening this record replaces the current{' '}
+            {opening.record.tool === 'next-move' ? 'Next Move' : 'Decision Room'} session. Copy or
+            save any work you want to keep first. Your other saved records will stay.
           </p>
         </ConfirmDialog>
       )}

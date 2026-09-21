@@ -48,6 +48,7 @@ export function cardText(card: Card): string {
 }
 export type Step = 0 | 1 | 2 | 3 | 4 | 5 | 'review' | 'card' | 'pause';
 export type Session = {
+  fromDecision?: boolean;
   card: Card;
   step: Step;
   readiness: string;

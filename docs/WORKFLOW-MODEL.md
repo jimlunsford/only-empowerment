@@ -35,3 +35,8 @@ The Phase 1 Handoff type reserves a boundary only. Transfer behavior is not impl
 Six steps: situation; user-owned action; readiness choice; obstacle and its effect; start condition; completion boundary. Each has a concise lesson. Then editable review and an explicitly Planned card. Readiness and blocker branches allow a clean pause; Decision Room is identified as future/unavailable. Navigation inside the app retains a single typed Next Move session in App, without persistent draft storage or a global state library. The preview retains its disposable behavior.
 
 Proven shared pieces: FieldInput with bounds/instructions/errors, ConfirmDialog using native modal semantics, LocalNotice, ExecutionCard, LocalDataControls and the artifact storage service. This is not a generic workflow DSL. `handoffPreview` is a pure typed contract for an optional future Do It Now transfer with selected fields and Planned status. Tests cover selection/exclusion; no unavailable receiving tool is presented as usable. A live handoff review is deferred until there is a real receiver, as allowed by the Phase 2 kickoff.
+
+
+## Phase 3 Decision Room candidate
+
+Decision Room follows definition, alternatives, direction, six lenses, practical reality, uncertainty, readiness, explicit choice, rationale/first move and editable confirmation. Its optional handoff into Next Move is now real: review/edit/exclude two fields in memory, protect existing work, then run the full receiving workflow. See DECISION-ROOM.md.

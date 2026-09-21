@@ -44,3 +44,8 @@ For a later accepted staging artifact, set `OE_STAGING_COMMIT` to its independen
 `tests/browser/next-move.spec.ts` exercises the six-step workflow, all not-ready reasons, legitimate blockers, review errors and editing, internal-route Back, copy success and denied-copy selection, explicit saving and cancellation, reopen/edit/multiple records, deletion, corruption, denied/quota storage, cross-tab deletion, synthetic network markers, hostile content, long output, 320px reflow, forced colors, text enlargement, and print. The same suite is used against staging. Axe runs across workflow, error, pause, review, artifact, save/delete-dialog and saved-work states.
 
 Screenshots and long-card PDF are emitted to test artifacts for actual visual review. Emulated viewport/text checks do not establish real mobile keyboard behavior or screen-reader conformance. Record executed evidence and remaining limitations in PHASE-2-ACCEPTANCE.md. True NVDA/VoiceOver/TalkBack testing remains a production gate unless independently performed.
+
+
+## Phase 3 Decision Room candidate
+
+Phase 3 adds decision-room unit and browser suites to the existing test structure. Both local and deployed configs run the same four projects and complete Next Move regressions. Configured retries are zero. Synthetic cases cover authored input, options, all lenses, pause branches, records, storage, handoff, network markers, axe, widths, text enlargement, forced colors and print. Manual screen-reader and real-device keyboard claims require actual evidence; automation alone is not certification.

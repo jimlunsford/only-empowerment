@@ -1,6 +1,58 @@
 import type { ComponentChildren } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
 import { labels, limits, type Card, type Field } from '../next-move-model';
+export function TextResponse({
+  id,
+  label,
+  value,
+  limit,
+  onChange,
+  error = '',
+  hint,
+  rows = 4,
+  required = true,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  limit: number;
+  onChange: (value: string) => void;
+  error?: string;
+  hint?: string;
+  rows?: number;
+  required?: boolean;
+}) {
+  return (
+    <div class="work-field">
+      <label for={id}>{label}</label>
+      {hint && (
+        <p id={`${id}-hint`} class="field-hint">
+          {hint}
+        </p>
+      )}
+      <textarea
+        id={id}
+        value={value}
+        rows={rows}
+        autoComplete="off"
+        spellcheck={false}
+        aria-required={required}
+        aria-invalid={!!error}
+        aria-describedby={`${id}-limit${hint ? ` ${id}-hint` : ''}${error ? ` ${id}-error` : ''}`}
+        onInput={(e) => onChange(e.currentTarget.value)}
+      />
+      <p id={`${id}-limit`} class="field-limit">
+        Up to {limit.toLocaleString('en-US')} characters. {value.length.toLocaleString('en-US')}{' '}
+        used.
+      </p>
+      {error && (
+        <p id={`${id}-error`} class="error" role="alert">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
 export function FieldInput({
   field,
   value,
@@ -16,36 +68,17 @@ export function FieldInput({
   hint?: string;
   question?: string;
 }) {
-  const id = `field-${field}`;
   return (
-    <div class="work-field">
-      <label for={id}>{question || labels[field]}</label>
-      {hint && (
-        <p id={`${id}-hint`} class="field-hint">
-          {hint}
-        </p>
-      )}
-      <textarea
-        id={id}
-        value={value}
-        rows={field === 'start' ? 3 : 4}
-        autoComplete="off"
-        spellcheck={false}
-        aria-required="true"
-        aria-invalid={!!error}
-        aria-describedby={`${id}-limit${hint ? ` ${id}-hint` : ''}${error ? ` ${id}-error` : ''}`}
-        onInput={(e) => onChange(e.currentTarget.value)}
-      />
-      <p id={`${id}-limit`} class="field-limit">
-        Up to {limits[field].toLocaleString('en-US')} characters.{' '}
-        {value.length.toLocaleString('en-US')} used.
-      </p>
-      {error && (
-        <p id={`${id}-error`} class="error" role="alert">
-          {error}
-        </p>
-      )}
-    </div>
+    <TextResponse
+      id={`field-${field}`}
+      label={question || labels[field]}
+      value={value}
+      limit={limits[field]}
+      onChange={onChange}
+      error={error}
+      hint={hint}
+      rows={field === 'start' ? 3 : 4}
+    />
   );
 }
 export function ConfirmDialog({
@@ -95,16 +128,16 @@ export function ConfirmDialog({
     </dialog>
   );
 }
-export function LocalNotice() {
+export function LocalNotice({ artifact = 'Execution Card' }: { artifact?: string }) {
   return (
     <>
       <p>
-        Your Execution Card will be stored in this browser on this device. Only Empowerment cannot
+        Your {artifact} will be stored in this browser on this device. Only Empowerment cannot
         recover it from another device.
       </p>
       <p>
         Someone using the same browser profile may be able to see it. Clearing browser or site data
-        can remove it. The site does not send the saved card to Only Empowerment servers.
+        can remove it. The site does not send the saved record to Only Empowerment servers.
       </p>
     </>
   );
