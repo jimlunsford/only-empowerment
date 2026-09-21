@@ -28,3 +28,8 @@ Do It Now is short. Record the known task, smallest real action, begin state, an
 ## Phase 2 implementation status
 
 Next Move is now the sole reference implementation on the feature candidate. Its output remains Planned. See PHASE-2-ACCEPTANCE.md for review status. Decision Room, Reset, Build a Standard, Rebuild Map and Do It Now are outlines, not available workflows.
+
+
+## Phase 3 Decision Room candidate
+
+Next Move is accepted reference functionality. Decision Room is implemented on the Phase 3 candidate, producing Decision Records and optionally handing reviewed in-memory fields into Next Move. The remaining four tools are not implemented.

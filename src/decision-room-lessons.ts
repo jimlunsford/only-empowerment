@@ -26,31 +26,37 @@ export const decisionLessons = {
   },
   ownership: {
     title: 'Ownership',
+    heading: 'What belongs to you?',
     text: 'Separate your choice and behavior from what you can only influence. Someone else’s response can matter without becoming your responsibility. Ownership is not blame for everything that happened.',
     question: 'For these options, what is yours to decide or do, and what belongs to someone else?',
   },
   purpose: {
     title: 'Purpose',
+    heading: 'Which direction does it serve?',
     text: 'An option can solve today’s problem while taking you away from what matters. Look at the direction each choice creates, including what it trades away.',
     question: 'What direction does each option serve?',
   },
   resilience: {
     title: 'Resilience',
+    heading: 'What holds under pressure?',
     text: 'Consider how each choice holds under real pressure. Limits, support, and risks belong in the picture. The harder path is not automatically the more durable one.',
     question: 'What would help each option hold up, and where is it fragile?',
   },
   integrity: {
     title: 'Integrity',
+    heading: 'What matches your standards?',
     text: 'Compare the behavior each choice involves with the standards you claim. Real standards can compete. Name the compromise without turning it into shame or a demand for perfection.',
     question: 'Where does each option align with or challenge your standards?',
   },
   discipline: {
     title: 'Discipline',
+    heading: 'What will it take repeatedly?',
     text: 'A decision becomes real through repeated behavior and supporting structure. Greater effort does not make an option better by itself.',
     question: 'What repeated behavior and structure would each option require?',
   },
   empowerment: {
     title: 'Empowerment',
+    heading: 'What builds capability?',
     text: 'Consider whether a choice builds useful capability, for you and others. Support, expertise, teamwork, and interdependence can help. Rescue or control can take away responsibility that belongs to someone else.',
     question: 'How would each option affect capability, support, and appropriate responsibility?',
   },

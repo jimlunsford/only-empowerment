@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-dev.3 (Decision Room candidate)
+
+- Add two-to-four-option Decision Room with six distinct PERIOD lenses, practical tradeoffs and reversibility, visible uncertainty, legitimate pauses and an explicit user-owned choice.
+- Add editable, portable Decided Decision Records with copy fallback, multi-page print and explicit versioned local saving.
+- Extend Saved Work and deletion across both artifact types while preserving existing Execution Cards and the global 50-record limit.
+- Add optional editable/excludable in-memory handoff into Next Move with protection for existing work and full receiving validation.
+- Keep production untouched and the feature PR draft pending product review. No new dependencies.
+
+
 ## 0.1.0-dev.2 (Phase 2 candidate)
 
 - Implement Next Move with concise lessons, readiness/blocker pauses, editable review and a Planned Execution Card.

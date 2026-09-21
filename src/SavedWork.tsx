@@ -83,7 +83,7 @@ export function SavedWork({ work }: { work: LocalWork }) {
         return;
       }
     } catch {
-      setStatus('This saved card could not be read. Browser storage is unavailable.');
+      setStatus('This saved record could not be read. Browser storage is unavailable.');
       return;
     }
     if (entry.record.tool === 'decision-room') {
@@ -156,9 +156,14 @@ export function SavedWork({ work }: { work: LocalWork }) {
             Work stays in memory unless you choose “Save on this device” on a confirmed card or
             record.
           </p>
-          <a class="button primary" href="#/tools/next-move">
-            Open Next Move
-          </a>
+          <div class="actions">
+            <a class="button" href="#/tools/decision-room">
+              Open Decision Room
+            </a>
+            <a class="button" href="#/tools/next-move">
+              Open Next Move
+            </a>
+          </div>
         </section>
       ) : (
         <ul class="saved-list">

@@ -56,3 +56,8 @@ Re-read the live [Pure Execution Mode](https://jimlunsford.com/pure-execution-mo
 | Give the action an edge | What will count as complete? | Boundary depends on the action rather than an external outcome |
 
 Interpretation: the article's execution role is adapted within the accepted product doctrine and the owner's Phase 2 boundaries. Useful challenge does not override uncertainty, safety, law, required authorization, professional guidance, or support. Next Move produces a plan; the article's later action/proof/repetition stages are not claimed by completing the workflow. No doctrine changes were needed.
+
+
+## Phase 3 Decision Room candidate
+
+Decision Room materializes all six existing PERIOD decision lenses. Live PERIOD Code and Core Frameworks were re-reviewed on 2026-09-21. The governed registry is `src/decision-room-lessons.ts`; details and misuse boundaries are in DECISION-ROOM.md. No scoring or recommendation role is introduced.

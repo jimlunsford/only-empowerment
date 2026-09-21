@@ -1531,3 +1531,14 @@ select:focus-visible {
     break-inside: auto;
   }
 }
+/* Keep multiline option legends inside the panel instead of crossing its border. */
+.option-panel > legend {
+  float: left;
+  width: 100%;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.option-panel > legend + * {
+  clear: both;
+}

@@ -66,3 +66,8 @@ Every save explains device/profile scope, inability to recover on another device
 Per-record deletion verifies the selected key is gone. Delete my local data removes every `oe:` key, including unsupported versions, verifies no owned keys remain, and clears current Next Move and preview state. Unrelated origin storage is preserved. Storage events and the same-origin `oe:local-data` BroadcastChannel update open tabs. A delete-all broadcast also clears unsaved sessions even when no key existed; where BroadcastChannel is unavailable, storage events synchronize saved-record deletion but cannot announce deletion of a completely memory-only session with no storage change. Visibility rechecks catch saved records removed while a tab was suspended. UI reports failures instead of promising erasure.
 
 Staging and production are separate origins. There is no migration, import/export, cross-origin channel, or server sync. Clipboard/print/PDF/device backups remain outside app deletion. Restrictive CSP stays intact, including `connect-src 'none'`. The public runtime contains no request API, external submission, raw HTML rendering, or remote font/image/script dependency. Tests use synthetic content only.
+
+
+## Phase 3 Decision Room candidate
+
+Decision Room adds explicit `oe:decision-record:v1:` saving and a private two-field in-memory handoff into Next Move. The global 50-record bound remains shared across types. No Execution Card migration occurs. Deletion and tab synchronization now cover both tools. See DECISION-ROOM.md for exact schema, bounds and failure behavior.

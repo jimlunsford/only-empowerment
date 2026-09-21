@@ -16,8 +16,13 @@ async function axe(page: Page) {
   ).toEqual([]);
 }
 async function capture(page: Page, info?: TestInfo, name = 'state') {
-  if (info && ['chromium', 'mobile-chromium'].includes(info.project.name))
+  if (info && ['chromium', 'mobile-chromium'].includes(info.project.name)) {
     await page.screenshot({ path: info.outputPath(name + '.png'), fullPage: true });
+    await info.attach(name + '-semantics', {
+      body: await page.locator('main').ariaSnapshot(),
+      contentType: 'text/plain',
+    });
+  }
 }
 async function compare(page: Page, info?: TestInfo) {
   if (!page.url().endsWith('/#/tools/decision-room')) await page.goto('/#/tools/decision-room');
@@ -466,4 +471,40 @@ test('keyboard path, memory navigation, storage failures, and reload behavior ar
   await page.getByRole('button', { name: 'Save this record', exact: true }).click();
   await expect(page.locator('.work-status')).toContainText('could not be verified');
   await expect(page.locator('.decision-record')).toBeVisible();
+});
+
+test('option editing and handoff fit narrow viewports, and removing a chosen option requires a new choice', async ({
+  page,
+}, info) => {
+  test.setTimeout(120000);
+  await review(page);
+  await page.getByRole('button', { name: 'Add an option' }).click();
+  await page.getByLabel('Option 3', { exact: true }).fill('A third real alternative');
+  await page.getByRole('button', { name: 'Remove option 2', exact: true }).click();
+  await page.getByRole('button', { name: 'Remove option', exact: true }).click();
+  await expect(page.locator('.neutral-options input:checked')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Confirm my decision' }).click();
+  await expect(page.getByRole('alert')).toContainText(['Add', 'Choose', 'Select']);
+  await page.locator('textarea[id^="dr-tradeoff-"]').last().fill('Costs time. Unknown response.');
+  await page.locator('select').last().selectOption('Not yet known');
+  await page.locator('#dr-choice').focus();
+  await page.keyboard.press('Space');
+  await expect(page.locator('#dr-choice')).toBeChecked();
+  for (const width of [320, 360, 390, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 800 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await capture(page, info, 'review-options-' + width);
+  }
+  await page.getByRole('button', { name: 'Confirm my decision' }).click();
+  await page.getByRole('button', { name: 'Turn this decision into a Next Move' }).click();
+  await page.setViewportSize({ width: 320, height: 800 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await axe(page);
+  await capture(page, info, 'handoff-320');
+  await info.attach('handoff-accessibility-tree', {
+    body: await page.locator('main').ariaSnapshot(),
+    contentType: 'text/plain',
+  });
 });

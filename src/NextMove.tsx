@@ -158,7 +158,7 @@ export function NextMove({ work }: { work: LocalWork }) {
       </header>
       {session.fromDecision && (
         <p class="storage-notice no-print">
-          Situation and action text came from your Decision Record. You can edit it. Next Move still
+          Opened from your Decision Record. Any text you chose to carry is editable. Next Move still
           needs its own readiness check and action plan.
         </p>
       )}

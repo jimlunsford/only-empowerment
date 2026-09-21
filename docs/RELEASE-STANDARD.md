@@ -45,3 +45,8 @@ Staging currently represents accepted foundation commit `701664c1b4af37287f4b16f
 ## Authorized Phase 2 staging exception
 
 The owner authorized the dedicated Next Move feature PR head on staging for product review, before merge. This is a review candidate, not accepted main. Use `0.1.0-dev.2`, retain exact full-SHA build metadata and immutable release bytes, preserve the previous accepted `bd984a8986a658c6bd0d0d663c4e30f5c2f09d80` release, and keep the PR draft/unmerged until explicit product approval. No production tag, production deployment, certificate, or indexing change is part of Phase 2.
+
+
+## Phase 3 Decision Room candidate
+
+The Phase 3 owner instruction authorizes an exact unmerged Decision Room feature candidate on staging for personal product review. Version: `0.1.0-dev.3`. The accepted rollback base is `26ff9be784ce2395413b19be441dd418b0e6ab77`. PR must remain draft and unmerged; no production deployment or tag. The general staging banner remains as approved.

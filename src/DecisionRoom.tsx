@@ -259,11 +259,11 @@ export function DecisionRoom({ work }: { work: LocalWork }) {
   const practical = () => (
     <div>
       {d.options.map((o) => (
-        <section class="option-panel" key={o.id}>
-          <h3 class="answer">{o.label}</h3>
+        <fieldset class="option-panel" key={o.id}>
+          <legend class="answer">{o.label}</legend>
           <TextResponse
             id={`dr-tradeoff-${o.id}`}
-            label={`Costs, risks, and requirements for ${o.label}`}
+            label="Costs, risks, and requirements"
             value={o.tradeoff}
             limit={2000}
             onChange={(v) => optionEdit(o.id, 'tradeoff', v)}
@@ -271,7 +271,7 @@ export function DecisionRoom({ work }: { work: LocalWork }) {
             hint="Include consequences, time, or prerequisites that matter. If something is unknown, say so."
           />
           <label class="select-label" for={`dr-reversibility-${o.id}`}>
-            Reversibility of {o.label}
+            Reversibility
           </label>
           <select
             id={`dr-reversibility-${o.id}`}
@@ -295,7 +295,7 @@ export function DecisionRoom({ work }: { work: LocalWork }) {
               {errors[`reversibility-${o.id}`]}
             </p>
           )}
-        </section>
+        </fieldset>
       ))}
     </div>
   );
@@ -440,7 +440,9 @@ export function DecisionRoom({ work }: { work: LocalWork }) {
         <div>
           <p class="eyebrow">Decision Room</p>
           <h1 ref={heading} tabIndex={-1}>
-            {lesson?.question || titles[step]}
+            {lesson && 'heading' in lesson
+              ? String(lesson.heading)
+              : lesson?.question || titles[step]}
           </h1>
         </div>
         <p class="work-orientation">
@@ -469,7 +471,7 @@ export function DecisionRoom({ work }: { work: LocalWork }) {
               </details>
             )}
             {(isLens || step === 'uncertainty' || step === 'readiness' || step === 'choice') && (
-              <details class="comparison-context" open={isLens}>
+              <details class="comparison-context">
                 <summary>Your comparison</summary>
                 <p class="answer">{d.decision}</p>
                 <ul>
