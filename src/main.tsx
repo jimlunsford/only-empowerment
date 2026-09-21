@@ -385,8 +385,8 @@ function App() {
         </nav>
       </header>
       <div class="staging-banner" role="region" aria-label="Development status">
-        <span class="stage-label">Phase 2 candidate</span>
-        <span>Next Move is staged for review. Not accepted main.</span>
+        <span class="stage-label">Development staging</span>
+        <span>Next Move reference tool. Not a production release.</span>
         <a href="#/tools/next-move">
           Try Next Move <span aria-hidden="true">↗</span>
         </a>
