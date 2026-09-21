@@ -156,6 +156,12 @@ export function NextMove({ work }: { work: LocalWork }) {
                 : 'No action plan required'}
         </p>
       </header>
+      {session.fromDecision && (
+        <p class="storage-notice no-print">
+          Situation and action text came from your Decision Record. You can edit it. Next Move still
+          needs its own readiness check and action plan.
+        </p>
+      )}
       {lesson && number !== null && (
         <div class="work-layout">
           <aside class="work-lesson" aria-label="A useful distinction">
@@ -274,7 +280,7 @@ export function NextMove({ work }: { work: LocalWork }) {
           <h2>Resolve what matters before execution.</h2>
           <p>
             {session.readiness === 'decision'
-              ? 'Comparing meaningful alternatives belongs in Decision Room. That tool is not available yet. Take the time to make the decision before turning it into an action plan.'
+              ? 'Comparing meaningful alternatives belongs in Decision Room. Take the time to make the decision before turning it into an action plan.'
               : 'Information, permission, resources, safety, support, or changed circumstances can change the plan. You decide whether to wait, seek help, or choose a different action.'}
           </p>
           <p>
@@ -283,6 +289,11 @@ export function NextMove({ work }: { work: LocalWork }) {
             situation is clearer.
           </p>
           <div class="actions">
+            {session.readiness === 'decision' && (
+              <a class="button" href="#/tools/decision-room">
+                Open Decision Room
+              </a>
+            )}
             <button class="button" onClick={() => go(1)}>
               Reconsider my action
             </button>
