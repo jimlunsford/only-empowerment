@@ -128,7 +128,7 @@ p + p {
 .stage-label {
   font-weight: 650;
   color: var(--ink);
-  white-space: nowrap;
+  white-space: normal;
 }
 .staging-banner > a {
   margin-left: auto;
