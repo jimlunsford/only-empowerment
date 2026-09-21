@@ -36,3 +36,11 @@ Use `npx playwright test --config playwright.staging.config.ts` to run against t
 The staging config uses zero retries and checks the deployed foundation commit, headers, redirects, cookies, local/session storage, IndexedDB, caches, service workers, synthetic answer request capture, and laptop/mobile/print layouts. Its expected commit is deliberately pinned to the accepted Phase 1 deployment. Change that pin only as part of a reviewed future staging acceptance. Generated artifacts expire after seven days; the permanent acceptance record summarizes executed results and limitations.
 
 For a later accepted staging artifact, set `OE_STAGING_COMMIT` to its independently verified full source SHA when running the staging suite. The default remains the original foundation checkpoint. Do not infer the expected SHA from the live site under test.
+
+## Phase 2 reference suite
+
+`tests/next-move.test.mjs` covers all field bounds, text preservation, artifact status, saved-schema validation, corruption/future records, quotas/denial/readback, stale edits, per-record/all-namespace deletion, unrelated data preservation, the 50-record bound, and finite future handoff selection. The runtime guard permits localStorage only in the artifact service and continues rejecting network/unsafe HTML/evaluation APIs.
+
+`tests/browser/next-move.spec.ts` exercises the six-step workflow, all not-ready reasons, legitimate blockers, review errors and editing, internal-route Back, copy success and denied-copy selection, explicit saving and cancellation, reopen/edit/multiple records, deletion, corruption, denied/quota storage, cross-tab deletion, synthetic network markers, hostile content, long output, 320px reflow, forced colors, text enlargement, and print. The same suite is used against staging. Axe runs across workflow, error, pause, review, artifact, save/delete-dialog and saved-work states.
+
+Screenshots and long-card PDF are emitted to test artifacts for actual visual review. Emulated viewport/text checks do not establish real mobile keyboard behavior or screen-reader conformance. Record executed evidence and remaining limitations in PHASE-2-ACCEPTANCE.md. True NVDA/VoiceOver/TalkBack testing remains a production gate unless independently performed.

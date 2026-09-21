@@ -41,3 +41,7 @@ Source: [GitHub Actions billing](https://docs.github.com/en/billing/concepts/pro
 Main requires a PR and GitHub Actions app 15368 check `verify`, with strict up-to-date branches and zero required additional approving reviews. Admin enforcement is enabled; force pushes and deletion are disabled. The owner retains settings access for deliberate emergency recovery. No CI credential or automatic bypass was created.
 
 Staging currently represents accepted foundation commit `701664c1b4af37287f4b16fcf8a76a41d09f00c7`. Operational closure adds tests, scripts and documentation without changing application files. Merging those records need not redeploy identical application behavior solely to replace its truthful source label. The acceptance record distinguishes deployed source from later operational/documentation commits. Any future application change requires a new verified artifact and explicit staging acceptance.
+
+## Authorized Phase 2 staging exception
+
+The owner authorized the dedicated Next Move feature PR head on staging for product review, before merge. This is a review candidate, not accepted main. Use `0.1.0-dev.2`, retain exact full-SHA build metadata and immutable release bytes, preserve the previous accepted `bd984a8986a658c6bd0d0d663c4e30f5c2f09d80` release, and keep the PR draft/unmerged until explicit product approval. No production tag, production deployment, certificate, or indexing change is part of Phase 2.

@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { frameworks, tools } from './model';
 import { PageIntro, SourceNote } from './components/shared';
 import { Preview } from './Preview';
+import { NextMove } from './NextMove';
+import { SavedWork, LocalDataControls } from './SavedWork';
+import { useLocalWork, type LocalWork } from './use-local-work';
 import './style.css';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
 function route() {
@@ -26,8 +29,8 @@ function Home() {
             next.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#/tools">
-              Explore the tools <span aria-hidden="true">↗</span>
+            <a class="button primary" href="#/tools/next-move">
+              Open Next Move <span aria-hidden="true">↗</span>
             </a>
             <a class="quiet-link" href="#/approach">
               How it works
@@ -66,7 +69,7 @@ function Home() {
             <h2 id="tools-title">Start with what is in front of you.</h2>
           </div>
           <p>
-            Six tools in development.
+            Next Move is ready for review.
             <br />
             Each has a different job.
           </p>
@@ -80,8 +83,8 @@ function Home() {
         </div>
         <div>
           <p>
-            This preview has no accounts, saved responses, or analytics. Read what the application
-            does, what the browser may retain, and where the limits are.
+            No accounts or analytics. Work stays in memory unless you choose to save an Execution
+            Card on this device. Read how saving and deletion work.
           </p>
           <a href="#/privacy">
             Understand your privacy <span aria-hidden="true">↗</span>
@@ -98,7 +101,9 @@ function ToolGrid() {
         <a class="tool-card" key={tool.id} href={`#/tools/${tool.id}`}>
           <div class="card-top">
             <span class="tool-number">0{i + 1}</span>
-            <span class="availability">In development</span>
+            <span class="availability">
+              {tool.id === 'next-move' ? 'Try Next Move' : 'In development'}
+            </span>
           </div>
           <p class="situation">{tool.situation}</p>
           <h3>{tool.name}</h3>
@@ -117,21 +122,11 @@ function ToolsPage() {
     <>
       <PageIntro label="The tool collection" title="Different situations. Useful next steps.">
         <p>
-          Choose by what you need to work through. These outlines describe the planned tools. None
-          of the six is ready to use yet.
+          Use Next Move to define an executable action. The other five tools are in development;
+          their pages describe the intended purpose.
         </p>
       </PageIntro>
       <ToolGrid />
-      <div class="preview-invitation">
-        <h2>See the interaction direction.</h2>
-        <p>
-          A short preview shows a lesson, a reflection, and a copyable card. It is a design sample,
-          not a finished tool.
-        </p>
-        <a class="button" href="#/preview">
-          Open workflow preview
-        </a>
-      </div>
     </>
   );
 }
@@ -229,26 +224,28 @@ function Approach() {
     </div>
   );
 }
-function Privacy() {
+function Privacy({ work }: { work: LocalWork }) {
   return (
     <div class="narrow">
       <PageIntro label="Privacy & source" title="Your answers are not ours to collect.">
         <p>
-          This page describes the current foundation preview. It is a statement of what this version
-          does, not a promise about features that have not been built.
+          Next Move works without an account or answer submission. Saving is a choice you make on
+          this device.
         </p>
       </PageIntro>
+      <LocalDataControls work={work} />
       <div class="privacy-facts">
         <section>
           <h2>What stays in the page</h2>
           <p>
-            The workflow preview holds your response in browser memory. It does not write answers to
-            local storage, session storage, cookies, or a database. The application discards the
-            response when you leave the preview or refresh the page.
+            Next Move keeps answers in memory during navigation within this site. Reloading or
+            closing the tab can discard unsaved work. Nothing is automatically saved. The older
+            interaction preview remains disposable when you leave it.
           </p>
           <p>
-            Use “Clear preview” to clear the current response. There is no saved local answer
-            collection to delete in this version.
+            Choose “Save on this device” to store only the confirmed Execution Card in this browser
+            profile. Someone using this profile may see it. Clearing site data can remove it. There
+            is no server recovery, device sync, or transfer from staging to production.
           </p>
         </section>
         <section>
@@ -260,8 +257,9 @@ function Privacy() {
             response over the network.
           </p>
           <p>
-            Hosting systems may keep operational logs. The exact staging log retention must be
-            verified before staging is described as fully reviewed.
+            Hosting systems keep operational request logs. The staging policy rotates daily and
+            retains up to 14 rotated logs. Provider logs and backup retention are separate; this is
+            not a promise that all infrastructure copies disappear after 14 days.
           </p>
         </section>
         <section>
@@ -277,7 +275,7 @@ function Privacy() {
           <p>
             Copying puts the card on your device’s clipboard. Your operating system may sync that
             clipboard. Printing or saving a PDF passes content to your browser and printing system.
-            Those copies are yours to manage and are not removed by clearing this preview.
+            Those copies are yours to manage and are not removed by deleting local data.
           </p>
         </section>
         <section>
@@ -325,6 +323,7 @@ function NotFound() {
 }
 function App() {
   const [path, setPath] = useState(route);
+  const work = useLocalWork();
   const initial = useRef(true);
   useEffect(() => {
     const onHash = () => setPath(route());
@@ -345,8 +344,10 @@ function App() {
   if (path === '/') content = <Home />;
   else if (path === '/tools') content = <ToolsPage />;
   else if (path === '/approach') content = <Approach />;
-  else if (path === '/privacy') content = <Privacy />;
-  else if (path === '/preview') content = <Preview />;
+  else if (path === '/privacy') content = <Privacy work={work} />;
+  else if (path === '/saved') content = <SavedWork work={work} />;
+  else if (path === '/tools/next-move') content = <NextMove work={work} />;
+  else if (path === '/preview') content = <Preview key={work.clearEpoch} />;
   else if (path.startsWith('/tools/')) content = <ToolPage id={path.slice(7)} />;
   else content = <NotFound />;
   return (
@@ -372,6 +373,9 @@ function App() {
           <a href="#/tools" aria-current={path.startsWith('/tools') ? 'page' : undefined}>
             The tools
           </a>
+          <a href="#/saved" aria-current={path === '/saved' ? 'page' : undefined}>
+            Saved work
+          </a>
           <a href="#/approach" aria-current={path === '/approach' ? 'page' : undefined}>
             The approach
           </a>
@@ -381,13 +385,18 @@ function App() {
         </nav>
       </header>
       <div class="staging-banner" role="region" aria-label="Development status">
-        <span class="stage-label">Foundation preview</span>
-        <span>The tools are in development. Explore the direction.</span>
-        <a href="#/preview">
-          Try the interaction preview <span aria-hidden="true">↗</span>
+        <span class="stage-label">Development staging</span>
+        <span>Next Move reference tool. Not a production release.</span>
+        <a href="#/tools/next-move">
+          Try Next Move <span aria-hidden="true">↗</span>
         </a>
       </div>
       <main id="main" tabIndex={-1} class="site-main">
+        {work.notice && (
+          <p class="global-notice no-print" role="status">
+            {work.notice}
+          </p>
+        )}
         {content}
       </main>
       <footer class="site-footer">

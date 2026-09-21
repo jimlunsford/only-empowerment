@@ -19,14 +19,14 @@ function sourceFiles(dir) {
     e.isDirectory() ? sourceFiles(join(dir, e.name)) : [join(dir, e.name)],
   );
 }
-test('current runtime has no network, persistence, unsafe HTML, or evaluation calls', () => {
+test('runtime has no network, implicit persistence, unsafe HTML, or evaluation calls', () => {
   const runtime = sourceFiles('src')
     .filter((p) => /\.(tsx?|mjs)$/.test(p))
     .map((p) => readFileSync(p, 'utf8'))
     .join('\n');
   assert.doesNotMatch(
     runtime,
-    /\b(fetch|XMLHttpRequest|WebSocket|EventSource|sendBeacon|localStorage|sessionStorage|indexedDB|eval)\s*[.(]|dangerouslySetInnerHTML|\.innerHTML\s*=/,
+    /\b(fetch|XMLHttpRequest|WebSocket|EventSource|sendBeacon|sessionStorage|indexedDB|eval)\s*[.(]|dangerouslySetInnerHTML|\.innerHTML\s*=/,
   );
   assert.doesNotMatch(runtime, /document\.cookie\s*=/);
 });
@@ -41,4 +41,12 @@ test('HTML blocks answer submission and third-party runtime requests', () => {
   ])
     assert.ok(html.includes(policy));
   assert.doesNotMatch(html, /<script[^>]+src="https?:/);
+});
+
+test('localStorage access is confined to the explicit artifact service', () => {
+  for (const p of sourceFiles('src').filter(
+    (p) => /\.(tsx?|mjs)$/.test(p) && !p.endsWith('local-cards.ts'),
+  ))
+    assert.doesNotMatch(readFileSync(p, 'utf8'), /\blocalStorage\b/);
+  assert.doesNotMatch(readFileSync('src/local-cards.ts', 'utf8'), /\.clear\s*\(/);
 });

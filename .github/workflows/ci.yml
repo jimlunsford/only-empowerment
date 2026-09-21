@@ -1,4 +1,4 @@
-name: Foundation verification
+name: Product verification
 on:
   push:
     branches: [main]
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       verify_staging:
-        description: 'Also verify the live dev.onlyempowerment.com foundation'
+        description: 'Also verify the live dev.onlyempowerment.com candidate'
         type: boolean
         default: false
 permissions:
@@ -37,6 +37,8 @@ jobs:
       - name: Verify deployed staging
         if: github.event_name == 'workflow_dispatch' && inputs.verify_staging
         run: npx playwright test --config playwright.staging.config.ts
+        env:
+          OE_STAGING_COMMIT: ${{ github.sha }}
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: only-empowerment-${{ github.event.pull_request.head.sha || github.sha }}
