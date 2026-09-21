@@ -50,3 +50,9 @@ The owner authorized the dedicated Next Move feature PR head on staging for prod
 ## Phase 3 Decision Room candidate
 
 The Phase 3 owner instruction authorizes an exact unmerged Decision Room feature candidate on staging for personal product review. Version: `0.1.0-dev.3`. The accepted rollback base is `26ff9be784ce2395413b19be441dd418b0e6ab77`. PR must remain draft and unmerged; no production deployment or tag. The general staging banner remains as approved.
+
+## Phase 3 product approval and banner closeout (2026-09-21)
+
+The owner approved Decision Room subject only to replacing the staging notice with “Current tools are staged for development and review. Not a production release.” The “Development staging” label stays unchanged. Earlier candidate records above describe their historical gates. The owner now authorizes regular protected merge of PR #5 after full feature and deployed candidate verification, followed by a clean accepted-main build, immutable staging deployment, full deployed verification and existing VPS backup/health checks. Production remains untouched.
+
+Keep `0.1.0-dev.3`: this staging-status copy correction completes the same reviewed development candidate and does not require a new application version or release tag. No product behavior or dependencies change.

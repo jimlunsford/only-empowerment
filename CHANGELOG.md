@@ -2,6 +2,8 @@
 
 ## 0.1.0-dev.3 (Decision Room candidate)
 
+- Apply the owner-approved generic staging notice: “Current tools are staged for development and review. Not a production release.”
+
 - Add two-to-four-option Decision Room with six distinct PERIOD lenses, practical tradeoffs and reversibility, visible uncertainty, legitimate pauses and an explicit user-owned choice.
 - Add editable, portable Decided Decision Records with copy fallback, multi-page print and explicit versioned local saving.
 - Extend Saved Work and deletion across both artifact types while preserving existing Execution Cards and the global 50-record limit.
