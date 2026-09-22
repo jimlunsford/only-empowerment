@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-dev.4 (Phase 4 candidate)
+
+- Build a Standard: user-owned line, reason, keeping/violating behaviors, structure, deliberate adaptation, non-negotiation and correction.
+- Artifact-shaped editable review and Personal Standard with Status: Set, exact copy/fallback, and print.
+- Explicit versioned local saving; three-type Saved Work; compatible shared 50-record limit and deletion/synchronization.
+- Source-governed lessons from live PERIOD and standards doctrine; new unit/browser acceptance coverage.
+- Correct current README/product availability without rewriting historical acceptance. No dependencies, automatic handoff, production release, or merge.
+
 ## 0.1.0-dev.3 (Decision Room candidate)
 
 - Apply the owner-approved generic staging notice: “Current tools are staged for development and review. Not a production release.”

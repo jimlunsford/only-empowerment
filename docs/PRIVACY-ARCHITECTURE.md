@@ -71,3 +71,7 @@ Staging and production are separate origins. There is no migration, import/expor
 ## Phase 3 Decision Room candidate
 
 Decision Room adds explicit `oe:decision-record:v1:` saving and a private two-field in-memory handoff into Next Move. The global 50-record bound remains shared across types. No Execution Card migration occurs. Deletion and tab synchronization now cover both tools. See DECISION-ROOM.md for exact schema, bounds and failure behavior.
+
+## Phase 4 Personal Standards
+
+Explicit `oe:personal-standard:v1:` saving extends the same model to a third artifact. Exact schema and bounds are in BUILD-A-STANDARD.md. No migration of Decision Records or Execution Cards. All three share the existing global 50-key limit. Delete-all clears all three sessions and all oe: keys, including unsupported schemas. Per-record deletion, stale-write checks, storage events, BroadcastChannel and visibility checks cover standards. No additional persistence, timestamps, tracking, network service or dependency. Existing simultaneous-write and browser-synchronization limitations remain.

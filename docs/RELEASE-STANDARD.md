@@ -56,3 +56,7 @@ The Phase 3 owner instruction authorizes an exact unmerged Decision Room feature
 The owner approved Decision Room subject only to replacing the staging notice with “Current tools are staged for development and review. Not a production release.” The “Development staging” label stays unchanged. Earlier candidate records above describe their historical gates. The owner now authorizes regular protected merge of PR #5 after full feature and deployed candidate verification, followed by a clean accepted-main build, immutable staging deployment, full deployed verification and existing VPS backup/health checks. Production remains untouched.
 
 Keep `0.1.0-dev.3`: this staging-status copy correction completes the same reviewed development candidate and does not require a new application version or release tag. No product behavior or dependencies change.
+
+## Phase 4 candidate staging exception
+
+The owner authorizes the clean unmerged `feature/build-a-standard-v1` candidate at `0.1.0-dev.4` on staging for product review. Accepted main `1a0909e9e3417c5eaf1f48cafc52da1be9a2d4ee` is the rollback release. Keep the PR draft and unmerged. Preserve the approved generic staging banner. Exact CI/local/HTTPS byte comparison, immutable release, atomic switch and existing VPS-wide backup/restore checks remain required. No production application, DNS, TLS, indexing, tag or release changes.

@@ -49,3 +49,7 @@ Screenshots and long-card PDF are emitted to test artifacts for actual visual re
 ## Phase 3 Decision Room candidate
 
 Phase 3 adds decision-room unit and browser suites to the existing test structure. Both local and deployed configs run the same four projects and complete Next Move regressions. Configured retries are zero. Synthetic cases cover authored input, options, all lenses, pause branches, records, storage, handoff, network markers, axe, widths, text enlargement, forced colors and print. Manual screen-reader and real-device keyboard claims require actual evidence; automation alone is not certification.
+
+## Phase 4 standards suite
+
+`tests/standard.test.mjs` adds schema/bounds/authorship/source-governance/storage and three-type compatibility tests. `tests/browser/standard.spec.ts` adds the seven-stage workflow, all-section review editing, behavior-list bounds and focus, exact copy/fallback, print, explicit saving, mixed work, failed storage, cross-tab deletion/stale writes, unique markers in every field, hostile text, keyboard-only use, responsive widths, text enlargement, forced colors and axe. Both browser configs discover the new suite without reducing existing coverage; retries remain zero. Semantic snapshots are inspectable accessibility evidence, not actual assistive-technology testing. See PHASE-4-ACCEPTANCE.md for executed results and limitations.

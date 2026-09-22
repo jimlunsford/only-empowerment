@@ -1,3 +1,4 @@
+import { newStandardSession, hasStandardWork } from './standard-model';
 import { useEffect, useState } from 'preact/hooks';
 import { PageIntro } from './components/shared';
 import { ConfirmDialog } from './components/work';
@@ -6,6 +7,12 @@ import { type ArtifactEntry } from './local-decisions';
 import { newDecisionSession, decisionFields } from './decision-room-model';
 import { newSession } from './next-move-model';
 import { broadcast, type LocalWork } from './use-local-work';
+const artifactName = (entry: ArtifactEntry) =>
+  entry.record.tool === 'next-move'
+    ? 'Execution Card'
+    : entry.record.tool === 'decision-room'
+      ? 'Decision Record'
+      : 'Personal Standard';
 export function LocalDataControls({ work }: { work: LocalWork }) {
   const [confirm, setConfirm] = useState(false);
   const [status, setStatus] = useState('');
@@ -86,6 +93,18 @@ export function SavedWork({ work }: { work: LocalWork }) {
       setStatus('This saved record could not be read. Browser storage is unavailable.');
       return;
     }
+    if (entry.record.tool === 'build-a-standard') {
+      work.setStandardSession({
+        ...newStandardSession(),
+        standard: structuredClone(entry.record.standard),
+        step: 'record',
+        savedKey: entry.key,
+        savedRaw: entry.raw,
+      });
+      setOpening(null);
+      location.hash = '/tools/build-a-standard';
+      return;
+    }
     if (entry.record.tool === 'decision-room') {
       work.setDecisionSession({
         ...newDecisionSession(),
@@ -120,7 +139,7 @@ export function SavedWork({ work }: { work: LocalWork }) {
       setStatus(
         entry.record.tool === 'next-move'
           ? 'Card deleted. Removal was verified.'
-          : 'Decision Record deleted. Removal was verified.',
+          : `${artifactName(entry)} deleted. Removal was verified.`,
       );
     } catch {
       work.refresh();
@@ -133,9 +152,9 @@ export function SavedWork({ work }: { work: LocalWork }) {
     <div class="narrow">
       <PageIntro label="Local work" title="Saved on this device">
         <p>
-          Execution Cards and Decision Records in this browser profile only. There is no account or
-          cloud recovery. Open a record to edit, copy, or print it. Up to 50 app records can be
-          saved here in total.
+          Execution Cards, Decision Records, and Personal Standards in this browser profile only.
+          There is no account or cloud recovery. Open a record to edit, copy, or print it. Up to 50
+          saved Only Empowerment records total.
         </p>
       </PageIntro>
       {work.storageError && (
@@ -153,12 +172,14 @@ export function SavedWork({ work }: { work: LocalWork }) {
         <section class="empty-state">
           <h2>No saved work.</h2>
           <p>
-            Work stays in memory unless you choose “Save on this device” on a confirmed card or
-            record.
+            Work stays in memory unless you choose “Save on this device” on a confirmed artifact.
           </p>
           <div class="actions">
             <a class="button" href="#/tools/decision-room">
               Open Decision Room
+            </a>
+            <a class="button" href="#/tools/build-a-standard">
+              Open Build a Standard
             </a>
             <a class="button" href="#/tools/next-move">
               Open Next Move
@@ -168,15 +189,19 @@ export function SavedWork({ work }: { work: LocalWork }) {
       ) : (
         <ul class="saved-list">
           {work.entries.map((entry, index) => {
-            const type = entry.record.tool === 'next-move' ? 'Execution Card' : 'Decision Record';
+            const type = artifactName(entry);
             const situation =
               entry.record.tool === 'next-move'
                 ? entry.record.card.situation
-                : entry.record.decision.decision;
+                : entry.record.tool === 'decision-room'
+                  ? entry.record.decision.decision
+                  : entry.record.standard.area;
             const action =
               entry.record.tool === 'next-move'
                 ? entry.record.card.action
-                : entry.record.decision.firstMove;
+                : entry.record.tool === 'decision-room'
+                  ? entry.record.decision.firstMove
+                  : entry.record.standard.standard;
             return (
               <li key={entry.key}>
                 <div>
@@ -196,17 +221,23 @@ export function SavedWork({ work }: { work: LocalWork }) {
                           ? Object.values(work.session.card).some(Boolean) ||
                             !!work.session.readiness ||
                             !!work.session.obstacleKind
-                          : decisionFields.some((f) => !!work.decisionSession.decision[f]) ||
-                            work.decisionSession.decision.options.some(
-                              (o) => !!o.label || !!o.tradeoff,
-                            ) ||
-                            !!work.decisionSession.readiness
+                          : entry.record.tool === 'build-a-standard'
+                            ? hasStandardWork(work.standardSession.standard)
+                            : decisionFields.some((f) => !!work.decisionSession.decision[f]) ||
+                              work.decisionSession.decision.options.some(
+                                (o) => !!o.label || !!o.tradeoff,
+                              ) ||
+                              !!work.decisionSession.readiness
                       )
                         setOpening(entry);
                       else open(entry);
                     }}
                   >
-                    {entry.record.tool === 'next-move' ? 'Open card' : 'Open record'}
+                    {entry.record.tool === 'next-move'
+                      ? 'Open card'
+                      : entry.record.tool === 'build-a-standard'
+                        ? 'Open standard'
+                        : 'Open record'}
                   </button>
                   <button
                     class="text-button"
@@ -228,9 +259,15 @@ export function SavedWork({ work }: { work: LocalWork }) {
           title={
             deleting.record.tool === 'next-move'
               ? 'Delete this Execution Card?'
-              : 'Delete this Decision Record?'
+              : `Delete this ${artifactName(deleting)}?`
           }
-          confirm={deleting.record.tool === 'next-move' ? 'Delete this card' : 'Delete this record'}
+          confirm={
+            deleting.record.tool === 'next-move'
+              ? 'Delete this card'
+              : deleting.record.tool === 'build-a-standard'
+                ? 'Delete this standard'
+                : 'Delete this record'
+          }
           onCancel={() => setDeleting(null)}
           onConfirm={() => remove(deleting)}
         >
@@ -243,14 +280,25 @@ export function SavedWork({ work }: { work: LocalWork }) {
       {opening && (
         <ConfirmDialog
           title="Replace current in-memory work?"
-          confirm={opening.record.tool === 'next-move' ? 'Open saved card' : 'Open saved record'}
+          confirm={
+            opening.record.tool === 'next-move'
+              ? 'Open saved card'
+              : opening.record.tool === 'build-a-standard'
+                ? 'Open saved standard'
+                : 'Open saved record'
+          }
           onCancel={() => setOpening(null)}
           onConfirm={() => open(opening)}
         >
           <p>
             Opening this record replaces the current{' '}
-            {opening.record.tool === 'next-move' ? 'Next Move' : 'Decision Room'} session. Copy or
-            save any work you want to keep first. Your other saved records will stay.
+            {opening.record.tool === 'next-move'
+              ? 'Next Move'
+              : opening.record.tool === 'build-a-standard'
+                ? 'Build a Standard'
+                : 'Decision Room'}{' '}
+            session. Copy or save any work you want to keep first. Your other saved records will
+            stay.
           </p>
         </ConfirmDialog>
       )}

@@ -40,3 +40,7 @@ Proven shared pieces: FieldInput with bounds/instructions/errors, ConfirmDialog 
 ## Phase 3 Decision Room candidate
 
 Decision Room follows definition, alternatives, direction, six lenses, practical reality, uncertainty, readiness, explicit choice, rationale/first move and editable confirmation. Its optional handoff into Next Move is now real: review/edit/exclude two fields in memory, protect existing work, then run the full receiving workflow. See DECISION-ROOM.md.
+
+## Phase 4 Build a Standard
+
+Seven stages group context, line, reason, paired behavior lists, structure, paired adaptation/non-negotiation, and correction. Artifact-shaped review offers inline section edits before “Set this standard.” Confirmation remains editable. The resulting Personal Standard stands alone; there is no unavailable continuation or automatic Next Move prefill. Typed tool state and small list interaction remain local to this implementation, with no generic form engine. Shared text controls, confirmation, storage notices, printing and Saved Work are reused.

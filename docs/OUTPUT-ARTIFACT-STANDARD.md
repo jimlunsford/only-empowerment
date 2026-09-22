@@ -39,3 +39,7 @@ Bounds are 2,000 UTF-16 code units per situation/action/obstacle/completion fiel
 ## Phase 3 Decision Room candidate
 
 Decision Records are implemented with explicit Decided status, all six distinct reflections, per-option tradeoffs/reversibility, uncertainty, user-selected option, rationale and first move. Confirmation remains editable. Field bounds, exact copy order and print behavior are in DECISION-ROOM.md.
+
+## Phase 4 Personal Standard
+
+Personal Standard uses nine authored sections and **Set** status, distinct from Decided and Planned. Exact field order, copy format, bounds, review editing and print behavior are in BUILD-A-STANDARD.md. Set records deliberate choice only. The artifact excludes lessons, form instructions, navigation and internal source-governance metadata. Keeping and violating behaviors are semantic lists, one to five items each.

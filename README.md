@@ -1,9 +1,8 @@
 # Only Empowerment
 
-**Phase 2 candidate: Next Move.** Turn a stalled direction into a clear, user-authored Execution Card. Six focused steps, a legitimate pause, editable review, copy/print, and optional saving in this browser. Card status is always Planned. No account, analytics, AI, or answer submission.
+**Phase 4 candidate: Build a Standard.** Define a user-owned behavioral line, what keeps or violates it, the structure that protects it, deliberate adaptation, and correction after a miss. Leave with a Personal Standard, Status: Set. No scores, recommendations, rewriting, account, analytics, AI, or answer submission.
 
-This feature candidate awaits product review. It is not accepted main or a production release. The other five tools remain outlines. [Candidate acceptance](docs/PHASE-2-ACCEPTANCE.md) records verification and remaining gates.
-
+Decision Room and Next Move are accepted. This third-tool candidate awaits product review and remains unmerged. Reset, Rebuild Map, and Do It Now remain outlines. [Phase 4 acceptance](docs/PHASE-4-ACCEPTANCE.md) records actual evidence and remaining gates.
 
 **Practical tools for clear thinking, personal standards, and deliberate action.**
 
@@ -13,7 +12,7 @@ Built by [Jim Lunsford](https://jimlunsford.com/).
 
 ## Status
 
-Phase 1 is closed. This `0.1.0-dev.2` feature branch implements Next Move for staging product review. It has not been merged or launched to production. See [Phase 2 acceptance](docs/PHASE-2-ACCEPTANCE.md) for actual verification and review status. The previous [Phase 1 record](docs/PHASE-1-STATUS.md) remains historical evidence.
+Development version `0.1.0-dev.4`. Accepted base: `1a0909e9e3417c5eaf1f48cafc52da1be9a2d4ee` (`0.1.0-dev.3`). The dedicated feature PR stays draft until owner approval. This is not a production release. Historical acceptance records remain intact.
 
 ## Product family
 
@@ -30,9 +29,9 @@ The teaching model is lesson → reflection → decision → action → result. 
 
 ## Privacy
 
-No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. Next Move keeps text in memory by default and never submits answers. Explicit saving stores only the Execution Card in the current browser profile. Copy/print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
+No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. All three tools keep text in memory by default and never submit answers. Explicit saving stores only the confirmed artifact in this browser profile. Up to 50 saved Only Empowerment records total. Copy and print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
 
-Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md). Local saving, per-card deletion, and Delete my local data are implemented in this candidate.
+Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md) and [Build a Standard](docs/BUILD-A-STANDARD.md). Saved Work supports all three artifact types, per-record deletion, and Delete my local data.
 
 ## Develop
 
