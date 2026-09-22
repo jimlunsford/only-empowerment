@@ -1,3 +1,4 @@
+import { parseReset, type ResetEntry } from './local-resets.ts';
 import { parseStandard, type StandardEntry } from './local-standards.ts';
 import { validDecision, type Decision } from './decision-room-model.ts';
 import {
@@ -17,7 +18,7 @@ export type SavedDecision = {
   decision: Decision;
 };
 export type DecisionEntry = { key: string; raw: string; record: SavedDecision };
-export type ArtifactEntry = SavedEntry | DecisionEntry | StandardEntry;
+export type ArtifactEntry = SavedEntry | DecisionEntry | StandardEntry | ResetEntry;
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
 export function parseDecision(raw: string | null, key: string): SavedDecision | null {
   if (!raw || raw.length > 200000) return null;
@@ -47,9 +48,10 @@ export function readArtifacts(storage: StorageLike): {
     rejected: string[] = [];
   for (const key of cards.rejected) {
     const raw = storage.getItem(key),
-      record = parseDecision(raw, key) || parseStandard(raw, key);
+      record = parseDecision(raw, key) || parseStandard(raw, key) || parseReset(raw, key);
     if (raw && record) {
       if (record.tool === 'decision-room') entries.push({ key, raw, record });
+      else if (record.tool === 'reset') entries.push({ key, raw, record });
       else entries.push({ key, raw, record });
     } else rejected.push(key);
   }

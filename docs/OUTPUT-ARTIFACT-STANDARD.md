@@ -43,3 +43,8 @@ Decision Records are implemented with explicit Decided status, all six distinct 
 ## Phase 4 Personal Standard
 
 Personal Standard uses nine authored sections and **Set** status, distinct from Decided and Planned. Exact field order, copy format, bounds, review editing and print behavior are in BUILD-A-STANDARD.md. Set records deliberate choice only. The artifact excludes lessons, form instructions, navigation and internal source-governance metadata. Keeping and violating behaviors are semantic lists, one to five items each.
+
+
+## Phase 5 Reset Plan
+
+Exact authored order: What slipped; Standard I am returning to; What I own now; Weak point to repair; Immediate correction; Structure I will restore or change; Proof I will create next. Status: **Planned**. This means a correction and return plan exists, not that correction or proof happened. All seven paragraphs allow 2,000 UTF-16 code units. Exact copy, review, snapshot and print behavior are specified in RESET.md. Decision Record remains Decided, Execution Card remains Planned, Personal Standard remains Set. No existing schema changes.

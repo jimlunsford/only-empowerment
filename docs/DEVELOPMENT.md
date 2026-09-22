@@ -46,3 +46,8 @@ Use exact dependency versions and review lockfile changes. One runtime dependenc
 The development version is `0.1.0-dev.2`. No dependency was added. Node's built-in TypeScript stripping executes pure model/storage tests; imports for those modules include `.ts` and TypeScript explicitly permits those extensions in this no-emit build.
 
 Normal PR verification has no staging dependency. Optional staging execution runs the same workflow tests against the fixed staging origin, plus host policy checks. Set `OE_STAGING_COMMIT` from independently accepted candidate evidence, never from the live host. The manual CI staging step pins it to the dispatched source commit.
+
+
+## Phase 5 Reset implementation
+
+`Reset.tsx` owns workflow, read-only explicit Personal Standard selection and artifact review. `reset-model.ts` defines the seven-field plan, validation and exact-standard validity invariant. `reset-lessons.ts` records current governed lessons. `local-resets.ts` extends explicit storage without migrating old schemas. App-lifetime Reset state and cross-tab checks stay in `use-local-work.ts`. The proven grapheme-safe text renderer is shared through `components/artifact-text.tsx` without changing Personal Standard rendering. Version `0.1.0-dev.5`; no dependency additions.

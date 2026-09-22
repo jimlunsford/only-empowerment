@@ -53,3 +53,8 @@ Phase 3 adds decision-room unit and browser suites to the existing test structur
 ## Phase 4 standards suite
 
 `tests/standard.test.mjs` adds schema/bounds/authorship/source-governance/storage and three-type compatibility tests. `tests/browser/standard.spec.ts` adds the seven-stage workflow, all-section review editing, behavior-list bounds and focus, exact copy/fallback, print, explicit saving, mixed work, failed storage, cross-tab deletion/stale writes, unique markers in every field, hostile text, keyboard-only use, responsive widths, text enlargement, forced colors and axe. Both browser configs discover the new suite without reducing existing coverage; retries remain zero. Semantic snapshots are inspectable accessibility evidence, not actual assistive-technology testing. See PHASE-4-ACCEPTANCE.md for executed results and limitations.
+
+
+## Phase 5 Reset verification
+
+`tests/reset.test.mjs` checks all seven bounds, exact schema/copy, validity rechecks, source snapshot independence, four-type old-byte compatibility, global limit, corrupt/unsupported records, stale writes and failure/readback/deletion behavior. `tests/browser/reset.spec.ts` exercises manual and saved standards, explicit selection, all three pause reasons, internal navigation memory, edits, standard revalidation, copy/fallback/print, four-artifact Saved Work, privacy markers, storage failures, multi-tab/visibility behavior, keyboard focus, axe, widths 320/360/390/1024/1440, enlarged text, forced colors and reduced motion. All accepted tests remain. Staging config runs the same full suite plus host checks with zero configured retries. Executed counts and actual assistive-technology limitations are recorded in PHASE-5-ACCEPTANCE.md, never inferred from test definitions.

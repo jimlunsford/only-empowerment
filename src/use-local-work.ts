@@ -1,3 +1,4 @@
+import { newResetSession, type ResetSession } from './reset-model';
 import { newStandardSession, type StandardSession } from './standard-model';
 import { useEffect, useState } from 'preact/hooks';
 import { browserStorage, PREFIX } from './local-cards';
@@ -17,6 +18,7 @@ export function broadcast(event: LocalEvent) {
   }
 }
 export function useLocalWork() {
+  const [resetSession, setResetSession] = useState<ResetSession>(newResetSession);
   const [standardSession, setStandardSession] = useState<StandardSession>(newStandardSession);
   const [session, setSession] = useState<Session>(newSession);
   const [decisionSession, setDecisionSession] = useState<DecisionSession>(newDecisionSession);
@@ -45,8 +47,10 @@ export function useLocalWork() {
       setSession(newSession());
       setDecisionSession(newDecisionSession());
       setStandardSession(newStandardSession());
+      setResetSession(newResetSession());
       setNotice('Local data and current work in all tools were cleared.');
     } else if (event.type === 'delete-one') {
+      setResetSession((old) => (old.savedKey === event.key ? newResetSession() : old));
       setStandardSession((old) => (old.savedKey === event.key ? newStandardSession() : old));
       setSession((old) => (old.savedKey === event.key ? newSession() : old));
       setDecisionSession((old) => (old.savedKey === event.key ? newDecisionSession() : old));
@@ -64,6 +68,11 @@ export function useLocalWork() {
       if (!event.key.startsWith(PREFIX)) return;
       if (event.newValue === null) clearEvent({ type: 'delete-one', key: event.key });
       else {
+        setResetSession((old) =>
+          old.savedKey === event.key && old.savedRaw !== event.newValue
+            ? { ...old, savedRaw: null }
+            : old,
+        );
         setStandardSession((old) =>
           old.savedKey === event.key && old.savedRaw !== event.newValue
             ? { ...old, savedRaw: null }
@@ -102,6 +111,17 @@ export function useLocalWork() {
     const visible = () => {
       if (document.visibilityState === 'visible') {
         refresh();
+        setResetSession((old) => {
+          if (!old.savedKey) return old;
+          try {
+            const current = browserStorage().getItem(old.savedKey);
+            if (current === null) return newResetSession();
+            if (current !== old.savedRaw) return { ...old, savedRaw: null };
+          } catch {
+            return { ...old, savedRaw: null };
+          }
+          return old;
+        });
         setStandardSession((old) => {
           if (!old.savedKey) return old;
           try {
@@ -146,6 +166,8 @@ export function useLocalWork() {
     };
   }, []);
   return {
+    resetSession,
+    setResetSession,
     standardSession,
     setStandardSession,
     clearEpoch,
