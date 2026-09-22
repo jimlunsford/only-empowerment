@@ -132,6 +132,9 @@ async function save(page: Page) {
 }
 async function saved(page: Page) {
   await page.getByRole('link', { name: 'Saved work', exact: true }).click();
+  await expect(
+    page.getByRole('heading', { name: 'Saved on this device', exact: true }),
+  ).toBeVisible();
 }
 async function openPlan(page: Page) {
   await page.getByRole('button', { name: /Open Reset Plan/ }).click();
@@ -452,6 +455,8 @@ test('all authored markers and saved-standard selection remain off network links
   expect(JSON.parse(entries[0][1]).plan).toEqual(data);
   await seed(page);
   await saved(page);
+  await expect(page.locator('.saved-list > li')).toHaveCount(4);
+  await expect(page.getByRole('button', { name: /Open Personal Standard/ })).toBeVisible();
   await page.goBack();
   await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
   await page
