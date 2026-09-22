@@ -1542,3 +1542,56 @@ select:focus-visible {
 .option-panel > legend + * {
   clear: both;
 }
+
+/* A standard is a portable line with supporting behavior, not an assessment. */
+.standard-list-editor + .standard-list-editor {
+  margin-top: 2.5rem;
+}
+.standard-list-item {
+  margin-block: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.standard-list-item .work-field {
+  margin-bottom: 0.25rem;
+}
+.standard-list-editor legend {
+  font-size: 1.2rem;
+  font-weight: 650;
+}
+.standard-behaviors {
+  padding-left: 1.4rem;
+}
+.standard-behaviors li + li {
+  margin-top: 0.65rem;
+}
+.standard-standard > .answer {
+  font-size: 1.35rem;
+  line-height: 1.6;
+}
+.standard-review-edit {
+  margin-top: 0.6rem;
+}
+.standard-review-edit .work-field,
+.standard-review-edit fieldset {
+  margin-top: 1.2rem;
+}
+.build-standard > .actions {
+  margin-top: 1.5rem;
+}
+@media (max-width: 420px) {
+  .standard-list-item {
+    padding: 0.75rem;
+  }
+}
+@media print {
+  .personal-standard .standard-behaviors li {
+    break-inside: auto;
+    orphans: 3;
+    widows: 3;
+  }
+  .personal-standard .standard-standard > .answer {
+    font-size: 13pt;
+  }
+}

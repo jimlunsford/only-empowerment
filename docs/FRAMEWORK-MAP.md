@@ -61,3 +61,7 @@ Interpretation: the article's execution role is adapted within the accepted prod
 ## Phase 3 Decision Room candidate
 
 Decision Room materializes all six existing PERIOD decision lenses. Live PERIOD Code and Core Frameworks were re-reviewed on 2026-09-21. The governed registry is `src/decision-room-lessons.ts`; details and misuse boundaries are in DECISION-ROOM.md. No scoring or recommendation role is introduced.
+
+## Phase 4 standards adaptation, 2026-09-22
+
+Live PERIOD, Core Frameworks, Rebuild Yourself and discovered standards articles were reviewed. See BUILD-A-STANDARD.md for source URLs and interpretation. `src/standard-lessons.ts` records governed adaptations. PERIOD informs ownership, reason, behavior, protection, adaptation and correction without adding six reflection fields. Setting the standard creates no behavioral proof.

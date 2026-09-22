@@ -44,3 +44,7 @@ Next Move is the only tool implemented in this candidate: six-step clarification
 ## Phase 3 Decision Room candidate
 
 Next Move is accepted on main. Phase 3 implements Decision Room as the second complete candidate and its finite handoff into Next Move. Reset, Build a Standard, Rebuild Map and Do It Now remain outlines. Candidate implementation does not mean product acceptance.
+
+## Current Phase 4 scope
+
+Build a Standard is the third candidate following accepted Decision Room and Next Move. Personal Standard, seven-stage teaching workflow, editable artifact review, copy/print, explicit local save and three-type Saved Work are in scope. Reset, Rebuild Map and Do It Now remain unbuilt. No generic import/handoff system, standard adherence tracking, account, scoring or recommendations. Candidate completion is not owner acceptance.

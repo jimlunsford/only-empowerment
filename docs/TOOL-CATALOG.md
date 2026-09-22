@@ -33,3 +33,7 @@ Next Move is now the sole reference implementation on the feature candidate. Its
 ## Phase 3 Decision Room candidate
 
 Next Move is accepted reference functionality. Decision Room is implemented on the Phase 3 candidate, producing Decision Records and optionally handing reviewed in-memory fields into Next Move. The remaining four tools are not implemented.
+
+## Current Phase 4 candidate
+
+Decision Room and Next Move are accepted. Build a Standard is the third candidate, producing Personal Standards with Status: Set. It supports deliberate adaptation and correction, with no Reset analysis or Do It Now handoff. Its standalone artifact is the outcome. Reset, Rebuild Map and Do It Now remain outlines. Earlier phase sections above are historical.
