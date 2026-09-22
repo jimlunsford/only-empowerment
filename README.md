@@ -1,8 +1,8 @@
 # Only Empowerment
 
-**Phase 4 candidate: Build a Standard.** Define a user-owned behavioral line, what keeps or violates it, the structure that protects it, deliberate adaptation, and correction after a miss. Leave with a Personal Standard, Status: Set. No scores, recommendations, rewriting, account, analytics, AI, or answer submission.
+**Phase 5 candidate: Reset.** Name behavior that missed a standard, own your part, repair its supporting structure, and define the next observable proof. Leave with a standalone Reset Plan, Status: Planned.
 
-Decision Room and Next Move are accepted. This third-tool candidate awaits product review and remains unmerged. Reset, Rebuild Map, and Do It Now remain outlines. [Phase 4 acceptance](docs/PHASE-4-ACCEPTANCE.md) records actual evidence and remaining gates.
+Decision Room, Next Move, and Build a Standard are accepted at `77d921d8bd2aecab94f9581c36262bf48a54d608`. Reset is an unmerged review candidate. Rebuild Map and Do It Now remain outlines. [Phase 5 acceptance](docs/PHASE-5-ACCEPTANCE.md) records executed evidence and remaining gates.
 
 **Practical tools for clear thinking, personal standards, and deliberate action.**
 
@@ -12,7 +12,7 @@ Built by [Jim Lunsford](https://jimlunsford.com/).
 
 ## Status
 
-Development version `0.1.0-dev.4`. Accepted base: `1a0909e9e3417c5eaf1f48cafc52da1be9a2d4ee` (`0.1.0-dev.3`). The dedicated feature PR stays draft until owner approval. This is not a production release. Historical acceptance records remain intact.
+Development version `0.1.0-dev.5`. Accepted base: `77d921d8bd2aecab94f9581c36262bf48a54d608` (`0.1.0-dev.4`). [Draft PR #7](https://github.com/jimlunsford/only-empowerment/pull/7) remains unmerged until explicit product approval. No production release. Historical acceptance records remain intact.
 
 ## Product family
 
@@ -29,9 +29,9 @@ The teaching model is lesson → reflection → decision → action → result. 
 
 ## Privacy
 
-No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. All three tools keep text in memory by default and never submit answers. Explicit saving stores only the confirmed artifact in this browser profile. Up to 50 saved Only Empowerment records total. Copy and print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
+No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. All four tools keep text in memory by default and never submit answers. Explicit saving stores only the confirmed artifact in this browser profile. Up to 50 saved Only Empowerment records total. Copy and print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
 
-Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md) and [Build a Standard](docs/BUILD-A-STANDARD.md). Saved Work supports all three artifact types, per-record deletion, and Delete my local data.
+Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md) and [Build a Standard](docs/BUILD-A-STANDARD.md), and [Reset](docs/RESET.md). Saved Work supports all four artifact types, per-record deletion, and Delete my local data.
 
 ## Develop
 

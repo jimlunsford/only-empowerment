@@ -65,3 +65,8 @@ Decision Room materializes all six existing PERIOD decision lenses. Live PERIOD 
 ## Phase 4 standards adaptation, 2026-09-22
 
 Live PERIOD, Core Frameworks, Rebuild Yourself and discovered standards articles were reviewed. See BUILD-A-STANDARD.md for source URLs and interpretation. `src/standard-lessons.ts` records governed adaptations. PERIOD informs ownership, reason, behavior, protection, adaptation and correction without adding six reflection fields. Setting the standard creates no behavioral proof.
+
+
+## Phase 5 Reset adaptation, 2026-09-22
+
+Reset starts after behavior missed a standard. PERIOD informs ownership without universal blame, the reason to return, integrity without character judgment, structure with support, behavior over intention, and leaving capable of acting. Rebuild doctrine links standard, structure, action and proof. The Discipline Loop supplies the return from pressure to a new choice, action and future proof, without scores or identity certification. Live canonical Discipline Loop was located through the site's framework navigation. Governed lessons are in `src/reset-lessons.ts`; live source review and limits are in RESET.md.

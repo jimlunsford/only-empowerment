@@ -75,3 +75,8 @@ Decision Room adds explicit `oe:decision-record:v1:` saving and a private two-fi
 ## Phase 4 Personal Standards
 
 Explicit `oe:personal-standard:v1:` saving extends the same model to a third artifact. Exact schema and bounds are in BUILD-A-STANDARD.md. No migration of Decision Records or Execution Cards. All three share the existing global 50-key limit. Delete-all clears all three sessions and all oe: keys, including unsupported schemas. Per-record deletion, stale-write checks, storage events, BroadcastChannel and visibility checks cover standards. No additional persistence, timestamps, tracking, network service or dependency. Existing simultaneous-write and browser-synchronization limitations remain.
+
+
+## Phase 5 Reset Plan
+
+Reset extends explicit saving to `oe:reset-plan:v1:<UUID-v4>`. Exact shape: `{schemaVersion:1,id,tool:"reset",status:"Planned",plan:{slip,standard,ownership,weakPoint,correction,structure,proof}}`. The standard is a statement snapshot. Saved-standard selection, reference content, source key, validity choices and review navigation remain memory-only. No draft history, miss counts, dates or timestamps, scores, diagnoses, analytics or network handoff. Read-only source selection never modifies a Personal Standard. All four artifacts share the 50-record limit, unsupported keys included. Existing scoped deletion, verified writes, stale-byte rejection, BroadcastChannel, storage events and visibility rechecks apply. The documented simultaneous-write and browser limitations remain unchanged. No migrations or dependency additions.

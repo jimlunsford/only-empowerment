@@ -60,3 +60,8 @@ Keep `0.1.0-dev.3`: this staging-status copy correction completes the same revie
 ## Phase 4 candidate staging exception
 
 The owner authorizes the clean unmerged `feature/build-a-standard-v1` candidate at `0.1.0-dev.4` on staging for product review. Accepted main `1a0909e9e3417c5eaf1f48cafc52da1be9a2d4ee` is the rollback release. Keep the PR draft and unmerged. Preserve the approved generic staging banner. Exact CI/local/HTTPS byte comparison, immutable release, atomic switch and existing VPS-wide backup/restore checks remain required. No production application, DNS, TLS, indexing, tag or release changes.
+
+
+## Phase 5 Reset candidate staging exception
+
+Accepted source and rollback are `77d921d8bd2aecab94f9581c36262bf48a54d608` (`0.1.0-dev.4`). The owner authorizes exact clean `feature/reset-v1` candidate deployment at `0.1.0-dev.5` for product review. PR #7 must remain draft and unmerged. Preserve the approved staging banner, restrictive CSP, noindex, immutable release, independent CI/local/HTTPS file comparison, existing backup/restore process and neighbor/firewall checks. No production, DNS, TLS issuance, tag or release. A sudo authentication requirement does not authorize privilege changes; prepare the verified payload and pinned helper before requesting the owner-run command.

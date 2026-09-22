@@ -48,3 +48,8 @@ Next Move is accepted on main. Phase 3 implements Decision Room as the second co
 ## Current Phase 4 scope
 
 Build a Standard is the third candidate following accepted Decision Room and Next Move. Personal Standard, seven-stage teaching workflow, editable artifact review, copy/print, explicit local save and three-type Saved Work are in scope. Reset, Rebuild Map and Do It Now remain unbuilt. No generic import/handoff system, standard adherence tracking, account, scoring or recommendations. Candidate completion is not owner acceptance.
+
+
+## Current Phase 5 scope
+
+Reset is the only new tool in this phase. It includes seven authored answers, manual or explicitly selected saved standard, validity check and legitimate pauses, editable Planned Reset Plan, copy/print, explicit local artifact save and four-type Saved Work. No diagnosis, scoring, AI, streaks, miss history, punishment prescription, incident therapy, automatic handoff, production release, Rebuild Map or Do It Now implementation. The three accepted tools retain their contracts. Candidate implementation does not imply product approval.

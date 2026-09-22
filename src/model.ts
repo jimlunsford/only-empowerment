@@ -62,7 +62,7 @@ export const tools: Tool[] = [
     situation: 'Something slipped.',
     description: 'Name the miss, repair the structure, and return to your standard.',
     output: 'Reset Plan',
-    frameworks: ['rebuild', 'loop'],
+    frameworks: ['period', 'rebuild', 'loop'],
     handoff: 'build-a-standard',
     questions: [
       'What slipped, and what did it affect?',

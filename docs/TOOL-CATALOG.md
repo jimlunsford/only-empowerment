@@ -37,3 +37,8 @@ Next Move is accepted reference functionality. Decision Room is implemented on t
 ## Current Phase 4 candidate
 
 Decision Room and Next Move are accepted. Build a Standard is the third candidate, producing Personal Standards with Status: Set. It supports deliberate adaptation and correction, with no Reset analysis or Do It Now handoff. Its standalone artifact is the outcome. Reset, Rebuild Map and Do It Now remain outlines. Earlier phase sections above are historical.
+
+
+## Current Phase 5 scope
+
+Decision Room, Next Move and Build a Standard are accepted. Reset is the fourth implemented candidate. It handles an actual miss against a standard the user confirms still stands, producing a Planned Reset Plan. Build a Standard defines or deliberately reviews the line. Reset reads explicitly selected local Personal Standards without modifying them, snapshots only the statement into its artifact, and offers a plain internal link when the line is unclear or needs review. There is no generic handoff engine, automatic Next Move continuation, or Do It Now destination. Rebuild Map and Do It Now remain outlines.

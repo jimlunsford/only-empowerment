@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.0-dev.5 (Reset candidate, unmerged)
+
+- Add seven-stage Reset and standalone Planned Reset Plan with editable artifact review, copy, print and explicit local saving.
+- Allow explicit read-only saved Personal Standard selection or manual standard entry; pause to Build a Standard when the line is unclear or needs review.
+- Require renewed standard-validity confirmation after any standard snapshot edit. Source standards remain untouched and plans survive their removal.
+- Extend Saved Work, global record limit, scoped deletion and cross-tab stale-write protection to four artifact types without migrations or dependency additions.
+- Add Reset model, browser, privacy, security, accessibility and regression checks. Staging review and owner approval remain gates.
+
+
 ## 0.1.0-dev.4 (Phase 4 candidate)
 
 - Build a Standard: user-owned line, reason, keeping/violating behaviors, structure, deliberate adaptation, non-negotiation and correction.

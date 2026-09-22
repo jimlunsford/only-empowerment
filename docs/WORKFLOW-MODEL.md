@@ -44,3 +44,8 @@ Decision Room follows definition, alternatives, direction, six lenses, practical
 ## Phase 4 Build a Standard
 
 Seven stages group context, line, reason, paired behavior lists, structure, paired adaptation/non-negotiation, and correction. Artifact-shaped review offers inline section edits before “Set this standard.” Confirmation remains editable. The resulting Personal Standard stands alone; there is no unavailable continuation or automatic Next Move prefill. Typed tool state and small list interaction remain local to this implementation, with no generic form engine. Shared text controls, confirmation, storage notices, printing and Saved Work are reused.
+
+
+## Phase 5 Reset
+
+Seven stages: miss; standard source plus still-stands check; ownership; repairable weak point; immediate correction; supporting structure; next proof. Standard selection and validity share one stage to avoid a long incident review. Only an explicitly still-valid line continues. An unclear, review-needed or uncertain line pauses to Build a Standard without an artifact. Internal route navigation keeps Reset in app memory; reload/close can lose unsaved work. Artifact-shaped review exposes all seven fields. Every edit to the standard statement, including whitespace, invalidates its prior confirmation and returns to the standard check. Confirmation is “Confirm Reset Plan”; it only sets Planned. No cross-tool engine or private URL payload is introduced.
