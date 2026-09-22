@@ -406,11 +406,11 @@ export function Reset({ work }: { work: LocalWork }) {
                       </button>
                     )}
                     {session.reference && (
-                      <section
+                      <details
                         class="reset-reference"
                         aria-label="Selected Personal Standard reference"
                       >
-                        <h2>Selected standard reference</h2>
+                        <summary>View selected standard reference</summary>
                         <p class="small">
                           Read-only snapshot. Reset will not change this Personal Standard. Only its
                           standard statement goes into your separate Reset Plan.
@@ -442,7 +442,7 @@ export function Reset({ work }: { work: LocalWork }) {
                             )}
                           </div>
                         ))}
-                      </section>
+                      </details>
                     )}
                   </div>
                 )}

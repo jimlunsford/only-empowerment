@@ -281,6 +281,7 @@ test('saved standards require explicit selection, show read-only reference and n
   await page.locator('#saved-standard').selectOption(sourceKey);
   await expect(page.locator('#reset-standard')).toHaveValue(sourceStandard.standard as string);
   await expect(page.locator('.reset-reference input,.reset-reference textarea')).toHaveCount(0);
+  await page.getByText('View selected standard reference', { exact: true }).click();
   await expect(page.locator('.reset-reference')).toContainText('Read-only snapshot');
   await axe(page);
   await capture(page, info, 'saved-standard');
@@ -301,7 +302,9 @@ test('saved standards require explicit selection, show read-only reference and n
   expect(await page.evaluate(() => Object.entries(localStorage))).toEqual(before);
   await save(page);
   const records = await page.evaluate(() => Object.entries(localStorage));
-  expect(records.slice(0, before.length)).toEqual(before);
+  expect(Object.fromEntries(records.filter(([k]) => !k.startsWith('oe:reset-plan')))).toEqual(
+    Object.fromEntries(before),
+  );
   const reset = JSON.parse(records.find(([k]) => k.startsWith('oe:reset-plan'))![1]);
   expect(reset.plan.standard).toBe('Reviewed snapshot line');
   expect(Object.keys(reset)).toEqual(['schemaVersion', 'id', 'tool', 'status', 'plan']);
@@ -448,6 +451,8 @@ test('all authored markers and saved-standard selection remain off network links
   expect(entries[0][0]).toMatch(/^oe:reset-plan:v1:/);
   expect(JSON.parse(entries[0][1]).plan).toEqual(data);
   await seed(page);
+  await saved(page);
+  await page.goBack();
   await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
   await page
     .getByRole('dialog')
@@ -606,7 +611,38 @@ test('Reset stages selector pause review artifact and saved work reflow at five 
   test.setTimeout(120000);
   await page.goto('/');
   await seed(page);
-  await begin(page);
+  await page.evaluate(
+    ({ key }) => {
+      const r = JSON.parse(localStorage.getItem(key)!);
+      r.standard = {
+        area: 'Communication under pressure',
+        standard: 'When I need time before answering, I say so and agree when I will return.',
+        reason: 'People can plan around an honest answer.',
+        keeping: ['Name the pause and agree a return time.'],
+        violations: ['Leave the conversation without an agreement.'],
+        structure: 'Put the return time in my calendar.',
+        adaptation: 'Review the arrangement when responsibilities change.',
+        nonNegotiation: 'Discomfort alone does not change the agreement.',
+        correction: 'Acknowledge the missed agreement and arrange the next conversation.',
+      };
+      localStorage.setItem(key, JSON.stringify(r));
+    },
+    { key: sourceKey },
+  );
+  const example = {
+    ownership: 'I stepped away without agreeing when I would return.',
+    weakPoint: 'I had no prepared way to ask for a pause when the conversation became difficult.',
+    correction:
+      'Contact the person today, acknowledge the missed agreement, and arrange the next conversation.',
+    structure: 'Prepare a clear pause request and put any agreed return time in my calendar.',
+    proof:
+      'At the next conversation this afternoon, state the pause and agree a return time before stepping away.',
+  };
+  await page.goto('/#/tools/reset');
+  await page
+    .locator('#reset-slip')
+    .fill('I left a difficult conversation without saying when I would return.');
+  await next(page);
   await page.locator('#source-saved').check();
   await page.locator('#saved-standard').selectOption(sourceKey);
   async function sizes(name: string) {
@@ -620,6 +656,9 @@ test('Reset stages selector pause review artifact and saved work reflow at five 
     await axe(page);
   }
   await sizes('selector');
+  await page.getByText('View selected standard reference', { exact: true }).click();
+  await sizes('reference');
+  await page.getByText('View selected standard reference', { exact: true }).click();
   await page.locator('#standing-review').check();
   await next(page);
   await sizes('pause');
@@ -627,7 +666,7 @@ test('Reset stages selector pause review artifact and saved work reflow at five 
   await page.locator('#standing-stands').check();
   await next(page);
   for (const f of ['ownership', 'weakPoint', 'correction', 'structure', 'proof'] as const) {
-    await page.locator('#reset-' + f).fill(data[f]);
+    await page.locator('#reset-' + f).fill(example[f]);
     await sizes(f);
     await page
       .getByRole('button', { name: f === 'proof' ? 'Review my Reset Plan' : 'Next', exact: true })
@@ -678,4 +717,46 @@ test('long Unicode text, 200 percent text, 400 percent equivalent reflow, forced
       format: 'A4',
       printBackground: false,
     });
+});
+
+test('deliberately reviewed saved standard is reloaded explicitly without losing Reset work', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await seed(page);
+  await begin(page);
+  await page.locator('#source-saved').check();
+  await page.locator('#saved-standard').selectOption(sourceKey);
+  await page.locator('#standing-review').check();
+  await next(page);
+  await page.getByRole('link', { name: 'Open Build a Standard', exact: true }).click();
+  await saved(page);
+  await page.getByRole('button', { name: /Open Personal Standard/ }).click();
+  await page.getByRole('button', { name: 'Edit standard', exact: true }).click();
+  await page.getByRole('button', { name: 'Edit my standard', exact: true }).click();
+  await page.locator('#ps-standard').fill('A deliberately reviewed behavioral line.');
+  await page.getByRole('button', { name: 'Set this standard', exact: true }).click();
+  await page.getByRole('button', { name: 'Save changes on this device', exact: true }).click();
+  await page.getByRole('button', { name: 'Save these changes', exact: true }).click();
+  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.locator('.tool-card[href="#/tools/reset"]').click();
+  await expect(page.locator('.pause-panel')).toBeVisible();
+  await page.getByRole('button', { name: 'Return to the standard check', exact: true }).click();
+  await expect(page.locator('#reset-standard')).toHaveValue(sourceStandard.standard as string);
+  await page.getByRole('button', { name: 'Reload selected standard', exact: true }).click();
+  await expect(page.locator('#reset-standard')).toHaveValue(
+    'A deliberately reviewed behavioral line.',
+  );
+  await expect(page.locator('#standing-stands')).not.toBeChecked();
+  await page.locator('#standing-stands').check();
+  await next(page);
+  await rest(page);
+  await expect(page.locator('.reset-slip .answer')).toHaveJSProperty('textContent', data.slip);
+  await page.getByRole('button', { name: 'Confirm Reset Plan', exact: true }).click();
+  expect(
+    await page.evaluate(
+      (key) => JSON.parse(localStorage.getItem(key)!).standard.standard,
+      sourceKey,
+    ),
+  ).toBe('A deliberately reviewed behavioral line.');
 });
