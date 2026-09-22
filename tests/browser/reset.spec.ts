@@ -198,6 +198,53 @@ test('Reset full manual workflow, exact authorship, all editable sections, stand
   await axe(page);
   await capture(page, info, 'record');
 });
+test('correction and proof may be identical, stay separately authored, and the approved Proof lesson reflows', async ({
+  page,
+}, info) => {
+  const action = 'Complete the missed responsibility today after lunch.';
+  await begin(page);
+  await manual(page);
+  for (const f of ['ownership', 'weakPoint', 'correction', 'structure'] as const) {
+    await page.locator('#reset-' + f).fill(f === 'correction' ? action : data[f]);
+    await next(page);
+  }
+  await expect(page.locator('#reset-proof')).toHaveValue('');
+  const lesson = page.getByText(
+    'Choose one observable action substantially within your control, small enough to carry out and meaningful enough to demonstrate the standard is active again. Your immediate correction may also be your next proof when the same action does both. Create proof today when the behavior is available today. Otherwise name the next real opportunity clearly enough that you cannot quietly move it. “Someday” leaves the return undefined.',
+    { exact: true },
+  );
+  await expect(lesson).toBeVisible();
+  await expect(
+    page.getByLabel('What proof will you create next, and at what next real opportunity?', {
+      exact: true,
+    }),
+  ).toBeVisible();
+  for (const width of [1440, 390, 360, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await capture(page, info, 'approved-proof-' + width);
+  }
+  await page.evaluate(() => (document.documentElement.style.fontSize = '200%'));
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await expect(lesson).toBeVisible();
+  await capture(page, info, 'approved-proof-200-percent');
+  await axe(page);
+  await page.evaluate(() => (document.documentElement.style.fontSize = ''));
+  await page.locator('#reset-proof').fill(action);
+  await page.getByRole('button', { name: 'Review my Reset Plan', exact: true }).click();
+  await expect(page.getByRole('alert')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Confirm Reset Plan', exact: true }).click();
+  await expect(page.getByRole('alert')).toHaveCount(0);
+  await expect(page.locator('.reset-plan')).toContainText('Status: Planned');
+  for (const field of ['correction', 'proof'])
+    await expect(page.locator('.reset-' + field + ' .answer')).toHaveJSProperty(
+      'textContent',
+      action,
+    );
+  expect(await page.evaluate(() => localStorage.length)).toBe(0);
+});
 test('miss bounds, empty required answers, back navigation and internal memory with reload loss', async ({
   page,
 }) => {

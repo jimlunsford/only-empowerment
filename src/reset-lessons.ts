@@ -55,7 +55,7 @@ export const resetLessons = {
   proof: {
     heading: 'Define the next proof.',
     title: 'Behavior makes the return visible.',
-    text: 'Choose one observable action substantially within your control, small enough to carry out and meaningful enough to demonstrate the standard is active again. Create proof today when the behavior is available today. Otherwise name the next real opportunity clearly enough that you cannot quietly move it. “Someday” leaves the return undefined.',
+    text: 'Choose one observable action substantially within your control, small enough to carry out and meaningful enough to demonstrate the standard is active again. Your immediate correction may also be your next proof when the same action does both. Create proof today when the behavior is available today. Otherwise name the next real opportunity clearly enough that you cannot quietly move it. “Someday” leaves the return undefined.',
     question: 'What proof will you create next, and at what next real opportunity?',
     sources: [loop, 'https://jimlunsford.com/discipline-dispatch-return-faster/'],
   },
