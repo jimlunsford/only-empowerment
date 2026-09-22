@@ -24,6 +24,20 @@ import { browserStorage, CardStorageError } from './local-cards';
 import { saveStandard } from './local-standards';
 import { broadcast, type LocalWork } from './use-local-work';
 
+// Native word wrapping can overrun a final line of a very long token in WebKit.
+// Scope stronger breaking to those runs, retaining every authored character.
+function renderStandardText(value: string) {
+  return value.split(/(\S{64,})/u).map((part, i) =>
+    i % 2 ? (
+      <span class="unbroken-token" key={i}>
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  );
+}
+
 export function PersonalStandard({
   standard: s,
   review = false,
@@ -49,12 +63,12 @@ export function PersonalStandard({
             <ul class="standard-behaviors">
               {(s[f] as string[]).map((v, i) => (
                 <li key={i} class="answer">
-                  {v}
+                  {renderStandardText(v)}
                 </li>
               ))}
             </ul>
           ) : (
-            <p class="answer">{s[f]}</p>
+            <p class="answer">{renderStandardText(s[f] as string)}</p>
           )}
           {editor?.(f)}
         </section>
