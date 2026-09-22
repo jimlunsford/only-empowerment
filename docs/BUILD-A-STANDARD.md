@@ -48,7 +48,7 @@ Plain text starts with `ONLY EMPOWERMENT` and `Personal Standard`, uses the exac
 
 ## Bounds and preservation
 
-Seven text fields: 2,000 UTF-16 code units each. Each behavior list: one to five items, 1,000 code units per item. These follow existing 2,000-character artifact paragraphs while keeping behavior items concise. All limits are shown before validation. Oversized input remains editable and is never silently truncated. Long unbroken runs receive a presentation-only span with stronger native wrapping; no character is inserted, removed or rewritten. Original whitespace, Unicode, punctuation and multiline content are retained subject to native textarea newline normalization. Maximum serialized JSON ceiling: 160,000 code units, enough for worst-case six-character JSON escaping of all bounded text.
+Seven text fields: 2,000 UTF-16 code units each. Each behavior list: one to five items, 1,000 code units per item. These follow existing 2,000-character artifact paragraphs while keeping behavior items concise. All limits are shown before validation. Oversized input remains editable and is never silently truncated. Long unbroken runs receive discretionary HTML break opportunities between groups of four Unicode grapheme clusters; no text character is inserted, removed or rewritten. Ordinary prose is unchanged. Original whitespace, Unicode, punctuation and multiline content are retained subject to native textarea newline normalization. Maximum serialized JSON ceiling: 160,000 code units, enough for worst-case six-character JSON escaping of all bounded text.
 
 ## Local records
 

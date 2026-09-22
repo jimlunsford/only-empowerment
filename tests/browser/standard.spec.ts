@@ -512,11 +512,14 @@ test('responsive workflow review artifact and mixed saved work, enlarged text fo
   const values = {
     ...data,
     standard: 'A'.repeat(2000),
+    reason: '👩🏽‍💻'.repeat(40) + ' e\u0301',
     keeping: ['Keeping behavior. '.repeat(50)],
     violations: ['Violating behavior. '.repeat(45)],
     structure: 'Protecting structure. '.repeat(80),
   };
   await finish(page, undefined, values);
+  for (const f of ['standard', 'reason'] as const)
+    await expect(page.locator(`.standard-${f} .answer`)).toHaveJSProperty('textContent', values[f]);
   for (const width of [320, 360, 390, 1024, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
