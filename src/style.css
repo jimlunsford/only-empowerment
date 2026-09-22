@@ -1593,6 +1593,10 @@ select:focus-visible {
   }
 }
 @media print {
+  .personal-standard .print-only {
+    font-size: 9pt;
+    line-height: 1.5;
+  }
   .personal-standard .standard-behaviors li {
     break-inside: auto;
     orphans: 3;

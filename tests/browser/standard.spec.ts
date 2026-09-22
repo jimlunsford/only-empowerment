@@ -1,5 +1,6 @@
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { writeFile } from 'node:fs/promises';
 import {
   standardFields,
   standardLabels,
@@ -34,8 +35,10 @@ async function axe(page: Page) {
 async function capture(page: Page, info: TestInfo | undefined, name: string) {
   if (info && ['chromium', 'mobile-chromium'].includes(info.project.name)) {
     await page.screenshot({ path: info.outputPath(name + '.png'), fullPage: true });
+    const semanticsPath = info.outputPath(name + '-semantics.txt');
+    await writeFile(semanticsPath, await page.locator('main').ariaSnapshot());
     await info.attach(name + '-semantics', {
-      body: await page.locator('main').ariaSnapshot(),
+      path: semanticsPath,
       contentType: 'text/plain',
     });
   }
@@ -527,7 +530,9 @@ test('responsive workflow review artifact and mixed saved work, enlarged text fo
   await capture(page, info, 'forced-colors-320');
   await page.emulateMedia({ forcedColors: 'none' });
   await page.evaluate(() => (document.documentElement.style.fontSize = '200%'));
-  await page.screenshot({ path: info.outputPath('text-200-all-browsers.png'), fullPage: true });
+  // The stress artifact exceeds Firefox/WebKit's 32,767px image limit at this scale.
+  // Capture the viewport; the following assertion still measures the entire document.
+  await page.screenshot({ path: info.outputPath('text-200-all-browsers.png'), fullPage: false });
   const enlargedLayout = await page.evaluate(() => ({
     width: innerWidth,
     scrollWidth: document.documentElement.scrollWidth,
@@ -591,18 +596,19 @@ test('every standard-building stage fits narrow mobile through desktop with ordi
   };
   await page.goto('/#/tools/build-a-standard');
   for (const step of standardSteps) {
+    for (const f of standardStepFields[step])
+      await page
+        .locator(`#ps-${f}${f === 'keeping' || f === 'violations' ? '-0' : ''}`)
+        .fill(Array.isArray(example[f]) ? example[f][0] : (example[f] as string));
     for (const width of [320, 360, 390, 1024, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
         true,
       );
       if (width === 320) await capture(page, info, 'narrow-' + step);
+      if (width === 1440) await capture(page, info, 'desktop-' + step);
     }
     await page.setViewportSize({ width: 320, height: 900 });
-    for (const f of standardStepFields[step])
-      await page
-        .locator(`#ps-${f}${f === 'keeping' || f === 'violations' ? '-0' : ''}`)
-        .fill(Array.isArray(example[f]) ? example[f][0] : (example[f] as string));
     await page
       .getByRole('button', {
         name: step === 'correction' ? 'Review my standard' : 'Next',
@@ -611,6 +617,10 @@ test('every standard-building stage fits narrow mobile through desktop with ordi
       .click();
   }
   await capture(page, info, 'narrow-review');
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await capture(page, info, 'desktop-review');
   await page.getByRole('button', { name: 'Set this standard', exact: true }).click();
+  await capture(page, info, 'desktop-record');
+  await page.setViewportSize({ width: 320, height: 900 });
   await capture(page, info, 'narrow-record');
 });
