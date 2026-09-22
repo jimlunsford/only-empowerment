@@ -1,58 +1,35 @@
-name: Product verification
+name: Reset candidate staging acceptance
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
-    inputs:
-      verify_staging:
-        description: 'Also verify the live dev.onlyempowerment.com candidate'
-        type: boolean
-        default: false
 permissions:
   contents: read
-concurrency:
-  group: verify-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
 jobs:
-  verify:
+  staging:
+    name: Exact c8bce44 deployed acceptance
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+          ref: c8bce441c342f27bdf68bf83120172013d56dee3
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .nvmrc
+      - name: Verify exact clean candidate source
+        run: |
+          test "$(git rev-parse HEAD)" = c8bce441c342f27bdf68bf83120172013d56dee3
+          test -z "$(git status --porcelain)"
+          git log -1 --format='%H %s'
       - run: npm ci
-      - run: npm run format:check
-      - run: npm test
-      - run: npm run build
-        env:
-          OE_RELEASE_BUILD: '1'
       - run: npx playwright install --with-deps chromium firefox webkit
-      - run: npm run test:e2e
-      - name: Verify deployed staging
-        if: github.event_name == 'workflow_dispatch' && inputs.verify_staging
+      - name: Complete deployed suite, all four browsers, zero retries
         run: npx playwright test --config playwright.staging.config.ts
         env:
-          OE_STAGING_COMMIT: ${{ github.sha }}
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: only-empowerment-${{ github.event.pull_request.head.sha || github.sha }}
-          path: dist/
-          retention-days: 7
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+          OE_STAGING_COMMIT: c8bce441c342f27bdf68bf83120172013d56dee3
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: browser-review-${{ github.event.pull_request.head.sha || github.sha }}
-          path: test-results/
-          retention-days: 7
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: always() && github.event_name == 'workflow_dispatch' && inputs.verify_staging
-        with:
-          name: staging-review-${{ github.sha }}
+          name: reset-staging-acceptance-c8bce441c342f27bdf68bf83120172013d56dee3
           path: test-results-staging/
           retention-days: 7
