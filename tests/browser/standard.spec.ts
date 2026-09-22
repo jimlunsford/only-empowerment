@@ -80,7 +80,8 @@ async function saved(page: Page) {
 }
 async function openStandard(page: Page) {
   await page.getByRole('button', { name: /Open Personal Standard/ }).click();
-  if (await page.getByRole('dialog').count())
+  await expect(page.getByRole('dialog').or(page.locator('.personal-standard'))).toBeVisible();
+  if (await page.getByRole('dialog').isVisible())
     await page.getByRole('button', { name: 'Open saved standard', exact: true }).click();
   await expect(page.locator('.personal-standard')).toBeVisible();
 }
@@ -526,7 +527,21 @@ test('responsive workflow review artifact and mixed saved work, enlarged text fo
   await capture(page, info, 'forced-colors-320');
   await page.emulateMedia({ forcedColors: 'none' });
   await page.evaluate(() => (document.documentElement.style.fontSize = '200%'));
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: info.outputPath('text-200-all-browsers.png'), fullPage: true });
+  const enlargedLayout = await page.evaluate(() => ({
+    width: innerWidth,
+    scrollWidth: document.documentElement.scrollWidth,
+    overflowing: Array.from(document.querySelectorAll('body *'))
+      .filter((el) => el.getBoundingClientRect().right > innerWidth)
+      .map((el) => ({
+        tag: el.tagName,
+        class: el.className,
+        right: el.getBoundingClientRect().right,
+      })),
+  }));
+  expect(enlargedLayout.scrollWidth, JSON.stringify(enlargedLayout)).toBeLessThanOrEqual(
+    enlargedLayout.width,
+  );
   await capture(page, info, 'text-200');
   await page.evaluate(() => (document.documentElement.style.fontSize = ''));
   await page.getByRole('button', { name: 'Edit standard', exact: true }).click();
@@ -554,4 +569,48 @@ test('responsive workflow review artifact and mixed saved work, enlarged text fo
       format: 'A4',
       printBackground: false,
     });
+});
+
+test('every standard-building stage fits narrow mobile through desktop with ordinary content', async ({
+  page,
+}, info) => {
+  test.setTimeout(120000);
+  const example: Standard = {
+    area: 'Communication when work is under pressure',
+    standard:
+      'When I need time before answering, I say so and agree when I will return to the conversation.',
+    reason: 'People can plan around an honest answer. Silence leaves them guessing.',
+    keeping: ['I name the pause and agree a return time before stepping away.'],
+    violations: ['I disappear from the conversation without an agreement.'],
+    structure: 'I put the return time in my calendar and leave a note about what needs an answer.',
+    adaptation:
+      'If an urgent responsibility changes my availability, I communicate the change and agree a new time. I review the wider rule when responsibilities change.',
+    nonNegotiation: 'Discomfort with the conversation alone is not a reason to disappear.',
+    correction:
+      'I acknowledge the missed agreement, contact the person, and arrange the next conversation.',
+  };
+  await page.goto('/#/tools/build-a-standard');
+  for (const step of standardSteps) {
+    for (const width of [320, 360, 390, 1024, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        true,
+      );
+      if (width === 320) await capture(page, info, 'narrow-' + step);
+    }
+    await page.setViewportSize({ width: 320, height: 900 });
+    for (const f of standardStepFields[step])
+      await page
+        .locator(`#ps-${f}${f === 'keeping' || f === 'violations' ? '-0' : ''}`)
+        .fill(Array.isArray(example[f]) ? example[f][0] : (example[f] as string));
+    await page
+      .getByRole('button', {
+        name: step === 'correction' ? 'Review my standard' : 'Next',
+        exact: true,
+      })
+      .click();
+  }
+  await capture(page, info, 'narrow-review');
+  await page.getByRole('button', { name: 'Set this standard', exact: true }).click();
+  await capture(page, info, 'narrow-record');
 });

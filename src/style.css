@@ -1544,6 +1544,13 @@ select:focus-visible {
 }
 
 /* A standard is a portable line with supporting behavior, not an assessment. */
+.build-standard {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.personal-standard .artifact-header > * {
+  min-width: 0;
+}
 .standard-list-editor + .standard-list-editor {
   margin-top: 2.5rem;
 }
@@ -1593,5 +1600,12 @@ select:focus-visible {
   }
   .personal-standard .standard-standard > .answer {
     font-size: 13pt;
+  }
+}
+
+@media print {
+  .build-standard {
+    padding: 0;
+    max-width: none;
   }
 }
