@@ -1551,6 +1551,12 @@ select:focus-visible {
 .personal-standard .artifact-header > * {
   min-width: 0;
 }
+.personal-standard .answer {
+  /* Preserve authored spaces while allowing them to wrap instead of hanging
+     beyond a narrow line in WebKit at enlarged text sizes. */
+  white-space: break-spaces;
+  word-break: break-word;
+}
 .standard-list-editor + .standard-list-editor {
   margin-top: 2.5rem;
 }

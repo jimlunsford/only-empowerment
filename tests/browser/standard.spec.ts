@@ -536,6 +536,7 @@ test('responsive workflow review artifact and mixed saved work, enlarged text fo
   const enlargedLayout = await page.evaluate(() => ({
     width: innerWidth,
     scrollWidth: document.documentElement.scrollWidth,
+    scrollX,
     overflowing: Array.from(document.querySelectorAll('body *'))
       .filter((el) => el.getBoundingClientRect().right > innerWidth)
       .map((el) => ({
@@ -543,6 +544,20 @@ test('responsive workflow review artifact and mixed saved work, enlarged text fo
         class: el.className,
         right: el.getBoundingClientRect().right,
       })),
+    textOverflow: Array.from(document.querySelectorAll('body *'))
+      .flatMap((el) => Array.from(el.childNodes))
+      .filter((node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim())
+      .flatMap((node) => {
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        return Array.from(range.getClientRects())
+          .filter((rect) => rect.right > innerWidth)
+          .map((rect) => ({
+            parent: (node.parentElement as HTMLElement).className,
+            text: node.textContent?.slice(0, 60),
+            right: rect.right,
+          }));
+      }),
   }));
   expect(enlargedLayout.scrollWidth, JSON.stringify(enlargedLayout)).toBeLessThanOrEqual(
     enlargedLayout.width,
