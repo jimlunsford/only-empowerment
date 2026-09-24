@@ -457,8 +457,12 @@ test('Saved Work retains the other four replacement session labels', async ({ pa
     await page.evaluate((route) => {
       location.hash = '/tools/' + route;
     }, route);
+    await expect(page.locator(input)).toBeVisible();
+    await expect(page.locator('h1')).toBeFocused();
     await page.locator(input).fill('Meaningful current work');
+    await expect(page.locator(input)).toHaveValue('Meaningful current work');
     await saved(page);
+    await expect(page.locator('h1')).toBeFocused();
     await page.getByRole('button', { name: new RegExp('Open ' + artifact) }).click();
     const dialog = page.getByRole('dialog', { name: 'Replace current in-memory work?' });
     await expect(dialog).toBeVisible();
@@ -466,6 +470,7 @@ test('Saved Work retains the other four replacement session labels', async ({ pa
       `Opening this record replaces the current ${session} session.`,
     );
     await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
+    await expect(dialog).toHaveCount(0);
   }
 });
 
