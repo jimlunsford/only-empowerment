@@ -406,6 +406,69 @@ test('saving is explicit, five types coexist, reopening edits require a new save
     ),
   ).toBe('Changed proof');
 });
+test('Saved Work names Rebuild Map, cancel preserves memory and confirmation opens the saved map', async ({
+  page,
+}) => {
+  await finish(page);
+  await save(page);
+  const stored = await page.evaluate(() => Object.fromEntries(Object.entries(localStorage)));
+  await page.reload();
+  await page.locator('#rm-area').fill('Current unsaved area');
+  await page.locator('#rm-reality').fill('Current unsaved reality');
+  await saved(page);
+  await page.getByRole('button', { name: /Open Rebuild Map/ }).click();
+  const dialog = page.getByRole('dialog', { name: 'Replace current in-memory work?' });
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toContainText(
+    'Opening this record replaces the current Rebuild Map session.',
+  );
+  await expect(dialog).not.toContainText('Decision Room');
+  await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
+  await expect(dialog).toHaveCount(0);
+  await page.evaluate(() => {
+    location.hash = '/tools/rebuild-map';
+  });
+  await expect(page.locator('#rm-area')).toHaveValue('Current unsaved area');
+  await expect(page.locator('#rm-reality')).toHaveValue('Current unsaved reality');
+  await saved(page);
+  await page.getByRole('button', { name: /Open Rebuild Map/ }).click();
+  await expect(dialog).toBeVisible();
+  await dialog.getByRole('button', { name: 'Open saved record', exact: true }).click();
+  await expect(page).toHaveURL(/#\/tools\/rebuild-map$/);
+  await expect(page.locator('.rebuild-map')).toContainText('Status: Mapped');
+  for (const f of rebuildFields)
+    await expect(page.locator('.rebuild-' + f + ' .answer')).toHaveText(
+      f === 'actions' ? data.actions : data[f],
+    );
+  expect(await page.evaluate(() => Object.fromEntries(Object.entries(localStorage)))).toEqual(
+    stored,
+  );
+});
+
+test('Saved Work retains the other four replacement session labels', async ({ page }) => {
+  await page.goto('/');
+  await seed(page);
+  for (const [route, input, artifact, session] of [
+    ['next-move', '#field-situation', 'Execution Card', 'Next Move'],
+    ['build-a-standard', '#ps-area', 'Personal Standard', 'Build a Standard'],
+    ['reset', '#reset-slip', 'Reset Plan', 'Reset'],
+    ['decision-room', '#dr-decision', 'Decision Record', 'Decision Room'],
+  ]) {
+    await page.evaluate((route) => {
+      location.hash = '/tools/' + route;
+    }, route);
+    await page.locator(input).fill('Meaningful current work');
+    await saved(page);
+    await page.getByRole('button', { name: new RegExp('Open ' + artifact) }).click();
+    const dialog = page.getByRole('dialog', { name: 'Replace current in-memory work?' });
+    await expect(dialog).toBeVisible();
+    await expect(dialog).toContainText(
+      `Opening this record replaces the current ${session} session.`,
+    );
+    await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
+  }
+});
+
 for (const failure of ['denied', 'quota', 'readback'] as const)
   test(`Rebuild ${failure} save failure leaves usable memory and no false success`, async ({
     page,

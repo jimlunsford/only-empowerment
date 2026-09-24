@@ -346,7 +346,9 @@ export function SavedWork({ work }: { work: LocalWork }) {
                 ? 'Build a Standard'
                 : opening.record.tool === 'reset'
                   ? 'Reset'
-                  : 'Decision Room'}{' '}
+                  : opening.record.tool === 'rebuild-map'
+                    ? 'Rebuild Map'
+                    : 'Decision Room'}{' '}
             session. Copy or save any work you want to keep first. Your other saved records will
             stay.
           </p>
