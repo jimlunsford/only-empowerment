@@ -53,3 +53,7 @@ Build a Standard is the third candidate following accepted Decision Room and Nex
 ## Current Phase 5 scope
 
 Reset is the only new tool in this phase. It includes seven authored answers, manual or explicitly selected saved standard, validity check and legitimate pauses, editable Planned Reset Plan, copy/print, explicit local artifact save and four-type Saved Work. No diagnosis, scoring, AI, streaks, miss history, punishment prescription, incident therapy, automatic handoff, production release, Rebuild Map or Do It Now implementation. The three accepted tools retain their contracts. Candidate implementation does not imply product approval.
+
+## Phase 6 boundary
+
+Rebuild Map is the current candidate, extending four accepted tools. Scope includes standalone Mapped artifact, deliberate Personal Standard reference, five-type Saved Work and same-tab Next Move handoff. No life-planning dashboard, proof tracker, identity assessment, gamification, Do It Now implementation or production launch. Keep the feature PR draft and unmerged for explicit product review.

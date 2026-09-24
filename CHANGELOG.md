@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-dev.6 (Phase 6 candidate)
+
+- Rebuild Map: seven working stages, editable nine-section artifact, Status: Mapped, exact copy and browser print.
+- Explicit read-only saved Personal Standard selection with standalone statement snapshot and clean unclear-standard pause.
+- Five-artifact Saved Work with existing explicit saving, global limits, scoped deletion and cross-tab protection.
+- Optional editable/excludable in-memory Situation/Action preview into the full Next Move workflow, with existing-work replacement confirmation.
+- Governed doctrine adaptations and regression coverage. Draft PR #8 remains unmerged for owner review. Do It Now and production remain outside this phase.
+
 ## 0.1.0-dev.5 (Reset candidate, unmerged)
 
 - Add seven-stage Reset and standalone Planned Reset Plan with editable artifact review, copy, print and explicit local saving.

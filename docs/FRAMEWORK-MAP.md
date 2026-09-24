@@ -70,3 +70,7 @@ Live PERIOD, Core Frameworks, Rebuild Yourself and discovered standards articles
 ## Phase 5 Reset adaptation, 2026-09-22
 
 Reset starts after behavior missed a standard. PERIOD informs ownership without universal blame, the reason to return, integrity without character judgment, structure with support, behavior over intention, and leaving capable of acting. Rebuild doctrine links standard, structure, action and proof. The Discipline Loop supplies the return from pressure to a new choice, action and future proof, without scores or identity certification. Live canonical Discipline Loop was located through the site's framework navigation. Governed lessons are in `src/reset-lessons.ts`; live source review and limits are in RESET.md.
+
+## Phase 6 rebuild adaptation, 2026-09-24
+
+Live Rebuild Yourself, PERIOD, Discipline Loop, Core Frameworks and navigation-discovered Pure Execution Mode were reviewed along with linked discipline, self-trust and identity articles. Seven governed adaptations are in `src/rebuild-lessons.ts`; sources and interpretation are in REBUILD-MAP.md. Standard, structure, repeated behavior and proof become authored work; identity remains a taught effect of evidence. Behavioral self-trust and reduced negotiation share a stage. Ownership is expressed through user authorship and leaving to act, not an eighth philosophy question.

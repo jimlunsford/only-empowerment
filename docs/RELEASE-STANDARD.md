@@ -65,3 +65,7 @@ The owner authorizes the clean unmerged `feature/build-a-standard-v1` candidate 
 ## Phase 5 Reset candidate staging exception
 
 Accepted source and rollback are `77d921d8bd2aecab94f9581c36262bf48a54d608` (`0.1.0-dev.4`). The owner authorizes exact clean `feature/reset-v1` candidate deployment at `0.1.0-dev.5` for product review. PR #7 must remain draft and unmerged. Preserve the approved staging banner, restrictive CSP, noindex, immutable release, independent CI/local/HTTPS file comparison, existing backup/restore process and neighbor/firewall checks. No production, DNS, TLS issuance, tag or release. A sudo authentication requirement does not authorize privilege changes; prepare the verified payload and pinned helper before requesting the owner-run command.
+
+## Phase 6 candidate staging exception
+
+Verified accepted main and staging baseline: `396a7ea49a41fcc61fb3a0ab0402acad74a9dff1`, version `0.1.0-dev.5`. Historical Reset candidate notes precede its accepted merge. The owner authorizes clean unmerged `feature/rebuild-map-v1` at `0.1.0-dev.6` on staging for product review. Keep PR #8 draft and unmerged. Retain accepted main as rollback. Existing required verify check, separate local/staging test configs, immutable CI artifact comparison, atomic switch and VPS-wide backup/restore verification remain. No production, release tag, DNS, TLS or privilege-policy changes.
