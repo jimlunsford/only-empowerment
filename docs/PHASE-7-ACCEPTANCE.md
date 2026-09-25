@@ -1,6 +1,6 @@
 # Phase 7: Do It Now candidate
 
-Status: implementation in progress; no product or deployed acceptance claimed.
+Status: implemented candidate; owner product and deployed acceptance remain pending.
 
 Baseline verified 2026-09-25: main and staging `5e44590d26122dc368655c9554bdd0b08faac667`, version `0.1.0-dev.6`, successful required verify run `36127083306`. VPS hostname and immutable current release agree. Candidate development version is `0.1.0-dev.7` under the existing prerelease sequence.
 
@@ -16,7 +16,7 @@ Do It Now has four working screens and an artifact exit, explicit Started state,
 
 ## Verification record
 
-99 unit tests passed with zero failures. The initial new-tool desktop/mobile Chromium run passed 54 checks; a test-only style-injection issue was corrected to use the established enlargement method without changing CSP. Local Firefox requires its content sandbox disabled inside the already sandboxed execution container; this is a test-environment setting only, absent from the product and repository browser configuration. Required CI runs its normal four projects with zero retries.
+99 unit tests passed with zero failures. The complete local browser matrix passed 436 checks with 12 staging-only skips and zero retries across Chromium, mobile Chromium, Firefox and WebKit. A test-only style-injection issue was corrected to use the established enlargement method without changing CSP. Local Firefox requires its content sandbox disabled inside the already sandboxed execution container; this is a test-environment setting only, absent from the product and repository browser configuration. Required CI runs its normal four projects with zero retries.
 
 Full final browser matrix, exact-head CI, strict build and artifact comparison are required before packaging. The packaging verification report supplies exact final SHA, CI run/artifact IDs, archive/envelope hashes, test counts and deployment command, which cannot be embedded in their own source commit. No provisional run counts constitute deployed acceptance.
 
