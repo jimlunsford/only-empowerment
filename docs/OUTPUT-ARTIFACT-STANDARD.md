@@ -48,3 +48,7 @@ Personal Standard uses nine authored sections and **Set** status, distinct from 
 ## Phase 5 Reset Plan
 
 Exact authored order: What slipped; Standard I am returning to; What I own now; Weak point to repair; Immediate correction; Structure I will restore or change; Proof I will create next. Status: **Planned**. This means a correction and return plan exists, not that correction or proof happened. All seven paragraphs allow 2,000 UTF-16 code units. Exact copy, review, snapshot and print behavior are specified in RESET.md. Decision Record remains Decided, Execution Card remains Planned, Personal Standard remains Set. No existing schema changes.
+
+## Phase 6 Rebuild Map
+
+Rebuild Map uses nine authored sections and **Mapped** status: a system has been mapped, not performed or proven. This is consistent with Decided, Planned and Set describing artifact state. No old schema or status changes. See REBUILD-MAP.md for exact section order, one-to-five repeated actions, bounds, copy, print and editable review. Identity is an effect of future behavioral evidence, not an authored identity claim or certification.

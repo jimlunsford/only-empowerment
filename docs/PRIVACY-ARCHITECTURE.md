@@ -80,3 +80,7 @@ Explicit `oe:personal-standard:v1:` saving extends the same model to a third art
 ## Phase 5 Reset Plan
 
 Reset extends explicit saving to `oe:reset-plan:v1:<UUID-v4>`. Exact shape: `{schemaVersion:1,id,tool:"reset",status:"Planned",plan:{slip,standard,ownership,weakPoint,correction,structure,proof}}`. The standard is a statement snapshot. Saved-standard selection, reference content, source key, validity choices and review navigation remain memory-only. No draft history, miss counts, dates or timestamps, scores, diagnoses, analytics or network handoff. Read-only source selection never modifies a Personal Standard. All four artifacts share the 50-record limit, unsupported keys included. Existing scoped deletion, verified writes, stale-byte rejection, BroadcastChannel, storage events and visibility rechecks apply. The documented simultaneous-write and browser limitations remain unchanged. No migrations or dependency additions.
+
+## Phase 6 Rebuild Map
+
+`oe:rebuild-map:v1:` adds a fifth explicit artifact type using the same 50-record limit, validation/readback/stale-write rules and scoped multi-tab deletion. Only its nine authored sections are saved. Selected standard references and keys remain in memory; only the statement is snapshotted. Optional Next Move transfer previews two editable/excludable fields in memory, never URLs or requests, and protects existing Next Move work through replacement confirmation. REBUILD-MAP.md specifies schema and limits. No migrations, new persistence mechanisms, dependencies, analytics or behavior tracking.

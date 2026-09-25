@@ -42,3 +42,7 @@ Decision Room and Next Move are accepted. Build a Standard is the third candidat
 ## Current Phase 5 scope
 
 Decision Room, Next Move and Build a Standard are accepted. Reset is the fourth implemented candidate. It handles an actual miss against a standard the user confirms still stands, producing a Planned Reset Plan. Build a Standard defines or deliberately reviews the line. Reset reads explicitly selected local Personal Standards without modifying them, snapshots only the statement into its artifact, and offers a plain internal link when the line is unclear or needs review. There is no generic handoff engine, automatic Next Move continuation, or Do It Now destination. Rebuild Map and Do It Now remain outlines.
+
+## Current Phase 6 scope
+
+Decision Room, Next Move, Build a Standard and Reset are accepted. Rebuild Map is the fifth implemented candidate. It designs a sustained rebuild around one standard and its structure, repeated actions and future proof, with Mapped status. It is distinct from Reset's response to a miss. It reads a deliberately selected Personal Standard without modifying it and can optionally preview minimal text into the full Next Move workflow. Do It Now remains an unavailable outline. See REBUILD-MAP.md.

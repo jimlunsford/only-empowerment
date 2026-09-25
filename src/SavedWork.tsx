@@ -1,3 +1,4 @@
+import { newRebuildSession, hasRebuildWork } from './rebuild-model';
 import { newResetSession } from './reset-model';
 import { newStandardSession, hasStandardWork } from './standard-model';
 import { useEffect, useState } from 'preact/hooks';
@@ -15,7 +16,9 @@ const artifactName = (entry: ArtifactEntry) =>
       ? 'Decision Record'
       : entry.record.tool === 'reset'
         ? 'Reset Plan'
-        : 'Personal Standard';
+        : entry.record.tool === 'rebuild-map'
+          ? 'Rebuild Map'
+          : 'Personal Standard';
 export function LocalDataControls({ work }: { work: LocalWork }) {
   const [confirm, setConfirm] = useState(false);
   const [status, setStatus] = useState('');
@@ -96,6 +99,19 @@ export function SavedWork({ work }: { work: LocalWork }) {
       setStatus('This saved record could not be read. Browser storage is unavailable.');
       return;
     }
+    if (entry.record.tool === 'rebuild-map') {
+      work.setRebuildSession({
+        ...newRebuildSession(),
+        map: structuredClone(entry.record.map),
+        step: 'record',
+        source: 'manual',
+        savedKey: entry.key,
+        savedRaw: entry.raw,
+      });
+      setOpening(null);
+      location.hash = '/tools/rebuild-map';
+      return;
+    }
     if (entry.record.tool === 'reset') {
       work.setResetSession({
         ...newResetSession(),
@@ -170,9 +186,9 @@ export function SavedWork({ work }: { work: LocalWork }) {
     <div class="narrow">
       <PageIntro label="Local work" title="Saved on this device">
         <p>
-          Execution Cards, Decision Records, Personal Standards, and Reset Plans in this browser
-          profile only. There is no account or cloud recovery. Open a record to edit, copy, or print
-          it. Up to 50 saved Only Empowerment records total.
+          Execution Cards, Decision Records, Personal Standards, Reset Plans, and Rebuild Maps in
+          this browser profile only. There is no account or cloud recovery. Open a record to edit,
+          copy, or print it. Up to 50 saved Only Empowerment records total.
         </p>
       </PageIntro>
       {work.storageError && (
@@ -215,7 +231,9 @@ export function SavedWork({ work }: { work: LocalWork }) {
                   ? entry.record.decision.decision
                   : entry.record.tool === 'reset'
                     ? entry.record.plan.slip
-                    : entry.record.standard.area;
+                    : entry.record.tool === 'rebuild-map'
+                      ? entry.record.map.area
+                      : entry.record.standard.area;
             const action =
               entry.record.tool === 'next-move'
                 ? entry.record.card.action
@@ -223,7 +241,9 @@ export function SavedWork({ work }: { work: LocalWork }) {
                   ? entry.record.decision.firstMove
                   : entry.record.tool === 'reset'
                     ? entry.record.plan.proof
-                    : entry.record.standard.standard;
+                    : entry.record.tool === 'rebuild-map'
+                      ? entry.record.map.firstMove
+                      : entry.record.standard.standard;
             return (
               <li key={entry.key}>
                 <div>
@@ -243,16 +263,19 @@ export function SavedWork({ work }: { work: LocalWork }) {
                           ? Object.values(work.session.card).some(Boolean) ||
                             !!work.session.readiness ||
                             !!work.session.obstacleKind
-                          : entry.record.tool === 'reset'
-                            ? Object.values(work.resetSession.plan).some(Boolean) ||
-                              !!work.resetSession.source
-                            : entry.record.tool === 'build-a-standard'
-                              ? hasStandardWork(work.standardSession.standard)
-                              : decisionFields.some((f) => !!work.decisionSession.decision[f]) ||
-                                work.decisionSession.decision.options.some(
-                                  (o) => !!o.label || !!o.tradeoff,
-                                ) ||
-                                !!work.decisionSession.readiness
+                          : entry.record.tool === 'rebuild-map'
+                            ? hasRebuildWork(work.rebuildSession.map) ||
+                              !!work.rebuildSession.source
+                            : entry.record.tool === 'reset'
+                              ? Object.values(work.resetSession.plan).some(Boolean) ||
+                                !!work.resetSession.source
+                              : entry.record.tool === 'build-a-standard'
+                                ? hasStandardWork(work.standardSession.standard)
+                                : decisionFields.some((f) => !!work.decisionSession.decision[f]) ||
+                                  work.decisionSession.decision.options.some(
+                                    (o) => !!o.label || !!o.tradeoff,
+                                  ) ||
+                                  !!work.decisionSession.readiness
                       )
                         setOpening(entry);
                       else open(entry);
@@ -323,7 +346,9 @@ export function SavedWork({ work }: { work: LocalWork }) {
                 ? 'Build a Standard'
                 : opening.record.tool === 'reset'
                   ? 'Reset'
-                  : 'Decision Room'}{' '}
+                  : opening.record.tool === 'rebuild-map'
+                    ? 'Rebuild Map'
+                    : 'Decision Room'}{' '}
             session. Copy or save any work you want to keep first. Your other saved records will
             stay.
           </p>

@@ -156,6 +156,12 @@ export function NextMove({ work }: { work: LocalWork }) {
                 : 'No action plan required'}
         </p>
       </header>
+      {session.fromRebuild && (
+        <p class="storage-notice no-print">
+          Opened from your Rebuild Map. Any text you chose to carry is editable. Next Move still
+          needs its own readiness check and action plan. Nothing was saved automatically.
+        </p>
+      )}
       {session.fromDecision && (
         <p class="storage-notice no-print">
           Opened from your Decision Record. Any text you chose to carry is editable. Next Move still

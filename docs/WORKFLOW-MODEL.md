@@ -49,3 +49,7 @@ Seven stages group context, line, reason, paired behavior lists, structure, pair
 ## Phase 5 Reset
 
 Seven stages: miss; standard source plus still-stands check; ownership; repairable weak point; immediate correction; supporting structure; next proof. Standard selection and validity share one stage to avoid a long incident review. Only an explicitly still-valid line continues. An unclear, review-needed or uncertain line pauses to Build a Standard without an artifact. Internal route navigation keeps Reset in app memory; reload/close can lose unsaved work. Artifact-shaped review exposes all seven fields. Every edit to the standard statement, including whitespace, invalidates its prior confirmation and returns to the standard check. Confirmation is “Confirm Reset Plan”; it only sets Planned. No cross-tool engine or private URL payload is introduced.
+
+## Phase 6 Rebuild Map
+
+Seven working stages plus editable artifact review: area/reality, standard, structure, repeated actions, proof, self-trust/negotiation, first move. A no-standard choice pauses toward Build a Standard without a map. The optional Rebuild Map → Next Move continuation uses the same App-owned in-memory preview/transfer pattern as Decision Room, with minimum Situation and Action text, independent exclusion/editing, and deliberate replacement protection. Next Move still runs its full workflow. No generic workflow engine or new transport. Details in REBUILD-MAP.md.
