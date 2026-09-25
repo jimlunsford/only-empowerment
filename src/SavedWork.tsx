@@ -1,3 +1,4 @@
+import { newActionSession, hasActionWork } from './do-it-now-model';
 import { newRebuildSession, hasRebuildWork } from './rebuild-model';
 import { newResetSession } from './reset-model';
 import { newStandardSession, hasStandardWork } from './standard-model';
@@ -10,15 +11,17 @@ import { newDecisionSession, decisionFields } from './decision-room-model';
 import { newSession } from './next-move-model';
 import { broadcast, type LocalWork } from './use-local-work';
 const artifactName = (entry: ArtifactEntry) =>
-  entry.record.tool === 'next-move'
-    ? 'Execution Card'
-    : entry.record.tool === 'decision-room'
-      ? 'Decision Record'
-      : entry.record.tool === 'reset'
-        ? 'Reset Plan'
-        : entry.record.tool === 'rebuild-map'
-          ? 'Rebuild Map'
-          : 'Personal Standard';
+  entry.record.tool === 'do-it-now'
+    ? 'Action Record'
+    : entry.record.tool === 'next-move'
+      ? 'Execution Card'
+      : entry.record.tool === 'decision-room'
+        ? 'Decision Record'
+        : entry.record.tool === 'reset'
+          ? 'Reset Plan'
+          : entry.record.tool === 'rebuild-map'
+            ? 'Rebuild Map'
+            : 'Personal Standard';
 export function LocalDataControls({ work }: { work: LocalWork }) {
   const [confirm, setConfirm] = useState(false);
   const [status, setStatus] = useState('');
@@ -97,6 +100,20 @@ export function SavedWork({ work }: { work: LocalWork }) {
       }
     } catch {
       setStatus('This saved record could not be read. Browser storage is unavailable.');
+      return;
+    }
+    if (entry.record.tool === 'do-it-now') {
+      work.setActionSession({
+        ...newActionSession(),
+        ...entry.record.record,
+        started: true,
+        result: entry.record.status,
+        step: 'record',
+        savedKey: entry.key,
+        savedRaw: entry.raw,
+      });
+      setOpening(null);
+      location.hash = '/tools/do-it-now';
       return;
     }
     if (entry.record.tool === 'rebuild-map') {
@@ -186,9 +203,9 @@ export function SavedWork({ work }: { work: LocalWork }) {
     <div class="narrow">
       <PageIntro label="Local work" title="Saved on this device">
         <p>
-          Execution Cards, Decision Records, Personal Standards, Reset Plans, and Rebuild Maps in
-          this browser profile only. There is no account or cloud recovery. Open a record to edit,
-          copy, or print it. Up to 50 saved Only Empowerment records total.
+          Execution Cards, Decision Records, Personal Standards, Reset Plans, Rebuild Maps, and
+          Action Records in this browser profile only. There is no account or cloud recovery. Open a
+          record to edit, copy, or print it. Up to 50 saved Only Empowerment records total.
         </p>
       </PageIntro>
       {work.storageError && (
@@ -225,25 +242,29 @@ export function SavedWork({ work }: { work: LocalWork }) {
           {work.entries.map((entry, index) => {
             const type = artifactName(entry);
             const situation =
-              entry.record.tool === 'next-move'
-                ? entry.record.card.situation
-                : entry.record.tool === 'decision-room'
-                  ? entry.record.decision.decision
-                  : entry.record.tool === 'reset'
-                    ? entry.record.plan.slip
-                    : entry.record.tool === 'rebuild-map'
-                      ? entry.record.map.area
-                      : entry.record.standard.area;
+              entry.record.tool === 'do-it-now'
+                ? entry.record.record.task
+                : entry.record.tool === 'next-move'
+                  ? entry.record.card.situation
+                  : entry.record.tool === 'decision-room'
+                    ? entry.record.decision.decision
+                    : entry.record.tool === 'reset'
+                      ? entry.record.plan.slip
+                      : entry.record.tool === 'rebuild-map'
+                        ? entry.record.map.area
+                        : entry.record.standard.area;
             const action =
-              entry.record.tool === 'next-move'
-                ? entry.record.card.action
-                : entry.record.tool === 'decision-room'
-                  ? entry.record.decision.firstMove
-                  : entry.record.tool === 'reset'
-                    ? entry.record.plan.proof
-                    : entry.record.tool === 'rebuild-map'
-                      ? entry.record.map.firstMove
-                      : entry.record.standard.standard;
+              entry.record.tool === 'do-it-now'
+                ? entry.record.record.outcome
+                : entry.record.tool === 'next-move'
+                  ? entry.record.card.action
+                  : entry.record.tool === 'decision-room'
+                    ? entry.record.decision.firstMove
+                    : entry.record.tool === 'reset'
+                      ? entry.record.plan.proof
+                      : entry.record.tool === 'rebuild-map'
+                        ? entry.record.map.firstMove
+                        : entry.record.standard.standard;
             return (
               <li key={entry.key}>
                 <div>
@@ -259,23 +280,27 @@ export function SavedWork({ work }: { work: LocalWork }) {
                     aria-label={`Open ${type} ${index + 1}`}
                     onClick={() => {
                       if (
-                        entry.record.tool === 'next-move'
-                          ? Object.values(work.session.card).some(Boolean) ||
-                            !!work.session.readiness ||
-                            !!work.session.obstacleKind
-                          : entry.record.tool === 'rebuild-map'
-                            ? hasRebuildWork(work.rebuildSession.map) ||
-                              !!work.rebuildSession.source
-                            : entry.record.tool === 'reset'
-                              ? Object.values(work.resetSession.plan).some(Boolean) ||
-                                !!work.resetSession.source
-                              : entry.record.tool === 'build-a-standard'
-                                ? hasStandardWork(work.standardSession.standard)
-                                : decisionFields.some((f) => !!work.decisionSession.decision[f]) ||
-                                  work.decisionSession.decision.options.some(
-                                    (o) => !!o.label || !!o.tradeoff,
-                                  ) ||
-                                  !!work.decisionSession.readiness
+                        entry.record.tool === 'do-it-now'
+                          ? hasActionWork(work.actionSession)
+                          : entry.record.tool === 'next-move'
+                            ? Object.values(work.session.card).some(Boolean) ||
+                              !!work.session.readiness ||
+                              !!work.session.obstacleKind
+                            : entry.record.tool === 'rebuild-map'
+                              ? hasRebuildWork(work.rebuildSession.map) ||
+                                !!work.rebuildSession.source
+                              : entry.record.tool === 'reset'
+                                ? Object.values(work.resetSession.plan).some(Boolean) ||
+                                  !!work.resetSession.source
+                                : entry.record.tool === 'build-a-standard'
+                                  ? hasStandardWork(work.standardSession.standard)
+                                  : decisionFields.some(
+                                      (f) => !!work.decisionSession.decision[f],
+                                    ) ||
+                                    work.decisionSession.decision.options.some(
+                                      (o) => !!o.label || !!o.tradeoff,
+                                    ) ||
+                                    !!work.decisionSession.readiness
                       )
                         setOpening(entry);
                       else open(entry);
@@ -340,15 +365,17 @@ export function SavedWork({ work }: { work: LocalWork }) {
         >
           <p>
             Opening this record replaces the current{' '}
-            {opening.record.tool === 'next-move'
-              ? 'Next Move'
-              : opening.record.tool === 'build-a-standard'
-                ? 'Build a Standard'
-                : opening.record.tool === 'reset'
-                  ? 'Reset'
-                  : opening.record.tool === 'rebuild-map'
-                    ? 'Rebuild Map'
-                    : 'Decision Room'}{' '}
+            {opening.record.tool === 'do-it-now'
+              ? 'Do It Now'
+              : opening.record.tool === 'next-move'
+                ? 'Next Move'
+                : opening.record.tool === 'build-a-standard'
+                  ? 'Build a Standard'
+                  : opening.record.tool === 'reset'
+                    ? 'Reset'
+                    : opening.record.tool === 'rebuild-map'
+                      ? 'Rebuild Map'
+                      : 'Decision Room'}{' '}
             session. Copy or save any work you want to keep first. Your other saved records will
             stay.
           </p>

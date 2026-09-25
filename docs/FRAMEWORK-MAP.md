@@ -74,3 +74,8 @@ Reset starts after behavior missed a standard. PERIOD informs ownership without 
 ## Phase 6 rebuild adaptation, 2026-09-24
 
 Live Rebuild Yourself, PERIOD, Discipline Loop, Core Frameworks and navigation-discovered Pure Execution Mode were reviewed along with linked discipline, self-trust and identity articles. Seven governed adaptations are in `src/rebuild-lessons.ts`; sources and interpretation are in REBUILD-MAP.md. Standard, structure, repeated behavior and proof become authored work; identity remains a taught effect of evidence. Behavioral self-trust and reduced negotiation share a stage. Ownership is expressed through user authorship and leaving to act, not an eighth philosophy question.
+
+
+## Phase 7 execution adaptation, 2026-09-25
+
+Live Pure Execution Mode and Core Frameworks were re-read. Three original governed lessons in `src/do-it-now-lessons.ts` cover a known action, factual readiness/Begin and truthful reporting. The execution boundary above remains intact: Next Move clarifies, Do It Now begins, the user reports what happened. Neither timer expiry nor form completion certifies action, proof or identity. DO-IT-NOW.md records source governance and interpretation.

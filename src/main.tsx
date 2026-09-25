@@ -1,3 +1,4 @@
+import { DoItNow } from './DoItNow';
 import { RebuildMap } from './RebuildMap';
 import { Reset } from './Reset';
 import { BuildStandard } from './BuildStandard';
@@ -73,8 +74,8 @@ function Home() {
             <h2 id="tools-title">Start with what is in front of you.</h2>
           </div>
           <p>
-            Decision Room, Next Move, Build a Standard, Reset, and Rebuild Map are available on
-            staging.
+            Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now are
+            available on staging.
             <br />
             Each has a different job.
           </p>
@@ -89,8 +90,8 @@ function Home() {
         <div>
           <p>
             No accounts or analytics. Work stays in memory unless you choose to save a Decision
-            Record, Execution Card, Personal Standard, Reset Plan, or Rebuild Map on this device.
-            Read how saving and deletion work.
+            Record, Execution Card, Personal Standard, Reset Plan, Rebuild Map, or Action Record on
+            this device. Read how saving and deletion work.
           </p>
           <a href="#/privacy">
             Understand your privacy <span aria-hidden="true">↗</span>
@@ -118,7 +119,7 @@ function ToolGrid() {
                       ? 'Try Reset'
                       : tool.id === 'rebuild-map'
                         ? 'Try Rebuild Map'
-                        : 'In development'}
+                        : 'Try Do It Now'}
             </span>
           </div>
           <p class="situation">{tool.situation}</p>
@@ -141,7 +142,7 @@ function ToolsPage() {
           Use Decision Room to choose a direction, Next Move to define an executable action, or
           Build a Standard to choose a clear behavioral line. Reset helps you correct a miss and
           return to a standard. Rebuild Map connects a sustained rebuild to structure, repeated
-          action, and proof. Do It Now remains in development.
+          action, and proof. Do It Now helps you begin a known action and record what happened.
         </p>
       </PageIntro>
       <ToolGrid />
@@ -247,8 +248,8 @@ function Privacy({ work }: { work: LocalWork }) {
     <div class="narrow">
       <PageIntro label="Privacy & source" title="Your answers are not ours to collect.">
         <p>
-          Decision Room, Next Move, Build a Standard, Reset, and Rebuild Map work without an account
-          or answer submission. Saving is a choice you make on this device.
+          Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now work without
+          an account or answer submission. Saving is a choice you make on this device.
         </p>
       </PageIntro>
       <LocalDataControls work={work} />
@@ -256,16 +257,16 @@ function Privacy({ work }: { work: LocalWork }) {
         <section>
           <h2>What stays in the page</h2>
           <p>
-            Decision Room, Next Move, Build a Standard, Reset, and Rebuild Map keep answers in
-            memory during navigation within this site. Reloading or closing the tab can discard
-            unsaved work. Nothing is automatically saved. The older interaction preview remains
-            disposable when you leave it.
+            Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now keep
+            answers in memory during navigation within this site. Reloading or closing the tab can
+            discard unsaved work. Nothing is automatically saved. The older interaction preview
+            remains disposable when you leave it.
           </p>
           <p>
             Choose “Save on this device” to store only the confirmed Decision Record, Execution
-            Card, Personal Standard, Reset Plan, or Rebuild Map in this browser profile. Someone
-            using this profile may see it. Clearing site data can remove it. There is no server
-            recovery, device sync, or transfer from staging to production.
+            Card, Personal Standard, Reset Plan, Rebuild Map, or Action Record in this browser
+            profile. Someone using this profile may see it. Clearing site data can remove it. There
+            is no server recovery, device sync, or transfer from staging to production.
           </p>
         </section>
         <section>
@@ -370,6 +371,7 @@ function App() {
   else if (path === '/tools/build-a-standard') content = <BuildStandard work={work} />;
   else if (path === '/tools/rebuild-map') content = <RebuildMap work={work} />;
   else if (path === '/tools/reset') content = <Reset work={work} />;
+  else if (path === '/tools/do-it-now') content = <DoItNow work={work} />;
   else if (path === '/tools/next-move') content = <NextMove work={work} />;
   else if (path === '/preview') content = <Preview key={work.clearEpoch} />;
   else if (path.startsWith('/tools/')) content = <ToolPage id={path.slice(7)} />;

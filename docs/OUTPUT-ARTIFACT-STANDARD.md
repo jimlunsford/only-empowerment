@@ -52,3 +52,8 @@ Exact authored order: What slipped; Standard I am returning to; What I own now; 
 ## Phase 6 Rebuild Map
 
 Rebuild Map uses nine authored sections and **Mapped** status: a system has been mapped, not performed or proven. This is consistent with Decided, Planned and Set describing artifact state. No old schema or status changes. See REBUILD-MAP.md for exact section order, one-to-five repeated actions, bounds, copy, print and editable review. Identity is an effect of future behavioral evidence, not an authored identity claim or certification.
+
+
+## Phase 7 Action Record
+
+Action Record records Known task, Smallest real action, Begin state (Started), What happened and explicit user-selected Status: Completed, Partial or Blocked. It cannot be produced before Begin and result evidence. Three authored fields allow 2,000 UTF-16 code units each. Review can edit wording and deliberately change the reported result, requiring matching fresh evidence. Portable output explicitly identifies user-reported results. Timer state and handoff reference are excluded. The other five statuses remain Decided / Planned / Set / Planned / Mapped. See DO-IT-NOW.md.

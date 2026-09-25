@@ -74,3 +74,8 @@ Original application code, build and test code, repository documentation, and th
 Linked framework articles on JimLunsford.com remain under their existing terms. This software license does not grant a trademark license or imply endorsement by Jim Lunsford. User-created answers and exported records remain the user's work.
 
 Third-party components retain their own licenses and notices. See [third-party notices](THIRD_PARTY_NOTICES.md).
+
+
+## Phase 7 candidate: Do It Now
+
+Five accepted tools are joined by Do It Now on the unmerged dev.7 candidate. It starts an already understood action and records a user-reported Completed, Partial, or Blocked Action Record. Optional timing is memory-only; expiry never completes an action. Next Move offers an explicit reviewed handoff, and Saved Work supports six artifact types. See [Do It Now](docs/DO-IT-NOW.md) and [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md). This is not production or final v1 acceptance.

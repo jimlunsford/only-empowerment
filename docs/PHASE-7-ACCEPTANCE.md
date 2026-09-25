@@ -9,3 +9,23 @@ Scope: shortest complete workflow for a known action, explicit readiness and Beg
 Live Pure Execution Mode and Core Frameworks reviewed on 2026-09-25. Execution follows a sufficiently understood action; the interface cannot infer completion or behavioral identity.
 
 Required gates: full local browser matrix with zero retries, unit/format/type/build/audit checks, visual review, exact-head required CI, independently compared CI artifact, source-pinned immutable deployment envelope. Stop before privileged deployment for owner sudo. PR remains draft and unmerged. Production and final v1 launch work are out of scope.
+
+## Implemented scope
+
+Do It Now has four working screens and an artifact exit, explicit Started state, Completed/Partial/Blocked reports, editable review, copy/fallback/print, an optional off-by-default 1-to-60-minute in-memory timer, explicit Action Record saving and the reviewed Next Move transfer. Six-type Saved Work preserves old schemas and statuses. The global quota, scoped deletion, stale-byte rejection and tab synchronization remain shared.
+
+## Verification record
+
+99 unit tests passed with zero failures. The initial new-tool desktop/mobile Chromium run passed 54 checks; a test-only style-injection issue was corrected to use the established enlargement method without changing CSP. Local Firefox requires its content sandbox disabled inside the already sandboxed execution container; this is a test-environment setting only, absent from the product and repository browser configuration. Required CI runs its normal four projects with zero retries.
+
+Full final browser matrix, exact-head CI, strict build and artifact comparison are required before packaging. The packaging verification report supplies exact final SHA, CI run/artifact IDs, archive/envelope hashes, test counts and deployment command, which cannot be embedded in their own source commit. No provisional run counts constitute deployed acceptance.
+
+Visual review includes direct entry/begin, timer, all three results and artifact reviews, mobile artifact, handoff preview/replacement, six-artifact Saved Work, 320px/200% reflow and print. The implementation keeps the established restrained visual system and does not introduce a planner, Pomodoro cycle, motivation score or onward engagement loop.
+
+Limits: no actual NVDA, JAWS, VoiceOver, TalkBack, physical-device keyboard or physical-printer checks were available. Axe, keyboard and emulated media/reflow checks are evidence, not WCAG certification. No deployed Phase 7 acceptance is performed in this execution.
+
+## Immutable deployment boundary
+
+`ops/deploy-do-it-now-candidate.py` uses the established source-pinned foundation helper and existing VPS-wide backup/restore calls. Rollback is `/var/www/dev.onlyempowerment.com/releases/5e44590d26122dc368655c9554bdd0b08faac667`. Nginx hash remains `1af84bfffe4e3d4aafd4fc3b07147da1663b2f9c2d47b4e12534be7dbc5b683a`. Public files are immutable; the current pointer changes atomically and rolls back on verification failure. Root-only foundation helper readback remains an owner-sudo preflight assertion. No configuration or privilege-policy change is used to obtain access.
+
+Stop before sudo. PR #9 remains draft and unmerged. Production is untouched.

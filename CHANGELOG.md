@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-dev.7 (Phase 7 candidate)
+
+- Add Do It Now: known action, factual begin gate, explicit Started state, optional bounded in-memory timer, actual result and editable Action Record.
+- Add user-reported Completed, Partial and Blocked statuses, portable copy/print and explicit local saving.
+- Activate reviewed Next Move handoff with editable/excludable references and existing-work protection.
+- Extend Saved Work, shared quota, scoped deletion and tab synchronization to six artifact types without migrating earlier records.
+- Add source-governed lessons and privacy, storage, accessibility and browser regression coverage. No dependencies, production release or tag.
+
 ## 0.1.0-dev.6 (Phase 6 candidate)
 
 - Rebuild Map: seven working stages, editable nine-section artifact, Status: Mapped, exact copy and browser print.
