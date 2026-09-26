@@ -1,5 +1,6 @@
 import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { captureEvidence } from '../screenshot-evidence.mjs';
 import { actionText, resultPrompts, type ActionStatus } from '../../src/do-it-now-model';
 import { emptyDecision, decisionFields } from '../../src/decision-room-model';
 import { standardFields } from '../../src/standard-model';
@@ -26,8 +27,7 @@ async function axe(page: Page) {
   ).toEqual([]);
 }
 async function capture(page: Page, info: TestInfo, name: string) {
-  if (['chromium', 'mobile-chromium'].includes(info.project.name))
-    await page.screenshot({ path: info.outputPath('action-' + name + '.png'), fullPage: true });
+  await captureEvidence(page, info, 'action-' + name);
 }
 async function start(page: Page) {
   await page.goto('/#/tools/do-it-now');

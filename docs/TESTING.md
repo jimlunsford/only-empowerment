@@ -67,3 +67,10 @@ Phase 3 adds decision-room unit and browser suites to the existing test structur
 ## Phase 7 Do It Now
 
 `tests/do-it-now.test.mjs` covers Begin/result invariants, three truthful statuses, all bounds, exact shape/key/version, copy, escaping, timer deadlines, handoff validation, source governance, six-artifact byte compatibility, quota, storage/readback/stale-write/deletion failures. `tests/browser/do-it-now.spec.ts` exercises direct/pause/review/result flows, timers and navigation, copy/fallback/print, save/reopen/edit, six-type Saved Work, failures, cross-tab deletion, visibility, private markers, handoff preview/exclusion/replacement, keyboard/focus, axe and widths 320/360/390/1024/1440 with enlarged text, forced colors and reduced motion. Existing suites stay intact. Both configs use four projects and zero retries; only the staging expected version advances to dev.7. Executed results and unavailable physical-device/assistive-technology checks belong in PHASE-7-ACCEPTANCE.md.
+
+
+### Do It Now screenshot evidence
+
+Do It Now retains full-page Chromium/mobile Chromium review captures. Only the specific `Protocol error (Page.captureScreenshot): Unable to capture screenshot` condition triggers one distinctly named viewport fallback. A `*-capture-evidence.json` file and Playwright attachment record the requested image, project, original error and fallback result; a `screenshot-degraded` annotation marks the test. Both recognized capture failures permit subsequent product assertions, with missing review images reported separately. Unexpected capture, output or attachment errors remain fatal. No test retries or settling waits are added. The existing browser-review artifact includes these files.
+
+Node tests validate classification and capture/reporting decisions using small injected capture functions, not real browsers. Actual image validity and functional workflows require the normal exact-head four-project GitHub Actions gate. For this correction, pinned local browser executables are unavailable, so browser verification runs in that existing CI environment.
