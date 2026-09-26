@@ -2,6 +2,8 @@
 
 ## 0.1.0-dev.7 (Phase 7 candidate)
 
+- Complete route title, heading focus and scroll reset during the DOM commit so delayed navigation focus cannot interrupt immediate form input.
+
 - Add Do It Now: known action, factual begin gate, explicit Started state, optional bounded in-memory timer, actual result and editable Action Record.
 - Add user-reported Completed, Partial and Blocked statuses, portable copy/print and explicit local saving.
 - Activate reviewed Next Move handoff with editable/excludable references and existing-work protection.

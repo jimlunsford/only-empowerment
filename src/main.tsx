@@ -3,7 +3,7 @@ import { RebuildMap } from './RebuildMap';
 import { Reset } from './Reset';
 import { BuildStandard } from './BuildStandard';
 import { render } from 'preact';
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { frameworks, tools } from './model';
 import { PageIntro, SourceNote } from './components/shared';
 import { Preview } from './Preview';
@@ -351,7 +351,7 @@ function App() {
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const heading = document.querySelector('h1');
     document.title = `${heading?.textContent || 'Page'} | Only Empowerment`;
     if (initial.current) {

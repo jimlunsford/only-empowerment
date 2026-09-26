@@ -28,6 +28,14 @@ Limits: no actual NVDA, JAWS, VoiceOver, TalkBack, physical-device keyboard or p
 
 ## Immutable deployment boundary
 
-`ops/deploy-do-it-now-candidate.py` uses the established source-pinned foundation helper and existing VPS-wide backup/restore calls. Rollback is `/var/www/dev.onlyempowerment.com/releases/5e44590d26122dc368655c9554bdd0b08faac667`. Nginx hash remains `1af84bfffe4e3d4aafd4fc3b07147da1663b2f9c2d47b4e12534be7dbc5b683a`. Public files are immutable; the current pointer changes atomically and rolls back on verification failure. Root-only foundation helper readback remains an owner-sudo preflight assertion. No configuration or privilege-policy change is used to obtain access.
+`ops/deploy-do-it-now-candidate.py` uses the established source-pinned foundation helper and existing VPS-wide backup/restore calls. The expected pre-switch release and transactional rollback pointer are `/var/www/dev.onlyempowerment.com/releases/85b995de7522149b50e76737af66a6f9cdc991d4`. Accepted main remains `5e44590d26122dc368655c9554bdd0b08faac667`. Nginx hash remains `1af84bfffe4e3d4aafd4fc3b07147da1663b2f9c2d47b4e12534be7dbc5b683a`. Public files are immutable; the current pointer changes atomically and rolls back on verification failure. Root-only foundation helper readback remains an owner-sudo preflight assertion. No configuration or privilege-policy change is used to obtain access.
 
 Stop before sudo. PR #9 remains draft and unmerged. Production is untouched.
+
+## Route-focus correction (2026-09-26)
+
+Passive diagnostic run `36253333900` recorded a delayed route-heading focus effect taking focus from the task textarea during WebKit fill. The fill returned successfully without a task input event or Action Session task update. No populated-to-empty fresh session transition occurred; self-originated deletion replay was ignored correctly. The older first-action disappearance remains unexplained and is not attributed to this correction.
+
+The route title, heading focus and scroll reset now use Preact's post-DOM layout effect. This retains the existing initial-load policy and heading accessibility while completing route focus in the commit before new-page interaction. No synchronization or Do It Now semantics change. New browser coverage checks normal hash navigation, heading focus/title/tabindex, and uninterrupted immediate form input with retained focus and state. The original deletion replay regression is unchanged.
+
+Required correction gates are focused Chromium/WebKit checks, 50 WebKit repetitions each of the original replay and new immediate-interaction tests, zero retries, then full exact-head verification and independent artifact comparison. Final measured counts and candidate provenance belong to the external packaging report. Deployment still stops for owner sudo.

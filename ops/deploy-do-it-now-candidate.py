@@ -15,7 +15,7 @@ import shutil
 import sys
 
 ROOT = Path('/var/www/dev.onlyempowerment.com')
-OLD = ROOT / 'releases/5e44590d26122dc368655c9554bdd0b08faac667'
+OLD = ROOT / 'releases/85b995de7522149b50e76737af66a6f9cdc991d4'
 CONF = Path('/etc/nginx/sites-available/dev.onlyempowerment.com')
 ORIGINAL = ROOT / 'private/deploy-staging-foundation.py'
 CONF_HASH = '1af84bfffe4e3d4aafd4fc3b07147da1663b2f9c2d47b4e12534be7dbc5b683a'
