@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('hash-route navigation updates title and focuses the new page heading', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'Tools', exact: true }).click();
+  await page.getByRole('link', { name: 'The tools', exact: true }).click();
   const toolsHeading = page.getByRole('heading', {
     level: 1,
     name: 'Different situations. Useful next steps.',
@@ -14,7 +14,7 @@ test('hash-route navigation updates title and focuses the new page heading', asy
   await expect(page).toHaveTitle('Different situations. Useful next steps. | Only Empowerment');
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
 
-  await page.getByRole('link', { name: 'Approach', exact: true }).click();
+  await page.getByRole('link', { name: 'The approach', exact: true }).click();
   const approachHeading = page.getByRole('heading', {
     level: 1,
     name: 'Understand it. Use it. Make it yours.',
