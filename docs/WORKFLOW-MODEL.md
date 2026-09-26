@@ -28,9 +28,11 @@ Current hash routes contain only allowlisted route identifiers. Never encode ans
 
 A handoff contains source tool, target tool, and selected labeled fields in memory. Before transfer, show what will move; the user can edit, exclude, or cancel. The target remains responsible for its own questions and validation. Do not overwrite an existing draft silently. Never append private text to a URL. No automatic chain, forced continuation, or loop back into engagement.
 
-The Phase 1 Handoff type reserves a boundary only. Transfer behavior is not implemented. The first reference tool must test a finite handoff preview without falsely opening an unfinished receiving tool.
+Historically, the Phase 1 Handoff type reserved a boundary only and transfer behavior was not implemented. The first reference tool had to test a finite preview without falsely opening an unfinished receiver. Accepted transfers now include Decision Room and Rebuild Map into Next Move, and Next Move into Do It Now, as described below.
 
 ## Next Move implementation
+
+This Phase 2 snapshot describes the original reference workflow and unavailable receivers at that time. Decision Room and Do It Now are now accepted; the Phase 7 section records the active Next Move continuation.
 
 Six steps: situation; user-owned action; readiness choice; obstacle and its effect; start condition; completion boundary. Each has a concise lesson. Then editable review and an explicitly Planned card. Readiness and blocker branches allow a clean pause; Decision Room is identified as future/unavailable. Navigation inside the app retains a single typed Next Move session in App, without persistent draft storage or a global state library. The preview retains its disposable behavior.
 

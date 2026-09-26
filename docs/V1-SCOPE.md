@@ -10,6 +10,10 @@ Tools ship only when their own workflow and output acceptance criteria pass. A b
 
 Accounts, cloud sync, server response storage, AI APIs, diagnostics, psychological scoring, social/community features, coaching marketplace, payments, subscriptions, commerce, article publishing, remote form processors, advertising, analytics, streaks, badges, notifications, automatic recommendations, server PDF generation, and a generic workflow builder. Structured import/export and PWA installation/offline update handling are deferred enhancements, not v1 blockers unless explicitly promoted in a later scope decision.
 
+## Historical phase boundaries
+
+The Phase 1 through Phase 6 sections below preserve scope and candidate status at those times, not current availability. All six core tools are now implemented and accepted; see the Phase 7 section and [final acceptance](PHASE-7-ACCEPTANCE.md).
+
 ## Phase 1 boundary
 
 Repository, documentation, architecture decision, tool outlines, visual direction, honest privacy page, small interaction preview, test/build/CI foundations, version/source metadata, and staging if operationally achievable. No complete Decision Room, Next Move, Reset, Build a Standard, Rebuild Map, or Do It Now. No apex cutover or public production release.
@@ -45,20 +49,20 @@ Next Move is the only tool implemented in this candidate: six-step clarification
 
 Next Move is accepted on main. Phase 3 implements Decision Room as the second complete candidate and its finite handoff into Next Move. Reset, Build a Standard, Rebuild Map and Do It Now remain outlines. Candidate implementation does not mean product acceptance.
 
-## Current Phase 4 scope
+## Historical Phase 4 scope
 
 Build a Standard is the third candidate following accepted Decision Room and Next Move. Personal Standard, seven-stage teaching workflow, editable artifact review, copy/print, explicit local save and three-type Saved Work are in scope. Reset, Rebuild Map and Do It Now remain unbuilt. No generic import/handoff system, standard adherence tracking, account, scoring or recommendations. Candidate completion is not owner acceptance.
 
 
-## Current Phase 5 scope
+## Historical Phase 5 scope
 
 Reset is the only new tool in this phase. It includes seven authored answers, manual or explicitly selected saved standard, validity check and legitimate pauses, editable Planned Reset Plan, copy/print, explicit local artifact save and four-type Saved Work. No diagnosis, scoring, AI, streaks, miss history, punishment prescription, incident therapy, automatic handoff, production release, Rebuild Map or Do It Now implementation. The three accepted tools retain their contracts. Candidate implementation does not imply product approval.
 
-## Phase 6 boundary
+## Historical Phase 6 boundary
 
 Rebuild Map is the current candidate, extending four accepted tools. Scope includes standalone Mapped artifact, deliberate Personal Standard reference, five-type Saved Work and same-tab Next Move handoff. No life-planning dashboard, proof tracker, identity assessment, gamification, Do It Now implementation or production launch. Keep the feature PR draft and unmerged for explicit product review.
 
 
-## Phase 7 boundary
+## Current Phase 7 accepted scope
 
-Do It Now is the only new tool. Four working screens, explicit Begin, optional bounded timer, truthful user-selected result, editable Action Record, copy/print, explicit local saving, six-type Saved Work and the existing Next Move handoff contract. The feature PR stays draft/unmerged; the candidate is packaged for owner sudo, then stops. No production deployment, final v1 launch, dashboard, diagnosis, streaks, AI, analytics or additional cross-tool transfers.
+Do It Now is the only new tool. Four working screens, explicit Begin, optional bounded timer, truthful user-selected result, editable Action Record, copy/print, explicit local saving, six-type Saved Work and the existing Next Move handoff contract. PR #9 is merged and closed. All six planned core tools are accepted into main at the Phase 7 checkpoint `0df2c7d3338abb18968ef0cca7c86f41455d6d2d`, version `0.1.0-dev.7`. Deployed staging acceptance is complete; this does not establish whole-product production readiness. No production deployment, final v1 launch, dashboard, diagnosis, streaks, AI, analytics or additional cross-tool transfers.

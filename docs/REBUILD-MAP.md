@@ -1,6 +1,6 @@
 # Rebuild Map
 
-Phase 6 candidate. Rebuild Map helps the user design a sustained rebuild of one area. The user owns the standard, structure, repeated actions and proof. The tool does not prescribe a life direction, rewrite answers, certify identity, or track behavior.
+Accepted Phase 6 tool, retained in the accepted six-tool Phase 7 product. Rebuild Map helps the user design a sustained rebuild of one area. The user owns the standard, structure, repeated actions and proof. The tool does not prescribe a life direction, rewrite answers, certify identity, or track behavior.
 
 ## Doctrine review, 2026-09-24
 
@@ -30,7 +30,7 @@ Seven concise original lesson adaptations live in `src/rebuild-lessons.ts`. The 
 | First move | One executable action | Begin structure or repeated behavior |
 | Review | Nine editable artifact sections | Confirm the user's map, not completed behavior |
 
-Entry distinguishes Decision Room for unresolved direction and Reset for a specific miss. Build a Standard owns the full standard definition. The unclear-standard path pauses without a final map and links internally to Build a Standard. Navigation preserves the in-memory session in the current tab, with no promise across reload or closure. No Do It Now feature or handoff is introduced.
+Entry distinguishes Decision Room for unresolved direction and Reset for a specific miss. Build a Standard owns the full standard definition. The unclear-standard path pauses without a final map and links internally to Build a Standard. Navigation preserves the in-memory session in the current tab, with no promise across reload or closure. Rebuild Map has no direct Do It Now handoff; its optional continuation remains Next Move.
 
 ## Saved Personal Standard reference
 
@@ -54,7 +54,7 @@ Existing architecture, new namespace: `oe:rebuild-map:v1:<UUID-v4>`.
 
 Exact JSON: `{schemaVersion:1,id,tool:"rebuild-map",status:"Mapped",map:{area,reality,standard,structure,actions,proof,trust,negotiation,firstMove}}`.
 
-No timestamps, source identifiers, drafts, handoff contents, scores or history are saved. Explicit confirmed saving only; shared-device notice, exact readback verification, stable local record identity for explicit updates, stale-byte rejection. The 130,000-character serialized ceiling accommodates worst-case escaping at every field maximum. All five artifact types and unknown owned keys share the accepted 50-record limit. Existing schemas and bytes require no migration.
+No timestamps, source identifiers, drafts, handoff contents, scores or history are saved. Explicit confirmed saving only; shared-device notice, exact readback verification, stable local record identity for explicit updates, stale-byte rejection. The 130,000-character serialized ceiling accommodates worst-case escaping at every field maximum. All six artifact types and unknown owned keys share the accepted 50-record limit. Existing schemas and bytes require no migration.
 
 Saved Work opens, edits and deletes maps using the accepted replace-session confirmation pattern. Delete my local data clears every `oe:` key and every tool's current state, including map references and transient handoff previews. Storage events, BroadcastChannel deletion and visibility rechecks extend the accepted synchronization. Failures remain visible and preserve work where possible; simultaneous explicit writes retain the documented nontransactional storage limitation. Unrelated origin keys are preserved. External clipboard/PDF/print copies remain outside local deletion.
 

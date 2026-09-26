@@ -1,6 +1,6 @@
 # Do It Now
 
-Phase 7 candidate, version 0.1.0-dev.7. Product approval and deployed acceptance are pending.
+Phase 7 accepted, version `0.1.0-dev.7`. PR #9 is merged and closed; product and deployed staging acceptance are complete. See [final Phase 7 acceptance](PHASE-7-ACCEPTANCE.md). Production has not launched.
 
 ## Responsibility
 
