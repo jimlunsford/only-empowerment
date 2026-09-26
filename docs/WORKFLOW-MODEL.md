@@ -53,3 +53,8 @@ Seven stages: miss; standard source plus still-stands check; ownership; repairab
 ## Phase 6 Rebuild Map
 
 Seven working stages plus editable artifact review: area/reality, standard, structure, repeated actions, proof, self-trust/negotiation, first move. A no-standard choice pauses toward Build a Standard without a map. The optional Rebuild Map → Next Move continuation uses the same App-owned in-memory preview/transfer pattern as Decision Room, with minimum Situation and Action text, independent exclusion/editing, and deliberate replacement protection. Next Move still runs its full workflow. No generic workflow engine or new transport. Details in REBUILD-MAP.md.
+
+
+## Phase 7 execution workflow
+
+Do It Now combines task/first action, readiness/Begin, result/evidence and artifact-shaped review into four screens. Begin only reports Started. An explicit Completed/Partial/Blocked report plus evidence is required before confirmation. Timer expiry is never a transition to completion. Next Move now activates its existing in-memory action/start/completion contract through editable preview, optional reference exclusion and replacement confirmation. No new transport or generic engine. DO-IT-NOW.md defines the finite transitions and boundaries.

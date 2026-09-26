@@ -23,7 +23,7 @@ test('deployed TLS response, headers and source match independently pinned sourc
   expect(headers['set-cookie']).toBeUndefined();
   const metadata = await (await request.get('/build.json')).json();
   expect(metadata).toEqual({
-    version: '0.1.0-dev.6',
+    version: '0.1.0-dev.7',
     commit: accepted,
     dirty: false,
     tag: null,

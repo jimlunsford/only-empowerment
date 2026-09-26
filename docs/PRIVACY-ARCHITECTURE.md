@@ -84,3 +84,8 @@ Reset extends explicit saving to `oe:reset-plan:v1:<UUID-v4>`. Exact shape: `{sc
 ## Phase 6 Rebuild Map
 
 `oe:rebuild-map:v1:` adds a fifth explicit artifact type using the same 50-record limit, validation/readback/stale-write rules and scoped multi-tab deletion. Only its nine authored sections are saved. Selected standard references and keys remain in memory; only the statement is snapshotted. Optional Next Move transfer previews two editable/excludable fields in memory, never URLs or requests, and protects existing Next Move work through replacement confirmation. REBUILD-MAP.md specifies schema and limits. No migrations, new persistence mechanisms, dependencies, analytics or behavior tracking.
+
+
+## Phase 7 Action Record
+
+`oe:action-record:v1:` extends explicit artifact storage to six types with the existing total of 50 app records. Schema and bounds are in DO-IT-NOW.md. Task, first action, Started and user-reported outcome/status are the only artifact content. Readiness, optional timer duration/start/deadline, handoff references and abandoned sessions stay in memory and are never automatically persisted. No timestamps in the artifact. Reviewed Next Move transfer stays same-tab and never carries content in URLs or requests. Existing readback, stale-write rejection, scoped deletion, tab synchronization and visibility checks apply. No migration, network API, analytics, AI, remote runtime dependency or CSP relaxation.

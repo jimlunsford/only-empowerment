@@ -1683,3 +1683,32 @@ select:focus-visible {
 .standard-selection > button {
   margin-top: 0.75rem;
 }
+
+/* Do It Now uses the established workflow and artifact presentation. */
+.do-it-now input[type='text'] {
+  font: inherit;
+  color: inherit;
+  background: var(--paper);
+  border: 1px solid currentColor;
+  padding: 0.75rem;
+  max-width: 100%;
+  min-height: 44px;
+}
+.action-timer {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid currentColor;
+}
+.action-timer > p:first-child {
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
+}
+@media print {
+  .do-it-now {
+    max-width: none;
+    padding: 0;
+  }
+  .do-it-now > :not(.output-card) {
+    display: none !important;
+  }
+}

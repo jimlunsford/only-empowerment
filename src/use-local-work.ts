@@ -1,3 +1,4 @@
+import { newActionSession, type ActionSession } from './do-it-now-model';
 import { newRebuildSession, type RebuildSession } from './rebuild-model';
 import { newResetSession, type ResetSession } from './reset-model';
 import { newStandardSession, type StandardSession } from './standard-model';
@@ -8,17 +9,20 @@ import { newDecisionSession, type DecisionSession } from './decision-room-model'
 import { newSession, type Session } from './next-move-model';
 export type LocalEvent =
   { type: 'delete-all' } | { type: 'delete-one'; key: string } | { type: 'refresh' };
+type LocalMessage = LocalEvent & { senderId?: string };
 const CHANNEL = 'oe:local-data';
+const SENDER_ID = crypto.randomUUID();
 export function broadcast(event: LocalEvent) {
   try {
     const channel = new BroadcastChannel(CHANNEL);
-    channel.postMessage(event);
+    channel.postMessage({ ...event, senderId: SENDER_ID } satisfies LocalMessage);
     channel.close();
   } catch {
     /* storage events remain available */
   }
 }
 export function useLocalWork() {
+  const [actionSession, setActionSession] = useState<ActionSession>(newActionSession);
   const [rebuildSession, setRebuildSession] = useState<RebuildSession>(newRebuildSession);
   const [resetSession, setResetSession] = useState<ResetSession>(newResetSession);
   const [standardSession, setStandardSession] = useState<StandardSession>(newStandardSession);
@@ -51,8 +55,10 @@ export function useLocalWork() {
       setStandardSession(newStandardSession());
       setResetSession(newResetSession());
       setRebuildSession(newRebuildSession());
+      setActionSession(newActionSession());
       setNotice('Local data and current work in all tools were cleared.');
     } else if (event.type === 'delete-one') {
+      setActionSession((old) => (old.savedKey === event.key ? newActionSession() : old));
       setResetSession((old) => (old.savedKey === event.key ? newResetSession() : old));
       setRebuildSession((old) => (old.savedKey === event.key ? newRebuildSession() : old));
       setStandardSession((old) => (old.savedKey === event.key ? newStandardSession() : old));
@@ -72,6 +78,11 @@ export function useLocalWork() {
       if (!event.key.startsWith(PREFIX)) return;
       if (event.newValue === null) clearEvent({ type: 'delete-one', key: event.key });
       else {
+        setActionSession((old) =>
+          old.savedKey === event.key && old.savedRaw !== event.newValue
+            ? { ...old, savedRaw: null }
+            : old,
+        );
         setRebuildSession((old) =>
           old.savedKey === event.key && old.savedRaw !== event.newValue
             ? { ...old, savedRaw: null }
@@ -104,7 +115,8 @@ export function useLocalWork() {
     try {
       channel = new BroadcastChannel(CHANNEL);
       channel.onmessage = (e) => {
-        const message = e.data;
+        const message = e.data as LocalMessage | undefined;
+        if (message?.senderId === SENDER_ID) return;
         if (
           message?.type === 'delete-all' ||
           message?.type === 'refresh' ||
@@ -120,6 +132,17 @@ export function useLocalWork() {
     const visible = () => {
       if (document.visibilityState === 'visible') {
         refresh();
+        setActionSession((old) => {
+          if (!old.savedKey) return old;
+          try {
+            const current = browserStorage().getItem(old.savedKey);
+            if (current === null) return newActionSession();
+            if (current !== old.savedRaw) return { ...old, savedRaw: null };
+          } catch {
+            return { ...old, savedRaw: null };
+          }
+          return old;
+        });
         setRebuildSession((old) => {
           if (!old.savedKey) return old;
           try {
@@ -186,6 +209,8 @@ export function useLocalWork() {
     };
   }, []);
   return {
+    actionSession,
+    setActionSession,
     rebuildSession,
     setRebuildSession,
     resetSession,
