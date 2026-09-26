@@ -105,11 +105,7 @@ export const tools: Tool[] = [
     description: 'Make the action small enough to begin. Do it. Record what happened.',
     output: 'Action Record',
     frameworks: ['execution'],
-    questions: [
-      'What are you avoiding?',
-      'What is the smallest real action?',
-      'What did you actually complete?',
-    ],
+    questions: ['What are you doing now?', 'What is the smallest real action?', 'What happened?'],
   },
 ];
 export type WorkflowStage = 'lesson' | 'reflection' | 'decision' | 'action' | 'result';

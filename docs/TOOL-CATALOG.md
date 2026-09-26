@@ -46,3 +46,8 @@ Decision Room, Next Move and Build a Standard are accepted. Reset is the fourth 
 ## Current Phase 6 scope
 
 Decision Room, Next Move, Build a Standard and Reset are accepted. Rebuild Map is the fifth implemented candidate. It designs a sustained rebuild around one standard and its structure, repeated actions and future proof, with Mapped status. It is distinct from Reset's response to a miss. It reads a deliberately selected Personal Standard without modifying it and can optionally preview minimal text into the full Next Move workflow. Do It Now remains an unavailable outline. See REBUILD-MAP.md.
+
+
+## Current Phase 7 candidate
+
+Do It Now is the sixth implemented candidate; the other five are accepted. It begins an already understood action and produces a user-reported Action Record after explicit Begin and result evidence. Next Move now offers a reviewed optional continuation. Do It Now has no default onward loop. Build a Standard remains standalone in this phase; its potential future relationship is not a typed transfer. See DO-IT-NOW.md. Earlier phase status sections are historical.

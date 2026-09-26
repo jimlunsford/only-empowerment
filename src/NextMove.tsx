@@ -1,8 +1,17 @@
+import { hasActionWork, receiveActionHandoff } from './do-it-now-model';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { SourceNote } from './components/shared';
-import { ConfirmDialog, ExecutionCard, FieldInput, LocalNotice } from './components/work';
+import {
+  ConfirmDialog,
+  ExecutionCard,
+  FieldInput,
+  LocalNotice,
+  TextResponse,
+} from './components/work';
 import {
   cardText,
+  handoffPreview,
+  type Card,
   fields,
   labels,
   newSession,
@@ -19,8 +28,15 @@ export function NextMove({ work }: { work: LocalWork }) {
   const { step, card } = session;
   const [errors, setErrors] = useState<Partial<Record<Field | 'choice', string>>>({});
   const [status, setStatus] = useState('');
-  const [dialog, setDialog] = useState<'save' | 'clear' | null>(null);
+  const [dialog, setDialog] = useState<'save' | 'clear' | 'replace-action' | null>(null);
   const [fallback, setFallback] = useState(false);
+  const [handoff, setHandoff] = useState<Card | null>(null);
+  const [includeStart, setIncludeStart] = useState(true);
+  const [includeCompletion, setIncludeCompletion] = useState(true);
+  const handoffHeading = useRef<HTMLHeadingElement>(null);
+  useLayoutEffect(() => {
+    if (handoff) handoffHeading.current?.focus();
+  }, [!!handoff]);
   const heading = useRef<HTMLHeadingElement>(null);
   const copyArea = useRef<HTMLTextAreaElement>(null);
   useLayoutEffect(() => {
@@ -28,6 +44,7 @@ export function NextMove({ work }: { work: LocalWork }) {
     setErrors({});
     setStatus('');
     setFallback(false);
+    setHandoff(null);
   }, [step]);
   useEffect(() => {
     if (fallback) {
@@ -40,6 +57,7 @@ export function NextMove({ work }: { work: LocalWork }) {
     if (!card.situation && step === 0) {
       setFallback(false);
       setDialog(null);
+      setHandoff(null);
       setStatus('');
     }
   }, [card, step]);
@@ -124,6 +142,32 @@ export function NextMove({ work }: { work: LocalWork }) {
       );
       work.refresh();
     }
+  }
+  function prepareTransfer() {
+    if (!handoff) return null;
+    const selected: ('action' | 'start' | 'completion')[] = ['action'];
+    if (includeStart) selected.push('start');
+    if (includeCompletion) selected.push('completion');
+    const next: Partial<Record<Field, string>> = {};
+    for (const f of selected) {
+      const error = validateField(f, handoff[f]);
+      if (error) next[f] = error;
+    }
+    setErrors(next);
+    const first = selected.find((f) => next[f]);
+    if (first) {
+      document.getElementById('nm-carry-' + first)?.focus();
+      return null;
+    }
+    return receiveActionHandoff(handoffPreview(handoff, selected));
+  }
+  function transfer() {
+    const received = prepareTransfer();
+    if (!received) return;
+    work.setActionSession(received);
+    setDialog(null);
+    setHandoff(null);
+    location.hash = '/tools/do-it-now';
   }
   const isSaved =
     session.savedRaw && JSON.stringify(JSON.parse(session.savedRaw).card) === JSON.stringify(card);
@@ -355,7 +399,7 @@ export function NextMove({ work }: { work: LocalWork }) {
           </div>
         </form>
       )}
-      {step === 'card' && (
+      {step === 'card' && !handoff && (
         <>
           <ExecutionCard card={card} />
           <section class="artifact-actions no-print" aria-label="Use your Execution Card">
@@ -387,6 +431,23 @@ export function NextMove({ work }: { work: LocalWork }) {
               Copy and print are optional. Clipboard sync, saved PDFs, and printers are outside
               local deletion.
             </p>
+            <section class="handoff-offer">
+              <h2>If the action is ready to begin</h2>
+              <p>
+                Do It Now can help you begin and report the result. Your plan is already yours to
+                use. Continuing is optional.
+              </p>
+              <button
+                class="button"
+                onClick={() => {
+                  setHandoff({ ...card });
+                  setIncludeStart(true);
+                  setIncludeCompletion(true);
+                }}
+              >
+                Do it now
+              </button>
+            </section>
             {fallback && (
               <div class="copy-fallback">
                 <label for="manual-copy">Execution Card plain text</label>
@@ -410,6 +471,106 @@ export function NextMove({ work }: { work: LocalWork }) {
             )}
           </section>
         </>
+      )}
+      {step === 'card' && handoff && (
+        <section class="review-panel no-print">
+          <h2 ref={handoffHeading} tabIndex={-1}>
+            Review what goes into Do It Now.
+          </h2>
+          <p>
+            Only the included text moves within this tab. Your Execution Card stays unchanged.
+            Nothing is saved automatically. Do It Now still asks whether you can begin.
+          </p>
+          <TextResponse
+            id="nm-carry-action"
+            label="My next move to carry"
+            value={handoff.action}
+            limit={2000}
+            error={errors.action}
+            onChange={(v) => setHandoff({ ...handoff, action: v })}
+          />
+          <p class="small">The action is required.</p>
+          <label class="choice">
+            <input
+              type="checkbox"
+              checked={includeStart}
+              onChange={(e) => setIncludeStart(e.currentTarget.checked)}
+            />
+            <span>Include start condition</span>
+          </label>
+          {includeStart && (
+            <TextResponse
+              id="nm-carry-start"
+              label="Start condition to carry"
+              value={handoff.start}
+              limit={1000}
+              error={errors.start}
+              onChange={(v) => setHandoff({ ...handoff, start: v })}
+            />
+          )}
+          <label class="choice">
+            <input
+              type="checkbox"
+              checked={includeCompletion}
+              onChange={(e) => setIncludeCompletion(e.currentTarget.checked)}
+            />
+            <span>Include completion boundary</span>
+          </label>
+          {includeCompletion && (
+            <TextResponse
+              id="nm-carry-completion"
+              label="Completion boundary to carry"
+              value={handoff.completion}
+              limit={2000}
+              error={errors.completion}
+              onChange={(v) => setHandoff({ ...handoff, completion: v })}
+            />
+          )}
+          <div class="actions">
+            <button
+              class="button"
+              onClick={() => {
+                setHandoff(null);
+                setErrors({});
+                requestAnimationFrame(() => heading.current?.focus());
+              }}
+            >
+              Cancel handoff
+            </button>
+            <button
+              class="button primary"
+              onClick={() => {
+                if (!prepareTransfer()) return;
+                if (hasActionWork(work.actionSession)) setDialog('replace-action');
+                else transfer();
+              }}
+            >
+              Continue into Do It Now
+            </button>
+          </div>
+        </section>
+      )}
+      {dialog === 'replace-action' && (
+        <ConfirmDialog
+          title="Replace current Do It Now work?"
+          confirm="Replace and open Do It Now"
+          onCancel={() => setDialog(null)}
+          onConfirm={transfer}
+        >
+          <p>
+            {work.actionSession.started
+              ? work.actionSession.step === 'record'
+                ? 'An Action Record is open in this tab.'
+                : 'You already reported starting an action in this tab.'
+              : 'You have an unstarted Do It Now session in this tab.'}{' '}
+            Replacing it discards that session and any active timer. Saved Action Records stay
+            unchanged.
+          </p>
+          <p>
+            Cancel to keep the current work. You can return to Do It Now to copy or save a confirmed
+            record first.
+          </p>
+        </ConfirmDialog>
       )}
       <p class="work-status no-print" role="status">
         {status}

@@ -57,3 +57,8 @@ Reset is the only new tool in this phase. It includes seven authored answers, ma
 ## Phase 6 boundary
 
 Rebuild Map is the current candidate, extending four accepted tools. Scope includes standalone Mapped artifact, deliberate Personal Standard reference, five-type Saved Work and same-tab Next Move handoff. No life-planning dashboard, proof tracker, identity assessment, gamification, Do It Now implementation or production launch. Keep the feature PR draft and unmerged for explicit product review.
+
+
+## Phase 7 boundary
+
+Do It Now is the only new tool. Four working screens, explicit Begin, optional bounded timer, truthful user-selected result, editable Action Record, copy/print, explicit local saving, six-type Saved Work and the existing Next Move handoff contract. The feature PR stays draft/unmerged; the candidate is packaged for owner sudo, then stops. No production deployment, final v1 launch, dashboard, diagnosis, streaks, AI, analytics or additional cross-tool transfers.
