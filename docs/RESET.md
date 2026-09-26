@@ -1,6 +1,6 @@
 # Reset
 
-Phase 5 review candidate. Reset begins after behavior fell below a standard. A miss matters, but it neither erases the line nor defines the person. The outcome is a standalone **Reset Plan**, **Status: Planned**. The plan is not the reset. The next action creates the proof.
+Accepted Phase 5 tool. Reset begins after behavior fell below a standard. A miss matters, but it neither erases the line nor defines the person. The outcome is a standalone **Reset Plan**, **Status: Planned**. The plan is not the reset. The next action creates the proof.
 
 ## Doctrine review, 2026-09-22
 
@@ -17,7 +17,7 @@ Live canonical sources were read. Discipline Loop was located through the actual
 
 “Correct Quietly” was sought in the live category/index and public search but a current authoritative public version was not located during this pass. No URL or article content was invented or attributed to it. The low-drama correction distinction is directly supported by the Discipline Loop and Return Faster sources above.
 
-`src/reset-lessons.ts` contains seven concise original adaptations, each with a question and source URLs. Its governed registry records lesson key, framework, canonical/context source, review date, tool and implementation reviewer. Full articles are not bundled. Owner product approval is pending.
+`src/reset-lessons.ts` contains seven concise original adaptations, each with a question and source URLs. Its governed registry records lesson key, framework, canonical/context source, review date, tool and implementation reviewer. Full articles are not bundled. Owner product approval was pending at that source-review checkpoint; Reset is now accepted.
 
 ## Boundaries
 
@@ -61,7 +61,7 @@ Exact fields in order:
 7. Proof I will create next (`proof`)
 8. Status: Planned
 
-“Confirm Reset Plan” confirms only a plan. Planned does not mean corrected, recovered, restored, completed or proven. Confirmation remains editable; saved changes require another explicit save. The closing message encourages leaving to act. No automatic Next Move handoff or unavailable Do It Now continuation.
+“Confirm Reset Plan” confirms only a plan. Planned does not mean corrected, recovered, restored, completed or proven. Confirmation remains editable; saved changes require another explicit save. The closing message encourages leaving to act. No automatic Next Move handoff or direct Do It Now continuation.
 
 Each authored paragraph permits 2,000 UTF-16 code units, with visible limits before validation and no truncation. Exact wording, punctuation, Unicode and multiline text are preserved subject to native textarea newline normalization. The already accepted grapheme-safe long-token renderer is shared unchanged with Personal Standard.
 

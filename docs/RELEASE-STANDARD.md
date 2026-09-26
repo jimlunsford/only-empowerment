@@ -8,7 +8,7 @@ Main represents accepted source, not an automatic production deploy. Phase 1 fou
 
 ## Versions and evidence
 
-Use SemVer for application versions. Current development line: `0.1.0-dev.1`. Production tags must match package version, be intentional, and not be moved after publication. Record user-visible changes in CHANGELOG.md; GitHub release notes explain acceptance evidence, limits, and upgrade implications.
+Use SemVer for application versions. Current development line: `0.1.0-dev.7`. Production tags must match package version, be intentional, and not be moved after publication. Record user-visible changes in CHANGELOG.md; GitHub release notes explain acceptance evidence, limits, and upgrade implications.
 
 `build.json` includes version, full commit, exact tag if one exists, dirty flag, and public commit URL. Footer shows a subtle version/source link. Dirty local builds say local changes and are rejected by `OE_RELEASE_BUILD=1`.
 
@@ -36,11 +36,13 @@ GitHub documentation reviewed 2026-09-16 says standard hosted runners are free f
 
 Source: [GitHub Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions).
 
-## Current repository protection and operational checkpoint
+## Repository protection and historical foundation checkpoint
 
 Main requires a PR and GitHub Actions app 15368 check `verify`, with strict up-to-date branches and zero required additional approving reviews. Admin enforcement is enabled; force pushes and deletion are disabled. The owner retains settings access for deliberate emergency recovery. No CI credential or automatic bypass was created.
 
-Staging currently represents accepted foundation commit `701664c1b4af37287f4b16fcf8a76a41d09f00c7`. Operational closure adds tests, scripts and documentation without changing application files. Merging those records need not redeploy identical application behavior solely to replace its truthful source label. The acceptance record distinguishes deployed source from later operational/documentation commits. Any future application change requires a new verified artifact and explicit staging acceptance.
+At foundation closure, staging represented accepted foundation commit `701664c1b4af37287f4b16fcf8a76a41d09f00c7`. Operational closure adds tests, scripts and documentation without changing application files. Merging those records need not redeploy identical application behavior solely to replace its truthful source label. The acceptance record distinguishes deployed source from later operational/documentation commits. Any future application change requires a new verified artifact and explicit staging acceptance.
+
+The following Phase 2 through Phase 7 candidate exceptions are historical authorization records. Their draft/unmerged instructions applied at those checkpoints; the final Phase 7 closeout below supersedes their status claims.
 
 ## Authorized Phase 2 staging exception
 
@@ -74,3 +76,11 @@ Verified accepted main and staging baseline: `396a7ea49a41fcc61fb3a0ab0402acad74
 ## Phase 7 candidate packaging exception
 
 Verified accepted source and rollback: `5e44590d26122dc368655c9554bdd0b08faac667`, version `0.1.0-dev.6`. The owner authorizes clean unmerged `feature/do-it-now-v1` at `0.1.0-dev.7` for staged review, with a mandatory stop before privileged deployment. PR #9 stays draft/unmerged. Required exact-head verify, complete local matrix, independent CI artifact/strict local build comparison, immutable release, atomic switch and existing VPS-wide backup/restore calls remain required. The source-pinned helper preserves the exact Nginx hash and accepted release as rollback. No production, tag, release, DNS, TLS, firewall, SSH, privilege-policy or backup-architecture changes. Owner sudo precedes a separate deployed acceptance execution.
+
+## Phase 7 closeout and current application checkpoint (2026-09-26)
+
+PR #9 is merged and closed using the established merge-commit method. The accepted Phase 7 main checkpoint is `0df2c7d3338abb18968ef0cca7c86f41455d6d2d`; later documentation-only commits do not replace this application acceptance provenance. Development version remains `0.1.0-dev.7`.
+
+Staging retains accepted application source `a7e8ec325703856542aa29236776be6351604b33`. Final workflow head `b3a9b45965c318312360b9bb8385dadc8f784dd5` and the Phase 7 merge differ from that application only in `.github/workflows/ci.yml`. Staging application normalization is not required; `build.json` must keep its truthful deployed source rather than being relabeled or rebuilt solely to match repository history.
+
+Run `36268773707` passed the dedicated deployed suite, 468 passed / 0 skipped / 0 failed with zero retries. See [Phase 7 acceptance](PHASE-7-ACCEPTANCE.md) for complete evidence and limitations. Production remains untouched, with no Phase 7 tag or GitHub Release. This checkpoint does not waive any production gate or authorize deployment.

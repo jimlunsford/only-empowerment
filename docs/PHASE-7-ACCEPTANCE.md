@@ -1,6 +1,10 @@
-# Phase 7: Do It Now candidate
+# Phase 7: Do It Now acceptance
 
-Status: implemented candidate; owner product and deployed acceptance remain pending.
+Status: accepted and closed. PR #9 is merged; product and dedicated deployed staging acceptance are complete. Development version remains `0.1.0-dev.7`. Production has not launched.
+
+## Historical candidate and correction record
+
+The candidate gates, pending statements, draft/unmerged instructions, counts and deployment pointers below record their original execution boundaries. They are preserved as history, not current status. The final acceptance section supersedes those status statements without changing the recorded evidence.
 
 Baseline verified 2026-09-25: main and staging `5e44590d26122dc368655c9554bdd0b08faac667`, version `0.1.0-dev.6`, successful required verify run `36127083306`. VPS hostname and immutable current release agree. Candidate development version is `0.1.0-dev.7` under the existing prerelease sequence.
 
@@ -39,3 +43,41 @@ Passive diagnostic run `36253333900` recorded a delayed route-heading focus effe
 The route title, heading focus and scroll reset now use Preact's post-DOM layout effect. This retains the existing initial-load policy and heading accessibility while completing route focus in the commit before new-page interaction. No synchronization or Do It Now semantics change. New browser coverage checks normal hash navigation, heading focus/title/tabindex, and uninterrupted immediate form input with retained focus and state. The original deletion replay regression is unchanged.
 
 Required correction gates are focused Chromium/WebKit checks, 50 WebKit repetitions each of the original replay and new immediate-interaction tests, zero retries, then full exact-head verification and independent artifact comparison. Final measured counts and candidate provenance belong to the external packaging report. Deployment still stops for owner sudo.
+
+## Screenshot-evidence infrastructure correction (2026-09-26)
+
+Accepted application candidate `a7e8ec325703856542aa29236776be6351604b33` preserves screenshot degradation evidence without blocking subsequent product assertions for the recognized screenshot capture infrastructure failure. A distinctly named viewport fallback, capture-evidence JSON, attachment and annotation record degradation; unexpected errors remain fatal. This did not introduce test retries or weaken product assertions. See TESTING.md for the capture contract.
+
+## Staging timeout and workflow-only correction (2026-09-26)
+
+The first staging verification attempt timed out within the workflow job budget. This was a verification-infrastructure limit, not a completed application acceptance result. Commit `b3a9b45965c318312360b9bb8385dadc8f784dd5` changed only `.github/workflows/ci.yml`: the job budget increased from 15 to 35 minutes, an explicit `staging_commit` input pins the expected deployed SHA, and the staging artifact name uses that pin. Application bytes were not redeployed to match the workflow head.
+
+## Final Phase 7 acceptance (2026-09-26)
+
+- Accepted deployed application: `a7e8ec325703856542aa29236776be6351604b33`.
+- Workflow-only verification head: `b3a9b45965c318312360b9bb8385dadc8f784dd5`.
+- [Final workflow run 36268773707](https://github.com/jimlunsford/only-empowerment/actions/runs/36268773707): completed successfully; **Verify deployed staging: success**.
+- Configured retries: **0**.
+
+| Dedicated deployed project | Passed | Skipped | Failed |
+| --- | ---: | ---: | ---: |
+| Chromium | 117 | 0 | 0 |
+| Mobile Chromium | 117 | 0 | 0 |
+| Firefox | 117 | 0 | 0 |
+| WebKit | 117 | 0 | 0 |
+| Total | 468 | 0 | 0 |
+
+Ordinary browser verification in the same run: **456 passed / 12 staging-only skipped / 0 failed**.
+
+Staging-review artifact:
+
+- ID: `10915232808`.
+- Name: `staging-review-a7e8ec325703856542aa29236776be6351604b33`.
+- Digest: `sha256:378f4ed5bb93a5c08561ef145f074ca74c5cc9e377db33c78d9953a0f36d683c`.
+- Artifact retention is seven days; these recorded results remain the durable acceptance summary after expiry.
+
+[PR #9](https://github.com/jimlunsford/only-empowerment/pull/9) was marked ready, merged and closed using a **merge commit**. Previous main `5e44590d26122dc368655c9554bdd0b08faac667` and feature head `b3a9b45965c318312360b9bb8385dadc8f784dd5` are the parents of accepted Phase 7 main `0df2c7d3338abb18968ef0cca7c86f41455d6d2d`. Its tree exactly matches the feature head. Before merge the feature branch was eight commits ahead and zero behind main. Later documentation reconciliation does not change this application acceptance checkpoint.
+
+**Staging normalization is not required.** The Phase 7 accepted main differs from the deployed application only in `.github/workflows/ci.yml`. Staging `build.json` should continue identifying `a7e8ec325703856542aa29236776be6351604b33`; no redeployment or metadata relabeling is needed solely to match the later repository SHA.
+
+Phase 7 is fully closed. Production remains untouched. No Phase 7 tag or GitHub Release exists. Whole-product production readiness is not claimed. Actual screen-reader, physical-device keyboard and physical-printer checks remain unverified as listed above; automated accessibility evidence is not WCAG certification.

@@ -1,9 +1,5 @@
 # Only Empowerment
 
-**Phase 6 candidate: Rebuild Map.** Connect one rebuild area to a chosen standard, supporting structure, repeated actions, observable proof, behavioral self-trust, reduced negotiation and a first move. Leave with a standalone Rebuild Map, Status: Mapped.
-
-Decision Room, Next Move, Build a Standard and Reset are accepted at `396a7ea49a41fcc61fb3a0ab0402acad74a9dff1`. Rebuild Map is an unmerged review candidate. Do It Now remains an outline. [Phase 6 acceptance](docs/PHASE-6-ACCEPTANCE.md) records executed evidence and remaining gates.
-
 **Practical tools for clear thinking, personal standards, and deliberate action.**
 
 Only Empowerment helps people examine a decision, define a standard, correct course, rebuild structure, and identify what they can do next. Short lessons teach useful distinctions inside the workflow. The user makes the decision and leaves with something they can use.
@@ -12,7 +8,9 @@ Built by [Jim Lunsford](https://jimlunsford.com/).
 
 ## Status
 
-Development version `0.1.0-dev.6`. Accepted base: `396a7ea49a41fcc61fb3a0ab0402acad74a9dff1` (`0.1.0-dev.5`). [Draft PR #8](https://github.com/jimlunsford/only-empowerment/pull/8) remains unmerged until explicit product approval. No production release. Historical acceptance records remain intact.
+Development version `0.1.0-dev.7`. All six core tools are implemented and accepted into main. Phase 7 closed through [PR #9](https://github.com/jimlunsford/only-empowerment/pull/9) at accepted application checkpoint `0df2c7d3338abb18968ef0cca7c86f41455d6d2d`.
+
+Staging completed dedicated deployed verification: 468 passed, none skipped or failed. It intentionally identifies accepted application source `a7e8ec325703856542aa29236776be6351604b33`; the later Phase 7 checkpoint adds only a workflow correction. No staging normalization is required. See [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md) for evidence and testing limits. Production has not launched; no production tag or release exists. Phase acceptance does not declare the whole product production-ready.
 
 ## Product family
 
@@ -29,9 +27,9 @@ The teaching model is lesson → reflection → decision → action → result. 
 
 ## Privacy
 
-No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. All five implemented tools keep text in memory by default and never submit answers. Explicit saving stores only the confirmed artifact in this browser profile. Up to 50 saved Only Empowerment records total. Copy and print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
+No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. All six implemented tools keep text in memory by default and never submit answers. Explicit saving stores only the confirmed artifact in this browser profile. Up to 50 saved Only Empowerment records total. Copy and print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
 
-Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md) and [Build a Standard](docs/BUILD-A-STANDARD.md), [Reset](docs/RESET.md), and [Rebuild Map](docs/REBUILD-MAP.md). Saved Work supports all five artifact types, per-record deletion, and Delete my local data.
+Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md) and [Build a Standard](docs/BUILD-A-STANDARD.md), [Reset](docs/RESET.md), and [Rebuild Map](docs/REBUILD-MAP.md). Saved Work supports all six artifact types, per-record deletion, and Delete my local data.
 
 ## Develop
 
@@ -76,6 +74,6 @@ Linked framework articles on JimLunsford.com remain under their existing terms. 
 Third-party components retain their own licenses and notices. See [third-party notices](THIRD_PARTY_NOTICES.md).
 
 
-## Phase 7 candidate: Do It Now
+## Do It Now
 
-Five accepted tools are joined by Do It Now on the unmerged dev.7 candidate. It starts an already understood action and records a user-reported Completed, Partial, or Blocked Action Record. Optional timing is memory-only; expiry never completes an action. Next Move offers an explicit reviewed handoff, and Saved Work supports six artifact types. See [Do It Now](docs/DO-IT-NOW.md) and [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md). This is not production or final v1 acceptance.
+Do It Now is the sixth accepted tool. It starts an already understood action and records a user-reported Completed, Partial, or Blocked Action Record. Optional timing is memory-only; expiry never completes an action. Next Move offers an explicit reviewed handoff, and Saved Work supports six artifact types. See [Do It Now](docs/DO-IT-NOW.md) and [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md). This is not production or final v1 acceptance.

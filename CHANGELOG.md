@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0-dev.7 (Phase 7 candidate)
+## 0.1.0-dev.7 (Phase 7 accepted development state)
 
 - Complete route title, heading focus and scroll reset during the DOM commit so delayed navigation focus cannot interrupt immediate form input.
 

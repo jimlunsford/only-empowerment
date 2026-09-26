@@ -2,7 +2,7 @@
 
 Test meaningful user behavior and trust boundaries. Coverage percentages are not a goal.
 
-## Current automated checks
+## Foundation automated checks retained in the suite
 
 - Pure validation rejects empty and excessive responses with actionable errors.
 - Plain-text output preserves entered text and states that a planned action is not completion.
@@ -10,7 +10,7 @@ Test meaningful user behavior and trust boundaries. Coverage percentages are not
 - HTML CSP includes local-only scripts and no network/form answer submission.
 - Browser tests visit all routes, run axe, and check viewport overflow; a 320px regression exercises reduced-motion mode and a maximum-length unbroken answer.
 - Preview validation, focus, text escaping, backward edit, cancel/confirm clear.
-- Synthetic private marker remains out of requests; no cookies/local/session storage; reload and route exit discard app state.
+- Foundation preview checks keep synthetic private markers out of requests, create no cookies/local/session storage, and discard preview state on reload or exit. Accepted tools add explicit local saving and in-memory internal navigation as covered below.
 - Keyboard skip link, route heading focus, missing-route recovery.
 - Clipboard failure has manual-copy guidance; print media hides chrome and preserves output.
 - Build metadata and footer identify the same source.
@@ -27,15 +27,15 @@ Manual keyboard review, readable focus and zoom/reflow at 320px, 200% text and 4
 
 Axe cannot certify WCAG compliance. Network tests exercise known paths and synthetic inputs; they do not prove absence of malicious behavior in every possible deployment. A screenshot is not proof that keyboard or screen-reader behavior works.
 
-Use `docs/PHASE-1-STATUS.md` for executed results and remaining gates. Planned tests must not be reported as passes.
+Use `docs/PHASE-7-ACCEPTANCE.md` for current acceptance results and testing limits; `docs/PHASE-1-STATUS.md` remains historical. Planned tests must not be reported as passes.
 
 ## Deployed staging verification
 
 Use `npx playwright test --config playwright.staging.config.ts` to run against the fixed HTTPS staging URL. This does not start a local server or deploy anything. The foundation workflow also offers the manual `verify_staging` boolean input. Ordinary PR/main runs do not depend on VPS availability.
 
-The staging config uses zero retries and checks the deployed foundation commit, headers, redirects, cookies, local/session storage, IndexedDB, caches, service workers, synthetic answer request capture, and laptop/mobile/print layouts. Its expected commit is deliberately pinned to the accepted Phase 1 deployment. Change that pin only as part of a reviewed future staging acceptance. Generated artifacts expire after seven days; the permanent acceptance record summarizes executed results and limitations.
+The staging config uses zero retries and checks the independently pinned deployed commit, headers, redirects, cookies, local/session storage, IndexedDB, caches, service workers, synthetic answer request capture, and laptop/mobile/print layouts. Supply the accepted application SHA independently; never infer it from the host under test. Generated artifacts expire after seven days; the permanent acceptance record summarizes executed results and limitations.
 
-For a later accepted staging artifact, set `OE_STAGING_COMMIT` to its independently verified full source SHA when running the staging suite. The default remains the original foundation checkpoint. Do not infer the expected SHA from the live site under test.
+For a later accepted staging artifact, set `OE_STAGING_COMMIT` to its independently verified full source SHA when running the staging suite. The historical local fallback remains the foundation checkpoint; manual CI uses `staging_commit` when supplied, otherwise the workflow SHA. The accepted Phase 7 staging source is `a7e8ec325703856542aa29236776be6351604b33`, version `0.1.0-dev.7`. Do not infer the expected SHA from the live site under test.
 
 ## Phase 2 reference suite
 
@@ -61,7 +61,7 @@ Phase 3 adds decision-room unit and browser suites to the existing test structur
 
 ## Phase 6 Rebuild Map
 
-`tests/rebuild.test.mjs` adds strict schema, all authored bounds, action-list bounds, portable copy, governance, worst-case escaping, snapshot independence, five-artifact compatibility, quotas/denial/readback/stale edits/deletion and minimal handoff checks. `tests/browser/rebuild.spec.ts` adds workflow/manual/saved/pause/review paths, focus, copy/fallback/print, mixed Saved Work, storage failures, multi-tab behavior, private-marker traffic capture, handoff inclusion/exclusion/replacement, complete receiving workflow, long Unicode and reflow/accessibility checks. Both existing configs discover it; all accepted tests and zero retries remain. Staging host metadata expects candidate version dev.6 with an independently pinned source SHA. Real assistive-technology and device testing are separate unexecuted gates.
+`tests/rebuild.test.mjs` adds strict schema, all authored bounds, action-list bounds, portable copy, governance, worst-case escaping, snapshot independence, five-artifact compatibility, quotas/denial/readback/stale edits/deletion and minimal handoff checks. `tests/browser/rebuild.spec.ts` adds workflow/manual/saved/pause/review paths, focus, copy/fallback/print, mixed Saved Work, storage failures, multi-tab behavior, private-marker traffic capture, handoff inclusion/exclusion/replacement, complete receiving workflow, long Unicode and reflow/accessibility checks. Both existing configs discover it; all accepted tests and zero retries remain. At the historical Phase 6 checkpoint, staging host metadata expected candidate version dev.6 with an independently pinned source SHA. Real assistive-technology and device testing are separate unexecuted gates.
 
 
 ## Phase 7 Do It Now

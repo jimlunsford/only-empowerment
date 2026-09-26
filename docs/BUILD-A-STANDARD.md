@@ -1,6 +1,6 @@
 # Build a Standard
 
-Accepted Phase 4 tool. The user defines the standard; the software cannot recommend, certify, rank, diagnose, or rewrite it. The Personal Standard is the successful standalone outcome. Reset now offers explicit read-only selection of a locally saved Personal Standard. It snapshots the statement into a separate Reset Plan without editing this record. Build a Standard remains the place to define or deliberately review the line. No Do It Now workflow or automatic cross-tool transfer is implemented.
+Accepted Phase 4 tool. The user defines the standard; the software cannot recommend, certify, rank, diagnose, or rewrite it. The Personal Standard is the successful standalone outcome. Reset now offers explicit read-only selection of a locally saved Personal Standard. It snapshots the statement into a separate Reset Plan without editing this record. Build a Standard remains the place to define or deliberately review the line. No direct Do It Now handoff or automatic cross-tool transfer is implemented for Build a Standard.
 
 ## Source review, 2026-09-22
 
@@ -15,7 +15,7 @@ Live canonical pages were inspected before lesson drafting. Standards article UR
 - [Repair Over Perfection](https://jimlunsford.com/recovery-standard-repair-over-perfection/): correction without minimizing the miss or turning it into identity collapse.
 - [Return Faster](https://jimlunsford.com/discipline-dispatch-return-faster/): a concrete return prevents a miss from becoming the next pattern; punishment is not repair.
 
-`src/standard-lessons.ts` contains concise original adaptations with lesson key, source URLs, canonical/context source, reviewed date, tool, next question, framework, and reviewer. Implementation review is by Codex; Jim's product approval remains pending. Full articles are not bundled.
+`src/standard-lessons.ts` contains concise original adaptations with lesson key, source URLs, canonical/context source, reviewed date, tool, next question, framework, and reviewer. Implementation review is by Codex; Jim's product approval was pending at that source-review checkpoint; Build a Standard is now accepted. Full articles are not bundled.
 
 PERIOD informs the work itself: Ownership in a line the user controls, Purpose in its reason, Integrity in observable keeping/violating behavior, Resilience in structure and deliberate adaptation, Discipline in repeatable behavior and correction, Empowerment in capability with appropriate support. There are no six-lens reflection fields.
 
@@ -58,7 +58,7 @@ Shape: `{schemaVersion:1,id,tool:"build-a-standard",status:"Set",standard:{area,
 
 Only a confirmed artifact can be explicitly saved. No timestamps, scores, draft history, framework metadata, analytics or account identifiers. Validation checks exact shape, bounds, required content, ID/key agreement, schema, tool and status. Unknown/corrupt records stay untouched and are reported by Saved Work. No existing record migration.
 
-All four artifact types share 50 oe:-owned keys total, including unsupported records. Existing saves can update at capacity. Save reads back exact bytes before reporting success. Stale serialized bytes refuse overwrite/recreation. Quota, denial, and readback failures preserve current memory and report uncertainty honestly. The accepted localStorage concurrency limitation remains: simultaneous explicit writes are not a transactional multi-user store.
+All six artifact types share 50 oe:-owned keys total, including unsupported records. Existing saves can update at capacity. Save reads back exact bytes before reporting success. Stale serialized bytes refuse overwrite/recreation. Quota, denial, and readback failures preserve current memory and report uncertainty honestly. The accepted localStorage concurrency limitation remains: simultaneous explicit writes are not a transactional multi-user store.
 
 Per-record deletion, all-namespace deletion, BroadcastChannel, storage events, visibility checks and saved-list refresh extend to standards. A delete-all broadcast clears memory-only sessions where supported. Storage-event fallback can clear persisted records, but cannot announce a memory-only deletion with no key change. Delete never calls localStorage.clear() and preserves unrelated keys. Clipboard/PDF/print/screenshot/backups/extensions remain outside its scope.
 

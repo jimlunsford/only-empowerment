@@ -1,6 +1,6 @@
 # Tool responsibilities
 
-All six tools are planned. Phase 1 implements outlines, not these workflows.
+All six tools are implemented and accepted into main as of Phase 7, version `0.1.0-dev.7`. See [final acceptance](PHASE-7-ACCEPTANCE.md). The table records responsibilities and intended relationships; a potential relationship is not an implemented transfer.
 
 | Tool | Job | Basis | Output | Intended handoff |
 | --- | --- | --- | --- | --- |
@@ -25,6 +25,10 @@ Rebuild Map is a map, not a promise of transformation. Record the chain linking 
 
 Do It Now is short. Record the known task, smallest real action, begin state, and user-reported completion/partial result/blocker. Timer expiry never marks completion. A timer is optional and not a Phase 1 deliverable.
 
+## Historical implementation snapshots
+
+Phase 2 through Phase 6 sections preserve their original candidate state. They do not describe current availability.
+
 ## Phase 2 implementation status
 
 Next Move is now the sole reference implementation on the feature candidate. Its output remains Planned. See PHASE-2-ACCEPTANCE.md for review status. Decision Room, Reset, Build a Standard, Rebuild Map and Do It Now are outlines, not available workflows.
@@ -34,20 +38,20 @@ Next Move is now the sole reference implementation on the feature candidate. Its
 
 Next Move is accepted reference functionality. Decision Room is implemented on the Phase 3 candidate, producing Decision Records and optionally handing reviewed in-memory fields into Next Move. The remaining four tools are not implemented.
 
-## Current Phase 4 candidate
+## Historical Phase 4 candidate
 
 Decision Room and Next Move are accepted. Build a Standard is the third candidate, producing Personal Standards with Status: Set. It supports deliberate adaptation and correction, with no Reset analysis or Do It Now handoff. Its standalone artifact is the outcome. Reset, Rebuild Map and Do It Now remain outlines. Earlier phase sections above are historical.
 
 
-## Current Phase 5 scope
+## Historical Phase 5 scope
 
 Decision Room, Next Move and Build a Standard are accepted. Reset is the fourth implemented candidate. It handles an actual miss against a standard the user confirms still stands, producing a Planned Reset Plan. Build a Standard defines or deliberately reviews the line. Reset reads explicitly selected local Personal Standards without modifying them, snapshots only the statement into its artifact, and offers a plain internal link when the line is unclear or needs review. There is no generic handoff engine, automatic Next Move continuation, or Do It Now destination. Rebuild Map and Do It Now remain outlines.
 
-## Current Phase 6 scope
+## Historical Phase 6 scope
 
 Decision Room, Next Move, Build a Standard and Reset are accepted. Rebuild Map is the fifth implemented candidate. It designs a sustained rebuild around one standard and its structure, repeated actions and future proof, with Mapped status. It is distinct from Reset's response to a miss. It reads a deliberately selected Personal Standard without modifying it and can optionally preview minimal text into the full Next Move workflow. Do It Now remains an unavailable outline. See REBUILD-MAP.md.
 
 
-## Current Phase 7 candidate
+## Current Phase 7 accepted state
 
-Do It Now is the sixth implemented candidate; the other five are accepted. It begins an already understood action and produces a user-reported Action Record after explicit Begin and result evidence. Next Move now offers a reviewed optional continuation. Do It Now has no default onward loop. Build a Standard remains standalone in this phase; its potential future relationship is not a typed transfer. See DO-IT-NOW.md. Earlier phase status sections are historical.
+Do It Now is the sixth accepted implemented tool. PR #9 is merged and closed; deployed staging verification passed. The other five tools remain accepted. Do It Now begins an already understood action and produces a user-reported Action Record after explicit Begin and result evidence. Next Move now offers a reviewed optional continuation. Do It Now has no default onward loop. Build a Standard remains standalone in this phase; its potential future relationship is not a typed transfer. See DO-IT-NOW.md. Earlier phase status sections are historical.

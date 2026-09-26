@@ -44,7 +44,7 @@ Jim owns the framework authorship. Store concise original lesson adaptations wit
 
 ## Next Move reference adaptation, 2026-09-20
 
-Re-read the live [Pure Execution Mode](https://jimlunsford.com/pure-execution-mode/) and [Core Frameworks](https://jimlunsford.com/core-frameworks/) pages before drafting Phase 2 lessons. The executable lesson registry is `src/next-move-lessons.ts`. Every entry contains framework, canonical URL, review date, tool, next question, and reviewer. Codex performed the implementation review; Jim's product approval is pending.
+Re-read the live [Pure Execution Mode](https://jimlunsford.com/pure-execution-mode/) and [Core Frameworks](https://jimlunsford.com/core-frameworks/) pages before drafting Phase 2 lessons. The executable lesson registry is `src/next-move-lessons.ts`. Every entry contains framework, canonical URL, review date, tool, next question, and reviewer. Codex performed the implementation review; Jim's product approval was pending at that historical source-review checkpoint. Next Move is now accepted.
 
 | Lesson | Next question / purpose | Interpretation |
 | --- | --- | --- |

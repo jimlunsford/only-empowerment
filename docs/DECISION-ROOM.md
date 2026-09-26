@@ -16,7 +16,7 @@ Ready users see the same neutrally styled options in the same order and explicit
 
 ## Framework fidelity and source governance
 
-Live canonical sources reviewed 2026-09-21: [The PERIOD Code](https://jimlunsford.com/period-code/) and [Core Frameworks](https://jimlunsford.com/core-frameworks/). `src/decision-room-lessons.ts` contains concise adaptations, framework, canonical URL, contextual source URL, review date, tool, question and reviewer. Review attribution is Codex implementation review, with Jim Lunsford product approval pending. No full article is copied into the repository.
+Live canonical sources reviewed 2026-09-21: [The PERIOD Code](https://jimlunsford.com/period-code/) and [Core Frameworks](https://jimlunsford.com/core-frameworks/). `src/decision-room-lessons.ts` contains concise adaptations, framework, canonical URL, contextual source URL, review date, tool, question and reviewer. Review attribution is Codex implementation review, with Jim Lunsford product approval pending at that historical source-review checkpoint. Decision Room is now accepted. No full article is copied into the repository.
 
 | Value | Lesson purpose and practical question | Misuse prevented |
 | --- | --- | --- |
