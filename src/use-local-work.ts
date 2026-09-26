@@ -9,11 +9,13 @@ import { newDecisionSession, type DecisionSession } from './decision-room-model'
 import { newSession, type Session } from './next-move-model';
 export type LocalEvent =
   { type: 'delete-all' } | { type: 'delete-one'; key: string } | { type: 'refresh' };
+type LocalMessage = LocalEvent & { senderId?: string };
 const CHANNEL = 'oe:local-data';
+const SENDER_ID = crypto.randomUUID();
 export function broadcast(event: LocalEvent) {
   try {
     const channel = new BroadcastChannel(CHANNEL);
-    channel.postMessage(event);
+    channel.postMessage({ ...event, senderId: SENDER_ID } satisfies LocalMessage);
     channel.close();
   } catch {
     /* storage events remain available */
@@ -113,7 +115,8 @@ export function useLocalWork() {
     try {
       channel = new BroadcastChannel(CHANNEL);
       channel.onmessage = (e) => {
-        const message = e.data;
+        const message = e.data as LocalMessage | undefined;
+        if (message?.senderId === SENDER_ID) return;
         if (
           message?.type === 'delete-all' ||
           message?.type === 'refresh' ||

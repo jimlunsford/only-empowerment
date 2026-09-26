@@ -33,7 +33,6 @@ export function LocalDataControls({ work }: { work: LocalWork }) {
     try {
       deleteAll(browserStorage());
       work.refresh();
-      broadcast({ type: 'delete-all' });
       setStatus(
         'All Only Empowerment local data was removed and removal was verified. Current work was cleared.',
       );

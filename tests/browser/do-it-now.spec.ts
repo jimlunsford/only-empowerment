@@ -451,6 +451,77 @@ test('Do It Now visibility recheck clears a deleted saved record without recreat
   await expect(page.locator('#din-task')).toHaveValue('');
   expect(await page.evaluate(() => localStorage.length)).toBe(0);
 });
+test('Do It Now same-tab deletion cannot replay its own event over immediate fresh work', async ({
+  page,
+}) => {
+  await complete(page);
+  await save(page);
+  await page.evaluate(() => {
+    const observer = new BroadcastChannel('oe:local-data');
+    observer.onmessage = (event) => {
+      if (event.data?.type !== 'delete-one') return;
+      (window as any).__oeDeleteOne = event.data;
+      observer.close();
+    };
+  });
+  await page.getByRole('link', { name: 'Saved work', exact: true }).click();
+  await page.getByRole('button', { name: /Delete Action Record/ }).click();
+  await page.getByRole('button', { name: 'Delete this record', exact: true }).click();
+  await expect.poll(() => page.evaluate(() => Boolean((window as any).__oeDeleteOne))).toBe(true);
+  await page.goto('/#/tools/do-it-now');
+  await page.locator('#din-task').fill(record.task);
+  await page.locator('#din-firstAction').fill(record.firstAction);
+  await page.evaluate(() => {
+    const channel = new BroadcastChannel('oe:local-data');
+    channel.postMessage((window as any).__oeDeleteOne);
+    channel.close();
+  });
+  await expect(page.locator('#din-task')).toHaveValue(record.task);
+  await expect(page.locator('#din-firstAction')).toHaveValue(record.firstAction);
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await expect(page.getByLabel('Yes. I can begin now.', { exact: true })).toBeVisible();
+});
+test('Do It Now same-tab delete-all cannot replay its own event over immediate fresh work', async ({
+  page,
+}) => {
+  await start(page);
+  await page.evaluate(() => {
+    const observer = new BroadcastChannel('oe:local-data');
+    observer.onmessage = (event) => {
+      if (event.data?.type !== 'delete-all') return;
+      (window as any).__oeDeleteAll = event.data;
+      observer.close();
+    };
+  });
+  await page.getByRole('link', { name: 'Saved work', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete my local data', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete all Only Empowerment data' }).click();
+  await expect.poll(() => page.evaluate(() => Boolean((window as any).__oeDeleteAll))).toBe(true);
+  await page.goto('/#/tools/do-it-now');
+  await page.locator('#din-task').fill(record.task);
+  await page.locator('#din-firstAction').fill(record.firstAction);
+  await page.evaluate(() => {
+    const channel = new BroadcastChannel('oe:local-data');
+    channel.postMessage((window as any).__oeDeleteAll);
+    channel.close();
+  });
+  await expect(page.locator('#din-task')).toHaveValue(record.task);
+  await expect(page.locator('#din-firstAction')).toHaveValue(record.firstAction);
+  await page.getByRole('button', { name: 'Next', exact: true }).click();
+  await expect(page.getByLabel('Yes. I can begin now.', { exact: true })).toBeVisible();
+});
+test('legacy synchronization messages without sender identity remain external', async ({
+  page,
+}) => {
+  await start(page);
+  await page.evaluate(() => {
+    const channel = new BroadcastChannel('oe:local-data');
+    channel.postMessage({ type: 'delete-all' });
+    channel.close();
+  });
+  await expect(page.locator('#din-task')).toHaveValue('');
+  await expect(page.locator('#din-firstAction')).toHaveValue('');
+});
 test('Do It Now multi-tab Saved Work and delete-all synchronize unsaved current work', async ({
   page,
   context,
