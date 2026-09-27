@@ -5,8 +5,7 @@ import { BuildStandard } from './BuildStandard';
 import { render } from 'preact';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { frameworks, tools } from './model';
-import { PageIntro, SourceNote } from './components/shared';
-import { Preview } from './Preview';
+import { PageIntro } from './components/shared';
 import { DecisionRoom } from './DecisionRoom';
 import { NextMove } from './NextMove';
 import { SavedWork, LocalDataControls } from './SavedWork';
@@ -75,7 +74,7 @@ function Home() {
           </div>
           <p>
             Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now are
-            available on staging.
+            available.
             <br />
             Each has a different job.
           </p>
@@ -149,48 +148,6 @@ function ToolsPage() {
     </>
   );
 }
-function ToolPage({ id }: { id: string }) {
-  const tool = tools.find((t) => t.id === id);
-  if (!tool) return <NotFound />;
-  const next = tools.find((t) => t.id === tool.handoff);
-  return (
-    <div class="narrow">
-      <a class="back-link" href="#/tools">
-        ← All tools
-      </a>
-      <PageIntro label="Tool outline · In development" title={tool.name}>
-        <p>{tool.description}</p>
-      </PageIntro>
-      <div class="detail-panel">
-        <h2>{tool.situation}</h2>
-        <p>This tool will help you work through questions such as:</p>
-        <ul class="question-list">
-          {tool.questions.map((q) => (
-            <li key={q}>{q}</li>
-          ))}
-        </ul>
-        <div class="deliverable">
-          <p class="eyebrow">What you will leave with</p>
-          <h2>{tool.output}</h2>
-          <p>A clear record in your own words, ready to keep, copy, or print.</p>
-        </div>
-        <SourceNote items={tool.frameworks} />
-      </div>
-      {next && (
-        <section class="handoff-outline">
-          <h2>When a next tool is useful</h2>
-          <p>
-            An optional continuation to {next.name} will help carry selected work forward. You will
-            choose what to bring. Nothing will move automatically.
-          </p>
-        </section>
-      )}
-      <p class="availability-note">
-        This tool is not available yet. <a href="#/preview">View the interaction preview</a>.
-      </p>
-    </div>
-  );
-}
 function Approach() {
   return (
     <div class="narrow">
@@ -259,14 +216,13 @@ function Privacy({ work }: { work: LocalWork }) {
           <p>
             Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now keep
             answers in memory during navigation within this site. Reloading or closing the tab can
-            discard unsaved work. Nothing is automatically saved. The older interaction preview
-            remains disposable when you leave it.
+            discard unsaved work. Nothing is automatically saved.
           </p>
           <p>
             Choose “Save on this device” to store only the confirmed Decision Record, Execution
             Card, Personal Standard, Reset Plan, Rebuild Map, or Action Record in this browser
             profile. Someone using this profile may see it. Clearing site data can remove it. There
-            is no server recovery, device sync, or transfer from staging to production.
+            is no server recovery, cross-device sync, or transfer between sites.
           </p>
         </section>
         <section>
@@ -278,10 +234,17 @@ function Privacy({ work }: { work: LocalWork }) {
             response over the network.
           </p>
           <p>
-            Hosting systems keep operational request logs. The staging policy rotates daily and
-            retains up to 14 rotated logs. Provider logs and backup retention are separate; this is
-            not a promise that all infrastructure copies disappear after 14 days.
+            Hosting systems keep operational request logs. Retention depends on the host, provider,
+            and backup policies; deleting local app data does not delete those logs.
           </p>
+          {__STAGING__ && (
+            <p>
+              The staging policy rotates daily and retains up to 14 rotated logs. Provider logs and
+              backup retention are separate; this is not a promise that all infrastructure copies
+              disappear after 14 days.
+            </p>
+          )}
+          <p>Answers are not included in ordinary application requests by design.</p>
         </section>
         <section>
           <h2>No trackers. No AI service.</h2>
@@ -296,7 +259,8 @@ function Privacy({ work }: { work: LocalWork }) {
           <p>
             Copying puts the record on your device’s clipboard. Your operating system may sync that
             clipboard. Printing or saving a PDF passes content to your browser and printing system.
-            Those copies are yours to manage and are not removed by deleting local data.
+            Those copies and device backups are yours to manage and are not removed by deleting
+            local data.
           </p>
         </section>
         <section>
@@ -373,8 +337,6 @@ function App() {
   else if (path === '/tools/reset') content = <Reset work={work} />;
   else if (path === '/tools/do-it-now') content = <DoItNow work={work} />;
   else if (path === '/tools/next-move') content = <NextMove work={work} />;
-  else if (path === '/preview') content = <Preview key={work.clearEpoch} />;
-  else if (path.startsWith('/tools/')) content = <ToolPage id={path.slice(7)} />;
   else content = <NotFound />;
   return (
     <>
@@ -410,13 +372,17 @@ function App() {
           </a>
         </nav>
       </header>
-      <div class="staging-banner" role="region" aria-label="Development status">
-        <span class="stage-label">Development staging</span>
-        <span>Current tools are staged for development and review. Not a production release.</span>
-        <a href="#/tools/next-move">
-          Try Next Move <span aria-hidden="true">↗</span>
-        </a>
-      </div>
+      {__STAGING__ && (
+        <div class="staging-banner" role="region" aria-label="Development status">
+          <span class="stage-label">Development staging</span>
+          <span>
+            Current tools are staged for development and review. Not a production release.
+          </span>
+          <a href="#/tools/next-move">
+            Try Next Move <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      )}
       <main id="main" tabIndex={-1} class="site-main">
         {work.notice && (
           <p class="global-notice no-print" role="status">

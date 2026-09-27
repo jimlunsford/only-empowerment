@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { executionCard } from './helpers/next-move';
 const routes = [
   '/',
   '/tools',
   '/approach',
   '/privacy',
-  '/preview',
+  '/saved',
   '/tools/decision-room',
   '/tools/next-move',
   '/tools/reset',
@@ -27,51 +28,14 @@ test('all shell routes are accessible and fit the viewport', async ({ page }, te
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
-    if (
-      ['chromium', 'mobile-chromium'].includes(testInfo.project.name) &&
-      ['/', '/preview'].includes(route)
-    )
+    if (['chromium', 'mobile-chromium'].includes(testInfo.project.name) && route === '/')
       await page.screenshot({
-        path: testInfo.outputPath(route === '/' ? 'home.png' : 'preview.png'),
+        path: testInfo.outputPath('home.png'),
         fullPage: true,
       });
   }
 });
-test('preview validates, escapes text, edits, and clears in-memory work', async ({
-  page,
-}, testInfo) => {
-  await page.goto('/#/preview');
-  await page.getByRole('button', { name: 'Review the sample card' }).click();
-  await expect(page.getByRole('alert')).toContainText('Name one action');
-  await expect(
-    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
-  ).toBeFocused();
-  await page
-    .getByRole('textbox', { name: 'What is one action you could finish?' })
-    .fill('<img src=x onerror=alert(1)> Send one question.');
-  await page.getByRole('button', { name: 'Review the sample card' }).click();
-  await expect(page.getByRole('heading', { name: 'Sample action card' })).toBeFocused();
-  await expect(page.locator('.answer')).toContainText('<img src=x onerror=alert(1)>');
-  await expect(page.locator('.answer img')).toHaveCount(0);
-  if (['chromium', 'mobile-chromium'].includes(testInfo.project.name))
-    await page.screenshot({ path: testInfo.outputPath('output.png'), fullPage: true });
-  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
-  await page.getByRole('button', { name: 'Edit response' }).click();
-  await expect(
-    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
-  ).toHaveValue(/Send one question/);
-  await page.getByRole('button', { name: 'Clear preview', exact: true }).click();
-  await page.getByRole('button', { name: 'Keep working' }).click();
-  await expect(
-    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
-  ).toHaveValue(/Send one question/);
-  await page.getByRole('button', { name: 'Clear preview', exact: true }).click();
-  await page.getByRole('button', { name: 'Clear this preview', exact: true }).click();
-  await expect(
-    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
-  ).toHaveValue('');
-});
-test('private marker stays out of requests and storage; reload and exit discard it', async ({
+test('private marker stays out of requests and storage; internal navigation retains it and reload clears it', async ({
   page,
   context,
   baseURL,
@@ -80,11 +44,8 @@ test('private marker stays out of requests and storage; reload and exit discard 
   page.on('request', (r) =>
     requests.push({ url: r.url(), method: r.method(), data: r.postData() }),
   );
-  await page.goto('/#/preview');
   const marker = 'PRIVATE-SYNTHETIC-OE-9136';
-  await page.getByRole('textbox', { name: 'What is one action you could finish?' }).fill(marker);
-  await page.getByRole('button', { name: 'Review the sample card' }).click();
-  await expect(page.locator('.answer')).toHaveText(marker);
+  await executionCard(page, marker);
   expect(
     requests.every(
       (r) =>
@@ -96,16 +57,12 @@ test('private marker stays out of requests and storage; reload and exit discard 
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
   expect(await context.cookies()).toEqual([]);
   expect(await page.evaluate(() => indexedDB.databases())).toEqual([]);
-  await page.reload();
-  await expect(
-    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
-  ).toHaveValue('');
-  await page.getByRole('textbox', { name: 'What is one action you could finish?' }).fill(marker);
   await page.getByRole('link', { name: 'The approach', exact: true }).click();
+  await expect(page.locator('h1')).toContainText('Understand it.');
   await page.goBack();
-  await expect(
-    page.getByRole('textbox', { name: 'What is one action you could finish?' }),
-  ).toHaveValue('');
+  await expect(page.locator('.artifact-action .answer')).toHaveText(marker);
+  await page.reload();
+  await expect(page.getByLabel('What needs movement?', { exact: true })).toHaveValue('');
 });
 test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
   await page.goto('/');
@@ -115,27 +72,11 @@ test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
   await expect(page.locator('main')).toBeFocused();
   await page.getByRole('link', { name: 'The tools', exact: true }).click();
   await expect(page.locator('h1')).toBeFocused();
-  await page.goto('/#/unknown');
-  await expect(page.getByRole('heading', { name: 'That page is not here.' })).toBeVisible();
-});
-test('copy failure is explained and long output has a print layout', async ({ page }) => {
-  await page.addInitScript(() =>
-    Object.defineProperty(navigator, 'clipboard', {
-      value: { writeText: () => Promise.reject(new Error('denied')) },
-    }),
-  );
-  await page.goto('/#/preview');
-  await page
-    .getByRole('textbox', { name: 'What is one action you could finish?' })
-    .fill('Long sample '.repeat(45));
-  await page.getByRole('button', { name: 'Review the sample card' }).click();
-  await page.getByRole('button', { name: 'Copy card', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('Select the text');
-  await page.emulateMedia({ media: 'print' });
-  await expect(page.locator('.site-header')).toBeHidden();
-  await expect(page.locator('.staging-banner')).toBeHidden();
-  await expect(page.locator('.output-card')).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Print card' })).toBeHidden();
+  for (const route of ['/unknown', '/preview', '/tools/unknown']) {
+    await page.goto('/#' + route);
+    await expect(page.getByRole('heading', { name: 'That page is not here.' })).toBeVisible();
+    expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  }
 });
 test('source footer and metadata identify the same build', async ({ page, request }) => {
   await page.goto('/');
@@ -152,11 +93,6 @@ test('320px layout and long answers reflow without horizontal scrolling', async 
   await page.goto('/');
   await expect(page.locator('h1')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.goto('/#/preview');
-  await page
-    .getByRole('textbox', { name: 'What is one action you could finish?' })
-    .fill('x'.repeat(600));
-  await page.getByRole('button', { name: 'Review the sample card' }).click();
-  await expect(page.locator('.answer')).toHaveText('x'.repeat(600));
+  await executionCard(page, 'x'.repeat(2000));
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

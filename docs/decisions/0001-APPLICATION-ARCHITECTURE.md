@@ -20,13 +20,17 @@ Preact function components with hooks. TypeScript strict mode for tool contracts
 
 Hash routing is sufficient for a tool application without article SEO. A short explicit route map uses native links and the browser Back/Forward stack. It avoids server rewrite dependencies and keeps tool identifiers out of request paths. Hashes contain only route IDs, never answers. If routes grow beyond this small catalog, replace the route switch with a maintained lightweight router rather than building a custom routing framework.
 
-Per-tool component state and explicit transitions; no global store. Current preview state is deliberately discarded on exit. Future shared persistence service must sit behind explicit user actions, never automatic component side effects. Output mappers are pure functions and text-only. Handoffs are reviewed in-memory payloads, not query strings.
+Per-tool component state and explicit transitions; no global store. Unsaved tool sessions survive internal navigation in app memory. Shared artifact persistence stays behind explicit user actions, never automatic writes. Output mappers are pure functions and text-only. Handoffs are reviewed in-memory payloads, not query strings.
 
-Source responsibilities: `model.ts` owns catalog/contracts; shared components own lesson/source/intro presentation; `Preview.tsx` is an explicitly disposable architecture demonstration; `main.tsx` composes shell and static pages; CSS owns responsive/print behavior. Split route components as real tools arrive, not in anticipation of dozens of routes.
+Source responsibilities: `model.ts` owns catalog/contracts; shared components own lesson/source/intro presentation; `main.tsx` composes shell and static pages; CSS owns responsive/print behavior. All six catalog tools have dedicated route components. The obsolete demonstration and unfinished-tool fallback are removed; unknown routes use the not-found page.
 
 ## Build metadata
 
 Build configuration reads version from package.json and commit/tag/dirty state from Git. `OE_RELEASE_BUILD=1` fails when the working tree is dirty. The footer refuses to imply a dirty build exactly matches its base commit. `build.json` exposes full metadata. `SHA256SUMS` covers all other built files. No build timestamp is embedded, avoiding unnecessary nondeterminism. CI builds accepted commits; production requires an intentional matching version tag and release artifact.
+
+## Presentation environment
+
+Vite validates `OE_PRESENTATION=staging|production`, defaulting to staging. One build-time boolean controls environment-specific UI/privacy copy, while the same decision generates HTML robots metadata, no-JavaScript staging status, and `robots.txt`. `build.json` records the selected presentation. The accepted six-tool catalog, workflows, persistence, CSP, and application version are identical across modes. No dependency, network configuration, hostname detection, or backend is required. See RELEASE-STANDARD.md for the presentation-only contract; this does not settle Gate A3 release procedures.
 
 ## Browser and offline support
 

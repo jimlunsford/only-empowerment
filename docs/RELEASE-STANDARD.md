@@ -6,6 +6,19 @@ Feature branch → PR + CI + product review → accepted main → staging → de
 
 Main represents accepted source, not an automatic production deploy. Phase 1 foundation was accepted through `foundation/phase-1`; operational closure uses `ops/phase-1-staging-closure`. Staging may temporarily review a clearly identified PR head; record that exception and never call it accepted main. No production release or apex cutover is authorized by Phase 1.
 
+## Presentation build boundary (Gate A2)
+
+`OE_PRESENTATION` accepts exactly `staging` or `production`. Unset defaults to staging; invalid values fail the build. This is independent of `OE_RELEASE_BUILD`, which continues to enforce a clean checkout, and of the unchanged application version. The mode is recorded in `build.json`.
+
+| Mode | UI and privacy | Generated indexing policy |
+| --- | --- | --- |
+| `staging` (default) | Visible staging/non-production banner and staging log wording; all six tools available | HTML `noindex, nofollow`; robots `Disallow: /` |
+| `production` | Six-tool product copy, no staging banner, environment-neutral log-retention wording | HTML `index, follow`; robots `Allow: /` |
+
+Vite emits both policies from one build-time decision, without manual tracked-file edits or runtime configuration. The checked-in HTML remains noindex by default. A production-intended build makes indexing possible; it does not authorize launch, deployment, or a change to host-level indexing headers. Staging must use staging output and retain its host protections. Different presentation modes produce different bytes from the same source; do not relabel or interchange them. Builds empty the output directory so switching modes cannot retain the previous presentation bundle. Release/version/artifact design remains a separate Gate A3 decision.
+
+The existing live staging application predates A1 and A2. It remains unchanged during this work. Later candidate preparation needs a separately authorized staging deployment and acceptance of the application changes. Historical checkpoints below retain their original provenance.
+
 ## Versions and evidence
 
 Use SemVer for application versions. Current development line: `0.1.0-dev.7`. Production tags must match package version, be intentional, and not be moved after publication. Record user-visible changes in CHANGELOG.md; GitHub release notes explain acceptance evidence, limits, and upgrade implications.
@@ -16,7 +29,7 @@ Build from a clean checkout using pinned Node and `npm ci`; run verification. Pa
 
 ## Staging operation
 
-Preferred host: `dev.onlyempowerment.com`. Separate root and Nginx server block; no PHP pool/database because the runtime is static. Public review shell with noindex is acceptable; noindex is not access control. Use synthetic examples and clear unfinished status. Do not place administrative endpoints, Git metadata, source/config backups, or secrets under the web root.
+Preferred host: `dev.onlyempowerment.com`. Separate root and Nginx server block; no PHP pool/database because the runtime is static. A public staging build with noindex is acceptable; noindex is not access control. Use synthetic examples and clear staging/non-production status. Do not place administrative endpoints, Git metadata, source/config backups, or secrets under the web root.
 
 Serve only built assets. Use an immutable release directory named by source commit and an atomic `current` symlink. Keep the previous release for rollback. Build assets outside the public directory as an unprivileged user. Nginx reads files and cannot alter source. A reviewed deployment can be manual initially; do not add SSH secrets or privileged automated CI deployment solely for appearance.
 

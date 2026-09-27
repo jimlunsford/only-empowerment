@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { executionCard } from './helpers/next-move';
 const staging = 'https://dev.onlyempowerment.com';
 const accepted = process.env.OE_STAGING_COMMIT || 'bd984a8986a658c6bd0d0d663c4e30f5c2f09d80';
 if (!/^[a-f0-9]{40}$/.test(accepted)) throw new Error('OE_STAGING_COMMIT must be a full Git SHA.');
@@ -24,6 +25,7 @@ test('deployed TLS response, headers and source match independently pinned sourc
   const metadata = await (await request.get('/build.json')).json();
   expect(metadata).toEqual({
     version: '0.1.0-dev.7',
+    presentation: 'staging',
     commit: accepted,
     dirty: false,
     tag: null,
@@ -47,11 +49,10 @@ test('deployed layouts and print artifact are reviewable at laptop and narrow wi
     if (testInfo.project.name === 'chromium')
       await page.screenshot({ path: testInfo.outputPath(`home-${width}.png`), fullPage: true });
   }
-  await page.goto('/#/preview');
-  await page
-    .getByRole('textbox', { name: 'What is one action you could finish?' })
-    .fill('SYNTHETIC STAGING REVIEW: Clear one shelf. Done when the surface is empty.');
-  await page.getByRole('button', { name: 'Review the sample card' }).click();
+  await executionCard(
+    page,
+    'SYNTHETIC STAGING REVIEW: Clear one shelf. Done when the surface is empty.',
+  );
   expect(
     (
       await new AxeBuilder({ page })
@@ -90,15 +91,16 @@ test('deployed answer lifecycle emits only first-party static requests and no pe
   page.on('console', (message) => {
     if (message.type() === 'error') consoleErrors.push(message.text());
   });
-  await page.goto('/#/preview');
   const marker = 'OE-PRIVATE-SYNTHETIC-DEPLOYED-20260916';
-  const field = page.getByRole('textbox', { name: 'What is one action you could finish?' });
-  await field.fill(marker);
-  await page.getByRole('button', { name: 'Review the sample card' }).click();
-  await page.getByRole('button', { name: 'Edit response' }).click();
-  await expect(field).toHaveValue(marker);
-  await page.getByRole('button', { name: 'Clear preview', exact: true }).click();
-  await page.getByRole('button', { name: 'Clear this preview', exact: true }).click();
+  await executionCard(page, marker);
+  await page.getByRole('button', { name: 'Edit card', exact: true }).click();
+  await expect(page.getByLabel('My next move', { exact: true })).toHaveValue(marker);
+  await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Clear current work', exact: true })
+    .click();
+  const field = page.getByLabel('What needs movement?', { exact: true });
   await expect(field).toHaveValue('');
   await field.fill(marker);
   await page.reload();
