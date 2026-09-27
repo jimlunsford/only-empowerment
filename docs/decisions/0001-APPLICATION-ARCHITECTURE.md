@@ -32,6 +32,8 @@ Build configuration reads version from package.json and commit/tag/dirty state f
 
 Build target: Chrome/Edge 109, Firefox 115, Safari 16.4 or newer; actual support requires tests. Initial automation targets current Chromium, Firefox, and WebKit; real iOS/Android and assistive technology checks remain release gates. Clipboard can fail and has a manual fallback.
 
+Artifact long-token wrapping feature-detects `Intl.Segmenter`. When available, discretionary breaks separate groups of four grapheme clusters. Without it (including Firefox 115), breaks separate groups of four Unicode code points. The fallback preserves surrogate pairs and exact authored text, but a break can fall within a combining or joined-emoji grapheme cluster. Segmentation is a wrapping enhancement, not a startup dependency; the browser floor is unchanged. Neither path inserts text characters or changes artifact semantics, escaping, copy, or storage. No polyfill, runtime package, or network access is required.
+
 The static architecture supports a future service worker/offline shell without changing the core workflow model. No service worker or install claim in Phase 1. Later caching must define update notification, stale code/privacy behavior, cache deletion, and interactions with saved schemas before becoming a feature.
 
 ## Deployment and boundaries

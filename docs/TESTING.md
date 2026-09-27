@@ -17,6 +17,8 @@ Test meaningful user behavior and trust boundaries. Coverage percentages are not
 
 Run across Chromium, mobile Chromium, Firefox, and WebKit. Mobile automation is an emulation check, not a real-device certification.
 
+Browser baseline remains Chrome/Edge 109+, Firefox 115+, and Safari 16.4+. `tests/artifact-text.test.mjs` initializes the actual renderer with `Intl.Segmenter` present and absent, checking exact authored text, Unicode code-point preservation, discretionary breaks, and the normal grapheme path. `tests/browser/artifact-text.spec.ts` removes the API before application scripts load and exercises startup, artifact rendering, escaping, exact text, and 320px reflow at 200% text size in both conditions. These deterministic API-absence checks do not establish direct Firefox 115 execution. Direct Firefox 115 hands-on testing was unavailable for this fix; the ordinary browser suite uses the pinned Playwright browsers.
+
 ## Before each finished tool is accepted
 
 Test explicit state transitions, optional questions, backward revision, empty/long/non-Latin inputs, invalid states, output mapping, completion vs planning, finite handoffs, cancellation, and unsaved exit behavior. Once persistence exists, test explicit opt-in, storage denial/quota/corruption/schema versions, truthful save state, selective deletion, full local deletion, and multi-tab behavior.
