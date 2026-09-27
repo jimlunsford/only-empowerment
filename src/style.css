@@ -388,68 +388,16 @@ p + p {
   max-width: 700px;
   margin-top: 22px;
 }
-.preview-invitation {
-  margin: 40px 0 60px;
-  padding: 30px;
-  background: var(--soft);
-  border-radius: 10px;
-}
-.preview-invitation p {
-  margin: 15px 0 24px;
-  max-width: 650px;
-}
-.back-link {
-  display: inline-block;
-  margin-top: 36px;
-  font-size: 0.84rem;
-}
-.back-link + .page-intro {
-  padding-top: 30px;
-}
-.detail-panel,
-.question-panel,
 .output-card {
   background: var(--paper);
   padding: 32px;
   border: 1px solid var(--line);
   border-radius: 10px;
 }
-.detail-panel > p {
-  margin-top: 18px;
-}
-.question-list {
-  padding-left: 22px;
-  color: var(--muted);
-}
-.question-list li {
-  padding: 7px 0;
-}
-.deliverable {
-  margin-top: 30px;
-  padding-top: 25px;
-  border-top: 1px solid var(--line);
-}
-.deliverable .eyebrow {
-  margin-bottom: 10px;
-}
-.deliverable > p:last-child {
-  margin-top: 15px;
-}
 .source-note {
   font-size: 0.8rem;
   color: var(--muted);
   margin-top: 25px;
-}
-.handoff-outline {
-  padding: 35px 0 20px;
-}
-.handoff-outline h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-.availability-note {
-  font-size: 0.85rem;
-  color: var(--muted);
 }
 .approach-steps {
   list-style: none;
@@ -513,24 +461,6 @@ p + p {
 .privacy-facts .button {
   margin-top: 22px;
 }
-.progress {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  padding: 0 0 24px;
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-.progress li[aria-current] {
-  font-weight: 700;
-  color: var(--green);
-  border-bottom: 2px solid var(--green);
-}
-.preview-layout {
-  display: grid;
-  gap: 22px;
-}
 .lesson {
   background: var(--soft);
   padding: 26px 30px;
@@ -545,15 +475,6 @@ p + p {
 }
 .lesson p {
   font-size: 0.95rem;
-}
-.question-panel h2 {
-  font-size: 1.4rem;
-  line-height: 1.4;
-  margin-bottom: 12px;
-}
-.question-panel > p {
-  color: var(--muted);
-  font-size: 0.86rem;
 }
 textarea {
   display: block;
@@ -570,9 +491,6 @@ textarea {
 }
 textarea[aria-invalid='true'] {
   border-color: #9a3126;
-}
-.question-panel .small {
-  margin: 8px 0 20px;
 }
 .error {
   color: #9a3126 !important;
@@ -603,48 +521,12 @@ textarea[aria-invalid='true'] {
   font-size: 2rem;
   margin-bottom: 30px;
 }
-.output-label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
 .answer {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   font-size: 1.35rem;
   line-height: 1.65;
   margin: 12px 0 28px;
-}
-.output-status {
-  padding: 20px 0;
-  margin-bottom: 22px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.output-status p {
-  font-size: 0.9rem;
-  color: var(--muted);
-  margin-top: 8px;
-}
-.preview-footer {
-  margin-top: 25px;
-}
-.preview-footer > [role='status'] {
-  font-size: 0.85rem;
-  color: var(--green);
-  margin-bottom: 10px;
-}
-.preview-footer > .small {
-  margin-top: 18px;
-}
-.clear-confirm {
-  border: 1px solid var(--line);
-  padding: 20px;
-  border-radius: 8px;
-}
-.clear-confirm p {
-  margin-bottom: 14px;
 }
 .print-only {
   display: none;
@@ -820,8 +702,6 @@ main {
   .intro-copy {
     font-size: 1rem;
   }
-  .detail-panel,
-  .question-panel,
   .output-card {
     padding: 24px;
   }
@@ -831,9 +711,6 @@ main {
   .framework-list > a {
     flex-direction: column;
     gap: 4px;
-  }
-  .progress {
-    gap: 20px;
   }
   .approach-steps li {
     gap: 20px;
@@ -846,9 +723,6 @@ main {
   }
   .button {
     gap: 15px;
-  }
-  .preview-invitation {
-    padding: 25px;
   }
   .narrow {
     padding-bottom: 40px;
@@ -868,9 +742,6 @@ main {
   .tool-card,
   textarea {
     border: 1px solid CanvasText;
-  }
-  .progress li[aria-current] {
-    border-color: Highlight;
   }
 }
 @media print {
@@ -912,14 +783,9 @@ main {
     display: block;
     margin-top: 24pt;
   }
-  .output-label,
   .eyebrow,
-  .small,
-  .output-status p {
+  .small {
     color: #222;
-  }
-  .output-status {
-    break-inside: avoid;
   }
   .answer {
     orphans: 3;

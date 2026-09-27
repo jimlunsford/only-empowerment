@@ -2,15 +2,15 @@
 
 Test meaningful user behavior and trust boundaries. Coverage percentages are not a goal.
 
-## Foundation automated checks retained in the suite
+## Shared automated checks retained in the suite
 
 - Pure validation rejects empty and excessive responses with actionable errors.
 - Plain-text output preserves entered text and states that a planned action is not completion.
 - Source guard rejects current runtime network/persistence/evaluation/unsafe HTML APIs. It is a regression alarm, not a complete security proof.
 - HTML CSP includes local-only scripts and no network/form answer submission.
 - Browser tests visit all routes, run axe, and check viewport overflow; a 320px regression exercises reduced-motion mode and a maximum-length unbroken answer.
-- Preview validation, focus, text escaping, backward edit, cancel/confirm clear.
-- Foundation preview checks keep synthetic private markers out of requests, create no cookies/local/session storage, and discard preview state on reload or exit. Accepted tools add explicit local saving and in-memory internal navigation as covered below.
+- Next Move and the other accepted tool suites retain validation, focus, text escaping, backward edit, cancel/confirm clear.
+- Shell privacy checks use a real Next Move artifact and keep synthetic private markers out of requests and implicit storage. Internal navigation retains unsaved work; reload discards it. Explicit saving, deletion, and storage boundaries remain covered by the accepted tool suites.
 - Keyboard skip link, route heading focus, missing-route recovery.
 - Clipboard failure has manual-copy guidance; print media hides chrome and preserves output.
 - Build metadata and footer identify the same source.
@@ -18,6 +18,14 @@ Test meaningful user behavior and trust boundaries. Coverage percentages are not
 Run across Chromium, mobile Chromium, Firefox, and WebKit. Mobile automation is an emulation check, not a real-device certification.
 
 Browser baseline remains Chrome/Edge 109+, Firefox 115+, and Safari 16.4+. `tests/artifact-text.test.mjs` initializes the actual renderer with `Intl.Segmenter` present and absent, checking exact authored text, Unicode code-point preservation, discretionary breaks, and the normal grapheme path. `tests/browser/artifact-text.spec.ts` removes the API before application scripts load and exercises startup, artifact rendering, escaping, exact text, and 320px reflow at 200% text size in both conditions. These deterministic API-absence checks do not establish direct Firefox 115 execution. Direct Firefox 115 hands-on testing was unavailable for this fix; the ordinary browser suite uses the pinned Playwright browsers.
+
+## Presentation-mode verification (Gate A2)
+
+`node --test tests/presentation.test.mjs tests/privacy.test.mjs` builds both modes into temporary directories and inspects generated HTML, robots, JavaScript, and build metadata. It checks staging as the unset default, production indexing, all six tools in no-JavaScript text, removal of development scaffolding, staging-only log wording, unchanged CSP, removal of stale output assets, and rejection of invalid modes. Runtime privacy/CSP guards formerly in `preview.test.mjs` are preserved in `privacy.test.mjs`; only the two obsolete preview-model tests are removed.
+
+Normal CI runs focused `presentation.spec.ts` and `shell.spec.ts` against a production-intended local build across all four browser projects, then rebuilds explicitly in staging mode and runs the full ordinary suite. Results use separate `test-results/production` and `test-results/staging` directories. Both runs use the existing zero-retry configuration and local preview server, never the live host. CI also runs `npm audit` for the pinned dependency set.
+
+The shell keeps route/axe/keyboard/320px/source checks, replaces the preview with Next Move for private-marker and long-artifact checks, and tests `#/preview` and unknown tool IDs as not-found routes. Preview-only validation and clipboard tests are removed because the existing Next Move suite covers those actual product behaviors, including hostile input, clear cancellation/confirmation, failed copy, and print. The deployed-host tests likewise use Next Move for future candidates; they are not executed for this change, and the current pre-A2 host does not yet implement the new presentation metadata contract.
 
 ## Before each finished tool is accepted
 

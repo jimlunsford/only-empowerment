@@ -1,5 +1,11 @@
 # Privacy architecture
 
+## Current presentation and privacy contract
+
+All six accepted tools keep unsaved answers in memory across internal navigation. Only explicit confirmation saves an artifact to this browser profile. Reload/close can discard unsaved work; browser recovery, extensions, clipboard, PDFs, screenshots, and device backups remain outside app deletion. There is no account, answer-submission endpoint, analytics, tracker, remote font/script, AI API, server recovery, or cross-device sync.
+
+`OE_PRESENTATION=staging` (also the default) includes the staging status and the previously observed staging log-rotation wording. `OE_PRESENTATION=production` omits those environment-specific claims and explains that operational request-log retention depends on host, provider, and backup policies. No production retention period is asserted. Both builds retain the same restrictive CSP and local data flow. `build.json` records the presentation mode; HTML and robots policy are generated from the same setting. The interaction preview is removed; its historical behavior below is not a current route or data store.
+
 ## Phase 1 baseline (historical)
 
 No account, cookies, localStorage, sessionStorage, IndexedDB, service worker, server answer endpoint, database, analytics, advertising, session replay, third-party forms, remote fonts, or AI API.
@@ -20,7 +26,7 @@ The interaction preview stores its single response in component memory. Leaving 
 
 Host → browser: static application assets. Browser memory → rendered DOM: local response and card. Browser memory → clipboard/print: only after the user acts. Browser → host: requests for static assets, never answer payloads by design. GitHub is the source/build platform, not an answer processor. Framework links are references, not embedded third-party content.
 
-Production and staging are different origins and must never share browser storage or draft data. If later saved work exists, moving from staging to production requires user-directed export/import. No invisible migration or syncing.
+Production and staging are different origins and must never share browser storage or draft data. Saved work stays with its browser profile and origin. There is no cross-origin transfer, import/export feature, invisible migration, or syncing.
 
 ## Persistence design accepted in Phase 1 (implemented below)
 

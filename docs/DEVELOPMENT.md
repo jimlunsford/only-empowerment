@@ -16,6 +16,12 @@ npm run test:e2e
 
 `npm run verify` runs unit checks, build, and browser tests. Browser tests use the production bundle on port 4173. Use synthetic inputs only. Never place actual private reflections in test fixtures, screenshots, traces, issues, or pull requests.
 
+## Presentation builds
+
+`npm run build` defaults to staging presentation with noindex. Set `OE_PRESENTATION=production` for production-intended copy/indexing, or explicitly set `OE_PRESENTATION=staging`. Only those two values are accepted. This setting is independent of Vite's optimization mode and `OE_RELEASE_BUILD`; an optimized build is not automatically production presentation. On PowerShell, set `$env:OE_PRESENTATION` before the build. No `.env` framework or runtime configuration is used.
+
+Run the generated-byte checks with `node --test tests/presentation.test.mjs tests/privacy.test.mjs`. Browser presentation assertions use the mode recorded in the served `build.json`; the normal CI runs them against both modes, and retains the full staging-presentation regression suite. No live deployment is part of those checks. Run `npm audit` for dependency review.
+
 ## Contribution workflow
 
 Create short feature branches, open a PR, explain product behavior and privacy implications, pass CI, and review the rendered interface. Main is accepted source. Do not add features outside the documented scope. There is no separate long-lived develop branch.
@@ -30,12 +36,12 @@ PowerShell equivalent: set `$env:OE_RELEASE_BUILD='1'`, then run `npm.cmd run bu
 
 ## Structure
 
-- `src/`: components, routes, catalog, preview, styles.
+- `src/`: six-tool components, routes, catalog, styles.
 - `scripts/`: source metadata and build checksums.
 - `tests/`: validation/privacy tests and cross-browser shell acceptance.
 - `docs/`: product contracts, architecture, scope, operating standards.
 - `.github/workflows/ci.yml`: minimal build and browser verification.
-- `public/`: local icon and staging robots policy.
+- `public/`: local static assets. Vite generates robots policy from the presentation mode.
 
 Use exact dependency versions and review lockfile changes. One runtime dependency, Preact, currently exists. Do not add a component kit, analytics library, global store, or persistence abstraction without a real workflow need. No HTML injection or user-controlled link rendering.
 

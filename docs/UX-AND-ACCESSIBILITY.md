@@ -28,8 +28,12 @@ A single-column question with lesson and action controls nearby. No hover depend
 
 Typographic wordmark, warm off-white canvas, dark evergreen text/actions, muted green surfaces, restrained borders, generous spacing, and clear hierarchy. System fonts avoid third-party requests and font licensing/deployment complexity. Native form controls are polished without replacing their semantics. No motivational imagery or complex logo system.
 
-The homepage exposes situations before tool names, with honest “In development” status and useful outlines. A staging banner makes the unfinished state visible. Secondary framework and source attribution remains readable without taking over the task.
+The homepage exposes situations before tool names and links directly to all six accepted tools. Build-time staging presentation adds the development-staging banner and identifies the environment as not a production release. Production-intended presentation omits that banner without claiming a launch or production readiness. Secondary framework and source attribution remains readable without taking over the task.
 
 ## Validation
 
-Run axe against all shell routes and both preview states, desktop/mobile layouts, keyboard skip/nav/form/copy flow, associated errors, back/forward, no horizontal overflow, reduced motion, and long-answer print checks. Manual screen-reader testing with at least VoiceOver/Safari or NVDA/Firefox is required before a finished tool's production release. Browser automation alone is not that test.
+Run axe against all shell routes, the six accepted tool workflows, and removed/unknown-route recovery, desktop/mobile layouts, keyboard skip/nav/form/copy flow, associated errors, back/forward, no horizontal overflow, reduced motion, and long-answer print checks. Manual screen-reader testing with at least VoiceOver/Safari or NVDA/Firefox is required before a finished tool's production release. Browser automation alone is not that test.
+
+## Presentation boundary
+
+`OE_PRESENTATION` selects `staging` (the default) or `production` at build time. Both modes offer the same six tools, navigation, privacy controls, and source attribution. No runtime request or backend configuration is involved. The retired interaction preview had no distinct job once Next Move was accepted; `#/preview` now uses the normal not-found page. All catalog tools have dedicated routes, so the unfinished-tool outline fallback is removed. Unknown tool IDs also use normal not-found behavior.
