@@ -8,9 +8,11 @@ Built by [Jim Lunsford](https://jimlunsford.com/).
 
 ## Status
 
-Development version `0.1.0-dev.7`. All six core tools are implemented and accepted into main. Phase 7 closed through [PR #9](https://github.com/jimlunsford/only-empowerment/pull/9) at accepted application checkpoint `0df2c7d3338abb18968ef0cca7c86f41455d6d2d`.
+Proposed release candidate `1.0.0-rc.1`, not final `1.0.0`. All six core tools are implemented and accepted into main. Phase 7 closed through [PR #9](https://github.com/jimlunsford/only-empowerment/pull/9) at accepted application checkpoint `0df2c7d3338abb18968ef0cca7c86f41455d6d2d`.
 
-Staging completed dedicated deployed verification: 468 passed, none skipped or failed. It intentionally identifies accepted application source `a7e8ec325703856542aa29236776be6351604b33`; the later Phase 7 checkpoint adds only a workflow correction. No staging normalization is required. See [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md) for evidence and testing limits. Production has not launched; no production tag or release exists. Phase acceptance does not declare the whole product production-ready.
+The historical Phase 7 staging acceptance passed 468 checks. Live staging still identifies `a7e8ec325703856542aa29236776be6351604b33` at `0.1.0-dev.7`; it predates the accepted A1 compatibility and A2 presentation changes. That expected gap will be addressed by a later authorized candidate deployment, not an intermediate rebuild. See [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md) for historical evidence and [RC procedure](docs/RC-PROCEDURE.md) for the source/tag/artifact contract.
+
+Six-tool scope is frozen for final release acceptance. Gate A3a prepares the RC source contract only. No RC tag or GitHub Release has been created by this work. Production has not launched; human accessibility/device acceptance and production-host/cutover gates remain pending.
 
 ## Product family
 

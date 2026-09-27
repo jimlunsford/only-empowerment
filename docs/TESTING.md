@@ -45,7 +45,15 @@ Use `npx playwright test --config playwright.staging.config.ts` to run against t
 
 The staging config uses zero retries and checks the independently pinned deployed commit, headers, redirects, cookies, local/session storage, IndexedDB, caches, service workers, synthetic answer request capture, and laptop/mobile/print layouts. Supply the accepted application SHA independently; never infer it from the host under test. Generated artifacts expire after seven days; the permanent acceptance record summarizes executed results and limitations.
 
-For a later accepted staging artifact, set `OE_STAGING_COMMIT` to its independently verified full source SHA when running the staging suite. The historical local fallback remains the foundation checkpoint; manual CI uses `staging_commit` when supplied, otherwise the workflow SHA. The accepted Phase 7 staging source is `a7e8ec325703856542aa29236776be6351604b33`, version `0.1.0-dev.7`. Do not infer the expected SHA from the live site under test.
+For a later accepted staging artifact, supply `OE_STAGING_COMMIT` (full lowercase 40-character SHA), `OE_STAGING_VERSION` (SemVer), and, for an RC, `OE_STAGING_TAG` (`v` plus that version). An untagged development build uses an empty/omitted tag. The staging config rejects missing or malformed pins before host requests. Manual workflow inputs are `staging_commit`, `staging_version`, and `staging_tag`; none are inferred from the host or workflow SHA.
+
+The historical Phase 7 deployment remains `a7e8ec325703856542aa29236776be6351604b33`, version `0.1.0-dev.7`, untagged and without presentation metadata. Its exact metadata shape is retained as a narrowly pinned compatibility case. To repeat its full historical acceptance, use the recorded Phase 7 suite/workflow revision `b3a9b45965c318312360b9bb8385dadc8f784dd5` and explicit `staging_commit`, rather than applying later A1/A2 assertions to old application bytes. Current RC verification must use the current suite and the new independent version/tag inputs. No deployed verification is performed in A3a.
+
+## RC source and artifact checks (Gate A3a)
+
+`node --test tests/release-state.test.mjs tests/staging-expectations.test.mjs tests/artifact-provenance.test.mjs` covers exact clean/tag/version validation with deterministic fixtures (no tags created), independent staging pins, and two actual generated presentation builds with complete manifests. It verifies the preserved production files survive staging rebuilding unchanged, while the two modes retain different bytes and identical source identity. Existing presentation tests retain default/invalid-mode coverage.
+
+Tag pushes matching `v*` run the same required verification, with full history/tags and strict release validation before installation and again in each build. Ordinary untagged PR/main builds remain valid. Production browser checks precede the production upload and staging rebuild; the ordinary four-project suite precedes the staging upload. Artifact names and later independent verification are specified in [RC procedure](RC-PROCEDURE.md). Both Playwright configurations retain zero retries. CI evidence is not human/device acceptance.
 
 ## Phase 2 reference suite
 

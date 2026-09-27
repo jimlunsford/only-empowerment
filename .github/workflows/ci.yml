@@ -2,6 +2,7 @@ name: Product verification
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
   workflow_dispatch:
     inputs:
@@ -13,6 +14,14 @@ on:
         description: 'Full Git SHA expected on live staging when deployed verification is enabled'
         type: string
         default: ''
+      staging_version:
+        description: 'Independently expected deployed package version (required for staging verification)'
+        type: string
+        default: ''
+      staging_tag:
+        description: 'Independently expected exact tag; empty for an untagged development build'
+        type: string
+        default: ''
 permissions:
   contents: read
 concurrency:
@@ -22,6 +31,8 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 35
+    env:
+      OE_RELEASE_TAG: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -30,6 +41,9 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .nvmrc
+      - name: Validate tagged release state
+        if: github.ref_type == 'tag'
+        run: npm run check:release
       - run: npm ci
       - run: npm run format:check
       - run: npm audit
@@ -43,6 +57,13 @@ jobs:
         run: npx playwright test tests/browser/presentation.spec.ts tests/browser/shell.spec.ts --output test-results/production
         env:
           OE_PRESENTATION: production
+      - name: Preserve verified production artifact before rebuilding dist
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: only-empowerment-production-${{ github.event.pull_request.head.sha || github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
       - name: Build staging presentation
         run: npm run build
         env:
@@ -53,11 +74,14 @@ jobs:
         if: github.event_name == 'workflow_dispatch' && inputs.verify_staging
         run: npx playwright test --config playwright.staging.config.ts
         env:
-          OE_STAGING_COMMIT: ${{ inputs.staging_commit || github.sha }}
+          OE_STAGING_COMMIT: ${{ inputs.staging_commit }}
+          OE_STAGING_VERSION: ${{ inputs.staging_version }}
+          OE_STAGING_TAG: ${{ inputs.staging_tag }}
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: only-empowerment-${{ github.event.pull_request.head.sha || github.sha }}
+          name: only-empowerment-staging-${{ github.event.pull_request.head.sha || github.sha }}
           path: dist/
+          if-no-files-found: error
           retention-days: 7
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
@@ -68,6 +92,6 @@ jobs:
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always() && github.event_name == 'workflow_dispatch' && inputs.verify_staging
         with:
-          name: staging-review-${{ inputs.staging_commit || github.sha }}
+          name: staging-review-${{ inputs.staging_commit }}
           path: test-results-staging/
           retention-days: 7

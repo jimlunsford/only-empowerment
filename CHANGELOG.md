@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0-rc.1 (proposed release candidate, not yet tagged)
+
+- Freeze the six accepted tools for final acceptance: Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now.
+- Retain local-first, private-by-design operation: no account, AI service, analytics, or server answer storage; explicit local saves, copy/print, and scoped deletion.
+- Saved Work supports Decision Records, Execution Cards, Personal Standards, Reset Plans, Rebuild Maps, and Action Records. Retain reviewed Decision Room and Rebuild Map handoffs to Next Move, Next Move to Do It Now, and read-only saved-standard selection in Reset/Rebuild Map.
+- Include A1 Firefox 115 startup compatibility when Intl.Segmenter is absent, preserving authored Unicode with a code-point fallback.
+- Include A2 explicit staging/production presentation, current six-tool wording, accurate privacy copy, and removal of obsolete preview/fallback scaffolding.
+- Establish matching immutable version/tag validation, distinct production and staging artifacts with independent checksums, and independently pinned staging identity.
+- Production has not launched. Human accessibility/device acceptance and production hosting/cutover remain pending. This source preparation creates no tag, GitHub Release, or deployment.
+
 ## 0.1.0-dev.7 (Phase 7 accepted development state)
 
 - Complete route title, heading focus and scroll reset during the DOM commit so delayed navigation focus cannot interrupt immediate form input.

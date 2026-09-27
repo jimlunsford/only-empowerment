@@ -2,26 +2,26 @@
 
 ## Source lifecycle
 
-Feature branch → PR + CI + product review → accepted main → staging → deliberate version tag/release → production.
+Feature branch → PR + CI + product review → accepted main → deliberate immutable version tag → tagged artifacts → staging and human acceptance → authorized durable prerelease → separately authorized production. The tag must precede any authoritative build that records it in build.json. See [RC procedure](RC-PROCEDURE.md).
 
 Main represents accepted source, not an automatic production deploy. Phase 1 foundation was accepted through `foundation/phase-1`; operational closure uses `ops/phase-1-staging-closure`. Staging may temporarily review a clearly identified PR head; record that exception and never call it accepted main. No production release or apex cutover is authorized by Phase 1.
 
 ## Presentation build boundary (Gate A2)
 
-`OE_PRESENTATION` accepts exactly `staging` or `production`. Unset defaults to staging; invalid values fail the build. This is independent of `OE_RELEASE_BUILD`, which continues to enforce a clean checkout, and of the unchanged application version. The mode is recorded in `build.json`.
+`OE_PRESENTATION` accepts exactly `staging` or `production`. Unset defaults to staging; invalid values fail the build. This is independent of `OE_RELEASE_BUILD`, which continues to enforce a clean checkout, and of the application version. The mode is recorded in `build.json`.
 
 | Mode | UI and privacy | Generated indexing policy |
 | --- | --- | --- |
 | `staging` (default) | Visible staging/non-production banner and staging log wording; all six tools available | HTML `noindex, nofollow`; robots `Disallow: /` |
 | `production` | Six-tool product copy, no staging banner, environment-neutral log-retention wording | HTML `index, follow`; robots `Allow: /` |
 
-Vite emits both policies from one build-time decision, without manual tracked-file edits or runtime configuration. The checked-in HTML remains noindex by default. A production-intended build makes indexing possible; it does not authorize launch, deployment, or a change to host-level indexing headers. Staging must use staging output and retain its host protections. Different presentation modes produce different bytes from the same source; do not relabel or interchange them. Builds empty the output directory so switching modes cannot retain the previous presentation bundle. Release/version/artifact design remains a separate Gate A3 decision.
+Vite emits both policies from one build-time decision, without manual tracked-file edits or runtime configuration. The checked-in HTML remains noindex by default. A production-intended build makes indexing possible; it does not authorize launch, deployment, or a change to host-level indexing headers. Staging must use staging output and retain its host protections. Different presentation modes produce different bytes from the same source; do not relabel or interchange them. Builds empty the output directory so switching modes cannot retain the previous presentation bundle. Gate A3a defines separate preserved artifacts for these two presentations; see the RC procedure.
 
 The existing live staging application predates A1 and A2. It remains unchanged during this work. Later candidate preparation needs a separately authorized staging deployment and acceptance of the application changes. Historical checkpoints below retain their original provenance.
 
 ## Versions and evidence
 
-Use SemVer for application versions. Current development line: `0.1.0-dev.7`. Production tags must match package version, be intentional, and not be moved after publication. Record user-visible changes in CHANGELOG.md; GitHub release notes explain acceptance evidence, limits, and upgrade implications.
+Use SemVer for application versions. Proposed RC version: `1.0.0-rc.1`; required immutable tag: `v1.0.0-rc.1`. No tag is created by source preparation. Production tags must match package version, be intentional, and not be moved after publication. Record user-visible changes in CHANGELOG.md; GitHub release notes explain acceptance evidence, limits, and upgrade implications.
 
 `build.json` includes version, full commit, exact tag if one exists, dirty flag, and public commit URL. Footer shows a subtle version/source link. Dirty local builds say local changes and are rejected by `OE_RELEASE_BUILD=1`.
 
