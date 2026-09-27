@@ -1,4 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
+import { stagingExpectations } from './tests/staging-expectations.mjs';
+// Fail before making any host requests if the independent pins are missing.
+stagingExpectations(process.env);
 // Explicit, fixed staging target. No production URL and no local preview server.
 export default defineConfig({
   testDir: './tests/browser',

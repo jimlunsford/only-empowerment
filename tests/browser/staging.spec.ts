@@ -2,8 +2,7 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { executionCard } from './helpers/next-move';
 const staging = 'https://dev.onlyempowerment.com';
-const accepted = process.env.OE_STAGING_COMMIT || 'bd984a8986a658c6bd0d0d663c4e30f5c2f09d80';
-if (!/^[a-f0-9]{40}$/.test(accepted)) throw new Error('OE_STAGING_COMMIT must be a full Git SHA.');
+import { stagingExpectations } from '../staging-expectations.mjs';
 test.beforeEach(({ baseURL }) => {
   test.skip(baseURL !== staging, 'These checks target the deployed staging host only.');
 });
@@ -23,14 +22,7 @@ test('deployed TLS response, headers and source match independently pinned sourc
   expect(headers['referrer-policy']).toBe('no-referrer');
   expect(headers['set-cookie']).toBeUndefined();
   const metadata = await (await request.get('/build.json')).json();
-  expect(metadata).toEqual({
-    version: '0.1.0-dev.7',
-    presentation: 'staging',
-    commit: accepted,
-    dirty: false,
-    tag: null,
-    source: `https://github.com/jimlunsford/only-empowerment/commit/${accepted}`,
-  });
+  expect(metadata).toEqual(stagingExpectations(process.env));
   const http = await request.get('http://dev.onlyempowerment.com/', { maxRedirects: 0 });
   expect(http.status()).toBe(301);
   expect(http.headers().location).toBe(`${staging}/`);

@@ -1,12 +1,18 @@
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
 import { buildInfo } from './scripts/build-info.mjs';
+import { releaseState } from './scripts/release-state.mjs';
 // Default safely to staging; production presentation must be explicitly requested.
 const presentation = process.env.OE_PRESENTATION ?? 'staging';
 if (presentation !== 'staging' && presentation !== 'production')
   throw new Error('OE_PRESENTATION must be staging or production.');
 const staging = presentation === 'staging';
-const metadata = { ...buildInfo(process.env.OE_RELEASE_BUILD === '1'), presentation };
+const metadata = {
+  ...(process.env.OE_RELEASE_TAG
+    ? releaseState(process.env.OE_RELEASE_TAG)
+    : buildInfo(process.env.OE_RELEASE_BUILD === '1')),
+  presentation,
+};
 export default defineConfig({
   define: { __BUILD__: JSON.stringify(metadata), __STAGING__: JSON.stringify(staging) },
   plugins: [

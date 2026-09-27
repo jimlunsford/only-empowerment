@@ -49,9 +49,11 @@ Use exact dependency versions and review lockfile changes. One runtime dependenc
 
 `NextMove.tsx` owns explicit workflow transitions and transient UI. `next-move-model.ts` owns fields, validation, copy and the handoff contract activated in Phase 7. `next-move-lessons.ts` is the source-governed lesson registry. `local-cards.ts` confines localStorage access to a small artifact API; `use-local-work.ts` owns app-lifetime memory and cross-tab notifications. `SavedWork.tsx` exposes local records and deletion. `components/work.tsx` holds primitives proven by this tool.
 
-Next Move was introduced at `0.1.0-dev.2`; the current development version is `0.1.0-dev.7`. No dependency was added. Node's built-in TypeScript stripping executes pure model/storage tests; imports for those modules include `.ts` and TypeScript explicitly permits those extensions in this no-emit build.
+Next Move was introduced at `0.1.0-dev.2`; the proposed RC version is `1.0.0-rc.1`. No dependency was added. Node's built-in TypeScript stripping executes pure model/storage tests; imports for those modules include `.ts` and TypeScript explicitly permits those extensions in this no-emit build.
 
-Normal PR verification has no staging dependency. Optional staging execution runs the same workflow tests against the fixed staging origin, plus host policy checks. Set `OE_STAGING_COMMIT` from independently accepted candidate evidence, never from the live host. The manual CI staging step uses the explicit `staging_commit` input when supplied, otherwise the dispatched source commit. For the accepted Phase 7 deployment, the expected application source is `a7e8ec325703856542aa29236776be6351604b33`, independent of later workflow or documentation commits.
+Normal PR/main verification has no staging or tag dependency. `OE_RELEASE_BUILD=1` still requires clean source without requiring a tag. For intentionally tagged builds, run `npm run check:release` and build with `OE_RELEASE_TAG=v1.0.0-rc.1`; Vite repeats the strict check and derives metadata from Git. An untagged PR build truthfully records `tag: null`. Never synthesize tag metadata.
+
+Optional deployed verification requires independently supplied `OE_STAGING_COMMIT` and `OE_STAGING_VERSION`; tagged RCs also require `OE_STAGING_TAG`. The manual workflow inputs are `staging_commit`, `staging_version`, and `staging_tag`, with no inferred SHA/version defaults. See [testing](TESTING.md) and the [RC procedure](RC-PROCEDURE.md) before any later deployment.
 
 
 ## Phase 5 Reset implementation
