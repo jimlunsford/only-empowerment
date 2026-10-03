@@ -20,7 +20,6 @@ function Home() {
     <>
       <section class="hero">
         <div>
-          <p class="eyebrow">Practical tools. Your decisions.</p>
           <h1 tabIndex={-1}>
             Think clearly.
             <br />
@@ -46,7 +45,6 @@ function Home() {
           </p>
         </div>
         <aside class="hero-note">
-          <p class="eyebrow">The work belongs to you</p>
           <p class="note-title">
             A useful question.
             <br />A clearer choice.
@@ -68,10 +66,7 @@ function Home() {
       </section>
       <section class="tools-section" aria-labelledby="tools-title">
         <div class="section-heading">
-          <div>
-            <p class="eyebrow">The tool collection</p>
-            <h2 id="tools-title">Start with what is in front of you.</h2>
-          </div>
+          <h2 id="tools-title">Start with what is in front of you.</h2>
           <p>
             Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now are
             available.
@@ -82,10 +77,7 @@ function Home() {
         <ToolGrid />
       </section>
       <section class="bottom-band">
-        <div>
-          <p class="eyebrow">Private by design</p>
-          <h2>Your thinking should stay yours.</h2>
-        </div>
+        <h2>Your thinking should stay yours.</h2>
         <div>
           <p>
             No accounts or analytics. Work stays in memory unless you choose to save a Decision
@@ -103,24 +95,8 @@ function Home() {
 function ToolGrid() {
   return (
     <div class="tool-grid">
-      {tools.map((tool, i) => (
+      {tools.map((tool) => (
         <a class="tool-card" key={tool.id} href={`#/tools/${tool.id}`}>
-          <div class="card-top">
-            <span class="tool-number">0{i + 1}</span>
-            <span class="availability">
-              {tool.id === 'next-move'
-                ? 'Try Next Move'
-                : tool.id === 'decision-room'
-                  ? 'Try Decision Room'
-                  : tool.id === 'build-a-standard'
-                    ? 'Try Build a Standard'
-                    : tool.id === 'reset'
-                      ? 'Try Reset'
-                      : tool.id === 'rebuild-map'
-                        ? 'Try Rebuild Map'
-                        : 'Try Do It Now'}
-            </span>
-          </div>
           <p class="situation">{tool.situation}</p>
           <h3>{tool.name}</h3>
           <p>{tool.description}</p>
@@ -136,7 +112,7 @@ function ToolGrid() {
 function ToolsPage() {
   return (
     <>
-      <PageIntro label="The tool collection" title="Different situations. Useful next steps.">
+      <PageIntro title="Different situations. Useful next steps.">
         <p>
           Use Decision Room to choose a direction, Next Move to define an executable action, or
           Build a Standard to choose a clear behavioral line. Reset helps you correct a miss and
@@ -151,7 +127,7 @@ function ToolsPage() {
 function Approach() {
   return (
     <div class="narrow">
-      <PageIntro label="How it works" title="Understand it. Use it. Make it yours.">
+      <PageIntro title="Understand it. Use it. Make it yours.">
         <p>
           You should not need to study a system before you can use a tool. A short lesson gives you
           the distinction you need for the next question.
@@ -167,13 +143,10 @@ function Approach() {
           ],
           ['Action', 'Define a real step you can take outside this page.'],
           ['Result', 'Record what happened, including what still needs correction.'],
-        ].map(([name, text], i) => (
+        ].map(([name, text]) => (
           <li key={name}>
-            <span class="step-number">0{i + 1}</span>
-            <div>
-              <h2>{name}</h2>
-              <p>{text}</p>
-            </div>
+            <h2>{name}</h2>
+            <p>{text}</p>
           </li>
         ))}
       </ol>
@@ -203,7 +176,7 @@ function Approach() {
 function Privacy({ work }: { work: LocalWork }) {
   return (
     <div class="narrow">
-      <PageIntro label="Privacy & source" title="Your answers are not ours to collect.">
+      <PageIntro title="Your answers are not ours to collect.">
         <p>
           Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now work without
           an account or answer submission. Saving is a choice you make on this device.
@@ -298,7 +271,7 @@ function Privacy({ work }: { work: LocalWork }) {
 function NotFound() {
   return (
     <div class="narrow">
-      <PageIntro label="Page not found" title="That page is not here.">
+      <PageIntro title="That page is not here.">
         <p>
           <a href="#/tools">Explore the tool collection</a> or <a href="#/">return home</a>.
         </p>
@@ -399,7 +372,6 @@ function App() {
               Jim Lunsford
             </a>
           </p>
-          <p class="small">Practical tools. Ownership stays with you.</p>
         </div>
         <div class="footer-meta">
           <a href="#/privacy">Privacy & source</a>

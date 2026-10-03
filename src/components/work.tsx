@@ -146,10 +146,7 @@ export function ExecutionCard({ card }: { card: Card }) {
   const order: Field[] = ['situation', 'action', 'start', 'obstacle', 'completion'];
   return (
     <article class="output-card execution-card" aria-labelledby="card-title">
-      <div class="artifact-header">
-        <p class="eyebrow">Only Empowerment · Next Move</p>
-        <span class="planned-badge">Status: Planned</span>
-      </div>
+      <span class="planned-badge">Status: Planned</span>
       <h2 id="card-title" tabIndex={-1}>
         Execution Card
       </h2>

@@ -39,10 +39,7 @@ export function DecisionRecord({ decision: d }: { decision: Decision }) {
       class="output-card execution-card decision-record"
       aria-labelledby="decision-record-title"
     >
-      <div class="artifact-header">
-        <p class="eyebrow">Only Empowerment · Decision Room</p>
-        <span class="planned-badge">Status: Decided</span>
-      </div>
+      <span class="planned-badge">Status: Decided</span>
       <h2 id="decision-record-title" tabIndex={-1}>
         Decision Record
       </h2>
@@ -435,23 +432,18 @@ export function DecisionRoom({ work }: { work: LocalWork }) {
   const isSaved =
     session.savedRaw && JSON.stringify(JSON.parse(session.savedRaw).decision) === JSON.stringify(d);
   return (
-    <div class="decision-room work-width">
+    <section class="decision-room work-width" aria-label="Decision Room">
       <header class="work-header no-print">
-        <div>
-          <p class="eyebrow">Decision Room</p>
-          <h1 ref={heading} tabIndex={-1}>
-            {lesson && 'heading' in lesson
-              ? String(lesson.heading)
-              : lesson?.question || titles[step]}
-          </h1>
-        </div>
-        <p class="work-orientation">
-          {isLens
-            ? `PERIOD lens ${lenses.indexOf(step as (typeof lenses)[number]) + 1} of 6`
-            : step === 'record'
-              ? 'A record to take with you'
-              : 'Your options. Your direction.'}
-        </p>
+        <h1 ref={heading} tabIndex={-1}>
+          {lesson && 'heading' in lesson
+            ? String(lesson.heading)
+            : lesson?.question || titles[step]}
+        </h1>
+        {isLens && (
+          <p class="work-orientation">
+            {`PERIOD lens ${lenses.indexOf(step as (typeof lenses)[number]) + 1} of 6`}
+          </p>
+        )}
       </header>
       {step === 'define' && (
         <p class="decision-entry no-print">
@@ -543,7 +535,6 @@ export function DecisionRoom({ work }: { work: LocalWork }) {
       )}
       {step === 'pause' && (
         <section class="pause-panel">
-          <p class="eyebrow">No decision forced</p>
           <h2>Give the unresolved part attention.</h2>
           <p>{decisionReadiness.find(([v]) => v === session.readiness)?.[1]}</p>
           <p>
@@ -800,6 +791,6 @@ export function DecisionRoom({ work }: { work: LocalWork }) {
           </p>
         </ConfirmDialog>
       )}
-    </div>
+    </section>
   );
 }

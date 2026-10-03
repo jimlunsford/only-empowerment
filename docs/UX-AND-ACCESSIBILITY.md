@@ -24,7 +24,9 @@ Challenge a behavior or assumption with a useful question. Do not challenge a pe
 
 A single-column question with lesson and action controls nearby. No hover dependency, wide comparison table, persistent large sidebar, or tiny navigation. Stack option comparisons into cards. Keep the output useful on a phone and printed page. Use readable 16px-plus input text to avoid mobile auto-zoom. Long unbroken answers wrap.
 
-## Initial visual direction
+## Visual direction
+
+The [UI Design Standard](UI-DESIGN-STANDARD.md) governs visual language for all current and future user-facing work. Apply its information-value test and review requirement while preserving the accessibility foundations above.
 
 Typographic wordmark, warm off-white canvas, dark evergreen text/actions, muted green surfaces, restrained borders, generous spacing, and clear hierarchy. System fonts avoid third-party requests and font licensing/deployment complexity. Native form controls are polished without replacing their semantics. No motivational imagery or complex logo system.
 
