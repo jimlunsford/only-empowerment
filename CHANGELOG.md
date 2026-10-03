@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.0-rc.2 (development candidate, untagged)
+
+- Refine visual language following hands-on rc.1 review; no new feature.
+- Remove redundant decorative eyebrow/kicker labels site-wide, non-semantic card/conceptual indices, duplicate lesson numbering, and redundant CTA pills inside linked tool cards.
+- Rebalance heading, card, artifact and Saved Work spacing; retire unused label APIs, wrappers and CSS while preserving meaningful progress, metadata and status.
+- Establish `docs/UI-DESIGN-STANDARD.md`, integrate it into development/UX guidance and the documentation index, and guard known retired patterns with a focused structural regression check.
+- Preserve product behavior, artifact data, privacy, dependencies and the immutable rc.1 tag. No rc.2 tag, release or deployment is created.
+
 ## 1.0.0-rc.1 (proposed release candidate, not yet tagged)
 
 - Freeze the six accepted tools for final acceptance: Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now.

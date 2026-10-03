@@ -510,7 +510,10 @@ test('handoff previews minimal editable fields, protects existing work and runs 
   await page.locator('#field-situation').fill('Do not silently replace this');
   await page.getByRole('link', { name: 'The tools', exact: true }).click();
   await expect(page.locator('h1')).toContainText('Different situations');
-  await page.getByRole('link', { name: /Try Rebuild Map/ }).click();
+  await page
+    .locator('.tool-card')
+    .filter({ has: page.getByRole('heading', { name: 'Rebuild Map', exact: true }) })
+    .click();
   await page.locator('#rm-area').fill(data.area);
   await page.locator('#rm-reality').fill(data.reality);
   await next(page);

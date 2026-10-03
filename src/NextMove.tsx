@@ -182,23 +182,20 @@ export function NextMove({ work }: { work: LocalWork }) {
           ? 'You can pause here.'
           : lesson!.question;
   return (
-    <div class="next-move work-width">
+    <section class="next-move work-width" aria-label="Next Move">
       <header class="work-header no-print">
-        <div>
-          <p class="eyebrow">Next Move</p>
-          <h1 ref={heading} tabIndex={-1}>
-            {title}
-          </h1>
-        </div>
-        <p class="work-orientation">
-          {number !== null
-            ? `Step ${number + 1} of 6`
-            : step === 'review'
-              ? 'Review before confirming'
-              : step === 'card'
-                ? 'A plan to take with you'
+        <h1 ref={heading} tabIndex={-1}>
+          {title}
+        </h1>
+        {step !== 'card' && (
+          <p class="work-orientation">
+            {number !== null
+              ? `Step ${number + 1} of 6`
+              : step === 'review'
+                ? 'Review before confirming'
                 : 'No action plan required'}
-        </p>
+          </p>
+        )}
       </header>
       {session.fromRebuild && (
         <p class="storage-notice no-print">
@@ -215,9 +212,6 @@ export function NextMove({ work }: { work: LocalWork }) {
       {lesson && number !== null && (
         <div class="work-layout">
           <aside class="work-lesson" aria-label="A useful distinction">
-            <span class="lesson-number" aria-hidden="true">
-              0{number + 1}
-            </span>
             <h2>{lesson.title}</h2>
             <p>{lesson.text}</p>
             {lesson.example && (
@@ -326,7 +320,6 @@ export function NextMove({ work }: { work: LocalWork }) {
       )}
       {step === 'pause' && (
         <section class="pause-panel">
-          <p class="eyebrow">A legitimate stopping point</p>
           <h2>Resolve what matters before execution.</h2>
           <p>
             {session.readiness === 'decision'
@@ -613,6 +606,6 @@ export function NextMove({ work }: { work: LocalWork }) {
           </p>
         </ConfirmDialog>
       )}
-    </div>
+    </section>
   );
 }

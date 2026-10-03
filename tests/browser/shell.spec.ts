@@ -1,6 +1,14 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { executionCard } from './helpers/next-move';
+const toolNames: Record<string, string> = {
+  '/tools/decision-room': 'Decision Room',
+  '/tools/next-move': 'Next Move',
+  '/tools/build-a-standard': 'Build a Standard',
+  '/tools/reset': 'Reset',
+  '/tools/rebuild-map': 'Rebuild Map',
+  '/tools/do-it-now': 'Do It Now',
+};
 const routes = [
   '/',
   '/tools',
@@ -18,6 +26,10 @@ test('all shell routes are accessible and fit the viewport', async ({ page }, te
   for (const route of routes) {
     await page.goto(`/#${route}`);
     await expect(page.locator('h1')).toBeVisible();
+    if (toolNames[route])
+      await expect(
+        page.getByRole('region', { name: toolNames[route], exact: true }).locator('h1'),
+      ).toBeVisible();
     expect(
       (
         await new AxeBuilder({ page })

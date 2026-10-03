@@ -40,10 +40,7 @@ export function ResetArtifact({
       class="output-card execution-card personal-standard reset-plan"
       aria-labelledby="reset-title"
     >
-      <div class="artifact-header">
-        <p class="eyebrow">Only Empowerment · Reset</p>
-        {!review && <span class="planned-badge">Status: Planned</span>}
-      </div>
+      {!review && <span class="planned-badge">Status: Planned</span>}
       <h2 id="reset-title" tabIndex={-1}>
         Reset Plan{review ? ' review' : ''}
       </h2>
@@ -229,26 +226,19 @@ export function Reset({ work }: { work: LocalWork }) {
   const isSaved =
     session.savedRaw && JSON.stringify(JSON.parse(session.savedRaw).plan) === JSON.stringify(plan);
   return (
-    <div class="reset work-width">
+    <section class="reset work-width" aria-label="Reset">
       <header class="work-header no-print">
-        <div>
-          <p class="eyebrow">Reset</p>
-          <h1 ref={heading} tabIndex={-1}>
-            {lesson?.heading ||
-              (step === 'pause'
-                ? 'Review the standard first.'
-                : step === 'review'
-                  ? 'Review your return to the standard.'
-                  : 'The reset is planned. Now create the proof.')}
-          </h1>
-        </div>
-        <p class="work-orientation">
-          {lesson
-            ? `Step ${resetSteps.indexOf(step as ResetField) + 1} of 7`
-            : step === 'record'
-              ? 'A plan to take into action'
-              : 'Your words. Your choice.'}
-        </p>
+        <h1 ref={heading} tabIndex={-1}>
+          {lesson?.heading ||
+            (step === 'pause'
+              ? 'Review the standard first.'
+              : step === 'review'
+                ? 'Review your return to the standard.'
+                : 'The reset is planned. Now create the proof.')}
+        </h1>
+        {lesson && (
+          <p class="work-orientation">{`Step ${resetSteps.indexOf(step as ResetField) + 1} of 7`}</p>
+        )}
       </header>
       {step === 'slip' && (
         <div class="decision-entry">
@@ -707,6 +697,6 @@ export function Reset({ work }: { work: LocalWork }) {
           </p>
         </ConfirmDialog>
       )}
-    </div>
+    </section>
   );
 }

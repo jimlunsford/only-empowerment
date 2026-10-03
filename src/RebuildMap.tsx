@@ -46,10 +46,7 @@ export function RebuildArtifact({
       class="output-card execution-card personal-standard rebuild-map"
       aria-labelledby="rebuild-title"
     >
-      <div class="artifact-header">
-        <p class="eyebrow">Only Empowerment · Rebuild Map</p>
-        {!review && <span class="planned-badge">Status: Mapped</span>}
-      </div>
+      {!review && <span class="planned-badge">Status: Mapped</span>}
       <h2 id="rebuild-title" tabIndex={-1}>
         Rebuild Map{review ? ' review' : ''}
       </h2>
@@ -317,26 +314,21 @@ export function RebuildMap({ work }: { work: LocalWork }) {
   const isSaved =
     session.savedRaw && JSON.stringify(JSON.parse(session.savedRaw).map) === JSON.stringify(map);
   return (
-    <div class="rebuild work-width">
+    <section class="rebuild work-width" aria-label="Rebuild Map">
       <header class="work-header no-print">
-        <div>
-          <p class="eyebrow">Rebuild Map</p>
-          <h1 ref={heading} tabIndex={-1}>
-            {lesson?.heading ||
-              (step === 'pause'
-                ? 'Establish the standard first.'
-                : step === 'review'
-                  ? 'Review the system you will build.'
-                  : step === 'handoff'
-                    ? 'Choose what to take into Next Move.'
-                    : 'The map is set. Start the first move.')}
-          </h1>
-        </div>
-        <p class="work-orientation">
-          {lesson
-            ? `Step ${rebuildSteps.indexOf(step as RebuildStage) + 1} of 7`
-            : 'Your words. Your choice.'}
-        </p>
+        <h1 ref={heading} tabIndex={-1}>
+          {lesson?.heading ||
+            (step === 'pause'
+              ? 'Establish the standard first.'
+              : step === 'review'
+                ? 'Review the system you will build.'
+                : step === 'handoff'
+                  ? 'Choose what to take into Next Move.'
+                  : 'The map is set. Start the first move.')}
+        </h1>
+        {lesson && (
+          <p class="work-orientation">{`Step ${rebuildSteps.indexOf(step as RebuildStage) + 1} of 7`}</p>
+        )}
       </header>
       {step === 'context' && (
         <div class="decision-entry">
@@ -839,6 +831,6 @@ export function RebuildMap({ work }: { work: LocalWork }) {
           </p>
         </ConfirmDialog>
       )}
-    </div>
+    </section>
   );
 }

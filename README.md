@@ -8,11 +8,11 @@ Built by [Jim Lunsford](https://jimlunsford.com/).
 
 ## Status
 
-Proposed release candidate `1.0.0-rc.1`, not final `1.0.0`. All six core tools are implemented and accepted into main. Phase 7 closed through [PR #9](https://github.com/jimlunsford/only-empowerment/pull/9) at accepted application checkpoint `0df2c7d3338abb18968ef0cca7c86f41455d6d2d`.
+Development candidate `1.0.0-rc.2` refines visual hierarchy following hands-on review of immutable `v1.0.0-rc.1`. All six core tools remain implemented and accepted into main; this candidate adds no feature. The rc.1 tag remains at `a3b20aa1f3eff98dcfbda556093a0cf25737bb22`. This work creates no rc.2 tag, GitHub Release, or deployment.
 
-The historical Phase 7 staging acceptance passed 468 checks. Live staging still identifies `a7e8ec325703856542aa29236776be6351604b33` at `0.1.0-dev.7`; it predates the accepted A1 compatibility and A2 presentation changes. That expected gap will be addressed by a later authorized candidate deployment, not an intermediate rebuild. See [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md) for historical evidence and [RC procedure](docs/RC-PROCEDURE.md) for the source/tag/artifact contract.
+The starting live staging checkpoint supplied for this work is rc.1 and is not changed or reverified by this source-only cleanup. See [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md) for historical evidence and [RC procedure](docs/RC-PROCEDURE.md) for the source/tag/artifact contract.
 
-Six-tool scope is frozen for final release acceptance. Gate A3a prepares the RC source contract only. No RC tag or GitHub Release has been created by this work. Production has not launched; human accessibility/device acceptance and production-host/cutover gates remain pending.
+Six-tool scope remains frozen for final release acceptance. Production has not launched; this work claims no new human accessibility/device acceptance and does not authorize production hosting or cutover.
 
 ## Product family
 
@@ -56,6 +56,7 @@ Preact + TypeScript + Vite. Static deployment with no server application runtime
 - [Workflow model and handoffs](docs/WORKFLOW-MODEL.md)
 - [Output artifact standard](docs/OUTPUT-ARTIFACT-STANDARD.md)
 - [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md)
+- [UI Design Standard](docs/UI-DESIGN-STANDARD.md)
 - [UX, accessibility and design direction](docs/UX-AND-ACCESSIBILITY.md)
 - [Technical architecture](docs/decisions/0001-APPLICATION-ARCHITECTURE.md)
 - [v1 scope and reference-tool recommendation](docs/V1-SCOPE.md)

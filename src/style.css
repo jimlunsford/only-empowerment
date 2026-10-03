@@ -144,14 +144,6 @@ p + p {
   padding: 78px 0 76px;
   align-items: center;
 }
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.69rem;
-  font-weight: 700;
-  color: var(--muted);
-  margin-bottom: 20px;
-}
 .hero h1 {
   line-height: 1.13;
 }
@@ -220,7 +212,6 @@ p + p {
   background: var(--soft);
   padding: 38px 34px;
   border-radius: 12px;
-  min-height: 330px;
   position: relative;
 }
 .hero-note:before {
@@ -230,9 +221,6 @@ p + p {
   width: 32px;
   background: #709748;
   margin-bottom: 30px;
-}
-.hero-note .eyebrow {
-  font-size: 0.63rem;
 }
 .note-title {
   font-size: 1.9rem;
@@ -259,9 +247,6 @@ p + p {
   gap: 24px;
   margin-bottom: 28px;
 }
-.section-heading .eyebrow {
-  margin-bottom: 12px;
-}
 .section-heading > p {
   font-size: 0.86rem;
   color: var(--muted);
@@ -286,25 +271,6 @@ p + p {
 .tool-card:hover {
   border-color: #647e59;
   box-shadow: 0 5px 16px #244b3f0a;
-}
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 26px;
-}
-.tool-number {
-  font-size: 0.75rem;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
-.availability {
-  font-size: 0.65rem;
-  letter-spacing: 0.02em;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 3px 9px;
-  color: var(--muted);
 }
 .situation {
   font-size: 0.8rem;
@@ -338,10 +304,7 @@ p + p {
   grid-template-columns: 1fr 1fr;
   gap: 60px;
 }
-.bottom-band .eyebrow {
-  margin-bottom: 12px;
-}
-.bottom-band > div > p:not(.eyebrow) {
+.bottom-band > div > p {
   color: var(--muted);
   font-size: 0.93rem;
   margin-bottom: 16px;
@@ -355,9 +318,6 @@ p + p {
   gap: 25px;
   padding: 0 40px 35px;
   font-size: 0.84rem;
-}
-.site-footer p + p {
-  margin-top: 6px;
 }
 .footer-meta {
   text-align: right;
@@ -405,15 +365,8 @@ p + p {
   padding: 0;
 }
 .approach-steps li {
-  display: flex;
-  gap: 30px;
   padding: 25px 0;
   border-top: 1px solid var(--line);
-}
-.step-number {
-  color: var(--muted);
-  font-size: 0.8rem;
-  padding-top: 8px;
 }
 .approach-steps h2 {
   font-size: 1.6rem;
@@ -465,9 +418,6 @@ p + p {
   background: var(--soft);
   padding: 26px 30px;
   border-radius: 10px;
-}
-.lesson .eyebrow {
-  margin-bottom: 12px;
 }
 .lesson h2 {
   font-size: 1.55rem;
@@ -640,7 +590,6 @@ main {
   }
   .hero-note {
     margin-top: 35px;
-    min-height: 0;
     padding: 25px;
   }
   .hero-note:before {
@@ -652,9 +601,6 @@ main {
   .hero-note .note-divider,
   .hero-note .small {
     display: none;
-  }
-  .hero-note .eyebrow {
-    margin-bottom: 12px;
   }
   .section-heading {
     display: block;
@@ -668,9 +614,6 @@ main {
   }
   .tool-card {
     padding: 24px;
-  }
-  .card-top {
-    margin-bottom: 20px;
   }
   .tool-card h3 {
     font-size: 1.7rem;
@@ -711,12 +654,6 @@ main {
   .framework-list > a {
     flex-direction: column;
     gap: 4px;
-  }
-  .approach-steps li {
-    gap: 20px;
-  }
-  .availability {
-    font-size: 0.65rem;
   }
   .privacy-line {
     font-size: 0.69rem;
@@ -783,7 +720,6 @@ main {
     display: block;
     margin-top: 24pt;
   }
-  .eyebrow,
   .small {
     color: #222;
   }
@@ -821,9 +757,6 @@ main {
   font-size: clamp(2rem, 3.8vw, 3.2rem);
   max-width: 680px;
 }
-.work-header .eyebrow {
-  margin-bottom: 12px;
-}
 .work-orientation {
   flex-shrink: 0;
   font-size: 0.85rem;
@@ -841,12 +774,6 @@ main {
 .work-lesson {
   padding: 32px;
   background: var(--soft);
-}
-.lesson-number {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-bottom: 32px;
 }
 .work-lesson h2 {
   font-size: 1.65rem;
@@ -999,15 +926,9 @@ input:focus-visible {
   background: white;
   padding: 40px;
 }
-.artifact-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: start;
-  gap: 12px;
-  margin-bottom: 14px;
-}
 .planned-badge {
+  display: inline-block;
+  margin-bottom: 14px;
   border: 1px solid var(--line);
   padding: 5px 10px;
   border-radius: 4px;
@@ -1104,6 +1025,11 @@ input:focus-visible {
   overflow-wrap: anywhere;
   white-space: pre-wrap;
 }
+.saved-metadata {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
 .saved-action {
   margin-top: 12px;
   overflow-wrap: anywhere;
@@ -1128,9 +1054,6 @@ input:focus-visible {
   .work-lesson,
   .work-panel {
     padding: 24px;
-  }
-  .lesson-number {
-    display: none;
   }
   .work-lesson h2 {
     font-size: 1.4rem;
@@ -1413,9 +1336,6 @@ select:focus-visible {
 .build-standard {
   min-width: 0;
   overflow-wrap: anywhere;
-}
-.personal-standard .artifact-header > * {
-  min-width: 0;
 }
 .standard-list-editor + .standard-list-editor {
   margin-top: 2.5rem;

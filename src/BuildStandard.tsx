@@ -36,10 +36,7 @@ export function PersonalStandard({
 }) {
   return (
     <article class="output-card execution-card personal-standard" aria-labelledby="standard-title">
-      <div class="artifact-header">
-        <p class="eyebrow">Only Empowerment · Build a Standard</p>
-        {!review && <span class="planned-badge">Status: Set</span>}
-      </div>
+      {!review && <span class="planned-badge">Status: Set</span>}
       <h2 id="standard-title" tabIndex={-1}>
         Personal Standard{review ? ' review' : ''}
       </h2>
@@ -237,22 +234,15 @@ export function BuildStandard({ work }: { work: LocalWork }) {
   const isSaved =
     session.savedRaw && JSON.stringify(JSON.parse(session.savedRaw).standard) === JSON.stringify(s);
   return (
-    <div class="build-standard work-width">
+    <section class="build-standard work-width" aria-label="Build a Standard">
       <header class="work-header no-print">
-        <div>
-          <p class="eyebrow">Build a Standard</p>
-          <h1 ref={heading} tabIndex={-1}>
-            {lesson?.heading ||
-              (step === 'review' ? 'Review the line you are choosing.' : 'Your standard is set.')}
-          </h1>
-        </div>
-        <p class="work-orientation">
-          {lesson
-            ? `Step ${standardSteps.indexOf(step as (typeof standardSteps)[number]) + 1} of 7`
-            : step === 'review'
-              ? 'Your words. Your choice.'
-              : 'A standard to take with you'}
-        </p>
+        <h1 ref={heading} tabIndex={-1}>
+          {lesson?.heading ||
+            (step === 'review' ? 'Review the line you are choosing.' : 'Your standard is set.')}
+        </h1>
+        {lesson && (
+          <p class="work-orientation">{`Step ${standardSteps.indexOf(step as (typeof standardSteps)[number]) + 1} of 7`}</p>
+        )}
       </header>
       {step === 'context' && (
         <p class="decision-entry">
@@ -527,6 +517,6 @@ export function BuildStandard({ work }: { work: LocalWork }) {
           </p>
         </ConfirmDialog>
       )}
-    </div>
+    </section>
   );
 }

@@ -26,10 +26,7 @@ import { broadcast, type LocalWork } from './use-local-work';
 function RecordView({ record, status }: { record: ActionRecord; status: ActionStatus }) {
   return (
     <article class="output-card" aria-labelledby="action-record-title">
-      <div class="artifact-header">
-        <p class="eyebrow">Only Empowerment · Do It Now</p>
-        <span class="planned-badge">Status: {status}</span>
-      </div>
+      <span class="planned-badge">Status: {status}</span>
       <h2 id="action-record-title">Action Record</h2>
       {(['task', 'firstAction', 'beginState', 'outcome'] as const).map((f) => (
         <section class="artifact-section" key={f}>
@@ -230,27 +227,24 @@ export function DoItNow({ work }: { work: LocalWork }) {
     saved.status === session.result &&
     JSON.stringify(saved.record) === JSON.stringify(record);
   return (
-    <div class="do-it-now work-width">
+    <section class="do-it-now work-width" aria-label="Do It Now">
       <header class="work-header no-print">
-        <div>
-          <p class="eyebrow">Do It Now</p>
-          <h1 ref={heading} tabIndex={-1}>
-            {title}
-          </h1>
-        </div>
-        <p class="work-orientation">
-          {step === 'task'
-            ? '1 · Name the action'
-            : step === 'begin'
-              ? '2 · Begin'
-              : step === 'result'
-                ? '3 · Report the result'
-                : step === 'review'
-                  ? '4 · Review'
-                  : step === 'pause'
-                    ? 'No Action Record created'
-                    : 'Your report to take with you'}
-        </p>
+        <h1 ref={heading} tabIndex={-1}>
+          {title}
+        </h1>
+        {step !== 'record' && (
+          <p class="work-orientation">
+            {step === 'task'
+              ? '1 · Name the action'
+              : step === 'begin'
+                ? '2 · Begin'
+                : step === 'result'
+                  ? '3 · Report the result'
+                  : step === 'review'
+                    ? '4 · Review'
+                    : 'No Action Record created'}
+          </p>
+        )}
       </header>
       {lesson && (
         <div class="work-layout">
@@ -590,6 +584,6 @@ export function DoItNow({ work }: { work: LocalWork }) {
           </p>
         </ConfirmDialog>
       )}
-    </div>
+    </section>
   );
 }

@@ -200,7 +200,7 @@ export function SavedWork({ work }: { work: LocalWork }) {
   }
   return (
     <div class="narrow">
-      <PageIntro label="Local work" title="Saved on this device">
+      <PageIntro title="Saved on this device">
         <p>
           Execution Cards, Decision Records, Personal Standards, Reset Plans, Rebuild Maps, and
           Action Records in this browser profile only. There is no account or cloud recovery. Open a
@@ -267,10 +267,10 @@ export function SavedWork({ work }: { work: LocalWork }) {
             return (
               <li key={entry.key}>
                 <div>
-                  <p class="eyebrow">
-                    {type} {index + 1} · {entry.record.status}
-                  </p>
                   <h2>{situation}</h2>
+                  <p class="saved-metadata">
+                    {type} · {entry.record.status}
+                  </p>
                   <p class="saved-action">{action}</p>
                 </div>
                 <div class="actions">
