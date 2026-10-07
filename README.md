@@ -8,9 +8,9 @@ Built by [Jim Lunsford](https://jimlunsford.com/).
 
 ## Status
 
-Development candidate `1.0.0-rc.2` refines visual hierarchy following hands-on review of immutable `v1.0.0-rc.1`. All six core tools remain implemented and accepted into main; this candidate adds no feature. The rc.1 tag remains at `a3b20aa1f3eff98dcfbda556093a0cf25737bb22`. This work creates no rc.2 tag, GitHub Release, or deployment.
+Untagged development candidate `1.0.0-rc.3` corrects the analytics/privacy doctrine following hands-on review of immutable `v1.0.0-rc.2`. All six core tools remain implemented and accepted into main; this candidate adds no analytics implementation. The rc.2 tag remains at `8d0a96573e41ae471bea50438068f2e2a98575c1`. This work creates no rc.3 tag, GitHub Release, or deployment.
 
-The starting live staging checkpoint supplied for this work is rc.1 and is not changed or reverified by this source-only cleanup. See [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md) for historical evidence and [RC procedure](docs/RC-PROCEDURE.md) for the source/tag/artifact contract.
+The starting live staging checkpoint is rc.2, independently rebuilt and compared byte-for-byte before this source-only correction. Staging is not redeployed by this work. See [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md) for historical evidence and [RC procedure](docs/RC-PROCEDURE.md) for the source/tag/artifact contract.
 
 Six-tool scope remains frozen for final release acceptance. Production has not launched; this work claims no new human accessibility/device acceptance and does not authorize production hosting or cutover.
 
@@ -29,7 +29,7 @@ The teaching model is lesson → reflection → decision → action → result. 
 
 ## Privacy
 
-No account, server-side answer storage, advertising, analytics, third-party scripts, or AI API. All six implemented tools keep text in memory by default and never submit answers. Explicit saving stores only the confirmed artifact in this browser profile. Up to 50 saved Only Empowerment records total. Copy and print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
+No account, server-side answer storage, advertising, or AI API. Google Analytics is selected for future minimal production site/product measurement under the [Analytics policy](docs/ANALYTICS-POLICY.md). What users enter into the tools is never sent to Google Analytics. Current staging and both presentation builds contain no analytics or third-party runtime scripts. All six implemented tools keep text in memory by default and never submit answers. Explicit saving stores only the confirmed artifact in this browser profile. Up to 50 saved Only Empowerment records total. Copy and print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
 
 Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md) and [Build a Standard](docs/BUILD-A-STANDARD.md), [Reset](docs/RESET.md), and [Rebuild Map](docs/REBUILD-MAP.md). Saved Work supports all six artifact types, per-record deletion, and Delete my local data.
 
@@ -56,6 +56,7 @@ Preact + TypeScript + Vite. Static deployment with no server application runtime
 - [Workflow model and handoffs](docs/WORKFLOW-MODEL.md)
 - [Output artifact standard](docs/OUTPUT-ARTIFACT-STANDARD.md)
 - [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md)
+- [Analytics policy](docs/ANALYTICS-POLICY.md)
 - [UI Design Standard](docs/UI-DESIGN-STANDARD.md)
 - [UX, accessibility and design direction](docs/UX-AND-ACCESSIBILITY.md)
 - [Technical architecture](docs/decisions/0001-APPLICATION-ARCHITECTURE.md)

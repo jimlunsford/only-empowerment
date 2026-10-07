@@ -19,6 +19,12 @@ Run across Chromium, mobile Chromium, Firefox, and WebKit. Mobile automation is 
 
 Browser baseline remains Chrome/Edge 109+, Firefox 115+, and Safari 16.4+. `tests/artifact-text.test.mjs` initializes the actual renderer with `Intl.Segmenter` present and absent, checking exact authored text, Unicode code-point preservation, discretionary breaks, and the normal grapheme path. `tests/browser/artifact-text.spec.ts` removes the API before application scripts load and exercises startup, artifact rendering, escaping, exact text, and 320px reflow at 200% text size in both conditions. These deterministic API-absence checks do not establish direct Firefox 115 execution. Direct Firefox 115 hands-on testing was unavailable for this fix; the ordinary browser suite uses the pinned Playwright browsers.
 
+## Analytics policy and current-runtime boundary
+
+The [Analytics policy](ANALYTICS-POLICY.md) governs future production work. Policy/copy tests distinguish future production Google Analytics from current disabled staging, reject retired blanket promises, and retain the categorical exclusion of authored private content. Existing network, cookies, private-marker and restrictive CSP checks remain unchanged for the current runtime in both presentations. A policy correction does not authorize weakening them.
+
+Before any later analytics activation, explicitly review the integration and event allowlist; capture actual analytics requests across answer entry, artifact creation/editing, Saved Work, copy, navigation, and result events with synthetic private markers. Prove markers never appear in request URLs, headers or bodies, including event names/parameters, page locations/titles and user properties. Verify minimal configuration and prohibited features under the canonical policy. These are future implementation gates, not tests claimed to pass against an integration that does not exist.
+
 ## Presentation-mode verification (Gate A2)
 
 `node --test tests/presentation.test.mjs tests/privacy.test.mjs` builds both modes into temporary directories and inspects generated HTML, robots, JavaScript, and build metadata. It checks staging as the unset default, production indexing, all six tools in no-JavaScript text, removal of development scaffolding, staging-only log wording, unchanged CSP, removal of stale output assets, and rejection of invalid modes. Runtime privacy/CSP guards formerly in `preview.test.mjs` are preserved in `privacy.test.mjs`; only the two obsolete preview-model tests are removed.

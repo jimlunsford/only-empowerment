@@ -17,6 +17,14 @@ The tool helps the user think. The user makes the decision. Support should incre
 - Treat a miss as something to examine and correct, without shame or dismissal.
 - Allow a legitimate pause, missing information, changed circumstances, or needed support to change the plan. Execution is not an instruction to ignore risk.
 
+## Analytics privacy doctrine
+
+Only Empowerment uses Google Analytics for minimal site and product usage analytics. What users enter into the tools is never sent to Google Analytics.
+
+This is the permanent production policy, not a claim of current activation. Google Analytics is selected for future production work; it is not enabled on development staging or in either current presentation build. Implementation requires explicit approval and review under the canonical [Analytics policy](ANALYTICS-POLICY.md).
+
+Measure the product, not the content of the person's private thinking.
+
 ## Ecosystem
 
 JimLunsford.com is the authoritative home of the doctrine and frameworks. Only Empowerment is their interactive application layer. Short lessons link to deeper sources. It will not republish the source articles or become a publishing system. Built by [Jim Lunsford](https://jimlunsford.com/).

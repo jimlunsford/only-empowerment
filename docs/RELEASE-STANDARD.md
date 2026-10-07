@@ -41,6 +41,8 @@ Before changing Nginx, establish a usable rollback and verify existing backup he
 
 ## Production gate
 
+Google Analytics activation is separate production-site work requiring explicit approval and the [Analytics policy](ANALYTICS-POLICY.md) review gates. A production presentation build does not activate analytics. Current staging retains its restrictive CSP and sends no analytics; do not add future endpoints to its policy preemptively.
+
 Owner authorizes the specific release and cutover. Resolve license; complete tool acceptance, accessibility, privacy/data-flow, hosting-log review, vulnerability review, release manifest and backup/rollback verification. Production should receive the tested artifact bytes, not an unrecorded rebuild. Update robots/indexing deliberately at production launch. Prefer rollback to a known artifact when verification fails; preserve diagnostic evidence without private user text.
 
 ## CI economics

@@ -88,3 +88,7 @@ BroadcastChannel, storage events and visibility rechecks extend to Reset. Deleti
 ## Verification boundary
 
 The runtime adds no dependency, network API, analytics, AI, backend, account, cloud sync, external runtime assets or user-controlled HTML/links. Existing runtime security guard and CSP remain intact. Executed tests, visual evidence, staging provenance and backup gates are in PHASE-5-ACCEPTANCE.md. Axe and browser automation are not WCAG certification or actual NVDA, JAWS, VoiceOver or TalkBack testing.
+
+## Analytics policy boundary
+
+The runtime/network statements above describe the current tool implementation. Future minimal production Google Analytics is governed by [Analytics policy](ANALYTICS-POLICY.md), requires explicit implementation review, and must never receive tool answers or artifact contents. Current staging retains its no-analytics runtime and restrictive CSP.

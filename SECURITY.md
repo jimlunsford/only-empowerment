@@ -6,6 +6,10 @@ Render responses as text. Do not use raw HTML injection, eval, dynamic code, or 
 
 Use local assets, restrictive CSP, secure HTTPS and referrer/security headers. Keep repository metadata, environment files, backups, credentials, deployment keys and infrastructure secrets out of served files and Git. Lock and review dependencies. CI needs read-only repository access; no production keys in pull-request jobs.
 
+## Analytics boundary
+
+Future production Google Analytics requires explicit approval, privacy/CSP review and synthetic private-marker network tests under [Analytics policy](docs/ANALYTICS-POLICY.md). User-authored tool, saved, artifact and clipboard content must never become analytics input, including through URLs, titles or user properties. Advertising/profile-building features remain prohibited. Current staging and both presentation builds remain analytics-free with their existing restrictive CSP; policy approval alone does not permit runtime or network changes.
+
 ## Reporting
 
 Do not open a public issue containing private responses, credentials, or an exploit that exposes users. GitHub private vulnerability reporting is enabled and was verified on 2026-09-16. Use the repository's Security tab and **Report a vulnerability** to submit a private report. Keep any reproduction synthetic and omit real tool answers or unrelated secrets. No guaranteed response time is currently promised.

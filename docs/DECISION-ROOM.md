@@ -60,3 +60,7 @@ Memory is default. Runtime remains static Preact, with no accounts, AI, analytic
 ## Acceptance evidence
 
 See PHASE-3-ACCEPTANCE.md for exact source, test results, staged artifact provenance, backup and review state. This contract describes implemented behavior, not a substitute for verification evidence or owner approval.
+
+## Analytics policy boundary
+
+The runtime/network statements above describe the current tool implementation. Future minimal production Google Analytics is governed by [Analytics policy](ANALYTICS-POLICY.md), requires explicit implementation review, and must never receive tool answers or artifact contents. Current staging retains its no-analytics runtime and restrictive CSP.

@@ -21,6 +21,12 @@ test('presentation mode keeps six tools available with the correct banner, index
   if (staging)
     await expect(page.locator('.staging-banner')).toContainText('Not a production release.');
   else await expect(page.locator('body')).not.toContainText('Not a production release');
+  await expect(page.locator('.privacy-line')).toHaveText(
+    'No account. No tracking of what you enter. No answer collection.',
+  );
+  await expect(page.locator('.bottom-band')).toContainText(
+    'What you enter into the tools is not sent to analytics.',
+  );
   await expect(page.locator('.tools-section')).toContainText('Do It Now are available.');
   await expect(page.locator('.tool-card')).toHaveCount(6);
   for (const [id, name] of catalog) {
@@ -41,6 +47,21 @@ test('presentation mode keeps six tools available with the correct banner, index
   expect(privacy.includes('14 rotated logs')).toBe(staging);
   expect(privacy).toContain('no server recovery, cross-device sync, or transfer between sites');
   expect(privacy).not.toContain('interaction preview');
+  await expect(
+    page.getByRole('heading', { name: 'Analytics and tracking boundaries', exact: true }),
+  ).toBeVisible();
+  expect(privacy).toContain('Only Empowerment will use Google Analytics on the production site');
+  expect(privacy).toContain(
+    staging
+      ? 'Google Analytics is not enabled on this development staging site.'
+      : 'Google Analytics is not enabled in this build.',
+  );
+  expect(privacy).toContain('What you enter into the tools is not sent to Google Analytics.');
+  expect(privacy).toContain(
+    'Tool answers, Saved Work, artifact contents, copied text, and other user-authored private data are excluded.',
+  );
+  expect(privacy).not.toMatch(/No trackers|No accounts or analytics|never uses analytics/i);
+
   expect(
     (
       await new AxeBuilder({ page })

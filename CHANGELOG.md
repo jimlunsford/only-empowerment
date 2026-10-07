@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0-rc.3 (development candidate, untagged)
+
+- Correct analytics/privacy doctrine following hands-on rc.2 review: Google Analytics is selected for future minimal production site and product analytics.
+- Update Home and Privacy & Source wording to distinguish production intent from current staging, which still sends no analytics.
+- Keep private tool answers, Saved Work, artifact contents, copied text and all other user-authored private content excluded from analytics.
+- Add canonical `docs/ANALYTICS-POLICY.md`, align current normative documentation and preserve historical acceptance evidence.
+- Add focused policy/copy regression guards; retain current privacy/network/CSP tests.
+- Patch only the development-only transitive `source-map-js` lock resolution from 1.2.1 to 1.2.2 for GHSA-68fv-2mgg-jv7q; direct dependency versions remain unchanged.
+- No analytics implementation, dependency, CSP relaxation, consent UI, rc.3 tag, GitHub Release, or deployment is added. Immutable rc.2 remains unchanged.
+
 ## 1.0.0-rc.2 (development candidate, untagged)
 
 - Refine visual language following hands-on rc.1 review; no new feature.
