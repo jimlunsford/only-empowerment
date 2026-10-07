@@ -41,7 +41,7 @@ function Home() {
           </div>
           <p class="privacy-line">
             <span class="small-square" aria-hidden="true" />
-            No account. No trackers. No answer collection.
+            No account. No tracking of what you enter. No answer collection.
           </p>
         </div>
         <aside class="hero-note">
@@ -80,9 +80,10 @@ function Home() {
         <h2>Your thinking should stay yours.</h2>
         <div>
           <p>
-            No accounts or analytics. Work stays in memory unless you choose to save a Decision
-            Record, Execution Card, Personal Standard, Reset Plan, Rebuild Map, or Action Record on
-            this device. Read how saving and deletion work.
+            No account is required. What you enter into the tools is not sent to analytics. Work
+            stays in memory unless you choose to save a Decision Record, Execution Card, Personal
+            Standard, Reset Plan, Rebuild Map, or Action Record on this device. Read how saving and
+            deletion work.
           </p>
           <a href="#/privacy">
             Understand your privacy <span aria-hidden="true">↗</span>
@@ -220,11 +221,31 @@ function Privacy({ work }: { work: LocalWork }) {
           <p>Answers are not included in ordinary application requests by design.</p>
         </section>
         <section>
-          <h2>No trackers. No AI service.</h2>
+          <h2>Analytics and tracking boundaries</h2>
           <p>
-            No advertising, analytics, session replay, remote fonts, third-party scripts, or AI APIs
-            are loaded by the application. Links to JimLunsford.com and GitHub open those sites only
-            when you choose them, with no answer content added to the link.
+            Only Empowerment will use Google Analytics on the production site to understand
+            aggregate site and product usage.{' '}
+            {__STAGING__
+              ? 'Google Analytics is not enabled on this development staging site.'
+              : 'Google Analytics is not enabled in this build.'}
+          </p>
+          <p>
+            Analytics may include page and tool visits, traffic source, limited browser and device
+            information, broad geographic information, and fixed content-free events such as a tool
+            being opened, started, or reaching a result.
+          </p>
+          <p>
+            What you enter into the tools is not sent to Google Analytics. Tool answers, Saved Work,
+            artifact contents, copied text, and other user-authored private data are excluded.
+          </p>
+          <p>
+            Only Empowerment does not use session replay, heatmaps, advertising personalization,
+            remarketing, Google Signals, User-ID, or user-provided data for analytics. It does not
+            build behavioral advertising profiles.
+          </p>
+          <p>
+            No AI service or remote fonts are used. Links to JimLunsford.com and GitHub open those
+            sites only when you choose them, with no answer content added to the link.
           </p>
         </section>
         <section>

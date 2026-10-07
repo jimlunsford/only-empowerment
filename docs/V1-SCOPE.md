@@ -8,7 +8,9 @@ Tools ship only when their own workflow and output acceptance criteria pass. A b
 
 ## Excluded
 
-Accounts, cloud sync, server response storage, AI APIs, diagnostics, psychological scoring, social/community features, coaching marketplace, payments, subscriptions, commerce, article publishing, remote form processors, advertising, analytics, streaks, badges, notifications, automatic recommendations, server PDF generation, and a generic workflow builder. Structured import/export and PWA installation/offline update handling are deferred enhancements, not v1 blockers unless explicitly promoted in a later scope decision.
+Accounts, cloud sync, server response storage, AI APIs, diagnostics, psychological scoring, social/community features, coaching marketplace, payments, subscriptions, commerce, article publishing, remote form processors, advertising, streaks, badges, notifications, automatic recommendations, server PDF generation, and a generic workflow builder. Structured import/export and PWA installation/offline update handling are deferred enhancements, not v1 blockers unless explicitly promoted in a later scope decision.
+
+Minimal production analytics are allowed under the [Analytics policy](ANALYTICS-POLICY.md), with Google Analytics selected and implementation requiring explicit review. Behavioral advertising, session replay, heatmaps, user profiling, and collection of authored tool content remain out of scope. Current staging remains analytics-free.
 
 ## Historical phase boundaries
 

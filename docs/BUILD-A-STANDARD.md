@@ -67,3 +67,7 @@ Per-record deletion, all-namespace deletion, BroadcastChannel, storage events, v
 No added dependency. Preact text rendering only, no generated user links or HTML injection. No network application service, account, analytics, AI, submission, remote runtime asset, cloud save, or synchronization. CSP retains connect-src 'none' and form-action 'none'.
 
 Automation and semantic snapshots are not actual NVDA, VoiceOver, TalkBack or JAWS testing. Real assistive-technology and physical-phone testing must be identified separately, never inferred from axe or screenshots. Executed results and remaining gates belong in PHASE-4-ACCEPTANCE.md.
+
+## Analytics policy boundary
+
+The runtime/network statements above describe the current tool implementation. Future minimal production Google Analytics is governed by [Analytics policy](ANALYTICS-POLICY.md), requires explicit implementation review, and must never receive tool answers or artifact contents. Current staging retains its no-analytics runtime and restrictive CSP.

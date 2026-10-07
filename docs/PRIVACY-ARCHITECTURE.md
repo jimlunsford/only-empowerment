@@ -2,9 +2,9 @@
 
 ## Current presentation and privacy contract
 
-All six accepted tools keep unsaved answers in memory across internal navigation. Only explicit confirmation saves an artifact to this browser profile. Reload/close can discard unsaved work; browser recovery, extensions, clipboard, PDFs, screenshots, and device backups remain outside app deletion. There is no account, answer-submission endpoint, analytics, tracker, remote font/script, AI API, server recovery, or cross-device sync.
+All six accepted tools keep unsaved answers in memory across internal navigation. Only explicit confirmation saves an artifact to this browser profile. Reload/close can discard unsaved work; browser recovery, extensions, clipboard, PDFs, screenshots, and device backups remain outside app deletion. There is no account, answer-submission endpoint, AI API, server recovery, or cross-device sync. The current staging runtime and both presentation builds have no analytics, tracker, or remote font/script. Future production analytics are governed by the [Analytics policy](ANALYTICS-POLICY.md); private tool content is categorically excluded.
 
-`OE_PRESENTATION=staging` (also the default) includes the staging status and the previously observed staging log-rotation wording. `OE_PRESENTATION=production` omits those environment-specific claims and explains that operational request-log retention depends on host, provider, and backup policies. No production retention period is asserted. Both builds retain the same restrictive CSP and local data flow. `build.json` records the presentation mode; HTML and robots policy are generated from the same setting. The interaction preview is removed; its historical behavior below is not a current route or data store.
+`OE_PRESENTATION=staging` (also the default) includes the staging status and the previously observed staging log-rotation wording. `OE_PRESENTATION=production` omits those environment-specific claims and explains that operational request-log retention depends on host, provider, and backup policies. No production retention period is asserted. Both current builds retain the same restrictive CSP and local data flow. Privacy copy distinguishes future production Google Analytics from its absence in the current build. `build.json` records the presentation mode; HTML and robots policy are generated from the same setting. The interaction preview is removed; its historical behavior below is not a current route or data store.
 
 ## Phase 1 baseline (historical)
 
@@ -38,9 +38,9 @@ Do not claim encryption at rest. Same-origin JavaScript and extensions may read 
 
 ## Telemetry and network rules
 
-No analytics in Phase 1 or v1 baseline. Do not introduce fetch, XHR, sendBeacon, WebSocket, external fonts, third-party JS, remote images, reporting endpoints, or form submission without a documented need and privacy review. No free text in logs, error reporting, URLs, titles, or CI fixtures. Synthetic test inputs only.
+Analytics are not part of the current staging runtime. Production may use explicitly approved Google Analytics for minimal aggregate product/site measurement. Analytics must never receive user-authored tool content. Any analytics integration requires a documented privacy review, explicit CSP changes, a fixed event allowlist, and synthetic private-marker network tests. The [Analytics policy](ANALYTICS-POLICY.md) is canonical; historical phase records below describe the implementation tested at those checkpoints. Do not introduce fetch, XHR, sendBeacon, WebSocket, external fonts, third-party JS, remote images, reporting endpoints, or form submission without a documented need and privacy review. No free text in logs, error reporting, URLs, titles, or CI fixtures. Synthetic test inputs only.
 
-Use CSP `connect-src 'none'`, `form-action 'none'`, `object-src 'none'`, and local-only scripts/styles/assets. This is defense in depth, not proof of no possible exfiltration. External navigation remains possible. Host headers must add frame-ancestors because HTML meta cannot enforce it. Development HMR may need a separate developer policy; test the production build for privacy behavior.
+Current staging and both presentation builds use CSP `connect-src 'none'`, `form-action 'none'`, `object-src 'none'`, and local-only scripts/styles/assets. This is defense in depth, not proof of no possible exfiltration. External navigation remains possible. Host headers must add frame-ancestors because HTML meta cannot enforce it. Development HMR may need a separate developer policy; test the production build for privacy behavior.
 
 ## Threat considerations
 
