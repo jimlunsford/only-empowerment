@@ -384,3 +384,6 @@ function App() {
   );
 }
 render(<App />, document.getElementById('app')!);
+// Static teaching remains available if JavaScript is disabled or the app cannot load.
+// Remove it only after a successful mount, so enhancement is never a reading gate.
+document.getElementById('educational-fallback')?.remove();

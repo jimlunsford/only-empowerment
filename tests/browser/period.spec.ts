@@ -248,23 +248,29 @@ test('authored content never enters traffic, logs, storage or history and legacy
   ).toBe(true);
   expect(messages.join(' ')).not.toContain(marker);
 });
-test('static reading includes intro, Ownership, example and paper pattern without JavaScript', async ({
+test('static reading survives disabled JavaScript and a failed app script', async ({
   browser,
   baseURL,
 }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false });
-  const page = await context.newPage();
-  await page.goto(baseURL! + '/#/period/standard');
-  for (const text of [
-    'Why PERIOD?',
-    'Ownership',
-    'Why Purpose comes next',
-    'Example standard card',
-  ])
-    await expect(page.getByRole('heading', { name: text, exact: true })).toBeVisible();
-  await expect(page.getByText(/The card editor needs JavaScript/)).toBeVisible();
-  await expect(page.locator('textarea')).toHaveCount(0);
-  await context.close();
+  for (const javaScriptEnabled of [false, true]) {
+    const context = await browser.newContext({ javaScriptEnabled });
+    if (javaScriptEnabled)
+      await context.route('**/*', (route) =>
+        route.request().resourceType() === 'script' ? route.abort() : route.continue(),
+      );
+    const page = await context.newPage();
+    await page.goto(baseURL! + '/#/period/standard');
+    for (const text of [
+      'Why PERIOD?',
+      'Ownership',
+      'Why Purpose comes next',
+      'Example standard card',
+    ])
+      await expect(page.getByRole('heading', { name: text, exact: true })).toBeVisible();
+    await expect(page.getByText(/The card editor needs JavaScript/)).toBeVisible();
+    await expect(page.locator('textarea')).toHaveCount(0);
+    await context.close();
+  }
 });
 test('responsive teaching, editor and maximum card reflow, accessibility and review captures', async ({
   page,

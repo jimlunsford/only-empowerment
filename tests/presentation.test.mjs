@@ -42,7 +42,7 @@ for (const presentation of ['staging', 'production']) {
         html.includes(`name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"`),
       );
       assert.equal(robots, staging ? 'User-agent: *\nDisallow: /\n' : 'User-agent: *\nAllow: /\n');
-      const noscript = html.match(/<noscript>([\s\S]*?)<\/noscript>/)[1];
+      const fallback = html.match(/<div id="educational-fallback">([\s\S]*?)<\/main><\/div>/)[1];
       for (const name of [
         'Decision Room',
         'Next Move',
@@ -51,11 +51,11 @@ for (const presentation of ['staging', 'production']) {
         'Rebuild Map',
         'Do It Now',
       ]) {
-        assert.ok(noscript.includes(name));
+        assert.ok(fallback.includes(name));
         assert.ok(js.includes(name));
       }
-      assert.match(noscript, /available with JavaScript enabled/);
-      assert.equal(noscript.includes('Not a production release'), staging);
+      assert.match(fallback, /available with JavaScript enabled/);
+      assert.equal(fallback.includes('Not a production release'), staging);
       assert.equal(js.includes('Development staging'), staging);
       assert.equal(js.includes('Not a production release'), staging);
       assert.equal(js.includes('14 rotated logs'), staging);
