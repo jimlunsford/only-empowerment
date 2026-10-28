@@ -76,7 +76,9 @@ export function useRoute() {
       restoring.current = null;
     } else {
       heading?.focus({ preventScroll: true });
-      window.scrollTo(0, 0);
+      if (path === '/period/values' || path === '/period/values/ownership')
+        heading?.scrollIntoView({ block: 'start' });
+      else window.scrollTo(0, 0);
     }
   }, [path]);
   return path;

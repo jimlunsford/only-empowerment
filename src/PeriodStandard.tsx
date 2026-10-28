@@ -130,9 +130,11 @@ export function PeriodStandard({
       {notice && (
         <p class="global-notice no-print" role="status">
           {notice}{' '}
-          <button class="button" onClick={showEditor}>
-            Change the value
-          </button>
+          {notice === 'You already have a standard in progress.' && (
+            <button class="button" onClick={showEditor}>
+              Change the value
+            </button>
+          )}
         </p>
       )}
       {view === 'edit' ? (
@@ -176,7 +178,13 @@ export function PeriodStandard({
                     setSession((old) => ({
                       ...old,
                       draft: { ...old.draft, valueId },
-                      notice: 'Your wording is unchanged. Check that it still fits this value.',
+                      notice:
+                        old.draft.valueId ||
+                        old.draft.standard ||
+                        old.draft.nextApplication ||
+                        old.draft.returnPlan
+                          ? 'Your wording is unchanged. Check that it still fits this value.'
+                          : '',
                     }));
                     setErrors((old) => ({ ...old, valueId: '' }));
                   }}

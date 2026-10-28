@@ -289,6 +289,9 @@ test('responsive teaching, editor and maximum card reflow, accessibility and rev
   if (['chromium', 'mobile-chromium'].includes(info.project.name))
     await page.screenshot({ path: info.outputPath('period-ownership.png'), fullPage: true });
   await editor(page);
+  await page
+    .locator('#period-standard')
+    .fill('When a deadline is at risk, I send an honest update before it passes.');
   await axe(page);
   if (['chromium', 'mobile-chromium'].includes(info.project.name))
     await page.screenshot({ path: info.outputPath('period-editor.png'), fullPage: true });
@@ -317,4 +320,36 @@ test('responsive teaching, editor and maximum card reflow, accessibility and rev
   await page.emulateMedia({ reducedMotion: 'reduce' });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await axe(page);
+});
+
+test('short exercise is operable by keyboard through review and edit', async ({ page }) => {
+  await page.goto('/#/period/standard');
+  // Start from the main landmark as the skip link would; all subsequent controls use keys.
+  await page.locator('#main').focus();
+  await page.keyboard.press('Tab');
+  await expect(page.locator('.period-example summary')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.locator('#period-valueId')).toBeFocused();
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('link', { name: 'Read about Ownership' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await page.keyboard.type('When a commitment changes, I give an honest update.');
+  await page.keyboard.press('Tab');
+  await page.keyboard.type('Before the meeting, I explain the delay.');
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Make my standard card' })).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#period-card-title')).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Copy my card' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Print my card' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#period-valueId')).toBeFocused();
+  await expect(page.locator('#period-standard')).toHaveValue(
+    'When a commitment changes, I give an honest update.',
+  );
 });
