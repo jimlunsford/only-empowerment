@@ -8,16 +8,14 @@ export function useRoute() {
   useLayoutEffect(() => {
     let counter = 0;
     let entry = 0;
-    let latestY = scrollY;
     const positions = new Map<number, { y: number; focus: HTMLElement | null }>();
     const previousRestoration = history.scrollRestoration;
     history.scrollRestoration = 'manual';
     history.replaceState({ oeNavigation: entry }, '', location.href);
+    // Scroll events may arrive after popstate in WebKit. Snapshot the current viewport
+    // before changing the rendered route, rather than using a deferred event's value.
     const save = () =>
-      positions.set(entry, { y: latestY, focus: document.activeElement as HTMLElement | null });
-    const onScroll = () => {
-      latestY = scrollY;
-    };
+      positions.set(entry, { y: scrollY, focus: document.activeElement as HTMLElement | null });
     const onClick = (event: MouseEvent) => {
       if (
         event.defaultPrevented ||
@@ -53,11 +51,9 @@ export function useRoute() {
       setPath(currentRoute());
     };
     document.addEventListener('click', onClick);
-    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('popstate', onHistory);
     return () => {
       document.removeEventListener('click', onClick);
-      window.removeEventListener('scroll', onScroll);
       window.removeEventListener('popstate', onHistory);
       history.scrollRestoration = previousRestoration;
     };
