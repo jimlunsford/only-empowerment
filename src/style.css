@@ -1536,6 +1536,9 @@ select:focus-visible {
 .period-standard p {
   margin: 0 0 20px;
 }
+.period-standard .field-limit {
+  margin-top: 12px;
+}
 .period-review-notice {
   padding: 12px 16px;
   border-left: 3px solid var(--green);
@@ -1629,6 +1632,7 @@ select:focus-visible {
 .period-form select {
   width: 100%;
   min-height: 48px;
+  margin-bottom: 12px;
   padding: 12px;
   background: white;
   color: var(--ink);
