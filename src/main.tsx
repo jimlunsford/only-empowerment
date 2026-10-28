@@ -3,7 +3,13 @@ import { RebuildMap } from './RebuildMap';
 import { Reset } from './Reset';
 import { BuildStandard } from './BuildStandard';
 import { render } from 'preact';
-import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
+import { useRoute } from './use-route';
+import { PeriodIntro, PeriodOwnership, PeriodUnavailable, PeriodBook } from './PeriodLearning';
+import { PeriodStandard } from './PeriodStandard';
+import { newPeriodSession, enterPeriodExercise, hasPeriodDraft } from './period-standard-model';
+import { periodBook } from './period-content';
+import { ConfirmDialog } from './components/work';
 import { frameworks, tools } from './model';
 import { PageIntro } from './components/shared';
 import { DecisionRoom } from './DecisionRoom';
@@ -12,87 +18,6 @@ import { SavedWork, LocalDataControls } from './SavedWork';
 import { useLocalWork, type LocalWork } from './use-local-work';
 import './style.css';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
-function route() {
-  return location.hash.slice(1) || '/';
-}
-function Home() {
-  return (
-    <>
-      <section class="hero">
-        <div>
-          <h1 tabIndex={-1}>
-            Think clearly.
-            <br />
-            Choose deliberately.
-            <br />
-            <span>Act on what is yours.</span>
-          </h1>
-          <p class="hero-copy">
-            A place to sort out the decision, define the standard, and find the action you can take
-            next.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#/tools/next-move">
-              Open Next Move <span aria-hidden="true">↗</span>
-            </a>
-            <a class="quiet-link" href="#/approach">
-              How it works
-            </a>
-          </div>
-          <p class="privacy-line">
-            <span class="small-square" aria-hidden="true" />
-            No account. No tracking of what you enter. No answer collection.
-          </p>
-        </div>
-        <aside class="hero-note">
-          <p class="note-title">
-            A useful question.
-            <br />A clearer choice.
-            <br />
-            Something to do.
-          </p>
-          <p>
-            The tool helps you think.
-            <br />
-            You make the decision.
-          </p>
-          <div class="note-divider" />
-          <p class="small">
-            Leave with a record you can use.
-            <br />
-            Leave when you are ready to act.
-          </p>
-        </aside>
-      </section>
-      <section class="tools-section" aria-labelledby="tools-title">
-        <div class="section-heading">
-          <h2 id="tools-title">Start with what is in front of you.</h2>
-          <p>
-            Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now are
-            available.
-            <br />
-            Each has a different job.
-          </p>
-        </div>
-        <ToolGrid />
-      </section>
-      <section class="bottom-band">
-        <h2>Your thinking should stay yours.</h2>
-        <div>
-          <p>
-            No account is required. What you enter into the tools is not sent to analytics. Work
-            stays in memory unless you choose to save a Decision Record, Execution Card, Personal
-            Standard, Reset Plan, Rebuild Map, or Action Record on this device. Read how saving and
-            deletion work.
-          </p>
-          <a href="#/privacy">
-            Understand your privacy <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      </section>
-    </>
-  );
-}
 function ToolGrid() {
   return (
     <div class="tool-grid">
@@ -187,6 +112,11 @@ function Privacy({ work }: { work: LocalWork }) {
       <div class="privacy-facts">
         <section>
           <h2>What stays in the page</h2>
+          <p>
+            Turn a Value into a Standard keeps its draft only in this open tab during in-site
+            navigation. It never enters Saved Work. Reloading or closing can discard it; copy or
+            print anything you want to keep.
+          </p>
           <p>
             Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now keep
             answers in memory during navigation within this site. Reloading or closing the tab can
@@ -301,26 +231,22 @@ function NotFound() {
   );
 }
 function App() {
-  const [path, setPath] = useState(route);
+  const path = useRoute();
   const work = useLocalWork();
-  const initial = useRef(true);
-  useEffect(() => {
-    const onHash = () => setPath(route());
-    window.addEventListener('hashchange', onHash);
-    return () => window.removeEventListener('hashchange', onHash);
-  }, []);
-  useLayoutEffect(() => {
-    const heading = document.querySelector('h1');
-    document.title = `${heading?.textContent || 'Page'} | Only Empowerment`;
-    if (initial.current) {
-      initial.current = false;
-      return;
-    }
-    heading?.focus();
-    window.scrollTo(0, 0);
-  }, [path]);
+  const [periodSession, setPeriodSession] = useState(newPeriodSession);
+  const [bookExit, setBookExit] = useState(false);
   let content;
-  if (path === '/') content = <Home />;
+  if (path === '/') content = <PeriodIntro />;
+  else if (path === '/period/values/ownership' || path === '/period/values')
+    content = (
+      <PeriodOwnership
+        useOwnership={() => setPeriodSession((old) => enterPeriodExercise(old, 'ownership'))}
+      />
+    );
+  else if (path.startsWith('/period/values/')) content = <PeriodUnavailable />;
+  else if (path === '/period/standard')
+    content = <PeriodStandard session={periodSession} setSession={setPeriodSession} />;
+  else if (path === '/period/book') content = <PeriodBook standalone />;
   else if (path === '/tools') content = <ToolsPage />;
   else if (path === '/approach') content = <Approach />;
   else if (path === '/privacy') content = <Privacy work={work} />;
@@ -352,6 +278,21 @@ function App() {
           </span>
         </a>
         <nav aria-label="Main navigation">
+          <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
+            Why PERIOD?
+          </a>
+          <a
+            href="#/period/values/ownership"
+            aria-current={path.startsWith('/period/values') ? 'page' : undefined}
+          >
+            Ownership
+          </a>
+          <a
+            href="#/period/standard"
+            aria-current={path === '/period/standard' ? 'page' : undefined}
+          >
+            Try a standard
+          </a>
           <a href="#/tools" aria-current={path.startsWith('/tools') ? 'page' : undefined}>
             The tools
           </a>
@@ -377,13 +318,43 @@ function App() {
           </a>
         </div>
       )}
-      <main id="main" tabIndex={-1} class="site-main">
+      <main
+        id="main"
+        tabIndex={-1}
+        class="site-main"
+        onClick={(e) => {
+          const link = (e.target as Element).closest('a');
+          if (link?.href === periodBook.url && hasPeriodDraft(periodSession.draft)) {
+            e.preventDefault();
+            setBookExit(true);
+          }
+        }}
+      >
         {work.notice && (
           <p class="global-notice no-print" role="status">
             {work.notice}
           </p>
         )}
+        {(path === '/' || path.startsWith('/period/')) && (
+          <p class="period-review-notice no-print">
+            Internal review candidate. Teaching copy is proposed and has not been approved for
+            public publication.
+          </p>
+        )}
         {content}
+        {bookExit && (
+          <ConfirmDialog
+            title="Before you leave"
+            cancel="Stay here"
+            confirm="Continue to the book page"
+            onCancel={() => setBookExit(false)}
+            onConfirm={() => {
+              window.location.assign(periodBook.url);
+            }}
+          >
+            <p>Your card is only in this tab. Copy it before leaving if you want to keep it.</p>
+          </ConfirmDialog>
+        )}
       </main>
       <footer class="site-footer">
         <div>
@@ -395,6 +366,7 @@ function App() {
           </p>
         </div>
         <div class="footer-meta">
+          <a href="#/period/book">About the book</a>
           <a href="#/privacy">Privacy & source</a>
           <p class="small">
             v{__BUILD__.version} ·{' '}
