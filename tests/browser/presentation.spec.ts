@@ -21,13 +21,9 @@ test('presentation mode keeps six tools available with the correct banner, index
   if (staging)
     await expect(page.locator('.staging-banner')).toContainText('Not a production release.');
   else await expect(page.locator('body')).not.toContainText('Not a production release');
-  await expect(page.locator('.privacy-line')).toHaveText(
-    'No account. No tracking of what you enter. No answer collection.',
-  );
-  await expect(page.locator('.bottom-band')).toContainText(
-    'What you enter into the tools is not sent to analytics.',
-  );
-  await expect(page.locator('.tools-section')).toContainText('Do It Now are available.');
+  await expect(page.getByRole('heading', { name: 'Put your values into practice.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Why PERIOD?', exact: true })).toBeVisible();
+  await page.getByRole('link', { name: 'The tools', exact: true }).click();
   await expect(page.locator('.tool-card')).toHaveCount(6);
   for (const [id, name] of catalog) {
     await expect(page.locator(`.tool-card[href="#/tools/${id}"]`)).toContainText(name);

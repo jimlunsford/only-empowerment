@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
+import { periodFallback } from './scripts/period-fallback.ts';
 import { buildInfo } from './scripts/build-info.mjs';
 import { releaseState } from './scripts/release-state.mjs';
 // Default safely to staging; production presentation must be explicitly requested.
@@ -20,6 +21,7 @@ export default defineConfig({
       name: 'source-metadata',
       transformIndexHtml(html) {
         return html
+          .replace('<!-- period-fallback -->', periodFallback())
           .replace(
             'content="noindex, nofollow"',
             staging ? 'content="noindex, nofollow"' : 'content="index, follow"',

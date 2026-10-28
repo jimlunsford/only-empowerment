@@ -11,6 +11,7 @@ export function TextResponse({
   hint,
   rows = 4,
   required = true,
+  count = (text: string) => text.length,
 }: {
   id: string;
   label: string;
@@ -21,6 +22,7 @@ export function TextResponse({
   hint?: string;
   rows?: number;
   required?: boolean;
+  count?: (text: string) => number;
 }) {
   return (
     <div class="work-field">
@@ -42,7 +44,7 @@ export function TextResponse({
         onInput={(e) => onChange(e.currentTarget.value)}
       />
       <p id={`${id}-limit`} class="field-limit">
-        Up to {limit.toLocaleString('en-US')} characters. {value.length.toLocaleString('en-US')}{' '}
+        Up to {limit.toLocaleString('en-US')} characters. {count(value).toLocaleString('en-US')}{' '}
         used.
       </p>
       {error && (
@@ -87,12 +89,14 @@ export function ConfirmDialog({
   confirm,
   onConfirm,
   onCancel,
+  cancel = 'Cancel',
 }: {
   title: string;
   children: ComponentChildren;
   confirm: string;
   onConfirm: () => void;
   onCancel: () => void;
+  cancel?: string;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   useEffect(() => {
@@ -119,7 +123,7 @@ export function ConfirmDialog({
       <div id="dialog-description">{children}</div>
       <div class="actions">
         <button class="button" autoFocus onClick={onCancel}>
-          Cancel
+          {cancel}
         </button>
         <button class="button primary" onClick={onConfirm}>
           {confirm}
