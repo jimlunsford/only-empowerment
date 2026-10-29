@@ -125,7 +125,7 @@ test('Back and Forward restore distinct reading positions', async ({ page }) => 
     .getByRole('link', { name: 'Ownership', exact: true })
     .first()
     .evaluate((el: HTMLElement) => el.click());
-  await expect(page.locator('h1')).toHaveText('Ownership');
+  await expect(page.getByRole('heading', { name: 'Ownership', exact: true })).toBeVisible();
   await page.evaluate(() => scrollTo(0, 700));
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(700);
   await page.goBack();
@@ -333,13 +333,16 @@ test('short exercise is operable by keyboard through review and edit', async ({ 
   // Start from the main landmark as the skip link would; all subsequent controls use keys.
   await page.locator('#main').focus();
   await page.keyboard.press('Tab');
-  await expect(page.locator('.period-example summary')).toBeFocused();
-  await page.keyboard.press('Tab');
   await expect(page.locator('#period-valueId')).toBeFocused();
   await page.keyboard.press('ArrowDown');
   await page.keyboard.press('Tab');
   await expect(page.getByRole('link', { name: 'Read about Ownership' })).toBeFocused();
   await page.keyboard.press('Tab');
+  if (await page.locator('.mobile-teaching').isVisible()) {
+    await expect(page.locator('.mobile-teaching summary')).toBeFocused();
+    await page.keyboard.press('Tab');
+  }
+  await expect(page.locator('#period-standard')).toBeFocused();
   await page.keyboard.type('When a commitment changes, I give an honest update.');
   await page.keyboard.press('Tab');
   await page.keyboard.type('Before the meeting, I explain the delay.');
