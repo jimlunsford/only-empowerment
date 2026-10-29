@@ -1,0 +1,1818 @@
+/* Work 04 Editorial Companion. Every presentation rule is scoped to PERIOD. */
+@font-face {
+  font-family: Source Serif;
+  src: url('/fonts/SourceSerif4-Regular.otf.woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: Source Serif;
+  src: url('/fonts/SourceSerif4-Semibold.otf.woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: Source Serif;
+  src: url('/fonts/SourceSerif4-It.otf.woff2');
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Source Sans;
+  src: url('/fonts/SourceSans3-Regular.otf.woff2');
+  font-display: swap;
+}
+@font-face {
+  font-family: Source Sans;
+  src: url('/fonts/SourceSans3-Semibold.otf.woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: Source Sans;
+  src: url('/fonts/SourceSans3-Bold.otf.woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+.period-shell {
+  --paper: #f7f3eb;
+  --white: #fffdf8;
+  --ink: #173c34;
+  --muted: #52615a;
+  --sage: #e5ebe2;
+  --line: #c9cec4;
+  --accent: #98422e;
+  --border: #738177;
+}
+.period-shell {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font:
+    1.25rem/1.55 'Source Sans',
+    Arial,
+    sans-serif;
+}
+.period-shell h1,
+.period-shell h2,
+.period-shell h3,
+.period-shell p {
+  margin: 0;
+}
+.period-shell p + p {
+  margin-top: 16px;
+}
+.period-shell h1,
+.period-shell h2,
+.period-shell blockquote {
+  font-family: 'Source Serif', Georgia, serif;
+}
+.period-shell h1 {
+  font-size: 4.75rem;
+  line-height: 1.06;
+  font-weight: 400;
+  letter-spacing: -2.5px;
+}
+.period-shell h1 em,
+.period-shell h2 em {
+  font-weight: 400;
+  color: var(--accent);
+}
+.period-shell h2 {
+  font-size: 2.25rem;
+  line-height: 1.18;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+}
+.period-shell h3 {
+  font-size: 1.3125rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.period-shell h2 + p {
+  margin-top: 22px;
+}
+.period-shell a {
+  color: inherit;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+.period-shell button,
+.period-shell select,
+.period-shell textarea {
+  font: inherit;
+  color: inherit;
+}
+.period-shell .period-review-notice {
+  text-align: center;
+  background: #e5ebe2;
+  font-size: 0.875rem;
+  padding: 6px 20px;
+}
+.period-shell .site-header {
+  max-width: 1248px;
+  margin: auto;
+  padding: 26px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.period-shell .wordmark {
+  text-decoration: none;
+  font-size: 1.625rem;
+  letter-spacing: -1px;
+}
+.period-shell .wordmark span {
+  font-weight: 700;
+}
+.period-shell .wordmark b,
+.period-shell .dot {
+  color: var(--accent);
+}
+.period-shell .site-header nav {
+  display: flex;
+  gap: 34px;
+}
+.period-shell .site-header nav a {
+  text-decoration: none;
+  font-size: 1.125rem;
+  padding: 11px 0;
+  border-bottom: 2px solid transparent;
+}
+.period-shell .site-header nav a.active {
+  border-bottom-color: var(--ink);
+  font-weight: 600;
+}
+.period-shell .site-main {
+  max-width: 1248px;
+  margin: auto;
+  padding: 0 24px;
+}
+.period-shell section {
+  min-width: 0;
+}
+.period-shell .lead {
+  font-size: 1.5rem;
+  line-height: 1.45;
+}
+.period-shell .small,
+.period-shell .path-note {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.period-shell .actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.period-shell .button {
+  min-height: 52px;
+  border: 1px solid var(--ink);
+  padding: 12px 22px;
+  border-radius: 3px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  background: transparent;
+  cursor: pointer;
+}
+.period-shell .button.primary {
+  background: var(--ink);
+  color: var(--white);
+}
+.period-shell .button.secondary {
+  background: transparent;
+}
+.period-shell .button:hover {
+  filter: brightness(0.95);
+}
+.period-shell summary {
+  font-size: 1.125rem;
+  min-height: 48px;
+  padding: 12px 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+.period-shell details p {
+  margin-top: 16px;
+}
+.period-shell .intro-hero {
+  display: grid;
+  grid-template-columns: 1.07fr 1fr;
+  gap: 70px;
+  padding: 70px 0 60px;
+  align-items: start;
+}
+.period-shell .intro-hero h1 {
+  margin: 0 0 26px;
+}
+.period-shell .intro-hero .lead {
+  max-width: 520px;
+}
+.period-shell .intro-hero .small {
+  margin-top: 26px;
+  max-width: 400px;
+}
+.period-shell .period-panel {
+  padding: 32px 36px 36px;
+  background: var(--ink);
+  color: var(--white);
+}
+.period-shell .period-panel > p:first-child {
+  font-size: 1.0625rem;
+  margin-bottom: 28px;
+}
+.period-shell .period-word {
+  overflow-wrap: anywhere;
+  font-family: 'Source Serif', Georgia, serif;
+  font-size: 4.9375rem;
+  line-height: 1;
+  letter-spacing: -3px;
+  border-bottom: 1px solid #799086;
+  padding-bottom: 25px;
+  margin-bottom: 28px;
+}
+.period-shell .period-word span {
+  color: #e2aa83;
+}
+.period-shell .period-panel h2 {
+  font-size: 1.75rem;
+}
+.period-shell .period-panel p {
+  font-size: 1.1875rem;
+  line-height: 1.5;
+}
+.period-shell .value-standard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 34px 0;
+  margin-bottom: 68px;
+}
+.period-shell .value-standard h2 {
+  font-size: 2rem;
+}
+.period-shell .value-standard > div {
+  border-left: 3px solid var(--accent);
+  padding-left: 30px;
+}
+.period-shell .value-standard p {
+  font-size: 1.125rem;
+}
+.period-shell .comparison > h2 {
+  max-width: 680px;
+  font-size: 2.625rem;
+}
+.period-shell .scenario {
+  margin-top: 18px;
+  max-width: 760px;
+}
+.period-shell .contrast {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 30px;
+}
+.period-shell .contrast > section {
+  padding: 30px 36px;
+  background: #ece9e1;
+  border-top: 2px solid #738177;
+}
+.period-shell .contrast .standard {
+  background: var(--sage);
+  border-top: 2px solid var(--ink);
+}
+.period-shell blockquote {
+  margin: 20px 0 24px;
+  font-size: 1.875rem;
+  line-height: 1.3;
+  letter-spacing: -0.4px;
+}
+.period-shell .contrast p {
+  font-size: 1.1875rem;
+}
+.period-shell .takeaway {
+  margin-top: 26px !important;
+  max-width: 790px;
+  border-left: 3px solid var(--accent);
+  padding-left: 22px;
+}
+.period-shell .comparison details {
+  border-bottom: 1px solid var(--line);
+  margin-top: 18px;
+  padding-bottom: 20px;
+}
+.period-shell .sequence-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  margin: 72px 0;
+}
+.period-shell .sequence-section h2 {
+  font-size: 2.625rem;
+}
+.period-shell .sequence-section > div > p {
+  max-width: 510px;
+}
+.period-shell .path {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.period-shell .path li {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 15px 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+.period-shell .path .num {
+  font-size: 1.3125rem;
+  line-height: 1.6;
+  color: var(--accent);
+  min-width: 36px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.period-shell .path .path-name {
+  font-family: 'Source Serif', Georgia, serif;
+  font-size: 1.8125rem;
+  font-weight: 400;
+}
+.period-shell .path p {
+  margin-top: 4px;
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+.period-shell .path a {
+  text-decoration-thickness: 1px;
+}
+.period-shell .path-note {
+  margin-top: 22px;
+}
+.period-shell .origin {
+  display: grid;
+  grid-template-columns: 0.8fr 1.5fr;
+  gap: 24px 65px;
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+}
+.period-shell .origin > p:last-child {
+  grid-column: 2;
+  font-size: 1rem;
+  margin: 0;
+}
+.period-shell .book {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 64px;
+  align-items: center;
+  background: var(--sage);
+  padding: 42px;
+  margin: 32px 0 60px;
+}
+.period-shell .book-title {
+  border-left: 4px solid var(--ink);
+  padding: 10px 0 10px 28px;
+}
+.period-shell .book-title > span {
+  font-size: 1rem;
+}
+.period-shell .book-title .book-name {
+  font-size: 3rem;
+  margin: 16px 0;
+}
+.period-shell .book p {
+  font-size: 1.125rem;
+}
+.period-shell .book a {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 1.1875rem;
+  font-weight: 600;
+}
+.period-shell .site-footer {
+  max-width: 1248px;
+  margin: auto;
+  border-top: 1px solid var(--line);
+  padding: 30px 24px 36px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 24px;
+  font-size: 1.0625rem;
+}
+.period-shell .site-footer > div:first-child {
+  font-weight: 600;
+}
+.period-shell .site-footer span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.period-shell .site-footer > div:nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+.period-shell .site-footer a {
+  font-size: 1rem;
+  padding: 8px 0;
+}
+.period-shell .site-footer > p {
+  grid-column: 1/-1;
+  font-size: 0.9375rem;
+  color: var(--muted);
+  margin: 0;
+}
+.period-shell .lesson-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 80px;
+  padding: 56px 0;
+}
+.period-shell .lesson-nav {
+  padding-right: 28px;
+  border-right: 1px solid var(--line);
+}
+.period-shell .lesson-nav h2 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+.period-shell .lesson-nav .path .path-name {
+  font-size: 1.4375rem;
+}
+.period-shell .lesson-nav .path p {
+  font-size: 1rem;
+}
+.period-shell .lesson-nav .path li {
+  gap: 14px;
+  padding: 16px 12px;
+}
+.period-shell .lesson-nav .path .selected {
+  background: var(--ink);
+  color: var(--white);
+  border-left: 4px solid var(--accent);
+}
+.period-shell .lesson-nav .selected p,
+.period-shell .lesson-nav .selected .num {
+  color: var(--white);
+}
+.period-shell .lesson-nav .path .num {
+  font-size: 1.0625rem;
+  min-width: 24px;
+}
+.period-shell .lesson-nav .path-note {
+  font-size: 0.9375rem;
+}
+.period-shell .period-lesson {
+  max-width: 840px;
+}
+.period-shell .lesson-title {
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+.period-shell .position {
+  font-size: 1.0625rem;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.period-shell .period-lesson h1 {
+  font-size: 5.125rem;
+}
+.period-shell .lesson-title .lead {
+  font-size: 2rem;
+  font-family: 'Source Serif', Georgia, serif;
+  margin-top: 20px;
+}
+.period-shell .period-lesson > section {
+  margin-top: 38px;
+}
+.period-shell .period-lesson > section > p {
+  max-width: 760px;
+}
+.period-shell .period-lesson h2 {
+  font-size: 2rem;
+}
+.period-shell .ownership-example {
+  background: var(--white);
+  padding: 32px;
+}
+.period-shell .response-map {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.period-shell .response-map > div {
+  padding: 22px 20px 12px 0;
+}
+.period-shell .response-map > div + div {
+  border-left: 2px solid var(--ink);
+  padding-left: 24px;
+}
+.period-shell .response-map h3 {
+  font-size: 1.125rem;
+}
+.period-shell .response-map p {
+  font-size: 1.125rem;
+  margin-top: 12px;
+}
+.period-shell .guardrail {
+  border-left: 4px solid var(--accent);
+  padding: 8px 0 8px 26px;
+}
+.period-shell .reflection {
+  font-size: 2.25rem;
+  line-height: 1.25;
+  max-width: 610px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.period-shell .transition {
+  background: var(--sage);
+  padding: 30px;
+}
+.period-shell .transition-path {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 26px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.0625rem;
+}
+.period-shell .transition-path b {
+  font-family: 'Source Serif', Georgia, serif;
+  font-size: 1.6875rem;
+  font-weight: 400;
+}
+.period-shell .editor {
+  padding-top: 55px;
+}
+.period-shell .editor-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+  margin-bottom: 48px;
+}
+.period-shell .editor h1 {
+  font-size: 4rem;
+}
+.period-shell .period-editor-layout {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 65px;
+  align-items: start;
+}
+.period-shell .editor-guide .teaching {
+  border-left: 3px solid var(--accent);
+  padding-left: 26px;
+}
+.period-shell .editor-guide p {
+  font-size: 1.1875rem;
+}
+.period-shell .editor-guide h2 {
+  font-size: 2.0625rem;
+  margin-bottom: 24px;
+}
+.period-shell .editor-guide details {
+  margin-top: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.period-shell .editor-guide .privacy {
+  font-size: 1.0625rem;
+  background: var(--sage);
+  padding: 24px;
+  margin-top: 26px;
+}
+.period-shell .period-form {
+  background: var(--white);
+  padding: 32px 36px;
+  border-top: 3px solid var(--ink);
+}
+.period-shell .work-field {
+  margin-bottom: 30px;
+}
+.period-shell label {
+  font-size: 1.375rem;
+  line-height: 1.3;
+  font-weight: 600;
+  display: block;
+}
+.period-shell .field-hint {
+  font-size: 1.0625rem;
+  color: var(--muted);
+  margin: 10px 0 16px;
+}
+.period-shell select,
+.period-shell textarea {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 14px 16px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  min-height: 54px;
+  resize: none;
+}
+.period-shell textarea {
+  min-height: 132px;
+}
+.period-shell .selected-role {
+  font-size: 1.1875rem;
+  margin-top: 14px;
+}
+.period-shell .work-field .small {
+  margin-top: 8px;
+}
+.period-shell .field-limit {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.period-shell .support {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 28px 0;
+}
+.period-shell .selfcheck {
+  font-size: 1.125rem;
+  margin: 24px 0;
+}
+.period-shell .editor-bottom {
+  margin: 26px 0 50px;
+}
+.period-shell .editor-bottom .small {
+  margin-top: 24px;
+}
+.period-shell .period-result {
+  padding-top: 58px;
+  padding-bottom: 68px;
+}
+.period-shell .result-grid {
+  display: grid;
+  grid-template-columns: 760px 1fr;
+  gap: 60px;
+}
+.period-shell .period-card {
+  background: var(--white);
+  border-top: 6px solid var(--ink);
+  padding: 40px 46px;
+}
+.period-shell .card-top > p:first-child {
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+.period-shell .period-card h1 {
+  font-size: 2.75rem;
+  letter-spacing: -1px;
+}
+.period-shell .card-status {
+  margin-top: 20px;
+  font-size: 1.0625rem;
+  border-left: 3px solid var(--accent);
+  padding: 5px 0 5px 14px;
+}
+.period-shell .period-card section {
+  margin-top: 28px;
+}
+.period-shell .period-card h2 {
+  font-family: 'Source Sans', Arial, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.period-shell .period-card section p {
+  margin-top: 12px;
+  font-size: 1.3125rem;
+}
+.period-shell .period-card .card-value p {
+  font-size: 1.8125rem;
+  font-family: 'Source Serif';
+}
+.period-shell .period-card .card-standard p {
+  font-family: 'Source Serif', Georgia, serif;
+  font-size: 2rem;
+  line-height: 1.35;
+}
+.period-shell .card-standard {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 26px 0;
+}
+.period-shell .card-note {
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+  padding-top: 24px;
+  font-size: 1.0625rem;
+  color: var(--muted);
+}
+.period-shell .card-source {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  margin-top: 26px;
+  overflow-wrap: anywhere;
+}
+.period-shell .card-source p + p {
+  margin-top: 5px;
+}
+.period-shell .result-actions {
+  padding-top: 6px;
+}
+.period-shell .result-actions h2 {
+  font-size: 1.9375rem;
+}
+.period-shell .result-actions p {
+  font-size: 1.1875rem;
+}
+.period-shell .result-actions .actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+}
+.period-shell .result-actions .actions a {
+  text-align: center;
+  min-height: 48px;
+  padding-top: 12px;
+}
+.period-shell .export-note {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 28px 0;
+}
+.period-shell .export-note .small {
+  font-size: 1rem;
+}
+.period-shell .result-actions > button {
+  display: block;
+  margin-top: 22px;
+}
+.period-shell .big-period {
+  font: 10rem/0.4 'Source Serif';
+  height: 88px;
+  color: #e4bc68;
+}
+@media (max-width: 1000px) {
+  .period-shell .intro-hero,
+  .period-shell .editor-heading,
+  .period-shell .period-editor-layout {
+    gap: 36px;
+  }
+  .period-shell .lesson-layout {
+    grid-template-columns: 220px 1fr;
+    gap: 36px;
+  }
+  .period-shell .result-grid {
+    grid-template-columns: 1.6fr 1fr;
+    gap: 30px;
+  }
+  .period-shell h1 {
+    font-size: 3.75rem;
+  }
+  .period-shell .period-word {
+    font-size: 3.875rem;
+  }
+  .period-shell .period-lesson h1 {
+    font-size: 4rem;
+  }
+}
+@media (max-width: 700px) {
+  .period-shell {
+    font-size: 1.1875rem;
+    line-height: 1.55;
+  }
+  .period-shell .period-review-notice {
+    font-size: 0.8125rem;
+    padding: 6px 12px;
+  }
+  .period-shell .site-header {
+    padding: 20px;
+    display: block;
+  }
+  .period-shell .wordmark {
+    font-size: 1.5625rem;
+  }
+  .period-shell .site-header nav {
+    gap: 24px;
+    margin-top: 15px;
+    justify-content: space-between;
+  }
+  .period-shell .site-header nav a {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+  .period-shell .site-main {
+    padding: 0 20px;
+  }
+  .period-shell h1 {
+    font-size: 3.0625rem;
+    letter-spacing: -1.7px;
+  }
+  .period-shell h2 {
+    font-size: 1.9375rem;
+  }
+  .period-shell .lead {
+    font-size: 1.3125rem;
+  }
+  .period-shell .intro-hero {
+    display: block;
+    padding: 36px 0 32px;
+  }
+  .period-shell .intro-hero h1 {
+    margin-bottom: 22px;
+  }
+  .period-shell .intro-hero .small {
+    font-size: 1rem;
+    margin-top: 22px;
+  }
+  .period-shell .actions {
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .period-shell .button {
+    font-size: 1.0625rem;
+    padding: 12px 18px;
+    min-height: 50px;
+  }
+  .period-shell .intro-hero .actions {
+    gap: 22px;
+  }
+  .period-shell .period-panel {
+    margin-top: 32px;
+    padding: 26px;
+  }
+  .period-shell .period-word {
+    font-size: 3.875rem;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+  .period-shell .period-panel > p:first-child {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+  .period-shell .period-panel h2 {
+    font-size: 1.75rem;
+  }
+  .period-shell .period-panel p {
+    font-size: 1.1875rem;
+  }
+  .period-shell .value-standard {
+    display: block;
+    padding: 28px 0;
+    margin-bottom: 36px;
+  }
+  .period-shell .value-standard h2 {
+    font-size: 1.8125rem;
+  }
+  .period-shell .value-standard > div {
+    margin-top: 24px;
+    padding-left: 20px;
+  }
+  .period-shell .value-standard p {
+    font-size: 1.125rem;
+  }
+  .period-shell .comparison > h2 {
+    font-size: 2.0625rem;
+  }
+  .period-shell .scenario {
+    font-size: 1.1875rem;
+  }
+  .period-shell .contrast {
+    display: block;
+    margin-top: 24px;
+  }
+  .period-shell .contrast > section {
+    padding: 24px;
+  }
+  .period-shell .contrast blockquote {
+    font-size: 1.75rem;
+  }
+  .period-shell .contrast p {
+    font-size: 1.125rem;
+  }
+  .period-shell .takeaway {
+    font-size: 1.1875rem;
+  }
+  .period-shell .comparison summary {
+    font-size: 1.0625rem;
+  }
+  .period-shell .sequence-section {
+    display: block;
+    margin: 40px 0;
+  }
+  .period-shell .sequence-section h2 {
+    font-size: 2.0625rem;
+  }
+  .period-shell .sequence-section .path {
+    margin-top: 28px;
+  }
+  .period-shell .path li {
+    gap: 18px;
+    padding: 16px 0;
+  }
+  .period-shell .path .path-name {
+    font-size: 1.6875rem;
+  }
+  .period-shell .path p {
+    font-size: 1.125rem;
+  }
+  .period-shell .origin {
+    display: block;
+    padding: 28px 0;
+  }
+  .period-shell .origin h2 {
+    font-size: 1.875rem;
+  }
+  .period-shell .origin > p:last-child {
+    margin-top: 20px;
+  }
+  .period-shell .book {
+    display: block;
+    padding: 26px;
+    margin: 20px 0 36px;
+  }
+  .period-shell .book-title {
+    margin-bottom: 30px;
+  }
+  .period-shell .book-title .book-name {
+    font-size: 2.625rem;
+  }
+  .period-shell .book > div + div h2 {
+    font-size: 1.8125rem;
+  }
+  .period-shell .book p {
+    font-size: 1.125rem;
+  }
+  .period-shell .site-footer {
+    padding: 24px 20px;
+    display: block;
+  }
+  .period-shell .site-footer > div:nth-child(2) {
+    justify-content: flex-start;
+    gap: 6px 20px;
+    margin: 20px 0;
+  }
+  .period-shell .site-footer > p {
+    font-size: 0.875rem;
+  }
+  .period-shell .lesson-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 0;
+  }
+  .period-shell .lesson-nav {
+    border-right: none;
+    padding: 0;
+    width: 100%;
+  }
+  .period-shell .lesson-nav > h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .period-shell .lesson-nav .path {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 8px;
+  }
+  .period-shell .lesson-nav .path li {
+    padding: 12px 6px;
+    gap: 8px;
+  }
+  .period-shell .lesson-nav .path p {
+    display: none;
+  }
+  .period-shell .lesson-nav .path .path-name {
+    font-family: 'Source Sans', Arial, sans-serif;
+    font-size: 1.125rem;
+  }
+  .period-shell .lesson-nav .path .num {
+    font-size: 1rem;
+    min-width: 20px;
+  }
+  .period-shell .lesson-nav .path-note {
+    margin-top: 16px;
+    font-size: 0.9375rem;
+  }
+  .period-shell .lesson-title {
+    padding-bottom: 26px;
+  }
+  .period-shell .position {
+    font-size: 1rem;
+    margin-bottom: 14px;
+  }
+  .period-shell .period-lesson h1 {
+    font-size: 3.3125rem;
+  }
+  .period-shell .lesson-title .lead {
+    font-size: 1.8125rem;
+  }
+  .period-shell .period-lesson .small {
+    font-size: 1rem;
+  }
+  .period-shell .period-lesson h2 {
+    font-size: 1.8125rem;
+  }
+  .period-shell .period-lesson > section {
+    margin-top: 30px;
+  }
+  .period-shell .ownership-example {
+    padding: 24px 22px;
+  }
+  .period-shell .response-map {
+    display: block;
+  }
+  .period-shell .response-map > div {
+    padding: 20px 0;
+  }
+  .period-shell .response-map > div + div {
+    border-left: none;
+    border-top: 2px solid var(--ink);
+    padding: 20px 0 0;
+  }
+  .period-shell .response-map h3 {
+    font-size: 1.1875rem;
+  }
+  .period-shell .guardrail {
+    padding-left: 20px;
+  }
+  .period-shell .reflection {
+    font-size: 2rem;
+  }
+  .period-shell .transition {
+    padding: 24px;
+  }
+  .period-shell .transition-path {
+    gap: 10px;
+    font-size: 0.9375rem;
+  }
+  .period-shell .transition-path b {
+    font-size: 1.3125rem;
+  }
+  .period-shell .transition-path > span:nth-child(2) {
+    font-size: 1.4375rem;
+  }
+  .period-shell .period-lesson .actions .primary {
+    width: 100%;
+  }
+  .period-shell .editor {
+    padding-top: 32px;
+  }
+  .period-shell .editor-heading {
+    display: block;
+    margin-bottom: 28px;
+  }
+  .period-shell .editor h1 {
+    font-size: 2.875rem;
+  }
+  .period-shell .editor-heading .lead {
+    margin-top: 22px;
+  }
+  .period-shell .period-editor-layout {
+    display: block;
+  }
+  .period-shell .editor-guide .teaching {
+    padding-left: 20px;
+  }
+  .period-shell .editor-guide h2 {
+    font-size: 1.875rem;
+  }
+  .period-shell .editor-guide p {
+    font-size: 1.125rem;
+  }
+  .period-shell .editor-guide .privacy {
+    padding: 20px;
+    font-size: 1rem;
+    margin: 20px 0 26px;
+  }
+  .period-shell .period-form {
+    padding: 25px 20px;
+  }
+  .period-shell .work-field {
+    margin-bottom: 28px;
+  }
+  .period-shell label {
+    font-size: 1.3125rem;
+  }
+  .period-shell .field-hint {
+    font-size: 1.0625rem;
+  }
+  .period-shell textarea {
+    font-size: 1.1875rem;
+    min-height: 160px;
+  }
+  .period-shell .work-field .small {
+    font-size: 0.9375rem;
+  }
+  .period-shell .field-limit {
+    font-size: 0.9375rem;
+  }
+  .period-shell .period-form summary {
+    font-size: 1.125rem;
+  }
+  .period-shell .selfcheck {
+    font-size: 1.125rem;
+  }
+  .period-shell .period-form > .button {
+    width: 100%;
+  }
+  .period-shell .editor-bottom {
+    margin: 24px 0 36px;
+  }
+  .period-shell .editor-bottom .small {
+    font-size: 1rem;
+  }
+  .period-shell .period-result {
+    padding-top: 30px;
+    padding-bottom: 36px;
+  }
+  .period-shell .result-grid {
+    display: block;
+  }
+  .period-shell .period-card {
+    padding: 26px 24px;
+    border-top-width: 5px;
+  }
+  .period-shell .card-top > p:first-child {
+    font-size: 0.9375rem;
+    margin-bottom: 22px;
+  }
+  .period-shell .period-card h1 {
+    font-size: 2.3125rem;
+  }
+  .period-shell .card-status {
+    font-size: 1rem;
+    padding-left: 12px;
+  }
+  .period-shell .period-card section {
+    margin-top: 24px;
+  }
+  .period-shell .period-card .card-standard p {
+    font-size: 1.8125rem;
+  }
+  .period-shell .period-card section p {
+    font-size: 1.25rem;
+  }
+  .period-shell .period-card h2 {
+    font-size: 1.0625rem;
+  }
+  .period-shell .card-note {
+    font-size: 1.0625rem;
+  }
+  .period-shell .card-source {
+    font-size: 0.875rem;
+  }
+  .period-shell .result-actions {
+    padding-top: 32px;
+  }
+  .period-shell .result-actions h2 {
+    font-size: 1.875rem;
+  }
+  .period-shell .result-actions .actions {
+    gap: 14px;
+  }
+  .period-shell .result-actions > button {
+    margin-top: 20px;
+  }
+}
+.period-shell .sequence-section .path li {
+  border: 0;
+  padding: 0 0 24px;
+  gap: 22px;
+}
+.period-shell .sequence-section .path .num {
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  height: 44px;
+  min-width: 44px;
+  text-align: center;
+  line-height: 42px;
+  background: var(--paper);
+  position: relative;
+  z-index: 1;
+}
+.period-shell .sequence-section .path li:not(:last-child):before {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 43px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+.period-shell .sequence-section .path li:first-child .num {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+.period-shell .sequence-section .path .path-name {
+  padding-top: 5px;
+}
+.period-shell .sequence-section .path p {
+  margin-top: 6px;
+}
+@media (max-width: 360px) {
+  .period-shell .site-header nav {
+    gap: 10px;
+  }
+  .period-shell .site-header nav a {
+    font-size: 0.9375rem;
+  }
+  .period-shell .period-lesson h1 {
+    font-size: 2.9375rem;
+  }
+  .period-shell .lesson-nav .path {
+    grid-template-columns: 1fr;
+  }
+  .period-shell .lesson-nav .path p {
+    display: block;
+  }
+  .period-shell .period-word {
+    font-size: 3.375rem;
+  }
+  .period-shell .intro-hero h1 {
+    font-size: 2.8125rem;
+  }
+  .period-shell .transition-path {
+    flex-wrap: wrap;
+  }
+  .period-shell .period-card {
+    padding: 24px 18px;
+  }
+}
+
+/* Runtime composition and the four v0.14 refinements. */
+.period-shell {
+  min-height: 100vh;
+  --green: var(--ink);
+  --soft: var(--sage);
+}
+.period-shell .site-header nav {
+  align-items: center;
+  flex-wrap: wrap;
+}
+.period-shell .site-header nav a[aria-current] {
+  border-color: var(--ink);
+  font-weight: 600;
+}
+.period-shell .period-review-notice {
+  max-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 8px;
+  border: 0;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.period-shell .period-review-notice > span {
+  width: auto;
+}
+.period-shell .brand-dot {
+  color: var(--accent);
+}
+.period-shell .intro-hero {
+  grid-template-rows: auto 1fr;
+  gap: 0 70px;
+}
+.period-shell .intro-opening {
+  grid-column: 1;
+  grid-row: 1;
+}
+.period-shell .period-panel {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+.period-shell .intro-invitation {
+  grid-column: 1;
+  grid-row: 2;
+}
+.period-shell .period-sequence {
+  display: block;
+}
+.period-shell .path .path-name {
+  display: block;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+.period-shell .path a[aria-current] {
+  font-weight: 600;
+  text-decoration: underline;
+}
+.period-shell .path-note {
+  margin-top: 22px;
+}
+.period-shell .period-lesson {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+.period-shell .lesson-title .lead {
+  max-width: 420px;
+}
+.period-shell .response-map ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  font-size: 1.125rem;
+}
+.period-shell .reflection {
+  font-family: 'Source Serif', Georgia, serif;
+  margin-top: 28px;
+}
+.period-shell .book-title .book-name {
+  font-family: 'Source Serif', Georgia, serif;
+  line-height: 1.18;
+}
+.period-shell .book-title > p:last-child {
+  margin: 0;
+}
+.period-shell .book-standalone {
+  margin-top: 55px;
+}
+.period-shell .book-standalone h1 {
+  font-size: 2.75rem;
+}
+.period-shell .site-footer .footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: start;
+  justify-content: flex-end;
+  text-align: right;
+}
+.period-shell .footer-meta > a + a {
+  margin-left: 0;
+}
+.period-shell .footer-meta > p {
+  flex-basis: 100%;
+  margin-top: 10px;
+}
+.period-shell .site-footer .footer-meta span {
+  font-size: inherit;
+}
+.period-shell .site-footer > div:first-child > p {
+  margin: 0;
+}
+.period-shell .site-footer > p {
+  max-width: 100%;
+}
+.period-shell .period-editor-layout {
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+}
+.period-shell .period-form {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+.period-shell .editor-guide {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+.period-shell .mobile-teaching,
+.period-shell .mobile-privacy {
+  display: none;
+}
+.period-shell .period-form .work-field {
+  margin-bottom: 30px;
+}
+.period-shell .period-form label {
+  font-size: 1.375rem;
+  line-height: 1.3;
+  margin-bottom: 0;
+}
+.period-shell .period-form .field-hint {
+  font-size: 1.0625rem;
+  margin: 10px 0 16px;
+}
+.period-shell .period-form textarea,
+.period-shell .copy-fallback textarea {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 132px;
+  resize: vertical;
+}
+.period-shell .period-form select {
+  font-size: 1.25rem;
+}
+.period-shell .period-form .field-limit {
+  font-size: 0.9375rem;
+  margin: 10px 0 0;
+}
+.period-shell .period-form .work-field > p:last-child:not(.field-limit):not(.error) {
+  font-size: 1.1875rem;
+  margin-top: 14px;
+}
+.period-shell .period-form .work-field .small {
+  display: block;
+  margin-top: 8px;
+}
+.period-shell .period-card {
+  border-radius: 0;
+  width: 100%;
+  min-width: 0;
+}
+.period-shell .period-card .answer {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 12px 0 0;
+  line-height: 1.5;
+}
+.period-shell .period-card .card-standard .answer {
+  line-height: 1.35;
+}
+.period-shell .period-card h2,
+.period-shell .period-card h3 {
+  font-family: 'Source Sans', Arial, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  margin: 0;
+}
+.period-shell .period-card #period-example-title {
+  font-family: 'Source Serif', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.period-shell .period-example .period-card {
+  padding: 24px;
+  margin-top: 16px;
+}
+.period-shell .period-example .period-card section p {
+  font-size: 1.125rem;
+}
+.period-shell .period-example .period-card .card-standard p {
+  font-size: 1.5rem;
+}
+.period-shell .period-example .button {
+  margin: 20px 0;
+}
+.period-shell .result-grid {
+  grid-template-columns: minmax(0, 760px) minmax(0, 1fr);
+}
+.period-shell .result-actions .actions {
+  margin-bottom: 0;
+}
+.period-shell .result-actions .text-button {
+  font: inherit;
+  font-size: 1.0625rem;
+}
+.period-shell .result-actions .draft-actions {
+  align-items: start;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.period-shell .export-note {
+  font-size: 1rem;
+}
+.period-shell .copy-status:empty {
+  display: none;
+}
+.period-shell .copy-status {
+  margin-top: 22px;
+  font-size: 1.0625rem;
+}
+.period-shell .copy-fallback label {
+  font-size: 1.125rem;
+}
+.period-shell .copy-fallback textarea {
+  min-height: 200px;
+  margin: 16px 0;
+}
+.period-shell .global-notice {
+  grid-column: 1 / -1;
+  margin: 20px 0;
+  font-size: 1.0625rem;
+}
+.period-shell .global-notice .button {
+  margin-top: 12px;
+}
+.period-shell .confirm-dialog {
+  border-color: var(--border);
+  border-radius: 3px;
+  background: var(--white);
+  padding: 30px;
+}
+.period-shell .confirm-dialog h2 {
+  font-size: 1.75rem;
+  margin-bottom: 20px;
+}
+.period-shell :is(a, button, textarea, select, summary):focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 2px var(--white);
+}
+.period-shell .selected a:focus-visible {
+  outline-color: var(--white);
+  box-shadow: none;
+}
+.period-shell :is(textarea, select)[aria-invalid='true'] {
+  border: 2px solid #a12f2b;
+}
+.period-shell .error {
+  font-size: 1.0625rem;
+  color: #a12f2b !important;
+  border-left: 3px solid currentColor;
+  padding-left: 12px;
+  margin: 14px 0 0;
+}
+.period-shell .button {
+  cursor: pointer;
+  transition: none;
+}
+.period-shell .button:hover {
+  filter: none;
+  background: var(--sage);
+}
+.period-shell .button.primary:hover {
+  background: #244b3f;
+}
+.period-shell :is(p, h1, h2, h3, span, a, button, label, summary) {
+  overflow-wrap: anywhere;
+}
+.period-shell .period-unavailable {
+  max-width: 760px;
+  margin: auto;
+  padding-bottom: 50px;
+}
+.period-shell .period-unavailable .path {
+  margin-bottom: 24px;
+}
+#educational-fallback .site-main {
+  max-width: 900px;
+  padding: 32px 24px;
+}
+#educational-fallback h2 {
+  margin-top: 36px;
+}
+#educational-fallback h3 {
+  margin-top: 24px;
+}
+#educational-fallback p {
+  margin-top: 16px;
+}
+@media (max-width: 1000px) {
+  .period-shell .intro-hero {
+    column-gap: 36px;
+  }
+  .period-shell .result-grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .period-shell .site-header nav {
+    margin-top: 15px;
+    width: 100%;
+    gap: 10px 24px;
+  }
+  .period-shell .site-header nav a {
+    font-size: 1rem;
+    min-height: 44px;
+  }
+  .period-shell .intro-hero {
+    display: flex;
+    flex-direction: column;
+    padding-top: 36px;
+  }
+  .period-shell .period-panel {
+    width: 100%;
+    margin-top: 28px;
+  }
+  .period-shell .intro-invitation {
+    width: 100%;
+  }
+  .period-shell .intro-invitation .small {
+    margin-top: 20px;
+  }
+  .period-shell .period-editor-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .period-shell .period-form {
+    width: 100%;
+    padding: 25px 20px;
+  }
+  .period-shell .period-form label {
+    font-size: 1.3125rem;
+  }
+  .period-shell .period-form textarea {
+    font-size: 1.1875rem;
+    min-height: 160px;
+  }
+  .period-shell .period-form .button.primary {
+    width: 100%;
+  }
+  .period-shell .mobile-privacy {
+    display: block;
+    background: var(--sage);
+    padding: 18px 20px;
+    font-size: 1rem;
+    margin: 0 0 24px;
+  }
+  .period-shell .mobile-teaching {
+    display: block;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin: 0 0 28px;
+  }
+  .period-shell .mobile-teaching p {
+    font-size: 1.125rem;
+    margin: 12px 0;
+  }
+  .period-shell .editor-guide .teaching,
+  .period-shell .editor-guide .privacy {
+    display: none;
+  }
+  .period-shell .editor-guide {
+    width: 100%;
+  }
+  .period-shell .editor-guide details {
+    margin-top: 0;
+  }
+  .period-shell .editor-bottom {
+    margin-top: 12px;
+  }
+  .period-shell .result-grid {
+    display: block;
+  }
+  .period-shell .result-actions .draft-actions {
+    margin-top: 28px;
+  }
+  .period-shell .site-footer .footer-meta {
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .period-shell .lesson-nav .path-name {
+    font-family: 'Source Sans', Arial, sans-serif;
+    font-size: 1.125rem;
+  }
+  .period-shell .lesson-nav .path p {
+    display: none;
+  }
+  .period-shell .period-lesson .lead {
+    font-size: 1.8125rem;
+  }
+  .period-shell .period-card section p {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 360px) {
+  .period-shell .lesson-nav .path {
+    grid-template-columns: 1fr;
+  }
+  .period-shell .lesson-nav .path p {
+    display: block;
+  }
+  .period-shell .site-header nav {
+    gap: 10px;
+  }
+  .period-shell .site-header nav a {
+    font-size: 0.9375rem;
+  }
+}
+@media (forced-colors: active) {
+  .period-shell :is(a, button, textarea, select, summary):focus-visible {
+    outline: 3px solid Highlight;
+  }
+  .period-shell :is(textarea, select)[aria-invalid='true'] {
+    border: 3px double CanvasText;
+  }
+  .period-shell .path .selected {
+    border: 2px solid CanvasText;
+  }
+}
+@media print {
+  .period-shell {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+  .period-shell .site-main {
+    max-width: none;
+    padding: 0;
+  }
+  .period-shell .period-result {
+    padding: 0;
+  }
+  .period-shell .result-grid {
+    display: block;
+  }
+  .period-shell .period-card {
+    background: white;
+    color: black;
+    border: 0;
+    border-top: 3px solid black;
+    padding: 24pt 0 0;
+  }
+  .period-shell .period-card h1 {
+    font-size: 24pt;
+  }
+  .period-shell .period-card .card-top > p:first-child,
+  .period-shell .period-card .card-status {
+    font-size: 10pt;
+  }
+  .period-shell .period-card .card-top > p:first-child {
+    margin-bottom: 16pt;
+  }
+  .period-shell .period-card .card-status {
+    border-color: black;
+    margin-top: 14pt;
+  }
+  .period-shell .period-card h2,
+  .period-shell .period-card h3 {
+    font-size: 11pt;
+    break-after: avoid;
+  }
+  .period-shell .period-card section {
+    margin-top: 15pt;
+    break-inside: auto;
+  }
+  .period-shell .period-card section p {
+    font-size: 12pt;
+    margin-top: 8pt;
+  }
+  .period-shell .period-card .card-value p {
+    font-size: 14pt;
+  }
+  .period-shell .period-card .card-standard {
+    padding: 16pt 0;
+  }
+  .period-shell .period-card .card-standard p {
+    font-size: 18pt;
+    line-height: 1.35;
+  }
+  .period-shell .period-card .answer {
+    orphans: 2;
+    widows: 2;
+    overflow-wrap: anywhere;
+  }
+  .period-shell .period-card .card-note {
+    font-size: 10pt;
+    color: black;
+    margin-top: 18pt;
+    padding-top: 15pt;
+  }
+  .period-shell .period-card .card-source {
+    font-size: 9pt;
+    color: black;
+    margin-top: 15pt;
+  }
+  .period-shell .period-lesson {
+    max-width: none;
+  }
+  .period-shell .lesson-layout {
+    display: block;
+  }
+  .period-shell .period-sequence {
+    display: none;
+  }
+}
+
+.period-shell .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.period-shell :is(main, h1):focus {
+  outline: none;
+}
+.period-shell .lesson-nav .path li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 45px;
+  bottom: -12px;
+  width: 1px;
+  background: var(--border);
+}
+.period-shell .lesson-nav .path .num {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 700px) {
+  .period-shell .lesson-nav .path li::before {
+    display: none;
+  }
+}

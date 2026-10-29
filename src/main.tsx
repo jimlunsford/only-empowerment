@@ -17,6 +17,7 @@ import { NextMove } from './NextMove';
 import { SavedWork, LocalDataControls } from './SavedWork';
 import { useLocalWork, type LocalWork } from './use-local-work';
 import './style.css';
+import './period.css';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
 function ToolGrid() {
   return (
@@ -232,6 +233,7 @@ function NotFound() {
 }
 function App() {
   const path = useRoute();
+  const editorial = path === '/' || path.startsWith('/period/');
   const work = useLocalWork();
   const [periodSession, setPeriodSession] = useState(newPeriodSession);
   const [bookExit, setBookExit] = useState(false);
@@ -259,7 +261,7 @@ function App() {
   else if (path === '/tools/next-move') content = <NextMove work={work} />;
   else content = <NotFound />;
   return (
-    <>
+    <div class={editorial ? 'period-shell' : undefined}>
       <a
         class="skip-link"
         href="#main"
@@ -270,6 +272,20 @@ function App() {
       >
         Skip to content
       </a>
+      {editorial && (
+        <div
+          class={`period-review-notice no-print ${__STAGING__ ? 'staging-banner' : ''}`}
+          role="region"
+          aria-label="Review status"
+        >
+          {__STAGING__ && (
+            <span class="stage-label">Development staging. Not a production release.</span>
+          )}
+          <span>
+            Internal review. Teaching copy is proposed, not approved for public publication.
+          </span>
+        </div>
+      )}
       <header class="site-header">
         <a class="wordmark" href="#/" aria-label="Only Empowerment home">
           only<span>empowerment</span>
@@ -293,21 +309,25 @@ function App() {
           >
             Try a standard
           </a>
-          <a href="#/tools" aria-current={path.startsWith('/tools') ? 'page' : undefined}>
-            The tools
-          </a>
-          <a href="#/saved" aria-current={path === '/saved' ? 'page' : undefined}>
-            Saved work
-          </a>
-          <a href="#/approach" aria-current={path === '/approach' ? 'page' : undefined}>
-            The approach
-          </a>
-          <a href="#/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>
-            Privacy & source
-          </a>
+          {!editorial && (
+            <>
+              <a href="#/tools" aria-current={path.startsWith('/tools') ? 'page' : undefined}>
+                The tools
+              </a>
+              <a href="#/saved" aria-current={path === '/saved' ? 'page' : undefined}>
+                Saved work
+              </a>
+              <a href="#/approach" aria-current={path === '/approach' ? 'page' : undefined}>
+                The approach
+              </a>
+              <a href="#/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>
+                Privacy & source
+              </a>
+            </>
+          )}
         </nav>
       </header>
-      {__STAGING__ && (
+      {__STAGING__ && !editorial && (
         <div class="staging-banner" role="region" aria-label="Development status">
           <span class="stage-label">Development staging</span>
           <span>
@@ -335,12 +355,6 @@ function App() {
             {work.notice}
           </p>
         )}
-        {(path === '/' || path.startsWith('/period/')) && (
-          <p class="period-review-notice no-print">
-            Internal review candidate. Teaching copy is proposed and has not been approved for
-            public publication.
-          </p>
-        )}
         {content}
         {bookExit && (
           <ConfirmDialog
@@ -358,16 +372,30 @@ function App() {
       </main>
       <footer class="site-footer">
         <div>
-          <p>
-            Built by{' '}
-            <a href="https://jimlunsford.com/" rel="noreferrer">
-              Jim Lunsford
-            </a>
-          </p>
+          {editorial ? (
+            <>
+              <p>Only Empowerment</p>
+              <span>Free learning. Practical application.</span>
+            </>
+          ) : (
+            <p>
+              Built by{' '}
+              <a href="https://jimlunsford.com/" rel="noreferrer">
+                Jim Lunsford
+              </a>
+            </p>
+          )}
         </div>
         <div class="footer-meta">
           <a href="#/period/book">About the book</a>
-          <a href="#/privacy">Privacy & source</a>
+          {editorial && (
+            <>
+              <a href="#/tools">The tools</a>
+              <a href="#/saved">Saved work</a>
+              <a href="#/approach">The approach</a>
+            </>
+          )}
+          <a href="#/privacy">Privacy &amp; source</a>
           <p class="small">
             v{__BUILD__.version} ·{' '}
             {__BUILD__.dirty ? (
@@ -379,8 +407,15 @@ function App() {
             )}
           </p>
         </div>
+        {editorial && (
+          <p>
+            Based on The PERIOD Code by Jim Lunsford.
+            <br />
+            Educational adaptation by Only Empowerment.
+          </p>
+        )}
       </footer>
-    </>
+    </div>
   );
 }
 render(<App />, document.getElementById('app')!);
