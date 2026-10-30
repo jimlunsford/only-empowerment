@@ -1069,17 +1069,17 @@
     width: 100%;
   }
   .period-shell .editor {
-    padding-top: 20px;
+    padding-top: 16px;
   }
   .period-shell .editor-heading {
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .period-shell .editor h1 {
     font-size: 2.875rem;
   }
   .period-shell .editor-heading .lead {
-    margin-top: 16px;
+    margin-top: 12px;
   }
   .period-shell .period-editor-layout {
     display: block;
@@ -1625,7 +1625,7 @@
     background: var(--sage);
     padding: 12px 20px;
     font-size: 1rem;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
   }
   .period-shell .mobile-teaching {
     display: block;
