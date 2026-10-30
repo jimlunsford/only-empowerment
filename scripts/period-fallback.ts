@@ -5,6 +5,7 @@ import {
   periodBook as book,
 } from '../src/period-content.ts';
 import { periodPresentation } from '../src/period-presentation.ts';
+import { practiceFallback } from './practice-fallback.ts';
 // Build-time, fixed editorial content only. Never receives a private draft.
 const escape = (text: string) =>
   text
@@ -18,7 +19,7 @@ export function periodFallback() {
   const lesson = periodValues[0].lesson;
   return `<div class="period-learning period-reading">
     ${h2(intro.title)}${p(periodPresentation.introLead)}${p('The PERIOD Code by Jim Lunsford')}${p(intro.origin)}
-    ${h2('Why PERIOD?')}${intro.meaning.map(p).join('')}
+    ${h2('Why PERIOD?')}${intro.meaning.map(p).join('')}${p(periodPresentation.connectedClarification)}
     ${h2(intro.comparison.heading)}${p(intro.comparison.situation)}
     <h3>The negotiation</h3>${p(intro.comparison.negotiation)}${p(intro.comparison.negotiationExplanation)}
     <h3>The standard</h3>${p(intro.comparison.standard)}${p(intro.comparison.standardExplanation)}${p(intro.comparison.takeaway)}
@@ -28,6 +29,8 @@ export function periodFallback() {
     ${h2('Ownership')}${p(periodValues[0].role)}${p(lesson.meaning)}<h3>Everyday example</h3>${p(lesson.example)}
     <h3>${escape(lesson.misconceptionHeading)}</h3>${p(lesson.misconception)}<h3>Put it into practice</h3>${p(lesson.application)}${p(lesson.reflection)}
     <h3>${escape(lesson.connectionHeading)}</h3>${p(lesson.connection)}
+    ${h2('Put Ownership into an ordinary moment')}${p(periodPresentation.practiceInvitation)}${p('No written answer or Standard Card is required.')}
+    ${practiceFallback()}
     ${h2(exercise.title)}${p(exercise.lead)}${p(exercise.teaching)}${p(exercise.guardrail)}
     ${p('The card editor needs JavaScript. You can still use this pattern on paper: value, standard, next situation and action, and optional support or correction.')}
     ${h2('Example standard card')}${p('An illustration, not your personal commitment.')}${p('Status: Chosen, not yet demonstrated')}

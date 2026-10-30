@@ -1069,17 +1069,17 @@
     width: 100%;
   }
   .period-shell .editor {
-    padding-top: 32px;
+    padding-top: 16px;
   }
   .period-shell .editor-heading {
     display: block;
-    margin-bottom: 28px;
+    margin-bottom: 16px;
   }
   .period-shell .editor h1 {
     font-size: 2.875rem;
   }
   .period-shell .editor-heading .lead {
-    margin-top: 22px;
+    margin-top: 12px;
   }
   .period-shell .period-editor-layout {
     display: block;
@@ -1608,7 +1608,7 @@
   }
   .period-shell .period-form {
     width: 100%;
-    padding: 25px 20px;
+    padding: 16px 20px 25px;
   }
   .period-shell .period-form label {
     font-size: 1.3125rem;
@@ -1623,9 +1623,9 @@
   .period-shell .mobile-privacy {
     display: block;
     background: var(--sage);
-    padding: 18px 20px;
+    padding: 12px 20px;
     font-size: 1rem;
-    margin: 0 0 24px;
+    margin: 0 0 12px;
   }
   .period-shell .mobile-teaching {
     display: block;

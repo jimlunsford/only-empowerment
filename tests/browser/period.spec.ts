@@ -38,7 +38,15 @@ test('teaching journey, available links, keyboard focus and example require no a
   await expect(page.getByRole('heading', { name: 'Why Purpose comes next' })).toBeVisible();
   await expect(page.locator('a[href="#/period/values/purpose"]')).toHaveCount(0);
   await axe(page);
-  await page.getByRole('link', { name: 'Use Ownership in a standard' }).click();
+  await page
+    .getByRole('main')
+    .getByRole('link', { name: 'Practice Ownership', exact: true })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'Practice Ownership views' })
+    .getByRole('link', { name: 'The connected Code', exact: true })
+    .click();
+  await page.getByRole('link', { name: 'Write an optional Standard Card' }).click();
   await expect(page.locator('#period-valueId')).toHaveValue('ownership');
   await page.getByText('See a finished example', { exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Example standard card' })).toBeVisible();
@@ -96,7 +104,15 @@ test('draft and card survive in-site history, lesson entry, and guarded book exi
 }) => {
   await editor(page);
   await page.getByRole('link', { name: 'Ownership', exact: true }).first().click();
-  await page.getByRole('link', { name: 'Use Ownership in a standard' }).click();
+  await page
+    .getByRole('main')
+    .getByRole('link', { name: 'Practice Ownership', exact: true })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'Practice Ownership views' })
+    .getByRole('link', { name: 'The connected Code', exact: true })
+    .click();
+  await page.getByRole('link', { name: 'Write an optional Standard Card' }).click();
   await expect(
     page.getByText('You already have a standard in progress.', { exact: false }),
   ).toBeVisible();
@@ -113,7 +129,7 @@ test('draft and card survive in-site history, lesson entry, and guarded book exi
     page.getByRole('link', { name: 'Explore the book and read a sample' }),
   ).toBeFocused();
   await expect(page).toHaveURL(/#\/period\/book$/);
-  await page.getByRole('link', { name: 'Try a standard', exact: true }).click();
+  await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
   await page.reload();
   await expect(page.locator('#period-standard')).toHaveValue('');
 });
@@ -218,7 +234,7 @@ test('authored content never enters traffic, logs, storage or history and legacy
   });
   await page.goto('/');
   await page.evaluate(({ key, record }) => localStorage.setItem(key, record), { key, record });
-  await page.getByRole('link', { name: 'Try a standard', exact: true }).first().click();
+  await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
   await page.locator('#period-valueId').selectOption('resilience');
   await page.locator('#period-standard').fill(marker);
   await page.locator('#period-nextApplication').fill(marker);
@@ -266,7 +282,13 @@ test('static reading survives disabled JavaScript and a failed app script', asyn
       'Why Purpose comes next',
       'Example standard card',
     ])
-      await expect(page.getByRole('heading', { name: text, exact: true })).toBeVisible();
+      await expect(
+        page.getByRole('heading', {
+          name: text,
+          exact: true,
+          level: text === 'Ownership' ? 2 : undefined,
+        }),
+      ).toBeVisible();
     await expect(page.getByText(/The card editor needs JavaScript/)).toBeVisible();
     await expect(page.locator('textarea')).toHaveCount(0);
     await context.close();

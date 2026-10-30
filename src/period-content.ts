@@ -1,8 +1,9 @@
-// Work 01 v1.0 proposed copy, internal review only. Product Vision v0.12 controls scope.
-export const contentVersion = 'work-01-v1.0-internal';
+// Work 01 teaching with approved Work 06 v1.1 integration copy. Product Vision v0.18.
+// Internal implementation and founder evaluation, not public publication approval.
+export const contentVersion = 'work-06-v1.1-internal';
 export const periodIntro = {
   title: 'Put your values into practice.',
-  lead: 'The PERIOD Code gives six values a job in your daily life. Learn what they ask of you, see what they look like in an ordinary situation, and choose one standard you can practice.',
+  lead: 'Only Empowerment helps you put The PERIOD Code’s six connected values to work in daily life, for free. Begin with Ownership, explore an ordinary situation, and see how the values work together.',
   origin:
     'Jim developed the Code through his own experience of addiction, loss, responsibility, and rebuilding. Its values apply wherever your choices need a clearer standard: at home, at work, and in the commitments you make to yourself.',
   meaning: [
@@ -88,7 +89,7 @@ export const periodValues = [
 ] as const;
 export const periodExercise = {
   title: 'Turn a Value into a Standard',
-  lead: 'Choose one value. Write a line for your own behavior, then name the next situation where you can practice it.',
+  lead: 'Write one intended behavior within The PERIOD Code’s connected standard for living. Choose a value as the focus of this card, then name where you will practice the behavior. The other values still matter.',
   teaching:
     'A value names what matters. A standard describes behavior you can return to. “Be more reliable” leaves the action unclear. “When a deadline is at risk, I send an honest update before it passes” gives you a line you can recognize.',
   guardrail:
@@ -96,13 +97,13 @@ export const periodExercise = {
   privacy:
     'Your words stay in this open tab. The site does not send them to a server. Reloading or closing the tab can discard them. Copy or print anything you want to keep.',
   questions: [
-    'Which value do you want to practice?',
+    'Which value will this card focus on?',
     'What standard will guide your behavior?',
     'Where will you practice it next, and what will you do?',
     'What support or correction will help you return? (Optional)',
   ],
   hints: [
-    'Choose the value you want to make more visible. You can change it.',
+    'This gives the card a focus. It does not separate that value from the other five.',
     'Describe something you can do or a boundary you can hold. “When [situation], I [behavior]” is one useful shape. Use your own wording.',
     'Name one real situation and the action you can take there. Keep it small enough to recognize when it happens.',
     'Name a reminder, a person, a change of method, or a repair after a miss. You do not have to describe private history.',
@@ -119,7 +120,7 @@ export const periodExercise = {
   exampleLesson:
     'The standard can guide more than one situation. The next action gives you a place to begin. Sending the update, not creating this card, is the behavior that would count as evidence.',
   footnote:
-    'This card records what you intend to practice. It does not show that the action has happened. Return to the standard, make the correction when needed, and let your behavior provide the evidence.',
+    'This card records one behavior you intend to practice within the connected six-value Code. It does not show that the action has happened or that you have completed the Code. Return to the standard, make the correction when needed, and let your behavior provide the evidence.',
   source: 'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
   exportNote:
     'Copies, clipboard sync, saved PDFs, and printouts are outside this site’s control. Clear draft removes only the words in this tab.',
@@ -127,7 +128,7 @@ export const periodExercise = {
 export const periodBook = {
   heading: 'Explore the complete PERIOD Code',
   paragraphs: [
-    'This companion gives you practical explanations, everyday examples, and a way to write one standard. The complete book develops the Code’s origins, the six values, and why they are taught in this order.',
+    'This companion gives you practical explanations, everyday examples, and opportunities to practice the connected values. The complete book develops the Code’s origins, the six values, and why they are taught in this order.',
     'The PERIOD Code by Jim Lunsford is available in paperback and Kindle. You can explore the book and read a sample on Jim’s website. Amazon lists current editions, pricing, and availability.',
   ],
   label: 'Explore the book and read a sample',

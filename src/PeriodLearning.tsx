@@ -9,7 +9,13 @@ import { PageIntro } from './components/shared';
 export function PeriodAttribution() {
   return <p class="source-note">{periodExercise.source}</p>;
 }
-export function PeriodSequence({ active = false }: { active?: boolean }) {
+export function PeriodSequence({
+  active = false,
+  focusOnly = false,
+}: {
+  active?: boolean;
+  focusOnly?: boolean;
+}) {
   return (
     <nav class={`period-sequence ${active ? 'lesson-nav' : ''}`} aria-label="PERIOD teaching order">
       {active && <h2>The six-value path</h2>}
@@ -22,8 +28,12 @@ export function PeriodSequence({ active = false }: { active?: boolean }) {
             <div>
               <span class="path-name">
                 {v.id === 'ownership' ? (
-                  <a href="#/period/values/ownership" aria-current={active ? 'page' : undefined}>
+                  <a
+                    href="#/period/values/ownership"
+                    aria-current={active && !focusOnly ? 'page' : undefined}
+                  >
                     {v.name}
+                    {focusOnly && <span class="sr-only"> (lesson focus)</span>}
                   </a>
                 ) : (
                   <span>{v.name}</span>
@@ -35,7 +45,9 @@ export function PeriodSequence({ active = false }: { active?: boolean }) {
         ))}
       </ol>
       <p class="path-note">
-        Only Ownership is available as a lesson in this review. The full teaching order is shown.
+        {focusOnly
+          ? 'Teaching order, not completion. Ownership is the lesson focus. Only Ownership has a full lesson in this review.'
+          : 'Only Ownership is available as a lesson in this review. The full teaching order is shown.'}
       </p>
     </nav>
   );
@@ -68,7 +80,7 @@ export function PeriodIntro() {
             <a class="button primary" href="#/period/values/ownership">
               Start with Ownership <span aria-hidden="true">→</span>
             </a>
-            <a href="#/period/standard">Try a standard</a>
+            <a href="#/period/practice">Practice Ownership</a>
           </div>
           <p class="small">You can explore everything here without answering questions.</p>
         </div>
@@ -79,6 +91,7 @@ export function PeriodIntro() {
           <h2>{distinction[1].trim()}</h2>
           <p>{distinction[2].trim()}</p>
         </div>
+        <p class="connected-clarification">{presentation.connectedClarification}</p>
       </section>
       <section class="comparison">
         <h2>{intro.comparison.heading}</h2>
@@ -123,7 +136,7 @@ export function PeriodIntro() {
     </div>
   );
 }
-export function PeriodOwnership({ useOwnership }: { useOwnership: () => void }) {
+export function PeriodOwnership() {
   const value = periodValues[0],
     lesson = value.lesson;
   return (
@@ -193,12 +206,17 @@ export function PeriodOwnership({ useOwnership }: { useOwnership: () => void }) 
             <p>{lesson.connection}</p>
             <p class="small">The Purpose lesson is not included in this internal candidate.</p>
           </section>
-          <div class="actions">
-            <a class="button primary" href="#/period/standard" onClick={useOwnership}>
-              Use Ownership in a standard
-            </a>
-            <a href="#/">Return to Why PERIOD?</a>
-          </div>
+          <section class="lesson-practice">
+            <h2>Put Ownership into an ordinary moment</h2>
+            <p>{presentation.practiceInvitation}</p>
+            <div class="actions">
+              <a class="button primary" href="#/period/practice">
+                Practice Ownership
+              </a>
+              <a href="#/">Return to Why PERIOD?</a>
+            </div>
+            <p class="small">No written answer or Standard Card is required.</p>
+          </section>
         </article>
       </div>
       <PeriodBook />
