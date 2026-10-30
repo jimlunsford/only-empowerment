@@ -241,6 +241,7 @@ function App() {
   const [periodSession, setPeriodSession] = useState(newPeriodSession);
   const [practiceSession, setPracticeSession] = useState(newPracticeSession);
   const practiceView = practiceViews.find((view) => view.path === path);
+  const openPracticeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'ownership'));
   const [bookExit, setBookExit] = useState(false);
   let content;
   if (path === '/') content = <PeriodIntro />;
@@ -253,7 +254,7 @@ function App() {
         view={practiceView}
         session={practiceSession}
         setSession={setPracticeSession}
-        openCard={() => setPeriodSession((old) => enterPeriodExercise(old, 'ownership'))}
+        openCard={openPracticeCard}
       />
     );
   else if (path === '/period/standard')
@@ -398,6 +399,17 @@ function App() {
           <a
             href="#/period/standard"
             aria-current={path === '/period/standard' ? 'page' : undefined}
+            onClick={(event) => {
+              if (
+                practiceView &&
+                event.button === 0 &&
+                !event.metaKey &&
+                !event.ctrlKey &&
+                !event.shiftKey &&
+                !event.altKey
+              )
+                openPracticeCard();
+            }}
           >
             Optional Standard Card
           </a>

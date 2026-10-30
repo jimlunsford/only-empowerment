@@ -246,8 +246,17 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
       },
     }),
   );
-  await page.goto('/#/period/standard');
+  await page.goto('/#/period/practice');
+  await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
+  await expect(page.locator('#period-valueId')).toHaveValue('ownership');
+  await page.reload();
   await page.locator('#period-valueId').selectOption('purpose');
+  await page
+    .locator('.site-header')
+    .getByRole('link', { name: 'Practice Ownership', exact: true })
+    .click();
+  await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
+  await expect(page.locator('#period-valueId')).toHaveValue('purpose');
   await page
     .locator('.site-header')
     .getByRole('link', { name: 'Practice Ownership', exact: true })
