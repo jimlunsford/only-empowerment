@@ -27,6 +27,13 @@
 .period-shell .practice-layout .lesson-nav .path li {
   padding: 12px 10px 20px;
 }
+.period-shell .practice-layout .lesson-nav .path :is(.path-name, .num),
+.period-shell .practice-layout .lesson-nav .path a,
+.period-shell .footer-meta > a[href='#/period/standard'] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
 .period-shell .practice-nav {
   display: flex;
   flex-wrap: wrap;

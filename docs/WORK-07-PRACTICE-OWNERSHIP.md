@@ -46,7 +46,7 @@ Four functional clarifications turn the design's explanatory instructions into v
 | Optional card | Existing editor/result composition and exact authored strings retained. On mobile, vertical spacing above the first input is reduced to accommodate the longer approved lead while retaining the complete privacy notice and readable type. No field is removed or made mandatory. |
 | All views | Real review/build notices and the existing footer remain. A direct Optional Standard Card footer link preserves discoverability after the primary learning invitation changes. Natural wrapping, native disclosure markers, and added functional clarifications make page heights differ from fixed composition boards. |
 
-No new visual system, stock imagery, decorative component package, animation, or five additional lessons is introduced. At 390px the teaching order is two columns in authored row order; below 360px it is one column. Only Ownership links to a lesson.
+No new visual system, stock imagery, decorative component package, animation, or five additional lessons is introduced. At 390px the teaching order is two columns in authored row order; below 360px it is one column. Only Ownership links to a lesson. Orientation rows reserve 44px for the linked name, with number and name alignment retained; this adds vertical space compared with a text-only compact row. The optional-card footer link also has a 44px target. Target geometry is checked at all four widths.
 
 ## Verification and evidence
 

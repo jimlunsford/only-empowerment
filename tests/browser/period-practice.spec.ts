@@ -407,6 +407,17 @@ test('all views and representative alternatives reflow at four widths with revie
       await page.reload(); // A fresh direct entry for each labelled baseline capture.
       await page.evaluate(() => document.fonts.ready);
       expect(await fits(page), `${view.id} ${width}`).toBe(true);
+      for (const target of await page
+        .locator(
+          '.practice-nav a, .practice .path a, .practice button, .practice summary, .practice-optional a, .footer-meta > a[href="#/period/standard"]',
+        )
+        .all()) {
+        const box = await target.boundingBox();
+        if (box) {
+          expect(box.width, `${view.id} target width at ${width}`).toBeGreaterThanOrEqual(44);
+          expect(box.height, `${view.id} target height at ${width}`).toBeGreaterThanOrEqual(44);
+        }
+      }
       if (info.project.name === 'chromium' && [390, 1440].includes(width))
         await page.screenshot({ path: info.outputPath(`${view.id}-${width}.png`), fullPage: true });
       if (view.id === 'situation')
