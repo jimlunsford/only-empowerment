@@ -159,6 +159,7 @@
 }
 .period-shell .purpose-controls .button {
   min-width: 210px;
+  justify-content: flex-start;
   text-align: left;
 }
 .period-shell .purpose-capacity-description {

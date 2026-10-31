@@ -503,6 +503,14 @@ test('lesson and all four examples reflow at 320, 390, 768 and 1440 with applica
   test.setTimeout(120000);
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
+    if (info.project.name === 'chromium' && [390, 1440].includes(width)) {
+      await page.goto('/');
+      await page.evaluate(() => document.fonts.ready);
+      await page.screenshot({
+        path: info.outputPath(`two-value-introduction-${width}.png`),
+        fullPage: true,
+      });
+    }
     await page.goto(lessonPath);
     await page.evaluate(() => document.fonts.ready);
     expect(await fits(page), `lesson ${width}`).toBe(true);
@@ -530,6 +538,14 @@ test('lesson and all four examples reflow at 320, 390, 768 and 1440 with applica
           path: info.outputPath(`purpose-${key}-${width}.png`),
           fullPage: true,
         });
+        if (key === 'stability_lower') {
+          await page.keyboard.press('Tab');
+          await page.getByRole('button', { name: 'Basic stability', exact: true }).focus();
+          await page.screenshot({
+            path: info.outputPath(`purpose-keyboard-focus-${width}.png`),
+            fullPage: true,
+          });
+        }
       }
     }
     await page.locator('.purpose-reading summary').click();
@@ -580,7 +596,13 @@ test('Purpose supports enlarged text, spacing, missing fonts, reduced motion, fo
       await expect(page.locator('.purpose-reading')).toHaveAttribute('open', '');
       expect(await fits(page), 'all examples expanded').toBe(true);
       const selected = page.getByRole('button', { name: 'Basic stability', exact: true });
-      await selected.focus();
+      // Reach the control with real keyboard navigation. Firefox correctly need not
+      // show :focus-visible for a later programmatic focus after pointer use.
+      for (let step = 0; step < 12; step++) {
+        if (await selected.evaluate((element) => element === document.activeElement)) break;
+        await page.keyboard.press('Shift+Tab');
+      }
+      await expect(selected).toBeFocused();
       const style = await selected.evaluate((element) => {
         const css = getComputedStyle(element);
         return {
@@ -696,5 +718,16 @@ test('actual text, control boundaries and keyboard focus retain measured contras
     await measure(key, '.purpose-controls button[aria-pressed="true"]', 'focus');
     await measure(key, '.purpose-reading summary', 'focus');
   }
+  await page.route('**/*', (route) =>
+    route.request().resourceType() === 'script' ? route.abort() : route.continue(),
+  );
+  await page.reload();
+  for (const selector of [
+    '#reading-purpose p',
+    '#reading-purpose-evening p',
+    '#reading-purpose nav a',
+  ])
+    await measure('static reading', selector);
+  await measure('static reading', '#reading-purpose nav a', 'focus');
   await writeFile(info.outputPath('purpose-contrast.json'), JSON.stringify(measurements, null, 2));
 });
