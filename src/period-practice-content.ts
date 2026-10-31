@@ -214,7 +214,7 @@ export const practiceCopy = {
   empowermentLimit:
     'Asking for an exported copy is receiving useful support. It does not automatically mean you have empowered someone. Sharing a practiced method should be useful, respectful and free of control; it does not require claiming mastery.',
   availability:
-    'Only Ownership has a full lesson in this review. These connections introduce the wider philosophy; the other five lessons are not yet available.',
+    'Ownership and Purpose have full lessons in this review. These connections introduce the wider philosophy; the remaining four lessons are not yet available.',
   takeActionHeading: 'Take it into your day',
   takeAction:
     'Think of one ordinary responsibility that needs a response. What can you honestly do next, what direction does it serve, and what would show that you did it? Keep your answer private. Take the action when it is workable, and return to the values when the situation changes.',

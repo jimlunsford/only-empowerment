@@ -6,6 +6,8 @@ import {
 } from '../src/period-content.ts';
 import { periodPresentation } from '../src/period-presentation.ts';
 import { practiceFallback } from './practice-fallback.ts';
+import { purposeFallback } from './purpose-fallback.ts';
+import { purposeNavigationNote, purposeOwnershipHandoff } from '../src/period-purpose-content.ts';
 // Build-time, fixed editorial content only. Never receives a private draft.
 const escape = (text: string) =>
   text
@@ -18,6 +20,7 @@ const h2 = (text: string) => `<h2>${escape(text)}</h2>`;
 export function periodFallback() {
   const lesson = periodValues[0].lesson;
   return `<div class="period-learning period-reading">
+    <nav aria-label="Available PERIOD reading"><a href="#reading-ownership">Start with Ownership</a> · <a href="#reading-purpose">Explore Purpose</a></nav>
     ${h2(intro.title)}${p(periodPresentation.introLead)}${p('The PERIOD Code by Jim Lunsford')}${p(intro.origin)}
     ${h2('Why PERIOD?')}${intro.meaning.map(p).join('')}${p(periodPresentation.connectedClarification)}
     ${h2(intro.comparison.heading)}${p(intro.comparison.situation)}
@@ -25,12 +28,14 @@ export function periodFallback() {
     <h3>The standard</h3>${p(intro.comparison.standard)}${p(intro.comparison.standardExplanation)}${p(intro.comparison.takeaway)}
     <details><summary>${escape(intro.comparison.disclosure)}</summary>${p(intro.comparison.adaptation)}</details>
     ${h2(intro.orderHeading)}${intro.order.map(p).join('')}<ol>${periodValues.map((v) => `<li>${escape(v.name)}</li>`).join('')}</ol>
-    ${p('This internal candidate includes Ownership. The other five lessons are not built yet.')}
-    ${h2('Ownership')}${p(periodValues[0].role)}${p(lesson.meaning)}<h3>Everyday example</h3>${p(lesson.example)}
+    ${p(purposeNavigationNote)}
+    <h2 id="reading-ownership">Ownership</h2>${p(periodValues[0].role)}${p(lesson.meaning)}<h3>Everyday example</h3>${p(lesson.example)}
     <h3>${escape(lesson.misconceptionHeading)}</h3>${p(lesson.misconception)}<h3>Put it into practice</h3>${p(lesson.application)}${p(lesson.reflection)}
     <h3>${escape(lesson.connectionHeading)}</h3>${p(lesson.connection)}
+    ${p(purposeOwnershipHandoff)}<a href="#reading-purpose">Continue to Purpose</a>
     ${h2('Put Ownership into an ordinary moment')}${p(periodPresentation.practiceInvitation)}${p('No written answer or Standard Card is required.')}
     ${practiceFallback()}
+    ${purposeFallback()}
     ${h2(exercise.title)}${p(exercise.lead)}${p(exercise.teaching)}${p(exercise.guardrail)}
     ${p('The card editor needs JavaScript. You can still use this pattern on paper: value, standard, next situation and action, and optional support or correction.')}
     ${h2('Example standard card')}${p('An illustration, not your personal commitment.')}${p('Status: Chosen, not yet demonstrated')}

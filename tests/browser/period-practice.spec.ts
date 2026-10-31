@@ -39,10 +39,14 @@ test('direct views have safe defaults, a complete teaching order, and no persona
       0,
     );
     await expect(page.locator('.practice .path li')).toHaveCount(6);
-    await expect(page.locator('.practice .path a')).toHaveCount(1);
-    await expect(page.locator('.practice .path a')).toHaveAttribute(
+    await expect(page.locator('.practice .path a')).toHaveCount(2);
+    await expect(page.locator('.practice .path a').first()).toHaveAttribute(
       'href',
       '#/period/values/ownership',
+    );
+    await expect(page.locator('.practice .path a').last()).toHaveAttribute(
+      'href',
+      '#/period/values/purpose',
     );
     await expect(page.locator('.practice .path-note')).toContainText(
       'Teaching order, not completion.',
@@ -251,14 +255,16 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
   await expect(page.locator('#period-valueId')).toHaveValue('ownership');
   await page.reload();
   await page.locator('#period-valueId').selectOption('purpose');
+  await page.locator('.site-header').getByRole('link', { name: 'Ownership', exact: true }).click();
   await page
-    .locator('.site-header')
+    .getByRole('main')
     .getByRole('link', { name: 'Practice Ownership', exact: true })
     .click();
   await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
   await expect(page.locator('#period-valueId')).toHaveValue('purpose');
+  await page.locator('.site-header').getByRole('link', { name: 'Ownership', exact: true }).click();
   await page
-    .locator('.site-header')
+    .getByRole('main')
     .getByRole('link', { name: 'Practice Ownership', exact: true })
     .click();
   await switchView(page, 'The connected Code');
@@ -269,8 +275,9 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
   await page.locator('.support summary').click();
   await page.locator('#period-returnPlan').fill(correction);
   await page.getByRole('button', { name: 'Make my standard card' }).click();
+  await page.locator('.site-header').getByRole('link', { name: 'Ownership', exact: true }).click();
   await page
-    .locator('.site-header')
+    .getByRole('main')
     .getByRole('link', { name: 'Practice Ownership', exact: true })
     .click();
   await page.getByRole('button', { name: 'Messaging was unavailable', exact: true }).click();
@@ -333,8 +340,9 @@ test('fictional exploration and private card produce no requests, logs, URLs or 
   page.on('pageerror', (e) => logs.push(e.message));
   await page.goto('/#/period/standard');
   await page.locator('#period-standard').fill(marker);
+  await page.locator('.site-header').getByRole('link', { name: 'Ownership', exact: true }).click();
   await page
-    .locator('.site-header')
+    .getByRole('main')
     .getByRole('link', { name: 'Practice Ownership', exact: true })
     .click();
   await page.getByRole('button', { name: 'Messaging was unavailable', exact: true }).click();

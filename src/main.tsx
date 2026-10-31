@@ -8,6 +8,8 @@ import { useRoute } from './use-route';
 import { PeriodIntro, PeriodOwnership, PeriodUnavailable, PeriodBook } from './PeriodLearning';
 import { PeriodStandard } from './PeriodStandard';
 import { PracticeOwnership } from './PracticeOwnership';
+import { PurposeLesson, PurposeEvening } from './Purpose';
+import { newPurposeSession } from './period-purpose-content';
 import { newPracticeSession, practiceViews } from './period-practice-content';
 import { newPeriodSession, enterPeriodExercise, hasPeriodDraft } from './period-standard-model';
 import { periodBook } from './period-content';
@@ -21,6 +23,7 @@ import { useLocalWork, type LocalWork } from './use-local-work';
 import './style.css';
 import './period.css';
 import './period-practice.css';
+import './period-purpose.css';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
 function ToolGrid() {
   return (
@@ -240,13 +243,20 @@ function App() {
   const work = useLocalWork();
   const [periodSession, setPeriodSession] = useState(newPeriodSession);
   const [practiceSession, setPracticeSession] = useState(newPracticeSession);
+  const [purposeSession, setPurposeSession] = useState(newPurposeSession);
+  const purposeView = path === '/period/values/purpose' || path === '/period/purpose/evening';
   const practiceView = practiceViews.find((view) => view.path === path);
   const openPracticeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'ownership'));
+  const openPurposeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'purpose'));
   const [bookExit, setBookExit] = useState(false);
   let content;
   if (path === '/') content = <PeriodIntro />;
   else if (path === '/period/values/ownership' || path === '/period/values')
     content = <PeriodOwnership />;
+  else if (path === '/period/values/purpose')
+    content = <PurposeLesson openCard={openPurposeCard} />;
+  else if (path === '/period/purpose/evening')
+    content = <PurposeEvening session={purposeSession} setSession={setPurposeSession} />;
   else if (path.startsWith('/period/values/')) content = <PeriodUnavailable />;
   else if (practiceView)
     content = (
@@ -310,12 +320,23 @@ function App() {
           </a>
           <a
             href="#/period/values/ownership"
-            aria-current={path.startsWith('/period/values') ? 'page' : undefined}
+            aria-current={
+              path === '/period/values/ownership' || path === '/period/values'
+                ? 'page'
+                : practiceView
+                  ? 'location'
+                  : undefined
+            }
           >
             Ownership
           </a>
-          <a href="#/period/practice" aria-current={practiceView ? 'page' : undefined}>
-            Practice Ownership
+          <a
+            href="#/period/values/purpose"
+            aria-current={
+              purposeView ? (path === '/period/values/purpose' ? 'page' : 'location') : undefined
+            }
+          >
+            Purpose
           </a>
           {!editorial && (
             <>
@@ -401,14 +422,14 @@ function App() {
             aria-current={path === '/period/standard' ? 'page' : undefined}
             onClick={(event) => {
               if (
-                practiceView &&
+                (practiceView || purposeView) &&
                 event.button === 0 &&
                 !event.metaKey &&
                 !event.ctrlKey &&
                 !event.shiftKey &&
                 !event.altKey
               )
-                openPracticeCard();
+                purposeView ? openPurposeCard() : openPracticeCard();
             }}
           >
             Optional Standard Card

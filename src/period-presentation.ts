@@ -3,7 +3,7 @@
 // Full teaching remains in period-content.ts. See docs/WORK-05-EDITORIAL-COMPANION.md.
 export const periodPresentation = {
   introLead:
-    'Only Empowerment helps you put The PERIOD Code’s six connected values to work in daily life, for free. Begin with Ownership, explore an ordinary situation, and see how the values work together.',
+    'Only Empowerment helps you put The PERIOD Code’s six connected values to work in daily life, for free. Begin with Ownership, then explore how Purpose gives responsibility direction. Read either lesson and return to the values as life changes.',
   connectedClarification:
     'The PERIOD Code is a connected standard for living. A specific behavior gives you one place to practice it. The six values continue to shape the rest of your life.',
   practiceInvitation:

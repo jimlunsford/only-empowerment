@@ -72,7 +72,11 @@ export function useRoute() {
       restoring.current = null;
     } else {
       heading?.focus({ preventScroll: true });
-      if (path === '/period/values' || path === '/period/values/ownership')
+      if (
+        path === '/period/values' ||
+        path === '/period/values/ownership' ||
+        path === '/period/values/purpose'
+      )
         heading?.scrollIntoView({ block: 'start' });
       else window.scrollTo(0, 0);
     }

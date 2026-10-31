@@ -36,7 +36,9 @@ test('teaching journey, available links, keyboard focus and example require no a
     page.getByRole('heading', { name: 'Ownership does not mean everything is your fault.' }),
   ).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Why Purpose comes next' })).toBeVisible();
-  await expect(page.locator('a[href="#/period/values/purpose"]')).toHaveCount(0);
+  await expect(
+    page.getByRole('main').getByRole('link', { name: 'Continue to Purpose', exact: true }),
+  ).toBeVisible();
   await axe(page);
   await page
     .getByRole('main')
