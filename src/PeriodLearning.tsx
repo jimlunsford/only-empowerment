@@ -6,6 +6,7 @@ import {
 } from './period-content';
 import { periodPresentation as presentation } from './period-presentation';
 import { PageIntro } from './components/shared';
+import { purposeNavigationNote, purposeOwnershipHandoff } from './period-purpose-content';
 export function PeriodAttribution() {
   return <p class="source-note">{periodExercise.source}</p>;
 }
@@ -13,27 +14,28 @@ export function PeriodSequence({
   active = false,
   focusOnly = false,
 }: {
-  active?: boolean;
+  active?: boolean | 'ownership' | 'purpose';
   focusOnly?: boolean;
 }) {
+  const focus = active === true ? 'ownership' : active;
   return (
     <nav class={`period-sequence ${active ? 'lesson-nav' : ''}`} aria-label="PERIOD teaching order">
       {active && <h2>The six-value path</h2>}
       <ol class="path" role="list">
         {periodValues.map((v, index) => (
-          <li key={v.id} class={active && v.id === 'ownership' ? 'selected' : undefined}>
+          <li key={v.id} class={focus === v.id ? 'selected' : undefined}>
             <span class="num" aria-hidden="true">
               {String(index + 1).padStart(2, '0')}
             </span>
             <div>
               <span class="path-name">
-                {v.id === 'ownership' ? (
+                {v.id === 'ownership' || v.id === 'purpose' ? (
                   <a
-                    href="#/period/values/ownership"
-                    aria-current={active && !focusOnly ? 'page' : undefined}
+                    href={`#/period/values/${v.id}`}
+                    aria-current={focus === v.id && !focusOnly ? 'page' : undefined}
                   >
                     {v.name}
-                    {focusOnly && <span class="sr-only"> (lesson focus)</span>}
+                    {focusOnly && focus === v.id && <span class="sr-only"> (lesson focus)</span>}
                   </a>
                 ) : (
                   <span>{v.name}</span>
@@ -44,11 +46,7 @@ export function PeriodSequence({
           </li>
         ))}
       </ol>
-      <p class="path-note">
-        {focusOnly
-          ? 'Teaching order, not completion. Ownership is the lesson focus. Only Ownership has a full lesson in this review.'
-          : 'Only Ownership is available as a lesson in this review. The full teaching order is shown.'}
-      </p>
+      <p class="path-note">{purposeNavigationNote}</p>
     </nav>
   );
 }
@@ -80,9 +78,9 @@ export function PeriodIntro() {
             <a class="button primary" href="#/period/values/ownership">
               Start with Ownership <span aria-hidden="true">→</span>
             </a>
-            <a href="#/period/practice">Practice Ownership</a>
+            <a href="#/period/values/purpose">Explore Purpose</a>
           </div>
-          <p class="small">You can explore everything here without answering questions.</p>
+          <p class="small">Read either lesson. No written answer or purchase is required.</p>
         </div>
       </section>
       <section class="value-standard">
@@ -204,7 +202,8 @@ export function PeriodOwnership() {
             </div>
             <h2>{lesson.connectionHeading}</h2>
             <p>{lesson.connection}</p>
-            <p class="small">The Purpose lesson is not included in this internal candidate.</p>
+            <p>{purposeOwnershipHandoff}</p>
+            <a href="#/period/values/purpose">Continue to Purpose</a>
           </section>
           <section class="lesson-practice">
             <h2>Put Ownership into an ordinary moment</h2>
@@ -228,8 +227,9 @@ export function PeriodUnavailable() {
     <div class="period-learning period-unavailable">
       <PageIntro title="Choose a value">
         <p>
-          Only Ownership is available as a lesson in this internal candidate. The full teaching
-          order is shown below.
+          Ownership and Purpose are available as lessons in this internal candidate. Resilience,
+          Integrity, Discipline and Empowerment are not available yet. The full teaching order is
+          shown below.
         </p>
       </PageIntro>
       <PeriodSequence />

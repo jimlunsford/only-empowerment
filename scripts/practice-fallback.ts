@@ -7,6 +7,7 @@ import {
   helpMessage,
   type Communication,
 } from '../src/period-practice-content.ts';
+import { purposeOwnershipHandoff } from '../src/period-purpose-content.ts';
 
 // Fixed, approved editorial content only. No runtime controls or private draft input.
 export function practiceFallback() {
@@ -64,6 +65,6 @@ export function practiceFallback() {
     ${p(c.evidenceReflection)}${heading(c.household.title)}${p(c.household.situation)}${heading(c.household.disclosure, 4)}${p(c.household.response)}${p(c.household.explanation)}${p(c.household.agreement)}${p(c.evidenceClose)}
     ${view(3)}${p(c.connectedOpening)}${p(c.connectedStandard)}
     <ol>${c.relationships.map((row) => `<li>${heading(row.value)}${p(row.contribution)}${p(row.connection)}</li>`).join('')}</ol>
-    ${p(c.connectedReturn)}${p(c.empowermentLimit)}${p(c.availability)}${heading(c.takeActionHeading)}${p(c.takeAction)}${heading('A reminder is optional')}${p(c.cardNote)}
+    ${p(c.connectedReturn)}${p(c.empowermentLimit)}${p(c.availability)}${heading(c.takeActionHeading)}${p(c.takeAction)}${p(purposeOwnershipHandoff)}<a href="#reading-purpose">Continue to Purpose</a>${heading('A reminder is optional')}${p(c.cardNote)}
   </section>`;
 }

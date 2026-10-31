@@ -1,0 +1,449 @@
+/* Bounded Work 08 Purpose compositions, using the existing Editorial Companion tokens. */
+.period-shell .purpose-lesson-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  column-gap: 80px;
+  padding: 40px 0 56px;
+}
+.period-shell .purpose-lesson-heading {
+  grid-column: 2;
+  grid-row: 1;
+}
+.period-shell .purpose-lesson-layout > .period-sequence {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  align-self: start;
+  border: 0;
+  padding: 0;
+}
+.period-shell .purpose-lesson-layout > .purpose-nav {
+  grid-column: 2;
+  grid-row: 2;
+}
+.period-shell .purpose-lesson {
+  grid-column: 2;
+  grid-row: 3;
+  min-width: 0;
+}
+.period-shell .purpose-lesson-heading .position {
+  color: var(--muted);
+  font-size: 1rem;
+}
+.period-shell .purpose-lesson-heading h1 {
+  font-size: 5.125rem;
+}
+.period-shell .purpose-lesson-heading .lead {
+  font:
+    1.75rem/1.4 'Source Serif',
+    Georgia,
+    serif;
+  margin-top: 26px;
+}
+.period-shell .purpose-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 26px;
+  margin: 26px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+.period-shell .purpose-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1.125rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.period-shell .purpose-nav a[aria-current] {
+  border-color: var(--ink);
+  font-weight: 600;
+}
+.period-shell .purpose-lesson > section {
+  margin: 0 0 40px;
+}
+.period-shell .purpose-lesson h2 {
+  font-size: 2.25rem;
+}
+.period-shell .purpose-invitation {
+  margin-top: 28px;
+}
+.period-shell .purpose-invitation .button {
+  display: inline-block;
+  text-decoration: none;
+}
+.period-shell .purpose-invitation .small {
+  margin-top: 14px;
+}
+.period-shell .purpose-connections {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+.period-shell .purpose-connections li {
+  display: grid;
+  grid-template-columns: 26px 175px minmax(0, 1fr);
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+}
+.period-shell .purpose-connections .num {
+  color: var(--accent);
+  font-size: 1rem;
+}
+.period-shell .purpose-connections h3 {
+  font:
+    1.5rem/1.25 'Source Serif',
+    Georgia,
+    serif;
+  margin: 0;
+}
+.period-shell .purpose-pressure {
+  border-top: 6px solid var(--accent);
+  padding-top: 28px;
+}
+.period-shell :is(.purpose-pressure, .purpose-reminder, .purpose-book, .purpose-close) > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 20px;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.period-shell .purpose-reminder > p {
+  color: var(--muted);
+  font-size: 1.125rem;
+}
+.period-shell .purpose-evening {
+  padding: 48px 0 56px;
+}
+.period-shell .purpose-evening-heading h1 {
+  font-size: 4.25rem;
+  line-height: 1.12;
+  max-width: 1000px;
+  margin-top: 24px;
+}
+.period-shell .purpose-evening-heading .lead {
+  font:
+    1.5625rem/1.45 'Source Serif',
+    Georgia,
+    serif;
+  margin-top: 24px;
+}
+.period-shell .purpose-evening-heading > p:last-child {
+  max-width: 840px;
+}
+.period-shell .purpose-evening-sequence {
+  display: none;
+}
+.period-shell .purpose-situation {
+  max-width: 1000px;
+  margin: 32px 0;
+}
+.period-shell .purpose-situation .small {
+  margin-top: 18px;
+}
+.period-shell .purpose-controls {
+  margin-top: 32px;
+}
+.period-shell .purpose-controls [role='group'] + [role='group'] {
+  margin-top: 24px;
+}
+.period-shell .purpose-controls [role='group'] > p {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.period-shell .purpose-controls .actions {
+  margin-top: 12px;
+  gap: 16px;
+}
+.period-shell .purpose-controls .button {
+  min-width: 210px;
+  justify-content: flex-start;
+  text-align: left;
+}
+.period-shell .purpose-capacity-description {
+  max-width: 900px;
+  margin-top: 18px;
+}
+.period-shell .purpose-reflection {
+  font:
+    italic 1.5625rem/1.45 'Source Serif',
+    Georgia,
+    serif;
+  color: var(--accent);
+  max-width: 1000px;
+  margin: 28px 0;
+}
+.period-shell .purpose-showing {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+.period-shell .purpose-plan-distinction {
+  max-width: 1000px;
+  margin: 16px 0 28px;
+}
+.period-shell .purpose-plan-layout {
+  display: grid;
+  grid-template-columns: 350px minmax(0, 1fr);
+  gap: 50px;
+}
+.period-shell .purpose-direction-panel {
+  background: var(--sage);
+  padding: 26px 28px;
+}
+.period-shell .purpose-direction-panel h2 {
+  font:
+    600 1.125rem/1.4 'Source Sans',
+    Arial,
+    sans-serif;
+  letter-spacing: normal;
+}
+.period-shell .purpose-direction-panel p {
+  font:
+    1.8125rem/1.4 'Source Serif',
+    Georgia,
+    serif;
+  margin-top: 20px;
+}
+.period-shell .purpose-direction-limit {
+  margin-top: 22px;
+}
+.period-shell .purpose-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+}
+.period-shell .purpose-timeline li {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding: 24px 0;
+}
+.period-shell .purpose-time {
+  color: var(--accent);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.period-shell .purpose-timeline h3 {
+  font-size: 1.4375rem;
+  margin: 0 0 10px;
+}
+.period-shell .purpose-consequences {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  margin-top: 30px;
+}
+.period-shell .purpose-consequences > section {
+  border-top: 2px solid var(--ink);
+  padding-top: 20px;
+}
+.period-shell .purpose-consequences h3 {
+  font-size: 1.4375rem;
+  margin: 0 0 20px;
+}
+.period-shell .purpose-comparison-cue {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 30px;
+}
+.period-shell .purpose-unchanged {
+  margin-top: 36px;
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
+}
+.period-shell :is(.purpose-unchanged, .purpose-close) > :is(h2, p) {
+  max-width: 1000px;
+}
+.period-shell .purpose-close {
+  margin-top: 36px;
+}
+.period-shell .purpose-reading {
+  margin-top: 26px;
+  padding: 0 20px;
+  border: 1px solid var(--ink);
+  background: var(--white);
+}
+.period-shell .purpose-reading > summary {
+  padding: 14px 0;
+}
+.period-shell .purpose-reading[open] {
+  padding-bottom: 28px;
+}
+.period-shell .purpose-reading h2 {
+  margin-top: 18px;
+}
+.period-shell .purpose-reading-example {
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+  padding-top: 26px;
+  max-width: 840px;
+}
+.period-shell .purpose-reading-example h3 {
+  font:
+    1.75rem/1.25 'Source Serif',
+    Georgia,
+    serif;
+  margin: 0;
+}
+.period-shell .purpose-reading-example h4 {
+  font:
+    600 1.25rem/1.4 'Source Sans',
+    Arial,
+    sans-serif;
+  margin: 24px 0 12px;
+}
+.period-shell .purpose-reading-example li {
+  margin: 20px 0;
+}
+.period-shell .purpose-reassurance {
+  margin-top: 20px;
+}
+.period-shell :is(.purpose-lesson-layout, .purpose-evening) {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 1000px) {
+  .period-shell .purpose-lesson-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    column-gap: 36px;
+  }
+  .period-shell .purpose-plan-layout {
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    gap: 30px;
+  }
+  .period-shell .purpose-timeline li {
+    display: block;
+  }
+  .period-shell .purpose-timeline .purpose-time {
+    margin-bottom: 14px;
+  }
+  .period-shell .purpose-connections li {
+    grid-template-columns: 26px minmax(0, 1fr);
+  }
+  .period-shell .purpose-connections li > p {
+    grid-column: 2;
+  }
+}
+@media (max-width: 700px) {
+  .period-shell .purpose-lesson-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 0;
+  }
+  .period-shell .purpose-lesson-heading h1 {
+    font-size: 3.375rem;
+  }
+  .period-shell .purpose-lesson-heading .lead {
+    font-size: 1.4375rem;
+    margin-top: 22px;
+  }
+  .period-shell .purpose-lesson-layout > .period-sequence {
+    margin-top: 32px;
+  }
+  .period-shell .purpose-lesson-layout > .period-sequence > h2 {
+    display: none;
+  }
+  .period-shell .purpose-lesson-layout .lesson-nav .path,
+  .period-shell .purpose-evening-sequence .lesson-nav .path {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  }
+  .period-shell .purpose-nav {
+    margin-top: 20px;
+    gap: 8px 24px;
+  }
+  .period-shell .purpose-nav a {
+    font-size: 1.0625rem;
+  }
+  .period-shell .purpose-lesson h2 {
+    font-size: 1.875rem;
+  }
+  .period-shell .purpose-lesson > section {
+    margin-bottom: 36px;
+  }
+  .period-shell .purpose-connections li {
+    gap: 14px 4px;
+  }
+  .period-shell .purpose-connections li > p {
+    grid-column: 1 / -1;
+  }
+  .period-shell .purpose-evening {
+    padding-top: 32px;
+  }
+  .period-shell .purpose-evening-heading h1 {
+    font-size: 2.875rem;
+  }
+  .period-shell .purpose-evening-heading .lead {
+    font-size: 1.375rem;
+  }
+  .period-shell .purpose-evening-sequence {
+    display: block;
+    margin: 28px 0;
+  }
+  .period-shell .purpose-evening-sequence .lesson-nav > h2 {
+    display: none;
+  }
+  .period-shell .purpose-controls .actions {
+    display: grid;
+    gap: 12px;
+  }
+  .period-shell .purpose-controls .button {
+    width: 100%;
+    min-width: 0;
+  }
+  .period-shell .purpose-reflection {
+    font-size: 1.375rem;
+  }
+  .period-shell .purpose-plan-layout,
+  .period-shell .purpose-consequences {
+    display: block;
+  }
+  .period-shell .purpose-direction-panel {
+    padding: 22px;
+  }
+  .period-shell .purpose-direction-panel p {
+    font-size: 1.625rem;
+  }
+  .period-shell .purpose-plan-layout > section {
+    margin-top: 30px;
+  }
+  .period-shell .purpose-timeline {
+    margin-top: 24px;
+  }
+  .period-shell .purpose-timeline li {
+    padding: 20px 0;
+  }
+  .period-shell .purpose-consequences > section {
+    margin-top: 30px;
+  }
+  .period-shell .purpose-reading {
+    padding-inline: 16px;
+  }
+  .period-shell .purpose-reading-example ol {
+    padding-left: 24px;
+  }
+}
+@media (forced-colors: active) {
+  .period-shell .purpose-controls button[aria-pressed='true'] {
+    border: 3px double ButtonText;
+  }
+  .period-shell .purpose-direction-panel {
+    border: 1px solid CanvasText;
+  }
+}
+@media print {
+  .period-shell .purpose-lesson-layout,
+  .period-shell .purpose-plan-layout,
+  .period-shell .purpose-consequences {
+    display: block;
+  }
+  .period-shell .purpose-lesson-layout > .period-sequence,
+  .period-shell .purpose-controls,
+  .period-shell .purpose-nav {
+    display: none;
+  }
+  .period-shell .purpose-consequences > section {
+    margin-top: 20px;
+  }
+}

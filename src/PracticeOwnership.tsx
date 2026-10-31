@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks';
 import type { Dispatch, StateUpdater } from 'preact/hooks';
 import { PeriodBook, PeriodSequence } from './PeriodLearning';
+import { purposeOwnershipHandoff } from './period-purpose-content';
 import {
   practiceViews,
   practiceCopy as copy,
@@ -237,10 +238,12 @@ export function PracticeOwnership({
               <section class="practice-take-action">
                 <h2>{copy.takeActionHeading}</h2>
                 <p>{copy.takeAction}</p>
+                <p>{purposeOwnershipHandoff}</p>
                 <div class="actions">
-                  <a class="button primary" href="#/period/values/ownership">
-                    Return to Ownership
+                  <a class="button primary" href="#/period/values/purpose">
+                    Continue to Purpose
                   </a>
+                  <a href="#/period/values/ownership">Return to Ownership</a>
                 </div>
               </section>
               <section class="practice-optional">
