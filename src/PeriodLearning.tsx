@@ -6,7 +6,8 @@ import {
 } from './period-content';
 import { periodPresentation as presentation } from './period-presentation';
 import { PageIntro } from './components/shared';
-import { purposeNavigationNote, purposeOwnershipHandoff } from './period-purpose-content';
+import { purposeOwnershipHandoff } from './period-purpose-content';
+import { resilienceContent } from './period-resilience-content';
 export function PeriodAttribution() {
   return <p class="source-note">{periodExercise.source}</p>;
 }
@@ -14,7 +15,7 @@ export function PeriodSequence({
   active = false,
   focusOnly = false,
 }: {
-  active?: boolean | 'ownership' | 'purpose';
+  active?: boolean | 'ownership' | 'purpose' | 'resilience';
   focusOnly?: boolean;
 }) {
   const focus = active === true ? 'ownership' : active;
@@ -29,7 +30,7 @@ export function PeriodSequence({
             </span>
             <div>
               <span class="path-name">
-                {v.id === 'ownership' || v.id === 'purpose' ? (
+                {v.id === 'ownership' || v.id === 'purpose' || v.id === 'resilience' ? (
                   <a
                     href={`#/period/values/${v.id}`}
                     aria-current={focus === v.id && !focusOnly ? 'page' : undefined}
@@ -46,7 +47,7 @@ export function PeriodSequence({
           </li>
         ))}
       </ol>
-      <p class="path-note">{purposeNavigationNote}</p>
+      <p class="path-note">{resilienceContent.availability}</p>
     </nav>
   );
 }
@@ -78,9 +79,19 @@ export function PeriodIntro() {
             <a class="button primary" href="#/period/values/ownership">
               Start with Ownership <span aria-hidden="true">→</span>
             </a>
-            <a href="#/period/values/purpose">Explore Purpose</a>
+            <a
+              href="#teaching-order"
+              onClick={(event) => {
+                event.preventDefault();
+                const section = document.getElementById('teaching-order');
+                section?.focus({ preventScroll: true });
+                section?.scrollIntoView({ block: 'start' });
+              }}
+            >
+              Explore the lessons
+            </a>
           </div>
-          <p class="small">Read either lesson. No written answer or purchase is required.</p>
+          <p class="small">Read any available lesson. No written answer or purchase is required.</p>
         </div>
       </section>
       <section class="value-standard">
@@ -112,7 +123,12 @@ export function PeriodIntro() {
           <p>{intro.comparison.adaptation}</p>
         </details>
       </section>
-      <section class="sequence-section">
+      <section
+        class="sequence-section"
+        id="teaching-order"
+        tabIndex={-1}
+        aria-label="Explore the lessons"
+      >
         <div>
           <h2>
             The name ends the negotiation.
@@ -227,7 +243,7 @@ export function PeriodUnavailable() {
     <div class="period-learning period-unavailable">
       <PageIntro title="Choose a value">
         <p>
-          Ownership and Purpose are available as lessons in this internal candidate. Resilience,
+          Ownership, Purpose and Resilience are available as lessons in this internal candidate.
           Integrity, Discipline and Empowerment are not available yet. The full teaching order is
           shown below.
         </p>

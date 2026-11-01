@@ -11,10 +11,10 @@ import {
   purposeConnected,
   purposeBridge,
   purposeCardNote,
-  purposeNavigationNote,
   purposeOwnershipHandoff,
   type PurposeExample,
 } from '../../src/period-purpose-content';
+import { resilienceContent } from '../../src/period-resilience-content';
 import { periodExercise } from '../../src/period-content';
 
 const lessonPath = '/#/period/values/purpose';
@@ -99,7 +99,7 @@ test('complete Purpose teaching, connected values and both editorial refinements
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
     page.locator(
-      'a[href*="/values/resilience"], a[href*="/values/integrity"], a[href*="/values/discipline"], a[href*="/values/empowerment"]',
+      'a[href*="/values/integrity"], a[href*="/values/discipline"], a[href*="/values/empowerment"]',
     ),
   ).toHaveCount(0);
   await expect(mainNav(page).getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
@@ -206,22 +206,31 @@ test('native text disclosure gives every example without selecting it and stays 
   await expect(details).not.toHaveAttribute('open', '');
 });
 
-test('two-value navigation preserves Ownership practice and honestly labels unfinished lessons', async ({
+test('three-value navigation preserves Ownership practice and honestly labels unfinished lessons', async ({
   page,
 }) => {
   await page.goto('/');
-  await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Ownership', 'Purpose']);
+  await expect(mainNav(page).getByRole('link')).toHaveText([
+    'Why PERIOD?',
+    'Ownership',
+    'Purpose',
+    'Resilience',
+  ]);
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
-  await page.getByRole('link', { name: 'Explore Purpose', exact: true }).click();
+  await page.getByRole('link', { name: 'Explore the lessons', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
+    .getByRole('link', { name: 'Purpose', exact: true })
+    .click();
   await expect(page.locator('h1')).toBeFocused();
   const path = page.getByRole('navigation', { name: 'PERIOD teaching order' });
   await expect(path.locator('li')).toHaveCount(6);
-  await expect(path.getByRole('link')).toHaveText(['Ownership', 'Purpose']);
+  await expect(path.getByRole('link')).toHaveText(['Ownership', 'Purpose', 'Resilience']);
   await expect(path.getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
     'aria-current',
     'page',
   );
-  await expect(path.locator('.path-note')).toHaveText(purposeNavigationNote);
+  await expect(path.locator('.path-note')).toHaveText(resilienceContent.availability);
   await page.getByRole('link', { name: 'Return to Ownership', exact: true }).click();
   await expect(page.getByText(purposeOwnershipHandoff, { exact: true })).toBeVisible();
   await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).click();
@@ -230,7 +239,7 @@ test('two-value navigation preserves Ownership practice and honestly labels unfi
   await expect(page.getByText(purposeOwnershipHandoff, { exact: true })).toBeVisible();
   await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).click();
   await expect(page.locator('h1')).toHaveText('Purpose.');
-  for (const value of ['resilience', 'integrity', 'discipline', 'empowerment']) {
+  for (const value of ['integrity', 'discipline', 'empowerment']) {
     await page.goto(`/#/period/values/${value}`);
     await expect(page.locator('h1')).toHaveText('Choose a value');
     await expect(page.getByRole('main')).toContainText('not available');
@@ -507,7 +516,7 @@ test('lesson and all four examples reflow at 320, 390, 768 and 1440 with applica
       await page.goto('/');
       await page.evaluate(() => document.fonts.ready);
       await page.screenshot({
-        path: info.outputPath(`two-value-introduction-${width}.png`),
+        path: info.outputPath(`three-value-introduction-${width}.png`),
         fullPage: true,
       });
     }

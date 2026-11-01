@@ -24,6 +24,8 @@ import './style.css';
 import './period.css';
 import './period-practice.css';
 import './period-purpose.css';
+import './period-resilience.css';
+import { ResilienceLesson, ResiliencePressure } from './Resilience';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
 function ToolGrid() {
   return (
@@ -245,9 +247,13 @@ function App() {
   const [practiceSession, setPracticeSession] = useState(newPracticeSession);
   const [purposeSession, setPurposeSession] = useState(newPurposeSession);
   const purposeView = path === '/period/values/purpose' || path === '/period/purpose/evening';
+  const resilienceView =
+    path === '/period/values/resilience' || path === '/period/resilience/pressure';
   const practiceView = practiceViews.find((view) => view.path === path);
   const openPracticeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'ownership'));
   const openPurposeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'purpose'));
+  const openResilienceCard = () =>
+    setPeriodSession((old) => enterPeriodExercise(old, 'resilience'));
   const [bookExit, setBookExit] = useState(false);
   let content;
   if (path === '/') content = <PeriodIntro />;
@@ -257,6 +263,9 @@ function App() {
     content = <PurposeLesson openCard={openPurposeCard} />;
   else if (path === '/period/purpose/evening')
     content = <PurposeEvening session={purposeSession} setSession={setPurposeSession} />;
+  else if (path === '/period/values/resilience')
+    content = <ResilienceLesson openCard={openResilienceCard} />;
+  else if (path === '/period/resilience/pressure') content = <ResiliencePressure />;
   else if (path.startsWith('/period/values/')) content = <PeriodUnavailable />;
   else if (practiceView)
     content = (
@@ -337,6 +346,18 @@ function App() {
             }
           >
             Purpose
+          </a>
+          <a
+            href="#/period/values/resilience"
+            aria-current={
+              resilienceView
+                ? path === '/period/values/resilience'
+                  ? 'page'
+                  : 'location'
+                : undefined
+            }
+          >
+            Resilience
           </a>
           {!editorial && (
             <>
@@ -422,14 +443,18 @@ function App() {
             aria-current={path === '/period/standard' ? 'page' : undefined}
             onClick={(event) => {
               if (
-                (practiceView || purposeView) &&
+                (practiceView || purposeView || resilienceView) &&
                 event.button === 0 &&
                 !event.metaKey &&
                 !event.ctrlKey &&
                 !event.shiftKey &&
                 !event.altKey
               )
-                purposeView ? openPurposeCard() : openPracticeCard();
+                resilienceView
+                  ? openResilienceCard()
+                  : purposeView
+                    ? openPurposeCard()
+                    : openPracticeCard();
             }}
           >
             Optional Standard Card

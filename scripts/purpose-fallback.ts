@@ -28,7 +28,7 @@ export function purposeFallback() {
     ${purposeLesson.map((part) => h(part.heading) + part.paragraphs.map(p).join('')).join('')}
     ${h('Purpose belongs to the whole Code')}${p(purposeConnected)}
     <ol>${purposeRelationships.map((item) => `<li>${h(item.value, 4)}${p(item.connection)}</li>`).join('')}</ol>
-    ${h('Direction will meet pressure')}${purposeBridge.map(p).join('')}
+    ${h('Direction will meet pressure')}${purposeBridge.map(p).join('')}<a href="/read/resilience.html">Continue to Resilience</a>
     ${h('A reminder is optional')}${p(purposeCardNote)}
     ${h(purposeBook.heading)}${p(purposeBook.description)}<a href="${periodBook.url}" rel="noreferrer">${escape(purposeBook.label)}</a>
   </section>

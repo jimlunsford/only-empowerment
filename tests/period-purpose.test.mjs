@@ -38,10 +38,7 @@ test('approved refinements separate the plan from purpose and respect survival s
   assert.match(seasons.paragraphs.at(-1), /before every detail is clear/);
   assert.match(purposeConnected, /connected standard for living/);
   assert.equal(purposeRelationships.length, 6);
-  assert.equal(
-    purposeBridge.at(-1),
-    'Resilience is next in the teaching order. Its lesson is not available yet.',
-  );
+  assert.equal(purposeBridge.at(-1), 'Resilience is next in the teaching order.');
 });
 
 test('four possible evenings preserve 120 minutes, tomorrow preparation and the 9 p.m. stop', () => {

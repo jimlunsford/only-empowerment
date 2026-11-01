@@ -7,7 +7,8 @@ import {
 import { periodPresentation } from '../src/period-presentation.ts';
 import { practiceFallback } from './practice-fallback.ts';
 import { purposeFallback } from './purpose-fallback.ts';
-import { purposeNavigationNote, purposeOwnershipHandoff } from '../src/period-purpose-content.ts';
+import { purposeOwnershipHandoff } from '../src/period-purpose-content.ts';
+import { resilienceContent } from '../src/period-resilience-content.ts';
 // Build-time, fixed editorial content only. Never receives a private draft.
 const escape = (text: string) =>
   text
@@ -28,7 +29,7 @@ export function periodFallback() {
     <h3>The standard</h3>${p(intro.comparison.standard)}${p(intro.comparison.standardExplanation)}${p(intro.comparison.takeaway)}
     <details><summary>${escape(intro.comparison.disclosure)}</summary>${p(intro.comparison.adaptation)}</details>
     ${h2(intro.orderHeading)}${intro.order.map(p).join('')}<ol>${periodValues.map((v) => `<li>${escape(v.name)}</li>`).join('')}</ol>
-    ${p(purposeNavigationNote)}
+    ${p(resilienceContent.availability)}
     <h2 id="reading-ownership">Ownership</h2>${p(periodValues[0].role)}${p(lesson.meaning)}<h3>Everyday example</h3>${p(lesson.example)}
     <h3>${escape(lesson.misconceptionHeading)}</h3>${p(lesson.misconception)}<h3>Put it into practice</h3>${p(lesson.application)}${p(lesson.reflection)}
     <h3>${escape(lesson.connectionHeading)}</h3>${p(lesson.connection)}

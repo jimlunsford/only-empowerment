@@ -1,0 +1,426 @@
+/* Work 10: one editorial lesson and one changing case, within the existing system. */
+.period-shell .resilience-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 0 80px;
+  padding: 40px 0 56px;
+  overflow-wrap: anywhere;
+}
+.period-shell .resilience-heading {
+  grid-column: 1 / -1;
+  margin-bottom: 48px;
+}
+.period-shell .resilience-heading .position {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.period-shell .resilience-heading h1 {
+  font-size: 5.125rem;
+}
+.period-shell .resilience-pressure-layout h1 {
+  font-size: 4.25rem;
+  max-width: 1080px;
+}
+.period-shell .resilience-heading .lead {
+  font:
+    1.75rem/1.4 'Source Serif',
+    Georgia,
+    serif;
+  margin-top: 24px;
+}
+.period-shell .resilience-heading > p:last-child {
+  max-width: 840px;
+}
+.period-shell .resilience-layout > .period-sequence {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  align-self: start;
+  border: 0;
+  padding: 0;
+}
+.period-shell .resilience-layout > .period-sequence h2,
+.period-shell .resilience-layout > .period-sequence .path li p {
+  display: none;
+}
+.period-shell .resilience-layout .path-name {
+  font:
+    1.25rem/1.4 'Source Sans',
+    Arial,
+    sans-serif;
+}
+.period-shell .resilience-navigation {
+  grid-column: 2;
+  grid-row: 2;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.period-shell .resilience-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 32px;
+  border-bottom: 1px solid var(--line);
+}
+.period-shell .resilience-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
+  text-decoration: none;
+  font-size: 1.125rem;
+  border-bottom: 2px solid transparent;
+}
+.period-shell .resilience-nav a[aria-current] {
+  border-color: var(--ink);
+  font-weight: 600;
+}
+.period-shell .resilience-text-link {
+  display: inline-block;
+  min-height: 44px;
+  padding: 10px 0;
+  font-size: 1rem;
+}
+.period-shell :is(.resilience-lesson, .resilience-pressure) {
+  grid-column: 2;
+  grid-row: 3;
+  min-width: 0;
+}
+.period-shell .resilience-lesson > section {
+  margin-bottom: 48px;
+}
+.period-shell .resilience-lesson h2 {
+  font-size: 2.25rem;
+}
+.period-shell .resilience-lesson > section > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 20px;
+  font-size: 1.125rem;
+}
+.period-shell .resilience-invitation {
+  margin-top: 28px;
+}
+.period-shell .resilience-invitation .button {
+  display: inline-flex;
+  text-decoration: none;
+}
+.period-shell .resilience-invitation .small {
+  margin-top: 14px;
+}
+.period-shell .resilience-connections {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+.period-shell .resilience-connections li {
+  display: grid;
+  grid-template-columns: 175px minmax(0, 1fr);
+  gap: 24px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+.period-shell .resilience-connections h3 {
+  font:
+    1.5rem/1.3 'Source Serif',
+    Georgia,
+    serif;
+}
+.period-shell #resilience-L10 {
+  border-top: 3px solid var(--accent);
+  padding-top: 32px;
+}
+.period-shell #resilience-L11 {
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+.period-shell .resilience-setup {
+  margin-bottom: 36px;
+}
+.period-shell .resilience-anchors {
+  background: var(--sage);
+  margin-top: 28px;
+  padding: 24px 28px;
+}
+.period-shell .resilience-anchors > div + div {
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+  margin-top: 22px;
+}
+.period-shell .resilience-anchors h3 {
+  font-size: 1.125rem;
+}
+.period-shell .resilience-anchors p {
+  font:
+    1.5625rem/1.4 'Source Serif',
+    Georgia,
+    serif;
+  margin-top: 12px;
+}
+.period-shell .resilience-control {
+  margin-bottom: 36px;
+}
+.period-shell .resilience-control label {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.period-shell .resilience-control select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 56px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--white);
+  font-size: 1.25rem;
+}
+.period-shell .resilience-control .small {
+  margin-top: 12px;
+}
+.period-shell .resilience-current > h2 {
+  margin-bottom: 26px;
+}
+.period-shell .resilience-reflection {
+  font:
+    1.5rem/1.45 'Source Serif',
+    Georgia,
+    serif;
+  border-top: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  padding: 24px 0 0 24px;
+  margin: 36px 0 !important;
+}
+.period-shell .resilience-methods {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  margin: 30px 0;
+}
+.period-shell .resilience-methods > section {
+  padding: 24px 0;
+}
+.period-shell .resilience-methods > .resilience-revision {
+  background: var(--sage);
+  padding: 24px 26px;
+}
+.period-shell .resilience-method-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.period-shell .resilience-methods h3 {
+  font:
+    1.75rem/1.25 'Source Serif',
+    Georgia,
+    serif;
+  margin-bottom: 18px;
+}
+.period-shell .resilience-consequences > section {
+  margin-top: 30px;
+}
+.period-shell .resilience-consequences h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+.period-shell .resilience-responses {
+  margin-top: 36px;
+}
+.period-shell .resilience-responses > :is(details, section) {
+  border-top: 1px solid var(--border);
+  padding: 10px 0 20px;
+}
+.period-shell .resilience-responses > :last-child {
+  border-bottom: 1px solid var(--border);
+}
+.period-shell .resilience-responses h3 {
+  margin-top: 16px;
+}
+.period-shell .resilience-return {
+  background: var(--sage);
+  margin-top: 32px;
+  padding: 28px;
+}
+.period-shell .resilience-return h3 {
+  font:
+    1.75rem/1.3 'Source Serif',
+    Georgia,
+    serif;
+  margin-bottom: 18px;
+}
+.period-shell .resilience-return details {
+  margin-top: 16px;
+}
+.period-shell .resilience-return h4 {
+  font-size: 1.125rem;
+  margin: 24px 0 12px;
+}
+.period-shell .resilience-shared {
+  margin: 36px 0;
+}
+.period-shell .resilience-reading {
+  margin: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.period-shell .resilience-reading > summary {
+  padding: 18px 0;
+}
+.period-shell .resilience-reading[open] {
+  padding-bottom: 28px;
+}
+.period-shell .resilience-all-notes > h2 {
+  margin-top: 28px;
+}
+.period-shell .resilience-reading-note {
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+  margin-top: 40px;
+}
+.period-shell .resilience-reading-note > h2 {
+  margin-bottom: 22px;
+}
+.period-shell .resilience-responses section > p {
+  margin-top: 14px;
+}
+.period-shell .resilience-close {
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+  margin-top: 36px;
+}
+.period-shell .resilience-close a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 20px 0;
+}
+.period-shell .resilience-static {
+  overflow-wrap: anywhere;
+  max-width: 888px;
+  padding: 32px 24px 56px;
+}
+.period-shell .resilience-static .resilience-heading {
+  margin-top: 30px;
+}
+.period-shell .resilience-static nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.period-shell .resilience-static nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.period-shell .resilience-static .source-note {
+  margin-top: 32px;
+}
+@media (max-width: 1000px) {
+  .period-shell .resilience-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    column-gap: 36px;
+  }
+  .period-shell .resilience-methods {
+    gap: 20px;
+  }
+  .period-shell .resilience-connections li {
+    display: block;
+  }
+  .period-shell .resilience-connections p {
+    margin-top: 12px;
+  }
+}
+@media (max-width: 700px) {
+  .period-shell .site-header nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .period-shell .site-header nav a {
+    justify-self: start;
+  }
+  .period-shell .resilience-layout {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+  }
+  .period-shell .resilience-heading {
+    margin-bottom: 30px;
+  }
+  .period-shell .resilience-heading h1 {
+    font-size: 3.375rem;
+  }
+  .period-shell .resilience-pressure-layout h1 {
+    font-size: 2.875rem;
+  }
+  .period-shell .resilience-heading .lead {
+    font-size: 1.4375rem;
+  }
+  .period-shell .resilience-navigation {
+    margin-top: 24px;
+  }
+  .period-shell .resilience-nav {
+    gap: 8px 20px;
+  }
+  .period-shell .resilience-nav a {
+    font-size: 1.0625rem;
+  }
+  .period-shell .resilience-layout .lesson-nav .path {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  }
+  .period-shell .resilience-lesson > section {
+    margin-bottom: 36px;
+  }
+  .period-shell .resilience-lesson h2 {
+    font-size: 1.875rem;
+  }
+  .period-shell .resilience-methods {
+    display: block;
+  }
+  .period-shell .resilience-methods > section {
+    margin: 24px 0;
+    padding: 0;
+  }
+  .period-shell .resilience-methods > .resilience-revision {
+    padding: 24px;
+  }
+  .period-shell .resilience-anchors {
+    padding: 24px;
+  }
+  .period-shell .resilience-reflection {
+    font-size: 1.375rem;
+    padding-left: 20px;
+  }
+  .period-shell .resilience-return {
+    padding: 24px;
+  }
+  .period-shell .resilience-control select {
+    font-size: 1.125rem;
+  }
+  .period-shell .resilience-static {
+    padding: 28px 20px 40px;
+  }
+}
+@media (forced-colors: active) {
+  .period-shell :is(.resilience-revision, .resilience-anchors, .resilience-return) {
+    border: 1px solid CanvasText;
+  }
+}
+@media print {
+  .period-shell .resilience-layout,
+  .period-shell .resilience-methods {
+    display: block;
+  }
+  .period-shell :is(.resilience-navigation, .resilience-control) {
+    display: none;
+  }
+  .period-shell .resilience-static {
+    max-width: none;
+    padding: 0;
+  }
+  .period-shell .resilience-heading h1 {
+    font-size: 28pt;
+  }
+}
