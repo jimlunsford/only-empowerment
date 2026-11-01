@@ -337,9 +337,31 @@
   .period-shell .site-header nav {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 4px;
   }
   .period-shell .site-header nav a {
     justify-self: start;
+    padding-block: 8px;
+  }
+  /* Keep the existing first card field within the mobile opening viewport. */
+  .period-shell .period-standard.editor {
+    padding-top: 12px;
+  }
+  .period-shell .period-standard .editor-heading {
+    margin-bottom: 12px;
+  }
+  .period-shell .period-standard .editor-heading .lead {
+    margin-top: 8px;
+  }
+  .period-shell .period-standard .mobile-privacy {
+    padding-block: 8px;
+    margin-bottom: 8px;
+  }
+  .period-shell .period-standard .period-form {
+    padding-top: 12px;
+  }
+  .period-shell .period-standard .period-form > .work-field:first-child .field-hint {
+    margin: 4px 0 8px;
   }
   .period-shell .resilience-layout {
     display: flex;

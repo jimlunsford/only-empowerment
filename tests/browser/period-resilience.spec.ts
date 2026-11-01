@@ -266,6 +266,9 @@ test('Resilience entry preselects only a genuinely blank Standard Card through b
     await page.getByRole('link', { name: entry, exact: true }).click();
     await expect(page.locator('#period-valueId')).toHaveValue('resilience');
     await expect(page.locator('#period-standard')).toHaveValue('');
+    await expect(
+      page.getByRole('link', { name: 'Read about Resilience', exact: true }),
+    ).toHaveAttribute('href', '#/period/values/resilience');
   }
   await page.locator('#period-valueId').selectOption('integrity');
   await mainNav(page).getByRole('link', { name: 'Resilience', exact: true }).click();
@@ -457,7 +460,10 @@ test('direct static reading and the root fallback work with JavaScript disabled,
       );
     const page = await context.newPage();
     await page.goto(baseURL! + pressurePath);
-    const link = page.locator('#educational-fallback a[href="/read/resilience.html"]');
+    const link = page.locator('#educational-fallback').getByRole('link', {
+      name: 'Read Resilience and all five pressure notes without JavaScript',
+      exact: true,
+    });
     await expect(link).toBeVisible();
     await link.click();
     await expect(page).toHaveURL(baseURL! + '/read/resilience.html');
