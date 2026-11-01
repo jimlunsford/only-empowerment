@@ -467,11 +467,14 @@ test('direct static reading and the root fallback work with JavaScript disabled,
     await expect(link).toBeVisible();
     await link.click();
     await expect(page).toHaveURL(baseURL! + '/read/resilience.html');
-    // Make a fresh document request; a same-document hash jump has no HTTP response.
+    // Check an unconditional HTTP request separately from the browser's cache revalidation.
+    const response = await context.request.get(baseURL! + '/read/resilience.html');
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('text/html');
+    // A same-document hash jump has no HTTP response; Firefox may revalidate a cached page.
     await page.goto('about:blank');
-    const response = await page.goto(baseURL! + '/read/resilience.html#pressure-notes');
-    expect(response!.status()).toBe(200);
-    expect(response!.headers()['content-type']).toContain('text/html');
+    const navigation = await page.goto(baseURL! + '/read/resilience.html#pressure-notes');
+    expect([200, 304]).toContain(navigation?.status());
     await expect(page.locator('script, input, textarea, select, button, details')).toHaveCount(0);
     const lesson = page.getByRole('article', { name: 'Resilience lesson', exact: true });
     for (const section of content.lesson) {
@@ -497,7 +500,7 @@ test('direct static reading and the root fallback work with JavaScript disabled,
     }
     if (mode === 'disabled') {
       // Axe needs JavaScript, so use the identical static document in a separate context below.
-      expect((await response!.text()).includes('<script')).toBe(false);
+      expect((await response.text()).includes('<script')).toBe(false);
     }
     await context.close();
   }
