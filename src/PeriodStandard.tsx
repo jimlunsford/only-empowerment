@@ -261,8 +261,8 @@ export function PeriodStandard({
                 {selected && (
                   <p>
                     {selected.role}{' '}
-                    {selected.id === 'ownership' ? (
-                      <a href="#/period/values/ownership">Read about Ownership</a>
+                    {['ownership', 'purpose', 'resilience'].includes(selected.id) ? (
+                      <a href={`#/period/values/${selected.id}`}>Read about {selected.name}</a>
                     ) : (
                       <span class="small">
                         The {selected.name} lesson is not included in this candidate.

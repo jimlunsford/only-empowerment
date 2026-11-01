@@ -109,7 +109,7 @@ export const purposeConnected =
 export const purposeBridge = [
   'A direction does not remove pressure. A shift changes, energy drops, progress slows or a plan stops working. Purpose tells you why the work matters. The next question is how to protect that direction when the original method no longer fits.',
   'That is where Resilience enters the Code: adapting, returning and continuing without surrendering the standard. Purpose gives the reason to move. Resilience helps keep that reason active when it is tested.',
-  'Resilience is next in the teaching order. Its lesson is not available yet.',
+  'Resilience is next in the teaching order.',
 ] as const;
 
 export const purposeCardNote =
@@ -295,9 +295,6 @@ export const purposeExamples = {
     capacity: 'lower',
   },
 } as const;
-
-export const purposeNavigationNote =
-  'Teaching order, not completion. Ownership and Purpose have lessons. The remaining values are shown for orientation.' as const;
 
 export const purposeOwnershipHandoff =
   'Ownership began with the response available now. Purpose asks what that responsibility is building toward. Explore a direction that can guide ordinary choices.' as const;

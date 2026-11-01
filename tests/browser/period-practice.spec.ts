@@ -39,14 +39,18 @@ test('direct views have safe defaults, a complete teaching order, and no persona
       0,
     );
     await expect(page.locator('.practice .path li')).toHaveCount(6);
-    await expect(page.locator('.practice .path a')).toHaveCount(2);
+    await expect(page.locator('.practice .path a')).toHaveCount(3);
     await expect(page.locator('.practice .path a').first()).toHaveAttribute(
       'href',
       '#/period/values/ownership',
     );
-    await expect(page.locator('.practice .path a').last()).toHaveAttribute(
+    await expect(page.locator('.practice .path a').nth(1)).toHaveAttribute(
       'href',
       '#/period/values/purpose',
+    );
+    await expect(page.locator('.practice .path a').last()).toHaveAttribute(
+      'href',
+      '#/period/values/resilience',
     );
     await expect(page.locator('.practice .path-note')).toContainText(
       'Teaching order, not completion.',
@@ -422,8 +426,16 @@ test('all views and representative alternatives reflow at four widths with revie
         .all()) {
         const box = await target.boundingBox();
         if (box) {
-          expect(box.width, `${view.id} target width at ${width}`).toBeGreaterThanOrEqual(44);
-          expect(box.height, `${view.id} target height at ${width}`).toBeGreaterThanOrEqual(44);
+          // Firefox may report an exact 44 CSS-pixel edge as 43.999969482421875.
+          const roundingTolerance = 0.001;
+          expect(
+            box.width + roundingTolerance,
+            `${view.id} target width at ${width}`,
+          ).toBeGreaterThanOrEqual(44);
+          expect(
+            box.height + roundingTolerance,
+            `${view.id} target height at ${width}`,
+          ).toBeGreaterThanOrEqual(44);
         }
       }
       if (info.project.name === 'chromium' && [390, 1440].includes(width))

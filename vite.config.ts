@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
+import { resilienceReading } from './scripts/resilience-reading.ts';
 import { periodFallback } from './scripts/period-fallback.ts';
 import { buildInfo } from './scripts/build-info.mjs';
 import { releaseState } from './scripts/release-state.mjs';
@@ -14,6 +15,10 @@ const metadata = {
     : buildInfo(process.env.OE_RELEASE_BUILD === '1')),
   presentation,
 };
+const resilienceStyles = () =>
+  ['src/style.css', 'src/period.css', 'src/period-resilience.css']
+    .map((path) => readFileSync(path, 'utf8'))
+    .join('\n');
 export default defineConfig({
   define: { __BUILD__: JSON.stringify(metadata), __STAGING__: JSON.stringify(staging) },
   plugins: [
@@ -31,7 +36,28 @@ export default defineConfig({
             staging ? '<p>Development staging. Not a production release.</p>' : '',
           );
       },
+      configureServer(server) {
+        server.middlewares.use((request, response, next) => {
+          const path = request.url?.split('?')[0];
+          if (path !== '/read/resilience.html' && path !== '/read/resilience.css') return next();
+          response.setHeader(
+            'Content-Type',
+            path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
+          );
+          response.end(path.endsWith('.html') ? resilienceReading(staging) : resilienceStyles());
+        });
+      },
       generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'read/resilience.html',
+          source: resilienceReading(staging),
+        });
+        this.emitFile({
+          type: 'asset',
+          fileName: 'read/resilience.css',
+          source: resilienceStyles(),
+        });
         this.emitFile({
           type: 'asset',
           fileName: 'robots.txt',

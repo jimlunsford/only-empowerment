@@ -87,6 +87,7 @@ export function PurposeLesson({ openCard }: { openCard: () => void }) {
           <p class="small">
             <strong>{purposeBridge[2]}</strong>
           </p>
+          <a href="#/period/values/resilience">Continue to Resilience</a>
           <a href="#/period/values/ownership">Return to Ownership</a>
         </section>
         <section class="purpose-reminder">
