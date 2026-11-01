@@ -467,6 +467,8 @@ test('direct static reading and the root fallback work with JavaScript disabled,
     await expect(link).toBeVisible();
     await link.click();
     await expect(page).toHaveURL(baseURL! + '/read/resilience.html');
+    // Make a fresh document request; a same-document hash jump has no HTTP response.
+    await page.goto('about:blank');
     const response = await page.goto(baseURL! + '/read/resilience.html#pressure-notes');
     expect(response!.status()).toBe(200);
     expect(response!.headers()['content-type']).toContain('text/html');
