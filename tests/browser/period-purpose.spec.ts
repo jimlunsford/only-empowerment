@@ -1,3 +1,4 @@
+import { integrityContent } from '../../src/period-integrity-content';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFile } from 'node:fs/promises';
@@ -14,7 +15,6 @@ import {
   purposeOwnershipHandoff,
   type PurposeExample,
 } from '../../src/period-purpose-content';
-import { resilienceContent } from '../../src/period-resilience-content';
 import { periodExercise } from '../../src/period-content';
 
 const lessonPath = '/#/period/values/purpose';
@@ -98,9 +98,7 @@ test('complete Purpose teaching, connected values and both editorial refinements
   );
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
-    page.locator(
-      'a[href*="/values/integrity"], a[href*="/values/discipline"], a[href*="/values/empowerment"]',
-    ),
+    page.locator('a[href*="/values/discipline"], a[href*="/values/empowerment"]'),
   ).toHaveCount(0);
   await expect(mainNav(page).getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
     'aria-current',
@@ -215,6 +213,7 @@ test('three-value navigation preserves Ownership practice and honestly labels un
     'Ownership',
     'Purpose',
     'Resilience',
+    'Integrity',
   ]);
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   await page.getByRole('link', { name: 'Explore the lessons', exact: true }).click();
@@ -225,12 +224,17 @@ test('three-value navigation preserves Ownership practice and honestly labels un
   await expect(page.locator('h1')).toBeFocused();
   const path = page.getByRole('navigation', { name: 'PERIOD teaching order' });
   await expect(path.locator('li')).toHaveCount(6);
-  await expect(path.getByRole('link')).toHaveText(['Ownership', 'Purpose', 'Resilience']);
+  await expect(path.getByRole('link')).toHaveText([
+    'Ownership',
+    'Purpose',
+    'Resilience',
+    'Integrity',
+  ]);
   await expect(path.getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
     'aria-current',
     'page',
   );
-  await expect(path.locator('.path-note')).toHaveText(resilienceContent.availability);
+  await expect(path.locator('.path-note')).toHaveText(integrityContent.navigation.availability);
   await page.getByRole('link', { name: 'Return to Ownership', exact: true }).click();
   await expect(page.getByText(purposeOwnershipHandoff, { exact: true })).toBeVisible();
   await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).click();
@@ -239,7 +243,7 @@ test('three-value navigation preserves Ownership practice and honestly labels un
   await expect(page.getByText(purposeOwnershipHandoff, { exact: true })).toBeVisible();
   await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).click();
   await expect(page.locator('h1')).toHaveText('Purpose.');
-  for (const value of ['integrity', 'discipline', 'empowerment']) {
+  for (const value of ['discipline', 'empowerment']) {
     await page.goto(`/#/period/values/${value}`);
     await expect(page.locator('h1')).toHaveText('Choose a value');
     await expect(page.getByRole('main')).toContainText('not available');

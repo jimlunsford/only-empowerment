@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
+import { integrityReading } from './scripts/integrity-reading.ts';
 import { resilienceReading } from './scripts/resilience-reading.ts';
 import { periodFallback } from './scripts/period-fallback.ts';
 import { buildInfo } from './scripts/build-info.mjs';
@@ -17,6 +18,10 @@ const metadata = {
 };
 const resilienceStyles = () =>
   ['src/style.css', 'src/period.css', 'src/period-resilience.css']
+    .map((path) => readFileSync(path, 'utf8'))
+    .join('\n');
+const integrityStyles = () =>
+  ['src/style.css', 'src/period.css', 'src/period-integrity.css']
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 export default defineConfig({
@@ -39,6 +44,14 @@ export default defineConfig({
       configureServer(server) {
         server.middlewares.use((request, response, next) => {
           const path = request.url?.split('?')[0];
+          if (path === '/read/integrity.html' || path === '/read/integrity.css') {
+            response.setHeader(
+              'Content-Type',
+              path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
+            );
+            response.end(path.endsWith('.html') ? integrityReading(staging) : integrityStyles());
+            return;
+          }
           if (path !== '/read/resilience.html' && path !== '/read/resilience.css') return next();
           response.setHeader(
             'Content-Type',
@@ -48,6 +61,12 @@ export default defineConfig({
         });
       },
       generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'read/integrity.html',
+          source: integrityReading(staging),
+        });
+        this.emitFile({ type: 'asset', fileName: 'read/integrity.css', source: integrityStyles() });
         this.emitFile({
           type: 'asset',
           fileName: 'read/resilience.html',
