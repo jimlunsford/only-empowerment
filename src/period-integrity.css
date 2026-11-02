@@ -270,7 +270,7 @@
 @media (max-width: 700px) {
   /* The extra navigation row must not push the existing card's first field out of view. */
   .period-shell .site-header {
-    padding-block: 10px;
+    padding-block: 6px;
   }
   .period-shell .site-header nav {
     margin-top: 4px;
