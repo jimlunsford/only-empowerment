@@ -1,3 +1,4 @@
+import { integrityContent } from '../../src/period-integrity-content';
 import { test, expect, type Page, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFile } from 'node:fs/promises';
@@ -72,12 +73,12 @@ test('twelve complete sections, six connected values and an honest Integrity tra
   await expect(lesson.locator('.resilience-connections h3')).toHaveText(
     content.values.map(([name]) => name),
   );
-  await expect(lesson.getByText(content.lesson[9].availability, { exact: true })).toBeVisible();
+  await expect(
+    lesson.getByText(integrityContent.navigation.resilience_bridge, { exact: true }),
+  ).toBeVisible();
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
-    page.locator(
-      'a[href*="/values/integrity"], a[href*="/values/discipline"], a[href*="/values/empowerment"]',
-    ),
+    page.locator('a[href*="/values/discipline"], a[href*="/values/empowerment"]'),
   ).toHaveCount(0);
   await expect(
     mainNav(page).getByRole('link', { name: 'Resilience', exact: true }),
@@ -228,11 +229,13 @@ test('keyboard selection, local routes, Back and Forward preserve reading positi
   await expect(page.getByRole('status')).toHaveText('');
 });
 
-test('homepage stays oriented to Ownership and the same-page three-lesson path reaches Resilience from Purpose', async ({
+test('homepage stays oriented to Ownership and the same-page four-lesson path reaches Resilience from Purpose', async ({
   page,
 }) => {
   await page.goto('/');
-  await expect(page.getByText(content.homeLead, { exact: true })).toBeVisible();
+  await expect(
+    page.getByText(integrityContent.navigation.home_lead, { exact: true }),
+  ).toBeVisible();
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   const before = page.url();
   await page.getByRole('link', { name: 'Explore the lessons', exact: true }).press('Enter');
@@ -240,12 +243,12 @@ test('homepage stays oriented to Ownership and the same-page three-lesson path r
   await expect(page.locator('#teaching-order')).toBeFocused();
   await expect(
     page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
-  ).toHaveText(['Ownership', 'Purpose', 'Resilience']);
+  ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity']);
   await mainNav(page).getByRole('link', { name: 'Purpose', exact: true }).click();
   await page.getByRole('link', { name: 'Continue to Resilience', exact: true }).press('Enter');
   await expect(page.locator('h1')).toBeFocused();
   await expect(page.locator('h1')).toHaveText(content.title);
-  await expect(page.locator('.path-note')).toHaveText(content.availability);
+  await expect(page.locator('.path-note')).toHaveText(integrityContent.navigation.availability);
   await page
     .getByRole('navigation', { name: 'Resilience learning' })
     .getByRole('link', { name: 'Explore a plan under pressure', exact: true })

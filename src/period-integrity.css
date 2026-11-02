@@ -1,0 +1,361 @@
+/* Work 13: the approved Integrity lesson and fixed fictional record. */
+.period-shell .integrity-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 0 80px;
+  padding: 40px 0 56px;
+  overflow-wrap: anywhere;
+}
+.period-shell .integrity-heading {
+  grid-column: 1 / -1;
+  margin-bottom: 32px;
+}
+.period-shell .integrity-heading .position {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.period-shell .integrity-heading h1 {
+  font-size: 4.75rem;
+}
+.period-shell .integrity-record-layout h1 {
+  font-size: 3.75rem;
+  line-height: 1.1;
+}
+.period-shell .integrity-heading .lead {
+  font:
+    1.75rem/1.4 'Source Serif',
+    Georgia,
+    serif;
+  margin-top: 24px;
+}
+.period-shell .integrity-heading > p:last-child {
+  max-width: 840px;
+}
+.period-shell .integrity-layout > .period-sequence {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  align-self: start;
+  border: 0;
+  padding: 0;
+}
+.period-shell .integrity-layout > .period-sequence h2 {
+  display: block;
+  font-size: 1.75rem;
+  margin: 0 0 22px;
+}
+.period-shell .integrity-layout > .period-sequence .path li p {
+  display: none;
+}
+.period-shell .integrity-layout .path-name {
+  font:
+    1.125rem/1.4 'Source Sans',
+    Arial,
+    sans-serif;
+}
+.period-shell .integrity-navigation {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+.period-shell .integrity-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 36px;
+}
+.period-shell .integrity-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
+  font-size: 1.125rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.period-shell .integrity-nav a[aria-current] {
+  font-weight: 600;
+  border-color: var(--ink);
+}
+.period-shell .integrity-text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 14px 0 18px;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+.period-shell :is(.integrity-lesson, .integrity-record) {
+  grid-column: 2;
+  grid-row: 3;
+  min-width: 0;
+}
+.period-shell :is(.integrity-lesson, .integrity-record) > section {
+  margin-bottom: 40px;
+}
+.period-shell :is(.integrity-lesson, .integrity-record) h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+.period-shell :is(.integrity-lesson, .integrity-record) > section > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 20px;
+}
+.period-shell .integrity-invitation {
+  margin-top: 28px;
+}
+.period-shell .integrity-invitation .small {
+  margin-top: 14px;
+}
+.period-shell :is(#integrity-L10, .integrity-limits) {
+  border-top: 3px solid var(--accent);
+  padding-top: 32px;
+}
+.period-shell .integrity-reminder {
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+.period-shell .integrity-reminder .actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.period-shell .integrity-evidence {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 24px;
+  align-items: start;
+  margin-top: 28px;
+}
+.period-shell .integrity-evidence > section {
+  padding: 24px;
+}
+.period-shell .integrity-evidence h3 {
+  font:
+    1.75rem/1.25 'Source Serif',
+    Georgia,
+    serif;
+  margin-bottom: 24px;
+}
+.period-shell .integrity-message {
+  background: var(--white);
+}
+.period-shell .integrity-facts {
+  background: var(--sage);
+}
+.period-shell .integrity-facts ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.period-shell .integrity-facts li + li {
+  margin-top: 24px;
+}
+.period-shell .integrity-challenge {
+  margin-top: 24px;
+  font-weight: 600;
+}
+.period-shell .integrity-reflection {
+  color: var(--muted);
+  margin-top: 28px;
+}
+.period-shell .integrity-annotations {
+  margin: 36px 0 48px;
+}
+.period-shell .integrity-annotations details {
+  margin: 24px 0;
+  border: 1px solid var(--border);
+  background: var(--white);
+}
+.period-shell .integrity-annotations summary {
+  display: list-item;
+  padding: 16px 20px;
+  min-height: 44px;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.period-shell .integrity-claim {
+  display: block;
+  font:
+    1.5rem/1.4 'Source Serif',
+    Georgia,
+    serif;
+  margin-top: 6px;
+  font-weight: 400;
+}
+.period-shell .integrity-note-body {
+  border-top: 1px solid var(--line);
+  padding: 8px 24px 24px;
+}
+.period-shell .integrity-note-body h3 {
+  margin: 24px 0 12px;
+  font-size: 1.25rem;
+}
+.period-shell .integrity-comparison > section {
+  border-top: 1px solid var(--line);
+  margin-top: 28px;
+  padding-top: 24px;
+}
+.period-shell .integrity-comparison h3 {
+  font:
+    1.75rem/1.25 'Source Serif',
+    Georgia,
+    serif;
+}
+.period-shell :is(.integrity-comparison, .integrity-correction) blockquote {
+  margin: 20px 0;
+  padding: 0;
+  border: 0;
+  font:
+    1.375rem/1.5 'Source Serif',
+    Georgia,
+    serif;
+}
+.period-shell .integrity-correction {
+  background: var(--sage);
+  padding: 28px;
+}
+.period-shell .integrity-continuation {
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+.period-shell .integrity-static {
+  overflow-wrap: anywhere;
+  max-width: 888px;
+  padding: 32px 24px 56px;
+}
+.period-shell .integrity-static .integrity-heading {
+  margin-top: 30px;
+}
+.period-shell .integrity-static nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.period-shell .integrity-static nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.period-shell .integrity-static .integrity-reading-note {
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+  padding-top: 28px;
+}
+.period-shell .integrity-static .integrity-note-body {
+  padding-inline: 0;
+}
+.period-shell .integrity-static .integrity-record {
+  margin-top: 48px;
+}
+.period-shell .integrity-static .integrity-record > h2 {
+  font-size: 2.625rem;
+  margin-bottom: 22px;
+}
+.period-shell .integrity-static .integrity-setup {
+  margin-top: 36px;
+}
+.period-shell .integrity-static .source-note {
+  margin-top: 32px;
+}
+@media (max-width: 1000px) {
+  .period-shell .integrity-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    column-gap: 36px;
+  }
+}
+@media (max-width: 700px) {
+  /* The extra navigation row must not push the existing card's first field out of view. */
+  .period-shell .site-header {
+    padding-block: 10px;
+  }
+  .period-shell .site-header nav {
+    margin-top: 4px;
+    row-gap: 0;
+  }
+  .period-shell .integrity-layout {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+  }
+  .period-shell .integrity-heading h1 {
+    font-size: 3.25rem;
+    line-height: 1.08;
+  }
+  .period-shell .integrity-record-layout h1 {
+    font-size: 2.625rem;
+    line-height: 1.12;
+  }
+  .period-shell .integrity-heading .lead {
+    font-size: 1.4375rem;
+  }
+  .period-shell .integrity-layout .lesson-nav .path {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  }
+  .period-shell .integrity-navigation {
+    margin-top: 24px;
+  }
+  .period-shell .integrity-nav {
+    gap: 8px 20px;
+  }
+  .period-shell .integrity-nav a,
+  .period-shell .integrity-text-link {
+    font-size: 1.0625rem;
+  }
+  .period-shell :is(.integrity-lesson, .integrity-record) h2 {
+    font-size: 1.8125rem;
+  }
+  .period-shell .integrity-evidence {
+    display: block;
+  }
+  .period-shell .integrity-evidence > section + section {
+    margin-top: 24px;
+  }
+  .period-shell .integrity-correction {
+    padding: 24px;
+  }
+  .period-shell .integrity-static {
+    padding: 28px 20px 40px;
+  }
+}
+@media (forced-colors: active) {
+  .period-shell :is(.integrity-message, .integrity-facts, .integrity-correction) {
+    border: 1px solid CanvasText;
+  }
+}
+@media print {
+  .period-shell .integrity-layout,
+  .period-shell .integrity-evidence {
+    display: block;
+  }
+  .period-shell .integrity-navigation {
+    display: none;
+  }
+  .period-shell .integrity-static {
+    max-width: none;
+    padding: 0;
+  }
+  .period-shell .integrity-heading h1 {
+    font-size: 28pt;
+  }
+  .period-shell .integrity-annotations details::details-content {
+    display: contents;
+    content-visibility: visible;
+  }
+  .period-shell .integrity-annotations details > * {
+    display: block !important;
+  }
+  .period-shell :is(.integrity-lesson, .integrity-record) :is(h2, h3) {
+    break-after: avoid;
+  }
+  .period-shell :is(.integrity-lesson, .integrity-record) :is(section, blockquote, details) {
+    break-inside: auto;
+  }
+  .period-shell .integrity-static nav,
+  .period-shell .integrity-back-top {
+    display: none;
+  }
+}

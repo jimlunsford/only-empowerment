@@ -76,7 +76,8 @@ export function useRoute() {
         path === '/period/values' ||
         path === '/period/values/ownership' ||
         path === '/period/values/purpose' ||
-        path === '/period/values/resilience'
+        path === '/period/values/resilience' ||
+        path === '/period/values/integrity'
       )
         heading?.scrollIntoView({ block: 'start' });
       else window.scrollTo(0, 0);

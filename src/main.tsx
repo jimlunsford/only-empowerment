@@ -25,6 +25,8 @@ import './period.css';
 import './period-practice.css';
 import './period-purpose.css';
 import './period-resilience.css';
+import './period-integrity.css';
+import { IntegrityLesson, IntegrityRecord } from './Integrity';
 import { ResilienceLesson, ResiliencePressure } from './Resilience';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
 function ToolGrid() {
@@ -249,6 +251,8 @@ function App() {
   const purposeView = path === '/period/values/purpose' || path === '/period/purpose/evening';
   const resilienceView =
     path === '/period/values/resilience' || path === '/period/resilience/pressure';
+  const integrityView = path === '/period/values/integrity' || path === '/period/integrity/record';
+  const openIntegrityCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'integrity'));
   const practiceView = practiceViews.find((view) => view.path === path);
   const openPracticeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'ownership'));
   const openPurposeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'purpose'));
@@ -266,6 +270,9 @@ function App() {
   else if (path === '/period/values/resilience')
     content = <ResilienceLesson openCard={openResilienceCard} />;
   else if (path === '/period/resilience/pressure') content = <ResiliencePressure />;
+  else if (path === '/period/values/integrity')
+    content = <IntegrityLesson openCard={openIntegrityCard} />;
+  else if (path === '/period/integrity/record') content = <IntegrityRecord />;
   else if (path.startsWith('/period/values/')) content = <PeriodUnavailable />;
   else if (practiceView)
     content = (
@@ -359,6 +366,18 @@ function App() {
           >
             Resilience
           </a>
+          <a
+            href="#/period/values/integrity"
+            aria-current={
+              integrityView
+                ? path === '/period/values/integrity'
+                  ? 'page'
+                  : 'location'
+                : undefined
+            }
+          >
+            Integrity
+          </a>
           {!editorial && (
             <>
               <a href="#/tools" aria-current={path.startsWith('/tools') ? 'page' : undefined}>
@@ -443,18 +462,20 @@ function App() {
             aria-current={path === '/period/standard' ? 'page' : undefined}
             onClick={(event) => {
               if (
-                (practiceView || purposeView || resilienceView) &&
+                (practiceView || purposeView || resilienceView || integrityView) &&
                 event.button === 0 &&
                 !event.metaKey &&
                 !event.ctrlKey &&
                 !event.shiftKey &&
                 !event.altKey
               )
-                resilienceView
-                  ? openResilienceCard()
-                  : purposeView
-                    ? openPurposeCard()
-                    : openPracticeCard();
+                integrityView
+                  ? openIntegrityCard()
+                  : resilienceView
+                    ? openResilienceCard()
+                    : purposeView
+                      ? openPurposeCard()
+                      : openPracticeCard();
             }}
           >
             Optional Standard Card

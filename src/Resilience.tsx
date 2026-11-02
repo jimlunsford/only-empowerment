@@ -1,6 +1,7 @@
 import { useErrorBoundary, useState } from 'preact/hooks';
 import { PeriodSequence } from './PeriodLearning';
 import { periodBook } from './period-content';
+import { integrityContent } from './period-integrity-content';
 import { resilienceContent as content } from './period-resilience-content';
 import {
   pressureNote,
@@ -71,7 +72,8 @@ export function ResilienceLesson({ openCard }: { openCard: () => void }) {
             )}
             {section.id === 'L10' && (
               <p class="small">
-                <strong>{section.availability}</strong>
+                <strong>{integrityContent.navigation.resilience_bridge}</strong>{' '}
+                <a href="#/period/values/integrity">Continue to Integrity</a>
               </p>
             )}
             {section.id === 'L11' && (
@@ -291,7 +293,8 @@ export function ResiliencePressure() {
           <h2>{ui.closeHeading}</h2>
           <p>{ui.close}</p>
           <a href="#/period/values/resilience">Return to Resilience</a>
-          <p class="small">{content.lesson[9].availability}</p>
+          <p class="small">{integrityContent.navigation.resilience_bridge}</p>
+          <a href="#/period/values/integrity">Continue to Integrity</a>
         </section>
       </article>
     </div>

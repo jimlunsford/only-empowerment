@@ -1,5 +1,6 @@
 import { resilienceContent as content } from '../src/period-resilience-content.ts';
 import { resilienceUi as ui } from '../src/period-resilience-state.ts';
+import { integrityContent } from '../src/period-integrity-content.ts';
 import { periodBook } from '../src/period-content.ts';
 
 // One bounded build-time reading export. Fixed editorial content only, no application state.
@@ -33,7 +34,7 @@ ${content.lesson
     ) => `<section id="resilience-${section.id}">${h(section.heading)}${section.paragraphs.map(p).join('')}
 ${section.id === 'L08' ? link('#pressure-notes', section.cta) + p(section.hint) : ''}
 ${section.id === 'L09' ? `<ol class="resilience-connections">${content.values.map(([name, text]) => `<li>${h(name, 3)}${p(text)}</li>`).join('')}</ol>` : ''}
-${section.id === 'L10' ? p(section.availability) : ''}
+${section.id === 'L10' ? p(integrityContent.navigation.resilience_bridge) + link('/read/integrity.html', 'Continue to Integrity') : ''}
 ${section.id === 'L11' ? link('/#/period/standard', section.cta) : ''}
 ${section.id === 'L12' ? link(periodBook.url, section.cta) : ''}</section>`,
   )
@@ -58,6 +59,6 @@ ${h(note.name)}${p(note.facts)}
 ${note.id === 'missed' ? `<section class="resilience-return">${h(copy.returnTitle, 3)}${p(copy.returnCopy)}${h(ui.returnLabel, 4)}${p(copy.returnStory)}</section>` : ''}</section>`,
   )
   .join('')}
-${p(copy.closing)}<section class="resilience-close">${h(ui.closeHeading)}${p(ui.close)}${link('#resilience-lesson', 'Return to Resilience')}${p(content.lesson[9].availability)}</section>
+${p(copy.closing)}<section class="resilience-close">${h(ui.closeHeading)}${p(ui.close)}${link('#resilience-lesson', 'Return to Resilience')}${p(integrityContent.navigation.resilience_bridge) + link('/read/integrity.html', 'Continue to Integrity')}</section>
 </article><p class="source-note">${escape(content.attribution)}</p></main></body></html>`;
 }

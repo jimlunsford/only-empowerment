@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { integrityContent } from '../src/period-integrity-content.ts';
 import { resilienceContent as content } from '../src/period-resilience-content.ts';
 import { pressureNote, resilienceUi as ui } from '../src/period-resilience-state.ts';
 import { resilienceReading } from '../scripts/resilience-reading.ts';
@@ -62,7 +63,7 @@ test('static export includes all lesson copy, every consequence, all fifteen exp
       ...section.paragraphs,
       ...('cta' in section ? [section.cta] : []),
       ...('hint' in section ? [section.hint] : []),
-      ...('availability' in section ? [section.availability] : []),
+      ...('availability' in section ? [integrityContent.navigation.resilience_bridge] : []),
     ]),
     ...content.values.flat(),
     ...Object.entries(content.activity)

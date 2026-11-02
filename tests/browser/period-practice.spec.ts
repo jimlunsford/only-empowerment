@@ -39,7 +39,7 @@ test('direct views have safe defaults, a complete teaching order, and no persona
       0,
     );
     await expect(page.locator('.practice .path li')).toHaveCount(6);
-    await expect(page.locator('.practice .path a')).toHaveCount(3);
+    await expect(page.locator('.practice .path a')).toHaveCount(4);
     await expect(page.locator('.practice .path a').first()).toHaveAttribute(
       'href',
       '#/period/values/ownership',
@@ -48,9 +48,13 @@ test('direct views have safe defaults, a complete teaching order, and no persona
       'href',
       '#/period/values/purpose',
     );
-    await expect(page.locator('.practice .path a').last()).toHaveAttribute(
+    await expect(page.locator('.practice .path a').nth(2)).toHaveAttribute(
       'href',
       '#/period/values/resilience',
+    );
+    await expect(page.locator('.practice .path a').last()).toHaveAttribute(
+      'href',
+      '#/period/values/integrity',
     );
     await expect(page.locator('.practice .path-note')).toContainText(
       'Teaching order, not completion.',

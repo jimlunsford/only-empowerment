@@ -1816,3 +1816,10 @@
     display: none;
   }
 }
+
+/* Work 13: preserve the authored order across five visible learning links. */
+@media (max-width: 700px) {
+  .period-shell .site-header nav a:first-child {
+    grid-column: 1 / -1;
+  }
+}

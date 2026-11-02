@@ -7,7 +7,7 @@ import {
 import { periodPresentation as presentation } from './period-presentation';
 import { PageIntro } from './components/shared';
 import { purposeOwnershipHandoff } from './period-purpose-content';
-import { resilienceContent } from './period-resilience-content';
+import { integrityContent } from './period-integrity-content';
 export function PeriodAttribution() {
   return <p class="source-note">{periodExercise.source}</p>;
 }
@@ -15,7 +15,7 @@ export function PeriodSequence({
   active = false,
   focusOnly = false,
 }: {
-  active?: boolean | 'ownership' | 'purpose' | 'resilience';
+  active?: boolean | 'ownership' | 'purpose' | 'resilience' | 'integrity';
   focusOnly?: boolean;
 }) {
   const focus = active === true ? 'ownership' : active;
@@ -30,7 +30,7 @@ export function PeriodSequence({
             </span>
             <div>
               <span class="path-name">
-                {v.id === 'ownership' || v.id === 'purpose' || v.id === 'resilience' ? (
+                {['ownership', 'purpose', 'resilience', 'integrity'].includes(v.id) ? (
                   <a
                     href={`#/period/values/${v.id}`}
                     aria-current={focus === v.id && !focusOnly ? 'page' : undefined}
@@ -47,7 +47,7 @@ export function PeriodSequence({
           </li>
         ))}
       </ol>
-      <p class="path-note">{resilienceContent.availability}</p>
+      <p class="path-note">{integrityContent.navigation.availability}</p>
     </nav>
   );
 }
@@ -242,11 +242,7 @@ export function PeriodUnavailable() {
   return (
     <div class="period-learning period-unavailable">
       <PageIntro title="Choose a value">
-        <p>
-          Ownership, Purpose and Resilience are available as lessons in this internal candidate.
-          Integrity, Discipline and Empowerment are not available yet. The full teaching order is
-          shown below.
-        </p>
+        <p>{integrityContent.navigation.unavailable}</p>
       </PageIntro>
       <PeriodSequence />
       <a href="#/">Return to Why PERIOD?</a>
