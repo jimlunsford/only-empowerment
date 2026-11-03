@@ -52,7 +52,7 @@ test('direct views have safe defaults, a complete teaching order, and no persona
       'href',
       '#/period/values/resilience',
     );
-    await expect(page.locator('.practice .path a').last()).toHaveAttribute(
+    await expect(page.locator('.practice .path a').nth(3)).toHaveAttribute(
       'href',
       '#/period/values/integrity',
     );
