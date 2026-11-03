@@ -15,7 +15,8 @@ export function PeriodSequence({
   active = false,
   focusOnly = false,
 }: {
-  active?: boolean | 'ownership' | 'purpose' | 'resilience' | 'integrity';
+  active?:
+    boolean | 'ownership' | 'purpose' | 'resilience' | 'integrity' | 'discipline' | 'empowerment';
   focusOnly?: boolean;
 }) {
   const focus = active === true ? 'ownership' : active;
@@ -30,7 +31,14 @@ export function PeriodSequence({
             </span>
             <div>
               <span class="path-name">
-                {['ownership', 'purpose', 'resilience', 'integrity'].includes(v.id) ? (
+                {[
+                  'ownership',
+                  'purpose',
+                  'resilience',
+                  'integrity',
+                  'discipline',
+                  'empowerment',
+                ].includes(v.id) ? (
                   <a
                     href={`#/period/values/${v.id}`}
                     aria-current={focus === v.id && !focusOnly ? 'page' : undefined}
@@ -42,6 +50,14 @@ export function PeriodSequence({
                   <span>{v.name}</span>
                 )}
               </span>
+              {v.id === 'empowerment' && (
+                <span class="path-access-note">
+                  Orientation only. Full lesson not yet available.
+                </span>
+              )}
+              {!active && v.id === 'discipline' && (
+                <span class="path-access-note">Read the Discipline lesson</span>
+              )}
               <p>{v.role}</p>
             </div>
           </li>
@@ -238,13 +254,19 @@ export function PeriodOwnership() {
     </div>
   );
 }
-export function PeriodUnavailable() {
+export function PeriodUnavailable({ orientation = false }: { orientation?: boolean }) {
   return (
     <div class="period-learning period-unavailable">
-      <PageIntro title="Choose a value">
+      <PageIntro title={orientation ? 'Empowerment' : 'Choose a value'}>
+        {orientation && (
+          <p>
+            {periodValues[5].role} Orientation only. The full Empowerment lesson is not yet
+            available.
+          </p>
+        )}
         <p>{integrityContent.navigation.unavailable}</p>
       </PageIntro>
-      <PeriodSequence />
+      <PeriodSequence active={orientation ? 'empowerment' : false} />
       <a href="#/">Return to Why PERIOD?</a>
     </div>
   );

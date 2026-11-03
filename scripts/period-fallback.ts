@@ -21,7 +21,7 @@ const h2 = (text: string) => `<h2>${escape(text)}</h2>`;
 export function periodFallback() {
   const lesson = periodValues[0].lesson;
   return `<div class="period-learning period-reading">
-    <nav aria-label="Available PERIOD reading"><a href="#reading-ownership">Start with Ownership</a> · <a href="#reading-purpose">Explore Purpose</a> · <a href="/read/resilience.html">Read Resilience</a> · <a href="/read/integrity.html">Read Integrity</a></nav>
+    <nav aria-label="Available PERIOD reading"><a href="#reading-ownership">Start with Ownership</a> · <a href="#reading-purpose">Explore Purpose</a> · <a href="/read/resilience.html">Read Resilience</a> · <a href="/read/integrity.html">Read Integrity</a> · <a href="/read/discipline.html">Read Discipline</a></nav>
     ${h2(intro.title)}${p(periodPresentation.introLead)}${p('The PERIOD Code by Jim Lunsford')}${p(intro.origin)}
     ${h2('Why PERIOD?')}${intro.meaning.map(p).join('')}${p(periodPresentation.connectedClarification)}
     ${h2(intro.comparison.heading)}${p(intro.comparison.situation)}

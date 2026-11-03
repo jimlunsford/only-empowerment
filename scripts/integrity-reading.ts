@@ -28,7 +28,7 @@ export function integrityReading(staging = true) {
 <nav aria-label="Contents">${link('#lesson', 'Read Integrity')}${link('#record', 'Read the fictional record')}${link('#annotations', 'Read all three annotations')}${link('#comparison', 'Compare responses')}${link('#correction', 'Read the correction')}${link('#continuation', 'Read what actually happens')}</nav>
 ${p(content.navigation.availability)}
 <article id="lesson" class="integrity-lesson" aria-label="Integrity lesson">
-${content.lesson.map((section) => `<section id="integrity-${section.id}">${h(section.heading)}${section.paragraphs.map(p).join('')}${section.id === content.activity_invitation.after ? link('#record', content.activity_invitation.label) + p(content.activity_invitation.hint) : ''}${section.id === 'L10' ? p(content.availability) : ''}</section>`).join('')}
+${content.lesson.map((section) => `<section id="integrity-${section.id}">${h(section.heading)}${section.paragraphs.map(p).join('')}${section.id === content.activity_invitation.after ? link('#record', content.activity_invitation.label) + p(content.activity_invitation.hint) : ''}${section.id === 'L10' ? p(content.availability) + link('/read/discipline.html', 'Continue to Discipline') : ''}</section>`).join('')}
 <section class="integrity-reminder">${h('A reminder is optional')}${p(content.card)}${link('/#/period/standard', 'Write an optional Standard Card (requires JavaScript)')} ${link('/read/resilience.html', 'Return to Resilience')}</section>
 <section>${h('Explore the complete PERIOD Code')}${p(content.book)}${link(periodBook.url, "Explore the book on Jim's website")}</section>${top()}</article>
 <article id="record" class="integrity-record" aria-label="Riley and Maya's fictional record">
@@ -48,6 +48,6 @@ ${h('What the record shows', 3)}${p(note.fact)}${h('Why it matters', 3)}${p(note
 <section id="comparison" class="integrity-comparison">${h('What each response leaves in place')}${p(copy.comparison_intro)}${copy.responses.map(([heading, words, result]) => `<section>${h(heading, 3)}<blockquote>${escape(words)}</blockquote>${p(result)}</section>`).join('')}</section>
 <section id="correction" class="integrity-correction">${h('A correction that reaches the same audience')}<blockquote>${escape(copy.correction)}</blockquote>${p(copy.correction_note)}</section>
 <section id="continuation" class="integrity-continuation">${h(copy.continuation_title)}${copy.continuation.map(p).join('')}${p(copy.evidence)}</section>
-<section class="integrity-limits">${h("What remains outside Riley's control")}${p(copy.limits)}${p(copy.closure)}${p(copy.bridge)}${link('#lesson', 'Return to Integrity')}</section>${top()}
+<section class="integrity-limits">${h("What remains outside Riley's control")}${p(copy.limits)}${p(copy.closure)}${p(copy.bridge)}${link('/read/discipline.html', 'Continue to Discipline')}${link('#lesson', 'Return to Integrity')}</section>${top()}
 </article><p class="source-note">${escape(content.attribution)}</p></main></body></html>`;
 }

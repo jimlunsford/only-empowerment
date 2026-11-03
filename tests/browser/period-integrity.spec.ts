@@ -62,9 +62,11 @@ test('ten complete sections, truthful availability and the connected Code are re
   );
   await expect(
     page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
-  ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity']);
+  ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline', 'Empowerment']);
   await expect(
-    page.locator('a[href*="/values/discipline"],a[href*="/values/empowerment"]'),
+    page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Empowerment', exact: true }),
   ).toHaveCount(0);
   await axe(page);
 });
@@ -207,7 +209,7 @@ test('direct entry, deliberate route focus, Back restoration and unknown routes 
     .getByRole('link', { name: 'Examine a fictional record' })
     .click();
   await expect(page.locator('.integrity-annotations details[open]')).toHaveCount(0);
-  for (const path of ['/#/period/values/discipline', '/#/period/values/unknown']) {
+  for (const path of ['/#/period/values/unknown']) {
     await page.goto(path);
     await expect(page.locator('h1')).toHaveText('Choose a value');
     await expect(page.getByText(content.navigation.unavailable, { exact: true })).toBeVisible();

@@ -78,7 +78,9 @@ test('twelve complete sections, six connected values and an honest Integrity tra
   ).toBeVisible();
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
-    page.locator('a[href*="/values/discipline"], a[href*="/values/empowerment"]'),
+    page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Empowerment', exact: true }),
   ).toHaveCount(0);
   await expect(
     mainNav(page).getByRole('link', { name: 'Resilience', exact: true }),
@@ -229,7 +231,7 @@ test('keyboard selection, local routes, Back and Forward preserve reading positi
   await expect(page.getByRole('status')).toHaveText('');
 });
 
-test('homepage stays oriented to Ownership and the same-page four-lesson path reaches Resilience from Purpose', async ({
+test('homepage stays oriented to Ownership and the same-page five-lesson path reaches Resilience from Purpose', async ({
   page,
 }) => {
   await page.goto('/');
@@ -243,7 +245,7 @@ test('homepage stays oriented to Ownership and the same-page four-lesson path re
   await expect(page.locator('#teaching-order')).toBeFocused();
   await expect(
     page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
-  ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity']);
+  ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline', 'Empowerment']);
   await mainNav(page).getByRole('link', { name: 'Purpose', exact: true }).click();
   await page.getByRole('link', { name: 'Continue to Resilience', exact: true }).press('Enter');
   await expect(page.locator('h1')).toBeFocused();
