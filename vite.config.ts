@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
+import { disciplineReading } from './scripts/discipline-reading.ts';
 import { integrityReading } from './scripts/integrity-reading.ts';
 import { resilienceReading } from './scripts/resilience-reading.ts';
 import { periodFallback } from './scripts/period-fallback.ts';
@@ -24,6 +25,10 @@ const integrityStyles = () =>
   ['src/style.css', 'src/period.css', 'src/period-integrity.css']
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
+const disciplineStyles = () =>
+  ['src/style.css', 'src/period.css', 'src/period-discipline.css']
+    .map((path) => readFileSync(path, 'utf8'))
+    .join('\n');
 export default defineConfig({
   define: { __BUILD__: JSON.stringify(metadata), __STAGING__: JSON.stringify(staging) },
   plugins: [
@@ -44,6 +49,14 @@ export default defineConfig({
       configureServer(server) {
         server.middlewares.use((request, response, next) => {
           const path = request.url?.split('?')[0];
+          if (path === '/read/discipline.html' || path === '/read/discipline.css') {
+            response.setHeader(
+              'Content-Type',
+              path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
+            );
+            response.end(path.endsWith('.html') ? disciplineReading(staging) : disciplineStyles());
+            return;
+          }
           if (path === '/read/integrity.html' || path === '/read/integrity.css') {
             response.setHeader(
               'Content-Type',
@@ -61,6 +74,16 @@ export default defineConfig({
         });
       },
       generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'read/discipline.html',
+          source: disciplineReading(staging),
+        });
+        this.emitFile({
+          type: 'asset',
+          fileName: 'read/discipline.css',
+          source: disciplineStyles(),
+        });
         this.emitFile({
           type: 'asset',
           fileName: 'read/integrity.html',

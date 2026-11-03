@@ -109,7 +109,7 @@ export const integrityContent = {
     label: 'Examine a fictional record',
     hint: 'See where a message protects an image and what a real correction requires. No personal answer needed.',
   },
-  availability: 'Discipline is next in the teaching order. Its full lesson is not available yet.',
+  availability: 'Discipline is next in the teaching order. Its full lesson is now available.',
   card: 'The optional Standard Card records one intended behavior within the connected PERIOD Code. It is not evidence that you acted, proof of Integrity or completion of the Code.',
   book: 'The book develops the origins of The PERIOD Code, its six values and their deliberate order. This free lesson offers a practical way to understand Integrity. You can use it without buying anything.',
   attribution:
@@ -208,7 +208,7 @@ export const integrityContent = {
     closure:
       'The useful question is what changes beyond the message. Correct the relevant account, address the affected work, protect legitimate privacy and keep the next action honest. Their response remains theirs.',
     bridge:
-      'Integrity requires truthful correction. Discipline gives that alignment repeated form. Its full lesson is not available yet.',
+      'Integrity requires truthful correction. Discipline gives that alignment repeated form. Its full lesson is now available.',
     comparison_intro:
       'This comparison remains visible beneath the annotations. It examines three possible responses to the same record; it is not a set of answers to choose, and it does not branch the story.',
     limits:
@@ -218,13 +218,13 @@ export const integrityContent = {
     home_lead:
       "Only Empowerment helps you put The PERIOD Code's six connected values to work in daily life, for free. Begin with Ownership, give responsibility direction through Purpose, protect it under pressure with Resilience, and examine truthful conduct through Integrity.",
     availability:
-      'Teaching order, not completion. Ownership, Purpose, Resilience and Integrity have full lessons. Discipline and Empowerment are shown for orientation; their full lessons are not available yet.',
-    header: ['Why PERIOD?', 'Ownership', 'Purpose', 'Resilience', 'Integrity'],
+      'Teaching order, not completion. Ownership, Purpose, Resilience, Integrity and Discipline have full lessons. Empowerment is shown for orientation; its full lesson is not available yet.',
+    header: ['Why PERIOD?', 'Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline'],
     local: ['Read Integrity', 'Examine a fictional record'],
     static_link: 'Read the complete text (new tab)',
     resilience_bridge: 'Integrity is next in the teaching order.',
     resilience_cta: 'Continue to Integrity',
     unavailable:
-      'Ownership, Purpose, Resilience and Integrity are available as lessons in this internal candidate. Discipline and Empowerment are not available yet. The full teaching order is shown below.',
+      'Ownership, Purpose, Resilience, Integrity and Discipline are available as lessons in this internal candidate. Empowerment remains orientation only; its full lesson is not available yet. The full teaching order is shown below.',
   },
 } as const;

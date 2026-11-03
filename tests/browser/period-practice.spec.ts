@@ -39,7 +39,7 @@ test('direct views have safe defaults, a complete teaching order, and no persona
       0,
     );
     await expect(page.locator('.practice .path li')).toHaveCount(6);
-    await expect(page.locator('.practice .path a')).toHaveCount(4);
+    await expect(page.locator('.practice .path a')).toHaveCount(6);
     await expect(page.locator('.practice .path a').first()).toHaveAttribute(
       'href',
       '#/period/values/ownership',

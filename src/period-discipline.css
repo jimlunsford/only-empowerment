@@ -1,0 +1,323 @@
+/* Work 16: approved Editorial Companion compositions, scoped to Discipline. */
+.period-shell .discipline-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  column-gap: 80px;
+  padding: 48px 0 56px;
+  overflow-wrap: anywhere;
+}
+.period-shell .discipline-heading {
+  grid-column: 2;
+  grid-row: 1;
+}
+.period-shell .discipline-heading h1 {
+  font-size: 4.75rem;
+  line-height: 1.07;
+}
+.period-shell .discipline-heading .lead {
+  font:
+    2rem/1.4 'Source Serif',
+    Georgia,
+    serif;
+  margin: 28px 0;
+}
+.period-shell .discipline-layout > .period-sequence {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: start;
+  border: 0;
+  padding: 0;
+}
+.period-shell .discipline-layout .lesson-nav h2 {
+  display: block;
+  font-size: 1.75rem;
+  margin-bottom: 22px;
+}
+.period-shell .discipline-layout .path-name {
+  font:
+    1.125rem/1.4 'Source Sans',
+    Arial,
+    sans-serif;
+}
+.period-shell .discipline-layout .path li p {
+  display: none;
+}
+.period-shell .path-access-note {
+  display: block;
+  font:
+    1rem/1.5 'Source Sans',
+    Arial,
+    sans-serif;
+  color: var(--muted);
+}
+.period-shell .path .selected .path-access-note {
+  color: var(--white);
+}
+.period-shell :is(.discipline-lesson, .discipline-comparison) {
+  grid-column: 2;
+  min-width: 0;
+}
+.period-shell .discipline-lesson {
+  margin-top: 36px;
+}
+.period-shell .discipline-lesson > section {
+  margin: 36px 0;
+}
+.period-shell .discipline-lesson h2,
+.period-shell .discipline-occasion > h2,
+.period-shell .discipline-static .discipline-occasion > h3,
+.period-shell .discipline-conclusion > :is(h2, h3) {
+  font:
+    2rem/1.2 'Source Serif',
+    Georgia,
+    serif;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+}
+.period-shell .discipline-exit {
+  border-top: 3px solid var(--accent);
+  padding-top: 32px;
+}
+.period-shell .discipline-exit .actions {
+  margin-top: 24px;
+}
+.period-shell .discipline-text-link,
+.period-shell .discipline-reading-link,
+.period-shell .discipline-wayfinding a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding-block: 8px;
+}
+.period-shell .discipline-reading-link {
+  margin: 20px 0;
+}
+.period-shell .discipline-lesson > .discipline-reading-link {
+  margin: 0;
+}
+.period-shell .discipline-prompt {
+  margin: 28px 0;
+  font-weight: 600;
+}
+.period-shell .discipline-wayfinding {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  margin: 12px 0 24px;
+}
+.period-shell .discipline-wayfinding a {
+  font-size: 1.125rem;
+}
+.period-shell .discipline-controls {
+  min-width: 0;
+  margin: 28px 0 40px;
+  padding: 20px 24px;
+  border: 1px solid var(--border);
+}
+.period-shell .discipline-controls legend {
+  padding: 0 8px;
+  font-weight: 600;
+}
+.period-shell .discipline-controls label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  cursor: pointer;
+}
+.period-shell .discipline-controls input {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--ink);
+}
+.period-shell .discipline-controls input:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 2px var(--white);
+}
+.period-shell .discipline-occasion {
+  border-bottom: 1px solid var(--line);
+  margin: 40px 0;
+  padding-bottom: 40px;
+}
+.period-shell .discipline-occasion > [id] {
+  scroll-margin-top: 20px;
+}
+.period-shell .discipline-occasion > [id]:focus-visible,
+.period-shell .discipline-exit > [id]:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+.period-shell .discipline-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  margin: 30px 0 24px;
+}
+.period-shell .discipline-pattern {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 18px;
+}
+.period-shell .discipline-pattern p {
+  margin-top: 16px;
+}
+.period-shell .discipline-occasion > :is(h3, h4):not([id]) {
+  margin: 26px 0 16px;
+}
+.period-shell .discipline-static h4 {
+  font:
+    600 1.3125rem/1.25 'Source Sans',
+    Arial,
+    sans-serif;
+  margin: 0;
+}
+.period-shell .discipline-conclusion {
+  margin: 48px 0 32px;
+}
+.period-shell .discipline-print-only {
+  display: none;
+}
+.period-shell .discipline-static {
+  max-width: 888px;
+  padding: 32px 24px 56px;
+  overflow-wrap: anywhere;
+}
+.period-shell .discipline-static .discipline-heading {
+  margin-top: 32px;
+}
+.period-shell .discipline-static nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.period-shell .discipline-static nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
+.period-shell .discipline-static .discipline-actions {
+  display: block;
+}
+.period-shell .discipline-static .discipline-pattern + .discipline-pattern {
+  margin-top: 20px;
+}
+.period-shell .discipline-static .discipline-comparison {
+  margin-top: 64px;
+}
+.period-shell .discipline-static .discipline-comparison > h2 {
+  font-size: 2.625rem;
+  margin-bottom: 24px;
+}
+.period-shell .discipline-static .discipline-occasion > h3 + p {
+  margin-top: 22px;
+}
+@media (max-width: 1000px) {
+  .period-shell .discipline-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    column-gap: 36px;
+  }
+}
+@media (max-width: 700px) {
+  /* Six real links fit three rows without adding a row above the card's first field. */
+  .period-shell .site-header nav a:first-child {
+    grid-column: auto;
+  }
+  .period-shell .discipline-layout {
+    display: flex;
+    flex-direction: column;
+    padding-top: 36px;
+  }
+  .period-shell .discipline-heading h1 {
+    font-size: 3.25rem;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+  }
+  .period-shell .discipline-heading .lead {
+    font-size: 1.75rem;
+  }
+  .period-shell .discipline-layout > .period-sequence {
+    width: 100%;
+    margin-top: 32px;
+  }
+  .period-shell .discipline-layout .lesson-nav .path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .period-shell .discipline-actions {
+    display: block;
+  }
+  .period-shell .discipline-pattern + .discipline-pattern:not(.discipline-print-only) {
+    margin-top: 16px;
+  }
+  .period-shell .discipline-lesson h2,
+  .period-shell .discipline-occasion > h2,
+  .period-shell .discipline-static .discipline-occasion > h3,
+  .period-shell .discipline-conclusion > :is(h2, h3) {
+    font-size: 1.8125rem;
+  }
+  .period-shell .discipline-controls {
+    padding: 16px;
+  }
+  .period-shell .discipline-static {
+    padding-inline: 20px;
+  }
+}
+@media (max-width: 360px) {
+  .period-shell .discipline-layout .lesson-nav .path {
+    grid-template-columns: 1fr;
+  }
+}
+@media (forced-colors: active) {
+  .period-shell :is(.discipline-pattern, .discipline-controls) {
+    border-color: CanvasText;
+  }
+  .period-shell .discipline-controls input:focus-visible {
+    outline-color: Highlight;
+  }
+}
+@media print {
+  .period-shell .discipline-layout,
+  .period-shell .discipline-actions {
+    display: block;
+  }
+  .period-shell .discipline-print-only {
+    display: block;
+  }
+  .period-shell :is(.discipline-layout, .discipline-static) {
+    max-width: none;
+    padding: 0;
+  }
+  .period-shell .discipline-heading h1 {
+    font-size: 28pt;
+  }
+  .period-shell .discipline-heading .lead {
+    font-size: 16pt;
+  }
+  .period-shell :is(.discipline-layout, .discipline-static) :is(h2, h3, h4) {
+    break-after: avoid;
+  }
+  .period-shell .discipline-pattern {
+    background: white;
+    color: black;
+    margin-top: 12pt;
+    padding: 12pt;
+    break-inside: auto;
+  }
+  .period-shell .discipline-occasion {
+    break-inside: auto;
+  }
+  .period-shell :is(.discipline-layout, .discipline-static) p {
+    orphans: 3;
+    widows: 3;
+  }
+  .period-shell .discipline-occasion > h2,
+  .period-shell .discipline-static .discipline-occasion > h3 {
+    font-size: 19pt;
+  }
+  .period-shell .discipline-occasion :is(h3, h4):not([id]) {
+    font-size: 12pt;
+  }
+}

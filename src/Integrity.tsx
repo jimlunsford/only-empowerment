@@ -54,7 +54,8 @@ export function IntegrityLesson({ openCard }: { openCard: () => void }) {
             )}
             {section.id === 'L10' && (
               <p class="small">
-                <strong>{content.availability}</strong>
+                <strong>{content.availability}</strong>{' '}
+                <a href="#/period/values/discipline">Continue to Discipline</a>
               </p>
             )}
           </section>
@@ -178,6 +179,9 @@ export function IntegrityRecord() {
           <p>{copy.limits}</p>
           <p>{copy.closure}</p>
           <p>{copy.bridge}</p>
+          <p>
+            <a href="#/period/values/discipline">Continue to Discipline</a>
+          </p>
           <a href="#/period/values/integrity">Return to Integrity</a>
         </section>
         <p class="source-note">{content.attribution}</p>

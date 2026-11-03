@@ -26,6 +26,8 @@ import './period-practice.css';
 import './period-purpose.css';
 import './period-resilience.css';
 import './period-integrity.css';
+import './period-discipline.css';
+import { DisciplineLesson, DisciplinePattern } from './Discipline';
 import { IntegrityLesson, IntegrityRecord } from './Integrity';
 import { ResilienceLesson, ResiliencePressure } from './Resilience';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
@@ -252,6 +254,10 @@ function App() {
   const resilienceView =
     path === '/period/values/resilience' || path === '/period/resilience/pressure';
   const integrityView = path === '/period/values/integrity' || path === '/period/integrity/record';
+  const disciplineView =
+    path === '/period/values/discipline' || path === '/period/discipline/pattern';
+  const openDisciplineCard = () =>
+    setPeriodSession((old) => enterPeriodExercise(old, 'discipline'));
   const openIntegrityCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'integrity'));
   const practiceView = practiceViews.find((view) => view.path === path);
   const openPracticeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'ownership'));
@@ -273,6 +279,10 @@ function App() {
   else if (path === '/period/values/integrity')
     content = <IntegrityLesson openCard={openIntegrityCard} />;
   else if (path === '/period/integrity/record') content = <IntegrityRecord />;
+  else if (path === '/period/values/discipline')
+    content = <DisciplineLesson openCard={openDisciplineCard} />;
+  else if (path === '/period/discipline/pattern') content = <DisciplinePattern />;
+  else if (path === '/period/values/empowerment') content = <PeriodUnavailable orientation />;
   else if (path.startsWith('/period/values/')) content = <PeriodUnavailable />;
   else if (practiceView)
     content = (
@@ -378,6 +388,18 @@ function App() {
           >
             Integrity
           </a>
+          <a
+            href="#/period/values/discipline"
+            aria-current={
+              disciplineView
+                ? path === '/period/values/discipline'
+                  ? 'page'
+                  : 'location'
+                : undefined
+            }
+          >
+            Discipline
+          </a>
           {!editorial && (
             <>
               <a href="#/tools" aria-current={path.startsWith('/tools') ? 'page' : undefined}>
@@ -462,20 +484,26 @@ function App() {
             aria-current={path === '/period/standard' ? 'page' : undefined}
             onClick={(event) => {
               if (
-                (practiceView || purposeView || resilienceView || integrityView) &&
+                (practiceView ||
+                  purposeView ||
+                  resilienceView ||
+                  integrityView ||
+                  disciplineView) &&
                 event.button === 0 &&
                 !event.metaKey &&
                 !event.ctrlKey &&
                 !event.shiftKey &&
                 !event.altKey
               )
-                integrityView
-                  ? openIntegrityCard()
-                  : resilienceView
-                    ? openResilienceCard()
-                    : purposeView
-                      ? openPurposeCard()
-                      : openPracticeCard();
+                disciplineView
+                  ? openDisciplineCard()
+                  : integrityView
+                    ? openIntegrityCard()
+                    : resilienceView
+                      ? openResilienceCard()
+                      : purposeView
+                        ? openPurposeCard()
+                        : openPracticeCard();
             }}
           >
             Optional Standard Card

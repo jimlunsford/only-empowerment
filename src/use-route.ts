@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
-const currentRoute = () => location.hash.slice(1) || '/';
+import { disciplineAnchorRoute } from './period-discipline-navigation';
+const currentRoute = () => disciplineAnchorRoute(location.hash.slice(1)) || '/';
 // Only a public navigation index enters history. Positions and focus stay in page memory.
 export function useRoute() {
   const [path, setPath] = useState(currentRoute);
@@ -28,13 +29,14 @@ export function useRoute() {
         return;
       const link = (event.target as Element).closest<HTMLAnchorElement>('a[href^="#/"]');
       if (!link || link.target || link.hasAttribute('download')) return;
-      const next = link.getAttribute('href')!.slice(1);
+      const fragment = link.getAttribute('href')!.slice(1);
+      const next = disciplineAnchorRoute(fragment);
       if (next === currentRoute()) return;
       event.preventDefault();
       save();
       entry = ++counter;
       restoring.current = null;
-      history.pushState({ oeNavigation: entry }, '', '#' + next);
+      history.pushState({ oeNavigation: entry }, '', '#' + fragment);
       setPath(next);
     };
     const onHistory = () => {
@@ -61,6 +63,14 @@ export function useRoute() {
   useLayoutEffect(() => {
     const heading = document.querySelector<HTMLElement>('h1');
     document.title = `${heading?.textContent || 'Page'} | Only Empowerment`;
+    const target = document.getElementById(location.hash.slice(1));
+    if (target && disciplineAnchorRoute(location.hash.slice(1)) !== location.hash.slice(1)) {
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ block: 'start' });
+      first.current = false;
+      restoring.current = null;
+      return;
+    }
     if (first.current) {
       first.current = false;
       return;
@@ -77,7 +87,8 @@ export function useRoute() {
         path === '/period/values/ownership' ||
         path === '/period/values/purpose' ||
         path === '/period/values/resilience' ||
-        path === '/period/values/integrity'
+        path === '/period/values/integrity' ||
+        path === '/period/values/discipline'
       )
         heading?.scrollIntoView({ block: 'start' });
       else window.scrollTo(0, 0);

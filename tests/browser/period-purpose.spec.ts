@@ -98,7 +98,9 @@ test('complete Purpose teaching, connected values and both editorial refinements
   );
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
-    page.locator('a[href*="/values/discipline"], a[href*="/values/empowerment"]'),
+    page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Empowerment', exact: true }),
   ).toHaveCount(0);
   await expect(mainNav(page).getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
     'aria-current',
@@ -204,7 +206,7 @@ test('native text disclosure gives every example without selecting it and stays 
   await expect(details).not.toHaveAttribute('open', '');
 });
 
-test('three-value navigation preserves Ownership practice and honestly labels unfinished lessons', async ({
+test('five-value navigation preserves Ownership practice and honestly labels unfinished lessons', async ({
   page,
 }) => {
   await page.goto('/');
@@ -214,6 +216,7 @@ test('three-value navigation preserves Ownership practice and honestly labels un
     'Purpose',
     'Resilience',
     'Integrity',
+    'Discipline',
   ]);
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   await page.getByRole('link', { name: 'Explore the lessons', exact: true }).click();
@@ -229,6 +232,8 @@ test('three-value navigation preserves Ownership practice and honestly labels un
     'Purpose',
     'Resilience',
     'Integrity',
+    'Discipline',
+    'Empowerment',
   ]);
   await expect(path.getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
     'aria-current',
@@ -243,12 +248,12 @@ test('three-value navigation preserves Ownership practice and honestly labels un
   await expect(page.getByText(purposeOwnershipHandoff, { exact: true })).toBeVisible();
   await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).click();
   await expect(page.locator('h1')).toHaveText('Purpose.');
-  for (const value of ['discipline', 'empowerment']) {
-    await page.goto(`/#/period/values/${value}`);
-    await expect(page.locator('h1')).toHaveText('Choose a value');
-    await expect(page.getByRole('main')).toContainText('not available');
-    await expect(page.locator(`a[href="#/period/values/${value}"]`)).toHaveCount(0);
-  }
+  await page.goto('/#/period/values/discipline');
+  await expect(page.locator('h1')).toHaveText('Discipline');
+  await page.goto('/#/period/values/empowerment');
+  await expect(page.locator('h1')).toHaveText('Empowerment');
+  await expect(page.getByRole('main')).toContainText('Orientation only');
+  await expect(page.getByRole('main')).toContainText('not yet available');
 });
 
 test('Back and Forward restore reading positions and temporary example state without history payloads', async ({
