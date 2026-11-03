@@ -261,7 +261,9 @@ export function PeriodStandard({
                 {selected && (
                   <p>
                     {selected.role}{' '}
-                    {['ownership', 'purpose', 'resilience', 'integrity'].includes(selected.id) ? (
+                    {['ownership', 'purpose', 'resilience', 'integrity', 'discipline'].includes(
+                      selected.id,
+                    ) ? (
                       <a href={`#/period/values/${selected.id}`}>Read about {selected.name}</a>
                     ) : (
                       <span class="small">
