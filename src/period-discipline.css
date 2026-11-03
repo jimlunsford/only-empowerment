@@ -132,7 +132,7 @@
   margin: 0;
   accent-color: var(--ink);
 }
-.period-shell .discipline-controls input:focus-visible {
+.period-shell .discipline-controls input:focus {
   outline: 3px solid var(--ink);
   outline-offset: 4px;
   box-shadow: 0 0 0 2px var(--white);
@@ -274,7 +274,7 @@
   .period-shell :is(.discipline-pattern, .discipline-controls) {
     border-color: CanvasText;
   }
-  .period-shell .discipline-controls input:focus-visible {
+  .period-shell .discipline-controls input:focus {
     outline-color: Highlight;
   }
 }
