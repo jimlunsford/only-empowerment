@@ -206,7 +206,7 @@ test('native text disclosure gives every example without selecting it and stays 
   await expect(details).not.toHaveAttribute('open', '');
 });
 
-test('five-value navigation preserves Ownership practice and honestly labels unfinished lessons', async ({
+test('six-value navigation preserves Ownership practice and identifies every full lesson', async ({
   page,
 }) => {
   await page.goto('/');
@@ -217,6 +217,7 @@ test('five-value navigation preserves Ownership practice and honestly labels unf
     'Resilience',
     'Integrity',
     'Discipline',
+    'Empowerment',
   ]);
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   await page.getByRole('link', { name: 'Explore the lessons', exact: true }).click();

@@ -263,7 +263,8 @@ test('1440, 390 and 320 compositions retain exact copy, visible speakers and ful
       if (width < 700) expect(second!.y).toBeGreaterThan(first!.y + first!.height);
       else expect(Math.abs(second!.y - first!.y)).toBeLessThan(1);
       const label = await radio(page, i).locator('..').boundingBox();
-      expect(label!.height).toBeGreaterThanOrEqual(48);
+      // Firefox can report a 48px CSS box as 47.999969px. Preserve the 48px requirement.
+      expect(Math.round(label!.height * 1000) / 1000).toBeGreaterThanOrEqual(48);
       if (info.project.name === 'chromium')
         await page.screenshot({
           path: info.outputPath(`empowerment-${state.id}-${width}.png`),
@@ -394,16 +395,24 @@ test('six-lesson surfaces and revisit links reach real lessons, with normal Back
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await page.reload();
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
-  await page.goto('/#/period/empowerment/conversation/unknown');
-  await expect(page.locator('h1')).toHaveText('That page is not here.');
+  for (const fragment of ['/period/empowerment/conversation/unknown', 'constructor', 'toString']) {
+    await page.goto('/#' + fragment);
+    await expect(page.locator('h1')).toHaveText('That page is not here.');
+  }
 });
 
 test('partially authored Standard Cards survive lesson, conversation, return and value selection', async ({
   page,
-}) => {
+}, info) => {
+  await page.setViewportSize({ width: 390, height: 900 });
   await page.goto(lessonPath);
   await screen(page).getByRole('link', { name: content.lesson.cardLink, exact: true }).click();
+  await page.evaluate(() => document.fonts.ready);
   await expect(page.locator('#period-valueId')).toHaveValue('empowerment');
+  const first = await page.locator('#period-valueId').boundingBox();
+  expect(first!.y + first!.height).toBeLessThan(900);
+  if (info.project.name === 'chromium')
+    await page.screenshot({ path: info.outputPath('empowerment-standard-card-390.png') });
   await page.locator('#period-standard').fill('SYNTHETIC: Keep my exact words.\nSecond line.');
   await page.getByRole('link', { name: 'Read about Empowerment', exact: true }).click();
   await screen(page)

@@ -230,6 +230,11 @@
   }
 }
 @media (max-width: 700px) {
+  /* The seventh navigation link adds a row. Keep the card's first field in view. */
+  .period-shell .period-standard .editor-heading .lead {
+    font-size: 1.1875rem;
+    line-height: 1.45;
+  }
   .period-shell .empowerment-layout {
     display: flex;
     flex-direction: column;
@@ -309,7 +314,10 @@
     border-color: black;
     margin: 12pt 0;
     padding: 10pt;
-    break-inside: auto;
+    break-inside: avoid;
+  }
+  .period-shell .empowerment-agreement > div {
+    break-inside: avoid;
   }
   .period-shell .empowerment-speaker blockquote {
     font-size: 12pt;

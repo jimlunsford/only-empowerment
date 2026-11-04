@@ -175,12 +175,16 @@ test('ordinary native wayfinding focuses stable headings without changing the co
   await expect(page.locator('h1')).toHaveText('That page is not here.');
 });
 
-test('five-value navigation preserves Integrity teaching and both onward destinations', async ({
+test('six-value navigation preserves Integrity teaching and both onward destinations', async ({
   page,
 }) => {
   await page.goto('/');
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
-  await expect(page.getByText('Read the Discipline lesson', { exact: true })).toBeVisible();
+  await expect(
+    page
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
+      .getByRole('link', { name: 'Discipline', exact: true }),
+  ).toHaveAttribute('href', '#/period/values/discipline');
   for (const from of ['/#/period/values/integrity', '/#/period/integrity/record']) {
     await page.goto(from);
     await page.getByRole('link', { name: 'Continue to Discipline', exact: true }).click();

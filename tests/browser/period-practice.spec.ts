@@ -9,6 +9,7 @@ import {
   helpMessage,
 } from '../../src/period-practice-content';
 import { periodExercise } from '../../src/period-content';
+import { empowermentAvailability } from '../../src/period-empowerment-content';
 
 const navigation = (page: Page) =>
   page.getByRole('navigation', { name: 'Practice Ownership views' });
@@ -56,9 +57,7 @@ test('direct views have safe defaults, a complete teaching order, and no persona
       'href',
       '#/period/values/integrity',
     );
-    await expect(page.locator('.practice .path-note')).toContainText(
-      'Teaching order, not completion.',
-    );
+    await expect(page.locator('.practice .path-note')).toHaveText(empowermentAvailability);
     if (view.id !== 'connected-code')
       await expect(page.locator('.practice-context').first()).toContainText(
         communicationConditions.worked.context,

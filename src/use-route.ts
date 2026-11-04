@@ -7,8 +7,11 @@ const readingRoutes: Record<string, string> = {
   'reading-purpose': '/period/values/purpose',
 };
 const anchorRoute = (fragment: string) =>
-  readingRoutes[fragment] ||
-  (fragment === '/period/teaching-order' ? '/' : disciplineAnchorRoute(fragment));
+  Object.hasOwn(readingRoutes, fragment)
+    ? readingRoutes[fragment]
+    : fragment === '/period/teaching-order'
+      ? '/'
+      : disciplineAnchorRoute(fragment);
 const currentRoute = () => anchorRoute(location.hash.slice(1)) || '/';
 // Only a public navigation index enters history. Positions and focus stay in page memory.
 export function useRoute() {
