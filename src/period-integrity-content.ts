@@ -1,3 +1,4 @@
+import { empowermentAvailability, empowermentNavigation } from './period-empowerment-content.ts';
 // Work 12 v1.0 plus the three mandatory Product Vision v0.31 corrections.
 // Approved internal adaptation, not the paid manuscript or public-release approval.
 export const integrityContent = {
@@ -215,16 +216,21 @@ export const integrityContent = {
       'Maya may remain upset, decline further discussion or choose a different collaborator. The team may ask someone else to review future guides. These are possibilities, not simulated consequences the interface assigns. The example specifies no forgiveness, reconciliation, restored reputation or permanent change of identity. It also does not assert that every draft copy was replaced.',
   },
   navigation: {
-    home_lead:
-      "Only Empowerment helps you put The PERIOD Code's six connected values to work in daily life, for free. Begin with Ownership, give responsibility direction through Purpose, protect it under pressure with Resilience, and examine truthful conduct through Integrity.",
-    availability:
-      'Teaching order, not completion. Ownership, Purpose, Resilience, Integrity and Discipline have full lessons. Empowerment is shown for orientation; its full lesson is not available yet.',
-    header: ['Why PERIOD?', 'Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline'],
+    home_lead: empowermentNavigation.homeLead,
+    availability: empowermentAvailability,
+    header: [
+      'Why PERIOD?',
+      'Ownership',
+      'Purpose',
+      'Resilience',
+      'Integrity',
+      'Discipline',
+      'Empowerment',
+    ],
     local: ['Read Integrity', 'Examine a fictional record'],
     static_link: 'Read the complete text (new tab)',
     resilience_bridge: 'Integrity is next in the teaching order.',
     resilience_cta: 'Continue to Integrity',
-    unavailable:
-      'Ownership, Purpose, Resilience, Integrity and Discipline are available as lessons in this internal candidate. Empowerment remains orientation only; its full lesson is not available yet. The full teaching order is shown below.',
+    unavailable: empowermentAvailability,
   },
 } as const;

@@ -1,3 +1,4 @@
+import { empowermentAvailability } from './period-empowerment-content.ts';
 // Work 10 v1.0, approved for internal implementation by Product Vision v0.27.
 // Exact approved adaptation, not the paid manuscript or public-release approval.
 export const resilienceContent = {
@@ -307,8 +308,7 @@ export const resilienceContent = {
   ],
   homeLead:
     "Only Empowerment helps you put The PERIOD Code's six connected values to work in daily life, for free. Begin with Ownership, give responsibility direction through Purpose, and explore how Resilience protects that direction under pressure.",
-  availability:
-    'Teaching order, not completion. Ownership, Purpose and Resilience have full lessons. Integrity, Discipline and Empowerment are shown for orientation; their full lessons are not available yet.',
+  availability: empowermentAvailability,
   attribution:
     'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
 } as const;

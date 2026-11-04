@@ -1,0 +1,328 @@
+/* Work 20: the approved Editorial Companion lesson and recipient-led conversation. */
+.period-shell .empowerment-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  column-gap: 80px;
+  padding: 48px 0 56px;
+  overflow-wrap: anywhere;
+}
+.period-shell .empowerment-heading {
+  grid-column: 2;
+  grid-row: 1;
+}
+.period-shell .empowerment-heading h1 {
+  font-size: 4.75rem;
+  line-height: 1.07;
+}
+.period-shell .empowerment-heading .lead {
+  font:
+    2rem/1.4 'Source Serif',
+    Georgia,
+    serif;
+  margin: 28px 0;
+}
+.period-shell .empowerment-layout > .period-sequence {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: start;
+  border: 0;
+  padding: 0;
+}
+.period-shell .empowerment-layout .lesson-nav h2 {
+  display: block;
+  font-size: 1.75rem;
+  margin-bottom: 22px;
+}
+.period-shell .empowerment-layout .path-name {
+  font:
+    1.125rem/1.4 'Source Sans',
+    Arial,
+    sans-serif;
+}
+.period-shell .empowerment-layout .path li p {
+  display: none;
+}
+.period-shell :is(.empowerment-lesson, .empowerment-conversation) {
+  grid-column: 2;
+  min-width: 0;
+}
+.period-shell :is(.empowerment-lesson, .empowerment-conversation) > section {
+  margin: 40px 0;
+}
+.period-shell .empowerment-lesson > section:first-child {
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+}
+.period-shell :is(.empowerment-lesson, .empowerment-conversation, .empowerment-static) h2 {
+  font:
+    2.25rem/1.2 'Source Serif',
+    Georgia,
+    serif;
+  letter-spacing: -0.6px;
+  margin-bottom: 24px;
+}
+.period-shell :is(.empowerment-lesson, .empowerment-conversation, .empowerment-static) h3,
+.period-shell .empowerment-controls legend {
+  font:
+    1.75rem/1.3 'Source Serif',
+    Georgia,
+    serif;
+  margin: 32px 0 18px;
+}
+.period-shell .empowerment-links {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 20px;
+}
+.period-shell .empowerment-links a,
+.period-shell .empowerment-text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding-block: 8px;
+  font-weight: 600;
+}
+.period-shell .empowerment-exchange {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 28px 0 20px;
+  align-items: start;
+}
+.period-shell .empowerment-speaker {
+  padding: 24px;
+  background: var(--white);
+  border-left: 4px solid var(--ink);
+  min-width: 0;
+}
+.period-shell .empowerment-offer .empowerment-speaker:last-child,
+.period-shell .empowerment-response .empowerment-speaker:first-child {
+  background: var(--sage);
+}
+.period-shell .empowerment-speaker-label {
+  font-weight: 600;
+  margin: 0 0 16px;
+  font-size: 1.125rem;
+}
+.period-shell .empowerment-speaker blockquote {
+  font:
+    1.375rem/1.5 'Source Serif',
+    Georgia,
+    serif;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.period-shell .empowerment-offer-note,
+.period-shell #empowerment-control-hint {
+  color: var(--muted);
+  font-size: 1rem;
+}
+.period-shell .empowerment-controls {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+  margin: 40px 0 16px;
+}
+.period-shell .empowerment-controls legend {
+  padding: 0;
+  margin: 0;
+}
+.period-shell .empowerment-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+.period-shell .empowerment-controls label {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 48px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  background: var(--white);
+}
+.period-shell .empowerment-controls label:has(:checked) {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+  font-weight: 600;
+}
+.period-shell .empowerment-controls input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin: 0;
+  accent-color: var(--ink);
+}
+.period-shell .empowerment-controls input:focus {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px var(--paper);
+}
+.period-shell .empowerment-reflection,
+.period-shell .empowerment-confirmation {
+  font-weight: 600;
+}
+.period-shell .empowerment-agreement {
+  margin: 22px 0 30px;
+}
+.period-shell .empowerment-agreement > div {
+  border-top: 1px solid var(--line);
+  padding: 14px 0;
+}
+.period-shell .empowerment-agreement dt {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.period-shell .empowerment-agreement dd {
+  margin: 0;
+}
+.period-shell .empowerment-alternatives,
+.period-shell .empowerment-close,
+.period-shell .empowerment-exit {
+  border-top: 3px solid var(--accent);
+  padding-top: 32px;
+}
+.period-shell .empowerment-alternatives > section {
+  margin-top: 32px;
+}
+.period-shell .empowerment-print-only {
+  display: none;
+}
+.period-shell .empowerment-static {
+  max-width: 888px;
+  padding: 32px 24px 56px;
+  overflow-wrap: anywhere;
+}
+.period-shell .empowerment-static nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.period-shell .empowerment-static nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+}
+.period-shell .empowerment-static .empowerment-heading {
+  margin-top: 32px;
+}
+.period-shell .empowerment-static .empowerment-exchange {
+  display: block;
+}
+.period-shell .empowerment-static .empowerment-speaker + .empowerment-speaker {
+  margin-top: 20px;
+}
+.period-shell .empowerment-static [id] {
+  scroll-margin-top: 20px;
+}
+@media (max-width: 1000px) {
+  .period-shell .empowerment-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+    column-gap: 36px;
+  }
+  .period-shell .empowerment-options {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .period-shell .empowerment-layout {
+    display: flex;
+    flex-direction: column;
+    padding-top: 36px;
+  }
+  .period-shell .empowerment-heading h1 {
+    font-size: 3rem;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+  }
+  .period-shell .empowerment-heading .lead {
+    font-size: 1.75rem;
+  }
+  .period-shell .empowerment-layout > .period-sequence {
+    width: 100%;
+    margin-top: 32px;
+  }
+  .period-shell .empowerment-layout .lesson-nav .path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .period-shell .empowerment-exchange {
+    display: block;
+  }
+  .period-shell .empowerment-speaker + .empowerment-speaker {
+    margin-top: 20px;
+  }
+  .period-shell :is(.empowerment-lesson, .empowerment-conversation, .empowerment-static) h2 {
+    font-size: 1.875rem;
+  }
+  .period-shell .empowerment-static {
+    padding-inline: 20px;
+  }
+}
+@media (max-width: 360px) {
+  .period-shell .empowerment-layout .lesson-nav .path {
+    grid-template-columns: 1fr;
+  }
+}
+@media (forced-colors: active) {
+  .period-shell :is(.empowerment-speaker, .empowerment-controls label) {
+    border-color: CanvasText;
+  }
+  .period-shell .empowerment-controls label:has(:checked) {
+    outline-color: CanvasText;
+  }
+  .period-shell .empowerment-controls input:focus {
+    outline-color: Highlight;
+  }
+}
+@media print {
+  .period-shell .empowerment-print-only {
+    display: block;
+  }
+  .period-shell :is(.empowerment-print-reading, .empowerment-static) {
+    max-width: none;
+    padding: 0;
+    color: black;
+    background: white;
+  }
+  .period-shell :is(.empowerment-print-reading, .empowerment-static) :is(h2, h3, h4) {
+    break-after: avoid;
+    font-size: 16pt;
+  }
+  .period-shell .empowerment-print-reading .empowerment-print-title,
+  .period-shell .empowerment-static h1 {
+    font-size: 26pt;
+  }
+  .period-shell :is(.empowerment-print-reading, .empowerment-static) .lead {
+    font-size: 15pt;
+  }
+  .period-shell .empowerment-exchange {
+    display: block;
+  }
+  .period-shell .empowerment-speaker {
+    background: white !important;
+    color: black;
+    border-color: black;
+    margin: 12pt 0;
+    padding: 10pt;
+    break-inside: auto;
+  }
+  .period-shell .empowerment-speaker blockquote {
+    font-size: 12pt;
+  }
+  .period-shell .empowerment-reply {
+    margin: 26pt 0;
+    break-inside: auto;
+  }
+  .period-shell :is(.empowerment-alternatives, .empowerment-close, .empowerment-exit) {
+    border-color: black;
+  }
+  .period-shell :is(.empowerment-print-reading, .empowerment-static) p {
+    orphans: 3;
+    widows: 3;
+  }
+}

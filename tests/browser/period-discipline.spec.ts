@@ -58,7 +58,7 @@ async function checkPattern(page: Page, selected: 'strong-start' | 'rigid-effort
   }
 }
 
-test('the complete approved lesson stands alone and the header offers five full lessons', async ({
+test('the complete approved lesson stands alone and the header offers six full lessons', async ({
   page,
 }) => {
   await page.goto(lessonPath);
@@ -68,16 +68,24 @@ test('the complete approved lesson stands alone and the header offers five full 
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
     page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
-  ).toHaveText(['Why PERIOD?', 'Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline']);
+  ).toHaveText([
+    'Why PERIOD?',
+    'Ownership',
+    'Purpose',
+    'Resilience',
+    'Integrity',
+    'Discipline',
+    'Empowerment',
+  ]);
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', { name: 'Discipline', exact: true }),
   ).toHaveAttribute('aria-current', 'page');
   await page.getByRole('link', { name: content.lesson.nextLink, exact: true }).click();
-  await expect(page.locator('h1')).toHaveText('Empowerment');
-  await expect(page.getByRole('main')).toContainText('Orientation only');
-  await expect(page.getByRole('main')).toContainText(
+  await expect(page.locator('h1')).toHaveText('Empowerment.');
+  await expect(page.getByRole('main')).toContainText('All six values have full lessons.');
+  await expect(page.getByRole('main')).not.toContainText(
     'full Empowerment lesson is not yet available',
   );
   await axe(page);

@@ -67,7 +67,7 @@ test('ten complete sections, truthful availability and the connected Code are re
     page
       .getByRole('navigation', { name: 'Main navigation' })
       .getByRole('link', { name: 'Empowerment', exact: true }),
-  ).toHaveCount(0);
+  ).toHaveCount(1);
   await axe(page);
 });
 

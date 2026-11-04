@@ -18,13 +18,31 @@ import {
   periodCardText,
 } from '../src/period-standard-model.ts';
 
+const originalNextDescription =
+  'The sixth value asks how developed strength can help other people stand. Its full lesson is not available yet.';
+
 test('the entire approved eight-part lesson and seven-occasion comparison retain Work 15 copy exactly', () => {
   // Independent digests of the two visitor-copy objects in the accepted Work 15 archive.
   for (const [key, digest] of Object.entries({
     lesson: '0ef34666e7aaa6dce4c6a3f48a71bcfa117f6e3ab47a3e4ca94521502d1e00cc',
     interaction: '66a6c13967da3ee76bae7d51d3ce0b83656c7a5d4e54556d252ad275498800a5',
   }))
-    assert.equal(createHash('sha256').update(JSON.stringify(content[key])).digest('hex'), digest);
+    assert.equal(
+      createHash('sha256')
+        .update(
+          JSON.stringify(
+            key === 'lesson'
+              ? {
+                  ...content.lesson,
+                  nextDescription: originalNextDescription,
+                  nextLink: 'Read the Empowerment orientation',
+                }
+              : content[key],
+          ),
+        )
+        .digest('hex'),
+      digest,
+    );
   assert.equal(content.lesson.sections.length, 8);
   assert.deepEqual(
     content.interaction.moments.map((m) => m.id),
