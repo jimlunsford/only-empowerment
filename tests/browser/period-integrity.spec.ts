@@ -67,7 +67,7 @@ test('ten complete sections, truthful availability and the connected Code are re
     page
       .getByRole('navigation', { name: 'Main navigation' })
       .getByRole('link', { name: 'Empowerment', exact: true }),
-  ).toHaveCount(0);
+  ).toHaveCount(1);
   await axe(page);
 });
 
@@ -212,7 +212,9 @@ test('direct entry, deliberate route focus, Back restoration and unknown routes 
   for (const path of ['/#/period/values/unknown']) {
     await page.goto(path);
     await expect(page.locator('h1')).toHaveText('Choose a value');
-    await expect(page.getByText(content.navigation.unavailable, { exact: true })).toBeVisible();
+    await expect(page.locator('.period-unavailable .intro-copy')).toHaveText(
+      content.navigation.unavailable,
+    );
   }
   await page.goto('/#/period/integrity/missing');
   await expect(page.locator('h1')).toHaveText('That page is not here.');

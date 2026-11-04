@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
+import { empowermentReading } from './scripts/empowerment-reading.ts';
 import { disciplineReading } from './scripts/discipline-reading.ts';
 import { integrityReading } from './scripts/integrity-reading.ts';
 import { resilienceReading } from './scripts/resilience-reading.ts';
@@ -23,6 +24,10 @@ const resilienceStyles = () =>
     .join('\n');
 const integrityStyles = () =>
   ['src/style.css', 'src/period.css', 'src/period-integrity.css']
+    .map((path) => readFileSync(path, 'utf8'))
+    .join('\n');
+const empowermentStyles = () =>
+  ['src/style.css', 'src/period.css', 'src/period-empowerment.css']
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const disciplineStyles = () =>
@@ -49,6 +54,16 @@ export default defineConfig({
       configureServer(server) {
         server.middlewares.use((request, response, next) => {
           const path = request.url?.split('?')[0];
+          if (path === '/read/empowerment.html' || path === '/read/empowerment.css') {
+            response.setHeader(
+              'Content-Type',
+              path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
+            );
+            response.end(
+              path.endsWith('.html') ? empowermentReading(staging) : empowermentStyles(),
+            );
+            return;
+          }
           if (path === '/read/discipline.html' || path === '/read/discipline.css') {
             response.setHeader(
               'Content-Type',
@@ -74,6 +89,16 @@ export default defineConfig({
         });
       },
       generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'read/empowerment.html',
+          source: empowermentReading(staging),
+        });
+        this.emitFile({
+          type: 'asset',
+          fileName: 'read/empowerment.css',
+          source: empowermentStyles(),
+        });
         this.emitFile({
           type: 'asset',
           fileName: 'read/discipline.html',

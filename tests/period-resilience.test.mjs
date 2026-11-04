@@ -12,10 +12,16 @@ import {
   periodCardText,
 } from '../src/period-standard-model.ts';
 
+// Permit only the bounded six-lesson availability update.
+const originalAvailability =
+  'Teaching order, not completion. Ownership, Purpose and Resilience have full lessons. Integrity, Discipline and Empowerment are shown for orientation; their full lessons are not available yet.';
+
 test('all approved Work 10 copy matches the verified design archive without editorial drift', () => {
   // SHA-256 of JSON.stringify(proposed-copy.json), checked against the complete Doc and PDF.
   assert.equal(
-    createHash('sha256').update(JSON.stringify(content)).digest('hex'),
+    createHash('sha256')
+      .update(JSON.stringify({ ...content, availability: originalAvailability }))
+      .digest('hex'),
     '96ad7684b970d2a13d6ce042393436495803a88462dbffc3fd54811a8f007a88',
   );
   assert.equal(content.lesson.length, 12);

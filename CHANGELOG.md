@@ -1,5 +1,12 @@
 # Changelog
 
+## Work 20 candidate: Empowerment
+
+- Implement the approved standalone Empowerment lesson with the founder's integrated accountability refinement.
+- Add the native three-reply Mara/Dev conversation, complete script-free reading and all-reply printing.
+- Advance bounded navigation to six full lessons while preserving existing lessons, Standard Card drafts and legacy work.
+- Add focused copy, agreement, accessibility, privacy, reading, print and regression evidence. Feature-branch review only; no deployment or merge.
+
 ## 1.0.0-rc.3 (development candidate, untagged)
 
 - Correct lesson availability after Discipline staging: the Standard Card links to the Discipline lesson, and Ownership's connected-Code view and reading fallback identify all five full lessons while keeping Empowerment orientation only.

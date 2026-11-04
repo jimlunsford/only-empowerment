@@ -81,7 +81,7 @@ test('twelve complete sections, six connected values and an honest Integrity tra
     page
       .getByRole('navigation', { name: 'Main navigation' })
       .getByRole('link', { name: 'Empowerment', exact: true }),
-  ).toHaveCount(0);
+  ).toHaveCount(1);
   await expect(
     mainNav(page).getByRole('link', { name: 'Resilience', exact: true }),
   ).toHaveAttribute('aria-current', 'page');
@@ -242,7 +242,7 @@ test('homepage stays oriented to Ownership and the same-page five-lesson path re
   const before = page.url();
   await page.getByRole('link', { name: 'Explore the lessons', exact: true }).press('Enter');
   expect(page.url()).toBe(before);
-  await expect(page.locator('#teaching-order')).toBeFocused();
+  await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await expect(
     page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
   ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline', 'Empowerment']);

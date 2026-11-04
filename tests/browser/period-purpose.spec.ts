@@ -101,7 +101,7 @@ test('complete Purpose teaching, connected values and both editorial refinements
     page
       .getByRole('navigation', { name: 'Main navigation' })
       .getByRole('link', { name: 'Empowerment', exact: true }),
-  ).toHaveCount(0);
+  ).toHaveCount(1);
   await expect(mainNav(page).getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
     'aria-current',
     'page',
@@ -206,7 +206,7 @@ test('native text disclosure gives every example without selecting it and stays 
   await expect(details).not.toHaveAttribute('open', '');
 });
 
-test('five-value navigation preserves Ownership practice and honestly labels unfinished lessons', async ({
+test('six-value navigation preserves Ownership practice and identifies every full lesson', async ({
   page,
 }) => {
   await page.goto('/');
@@ -217,6 +217,7 @@ test('five-value navigation preserves Ownership practice and honestly labels unf
     'Resilience',
     'Integrity',
     'Discipline',
+    'Empowerment',
   ]);
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   await page.getByRole('link', { name: 'Explore the lessons', exact: true }).click();
@@ -251,9 +252,9 @@ test('five-value navigation preserves Ownership practice and honestly labels unf
   await page.goto('/#/period/values/discipline');
   await expect(page.locator('h1')).toHaveText('Discipline');
   await page.goto('/#/period/values/empowerment');
-  await expect(page.locator('h1')).toHaveText('Empowerment');
-  await expect(page.getByRole('main')).toContainText('Orientation only');
-  await expect(page.getByRole('main')).toContainText('not yet available');
+  await expect(page.locator('h1')).toHaveText('Empowerment.');
+  await expect(page.getByRole('main')).toContainText('All six values have full lessons.');
+  await expect(page.getByRole('main')).not.toContainText('not yet available');
 });
 
 test('Back and Forward restore reading positions and temporary example state without history payloads', async ({

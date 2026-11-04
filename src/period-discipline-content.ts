@@ -1,3 +1,4 @@
+import { empowermentNavigation, empowermentAvailability } from './period-empowerment-content.ts';
 // Approved Work 15 visitor copy, accepted by Product Vision v0.36.
 // Educational adaptations and fictional examples, not manuscript quotations.
 export const disciplineContent = {
@@ -96,9 +97,8 @@ export const disciplineContent = {
       'The optional Standard Card can help you name one behavior you intend to practice. It records an intention, not demonstrated discipline or mastery of The PERIOD Code. You can use the lesson without writing anything.',
     cardLink: 'Create an optional Standard Card',
     nextTitle: 'Empowerment is next',
-    nextDescription:
-      'The sixth value asks how developed strength can help other people stand. Its full lesson is not available yet.',
-    nextLink: 'Read the Empowerment orientation',
+    nextDescription: empowermentNavigation.disciplineBridge,
+    nextLink: empowermentNavigation.disciplineCTA,
     bookDescription:
       'The PERIOD Code book develops the complete six-value philosophy. Reading the book is optional for using this lesson.',
     bookLink: 'Explore The PERIOD Code book',
@@ -309,5 +309,4 @@ export const disciplineWayfinding = [
   { id: 'miss', label: 'The miss and return' },
   { id: 'changed-capacity', label: 'Changed capacity' },
 ] as const;
-export const disciplineAvailability =
-  'Ownership, Purpose, Resilience, Integrity and Discipline have full lessons. Empowerment is orientation only; its full lesson is not yet available. The numbers show teaching order, not completion.';
+export const disciplineAvailability = empowermentAvailability;

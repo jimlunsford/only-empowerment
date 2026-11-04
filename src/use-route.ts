@@ -1,6 +1,18 @@
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { disciplineAnchorRoute } from './period-discipline-navigation';
-const currentRoute = () => disciplineAnchorRoute(location.hash.slice(1)) || '/';
+// The root fallback contains these reading anchors when scripts are unavailable.
+// With scripts running, the same ordinary links open their complete app lessons.
+const readingRoutes: Record<string, string> = {
+  'reading-ownership': '/period/values/ownership',
+  'reading-purpose': '/period/values/purpose',
+};
+const anchorRoute = (fragment: string) =>
+  Object.hasOwn(readingRoutes, fragment)
+    ? readingRoutes[fragment]
+    : fragment === '/period/teaching-order'
+      ? '/'
+      : disciplineAnchorRoute(fragment);
+const currentRoute = () => anchorRoute(location.hash.slice(1)) || '/';
 // Only a public navigation index enters history. Positions and focus stay in page memory.
 export function useRoute() {
   const [path, setPath] = useState(currentRoute);
@@ -30,7 +42,7 @@ export function useRoute() {
       const link = (event.target as Element).closest<HTMLAnchorElement>('a[href^="#/"]');
       if (!link || link.target || link.hasAttribute('download')) return;
       const fragment = link.getAttribute('href')!.slice(1);
-      const next = disciplineAnchorRoute(fragment);
+      const next = anchorRoute(fragment);
       if (next === currentRoute()) return;
       event.preventDefault();
       save();
@@ -64,7 +76,7 @@ export function useRoute() {
     const heading = document.querySelector<HTMLElement>('h1');
     document.title = `${heading?.textContent || 'Page'} | Only Empowerment`;
     const target = document.getElementById(location.hash.slice(1));
-    if (target && disciplineAnchorRoute(location.hash.slice(1)) !== location.hash.slice(1)) {
+    if (target && anchorRoute(location.hash.slice(1)) !== location.hash.slice(1)) {
       target.focus({ preventScroll: true });
       target.scrollIntoView({ block: 'start' });
       first.current = false;
@@ -88,7 +100,8 @@ export function useRoute() {
         path === '/period/values/purpose' ||
         path === '/period/values/resilience' ||
         path === '/period/values/integrity' ||
-        path === '/period/values/discipline'
+        path === '/period/values/discipline' ||
+        path === '/period/values/empowerment'
       )
         heading?.scrollIntoView({ block: 'start' });
       else window.scrollTo(0, 0);

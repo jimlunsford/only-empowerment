@@ -7,7 +7,7 @@ import {
 import { periodPresentation as presentation } from './period-presentation';
 import { PageIntro } from './components/shared';
 import { purposeOwnershipHandoff } from './period-purpose-content';
-import { integrityContent } from './period-integrity-content';
+import { empowermentAvailability } from './period-empowerment-content';
 export function PeriodAttribution() {
   return <p class="source-note">{periodExercise.source}</p>;
 }
@@ -50,20 +50,12 @@ export function PeriodSequence({
                   <span>{v.name}</span>
                 )}
               </span>
-              {v.id === 'empowerment' && (
-                <span class="path-access-note">
-                  Orientation only. Full lesson not yet available.
-                </span>
-              )}
-              {!active && v.id === 'discipline' && (
-                <span class="path-access-note">Read the Discipline lesson</span>
-              )}
               <p>{v.role}</p>
             </div>
           </li>
         ))}
       </ol>
-      <p class="path-note">{integrityContent.navigation.availability}</p>
+      <p class="path-note">{empowermentAvailability}</p>
     </nav>
   );
 }
@@ -96,10 +88,10 @@ export function PeriodIntro() {
               Start with Ownership <span aria-hidden="true">→</span>
             </a>
             <a
-              href="#teaching-order"
+              href="#/period/teaching-order"
               onClick={(event) => {
                 event.preventDefault();
-                const section = document.getElementById('teaching-order');
+                const section = document.getElementById('/period/teaching-order');
                 section?.focus({ preventScroll: true });
                 section?.scrollIntoView({ block: 'start' });
               }}
@@ -141,7 +133,7 @@ export function PeriodIntro() {
       </section>
       <section
         class="sequence-section"
-        id="teaching-order"
+        id="/period/teaching-order"
         tabIndex={-1}
         aria-label="Explore the lessons"
       >
@@ -254,19 +246,13 @@ export function PeriodOwnership() {
     </div>
   );
 }
-export function PeriodUnavailable({ orientation = false }: { orientation?: boolean }) {
+export function PeriodUnavailable() {
   return (
     <div class="period-learning period-unavailable">
-      <PageIntro title={orientation ? 'Empowerment' : 'Choose a value'}>
-        {orientation && (
-          <p>
-            {periodValues[5].role} Orientation only. The full Empowerment lesson is not yet
-            available.
-          </p>
-        )}
-        <p>{integrityContent.navigation.unavailable}</p>
+      <PageIntro title="Choose a value">
+        <p>{empowermentAvailability}</p>
       </PageIntro>
-      <PeriodSequence active={orientation ? 'empowerment' : false} />
+      <PeriodSequence />
       <a href="#/">Return to Why PERIOD?</a>
     </div>
   );
