@@ -150,10 +150,23 @@ test('new lesson composition supports tablet, keyboard, text enlargement, spacin
     await page.setViewportSize({ width: 320, height: 1000 });
     await page.evaluate(() => (document.documentElement.style.fontSize = '200%'));
     expect(await fits(page), value + ' enlarged text').toBe(true);
-    await page.addStyleTag({
-      content:
-        '.value-lesson * {line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important} .value-lesson p{margin-bottom:2em!important}',
+    await page.evaluate(() => {
+      for (const element of document.querySelectorAll<HTMLElement>('.value-lesson *')) {
+        element.style.setProperty('line-height', '1.5', 'important');
+        element.style.setProperty('letter-spacing', '.12em', 'important');
+        element.style.setProperty('word-spacing', '.16em', 'important');
+        if (element.tagName === 'P') element.style.setProperty('margin-bottom', '2em', 'important');
+      }
     });
+    expect(
+      await shell
+        .locator('.lesson-copy p')
+        .first()
+        .evaluate((element) => {
+          const style = getComputedStyle(element);
+          return parseFloat(style.letterSpacing) / parseFloat(style.fontSize);
+        }),
+    ).toBeCloseTo(0.12, 2);
     expect(await fits(page), value + ' text spacing').toBe(true);
     await page.reload();
     await page.emulateMedia({ forcedColors: 'active' });
