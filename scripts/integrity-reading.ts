@@ -1,3 +1,5 @@
+import { staticFooter } from './site-footer.ts';
+import type { FooterBuild } from '../src/site-footer-content.ts';
 import { integrityContent as content } from '../src/period-integrity-content.ts';
 import { periodBook } from '../src/period-content.ts';
 
@@ -13,7 +15,7 @@ const h = (text: string, level = 2) => `<h${level}>${escape(text)}</h${level}>`;
 const link = (href: string, text: string) => `<a href="${href}">${escape(text)}</a>`;
 const top = () => `<p class="integrity-back-top">${link('#top', 'Back to top')}</p>`;
 
-export function integrityReading(staging = true) {
+export function integrityReading(staging = true, metadata?: FooterBuild) {
   const copy = content.case;
   return `<!doctype html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,5 +51,5 @@ ${h('What the record shows', 3)}${p(note.fact)}${h('Why it matters', 3)}${p(note
 <section id="correction" class="integrity-correction">${h('A correction that reaches the same audience')}<blockquote>${escape(copy.correction)}</blockquote>${p(copy.correction_note)}</section>
 <section id="continuation" class="integrity-continuation">${h(copy.continuation_title)}${copy.continuation.map(p).join('')}${p(copy.evidence)}</section>
 <section class="integrity-limits">${h("What remains outside Riley's control")}${p(copy.limits)}${p(copy.closure)}${p(copy.bridge)}${link('/read/discipline.html', 'Continue to Discipline')}${link('#lesson', 'Return to Integrity')}</section>${top()}
-</article><p class="source-note">${escape(content.attribution)}</p></main></body></html>`;
+</article><p class="source-note">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`;
 }

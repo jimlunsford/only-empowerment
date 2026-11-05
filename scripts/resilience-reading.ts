@@ -1,3 +1,5 @@
+import { staticFooter } from './site-footer.ts';
+import type { FooterBuild } from '../src/site-footer-content.ts';
 import { resilienceContent as content } from '../src/period-resilience-content.ts';
 import { resilienceUi as ui } from '../src/period-resilience-state.ts';
 import { integrityContent } from '../src/period-integrity-content.ts';
@@ -14,7 +16,7 @@ const p = (text: string) => `<p>${escape(text)}</p>`;
 const h = (text: string, level = 2) => `<h${level}>${escape(text)}</h${level}>`;
 const link = (href: string, text: string) => `<a href="${href}">${escape(text)}</a>`;
 
-export function resilienceReading(staging = true) {
+export function resilienceReading(staging = true, metadata?: FooterBuild) {
   const copy = content.activity;
   return `<!doctype html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,7 +37,7 @@ ${content.lesson
 ${section.id === 'L08' ? link('#pressure-notes', section.cta) + p(section.hint) : ''}
 ${section.id === 'L09' ? `<ol class="resilience-connections">${content.values.map(([name, text]) => `<li>${h(name, 3)}${p(text)}</li>`).join('')}</ol>` : ''}
 ${section.id === 'L10' ? p(integrityContent.navigation.resilience_bridge) + link('/read/integrity.html', 'Continue to Integrity') : ''}
-${section.id === 'L11' ? link('/#/period/standard', section.cta) : ''}
+${section.id === 'L11' ? link('/#/period/standard', section.cta + ' (requires JavaScript)') : ''}
 ${section.id === 'L12' ? link(periodBook.url, section.cta) : ''}</section>`,
   )
   .join('')}
@@ -60,5 +62,5 @@ ${note.id === 'missed' ? `<section class="resilience-return">${h(copy.returnTitl
   )
   .join('')}
 ${p(copy.closing)}<section class="resilience-close">${h(ui.closeHeading)}${p(ui.close)}${link('#resilience-lesson', 'Return to Resilience')}${p(integrityContent.navigation.resilience_bridge) + link('/read/integrity.html', 'Continue to Integrity')}</section>
-</article><p class="source-note">${escape(content.attribution)}</p></main></body></html>`;
+</article><p class="source-note">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`;
 }

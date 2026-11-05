@@ -1,3 +1,5 @@
+import { LessonTitle } from './LessonTitle';
+import { LessonParagraphs } from './LessonParagraphs';
 import { useState } from 'preact/hooks';
 import { PeriodSequence } from './PeriodLearning';
 import { periodBook } from './period-content';
@@ -27,7 +29,16 @@ function LessonSections() {
       {lesson.sections.map((section) => (
         <section key={section.id} data-lesson-section={section.id}>
           <h2>{section.title}</h2>
-          <Paragraphs texts={section.paragraphs} />
+          <LessonParagraphs
+            texts={section.paragraphs}
+            treatment={
+              section.id === 'room-for-a-reply'
+                ? 'empowerment-agreement'
+                : section.id === 'help-that-fits'
+                  ? 'empowerment-help'
+                  : undefined
+            }
+          />
           {'connections' in section && (
             <dl class="empowerment-agreement empowerment-connections">
               {section.connections.map(({ value, text: meaning }) => (
@@ -158,20 +169,26 @@ function CompletePrintReading() {
 export function EmpowermentLesson({ openCard }: { openCard: () => void }) {
   return (
     <>
-      <div class="period-learning empowerment-layout empowerment-screen no-print">
-        <header class="empowerment-heading">
-          <h1 tabIndex={-1}>{lesson.title}</h1>
+      <div class="period-learning empowerment-layout value-lesson empowerment-screen no-print">
+        <header class="empowerment-heading lesson-heading">
+          <p class="position">6 of 6 in the teaching order</p>
+          <h1 tabIndex={-1}>
+            <LessonTitle text={lesson.title} />
+          </h1>
           <p class="lead">{lesson.deck}</p>
-          <Paragraphs texts={lesson.intro} />
+        </header>
+        <PeriodSequence active="empowerment" lesson />
+        <div class="lesson-local">
+          {' '}
           <div class="empowerment-links">
             <a href="#/period/empowerment/conversation">{lesson.practiceLink}</a>
             <a href="/read/empowerment.html" target="_blank" rel="noopener noreferrer">
               {lesson.readingLink} (new tab)
             </a>
           </div>
-        </header>
-        <PeriodSequence active="empowerment" />
-        <article class="empowerment-lesson" aria-label="Empowerment lesson">
+        </div>
+        <article class="empowerment-lesson lesson-copy" aria-label="Empowerment lesson">
+          <Paragraphs texts={lesson.intro} />
           <LessonSections />
           <section class="empowerment-exit">
             <h2>{lesson.practiceTitle}</h2>

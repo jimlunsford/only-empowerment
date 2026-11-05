@@ -1,0 +1,170 @@
+/* Shared document-end notices. Application navigation keeps its approved groups. */
+.site-footer.notice-footer {
+  max-width: 1248px;
+  margin: auto;
+  padding: 36px 24px;
+  border-top: 1px solid #c9cec4;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 28px 40px;
+  color: #173c34;
+  font:
+    400 1.0625rem/1.55 'Source Sans',
+    Arial,
+    sans-serif;
+  overflow-wrap: anywhere;
+}
+.site-footer.notice-footer .footer-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.site-footer.notice-footer .footer-group h2 {
+  font:
+    600 1.125rem/1.4 'Source Sans',
+    Arial,
+    sans-serif;
+  margin: 0 0 12px;
+  letter-spacing: normal;
+}
+.site-footer.notice-footer .footer-group a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1.0625rem;
+}
+.site-footer.notice-footer .footer-intro p {
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+.site-footer.notice-footer .footer-group span {
+  font-size: 0.9375rem;
+  color: #52615a;
+}
+.site-footer.notice-footer .footer-app-note {
+  grid-column: 1 / -1;
+  font-size: 1rem;
+  margin: 0;
+}
+.site-footer.notice-footer .footer-notices {
+  grid-column: 1 / -1;
+  display: block;
+  padding-top: 24px;
+  border-top: 1px solid #c9cec4;
+  font-weight: 400;
+}
+.site-footer.notice-footer .footer-notices p {
+  margin: 0 0 12px;
+  max-width: 960px;
+}
+.site-footer.notice-footer .footer-notices a {
+  font: inherit;
+  padding: 0;
+}
+.site-footer.notice-footer .founder-copyright {
+  font-size: 1.125rem;
+  color: #173c34;
+}
+.site-footer.notice-footer .footer-software {
+  font-size: 1rem;
+  color: #173c34;
+}
+.site-footer.notice-footer :is(.footer-education, .footer-meta) {
+  font-size: 0.9375rem;
+  color: #52615a;
+}
+.site-footer.notice-footer .footer-meta {
+  display: block;
+  margin: 0;
+  text-align: left;
+}
+.site-footer.notice-footer .footer-education-url {
+  display: none;
+}
+.site-footer.notice-footer .footer-print-urls {
+  display: none;
+}
+.site-footer.notice-footer a:focus-visible {
+  outline: 3px solid #98422e;
+  outline-offset: 4px;
+}
+@media (max-width: 700px) {
+  .site-footer.notice-footer {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 28px 20px;
+    gap: 22px;
+  }
+  .site-footer.notice-footer .founder-copyright {
+    font-size: 1.0625rem;
+  }
+  .site-footer.notice-footer .footer-group a {
+    min-height: 48px;
+  }
+}
+@media (forced-colors: active) {
+  .site-footer.notice-footer a:focus-visible {
+    outline-color: Highlight;
+  }
+}
+@media print {
+  .site-footer.notice-footer {
+    display: block !important;
+    position: static;
+    max-width: none;
+    margin: 24pt 0 0;
+    padding: 12pt 0 0;
+    border-top: 1px solid #000;
+    break-inside: avoid;
+    color: #000;
+    background: #fff;
+  }
+  .site-footer.notice-footer > :is(.footer-intro, .footer-group, .footer-app-note) {
+    display: none !important;
+  }
+  .site-footer.notice-footer .footer-notices {
+    border: 0;
+    padding: 0;
+  }
+  .site-footer.notice-footer .footer-notices p {
+    margin: 0 0 7pt;
+    max-width: none;
+    color: #000;
+  }
+  .site-footer.notice-footer .founder-copyright {
+    font-size: 10pt;
+  }
+  .site-footer.notice-footer
+    :is(.footer-software, .footer-education, .footer-meta, .footer-print-urls) {
+    font-size: 9pt;
+    line-height: 1.4;
+    color: #000;
+  }
+  .site-footer.notice-footer :is(.footer-education-url, .footer-print-urls) {
+    display: block;
+    font-size: 9pt;
+  }
+  .site-footer.notice-footer a {
+    color: #000;
+    overflow-wrap: anywhere;
+  }
+  /* Attribution moves to the document-end notice; authored fields and artifact status stay intact. */
+  main .source-note,
+  main .card-source,
+  main .output-card > p.print-only {
+    display: none !important;
+  }
+  #educational-fallback nav,
+  .resilience-static nav,
+  .integrity-static nav,
+  .discipline-static nav {
+    display: none !important;
+  }
+  main :is(h1, h2, h3, h4) {
+    break-after: avoid;
+  }
+  main p {
+    orphans: 3;
+    widows: 3;
+  }
+}

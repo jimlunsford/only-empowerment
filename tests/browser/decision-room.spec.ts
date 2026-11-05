@@ -438,8 +438,13 @@ test('long content reflows at all widths, enlarged text, forced colors, reduced 
   await page.setViewportSize({ width: 800, height: 1000 });
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.decision-record')).toBeVisible();
-  for (const selector of ['.site-header', '.staging-banner', '.artifact-actions', '.site-footer'])
-    await expect(page.locator(selector)).toBeHidden();
+  for (const selector of [
+    '.site-header',
+    '.staging-banner',
+    '.artifact-actions',
+    '.site-footer .footer-group',
+  ])
+    for (const element of await page.locator(selector).all()) await expect(element).toBeHidden();
   await capture(page, info, 'print');
   if (info.project.name === 'chromium')
     await page.pdf({

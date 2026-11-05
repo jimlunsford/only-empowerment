@@ -1,3 +1,5 @@
+import { staticFooter } from './site-footer.ts';
+import type { FooterBuild } from '../src/site-footer-content.ts';
 import {
   empowermentContent as content,
   empowermentAttribution,
@@ -20,7 +22,7 @@ const agreement = (rows: readonly (readonly string[])[]) =>
   `<dl class="empowerment-agreement">${rows.map(([label, text]) => `<div><dt>${escape(label)}</dt><dd>${escape(text)}</dd></div>`).join('')}</dl>`;
 
 // Entire shared lesson and authored example at build time. No scripts or hidden teaching.
-export function empowermentReading(staging = true) {
+export function empowermentReading(staging = true, metadata?: FooterBuild) {
   const lesson = content.lesson,
     c = content.conversation;
   return `<!doctype html>
@@ -50,5 +52,5 @@ ${c.states.map((s) => `<section class="empowerment-reply" data-reply="${s.id}"><
 <section class="empowerment-alternatives"><h3 id="alternatives">${escape(c.alternativesTitle)}</h3>${p(c.alternativesIntro)}${c.alternatives.map((a) => `<section>${h(a.title, 4)}${speaker('Mara', a.message)}${p(a.effect)}${p(a.correction)}</section>`).join('')}</section>
 <section class="empowerment-close"><h3 id="conclusion">${escape(c.closeTitle)}</h3>${c.close.map(p).join('')}${h(c.transferTitle, 4)}${p(c.transfer)}${p(c.privacy)}</section>
 <div class="empowerment-links no-print">${link('#lesson', c.lessonLink)}${link('#conversation', c.readingLink)}</div>
-</article><p class="source-note">${escape(empowermentAttribution)}</p></main></body></html>`;
+</article><p class="source-note">${escape(empowermentAttribution)}</p></main>${staticFooter(metadata)}</body></html>`;
 }

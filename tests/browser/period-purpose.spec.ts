@@ -222,14 +222,24 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   await expect(page.locator('h1')).toBeFocused();
   const path = page.getByRole('navigation', { name: 'PERIOD teaching order' });
   await expect(path.locator('li')).toHaveCount(6);
-  await expect(path.getByRole('link')).toHaveText([
+  const valueLinks = path.getByRole('link');
+  const valueNames = [
     'Ownership',
     'Purpose',
     'Resilience',
     'Integrity',
     'Discipline',
     'Empowerment',
-  ]);
+  ];
+  await expect(valueLinks.locator('.path-name')).toHaveText(valueNames);
+  await expect(valueLinks).toHaveCount(valueNames.length);
+  for (const [index, name] of valueNames.entries()) {
+    await expect(valueLinks.nth(index)).toHaveAccessibleName(name);
+    await expect(valueLinks.nth(index)).toHaveAttribute(
+      'href',
+      '#/period/values/' + name.toLowerCase(),
+    );
+  }
   await expect(path.getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
     'aria-current',
     'page',

@@ -1,3 +1,4 @@
+import { founderCopyright } from '../../src/site-footer-content';
 import { test, expect, type Page } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 import AxeBuilder from '@axe-core/playwright';
@@ -80,6 +81,17 @@ test('every retained hash route shares three primary links and two visible foote
     await expect(footer(page).getByRole('link', { name: 'AGPL-3.0-or-later' })).toHaveAttribute(
       'href',
       '/LICENSE.txt',
+    );
+    await expect(footer(page)).toHaveCount(1);
+    await expect(page.locator('#educational-fallback')).toHaveCount(0);
+    await expect(footer(page).locator('.founder-copyright')).toHaveText(founderCopyright);
+    await expect(footer(page).locator('.founder-copyright a').nth(0)).toHaveAttribute(
+      'href',
+      'https://jimlunsford.com/',
+    );
+    await expect(footer(page).locator('.founder-copyright a').nth(1)).toHaveAttribute(
+      'href',
+      'https://phoenix233.com/',
     );
     await mainNav(page).getByRole('link', { name: 'Explore the values' }).click();
     await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();

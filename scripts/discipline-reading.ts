@@ -1,3 +1,5 @@
+import { staticFooter } from './site-footer.ts';
+import type { FooterBuild } from '../src/site-footer-content.ts';
 import {
   disciplineContent as content,
   disciplineAvailability,
@@ -16,7 +18,7 @@ const h = (text: string, level = 2) => `<h${level}>${escape(text)}</h${level}>`;
 const link = (href: string, text: string) => `<a href="${href}">${escape(text)}</a>`;
 
 // Build-time export of the approved visitor copy. All three patterns, no scripts.
-export function disciplineReading(staging = true) {
+export function disciplineReading(staging = true, metadata?: FooterBuild) {
   const lesson = content.lesson,
     copy = content.interaction;
   return `<!doctype html>
@@ -51,5 +53,5 @@ ${h('What this establishes', 4)}${p(moment.interpretation)}${h('A responsible re
   )
   .join('')}
 <section class="discipline-conclusion">${h(copy.conclusionTitle, 3)}${copy.conclusion.map(p).join('')}<p class="discipline-prompt">${escape(copy.transferPrompt)}</p>${link('#lesson', copy.backLink)}</section>
-</article><p class="source-note">${escape(periodExercise.source)}</p></main></body></html>`;
+</article><p class="source-note">${escape(periodExercise.source)}</p></main>${staticFooter(metadata)}</body></html>`;
 }

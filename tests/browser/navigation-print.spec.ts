@@ -7,7 +7,7 @@ test.skip(
   'PDF export uses desktop Chromium; other projects retain print-media regression checks.',
 );
 
-test('Work 23 A4 and Letter exports preserve six lessons, six legacy artifacts, separate card and script-free reading', async ({
+test('Work 26 A4 and Letter exports preserve six lessons, six legacy artifacts, separate card and script-free reading', async ({
   page,
   browser,
   baseURL,
@@ -17,13 +17,26 @@ test('Work 23 A4 and Letter exports preserve six lessons, six legacy artifacts, 
   async function pdf(name: string, target = page) {
     await target.evaluate(() => document.fonts.ready);
     await target.emulateMedia({ media: 'print' });
-    for (const selector of ['.site-header', '.site-footer', '.site-shell .period-review-notice'])
-      if (await target.locator(selector).count())
-        await expect(target.locator(selector)).toBeHidden();
+    for (const selector of [
+      '.site-header',
+      '.site-footer .footer-group',
+      '.site-shell .period-review-notice',
+    ])
+      for (const element of await target.locator(selector).all())
+        await expect(element).toBeHidden();
+    await expect(target.locator('.founder-copyright')).toBeVisible();
+    await expect(target.locator('.footer-software')).toBeVisible();
+    await expect(target.locator('.footer-notices')).toHaveCount(1);
     const text = await target.locator('body').innerText();
+    expect(
+      text.match(/Copyright © Jim Lunsford\. All rights reserved\. A Phoenix 2:33 LLC Project\./g),
+    ).toHaveLength(1);
+    expect(
+      text.match(/Educational adaptation by Only Empowerment\./g)?.length ?? 0,
+    ).toBeLessThanOrEqual(1);
     expect(text.length).toBeGreaterThan(180);
     for (const format of ['A4', 'Letter'] as const) {
-      const filename = `work23-${name}-${format}.pdf`;
+      const filename = `work26-${name}-${format}.pdf`;
       await target.pdf({
         path: info.outputPath(filename),
         format,
@@ -95,5 +108,5 @@ test('Work 23 A4 and Letter exports preserve six lessons, six legacy artifacts, 
   } finally {
     await context.close();
   }
-  await writeFile(info.outputPath('work23-print-expected.json'), JSON.stringify(evidence, null, 2));
+  await writeFile(info.outputPath('work26-print-expected.json'), JSON.stringify(evidence, null, 2));
 });

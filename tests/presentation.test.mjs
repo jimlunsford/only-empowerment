@@ -43,7 +43,7 @@ for (const presentation of ['staging', 'production']) {
       );
       assert.equal(robots, staging ? 'User-agent: *\nDisallow: /\n' : 'User-agent: *\nAllow: /\n');
       const fallback = html.match(
-        /<div id="educational-fallback"[^>]*>([\s\S]*?)<\/main><\/div>/,
+        /<div id="educational-fallback"[^>]*>([\s\S]*?)<\/main><footer/,
       )[1];
       for (const name of [
         'Decision Room',

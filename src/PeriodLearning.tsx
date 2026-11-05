@@ -1,3 +1,4 @@
+import { LessonTitle } from './LessonTitle';
 import {
   periodIntro as intro,
   periodValues,
@@ -14,10 +15,12 @@ export function PeriodAttribution() {
 export function PeriodSequence({
   active = false,
   focusOnly = false,
+  lesson = false,
 }: {
   active?:
     boolean | 'ownership' | 'purpose' | 'resilience' | 'integrity' | 'discipline' | 'empowerment';
   focusOnly?: boolean;
+  lesson?: boolean;
 }) {
   const focus = active === true ? 'ownership' : active;
   return (
@@ -26,32 +29,58 @@ export function PeriodSequence({
       <ol class="path" role="list">
         {periodValues.map((v, index) => (
           <li key={v.id} class={focus === v.id ? 'selected' : undefined}>
-            <span class="num" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <div>
-              <span class="path-name">
-                {[
-                  'ownership',
-                  'purpose',
-                  'resilience',
-                  'integrity',
-                  'discipline',
-                  'empowerment',
-                ].includes(v.id) ? (
-                  <a
-                    href={`#/period/values/${v.id}`}
-                    aria-current={focus === v.id && !focusOnly ? 'page' : undefined}
-                  >
-                    {v.name}
-                    {focusOnly && focus === v.id && <span class="sr-only"> (lesson focus)</span>}
-                  </a>
-                ) : (
-                  <span>{v.name}</span>
-                )}
-              </span>
-              <p>{v.role}</p>
-            </div>
+            {lesson ? (
+              <a
+                class="lesson-value-link"
+                aria-labelledby={`lesson-value-name-${v.id}`}
+                aria-describedby={`lesson-value-role-${v.id}`}
+                href={`#/period/values/${v.id}`}
+                aria-current={focus === v.id ? 'page' : undefined}
+              >
+                <span class="num" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span>
+                  <span class="path-name" id={`lesson-value-name-${v.id}`}>
+                    <LessonTitle text={v.name} />
+                  </span>
+                  <span class="path-role" id={`lesson-value-role-${v.id}`}>
+                    {v.role}
+                  </span>
+                </span>
+              </a>
+            ) : (
+              <>
+                <span class="num" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <span class="path-name">
+                    {[
+                      'ownership',
+                      'purpose',
+                      'resilience',
+                      'integrity',
+                      'discipline',
+                      'empowerment',
+                    ].includes(v.id) ? (
+                      <a
+                        href={`#/period/values/${v.id}`}
+                        aria-current={focus === v.id && !focusOnly ? 'page' : undefined}
+                      >
+                        {v.name}
+                        {focusOnly && focus === v.id && (
+                          <span class="sr-only"> (lesson focus)</span>
+                        )}
+                      </a>
+                    ) : (
+                      <span>{v.name}</span>
+                    )}
+                  </span>
+                  <p>{v.role}</p>
+                </div>
+              </>
+            )}
           </li>
         ))}
       </ol>
@@ -176,19 +205,19 @@ export function PeriodOwnership() {
     lesson = value.lesson;
   return (
     <div class="period-learning">
-      <div class="lesson-layout">
-        <PeriodSequence active />
-        <article class="period-lesson">
-          <div class="lesson-title">
-            <p class="position">1 of 6 in the teaching order</p>
-            <h1 tabIndex={-1}>
-              Ownership
-              <span class="dot" aria-hidden="true">
-                .
-              </span>
-            </h1>
-            <p class="lead">{value.role}</p>
-          </div>
+      <div class="value-lesson lesson-layout">
+        <header class="lesson-title lesson-heading">
+          <p class="position">1 of 6 in the teaching order</p>
+          <h1 tabIndex={-1}>
+            <LessonTitle text="Ownership" />
+            <span class="dot" aria-hidden="true">
+              .
+            </span>
+          </h1>
+          <p class="lead">{value.role}</p>
+        </header>
+        <PeriodSequence active lesson />
+        <article class="period-lesson lesson-copy" aria-label="Ownership lesson">
           <p class="small">
             Read the meaning, see an ordinary example, and consider one practical response. You do
             not need to type anything.

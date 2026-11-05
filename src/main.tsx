@@ -1,3 +1,4 @@
+import { SiteNotices } from './SiteNotices';
 import { DoItNow } from './DoItNow';
 import { RebuildMap } from './RebuildMap';
 import { Reset } from './Reset';
@@ -29,6 +30,8 @@ import './period-integrity.css';
 import './period-discipline.css';
 import './period-empowerment.css';
 import './navigation.css';
+import './period-lessons.css';
+import './site-footer.css';
 import { EmpowermentLesson, EmpowermentConversation } from './Empowerment';
 import { DisciplineLesson, DisciplinePattern } from './Discipline';
 import { IntegrityLesson, IntegrityRecord } from './Integrity';
@@ -435,7 +438,7 @@ function App() {
           </ConfirmDialog>
         )}
       </main>
-      <footer class="site-footer">
+      <footer class="site-footer notice-footer">
         <div class="footer-intro">
           <p>Only Empowerment</p>
           <span>Free learning. Practical application.</span>
@@ -464,36 +467,7 @@ function App() {
           </a>
           <span>Saved in this browser, on this site.</span>
         </nav>
-        <div class="footer-provenance">
-          <p>
-            Based on The PERIOD Code by{' '}
-            <a href="https://jimlunsford.com/" rel="noreferrer">
-              Jim Lunsford
-            </a>
-            .
-            <br />
-            Educational adaptation by Only Empowerment.
-            <br />
-            Copyright (C) 2026 Jim Lunsford. <a href="/LICENSE.txt">AGPL-3.0-or-later</a>. No
-            warranty.
-          </p>
-          <div class="footer-meta">
-            <p class="small">
-              v{__BUILD__.version} ·{' '}
-              {__BUILD__.dirty ? (
-                <span>local changes · base {__BUILD__.commit.slice(0, 7)}</span>
-              ) : (
-                <a
-                  href={__BUILD__.source}
-                  rel="noreferrer"
-                  title={`Build commit ${__BUILD__.commit}`}
-                >
-                  source {__BUILD__.commit.slice(0, 7)}
-                </a>
-              )}
-            </p>
-          </div>
-        </div>
+        <SiteNotices build={__BUILD__} path={path} />
       </footer>
     </div>
   );

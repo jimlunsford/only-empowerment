@@ -1,3 +1,4 @@
+import { staticFooter } from './scripts/site-footer.ts';
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
 import { empowermentReading } from './scripts/empowerment-reading.ts';
@@ -19,19 +20,19 @@ const metadata = {
   presentation,
 };
 const resilienceStyles = () =>
-  ['src/style.css', 'src/period.css', 'src/period-resilience.css']
+  ['src/style.css', 'src/period.css', 'src/period-resilience.css', 'src/site-footer.css']
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const integrityStyles = () =>
-  ['src/style.css', 'src/period.css', 'src/period-integrity.css']
+  ['src/style.css', 'src/period.css', 'src/period-integrity.css', 'src/site-footer.css']
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const empowermentStyles = () =>
-  ['src/style.css', 'src/period.css', 'src/period-empowerment.css']
+  ['src/style.css', 'src/period.css', 'src/period-empowerment.css', 'src/site-footer.css']
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const disciplineStyles = () =>
-  ['src/style.css', 'src/period.css', 'src/period-discipline.css']
+  ['src/style.css', 'src/period.css', 'src/period-discipline.css', 'src/site-footer.css']
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 export default defineConfig({
@@ -42,6 +43,7 @@ export default defineConfig({
       transformIndexHtml(html) {
         return html
           .replace('<!-- period-fallback -->', periodFallback())
+          .replace('<!-- site-footer -->', staticFooter(metadata))
           .replace(
             'content="noindex, nofollow"',
             staging ? 'content="noindex, nofollow"' : 'content="index, follow"',
@@ -60,7 +62,7 @@ export default defineConfig({
               path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
             );
             response.end(
-              path.endsWith('.html') ? empowermentReading(staging) : empowermentStyles(),
+              path.endsWith('.html') ? empowermentReading(staging, metadata) : empowermentStyles(),
             );
             return;
           }
@@ -69,7 +71,9 @@ export default defineConfig({
               'Content-Type',
               path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
             );
-            response.end(path.endsWith('.html') ? disciplineReading(staging) : disciplineStyles());
+            response.end(
+              path.endsWith('.html') ? disciplineReading(staging, metadata) : disciplineStyles(),
+            );
             return;
           }
           if (path === '/read/integrity.html' || path === '/read/integrity.css') {
@@ -77,7 +81,9 @@ export default defineConfig({
               'Content-Type',
               path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
             );
-            response.end(path.endsWith('.html') ? integrityReading(staging) : integrityStyles());
+            response.end(
+              path.endsWith('.html') ? integrityReading(staging, metadata) : integrityStyles(),
+            );
             return;
           }
           if (path !== '/read/resilience.html' && path !== '/read/resilience.css') return next();
@@ -85,14 +91,16 @@ export default defineConfig({
             'Content-Type',
             path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
           );
-          response.end(path.endsWith('.html') ? resilienceReading(staging) : resilienceStyles());
+          response.end(
+            path.endsWith('.html') ? resilienceReading(staging, metadata) : resilienceStyles(),
+          );
         });
       },
       generateBundle() {
         this.emitFile({
           type: 'asset',
           fileName: 'read/empowerment.html',
-          source: empowermentReading(staging),
+          source: empowermentReading(staging, metadata),
         });
         this.emitFile({
           type: 'asset',
@@ -102,7 +110,7 @@ export default defineConfig({
         this.emitFile({
           type: 'asset',
           fileName: 'read/discipline.html',
-          source: disciplineReading(staging),
+          source: disciplineReading(staging, metadata),
         });
         this.emitFile({
           type: 'asset',
@@ -112,13 +120,13 @@ export default defineConfig({
         this.emitFile({
           type: 'asset',
           fileName: 'read/integrity.html',
-          source: integrityReading(staging),
+          source: integrityReading(staging, metadata),
         });
         this.emitFile({ type: 'asset', fileName: 'read/integrity.css', source: integrityStyles() });
         this.emitFile({
           type: 'asset',
           fileName: 'read/resilience.html',
-          source: resilienceReading(staging),
+          source: resilienceReading(staging, metadata),
         });
         this.emitFile({
           type: 'asset',
