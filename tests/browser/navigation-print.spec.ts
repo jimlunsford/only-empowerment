@@ -2,21 +2,22 @@ import { test, expect } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 import { seed } from './helpers/legacy-records';
 
+test.skip(
+  ({ browserName, isMobile }) => browserName !== 'chromium' || isMobile,
+  'PDF export uses desktop Chromium; other projects retain print-media regression checks.',
+);
+
 test('Work 23 A4 and Letter exports preserve six lessons, six legacy artifacts, separate card and script-free reading', async ({
   page,
   browser,
   baseURL,
 }, info) => {
-  test.skip(
-    info.project.name !== 'chromium',
-    'PDF export uses Chromium; other projects retain print-media regression checks.',
-  );
   test.setTimeout(180000);
   const evidence: Record<string, string> = {};
   async function pdf(name: string, target = page) {
     await target.evaluate(() => document.fonts.ready);
     await target.emulateMedia({ media: 'print' });
-    for (const selector of ['.site-header', '.site-footer', '.period-review-notice'])
+    for (const selector of ['.site-header', '.site-footer', '.site-shell .period-review-notice'])
       if (await target.locator(selector).count())
         await expect(target.locator(selector)).toBeHidden();
     const text = await target.locator('body').innerText();

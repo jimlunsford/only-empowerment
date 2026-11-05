@@ -25,6 +25,16 @@ const routes = [
   '/period/resilience/pressure',
   '/period/integrity/record',
   '/period/discipline/pattern',
+  '/period/values/discipline/examine',
+  ...[
+    'promise',
+    'first-action',
+    'repeated-action',
+    'miss',
+    'return',
+    'changed-capacity',
+    'continuation',
+  ].map((anchor) => '/period/discipline/pattern/' + anchor),
   '/period/empowerment/conversation',
   '/period/standard',
   '/period/book',
@@ -49,6 +59,8 @@ test('every retained hash route shares three primary links and two visible foote
   for (const route of routes) {
     await page.goto('/#' + route);
     await expect(page.locator('h1')).toBeVisible();
+    if (route !== '/missing')
+      await expect(page.locator('h1')).not.toHaveText('That page is not here.');
     await expect(mainNav(page).getByRole('link')).toHaveText([
       'Why PERIOD?',
       'Explore the values',
@@ -204,6 +216,17 @@ for (const width of [1440, 390, 320])
   }, info) => {
     test.setTimeout(120000);
     await page.setViewportSize({ width, height: 900 });
+    if (info.project.name === 'chromium') {
+      await page.goto('/#/saved');
+      await expect(
+        page.getByRole('heading', { name: 'No saved work in this browser on this site.' }),
+      ).toBeVisible();
+      await page.evaluate(() => document.fonts.ready);
+      await page.screenshot({
+        path: info.outputPath(`work23-saved-empty-${width}.png`),
+        fullPage: true,
+      });
+    }
     await seed(page);
     for (const [name, route] of [
       ['home', '/'],
@@ -217,7 +240,12 @@ for (const width of [1440, 390, 320])
         true,
       );
       const mark = page.locator('.wordmark');
-      expect(await mark.evaluate((el) => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
+      const markBounds = await mark.boundingBox();
+      expect(markBounds).not.toBeNull();
+      expect(markBounds!.x).toBeGreaterThanOrEqual(0);
+      expect(markBounds!.x + markBounds!.width).toBeLessThanOrEqual(width);
+      expect(await mark.evaluate((el) => el.getClientRects().length)).toBe(1);
+      await page.keyboard.press('Tab');
       for (const link of await mainNav(page).getByRole('link').all()) {
         await link.focus();
         await expect(link).toBeFocused();
@@ -231,8 +259,10 @@ for (const width of [1440, 390, 320])
         ).violations,
       ).toEqual([]);
       if (info.project.name === 'chromium') {
-        await page.locator('h1').focus();
-        await page.evaluate(() => scrollTo(0, 0));
+        await page.evaluate(() => {
+          (document.activeElement as HTMLElement)?.blur();
+          scrollTo(0, 0);
+        });
         await page.screenshot({
           path: info.outputPath(`work23-${name}-${width}.png`),
           fullPage: true,
@@ -259,18 +289,43 @@ test('new shell supports keyboard sequence, text spacing, enlarged text and emul
     await page.keyboard.press('Tab');
     await expect(link).toBeFocused();
   }
-  await page.addStyleTag({
-    content:
-      'html {font-size:200% !important} * {letter-spacing:.12em !important;word-spacing:.16em !important;line-height:1.5 !important} p {margin-bottom:2em !important}',
-  });
+  const footerLinks = await footer(page).getByRole('link').all();
+  await footerLinks[0].focus();
+  for (const link of footerLinks.slice(1)) {
+    await page.keyboard.press('Tab');
+    await expect(link).toBeFocused();
+  }
   for (const route of ['/tools', '/saved', '/period/values/ownership', '/']) {
     await page.evaluate((r) => {
       location.hash = r;
     }, route);
     await expect(page.locator('h1')).toBeVisible();
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
-      true,
+    await page.evaluate(() => {
+      document.documentElement.style.fontSize = '200%';
+      for (const element of document.querySelectorAll<HTMLElement>('*')) {
+        element.style.setProperty('letter-spacing', '.12em', 'important');
+        element.style.setProperty('word-spacing', '.16em', 'important');
+        element.style.setProperty('line-height', '1.5', 'important');
+        if (element.tagName === 'P') element.style.setProperty('margin-bottom', '2em', 'important');
+      }
+    });
+    const overflow = await page.evaluate(() =>
+      Array.from(document.querySelectorAll<HTMLElement>('body *'))
+        .filter((el) => el.scrollWidth > el.clientWidth + 1)
+        .slice(0, 15)
+        .map((el) => ({
+          tag: el.tagName,
+          class: el.className,
+          right: el.getBoundingClientRect().right,
+          scroll: el.scrollWidth,
+          client: el.clientWidth,
+          text: el.textContent?.slice(0, 80),
+        })),
     );
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+      JSON.stringify({ route, overflow }),
+    ).toBe(true);
   }
   if (info.project.name === 'chromium')
     await page.screenshot({

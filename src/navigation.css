@@ -3,6 +3,11 @@
   min-height: 100vh;
   background: #f7f3eb;
 }
+.site-shell .site-footer,
+.legacy-info,
+.legacy-catalog {
+  overflow-wrap: anywhere;
+}
 .site-shell .site-header,
 .site-shell .site-footer,
 .site-shell .period-review-notice {
@@ -70,6 +75,8 @@
 .site-shell .site-header nav a[aria-current] {
   font-weight: 600;
 }
+.legacy-info :is(a, button, [tabindex]):focus-visible,
+.legacy-catalog a:focus-visible,
 .site-shell :is(.site-header, .site-footer) a:focus-visible {
   outline: 3px solid #98422e;
   outline-offset: 4px;
@@ -322,6 +329,8 @@
   }
 }
 @media (forced-colors: active) {
+  .legacy-info :is(a, button, [tabindex]):focus-visible,
+  .legacy-catalog a:focus-visible,
   .site-shell :is(.site-header, .site-footer) a:focus-visible {
     outline-color: Highlight;
   }

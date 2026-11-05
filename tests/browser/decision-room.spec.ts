@@ -263,7 +263,9 @@ test('mixed explicit saves, old-card compatibility, reopen edit, record deletion
   await expect(page.locator('.saved-list li')).toHaveCount(1);
   await clearAll(page);
   expect(await page.evaluate(() => Object.keys(localStorage))).toEqual(['unrelated']);
-  await expect(page.getByRole('heading', { name: 'No saved work.' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'No saved work in this browser on this site.' }),
+  ).toBeVisible();
 });
 test('private handoff previews editable fields, protects unsaved Next Move, and runs full receiving workflow', async ({
   page,

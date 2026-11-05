@@ -248,7 +248,9 @@ test('explicit save, reopen, edit, multiple cards, per-record deletion and all-v
   });
   await deleteAll(page);
   expect(await page.evaluate(() => Object.keys(localStorage))).toEqual(['other-app']);
-  await expect(page.getByRole('heading', { name: 'No saved work.' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'No saved work in this browser on this site.' }),
+  ).toBeVisible();
   await checkAxe(page);
 });
 test('corruption and unknown versions stay unreadable and storage failures are honest', async ({
@@ -417,5 +419,7 @@ test('keyboard navigation, dialog focus, viewport widths and empty saved state',
   }
   await saved(page);
   await checkAxe(page);
-  await expect(page.getByRole('heading', { name: 'No saved work.' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'No saved work in this browser on this site.' }),
+  ).toBeVisible();
 });
