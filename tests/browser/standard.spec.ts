@@ -94,8 +94,11 @@ async function edit(page: Page, f: StandardField) {
     .click();
 }
 async function clearAll(page: Page) {
-  await page.getByRole('button', { name: 'Delete my local data', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete all Only Empowerment data', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .click();
 }
 async function seedOtherTypes(page: Page) {
   const d = emptyDecision();
@@ -186,7 +189,7 @@ test('bounds, vague wording, back navigation, clear cancellation, internal route
   await next(page);
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await expect(page.locator('#ps-standard')).toHaveValue('try harder');
-  await page.getByRole('link', { name: 'The approach', exact: true }).click();
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
   await page.goBack();
   await expect(page.locator('#ps-standard')).toHaveValue('try harder');
   await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
@@ -406,7 +409,9 @@ test('storage failures and full mixed quota preserve memory and honest save stat
   await saved(page);
   await expect(page.getByRole('alert')).toContainText('unavailable');
   await clearAll(page);
-  await expect(page.getByText(/local storage deletion could not be verified/)).toBeVisible();
+  await expect(
+    page.getByText(/saved legacy-tool record deletion could not be verified/),
+  ).toBeVisible();
 });
 test('cross-tab record deletion clears open saved edits and lists with storage-event fallback', async ({
   page,

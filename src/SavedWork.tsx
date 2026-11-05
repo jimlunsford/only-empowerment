@@ -34,41 +34,52 @@ export function LocalDataControls({ work }: { work: LocalWork }) {
       deleteAll(browserStorage());
       work.refresh();
       setStatus(
-        'All Only Empowerment local data was removed and removal was verified. Current work was cleared.',
+        'All saved legacy-tool records were removed from this browser on this site, and removal was verified. Current legacy-tool work was cleared. The separate Standard Card draft was not cleared.',
       );
     } catch {
       work.refresh();
       setStatus(
-        'Current work was cleared, but local storage deletion could not be verified. Some records may remain. Use your browser’s site-data controls or try again when storage is available.',
+        'Current legacy-tool work was cleared, but saved legacy-tool record deletion could not be verified. Some records may remain. The separate Standard Card draft was not cleared. Use your browser’s site-data controls or try again when storage is available.',
       );
     }
   }
   return (
     <section class="local-delete">
-      <h2>Delete my local data</h2>
+      <h2>Delete legacy tool data</h2>
       <p>
-        Remove all Only Empowerment records from this browser profile, including unreadable records
-        and other schema versions. This also clears current work in open app tabs where browser
-        synchronization is available.
+        Remove all saved legacy-tool records from this browser profile on this site, including
+        unreadable or unsupported records. This also clears current legacy-tool sessions in open app
+        tabs where browser synchronization is available.
+      </p>
+      <p>
+        The separate memory-only PERIOD Standard Card draft is not cleared by this control. Use{' '}
+        <a href="#/period/standard">Clear this draft in the card editor</a> to clear it.
       </p>
       <p>
         It does not remove clipboard copies, printouts, PDFs, screenshots, browser or OS backups,
-        extension data, or other external copies.
+        extension data, hosting logs, or other external copies.
       </p>
       <button class="button" onClick={() => setConfirm(true)}>
-        Delete my local data
+        Delete legacy tool data
       </button>
       <p role="status">{status}</p>
       {confirm && (
         <ConfirmDialog
-          title="Delete all local data?"
-          confirm="Delete all Only Empowerment data"
+          title="Delete legacy tool data?"
+          confirm="Delete legacy tool data"
           onCancel={() => setConfirm(false)}
           onConfirm={remove}
         >
           <p>
-            All Only Empowerment saved records and current work will be cleared from this browser
-            profile. The app cannot undo this. Unrelated site data will be left alone.
+            All saved legacy-tool records under this app’s existing browser-storage keys on this
+            site will be removed, including unreadable or unsupported records. Current legacy-tool
+            sessions will also be cleared in open app tabs where browser synchronization is
+            available. The app cannot undo this. Unrelated browser-storage keys will be left alone.
+          </p>
+          <p>
+            The separate memory-only PERIOD Standard Card draft will not be cleared. Use the card
+            editor’s own Clear this draft action to clear it. Clipboard copies, PDFs, printouts,
+            screenshots, backups, and hosting logs will not be removed.
           </p>
         </ConfirmDialog>
       )}
@@ -199,12 +210,16 @@ export function SavedWork({ work }: { work: LocalWork }) {
     }
   }
   return (
-    <div class="narrow">
-      <PageIntro title="Saved on this device">
+    <div class="narrow legacy-info">
+      <PageIntro title="Saved work">
         <p>
-          Execution Cards, Decision Records, Personal Standards, Reset Plans, Rebuild Maps, and
-          Action Records in this browser profile only. There is no account or cloud recovery. Open a
-          record to edit, copy, or print it. Up to 50 saved Only Empowerment records total.
+          Records you chose to save with the legacy tools, in this browser profile and on this site
+          only. Open a record to edit, copy, or print it. There is no account, cloud recovery, or
+          transfer between staging and production. Up to 50 saved records total.
+        </p>
+        <p>
+          The optional PERIOD Standard Card is not saved here. Its draft stays only in the open tab.
+          Return to the card in that tab to copy, print, or clear it.
         </p>
       </PageIntro>
       {work.storageError && (
@@ -215,25 +230,21 @@ export function SavedWork({ work }: { work: LocalWork }) {
       {work.rejected.length > 0 && (
         <p class="storage-notice" role="status">
           {work.rejected.length} unreadable or unsupported record(s) were left untouched. They
-          cannot be opened by this version. Delete my local data removes them too.
+          cannot be opened by this version. Delete legacy tool data removes them too.
         </p>
       )}
       {work.entries.length === 0 ? (
         <section class="empty-state">
-          <h2>No saved work.</h2>
+          <h2>No saved work in this browser on this site.</h2>
           <p>
-            Work stays in memory unless you choose “Save on this device” on a confirmed artifact.
+            Legacy tool work appears here only after you choose Save on this device. Your Standard
+            Card draft is separate.
           </p>
           <div class="actions">
-            <a class="button" href="#/tools/decision-room">
-              Open Decision Room
+            <a class="button" href="#/tools">
+              Open legacy tools
             </a>
-            <a class="button" href="#/tools/build-a-standard">
-              Open Build a Standard
-            </a>
-            <a class="button" href="#/tools/next-move">
-              Open Next Move
-            </a>
+            <a href="#/period/teaching-order">Explore the values</a>
           </div>
         </section>
       ) : (

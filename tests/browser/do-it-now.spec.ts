@@ -291,7 +291,7 @@ test('Do It Now timer derives elapsed time after navigation away', async ({ page
   await page.getByLabel('Use an optional timer', { exact: true }).check();
   await page.locator('#din-minutes').fill('1');
   await begin(page);
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await page.clock.fastForward(70000);
   await page.locator('a.tool-card[href="#/tools/do-it-now"]').click();
   await expect(page.getByText('Timer ended. What happened?', { exact: true })).toBeVisible();
@@ -375,8 +375,11 @@ test('Do It Now corrupt/future records, quota and scoped deletion retain unrelat
   await axe(page);
   await page.getByRole('button', { name: 'Delete this record', exact: true }).click();
   await expect(page.locator('.saved-list > li')).toHaveCount(0);
-  await page.getByRole('button', { name: 'Delete my local data', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete all Only Empowerment data' }).click();
+  await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .click();
   expect(await page.evaluate(() => Object.entries(localStorage))).toEqual([['unrelated', 'keep']]);
 });
 for (const failure of ['denied', 'quota', 'readback'] as const)
@@ -494,8 +497,11 @@ test('Do It Now same-tab delete-all cannot replay its own event over immediate f
     };
   });
   await page.getByRole('link', { name: 'Saved work', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete my local data', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete all Only Empowerment data' }).click();
+  await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .click();
   await expect.poll(() => page.evaluate(() => Boolean((window as any).__oeDeleteAll))).toBe(true);
   await page.goto('/#/tools/do-it-now');
   await page.locator('#din-task').fill(record.task);
@@ -537,8 +543,11 @@ test('Do It Now multi-tab Saved Work and delete-all synchronize unsaved current 
   await expect(other.locator('.saved-list > li')).toHaveCount(0);
   await start(page);
   await begin(page);
-  await other.getByRole('button', { name: 'Delete my local data', exact: true }).click();
-  await other.getByRole('button', { name: 'Delete all Only Empowerment data' }).click();
+  await other.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
+  await other
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .click();
   await expect(page.locator('#din-task')).toHaveValue('');
 });
 test('Next Move handoff previews edits/exclusions, cancels, confirms start and preserves saved source', async ({
@@ -593,10 +602,10 @@ test('Next Move handoff optional references excluded and existing started work d
   await expect(page.getByRole('dialog')).toContainText('already reported starting');
   await axe(page);
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await page.locator('a.tool-card[href="#/tools/do-it-now"]').click();
   await expect(page.getByText('Begin state: Started', { exact: true })).toBeVisible();
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await page.locator('a.tool-card[href="#/tools/next-move"]').click();
   await page.getByRole('button', { name: 'Do it now', exact: true }).click();
   await page.getByLabel('Include start condition', { exact: true }).uncheck();
@@ -637,8 +646,11 @@ test('Do It Now private markers stay out of requests, URLs, titles, links and un
   await save(page);
   expect(await page.evaluate(() => Object.keys(localStorage))).toHaveLength(1);
   await page.getByRole('link', { name: 'Saved work', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete my local data', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete all Only Empowerment data' }).click();
+  await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .click();
   expect(await page.evaluate(() => localStorage.length)).toBe(0);
 });
 for (const width of [320, 360, 390, 1024, 1440])

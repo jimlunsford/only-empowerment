@@ -2,28 +2,29 @@ import { test, expect } from '@playwright/test';
 
 test('hash-route navigation updates title and focuses the new page heading', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   const toolsHeading = page.getByRole('heading', {
     level: 1,
-    name: 'Different situations. Useful next steps.',
+    name: 'Legacy tools',
     exact: true,
   });
   await expect(page).toHaveURL(/#\/tools$/);
   await expect(toolsHeading).toHaveAttribute('tabindex', '-1');
   await expect(toolsHeading).toBeFocused();
-  await expect(page).toHaveTitle('Different situations. Useful next steps. | Only Empowerment');
+  await expect(page).toHaveTitle('Legacy tools | Only Empowerment');
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
 
-  await page.getByRole('link', { name: 'The approach', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
+  await page.getByRole('link', { name: 'About the legacy tools', exact: true }).click();
   const approachHeading = page.getByRole('heading', {
     level: 1,
-    name: 'Understand it. Use it. Make it yours.',
+    name: 'About the legacy tools',
     exact: true,
   });
   await expect(page).toHaveURL(/#\/approach$/);
   await expect(approachHeading).toHaveAttribute('tabindex', '-1');
   await expect(approachHeading).toBeFocused();
-  await expect(page).toHaveTitle('Understand it. Use it. Make it yours. | Only Empowerment');
+  await expect(page).toHaveTitle('About the legacy tools | Only Empowerment');
 });
 
 test('immediate form interaction retains input and focus after route navigation', async ({

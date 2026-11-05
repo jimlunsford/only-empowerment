@@ -55,17 +55,20 @@ test('ten complete sections, truthful availability and the connected Code are re
   await expect(page.locator('h1')).toHaveText(content.title);
   await checkLesson(page);
   await expect(page.locator('main input, main textarea, main select, main button')).toHaveCount(0);
-  await expect(nav(page).getByRole('link')).toHaveText(content.navigation.header);
-  await expect(nav(page).getByRole('link', { name: 'Integrity', exact: true })).toHaveAttribute(
-    'aria-current',
-    'page',
-  );
+  await expect(nav(page).getByRole('link')).toHaveText([
+    'Why PERIOD?',
+    'Explore the values',
+    'Optional Standard Card',
+  ]);
+  await expect(
+    nav(page).getByRole('link', { name: 'Explore the values', exact: true }),
+  ).toHaveAttribute('aria-current', 'location');
   await expect(
     page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
   ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline', 'Empowerment']);
   await expect(
     page
-      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', { name: 'Empowerment', exact: true }),
   ).toHaveCount(1);
   await axe(page);
@@ -169,10 +172,9 @@ test('disclosure accessible names and expanded state are exposed natively', asyn
     info.outputPath('integrity-accessibility-tree.txt'),
     `COLLAPSED\n${collapsed}\nCREDIT OPEN\n${expanded}`,
   );
-  await expect(nav(page).getByRole('link', { name: 'Integrity', exact: true })).toHaveAttribute(
-    'aria-current',
-    'location',
-  );
+  await expect(
+    nav(page).getByRole('link', { name: 'Explore the values', exact: true }),
+  ).toHaveAttribute('aria-current', 'location');
   await expect(
     page
       .getByRole('navigation', { name: 'Integrity learning' })
@@ -260,7 +262,14 @@ test('Integrity entry preselects only a blank card and preserves existing privat
   const marker = 'PRIVATE-WORK13 <b>unchanged</b> 👩🏽‍💻\n  exact';
   await page.locator('#period-valueId').selectOption('purpose');
   await page.locator('#period-standard').fill(marker);
-  await nav(page).getByRole('link', { name: 'Integrity', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
+    .getByRole('link', { name: 'Integrity', exact: true })
+    .click();
   await page.getByRole('link', { name: "Explore the book on Jim's website", exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
   await page.keyboard.press('Escape');

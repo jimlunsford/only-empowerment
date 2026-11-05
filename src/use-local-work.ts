@@ -56,7 +56,9 @@ export function useLocalWork() {
       setResetSession(newResetSession());
       setRebuildSession(newRebuildSession());
       setActionSession(newActionSession());
-      setNotice('Local data and current work in all tools were cleared.');
+      setNotice(
+        'Current legacy-tool work was cleared. The separate Standard Card draft was not cleared.',
+      );
     } else if (event.type === 'delete-one') {
       setActionSession((old) => (old.savedKey === event.key ? newActionSession() : old));
       setResetSession((old) => (old.savedKey === event.key ? newResetSession() : old));

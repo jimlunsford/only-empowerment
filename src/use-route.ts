@@ -12,10 +12,10 @@ const anchorRoute = (fragment: string) =>
     : fragment === '/period/teaching-order'
       ? '/'
       : disciplineAnchorRoute(fragment);
-const currentRoute = () => anchorRoute(location.hash.slice(1)) || '/';
 // Only a public navigation index enters history. Positions and focus stay in page memory.
 export function useRoute() {
-  const [path, setPath] = useState(currentRoute);
+  const [fragment, setFragment] = useState(() => location.hash.slice(1));
+  const path = anchorRoute(fragment) || '/';
   const first = useRef(true);
   const restoring = useRef<{ y: number; focus: HTMLElement | null } | null>(null);
   useLayoutEffect(() => {
@@ -42,14 +42,18 @@ export function useRoute() {
       const link = (event.target as Element).closest<HTMLAnchorElement>('a[href^="#/"]');
       if (!link || link.target || link.hasAttribute('download')) return;
       const fragment = link.getAttribute('href')!.slice(1);
-      const next = anchorRoute(fragment);
-      if (next === currentRoute()) return;
+      if (fragment === location.hash.slice(1)) {
+        const target = document.getElementById(fragment);
+        target?.focus({ preventScroll: true });
+        target?.scrollIntoView({ block: 'start' });
+        return;
+      }
       event.preventDefault();
       save();
       entry = ++counter;
       restoring.current = null;
       history.pushState({ oeNavigation: entry }, '', '#' + fragment);
-      setPath(next);
+      setFragment(fragment);
     };
     const onHistory = () => {
       save();
@@ -62,7 +66,7 @@ export function useRoute() {
         history.replaceState({ oeNavigation: entry }, '', location.href);
         restoring.current = null;
       }
-      setPath(currentRoute());
+      setFragment(location.hash.slice(1));
     };
     document.addEventListener('click', onClick);
     window.addEventListener('popstate', onHistory);
@@ -76,7 +80,11 @@ export function useRoute() {
     const heading = document.querySelector<HTMLElement>('h1');
     document.title = `${heading?.textContent || 'Page'} | Only Empowerment`;
     const target = document.getElementById(location.hash.slice(1));
-    if (target && anchorRoute(location.hash.slice(1)) !== location.hash.slice(1)) {
+    if (
+      !restoring.current &&
+      target &&
+      anchorRoute(location.hash.slice(1)) !== location.hash.slice(1)
+    ) {
       target.focus({ preventScroll: true });
       target.scrollIntoView({ block: 'start' });
       first.current = false;
@@ -106,6 +114,6 @@ export function useRoute() {
         heading?.scrollIntoView({ block: 'start' });
       else window.scrollTo(0, 0);
     }
-  }, [path]);
+  }, [path, fragment]);
   return path;
 }

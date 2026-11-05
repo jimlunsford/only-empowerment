@@ -69,8 +69,8 @@ test('private marker stays out of requests and storage; internal navigation reta
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
   expect(await context.cookies()).toEqual([]);
   expect(await page.evaluate(() => indexedDB.databases())).toEqual([]);
-  await page.getByRole('link', { name: 'The approach', exact: true }).click();
-  await expect(page.locator('h1')).toContainText('Understand it.');
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await expect(page.locator('h1')).toContainText('Your answers are not ours to collect.');
   await page.goBack();
   await expect(page.locator('.artifact-action .answer')).toHaveText(marker);
   await page.reload();
@@ -82,7 +82,7 @@ test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('main')).toBeFocused();
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await expect(page.locator('h1')).toBeFocused();
   for (const route of ['/unknown', '/preview', '/tools/unknown']) {
     await page.goto('/#' + route);
@@ -96,7 +96,7 @@ test('source footer and metadata identify the same build', async ({ page, reques
   expect(metadata.commit).toMatch(/^[0-9a-f]{40}$/);
   await expect(page.locator('.footer-meta')).toContainText(metadata.commit.slice(0, 7));
   if (!metadata.dirty)
-    await expect(page.locator('.footer-meta a').last()).toHaveAttribute('href', metadata.source);
+    await expect(page.locator('.footer-meta a')).toHaveAttribute('href', metadata.source);
 });
 
 test('320px layout and long answers reflow without horizontal scrolling', async ({ page }) => {

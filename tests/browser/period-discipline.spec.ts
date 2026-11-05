@@ -68,15 +68,7 @@ test('the complete approved lesson stands alone and the header offers six full l
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
     page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
-  ).toHaveText([
-    'Why PERIOD?',
-    'Ownership',
-    'Purpose',
-    'Resilience',
-    'Integrity',
-    'Discipline',
-    'Empowerment',
-  ]);
+  ).toHaveText(['Why PERIOD?', 'Explore the values', 'Optional Standard Card']);
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
@@ -365,6 +357,10 @@ test('Discipline can preselect only a blank card, with existing text, print, cop
   await page.locator('#period-nextApplication').fill('SYNTHETIC: Correct the handover.');
   await page
     .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Discipline', exact: true })
     .click();
   await page.getByRole('link', { name: content.lesson.cardLink, exact: true }).click();
@@ -372,6 +368,10 @@ test('Discipline can preselect only a blank card, with existing text, print, cop
   await page.locator('#period-valueId').selectOption('purpose');
   await page
     .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Discipline', exact: true })
     .click();
   await page.getByRole('link', { name: content.lesson.cardLink, exact: true }).click();

@@ -88,8 +88,11 @@ async function saved(page: Page) {
   await page.getByRole('link', { name: 'Saved work', exact: true }).click();
 }
 async function clearAll(page: Page) {
-  await page.getByRole('button', { name: 'Delete my local data', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete all Only Empowerment data', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .click();
 }
 
 test('full PERIOD comparison, explicit choice, exact authored record, editable review and accessible states', async ({
@@ -268,7 +271,7 @@ test('private handoff previews editable fields, protects unsaved Next Move, and 
   test.setTimeout(90000);
   await page.goto('/#/tools/next-move');
   await page.locator('#field-situation').fill('Unsaved previous Next Move');
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await page.getByRole('link', { name: /Decision Room/ }).click();
   await finish(page);
   await page.getByRole('button', { name: 'Turn this decision into a Next Move' }).click();
@@ -280,7 +283,7 @@ test('private handoff previews editable fields, protects unsaved Next Move, and 
   await axe(page);
   await capture(page, info, 'replace-dialog');
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await page.evaluate(() => {
     location.hash = '/tools/next-move';
   });
@@ -456,7 +459,7 @@ test('keyboard path, memory navigation, storage failures, and reload behavior ar
   await page.keyboard.press('Tab');
   await expect(page.getByLabel('Option 1', { exact: true })).toBeFocused();
   await page.keyboard.type('First');
-  await page.getByRole('link', { name: 'The approach', exact: true }).click();
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
   await page.goBack();
   await expect(page.getByLabel('Option 1', { exact: true })).toHaveValue('First');
   await page.reload();

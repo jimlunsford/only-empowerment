@@ -66,15 +66,7 @@ test('seven complete sections, founder refinement, all six relationships and opt
   await expect(page.locator('main input,main textarea,main select')).toHaveCount(0);
   await expect(
     page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
-  ).toHaveText([
-    'Why PERIOD?',
-    'Ownership',
-    'Purpose',
-    'Resilience',
-    'Integrity',
-    'Discipline',
-    'Empowerment',
-  ]);
+  ).toHaveText(['Why PERIOD?', 'Explore the values', 'Optional Standard Card']);
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
@@ -428,6 +420,10 @@ test('partially authored Standard Cards survive lesson, conversation, return and
   await page.locator('#period-valueId').selectOption('integrity');
   await page
     .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Empowerment', exact: true })
     .click();
   await screen(page).getByRole('link', { name: content.lesson.cardLink, exact: true }).click();

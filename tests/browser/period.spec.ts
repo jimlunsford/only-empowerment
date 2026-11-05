@@ -105,7 +105,7 @@ test('draft and card survive in-site history, lesson entry, and guarded book exi
   page,
 }) => {
   await editor(page);
-  await page.getByRole('link', { name: 'Ownership', exact: true }).first().click();
+  await page.getByRole('link', { name: 'Read about Ownership', exact: true }).click();
   await page
     .getByRole('main')
     .getByRole('link', { name: 'Practice Ownership', exact: true })
@@ -120,7 +120,7 @@ test('draft and card survive in-site history, lesson entry, and guarded book exi
   ).toBeVisible();
   await expect(page.locator('#period-standard')).toHaveValue(standard);
   await page.getByRole('button', { name: 'Make my standard card' }).click();
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await page.goBack();
   expect(await page.locator('[data-field="standard"]').textContent()).toBe(standard);
   await page.getByRole('link', { name: 'About the book', exact: true }).click();

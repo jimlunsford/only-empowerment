@@ -28,6 +28,7 @@ import './period-resilience.css';
 import './period-integrity.css';
 import './period-discipline.css';
 import './period-empowerment.css';
+import './navigation.css';
 import { EmpowermentLesson, EmpowermentConversation } from './Empowerment';
 import { DisciplineLesson, DisciplinePattern } from './Discipline';
 import { IntegrityLesson, IntegrityRecord } from './Integrity';
@@ -35,7 +36,7 @@ import { ResilienceLesson, ResiliencePressure } from './Resilience';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
 function ToolGrid() {
   return (
-    <div class="tool-grid">
+    <div class="tool-grid legacy-catalog">
       {tools.map((tool) => (
         <a class="tool-card" key={tool.id} href={`#/tools/${tool.id}`}>
           <p class="situation">{tool.situation}</p>
@@ -53,56 +54,54 @@ function ToolGrid() {
 function ToolsPage() {
   return (
     <>
-      <PageIntro title="Different situations. Useful next steps.">
-        <p>
-          Use Decision Room to choose a direction, Next Move to define an executable action, or
-          Build a Standard to choose a clear behavioral line. Reset helps you correct a miss and
-          return to a standard. Rebuild Map connects a sustained rebuild to structure, repeated
-          action, and proof. Do It Now helps you begin a known action and record what happened.
-        </p>
-      </PageIntro>
+      <div class="legacy-info">
+        <PageIntro title="Legacy tools">
+          <p>
+            These earlier tools remain available, along with work you chose to save in this browser.
+            The PERIOD Code lessons are now the main learning experience.
+          </p>
+          <p>
+            Moving these tools out of the main navigation does not delete saved records. Open Saved
+            work to return to a record, or choose a tool below.
+          </p>
+          <div class="legacy-links">
+            <a href="#/saved">Open Saved work</a>
+            <a href="#/period/teaching-order">Explore the values</a>
+            <a href="#/approach">About the legacy tools</a>
+          </div>
+        </PageIntro>
+      </div>
       <ToolGrid />
     </>
   );
 }
 function Approach() {
   return (
-    <div class="narrow">
-      <PageIntro title="Understand it. Use it. Make it yours.">
+    <div class="narrow legacy-info">
+      <PageIntro title="About the legacy tools">
         <p>
-          You should not need to study a system before you can use a tool. A short lesson gives you
-          the distinction you need for the next question.
+          These earlier tools pair short explanations with reflection, a decision, a practical
+          action, and an honest record of what happened. Those are workflow ideas, not five values
+          and not a replacement for The PERIOD Code. You make the decision; the tool does not choose
+          or certify it for you.
         </p>
+        <p>
+          Use a tool when it helps with work you already need to do. You do not need to complete
+          every tool. The aim is useful action outside this page, without scores, streaks, or
+          labels.
+        </p>
+        <div class="legacy-links">
+          <a href="#/tools">Return to Legacy tools</a>
+          <a href="#/saved">Open Saved work</a>
+        </div>
       </PageIntro>
-      <ol class="approach-steps">
-        {[
-          ['Lesson', 'Learn a useful distinction at the moment it matters.'],
-          ['Reflection', 'Apply it to the situation in front of you.'],
-          [
-            'Decision',
-            'Choose what you are willing to do. The application does not choose for you.',
-          ],
-          ['Action', 'Define a real step you can take outside this page.'],
-          ['Result', 'Record what happened, including what still needs correction.'],
-        ].map(([name, text]) => (
-          <li key={name}>
-            <h2>{name}</h2>
-            <p>{text}</p>
-          </li>
-        ))}
-      </ol>
-      <section class="principle-panel">
-        <h2>Support should increase capability.</h2>
-        <p>
-          No scores, streaks, or labels. No reason to keep feeding a system once you have what you
-          need. The aim is useful work you can take into your life.
-        </p>
-      </section>
       <section class="framework-list">
-        <h2>The thinking behind the tools</h2>
+        <h2>Framework sources behind these tools</h2>
         <p>
-          These frameworks were developed by Jim Lunsford. The application teaches small, relevant
-          parts of them. The full explanations live on JimLunsford.com.
+          These frameworks were developed by Jim Lunsford. The PERIOD Code teaches values; How to
+          Rebuild Yourself teaches a rebuilding process; The Discipline Loop teaches reinforcement;
+          Pure Execution Mode teaches execution. These source pages are references, not links to
+          finished Only Empowerment companions for the other frameworks.
         </p>
         {Object.values(frameworks).map((f) => (
           <a href={f.url} rel="noreferrer" key={f.url}>
@@ -116,11 +115,12 @@ function Approach() {
 }
 function Privacy({ work }: { work: LocalWork }) {
   return (
-    <div class="narrow">
+    <div class="narrow legacy-info">
       <PageIntro title="Your answers are not ours to collect.">
         <p>
-          Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now work without
-          an account or answer submission. Saving is a choice you make on this device.
+          You can read the six lessons and explore their examples without an account or submitting
+          personal answers. The optional Standard Card stays in the open tab. The legacy tools save
+          a record in this browser only when you choose Save on this device.
         </p>
       </PageIntro>
       <LocalDataControls work={work} />
@@ -128,9 +128,9 @@ function Privacy({ work }: { work: LocalWork }) {
         <section>
           <h2>What stays in the page</h2>
           <p>
-            Turn a Value into a Standard keeps its draft only in this open tab during in-site
-            navigation. It never enters Saved Work. Reloading or closing can discard it; copy or
-            print anything you want to keep.
+            The optional PERIOD Standard Card keeps its draft only in application session memory in
+            this open tab during in-site navigation. It never enters Saved work or browser storage.
+            Reloading or closing can discard it; copy or print anything you want to keep.
           </p>
           <p>
             Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now keep
@@ -154,7 +154,7 @@ function Privacy({ work }: { work: LocalWork }) {
           </p>
           <p>
             Hosting systems keep operational request logs. Retention depends on the host, provider,
-            and backup policies; deleting local app data does not delete those logs.
+            and backup policies; deleting legacy tool data does not delete those logs.
           </p>
           {__STAGING__ && (
             <p>
@@ -168,11 +168,10 @@ function Privacy({ work }: { work: LocalWork }) {
         <section>
           <h2>Analytics and tracking boundaries</h2>
           <p>
-            Only Empowerment will use Google Analytics on the production site to understand
-            aggregate site and product usage.{' '}
-            {__STAGING__
-              ? 'Google Analytics is not enabled on this development staging site.'
-              : 'Google Analytics is not enabled in this build.'}
+            Google Analytics is not enabled in this build. Production is planned to use minimal
+            aggregate site and product usage analytics. Your written answers, Saved work records,
+            Standard Card text, and clipboard contents are excluded. We will update this page before
+            activating analytics.
           </p>
           <p>
             Analytics may include page and tool visits, traffic source, limited browser and device
@@ -198,8 +197,8 @@ function Privacy({ work }: { work: LocalWork }) {
           <p>
             Copying puts the record on your device’s clipboard. Your operating system may sync that
             clipboard. Printing or saving a PDF passes content to your browser and printing system.
-            Those copies and device backups are yours to manage and are not removed by deleting
-            local data.
+            Clipboard copies, PDFs, printouts, screenshots, and device backups are yours to manage
+            and are not removed by deleting legacy tool data.
           </p>
         </section>
         <section>
@@ -236,10 +235,11 @@ function Privacy({ work }: { work: LocalWork }) {
 }
 function NotFound() {
   return (
-    <div class="narrow">
+    <div class="narrow legacy-info">
       <PageIntro title="That page is not here.">
         <p>
-          <a href="#/tools">Explore the tool collection</a> or <a href="#/">return home</a>.
+          <a href="#/period/teaching-order">Explore the values</a> or{' '}
+          <a href="#/tools">open Legacy tools</a>.
         </p>
       </PageIntro>
     </div>
@@ -316,7 +316,7 @@ function App() {
   else if (path === '/tools/next-move') content = <NextMove work={work} />;
   else content = <NotFound />;
   return (
-    <div class={editorial ? 'period-shell' : undefined}>
+    <div class={`site-shell ${editorial ? 'period-shell' : ''}`}>
       <a
         class="skip-link"
         href="#main"
@@ -327,20 +327,18 @@ function App() {
       >
         Skip to content
       </a>
-      {editorial && (
-        <div
-          class={`period-review-notice no-print ${__STAGING__ ? 'staging-banner' : ''}`}
-          role="region"
-          aria-label="Review status"
-        >
-          {__STAGING__ && (
-            <span class="stage-label">Development staging. Not a production release.</span>
-          )}
-          <span>
-            Internal review. Teaching copy is proposed, not approved for public publication.
-          </span>
-        </div>
-      )}
+      <div
+        class={`period-review-notice no-print ${__STAGING__ ? 'staging-banner' : ''}`}
+        role="region"
+        aria-label="Review status"
+      >
+        {__STAGING__ && (
+          <span class="stage-label">Development staging. Not a production release.</span>
+        )}
+        <span>
+          Internal review. Teaching copy is proposed, not approved for public publication.
+        </span>
+      </div>
       <header class="site-header">
         <a class="wordmark" href="#/" aria-label="Only Empowerment home">
           only<span>empowerment</span>
@@ -349,106 +347,62 @@ function App() {
           </span>
         </a>
         <nav aria-label="Main navigation">
-          <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
+          <a
+            href="#/"
+            aria-current={
+              path === '/' && location.hash !== '#/period/teaching-order' ? 'page' : undefined
+            }
+          >
             Why PERIOD?
           </a>
           <a
-            href="#/period/values/ownership"
+            href="#/period/teaching-order"
             aria-current={
-              path === '/period/values/ownership' || path === '/period/values'
-                ? 'page'
-                : practiceView
+              location.hash === '#/period/teaching-order'
+                ? 'location'
+                : path.startsWith('/period/') &&
+                    path !== '/period/standard' &&
+                    path !== '/period/book'
                   ? 'location'
                   : undefined
             }
           >
-            Ownership
+            Explore the values
           </a>
           <a
-            href="#/period/values/purpose"
-            aria-current={
-              purposeView ? (path === '/period/values/purpose' ? 'page' : 'location') : undefined
-            }
+            href="#/period/standard"
+            aria-current={path === '/period/standard' ? 'page' : undefined}
+            onClick={(event) => {
+              if (
+                (practiceView ||
+                  purposeView ||
+                  resilienceView ||
+                  integrityView ||
+                  disciplineView ||
+                  empowermentView) &&
+                event.button === 0 &&
+                !event.metaKey &&
+                !event.ctrlKey &&
+                !event.shiftKey &&
+                !event.altKey
+              )
+                empowermentView
+                  ? openEmpowermentCard()
+                  : disciplineView
+                    ? openDisciplineCard()
+                    : integrityView
+                      ? openIntegrityCard()
+                      : resilienceView
+                        ? openResilienceCard()
+                        : purposeView
+                          ? openPurposeCard()
+                          : openPracticeCard();
+            }}
           >
-            Purpose
+            Optional Standard Card
           </a>
-          <a
-            href="#/period/values/resilience"
-            aria-current={
-              resilienceView
-                ? path === '/period/values/resilience'
-                  ? 'page'
-                  : 'location'
-                : undefined
-            }
-          >
-            Resilience
-          </a>
-          <a
-            href="#/period/values/integrity"
-            aria-current={
-              integrityView
-                ? path === '/period/values/integrity'
-                  ? 'page'
-                  : 'location'
-                : undefined
-            }
-          >
-            Integrity
-          </a>
-          <a
-            href="#/period/values/discipline"
-            aria-current={
-              disciplineView
-                ? path === '/period/values/discipline'
-                  ? 'page'
-                  : 'location'
-                : undefined
-            }
-          >
-            Discipline
-          </a>
-          <a
-            href="#/period/values/empowerment"
-            aria-current={
-              empowermentView
-                ? path === '/period/values/empowerment'
-                  ? 'page'
-                  : 'location'
-                : undefined
-            }
-          >
-            Empowerment
-          </a>
-          {!editorial && (
-            <>
-              <a href="#/tools" aria-current={path.startsWith('/tools') ? 'page' : undefined}>
-                The tools
-              </a>
-              <a href="#/saved" aria-current={path === '/saved' ? 'page' : undefined}>
-                Saved work
-              </a>
-              <a href="#/approach" aria-current={path === '/approach' ? 'page' : undefined}>
-                The approach
-              </a>
-              <a href="#/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>
-                Privacy & source
-              </a>
-            </>
-          )}
         </nav>
       </header>
-      {__STAGING__ && !editorial && (
-        <div class="staging-banner" role="region" aria-label="Development status">
-          <span class="stage-label">Development staging</span>
-          <span>
-            Current tools are staged for development and review. Not a production release.
-          </span>
-          <a href="#/tools/next-move">
-            Try Next Move <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-      )}
       <main
         id="main"
         tabIndex={-1}
@@ -482,81 +436,64 @@ function App() {
         )}
       </main>
       <footer class="site-footer">
-        <div>
-          {editorial ? (
-            <>
-              <p>Only Empowerment</p>
-              <span>Free learning. Practical application.</span>
-            </>
-          ) : (
-            <p>
-              Built by{' '}
-              <a href="https://jimlunsford.com/" rel="noreferrer">
-                Jim Lunsford
-              </a>
-            </p>
-          )}
+        <div class="footer-intro">
+          <p>Only Empowerment</p>
+          <span>Free learning. Practical application.</span>
         </div>
-        <div class="footer-meta">
-          <a href="#/period/book">About the book</a>
-          <a
-            href="#/period/standard"
-            aria-current={path === '/period/standard' ? 'page' : undefined}
-            onClick={(event) => {
-              if (
-                (practiceView ||
-                  purposeView ||
-                  resilienceView ||
-                  integrityView ||
-                  disciplineView ||
-                  empowermentView) &&
-                event.button === 0 &&
-                !event.metaKey &&
-                !event.ctrlKey &&
-                !event.shiftKey &&
-                !event.altKey
-              )
-                empowermentView
-                  ? openEmpowermentCard()
-                  : disciplineView
-                    ? openDisciplineCard()
-                    : integrityView
-                      ? openIntegrityCard()
-                      : resilienceView
-                        ? openResilienceCard()
-                        : purposeView
-                          ? openPurposeCard()
-                          : openPracticeCard();
-            }}
-          >
-            Optional Standard Card
+        <nav class="footer-group" aria-label="About this site">
+          <h2>About this site</h2>
+          <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
+            About the book
           </a>
-          {editorial && (
-            <>
-              <a href="#/tools">The tools</a>
-              <a href="#/saved">Saved work</a>
-              <a href="#/approach">The approach</a>
-            </>
-          )}
-          <a href="#/privacy">Privacy &amp; source</a>
-          <p class="small">
-            v{__BUILD__.version} ·{' '}
-            {__BUILD__.dirty ? (
-              <span>local changes · base {__BUILD__.commit.slice(0, 7)}</span>
-            ) : (
-              <a href={__BUILD__.source} rel="noreferrer">
-                source {__BUILD__.commit.slice(0, 7)}
-              </a>
-            )}
-          </p>
-        </div>
-        {editorial && (
+          <a href="#/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>
+            Privacy &amp; source
+          </a>
+        </nav>
+        <nav class="footer-group" aria-label="Existing work">
+          <h2>Existing work</h2>
+          <a
+            href="#/tools"
+            aria-current={
+              path === '/tools' ? 'page' : path.startsWith('/tools/') ? 'location' : undefined
+            }
+          >
+            Legacy tools
+          </a>
+          <a href="#/saved" aria-current={path === '/saved' ? 'page' : undefined}>
+            Saved work
+          </a>
+          <span>Saved in this browser, on this site.</span>
+        </nav>
+        <div class="footer-provenance">
           <p>
-            Based on The PERIOD Code by Jim Lunsford.
+            Based on The PERIOD Code by{' '}
+            <a href="https://jimlunsford.com/" rel="noreferrer">
+              Jim Lunsford
+            </a>
+            .
             <br />
             Educational adaptation by Only Empowerment.
+            <br />
+            Copyright (C) 2026 Jim Lunsford. <a href="/LICENSE.txt">AGPL-3.0-or-later</a>. No
+            warranty.
           </p>
-        )}
+          <div class="footer-meta">
+            <p class="small">
+              v{__BUILD__.version} ·{' '}
+              {__BUILD__.dirty ? (
+                <span>local changes · base {__BUILD__.commit.slice(0, 7)}</span>
+              ) : (
+                <a
+                  href={__BUILD__.source}
+                  rel="noreferrer"
+                  title={`Build commit ${__BUILD__.commit}`}
+                >
+                  source {__BUILD__.commit.slice(0, 7)}
+                </a>
+              )}
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );
