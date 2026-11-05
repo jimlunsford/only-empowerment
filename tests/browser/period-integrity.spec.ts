@@ -63,9 +63,26 @@ test('ten complete sections, truthful availability and the connected Code are re
   await expect(
     nav(page).getByRole('link', { name: 'Explore the values', exact: true }),
   ).toHaveAttribute('aria-current', 'location');
-  await expect(
-    page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
-  ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline', 'Empowerment']);
+  const valueLinks = page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
+    .getByRole('link');
+  const valueNames = [
+    'Ownership',
+    'Purpose',
+    'Resilience',
+    'Integrity',
+    'Discipline',
+    'Empowerment',
+  ];
+  await expect(valueLinks.locator('.path-name')).toHaveText(valueNames);
+  await expect(valueLinks).toHaveCount(valueNames.length);
+  for (const [index, name] of valueNames.entries()) {
+    await expect(valueLinks.nth(index)).toHaveAccessibleName(name);
+    await expect(valueLinks.nth(index)).toHaveAttribute(
+      'href',
+      '#/period/values/' + name.toLowerCase(),
+    );
+  }
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
