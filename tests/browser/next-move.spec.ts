@@ -54,8 +54,11 @@ async function saved(page: Page) {
   await page.getByRole('link', { name: 'Saved work', exact: true }).click();
 }
 async function deleteAll(page: Page) {
-  await page.getByRole('button', { name: 'Delete my local data', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete all Only Empowerment data', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .click();
 }
 test('happy path preserves authored content, validates each state, and edits before finalization', async ({
   page,
@@ -126,7 +129,7 @@ test('back and internal route navigation preserve memory, refresh discards unsav
   await begin(page);
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await expect(page.getByRole('textbox')).toHaveValue(data.action);
-  await page.getByRole('link', { name: 'The approach', exact: true }).click();
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
   await page.goBack();
   await expect(page.getByRole('textbox')).toHaveValue(data.action);
   await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
@@ -245,7 +248,9 @@ test('explicit save, reopen, edit, multiple cards, per-record deletion and all-v
   });
   await deleteAll(page);
   expect(await page.evaluate(() => Object.keys(localStorage))).toEqual(['other-app']);
-  await expect(page.getByRole('heading', { name: 'No saved work.' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'No saved work in this browser on this site.' }),
+  ).toBeVisible();
   await checkAxe(page);
 });
 test('corruption and unknown versions stay unreadable and storage failures are honest', async ({
@@ -414,5 +419,7 @@ test('keyboard navigation, dialog focus, viewport widths and empty saved state',
   }
   await saved(page);
   await checkAxe(page);
-  await expect(page.getByRole('heading', { name: 'No saved work.' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'No saved work in this browser on this site.' }),
+  ).toBeVisible();
 });

@@ -157,7 +157,7 @@ export function PeriodStandard({
         </div>
       )}
       <div class="actions draft-actions no-print">
-        <a href="#/period/values/ownership">Return to the values</a>
+        <a href="#/period/teaching-order">Return to the values</a>
         <button
           id="period-clear"
           class="button"

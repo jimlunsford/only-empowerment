@@ -132,9 +132,7 @@ async function save(page: Page) {
 }
 async function saved(page: Page) {
   await page.getByRole('link', { name: 'Saved work', exact: true }).click();
-  await expect(
-    page.getByRole('heading', { name: 'Saved on this device', exact: true }),
-  ).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Saved work', exact: true })).toBeVisible();
 }
 async function openPlan(page: Page) {
   await page.getByRole('button', { name: /Open Reset Plan/ }).click();
@@ -149,8 +147,11 @@ async function edit(page: Page, f: ResetField) {
     .click();
 }
 async function clearAll(page: Page) {
-  await page.getByRole('button', { name: 'Delete my local data', exact: true }).click();
-  await page.getByRole('button', { name: 'Delete all Only Empowerment data', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
+  await page
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .click();
 }
 
 test('Reset full manual workflow, exact authorship, all editable sections, standing recheck and axe', async ({
@@ -272,7 +273,7 @@ test('miss bounds, empty required answers, back navigation and internal memory w
   }
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await expect(page.locator('#reset-proof')).toHaveValue(data.proof);
-  await page.getByRole('link', { name: 'The approach', exact: true }).click();
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
   await page.goBack();
   await expect(page.locator('#reset-proof')).toHaveValue(data.proof);
   await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
@@ -559,7 +560,9 @@ test('mixed quota, denied storage and quota failure retain the unsaved plan hone
   await expect(page.locator('.work-status')).toContainText('could not be verified');
   await saved(page);
   await clearAll(page);
-  await expect(page.getByText(/local storage deletion could not be verified/)).toBeVisible();
+  await expect(
+    page.getByText(/saved legacy-tool record deletion could not be verified/),
+  ).toBeVisible();
 });
 test('cross-tab deletion with storage-event fallback clears edits and lists without resurrection', async ({
   page,
@@ -790,7 +793,7 @@ test('deliberately reviewed saved standard is reloaded explicitly without losing
   await page.getByRole('button', { name: 'Set this standard', exact: true }).click();
   await page.getByRole('button', { name: 'Save changes on this device', exact: true }).click();
   await page.getByRole('button', { name: 'Save these changes', exact: true }).click();
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await page.locator('.tool-card[href="#/tools/reset"]').click();
   await expect(page.locator('.pause-panel')).toBeVisible();
   await page.getByRole('button', { name: 'Return to the standard check', exact: true }).click();

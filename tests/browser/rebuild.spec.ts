@@ -147,9 +147,7 @@ async function save(page: Page) {
 }
 async function saved(page: Page) {
   await page.getByRole('link', { name: 'Saved work', exact: true }).click();
-  await expect(
-    page.getByRole('heading', { name: 'Saved on this device', exact: true }),
-  ).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Saved work', exact: true })).toBeVisible();
 }
 async function openMap(page: Page) {
   await page.getByRole('button', { name: /Open Rebuild Map/ }).click();
@@ -508,8 +506,8 @@ test('handoff previews minimal editable fields, protects existing work and runs 
   const old = await page.evaluate(() => Object.fromEntries(Object.entries(localStorage)));
   await page.goto('/#/tools/next-move');
   await page.locator('#field-situation').fill('Do not silently replace this');
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
-  await expect(page.locator('h1')).toContainText('Different situations');
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
+  await expect(page.locator('h1')).toContainText('Legacy tools');
   await page
     .locator('.tool-card')
     .filter({ has: page.getByRole('heading', { name: 'Rebuild Map', exact: true }) })
@@ -629,9 +627,10 @@ test('cross-tab edits reject stale saves, deletions clear the map and all-data c
   await rest(page);
   await page.getByRole('button', { name: 'Confirm Rebuild Map', exact: true }).click();
   await offer(page);
-  await other.getByRole('button', { name: 'Delete my local data', exact: true }).click();
+  await other.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
   await other
-    .getByRole('button', { name: 'Delete all Only Empowerment data', exact: true })
+    .getByRole('dialog')
+    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
     .click();
   await expect(page.locator('#rm-area')).toHaveValue('');
   await expect(page.locator('#rm-handoff-situation')).toHaveCount(0);

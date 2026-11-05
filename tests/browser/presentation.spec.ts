@@ -23,7 +23,7 @@ test('presentation mode keeps six tools available with the correct banner, index
   else await expect(page.locator('body')).not.toContainText('Not a production release');
   await expect(page.getByRole('heading', { name: 'Put your values into practice.' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Why PERIOD?', exact: true })).toBeVisible();
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
   await expect(page.locator('.tool-card')).toHaveCount(6);
   for (const [id, name] of catalog) {
     await expect(page.locator(`.tool-card[href="#/tools/${id}"]`)).toContainText(name);
@@ -46,12 +46,10 @@ test('presentation mode keeps six tools available with the correct banner, index
   await expect(
     page.getByRole('heading', { name: 'Analytics and tracking boundaries', exact: true }),
   ).toBeVisible();
-  expect(privacy).toContain('Only Empowerment will use Google Analytics on the production site');
   expect(privacy).toContain(
-    staging
-      ? 'Google Analytics is not enabled on this development staging site.'
-      : 'Google Analytics is not enabled in this build.',
+    'Production is planned to use minimal aggregate site and product usage analytics.',
   );
+  expect(privacy).toContain('Google Analytics is not enabled in this build.');
   expect(privacy).toContain('What you enter into the tools is not sent to Google Analytics.');
   expect(privacy).toContain(
     'Tool answers, Saved Work, artifact contents, copied text, and other user-authored private data are excluded.',

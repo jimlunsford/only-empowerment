@@ -79,12 +79,12 @@ test('twelve complete sections, six connected values and an honest Integrity tra
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
     page
-      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', { name: 'Empowerment', exact: true }),
   ).toHaveCount(1);
   await expect(
-    mainNav(page).getByRole('link', { name: 'Resilience', exact: true }),
-  ).toHaveAttribute('aria-current', 'page');
+    mainNav(page).getByRole('link', { name: 'Explore the values', exact: true }),
+  ).toHaveAttribute('aria-current', 'location');
   await axe(page);
 });
 
@@ -202,7 +202,7 @@ test('keyboard selection, local routes, Back and Forward preserve reading positi
   await expect(page.locator('h1')).toBeFocused();
   await expect(page.locator('h1')).toHaveText(copy.title);
   await expect(
-    mainNav(page).getByRole('link', { name: 'Resilience', exact: true }),
+    mainNav(page).getByRole('link', { name: 'Explore the values', exact: true }),
   ).toHaveAttribute('aria-current', 'location');
   const control = select(page);
   await control.focus();
@@ -246,7 +246,14 @@ test('homepage stays oriented to Ownership and the same-page five-lesson path re
   await expect(
     page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
   ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline', 'Empowerment']);
-  await mainNav(page).getByRole('link', { name: 'Purpose', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
+    .getByRole('link', { name: 'Purpose', exact: true })
+    .click();
   await page.getByRole('link', { name: 'Continue to Resilience', exact: true }).press('Enter');
   await expect(page.locator('h1')).toBeFocused();
   await expect(page.locator('h1')).toHaveText(content.title);
@@ -276,12 +283,26 @@ test('Resilience entry preselects only a genuinely blank Standard Card through b
     ).toHaveAttribute('href', '#/period/values/resilience');
   }
   await page.locator('#period-valueId').selectOption('integrity');
-  await mainNav(page).getByRole('link', { name: 'Resilience', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
+    .getByRole('link', { name: 'Resilience', exact: true })
+    .click();
   await page.getByRole('link', { name: 'Write an optional Standard Card', exact: true }).click();
   await expect(page.locator('#period-valueId')).toHaveValue('integrity');
   await page.reload();
   await page.locator('#period-standard').fill('  \n ');
-  await mainNav(page).getByRole('link', { name: 'Resilience', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
+    .getByRole('link', { name: 'Resilience', exact: true })
+    .click();
   await page
     .getByRole('navigation', { name: 'Resilience learning' })
     .getByRole('link', { name: 'Explore a plan under pressure', exact: true })
@@ -321,7 +342,14 @@ test('a private completed card survives all conditions, the new-tab reading link
   await page.locator('.support summary').click();
   await page.locator('#period-returnPlan').fill(correction);
   await page.getByRole('button', { name: 'Make my standard card' }).click();
-  await mainNav(page).getByRole('link', { name: 'Resilience', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
+    .getByRole('link', { name: 'Resilience', exact: true })
+    .click();
   await expect(page.getByRole('main')).not.toContainText('PRIVATE-WORK11');
   await page
     .getByRole('navigation', { name: 'Resilience learning' })
@@ -411,7 +439,14 @@ test('fictional conditions create no storage, history payload, submission, accou
     JSON.stringify(sessionStorage),
   ]);
   await page.locator('#period-standard').fill(marker);
-  await mainNav(page).getByRole('link', { name: 'Resilience', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values' })
+    .click();
+  await page
+    .getByRole('navigation', { name: 'PERIOD teaching order' })
+    .getByRole('link', { name: 'Resilience', exact: true })
+    .click();
   await page
     .getByRole('navigation', { name: 'Resilience learning' })
     .getByRole('link', { name: 'Explore a plan under pressure', exact: true })

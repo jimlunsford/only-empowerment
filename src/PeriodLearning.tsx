@@ -149,6 +149,19 @@ export function PeriodIntro() {
         </div>
         <PeriodSequence />
       </section>
+      <section class="site-guidance">
+        <h2>How to use this site</h2>
+        <p>
+          Start with Ownership or revisit any of the six values. Read the lesson, explore its
+          example, and decide what you will put into practice outside this page. The values work
+          together; reading a lesson does not complete a value.
+        </p>
+        <p>
+          You do not need to write an answer or buy the book. If a reminder would help, make an
+          optional Standard Card. Its draft stays only in this open tab. Copy or print it if you
+          want to keep it.
+        </p>
+      </section>
       <section class="origin">
         <h2>Built from lived experience.</h2>
         <p>{intro.origin}</p>
