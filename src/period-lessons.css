@@ -8,7 +8,7 @@
     padding: 40px 0 56px;
     font-size: 1.25rem;
     line-height: 1.55;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
   }
   .period-shell .value-lesson > .lesson-heading {
     grid-area: heading;
@@ -89,6 +89,7 @@
     background: none;
   }
   .period-shell .value-lesson .path .path-name {
+    overflow-wrap: normal;
     font:
       600 1.1875rem/1.35 'Source Sans',
       Arial,

@@ -1,3 +1,4 @@
+import { LessonTitle } from './LessonTitle';
 import { LessonParagraphs } from './LessonParagraphs';
 import { useState } from 'preact/hooks';
 import type { Dispatch, StateUpdater } from 'preact/hooks';
@@ -39,7 +40,9 @@ export function PurposeLesson({ openCard }: { openCard: () => void }) {
     <div class="period-learning purpose-lesson-layout value-lesson">
       <header class="purpose-lesson-heading lesson-heading">
         <p class="position">2 of 6 in the teaching order</p>
-        <h1 tabIndex={-1}>Purpose.</h1>
+        <h1 tabIndex={-1}>
+          <LessonTitle text="Purpose." />
+        </h1>
         <p class="lead">Give responsibility a direction.</p>
       </header>
       <PeriodSequence active="purpose" lesson />

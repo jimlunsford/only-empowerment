@@ -1,3 +1,4 @@
+import { LessonTitle } from './LessonTitle';
 import { LessonParagraphs } from './LessonParagraphs';
 import { PeriodSequence } from './PeriodLearning';
 import { periodBook } from './period-content';
@@ -33,7 +34,9 @@ export function IntegrityLesson({ openCard }: { openCard: () => void }) {
     <div class="period-learning integrity-layout value-lesson">
       <header class="integrity-heading lesson-heading">
         <p class="position">4 of 6 in the teaching order</p>
-        <h1 tabIndex={-1}>{content.title}</h1>
+        <h1 tabIndex={-1}>
+          <LessonTitle text={content.title} />
+        </h1>
         <p class="lead">{content.lead}</p>
       </header>
       <PeriodSequence active="integrity" lesson />

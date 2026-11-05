@@ -444,7 +444,7 @@ test('long content reflows at all widths, enlarged text, forced colors, reduced 
     '.artifact-actions',
     '.site-footer .footer-group',
   ])
-    await expect(page.locator(selector)).toBeHidden();
+    for (const element of await page.locator(selector).all()) await expect(element).toBeHidden();
   await capture(page, info, 'print');
   if (info.project.name === 'chromium')
     await page.pdf({

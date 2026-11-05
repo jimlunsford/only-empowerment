@@ -1,3 +1,4 @@
+import { LessonTitle } from './LessonTitle';
 import {
   periodIntro as intro,
   periodValues,
@@ -41,7 +42,7 @@ export function PeriodSequence({
                 </span>
                 <span>
                   <span class="path-name" id={`lesson-value-name-${v.id}`}>
-                    {v.name}
+                    <LessonTitle text={v.name} />
                   </span>
                   <span class="path-role" id={`lesson-value-role-${v.id}`}>
                     {v.role}
@@ -208,7 +209,7 @@ export function PeriodOwnership() {
         <header class="lesson-title lesson-heading">
           <p class="position">1 of 6 in the teaching order</p>
           <h1 tabIndex={-1}>
-            Ownership
+            <LessonTitle text="Ownership" />
             <span class="dot" aria-hidden="true">
               .
             </span>

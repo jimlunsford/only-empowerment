@@ -22,8 +22,8 @@ test('Work 26 A4 and Letter exports preserve six lessons, six legacy artifacts, 
       '.site-footer .footer-group',
       '.site-shell .period-review-notice',
     ])
-      if (await target.locator(selector).count())
-        await expect(target.locator(selector)).toBeHidden();
+      for (const element of await target.locator(selector).all())
+        await expect(element).toBeHidden();
     await expect(target.locator('.founder-copyright')).toBeVisible();
     await expect(target.locator('.footer-software')).toBeVisible();
     await expect(target.locator('.footer-notices')).toHaveCount(1);

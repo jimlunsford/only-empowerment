@@ -1,3 +1,4 @@
+import { LessonTitle } from './LessonTitle';
 import { LessonParagraphs } from './LessonParagraphs';
 import { useState } from 'preact/hooks';
 import { PeriodSequence } from './PeriodLearning';
@@ -171,7 +172,9 @@ export function EmpowermentLesson({ openCard }: { openCard: () => void }) {
       <div class="period-learning empowerment-layout value-lesson empowerment-screen no-print">
         <header class="empowerment-heading lesson-heading">
           <p class="position">6 of 6 in the teaching order</p>
-          <h1 tabIndex={-1}>{lesson.title}</h1>
+          <h1 tabIndex={-1}>
+            <LessonTitle text={lesson.title} />
+          </h1>
           <p class="lead">{lesson.deck}</p>
         </header>
         <PeriodSequence active="empowerment" lesson />
