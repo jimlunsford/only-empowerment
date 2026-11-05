@@ -244,7 +244,10 @@ for (const width of [1440, 390, 320])
       expect(markBounds).not.toBeNull();
       expect(markBounds!.x).toBeGreaterThanOrEqual(0);
       expect(markBounds!.x + markBounds!.width).toBeLessThanOrEqual(width);
-      expect(await mark.evaluate((el) => el.getClientRects().length)).toBe(1);
+      const markLineHeight = await mark.evaluate((el) =>
+        parseFloat(getComputedStyle(el).lineHeight),
+      );
+      expect(markBounds!.height).toBeLessThanOrEqual(markLineHeight + 1);
       await page.keyboard.press('Tab');
       for (const link of await mainNav(page).getByRole('link').all()) {
         await link.focus();
