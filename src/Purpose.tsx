@@ -1,3 +1,4 @@
+import { LessonParagraphs } from './LessonParagraphs';
 import { useState } from 'preact/hooks';
 import type { Dispatch, StateUpdater } from 'preact/hooks';
 import { PeriodSequence } from './PeriodLearning';
@@ -35,21 +36,24 @@ function PurposeNavigation({ evening = false }: { evening?: boolean }) {
 
 export function PurposeLesson({ openCard }: { openCard: () => void }) {
   return (
-    <div class="period-learning purpose-lesson-layout">
-      <header class="purpose-lesson-heading">
+    <div class="period-learning purpose-lesson-layout value-lesson">
+      <header class="purpose-lesson-heading lesson-heading">
         <p class="position">2 of 6 in the teaching order</p>
         <h1 tabIndex={-1}>Purpose.</h1>
         <p class="lead">Give responsibility a direction.</p>
       </header>
-      <PeriodSequence active="purpose" />
-      <PurposeNavigation />
-      <article class="purpose-lesson" aria-label="Purpose lesson">
+      <PeriodSequence active="purpose" lesson />
+      <div class="lesson-local">
+        <PurposeNavigation />
+      </div>
+      <article class="purpose-lesson lesson-copy" aria-label="Purpose lesson">
         {purposeLesson.map((section) => (
-          <section key={section.id}>
+          <section key={section.id} class={section.id === 'L03' ? 'purpose-contrast' : undefined}>
             <h2>{section.heading}</h2>
-            {section.paragraphs.map((text) => (
-              <p key={text}>{text}</p>
-            ))}
+            <LessonParagraphs
+              texts={section.paragraphs}
+              treatment={section.id === 'L03' ? 'purpose-contrast' : undefined}
+            />
             {section.id === 'L06' && (
               <div class="purpose-invitation">
                 <a class="button primary" href="#/period/purpose/evening">

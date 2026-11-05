@@ -1,3 +1,4 @@
+import { LessonParagraphs } from './LessonParagraphs';
 import { useErrorBoundary, useState } from 'preact/hooks';
 import { PeriodSequence } from './PeriodLearning';
 import { periodBook } from './period-content';
@@ -37,21 +38,34 @@ function ResilienceNavigation({ pressure = false }: { pressure?: boolean }) {
 
 export function ResilienceLesson({ openCard }: { openCard: () => void }) {
   return (
-    <div class="period-learning resilience-layout">
-      <header class="resilience-heading">
+    <div class="period-learning resilience-layout value-lesson">
+      <header class="resilience-heading lesson-heading">
         <p class="position">3 of 6 in the teaching order</p>
         <h1 tabIndex={-1}>{content.title}</h1>
         <p class="lead">{content.lead}</p>
       </header>
-      <PeriodSequence active="resilience" />
-      <ResilienceNavigation />
-      <article class="resilience-lesson" aria-label="Resilience lesson">
+      <PeriodSequence active="resilience" lesson />
+      <div class="lesson-local">
+        <ResilienceNavigation />
+      </div>
+      <article class="resilience-lesson lesson-copy" aria-label="Resilience lesson">
         {content.lesson.map((section) => (
-          <section key={section.id} id={`resilience-${section.id}`}>
+          <section
+            key={section.id}
+            id={`resilience-${section.id}`}
+            class={
+              section.id === 'L02'
+                ? 'resilience-standard'
+                : section.id === 'L05'
+                  ? 'resilience-support'
+                  : undefined
+            }
+          >
             <h2>{section.heading}</h2>
-            {section.paragraphs.map((text) => (
-              <p key={text}>{text}</p>
-            ))}
+            <LessonParagraphs
+              texts={section.paragraphs}
+              treatment={section.id === 'L02' ? 'resilience-standard' : undefined}
+            />
             {section.id === 'L08' && (
               <div class="resilience-invitation">
                 <a class="button primary" href="#/period/resilience/pressure">

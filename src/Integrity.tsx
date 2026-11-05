@@ -1,3 +1,4 @@
+import { LessonParagraphs } from './LessonParagraphs';
 import { PeriodSequence } from './PeriodLearning';
 import { periodBook } from './period-content';
 import { integrityContent as content } from './period-integrity-content';
@@ -29,21 +30,40 @@ function IntegrityNavigation({ record = false }: { record?: boolean }) {
 
 export function IntegrityLesson({ openCard }: { openCard: () => void }) {
   return (
-    <div class="period-learning integrity-layout">
-      <header class="integrity-heading">
+    <div class="period-learning integrity-layout value-lesson">
+      <header class="integrity-heading lesson-heading">
         <p class="position">4 of 6 in the teaching order</p>
         <h1 tabIndex={-1}>{content.title}</h1>
         <p class="lead">{content.lead}</p>
       </header>
-      <PeriodSequence active="integrity" />
-      <IntegrityNavigation />
-      <article class="integrity-lesson" aria-label="Integrity lesson">
+      <PeriodSequence active="integrity" lesson />
+      <div class="lesson-local">
+        <IntegrityNavigation />
+      </div>
+      <article class="integrity-lesson lesson-copy" aria-label="Integrity lesson">
         {content.lesson.map((section) => (
-          <section id={`integrity-${section.id}`} key={section.id}>
+          <section
+            id={`integrity-${section.id}`}
+            key={section.id}
+            class={
+              section.id === 'L02'
+                ? 'integrity-evidence'
+                : section.id === 'L04'
+                  ? 'integrity-correction'
+                  : undefined
+            }
+          >
             <h2>{section.heading}</h2>
-            {section.paragraphs.map((text) => (
-              <p key={text}>{text}</p>
-            ))}
+            <LessonParagraphs
+              texts={section.paragraphs}
+              treatment={
+                section.id === 'L02'
+                  ? 'integrity-evidence'
+                  : section.id === 'L04'
+                    ? 'integrity-correction'
+                    : undefined
+              }
+            />
             {section.id === content.activity_invitation.after && (
               <div class="integrity-invitation">
                 <a class="button primary" href="#/period/integrity/record">

@@ -695,7 +695,6 @@ main {
   }
   .site-header,
   .staging-banner,
-  .site-footer,
   .skip-link,
   .no-print {
     display: none !important;

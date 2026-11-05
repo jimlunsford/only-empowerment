@@ -1,3 +1,4 @@
+import { LessonParagraphs } from './LessonParagraphs';
 import { useState } from 'preact/hooks';
 import { PeriodSequence } from './PeriodLearning';
 import { periodBook, periodExercise } from './period-content';
@@ -13,27 +14,50 @@ const copy = content.interaction;
 
 export function DisciplineLesson({ openCard }: { openCard: () => void }) {
   return (
-    <div class="period-learning discipline-layout">
-      <header class="discipline-heading">
+    <div class="period-learning discipline-layout value-lesson">
+      <header class="discipline-heading lesson-heading">
+        <p class="position">5 of 6 in the teaching order</p>
         <h1 tabIndex={-1}>{lesson.title}</h1>
         <p class="lead">{lesson.deck}</p>
-        {lesson.intro.map((text) => (
-          <p key={text}>{text}</p>
-        ))}
       </header>
-      <PeriodSequence active="discipline" />
-      <article class="discipline-lesson" aria-label="Discipline lesson">
+      <PeriodSequence active="discipline" lesson />
+      <div class="lesson-local">
+        {' '}
         <p class="discipline-reading-link no-print">
           <a href="/read/discipline.html" target="_blank" rel="noopener noreferrer">
             Read the complete lesson and example (new tab)
           </a>
         </p>
+      </div>
+      <article class="discipline-lesson lesson-copy" aria-label="Discipline lesson">
+        {lesson.intro.map((text) => (
+          <p key={text}>{text}</p>
+        ))}
         {lesson.sections.map((section) => (
-          <section key={section.id}>
+          <section
+            key={section.id}
+            class={
+              (
+                {
+                  'repetition-builds-evidence': 'discipline-repetition',
+                  'act-through-ordinary-resistance': 'discipline-resistance',
+                  'serve-the-standard': 'discipline-limits',
+                  'correct-the-miss': 'discipline-correction',
+                } as Record<string, string>
+              )[section.id]
+            }
+          >
             <h2 id={`discipline-${section.id}`}>{section.title}</h2>
-            {section.paragraphs.map((text) => (
-              <p key={text}>{text}</p>
-            ))}
+            <LessonParagraphs
+              texts={section.paragraphs}
+              treatment={
+                section.id === 'repetition-builds-evidence'
+                  ? 'discipline-repetition'
+                  : section.id === 'correct-the-miss'
+                    ? 'discipline-correction'
+                    : undefined
+              }
+            />
           </section>
         ))}
         <section class="discipline-exit">
