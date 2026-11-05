@@ -120,6 +120,7 @@ test('six lessons retain their full paragraphs, common geometry and distinct tre
       await notices(page);
       geometry.push({ value, width, heading, rail, article, paragraphs: expected.length });
       if (info.project.name === 'chromium') {
+        await page.evaluate(() => window.scrollTo(0, 0));
         await page.screenshot({ path: info.outputPath(`${value}-${width}.png`), fullPage: true });
         await page.screenshot({ path: info.outputPath(`${value}-${width}-opening.png`) });
         for (const [n, selector] of treatments[value].entries())

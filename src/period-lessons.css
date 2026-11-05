@@ -310,6 +310,7 @@
     flex-direction: column;
     padding-top: 28px;
     font-size: 1.1875rem;
+    hyphens: auto;
   }
   .period-shell .value-lesson > .lesson-heading {
     padding-bottom: 22px;
