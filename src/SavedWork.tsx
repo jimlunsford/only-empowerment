@@ -217,10 +217,16 @@ export function SavedWork({ work }: { work: LocalWork }) {
           only. Open a record to edit, copy, or print it. There is no account, cloud recovery, or
           transfer between staging and production. Up to 50 saved records total.
         </p>
-        <p>
-          The optional PERIOD Standard Card is not saved here. Its draft stays only in the open tab.
-          Return to the card in that tab to copy, print, or clear it.
-        </p>
+        <div class="legacy-card-note">
+          <p>
+            The optional PERIOD Standard Card is not saved here. Its draft stays only in the open
+            tab. Return to the card in that tab to copy, print, or clear it.
+          </p>
+        </div>
+        <nav class="legacy-links" aria-label="Saved work navigation">
+          <a href="#/tools">Open legacy tools</a>
+          <a href="#/privacy">Read Privacy &amp; source</a>
+        </nav>
       </PageIntro>
       {work.storageError && (
         <p class="error" role="alert">

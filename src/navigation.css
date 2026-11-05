@@ -162,6 +162,16 @@
   padding: 56px 0;
   border-top: 1px solid #c9cec4;
 }
+.legacy-card-note {
+  margin-top: 28px;
+  border-left: 3px solid #98422e;
+  background: #e5ebe2;
+  padding: 18px 24px;
+  font-size: 1.125rem;
+}
+.legacy-card-note p {
+  margin: 0;
+}
 .legacy-links {
   display: flex;
   flex-wrap: wrap;
