@@ -13,8 +13,8 @@ test('current public copy separates production analytics intent from disabled bu
     '<h2>Analytics and tracking boundaries</h2>',
     'Production is planned to use minimal aggregate site and product usage analytics.',
     'Google Analytics is not enabled in this build.',
-    'What you enter into the tools is not sent to Google Analytics.',
-    'Tool answers, Saved Work, artifact contents, copied text, and other user-authored private data are excluded.',
+    'Standard Card text and residual legacy records are not sent to Google Analytics.',
+    'Written answers, artifact contents, copied text, and other user-authored private data are excluded.',
   ])
     assert.ok(copy.includes(promise), promise);
 });

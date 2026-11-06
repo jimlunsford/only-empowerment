@@ -1,13 +1,12 @@
 import { test, expect } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
-import { seed } from './helpers/legacy-records';
 
 test.skip(
   ({ browserName, isMobile }) => browserName !== 'chromium' || isMobile,
   'PDF export uses desktop Chromium; other projects retain print-media regression checks.',
 );
 
-test('Work 26 A4 and Letter exports preserve six lessons, six legacy artifacts, separate card and script-free reading', async ({
+test('Work 28 A4 and Letter exports preserve six lessons, separate card and script-free reading', async ({
   page,
   browser,
   baseURL,
@@ -36,7 +35,7 @@ test('Work 26 A4 and Letter exports preserve six lessons, six legacy artifacts, 
     ).toBeLessThanOrEqual(1);
     expect(text.length).toBeGreaterThan(180);
     for (const format of ['A4', 'Letter'] as const) {
-      const filename = `work26-${name}-${format}.pdf`;
+      const filename = `work28-${name}-${format}.pdf`;
       await target.pdf({
         path: info.outputPath(filename),
         format,
@@ -58,23 +57,6 @@ test('Work 26 A4 and Letter exports preserve six lessons, six legacy artifacts, 
     await page.goto('/#/period/values/' + value);
     await expect(page.locator('h1')).toBeVisible();
     await pdf(value);
-  }
-  await seed(page);
-  for (const [type, slug] of [
-    ['Execution Card', 'next-move'],
-    ['Decision Record', 'decision-room'],
-    ['Personal Standard', 'build-a-standard'],
-    ['Reset Plan', 'reset'],
-    ['Rebuild Map', 'rebuild-map'],
-    ['Action Record', 'do-it-now'],
-  ]) {
-    await page.getByRole('button', { name: new RegExp('^Open ' + type) }).click();
-    await expect(page.getByRole('button', { name: /^Print/ })).toBeVisible();
-    await pdf(slug);
-    await page
-      .getByRole('contentinfo')
-      .getByRole('link', { name: 'Saved work', exact: true })
-      .click();
   }
   await page
     .getByRole('navigation', { name: 'Main navigation' })
@@ -108,5 +90,5 @@ test('Work 26 A4 and Letter exports preserve six lessons, six legacy artifacts, 
   } finally {
     await context.close();
   }
-  await writeFile(info.outputPath('work26-print-expected.json'), JSON.stringify(evidence, null, 2));
+  await writeFile(info.outputPath('work28-print-expected.json'), JSON.stringify(evidence, null, 2));
 });

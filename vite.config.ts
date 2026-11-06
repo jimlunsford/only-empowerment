@@ -1,3 +1,4 @@
+import { assertPublicModules } from './scripts/public-boundary.ts';
 import { staticFooter } from './scripts/site-footer.ts';
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
@@ -96,7 +97,9 @@ export default defineConfig({
           );
         });
       },
-      generateBundle() {
+      generateBundle(_options, bundle) {
+        for (const output of Object.values(bundle))
+          if (output.type === 'chunk') assertPublicModules(Object.keys(output.modules));
         this.emitFile({
           type: 'asset',
           fileName: 'read/empowerment.html',

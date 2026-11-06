@@ -33,26 +33,6 @@ test('user-facing markup and CSS do not restore retired decorative classes', () 
   }
 });
 
-test('fully clickable tool cards have no repeated Try-tool pills or nested controls', () => {
-  const source = readFileSync('src/main.tsx', 'utf8');
-  const grid = source.match(/function ToolGrid\(\) \{([\s\S]*?)\n\}\n/);
-  assert.ok(grid, 'Update this structural guard if ToolGrid moves.');
-  const cards = [...grid[1].matchAll(/<a\b[^>]*class="tool-card"[^>]*>([\s\S]*?)<\/a>/g)];
-  assert.ok(cards.length, 'Tool cards retain their link affordance.');
-  for (const [, card] of cards) {
-    assert.doesNotMatch(
-      card,
-      /\bTry\s+(?:Decision Room|Next Move|Build a Standard|Reset|Rebuild Map|Do It Now|\$?\{)/,
-      `A fully clickable tool card does not need a repeated Try-tool pill. ${standard}`,
-    );
-    assert.doesNotMatch(
-      card,
-      /<(?:button|a)\b/,
-      `Tool cards must not contain nested controls. ${standard}`,
-    );
-  }
-});
-
 test('PageIntro does not regain a decorative label API', () => {
   const source = readFileSync('src/components/shared.tsx', 'utf8');
   const declaration = source.match(/export function PageIntro\(([\s\S]*?)\) \{/);

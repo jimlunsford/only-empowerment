@@ -2,49 +2,33 @@ import { test, expect } from '@playwright/test';
 
 test('hash-route navigation updates title and focuses the new page heading', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
-  const toolsHeading = page.getByRole('heading', {
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  const heading = page.getByRole('heading', {
     level: 1,
-    name: 'Legacy tools',
+    name: 'Your answers are not ours to collect.',
     exact: true,
   });
-  await expect(page).toHaveURL(/#\/tools$/);
-  await expect(toolsHeading).toHaveAttribute('tabindex', '-1');
-  await expect(toolsHeading).toBeFocused();
-  await expect(page).toHaveTitle('Legacy tools | Only Empowerment');
+  await expect(page).toHaveURL(/#\/privacy$/);
+  await expect(heading).toHaveAttribute('tabindex', '-1');
+  await expect(heading).toBeFocused();
+  await expect(page).toHaveTitle('Your answers are not ours to collect. | Only Empowerment');
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
-
-  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
-  await page.getByRole('link', { name: 'About the legacy tools', exact: true }).click();
-  const approachHeading = page.getByRole('heading', {
-    level: 1,
-    name: 'About the legacy tools',
-    exact: true,
-  });
-  await expect(page).toHaveURL(/#\/approach$/);
-  await expect(approachHeading).toHaveAttribute('tabindex', '-1');
-  await expect(approachHeading).toBeFocused();
-  await expect(page).toHaveTitle('About the legacy tools | Only Empowerment');
+  await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
+  await expect(page.locator('h1')).toBeFocused();
 });
 
-test('immediate form interaction retains input and focus after route navigation', async ({
+test('immediate Standard Card input retains focus after navigation from an unavailable route', async ({
   page,
 }) => {
   await page.goto('/#/saved');
-  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-  const task = 'Open the report and review the first section.';
-  const firstAction = 'Read the first paragraph and mark the next action.';
-  // Keep navigation and both fills uninterrupted, with no observation or settling wait.
-  await page.goto('/#/tools/do-it-now');
-  await page.locator('#din-task').fill(task);
-  await page.locator('#din-firstAction').fill(firstAction);
-  await expect(page.locator('#din-task')).toHaveValue(task);
-  await expect(page.locator('#din-firstAction')).toHaveValue(firstAction);
-  await expect(page.locator('#din-firstAction')).toBeFocused();
-  await page.keyboard.type(' Then begin.');
-  await expect(page.locator('#din-firstAction')).toHaveValue(firstAction + ' Then begin.');
-  await expect(page.locator('#din-firstAction')).toBeFocused();
-  await expect(page.locator('#din-task')).toHaveValue(task);
-  await page.getByRole('button', { name: 'Next', exact: true }).click();
-  await expect(page.getByLabel('Yes. I can begin now.', { exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'That page is not here.' })).toBeVisible();
+  await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
+  await page.locator('#period-standard').fill('Fictional standard.');
+  await page.locator('#period-nextApplication').fill('Fictional next action.');
+  await expect(page.locator('#period-nextApplication')).toBeFocused();
+  await page.keyboard.type(' Begin.');
+  await expect(page.locator('#period-nextApplication')).toHaveValue(
+    'Fictional next action. Begin.',
+  );
+  await expect(page.locator('#period-standard')).toHaveValue('Fictional standard.');
 });
