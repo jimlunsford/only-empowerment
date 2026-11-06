@@ -66,7 +66,7 @@ test('seven complete sections, founder refinement, all six relationships and opt
   await expect(page.locator('main input,main textarea,main select')).toHaveCount(0);
   await expect(
     page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
-  ).toHaveText(['Why PERIOD?', 'Explore the values', 'Optional Standard Card']);
+  ).toHaveText(['Why PERIOD?', 'Explore the values']);
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
@@ -372,7 +372,7 @@ test('six-lesson surfaces and revisit links reach real lessons, with normal Back
     page.getByText(empowermentNavigation.connectedCodeAvailability, { exact: true }),
   ).toBeVisible();
   await page.goto('/#/period/values/discipline');
-  await page.getByRole('link', { name: 'Continue to Empowerment', exact: true }).click();
+  await page.getByRole('link', { name: 'Continue to Empowerment', exact: true }).first().click();
   await expect(page.locator('h1')).toBeFocused();
   await screen(page)
     .getByRole('link', { name: content.lesson.practiceLink, exact: true })

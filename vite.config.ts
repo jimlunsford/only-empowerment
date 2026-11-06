@@ -1,5 +1,6 @@
 import { assertPublicModules } from './scripts/public-boundary.ts';
 import { staticFooter } from './scripts/site-footer.ts';
+import { privacyReading } from './scripts/privacy-reading.ts';
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
 import { empowermentReading } from './scripts/empowerment-reading.ts';
@@ -48,15 +49,21 @@ export default defineConfig({
           .replace(
             'content="noindex, nofollow"',
             staging ? 'content="noindex, nofollow"' : 'content="index, follow"',
-          )
-          .replace(
-            '<!-- presentation-status -->',
-            staging ? '<p>Development staging. Not a production release.</p>' : '',
           );
       },
       configureServer(server) {
         server.middlewares.use((request, response, next) => {
           const path = request.url?.split('?')[0];
+          if (path === '/read/privacy.html' || path === '/read/privacy.css') {
+            response.setHeader(
+              'Content-Type',
+              path.endsWith('.html') ? 'text/html; charset=utf-8' : 'text/css; charset=utf-8',
+            );
+            response.end(
+              path.endsWith('.html') ? privacyReading(staging, metadata) : resilienceStyles(),
+            );
+            return;
+          }
           if (path === '/read/empowerment.html' || path === '/read/empowerment.css') {
             response.setHeader(
               'Content-Type',
@@ -98,6 +105,12 @@ export default defineConfig({
         });
       },
       generateBundle(_options, bundle) {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'read/privacy.html',
+          source: privacyReading(staging, metadata),
+        });
+        this.emitFile({ type: 'asset', fileName: 'read/privacy.css', source: resilienceStyles() });
         for (const output of Object.values(bundle))
           if (output.type === 'chunk') assertPublicModules(Object.keys(output.modules));
         this.emitFile({

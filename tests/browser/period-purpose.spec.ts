@@ -208,11 +208,7 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   page,
 }) => {
   await page.goto('/');
-  await expect(mainNav(page).getByRole('link')).toHaveText([
-    'Why PERIOD?',
-    'Explore the values',
-    'Optional Standard Card',
-  ]);
+  await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   await page.getByRole('link', { name: 'Explore the lessons', exact: true }).click();
   await page
@@ -247,11 +243,11 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   await expect(path.locator('.path-note')).toHaveText(integrityContent.navigation.availability);
   await page.getByRole('link', { name: 'Return to Ownership', exact: true }).click();
   await expect(page.getByText(purposeOwnershipHandoff, { exact: true })).toBeVisible();
-  await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).click();
+  await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).first().click();
   await expect(page.locator('h1')).toHaveText('Purpose.');
   await page.goto('/#/period/practice/connected-code');
   await expect(page.getByText(purposeOwnershipHandoff, { exact: true })).toBeVisible();
-  await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).click();
+  await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).first().click();
   await expect(page.locator('h1')).toHaveText('Purpose.');
   await page.goto('/#/period/values/discipline');
   await expect(page.locator('h1')).toHaveText('Discipline');

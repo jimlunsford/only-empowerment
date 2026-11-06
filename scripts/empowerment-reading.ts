@@ -31,7 +31,6 @@ export function empowermentReading(staging = true, metadata?: FooterBuild) {
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <link rel="stylesheet" href="/read/empowerment.css"><title>Empowerment, complete reading | Only Empowerment</title></head>
 <body class="period-shell"><a class="skip-link" href="#main">Skip to content</a>
-<div class="period-review-notice no-print">${staging ? 'Development staging. Not a production release. ' : ''}Internal review. Teaching copy is not approved for public publication.</div>
 <main id="main" class="site-main empowerment-static" tabindex="-1" aria-label="Complete Empowerment reading">
 <nav class="no-print" aria-label="Earlier PERIOD reading">${link('/#reading-ownership', 'Read Ownership')}${link('/#reading-purpose', 'Read Purpose')}${link('/read/resilience.html', 'Read Resilience')}${link('/read/integrity.html', 'Read Integrity')}${link('/read/discipline.html', 'Read Discipline')}${link('/', 'Only Empowerment overview')}</nav>
 <nav class="no-print" aria-label="Within the complete reading">${link('#lesson', 'Lesson')}${link('#offer', 'Original offer')}${c.states.map((s) => link('#reply-' + s.id, s.label)).join('')}${link('#alternatives', 'Other responses')}${link('#conclusion', 'Conclusion')}</nav>

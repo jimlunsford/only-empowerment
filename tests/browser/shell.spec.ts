@@ -80,13 +80,18 @@ test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   }
 });
-test('source footer and metadata identify the same build', async ({ page, request }) => {
+test('Privacy & source and metadata identify the same build', async ({ page, request }) => {
   await page.goto('/');
   const metadata = await (await request.get('/build.json')).json();
   expect(metadata.commit).toMatch(/^[0-9a-f]{40}$/);
-  await expect(page.locator('.footer-meta')).toContainText(metadata.commit.slice(0, 7));
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await expect(page.locator('.source-information')).toContainText('No warranty');
   if (!metadata.dirty)
-    await expect(page.locator('.footer-meta a')).toHaveAttribute('href', metadata.source);
+    await expect(
+      page
+        .locator('.source-information')
+        .getByRole('link', { name: 'Corresponding source for this build' }),
+    ).toHaveAttribute('href', metadata.source);
 });
 
 test('320px layout and long answers reflow without horizontal scrolling', async ({ page }) => {

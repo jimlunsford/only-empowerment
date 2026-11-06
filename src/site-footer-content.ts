@@ -11,7 +11,7 @@ export const softwareNotice = {
   copyright: 'Application software: Copyright (C) 2026 Jim Lunsford. Licensed under ',
   license: 'AGPL-3.0-or-later',
   permissions:
-    '. You may use, modify, and redistribute it under that license. No warranty. The copyright statement above does not limit these software permissions.',
+    '. You may use, modify, and redistribute it under that license. No warranty. The founder copyright statement does not limit these software permissions.',
 };
 export function footerEducation() {
   return { text: periodExercise.source, url: periodBook.url };

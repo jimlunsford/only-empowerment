@@ -27,7 +27,6 @@ export function disciplineReading(staging = true, metadata?: FooterBuild) {
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <link rel="stylesheet" href="/read/discipline.css"><title>Discipline, complete reading | Only Empowerment</title></head>
 <body class="period-shell"><a class="skip-link" href="#main">Skip to content</a>
-<div class="period-review-notice no-print">${staging ? 'Development staging. Not a production release. ' : ''}Internal review. Teaching copy is proposed, not approved for public publication.</div>
 <main id="main" class="site-main discipline-static" tabindex="-1" aria-label="Complete Discipline reading">
 <nav id="top" class="no-print" aria-label="Discipline reading links">${link('/', 'Only Empowerment overview')}${link('/read/integrity.html', 'Read Integrity')}${link('#comparison', lesson.readingLink)}</nav>
 <header class="discipline-heading"><h1 id="lesson">${escape(lesson.title)}</h1><p class="lead">${escape(lesson.deck)}</p>${lesson.intro.map(p).join('')}</header>

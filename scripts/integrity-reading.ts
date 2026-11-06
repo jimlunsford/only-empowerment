@@ -23,7 +23,6 @@ export function integrityReading(staging = true, metadata?: FooterBuild) {
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
 <link rel="stylesheet" href="/read/integrity.css"><title>Integrity, complete reading | Only Empowerment</title></head>
 <body class="period-shell"><a class="skip-link" href="#main">Skip to content</a>
-<div class="period-review-notice">${staging ? 'Development staging. Not a production release. ' : ''}Internal review. Teaching copy is proposed, not approved for public publication.</div>
 <main id="main" class="site-main integrity-static" tabindex="-1" aria-label="Complete Integrity reading">
 <nav id="top" aria-label="Integrity reading links">${link('/', 'Only Empowerment overview')}${link('/read/resilience.html', 'Read Resilience')}</nav>
 <header class="integrity-heading"><p class="position">4 of 6 in the teaching order</p>${h(content.title, 1)}<p class="lead">${escape(content.lead)}</p></header>
