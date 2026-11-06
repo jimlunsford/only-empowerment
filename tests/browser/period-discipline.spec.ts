@@ -68,13 +68,16 @@ test('the complete approved lesson stands alone and the header offers six full l
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
   await expect(
     page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
-  ).toHaveText(['Why PERIOD?', 'Explore the values', 'Optional Standard Card']);
+  ).toHaveText(['Why PERIOD?', 'Explore the values']);
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', { name: 'Discipline', exact: true }),
   ).toHaveAttribute('aria-current', 'page');
-  await page.getByRole('link', { name: content.lesson.nextLink, exact: true }).click();
+  await page
+    .locator('.discipline-lesson')
+    .getByRole('link', { name: content.lesson.nextLink, exact: true })
+    .click();
   await expect(page.locator('h1')).toHaveText('Empowerment.');
   await expect(page.getByRole('main')).toContainText('All six values have full lessons.');
   await expect(page.getByRole('main')).not.toContainText(
@@ -179,7 +182,7 @@ test('six-value navigation preserves Integrity teaching and both onward destinat
   ).toHaveAttribute('href', '#/period/values/discipline');
   for (const from of ['/#/period/values/integrity', '/#/period/integrity/record']) {
     await page.goto(from);
-    await page.getByRole('link', { name: 'Continue to Discipline', exact: true }).click();
+    await page.getByRole('link', { name: 'Continue to Discipline', exact: true }).first().click();
     await expect(page.locator('h1')).toHaveText('Discipline');
   }
   await page.goto('/read/integrity.html');

@@ -21,17 +21,15 @@ export function siteNotices(build?: FooterBuild) {
     education = footerEducation();
   return `<div class="footer-provenance footer-notices">
 <p class="founder-copyright">Copyright © ${link(founderLinks.author, 'Jim Lunsford')}. All rights reserved. A ${link(founderLinks.company, 'Phoenix 2:33 LLC')} Project.</p>
-<p class="footer-software">${escape(softwareNotice.copyright)}${link('/LICENSE.txt', softwareNotice.license)}${escape(softwareNotice.permissions)}</p>
-<p class="footer-education">${escape(education.text)} <span class="footer-education-url">${link(education.url, education.url)}</span></p>
-<div class="footer-meta"><p>${escape(state.text)}${state.source ? ` · ${link(state.source, 'Corresponding source for this build')}` : ''}</p></div>
-<div class="footer-print-urls"><p>${link(founderLinks.author, founderLinks.author)}<br>${link(founderLinks.company, founderLinks.company)}</p>${state.source ? `<p>Corresponding source: ${link(state.source, state.source)}</p>` : ''}<p>${link('https://www.gnu.org/licenses/agpl-3.0.html', 'https://www.gnu.org/licenses/agpl-3.0.html')}</p></div>
+<div class="footer-print-urls"><p>${escape(education.text)} ${link(education.url, education.url)}</p><p>Software: ${link('https://www.gnu.org/licenses/agpl-3.0.html', softwareNotice.license)}. No warranty.</p>${state.source ? `<p>Corresponding source: ${link(state.source, state.source)}</p>` : ''}</div>
 </div>`;
 }
 
 export function staticFooter(build?: FooterBuild) {
   return `<footer class="site-footer notice-footer">
 <div class="footer-intro"><p>Only Empowerment</p><span>Free learning. Practical application.</span></div>
-<nav class="footer-group" aria-label="About this site"><h2>About this site</h2>${link('/#/period/book', 'About the book')}${link('/#/privacy', 'Privacy & source')}</nav>
-<p class="footer-app-note">The application links above require JavaScript. This reading, license and corresponding-source links do not.</p>
+<nav class="footer-group" aria-label="About this site"><h2>About this site</h2>${link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>
+<nav class="footer-group" aria-label="Your practice"><h2>Your practice</h2>${link('/#/period/standard', 'Optional Standard Card')}</nav>
+<p class="footer-app-note">About the book and Optional Standard Card require JavaScript. Privacy &amp; source and these readings do not.</p>
 ${siteNotices(build)}</footer>`;
 }

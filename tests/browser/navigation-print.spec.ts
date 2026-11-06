@@ -6,7 +6,7 @@ test.skip(
   'PDF export uses desktop Chromium; other projects retain print-media regression checks.',
 );
 
-test('Work 28 A4 and Letter exports preserve six lessons, separate card and script-free reading', async ({
+test('Work 30 A4 and Letter exports preserve six lessons, separate card and script-free reading', async ({
   page,
   browser,
   baseURL,
@@ -24,7 +24,8 @@ test('Work 28 A4 and Letter exports preserve six lessons, separate card and scri
       for (const element of await target.locator(selector).all())
         await expect(element).toBeHidden();
     await expect(target.locator('.founder-copyright')).toBeVisible();
-    await expect(target.locator('.footer-software')).toBeVisible();
+    await expect(target.locator('.footer-print-urls')).toBeVisible();
+    await expect(target.locator('.footer-print-urls')).toContainText('No warranty.');
     await expect(target.locator('.footer-notices')).toHaveCount(1);
     const text = await target.locator('body').innerText();
     expect(
@@ -35,7 +36,7 @@ test('Work 28 A4 and Letter exports preserve six lessons, separate card and scri
     ).toBeLessThanOrEqual(1);
     expect(text.length).toBeGreaterThan(180);
     for (const format of ['A4', 'Letter'] as const) {
-      const filename = `work28-${name}-${format}.pdf`;
+      const filename = `work30-${name}-${format}.pdf`;
       await target.pdf({
         path: info.outputPath(filename),
         format,
@@ -59,7 +60,7 @@ test('Work 28 A4 and Letter exports preserve six lessons, separate card and scri
     await pdf(value);
   }
   await page
-    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('navigation', { name: 'Your practice' })
     .getByRole('link', { name: 'Optional Standard Card' })
     .click();
   await page.locator('#period-valueId').selectOption('integrity');
@@ -77,6 +78,7 @@ test('Work 28 A4 and Letter exports preserve six lessons, separate card and scri
     const reading = await context.newPage();
     for (const [name, path] of [
       ['root-reading', '/'],
+      ['privacy-reading', '/read/privacy.html'],
       ['resilience-reading', '/read/resilience.html'],
       ['integrity-reading', '/read/integrity.html'],
       ['discipline-reading', '/read/discipline.html'],
@@ -90,5 +92,5 @@ test('Work 28 A4 and Letter exports preserve six lessons, separate card and scri
   } finally {
     await context.close();
   }
-  await writeFile(info.outputPath('work28-print-expected.json'), JSON.stringify(evidence, null, 2));
+  await writeFile(info.outputPath('work30-print-expected.json'), JSON.stringify(evidence, null, 2));
 });

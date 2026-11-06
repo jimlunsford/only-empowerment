@@ -55,11 +55,7 @@ test('ten complete sections, truthful availability and the connected Code are re
   await expect(page.locator('h1')).toHaveText(content.title);
   await checkLesson(page);
   await expect(page.locator('main input, main textarea, main select, main button')).toHaveCount(0);
-  await expect(nav(page).getByRole('link')).toHaveText([
-    'Why PERIOD?',
-    'Explore the values',
-    'Optional Standard Card',
-  ]);
+  await expect(nav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
   await expect(
     nav(page).getByRole('link', { name: 'Explore the values', exact: true }),
   ).toHaveAttribute('aria-current', 'location');
@@ -249,7 +245,7 @@ test('bounded navigation keeps Ownership first and connects both Resilience endi
   );
   for (const path of ['/#/period/values/resilience', '/#/period/resilience/pressure']) {
     await page.goto(path);
-    await page.getByRole('link', { name: 'Continue to Integrity', exact: true }).click();
+    await page.getByRole('link', { name: 'Continue to Integrity', exact: true }).first().click();
     await expect(page.locator('h1')).toHaveText(content.title);
   }
   await page.goto('/read/resilience.html');

@@ -480,3 +480,40 @@
     widows: 3;
   }
 }
+
+/* A single document-end action, after all lesson content. */
+.period-shell .lesson-progression {
+  margin: 48px 0 48px 360px;
+  padding-top: 24px;
+  border-top: 1px solid #c9cec4;
+}
+.period-shell .lesson-progression a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 48px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #173c34;
+  text-underline-offset: 0.2em;
+}
+.period-shell .lesson-progression a:focus-visible {
+  outline: 3px solid #98422e;
+  outline-offset: 4px;
+}
+@media (forced-colors: active) {
+  .period-shell .lesson-progression a:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .period-shell .lesson-progression {
+    margin-left: 256px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .period-shell .lesson-progression {
+    margin-left: 0;
+  }
+}

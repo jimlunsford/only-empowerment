@@ -254,7 +254,10 @@ test('homepage stays oriented to Ownership and the same-page five-lesson path re
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Purpose', exact: true })
     .click();
-  await page.getByRole('link', { name: 'Continue to Resilience', exact: true }).press('Enter');
+  await page
+    .getByRole('link', { name: 'Continue to Resilience', exact: true })
+    .first()
+    .press('Enter');
   await expect(page.locator('h1')).toBeFocused();
   await expect(page.locator('h1')).toHaveText(content.title);
   await expect(page.locator('.path-note')).toHaveText(integrityContent.navigation.availability);

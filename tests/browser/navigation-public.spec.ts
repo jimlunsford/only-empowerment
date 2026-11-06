@@ -66,16 +66,12 @@ test('all public and retired hash routes retain educational navigation without l
       !route.startsWith('/tools/')
     )
       await expect(page.locator('h1')).not.toHaveText('That page is not here.');
-    await expect(mainNav(page).getByRole('link')).toHaveText([
-      'Why PERIOD?',
-      'Explore the values',
-      'Optional Standard Card',
-    ]);
+    await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
     expect(
       await mainNav(page)
         .getByRole('link')
         .evaluateAll((links) => links.map((l) => l.getAttribute('href'))),
-    ).toEqual(['#/', '#/period/teaching-order', '#/period/standard']);
+    ).toEqual(['#/', '#/period/teaching-order']);
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
     ).toHaveText(['About the book', 'Privacy & source']);
@@ -83,10 +79,15 @@ test('all public and retired hash routes retain educational navigation without l
     await expect(
       page.locator('a[href^="#/tools"], a[href="#/saved"], a[href="#/approach"]'),
     ).toHaveCount(0);
-    await expect(footer(page).getByRole('link', { name: 'AGPL-3.0-or-later' })).toHaveAttribute(
-      'href',
-      '/LICENSE.txt',
-    );
+    await expect(
+      footer(page).getByRole('navigation', { name: 'Your practice' }).getByRole('link'),
+    ).toHaveText(['Optional Standard Card']);
+    await expect(
+      footer(page).getByRole('link', { name: 'Optional Standard Card' }),
+    ).toHaveAttribute('href', '#/period/standard');
+    await expect(
+      footer(page).locator('.footer-meta, .footer-software, .footer-education'),
+    ).toHaveCount(0);
     await expect(footer(page)).toHaveCount(1);
     await expect(page.locator('#educational-fallback')).toHaveCount(0);
     await expect(footer(page).locator('.founder-copyright')).toHaveText(founderCopyright);
@@ -145,7 +146,7 @@ test('fictional legacy bytes survive navigation; confirmed deletion is scoped an
 }, info) => {
   await seed(page);
   const original = await snapshot(page);
-  await mainNav(page).getByRole('link', { name: 'Optional Standard Card' }).click();
+  await footer(page).getByRole('link', { name: 'Optional Standard Card' }).click();
   await page.locator('#period-valueId').selectOption('integrity');
   await page.locator('#period-standard').fill(privateDraft);
   await page.locator('#period-nextApplication').fill('SYNTHETIC: Give the next update honestly.');
@@ -166,7 +167,7 @@ test('fictional legacy bytes survive navigation; confirmed deletion is scoped an
     'Standard Card draft was not cleared',
   );
   expect(await snapshot(page)).toEqual({ 'unrelated-work23': 'leave intact' });
-  await mainNav(page).getByRole('link', { name: 'Optional Standard Card' }).click();
+  await footer(page).getByRole('link', { name: 'Optional Standard Card' }).click();
   await expect(page.locator('#period-standard')).toHaveValue(privateDraft);
   await expect(page.locator('#period-valueId')).toHaveValue('integrity');
   await page.getByRole('button', { name: 'Clear this draft', exact: true }).click();
@@ -206,7 +207,7 @@ test('denied storage deletion reports failure accurately and preserves the separ
   await expect(page.locator('.local-delete [role="status"]')).toContainText(
     'Standard Card draft was not cleared',
   );
-  await mainNav(page).getByRole('link', { name: 'Optional Standard Card' }).click();
+  await footer(page).getByRole('link', { name: 'Optional Standard Card' }).click();
   await expect(page.locator('#period-standard')).toHaveValue(privateDraft);
 });
 

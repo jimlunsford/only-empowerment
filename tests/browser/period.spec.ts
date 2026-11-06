@@ -37,7 +37,7 @@ test('teaching journey, available links, keyboard focus and example require no a
   ).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Why Purpose comes next' })).toBeVisible();
   await expect(
-    page.getByRole('main').getByRole('link', { name: 'Continue to Purpose', exact: true }),
+    page.getByRole('main').getByRole('link', { name: 'Continue to Purpose', exact: true }).first(),
   ).toBeVisible();
   await axe(page);
   await page

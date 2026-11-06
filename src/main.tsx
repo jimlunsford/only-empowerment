@@ -1,5 +1,7 @@
 import { LegacyDataRemoval } from './LegacyDataRemoval';
 import { SiteNotices } from './SiteNotices';
+import { SourceNotice } from './SourceNotice';
+import { LessonProgression } from './LessonProgression';
 import { render } from 'preact';
 import { useState } from 'preact/hooks';
 import { useRoute } from './use-route';
@@ -28,7 +30,6 @@ import { EmpowermentLesson, EmpowermentConversation } from './Empowerment';
 import { DisciplineLesson, DisciplinePattern } from './Discipline';
 import { IntegrityLesson, IntegrityRecord } from './Integrity';
 import { ResilienceLesson, ResiliencePressure } from './Resilience';
-const repository = 'https://github.com/jimlunsford/only-empowerment';
 function Privacy() {
   return (
     <div class="narrow legacy-info">
@@ -133,26 +134,7 @@ function Privacy() {
             No website can prove privacy simply by publishing its source.
           </p>
         </section>
-        <section>
-          <h2>Inspect the source</h2>
-          <p>
-            The footer links this build to its Git commit. Public source helps you inspect intended
-            behavior; a commit label alone does not prove the delivered files match it. The build
-            also includes file checksums for deployment verification.
-          </p>
-          <a class="button" href={repository} rel="noreferrer">
-            View the source on GitHub ↗
-          </a>
-          <p class="small">
-            Copyright (C) 2026 Jim Lunsford. Only Empowerment is free software under
-            AGPL-3.0-or-later and comes without warranty. You may use, modify, and redistribute it
-            under that license. View the <a href="/LICENSE.txt">license</a> and this build’s{' '}
-            <a href={__BUILD__.source} rel="noreferrer">
-              corresponding source
-            </a>
-            .
-          </p>
-        </section>
+        <SourceNotice build={__BUILD__} />
       </div>
     </div>
   );
@@ -243,18 +225,6 @@ function App() {
       >
         Skip to content
       </a>
-      <div
-        class={`period-review-notice no-print ${__STAGING__ ? 'staging-banner' : ''}`}
-        role="region"
-        aria-label="Review status"
-      >
-        {__STAGING__ && (
-          <span class="stage-label">Development staging. Not a production release.</span>
-        )}
-        <span>
-          Internal review. Teaching copy is proposed, not approved for public publication.
-        </span>
-      </div>
       <header class="site-header">
         <a class="wordmark" href="#/" aria-label="Only Empowerment home">
           only<span>empowerment</span>
@@ -285,6 +255,52 @@ function App() {
           >
             Explore the values
           </a>
+        </nav>
+      </header>
+      <main
+        id="main"
+        tabIndex={-1}
+        class="site-main"
+        onClick={(e) => {
+          const link = (e.target as Element).closest('a');
+          if (link?.href === periodBook.url && hasPeriodDraft(periodSession.draft)) {
+            e.preventDefault();
+            setBookExit(true);
+          }
+        }}
+      >
+        {content}
+        <LessonProgression path={path} />
+        {bookExit && (
+          <ConfirmDialog
+            title="Before you leave"
+            cancel="Stay here"
+            confirm="Continue to the book page"
+            onCancel={() => setBookExit(false)}
+            onConfirm={() => {
+              window.location.assign(periodBook.url);
+            }}
+          >
+            <p>Your card is only in this tab. Copy it before leaving if you want to keep it.</p>
+          </ConfirmDialog>
+        )}
+      </main>
+      <footer class="site-footer notice-footer">
+        <div class="footer-intro">
+          <p>Only Empowerment</p>
+          <span>Free learning. Practical application.</span>
+        </div>
+        <nav class="footer-group" aria-label="About this site">
+          <h2>About this site</h2>
+          <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
+            About the book
+          </a>
+          <a href="#/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>
+            Privacy &amp; source
+          </a>
+        </nav>
+        <nav class="footer-group" aria-label="Your practice">
+          <h2>Your practice</h2>
           <a
             href="#/period/standard"
             aria-current={path === '/period/standard' ? 'page' : undefined}
@@ -316,48 +332,6 @@ function App() {
             }}
           >
             Optional Standard Card
-          </a>
-        </nav>
-      </header>
-      <main
-        id="main"
-        tabIndex={-1}
-        class="site-main"
-        onClick={(e) => {
-          const link = (e.target as Element).closest('a');
-          if (link?.href === periodBook.url && hasPeriodDraft(periodSession.draft)) {
-            e.preventDefault();
-            setBookExit(true);
-          }
-        }}
-      >
-        {content}
-        {bookExit && (
-          <ConfirmDialog
-            title="Before you leave"
-            cancel="Stay here"
-            confirm="Continue to the book page"
-            onCancel={() => setBookExit(false)}
-            onConfirm={() => {
-              window.location.assign(periodBook.url);
-            }}
-          >
-            <p>Your card is only in this tab. Copy it before leaving if you want to keep it.</p>
-          </ConfirmDialog>
-        )}
-      </main>
-      <footer class="site-footer notice-footer">
-        <div class="footer-intro">
-          <p>Only Empowerment</p>
-          <span>Free learning. Practical application.</span>
-        </div>
-        <nav class="footer-group" aria-label="About this site">
-          <h2>About this site</h2>
-          <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
-            About the book
-          </a>
-          <a href="#/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>
-            Privacy &amp; source
           </a>
         </nav>
         <SiteNotices build={__BUILD__} />

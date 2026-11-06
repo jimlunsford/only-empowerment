@@ -71,9 +71,12 @@ for (const presentation of ['staging', 'production']) {
         html + js,
         /#\/(?:tools|saved|approach)|Save on this device|readArtifacts|Current legacy-tool work was cleared/,
       );
-      assert.equal(fallback.includes('Not a production release'), staging);
-      assert.equal(js.includes('Development staging'), staging);
-      assert.equal(js.includes('Not a production release'), staging);
+      assert.doesNotMatch(
+        fallback,
+        /Not a production release|Internal review|Teaching copy is proposed/,
+      );
+      assert.equal(js.includes('Development staging'), false);
+      assert.equal(js.includes('Not a production release'), false);
       assert.equal(js.includes('14 rotated logs'), staging);
       assert.doesNotMatch(
         html + js,

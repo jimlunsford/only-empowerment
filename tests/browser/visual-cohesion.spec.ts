@@ -60,11 +60,10 @@ async function notices(page: Page) {
     'href',
     'https://phoenix233.com/',
   );
-  await expect(page.locator('.footer-software')).toContainText('No warranty.');
-  await expect(page.locator('.footer-software')).toContainText(
-    'does not limit these software permissions',
-  );
-  await expect(page.locator('.footer-software a')).toHaveAttribute('href', '/LICENSE.txt');
+  await expect(page.locator('.footer-meta, .footer-software, .footer-education')).toHaveCount(0);
+  await expect(
+    page.getByRole('contentinfo').getByRole('link', { name: 'Privacy & source', exact: true }),
+  ).toBeVisible();
 }
 test('six lessons retain their full paragraphs, common geometry and distinct treatments at 1440, 390 and 320', async ({
   page,
@@ -198,9 +197,6 @@ test('script-free readings and failed application mount retain one complete foot
   for (const path of ['/', ...values.slice(2).map((v) => '/read/' + v + '.html')]) {
     await page.goto(baseURL + path);
     await notices(page);
-    const build = await (await context.request.get(baseURL + '/build.json')).json();
-    if (!build.dirty)
-      await expect(page.locator('.footer-meta a')).toHaveAttribute('href', build.source);
     await expect(page.locator('.footer-app-note')).toContainText('require JavaScript');
   }
   await context.close();
