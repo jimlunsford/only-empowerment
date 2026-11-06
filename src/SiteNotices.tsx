@@ -6,9 +6,9 @@ import {
   type FooterBuild,
 } from './site-footer-content';
 
-export function SiteNotices({ build, path }: { build: FooterBuild; path: string }) {
+export function SiteNotices({ build }: { build: FooterBuild }) {
   const state = footerBuildNotice(build),
-    education = footerEducation(path);
+    education = footerEducation();
   return (
     <div class="footer-provenance footer-notices">
       <p class="founder-copyright">

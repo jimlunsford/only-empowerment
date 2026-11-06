@@ -16,9 +16,9 @@ const escape = (text: string) =>
 const link = (href: string, label: string) => `<a href="${escape(href)}">${escape(label)}</a>`;
 
 // Fixed notices and build metadata only. Never receives or renders visitor-authored content.
-export function siteNotices(build?: FooterBuild, path = '') {
+export function siteNotices(build?: FooterBuild) {
   const state = footerBuildNotice(build),
-    education = footerEducation(path);
+    education = footerEducation();
   return `<div class="footer-provenance footer-notices">
 <p class="founder-copyright">Copyright © ${link(founderLinks.author, 'Jim Lunsford')}. All rights reserved. A ${link(founderLinks.company, 'Phoenix 2:33 LLC')} Project.</p>
 <p class="footer-software">${escape(softwareNotice.copyright)}${link('/LICENSE.txt', softwareNotice.license)}${escape(softwareNotice.permissions)}</p>
@@ -32,7 +32,6 @@ export function staticFooter(build?: FooterBuild) {
   return `<footer class="site-footer notice-footer">
 <div class="footer-intro"><p>Only Empowerment</p><span>Free learning. Practical application.</span></div>
 <nav class="footer-group" aria-label="About this site"><h2>About this site</h2>${link('/#/period/book', 'About the book')}${link('/#/privacy', 'Privacy & source')}</nav>
-<nav class="footer-group" aria-label="Existing work"><h2>Existing work</h2>${link('/#/tools', 'Legacy tools')}${link('/#/saved', 'Saved work')}<span>Saved in this browser, on this site.</span></nav>
 <p class="footer-app-note">The application links above require JavaScript. This reading, license and corresponding-source links do not.</p>
 ${siteNotices(build)}</footer>`;
 }

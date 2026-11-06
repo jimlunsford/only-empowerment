@@ -1,6 +1,5 @@
 import type { ComponentChildren } from 'preact';
 import { useEffect, useRef } from 'preact/hooks';
-import { labels, limits, type Card, type Field } from '../next-move-model';
 export function TextResponse({
   id,
   label,
@@ -55,34 +54,6 @@ export function TextResponse({
     </div>
   );
 }
-export function FieldInput({
-  field,
-  value,
-  onChange,
-  error = '',
-  hint,
-  question,
-}: {
-  field: Field;
-  value: string;
-  onChange: (value: string) => void;
-  error?: string;
-  hint?: string;
-  question?: string;
-}) {
-  return (
-    <TextResponse
-      id={`field-${field}`}
-      label={question || labels[field]}
-      value={value}
-      limit={limits[field]}
-      onChange={onChange}
-      error={error}
-      hint={hint}
-      rows={field === 'start' ? 3 : 4}
-    />
-  );
-}
 export function ConfirmDialog({
   title,
   children,
@@ -130,44 +101,5 @@ export function ConfirmDialog({
         </button>
       </div>
     </dialog>
-  );
-}
-export function LocalNotice({ artifact = 'Execution Card' }: { artifact?: string }) {
-  return (
-    <>
-      <p>
-        Your {artifact} will be stored in this browser on this device. Only Empowerment cannot
-        recover it from another device.
-      </p>
-      <p>
-        Someone using the same browser profile may be able to see it. Clearing browser or site data
-        can remove it. The site does not send the saved record to Only Empowerment servers.
-      </p>
-    </>
-  );
-}
-export function ExecutionCard({ card }: { card: Card }) {
-  const order: Field[] = ['situation', 'action', 'start', 'obstacle', 'completion'];
-  return (
-    <article class="output-card execution-card" aria-labelledby="card-title">
-      <span class="planned-badge">Status: Planned</span>
-      <h2 id="card-title" tabIndex={-1}>
-        Execution Card
-      </h2>
-      {order.map((field) => (
-        <section key={field} class={`artifact-section artifact-${field}`}>
-          <h3>{labels[field]}</h3>
-          <p class="answer">{card[field]}</p>
-        </section>
-      ))}
-      <p class="artifact-footnote">
-        This is your plan. Creating it does not mean the action has been taken.
-      </p>
-      <p class="print-only">
-        Based on Pure Execution Mode · jimlunsford.com/pure-execution-mode/
-        <br />
-        Built by Jim Lunsford · jimlunsford.com
-      </p>
-    </article>
   );
 }

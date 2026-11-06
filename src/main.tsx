@@ -1,8 +1,5 @@
+import { LegacyDataRemoval } from './LegacyDataRemoval';
 import { SiteNotices } from './SiteNotices';
-import { DoItNow } from './DoItNow';
-import { RebuildMap } from './RebuildMap';
-import { Reset } from './Reset';
-import { BuildStandard } from './BuildStandard';
 import { render } from 'preact';
 import { useState } from 'preact/hooks';
 import { useRoute } from './use-route';
@@ -15,12 +12,7 @@ import { newPracticeSession, practiceViews } from './period-practice-content';
 import { newPeriodSession, enterPeriodExercise, hasPeriodDraft } from './period-standard-model';
 import { periodBook } from './period-content';
 import { ConfirmDialog } from './components/work';
-import { frameworks, tools } from './model';
 import { PageIntro } from './components/shared';
-import { DecisionRoom } from './DecisionRoom';
-import { NextMove } from './NextMove';
-import { SavedWork, LocalDataControls } from './SavedWork';
-import { useLocalWork, type LocalWork } from './use-local-work';
 import './style.css';
 import './period.css';
 import './period-practice.css';
@@ -37,96 +29,18 @@ import { DisciplineLesson, DisciplinePattern } from './Discipline';
 import { IntegrityLesson, IntegrityRecord } from './Integrity';
 import { ResilienceLesson, ResiliencePressure } from './Resilience';
 const repository = 'https://github.com/jimlunsford/only-empowerment';
-function ToolGrid() {
-  return (
-    <div class="tool-grid legacy-catalog">
-      {tools.map((tool) => (
-        <a class="tool-card" key={tool.id} href={`#/tools/${tool.id}`}>
-          <p class="situation">{tool.situation}</p>
-          <h3>{tool.name}</h3>
-          <p>{tool.description}</p>
-          <div class="card-bottom">
-            <span>{tool.output}</span>
-            <span aria-hidden="true">↗</span>
-          </div>
-        </a>
-      ))}
-    </div>
-  );
-}
-function ToolsPage() {
-  return (
-    <>
-      <div class="legacy-info">
-        <PageIntro title="Legacy tools">
-          <p>
-            These earlier tools remain available, along with work you chose to save in this browser.
-            The PERIOD Code lessons are now the main learning experience.
-          </p>
-          <p>
-            Moving these tools out of the main navigation does not delete saved records. Open Saved
-            work to return to a record, or choose a tool below.
-          </p>
-          <div class="legacy-links">
-            <a href="#/saved">Open Saved work</a>
-            <a href="#/period/teaching-order">Explore the values</a>
-            <a href="#/approach">About the legacy tools</a>
-          </div>
-        </PageIntro>
-      </div>
-      <ToolGrid />
-    </>
-  );
-}
-function Approach() {
-  return (
-    <div class="narrow legacy-info">
-      <PageIntro title="About the legacy tools">
-        <p>
-          These earlier tools pair short explanations with reflection, a decision, a practical
-          action, and an honest record of what happened. Those are workflow ideas, not five values
-          and not a replacement for The PERIOD Code. You make the decision; the tool does not choose
-          or certify it for you.
-        </p>
-        <p>
-          Use a tool when it helps with work you already need to do. You do not need to complete
-          every tool. The aim is useful action outside this page, without scores, streaks, or
-          labels.
-        </p>
-        <div class="legacy-links">
-          <a href="#/tools">Return to Legacy tools</a>
-          <a href="#/saved">Open Saved work</a>
-        </div>
-      </PageIntro>
-      <section class="framework-list">
-        <h2>Framework sources behind these tools</h2>
-        <p>
-          These frameworks were developed by Jim Lunsford. The PERIOD Code teaches values; How to
-          Rebuild Yourself teaches a rebuilding process; The Discipline Loop teaches reinforcement;
-          Pure Execution Mode teaches execution. These source pages are references, not links to
-          finished Only Empowerment companions for the other frameworks.
-        </p>
-        {Object.values(frameworks).map((f) => (
-          <a href={f.url} rel="noreferrer" key={f.url}>
-            <span>{f.name}</span>
-            <span>{f.role} ↗</span>
-          </a>
-        ))}
-      </section>
-    </div>
-  );
-}
-function Privacy({ work }: { work: LocalWork }) {
+function Privacy() {
   return (
     <div class="narrow legacy-info">
       <PageIntro title="Your answers are not ours to collect.">
         <p>
           You can read the six lessons and explore their examples without an account or submitting
-          personal answers. The optional Standard Card stays in the open tab. The legacy tools save
-          a record in this browser only when you choose Save on this device.
+          personal answers. The optional Standard Card stays in the open tab. The earlier tools and
+          Saved work are retired from this application. Records saved with an older version may
+          still remain in this browser profile on this site.
         </p>
       </PageIntro>
-      <LocalDataControls work={work} />
+      <LegacyDataRemoval />
       <div class="privacy-facts">
         <section>
           <h2>What stays in the page</h2>
@@ -135,16 +49,23 @@ function Privacy({ work }: { work: LocalWork }) {
             this open tab during in-site navigation. It never enters Saved work or browser storage.
             Reloading or closing can discard it; copy or print anything you want to keep.
           </p>
+        </section>
+        <section>
+          <h2>Records from the retired tools</h2>
           <p>
-            Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, and Do It Now keep
-            answers in memory during navigation within this site. Reloading or closing the tab can
-            discard unsaved work. Nothing is automatically saved.
+            This application does not open, read, list, change, or automatically delete old saved
+            records. Visiting a lesson, navigating the site, or reloading leaves them alone. The
+            deletion control above accesses only the old storage keys after you confirm.
           </p>
           <p>
-            Choose “Save on this device” to store only the confirmed Decision Record, Execution
-            Card, Personal Standard, Reset Plan, Rebuild Map, or Action Record in this browser
-            profile. Someone using this profile may see it. Clearing site data can remove it. There
-            is no server recovery, cross-device sync, or transfer between sites.
+            Old records are not encrypted by this application. Someone using this browser profile,
+            an extension, or an older copy of the application may still be able to access them.
+            There is no server recovery, cross-device sync, or transfer between sites.
+          </p>
+          <p>
+            Browser data belongs to its original site origin (scheme, host, and port). A future
+            private or offline copy on another origin would not automatically recover records saved
+            here. Retiring public access does not make previously published GitHub history private.
           </p>
         </section>
         <section>
@@ -177,13 +98,13 @@ function Privacy({ work }: { work: LocalWork }) {
             activating analytics.
           </p>
           <p>
-            Analytics may include page and tool visits, traffic source, limited browser and device
-            information, broad geographic information, and fixed content-free events such as a tool
-            being opened, started, or reaching a result.
+            Any future analytics would be limited to approved, content-free site usage. Retiring the
+            tools does not authorize new tracking or collection of old records.
           </p>
           <p>
-            What you enter into the tools is not sent to Google Analytics. Tool answers, Saved Work,
-            artifact contents, copied text, and other user-authored private data are excluded.
+            Standard Card text and residual legacy records are not sent to Google Analytics. Written
+            answers, artifact contents, copied text, and other user-authored private data are
+            excluded.
           </p>
           <p>
             Only Empowerment does not use session replay, heatmaps, advertising personalization,
@@ -198,10 +119,10 @@ function Privacy({ work }: { work: LocalWork }) {
         <section>
           <h2>Copy and print are your choice</h2>
           <p>
-            Copying puts the record on your device’s clipboard. Your operating system may sync that
-            clipboard. Printing or saving a PDF passes content to your browser and printing system.
-            Clipboard copies, PDFs, printouts, screenshots, and device backups are yours to manage
-            and are not removed by deleting legacy tool data.
+            Copying puts the Standard Card on your device’s clipboard. Your operating system may
+            sync that clipboard. Printing or saving a PDF passes content to your browser and
+            printing system. Clipboard copies, PDFs, printouts, screenshots, and device backups are
+            yours to manage and are not removed by deleting legacy tool data.
           </p>
         </section>
         <section>
@@ -241,8 +162,10 @@ function NotFound() {
     <div class="narrow legacy-info">
       <PageIntro title="That page is not here.">
         <p>
-          <a href="#/period/teaching-order">Explore the values</a> or{' '}
-          <a href="#/tools">open Legacy tools</a>.
+          The earlier tools, Saved work, and Approach page have been retired. Retiring these pages
+          does not remove existing browser data.{' '}
+          <a href="#/period/teaching-order">Explore the values</a>, return to{' '}
+          <a href="#/">Why PERIOD?</a>, or read <a href="#/privacy">Privacy &amp; source</a>.
         </p>
       </PageIntro>
     </div>
@@ -251,7 +174,6 @@ function NotFound() {
 function App() {
   const path = useRoute();
   const editorial = path === '/' || path.startsWith('/period/');
-  const work = useLocalWork();
   const [periodSession, setPeriodSession] = useState(newPeriodSession);
   const [practiceSession, setPracticeSession] = useState(newPracticeSession);
   const [purposeSession, setPurposeSession] = useState(newPurposeSession);
@@ -307,16 +229,7 @@ function App() {
   else if (path === '/period/standard')
     content = <PeriodStandard session={periodSession} setSession={setPeriodSession} />;
   else if (path === '/period/book') content = <PeriodBook standalone />;
-  else if (path === '/tools') content = <ToolsPage />;
-  else if (path === '/approach') content = <Approach />;
-  else if (path === '/privacy') content = <Privacy work={work} />;
-  else if (path === '/saved') content = <SavedWork work={work} />;
-  else if (path === '/tools/decision-room') content = <DecisionRoom work={work} />;
-  else if (path === '/tools/build-a-standard') content = <BuildStandard work={work} />;
-  else if (path === '/tools/rebuild-map') content = <RebuildMap work={work} />;
-  else if (path === '/tools/reset') content = <Reset work={work} />;
-  else if (path === '/tools/do-it-now') content = <DoItNow work={work} />;
-  else if (path === '/tools/next-move') content = <NextMove work={work} />;
+  else if (path === '/privacy') content = <Privacy />;
   else content = <NotFound />;
   return (
     <div class={`site-shell ${editorial ? 'period-shell' : ''}`}>
@@ -418,11 +331,6 @@ function App() {
           }
         }}
       >
-        {work.notice && (
-          <p class="global-notice no-print" role="status">
-            {work.notice}
-          </p>
-        )}
         {content}
         {bookExit && (
           <ConfirmDialog
@@ -452,22 +360,7 @@ function App() {
             Privacy &amp; source
           </a>
         </nav>
-        <nav class="footer-group" aria-label="Existing work">
-          <h2>Existing work</h2>
-          <a
-            href="#/tools"
-            aria-current={
-              path === '/tools' ? 'page' : path.startsWith('/tools/') ? 'location' : undefined
-            }
-          >
-            Legacy tools
-          </a>
-          <a href="#/saved" aria-current={path === '/saved' ? 'page' : undefined}>
-            Saved work
-          </a>
-          <span>Saved in this browser, on this site.</span>
-        </nav>
-        <SiteNotices build={__BUILD__} path={path} />
+        <SiteNotices build={__BUILD__} />
       </footer>
     </div>
   );

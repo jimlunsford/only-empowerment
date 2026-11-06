@@ -1,5 +1,7 @@
 # Testing standard
 
+> Work 28 supersedes the six-tool public behavior described historically below. The public application retains the six PERIOD lessons and memory-only Standard Card. Legacy modules and Saved work are retired; browser-local records remain untouched except for explicit confirmed deletion. See [Work 28 retirement and test accounting](WORK-28-RETIREMENT.md).
+
 Test meaningful user behavior and trust boundaries. Coverage percentages are not a goal.
 
 ## Shared automated checks retained in the suite

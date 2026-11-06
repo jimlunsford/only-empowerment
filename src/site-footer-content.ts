@@ -13,37 +13,8 @@ export const softwareNotice = {
   permissions:
     '. You may use, modify, and redistribute it under that license. No warranty. The copyright statement above does not limit these software permissions.',
 };
-const legacySources: Record<string, { text: string; url: string }> = {
-  'decision-room': {
-    text: 'Based on The PERIOD Code',
-    url: 'https://jimlunsford.com/period-code/',
-  },
-  'next-move': {
-    text: 'Based on Pure Execution Mode',
-    url: 'https://jimlunsford.com/pure-execution-mode/',
-  },
-  'do-it-now': {
-    text: 'Based on Pure Execution Mode',
-    url: 'https://jimlunsford.com/pure-execution-mode/',
-  },
-  'build-a-standard': {
-    text: 'Based on The PERIOD Code and standards doctrine',
-    url: 'https://jimlunsford.com/period-code/',
-  },
-  reset: {
-    text: 'Based on The PERIOD Code, How to Rebuild Yourself, and The Discipline Loop',
-    url: 'https://jimlunsford.com/core-frameworks/',
-  },
-  'rebuild-map': {
-    text: 'Based on How to Rebuild Yourself',
-    url: 'https://jimlunsford.com/how-to-rebuild-yourself/',
-  },
-};
-export function footerEducation(path = '') {
-  const source = legacySources[path.split('/')[2]];
-  return source
-    ? { ...source, text: `${source.text}. Built by Jim Lunsford.` }
-    : { text: periodExercise.source, url: periodBook.url };
+export function footerEducation() {
+  return { text: periodExercise.source, url: periodBook.url };
 }
 export function footerBuildNotice(build?: FooterBuild) {
   if (!build)

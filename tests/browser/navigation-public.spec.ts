@@ -53,14 +53,18 @@ const dataButton = (page: Page) =>
 const snapshot = (page: Page) =>
   page.evaluate(() => Object.fromEntries(Object.entries(localStorage)));
 const privateDraft = 'SYNTHETIC WORK23: Keep my words.\nOne intended behavior, not proof.';
-test('every retained hash route shares three primary links and two visible footer groups', async ({
+test('all public and retired hash routes retain educational navigation without legacy entry links', async ({
   page,
 }) => {
   test.setTimeout(120000);
   for (const route of routes) {
     await page.goto('/#' + route);
     await expect(page.locator('h1')).toBeVisible();
-    if (route !== '/missing')
+    if (
+      route !== '/missing' &&
+      !['/tools', '/saved', '/approach'].includes(route) &&
+      !route.startsWith('/tools/')
+    )
       await expect(page.locator('h1')).not.toHaveText('That page is not here.');
     await expect(mainNav(page).getByRole('link')).toHaveText([
       'Why PERIOD?',
@@ -75,9 +79,10 @@ test('every retained hash route shares three primary links and two visible foote
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
     ).toHaveText(['About the book', 'Privacy & source']);
+    await expect(footer(page).getByRole('navigation', { name: 'Existing work' })).toHaveCount(0);
     await expect(
-      footer(page).getByRole('navigation', { name: 'Existing work' }).getByRole('link'),
-    ).toHaveText(['Legacy tools', 'Saved work']);
+      page.locator('a[href^="#/tools"], a[href="#/saved"], a[href="#/approach"]'),
+    ).toHaveCount(0);
     await expect(footer(page).getByRole('link', { name: 'AGPL-3.0-or-later' })).toHaveAttribute(
       'href',
       '/LICENSE.txt',
@@ -116,13 +121,13 @@ test('same-page teaching order, repeat activation, Back and Forward retain locat
   await page.evaluate(() => scrollTo(0, 650));
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(650);
   await footer(page)
-    .getByRole('link', { name: 'Legacy tools', exact: true })
+    .getByRole('link', { name: 'Privacy & source', exact: true })
     .evaluate((e: HTMLElement) => e.click());
   await expect(page.locator('h1')).toBeFocused();
   await page.goBack();
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(650);
   await page.goForward();
-  await expect(page.locator('h1')).toHaveText('Legacy tools');
+  await expect(page.locator('h1')).toHaveText('Your answers are not ours to collect.');
   await explore.click();
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await page.evaluate(() => scrollTo(0, 0));
@@ -135,38 +140,21 @@ test('same-page teaching order, repeat activation, Back and Forward retain locat
   ).toHaveAttribute('aria-current', 'page');
 });
 
-test('six raw legacy records survive navigation and reopening; deletion is bounded and leaves the separate card intact', async ({
+test('fictional legacy bytes survive navigation; confirmed deletion is scoped and keeps the Standard Card', async ({
   page,
 }, info) => {
-  test.setTimeout(90000);
   await seed(page);
   const original = await snapshot(page);
   await mainNav(page).getByRole('link', { name: 'Optional Standard Card' }).click();
   await page.locator('#period-valueId').selectOption('integrity');
   await page.locator('#period-standard').fill(privateDraft);
   await page.locator('#period-nextApplication').fill('SYNTHETIC: Give the next update honestly.');
-  await footer(page).getByRole('link', { name: 'Legacy tools', exact: true }).click();
-  await page.getByRole('link', { name: 'About the legacy tools', exact: true }).click();
-  await footer(page).getByRole('link', { name: 'Saved work', exact: true }).click();
+  await footer(page).getByRole('link', { name: 'Privacy & source', exact: true }).click();
   expect(await snapshot(page)).toEqual(original);
-  for (const [type, tool] of [
-    ['Execution Card', 'next-move'],
-    ['Decision Record', 'decision-room'],
-    ['Personal Standard', 'build-a-standard'],
-    ['Reset Plan', 'reset'],
-    ['Rebuild Map', 'rebuild-map'],
-    ['Action Record', 'do-it-now'],
-  ]) {
-    await page.getByRole('button', { name: new RegExp('^Open ' + type) }).click();
-    await expect(page).toHaveURL(new RegExp('#/tools/' + tool + '$'));
-    await expect(page.getByRole('button', { name: /^Copy / })).toBeVisible();
-    await expect(page.getByRole('button', { name: /^Print/ })).toBeVisible();
-    await footer(page).getByRole('link', { name: 'Saved work', exact: true }).click();
-    expect(await snapshot(page)).toEqual(original);
-  }
   await dataButton(page).click();
   await expect(page.getByRole('dialog')).toContainText('Standard Card draft will not be cleared');
   await page.keyboard.press('Escape');
+  await expect(dataButton(page)).toBeFocused();
   expect(await snapshot(page)).toEqual(original);
   await dataButton(page).click();
   await page
@@ -189,7 +177,7 @@ test('six raw legacy records survive navigation and reopening; deletion is bound
   await expect(page.locator('#period-standard')).toHaveValue('');
   expect(await snapshot(page)).toEqual({ 'unrelated-work23': 'leave intact' });
   await writeFile(
-    info.outputPath('work23-fictional-records.json'),
+    info.outputPath('work28-fictional-records.json'),
     JSON.stringify(original, null, 2),
   );
 });
@@ -228,23 +216,13 @@ for (const width of [1440, 390, 320])
   }, info) => {
     test.setTimeout(120000);
     await page.setViewportSize({ width, height: 900 });
-    if (info.project.name === 'chromium') {
-      await page.goto('/#/saved');
-      await expect(
-        page.getByRole('heading', { name: 'No saved work in this browser on this site.' }),
-      ).toBeVisible();
-      await page.evaluate(() => document.fonts.ready);
-      await page.screenshot({
-        path: info.outputPath(`work23-saved-empty-${width}.png`),
-        fullPage: true,
-      });
-    }
     await seed(page);
     for (const [name, route] of [
       ['home', '/'],
       ['lesson', '/period/values/ownership'],
-      ['legacy', '/tools'],
-      ['saved', '/saved'],
+      ['unavailable', '/tools'],
+      ['privacy', '/privacy'],
+      ['book', '/period/book'],
     ]) {
       await page.goto('/#' + route);
       await page.evaluate(() => document.fonts.ready);
@@ -279,11 +257,11 @@ for (const width of [1440, 390, 320])
           scrollTo(0, 0);
         });
         await page.screenshot({
-          path: info.outputPath(`work23-${name}-${width}.png`),
+          path: info.outputPath(`work28-${name}-${width}.png`),
           fullPage: true,
         });
         await footer(page).screenshot({
-          path: info.outputPath(`work23-${name}-footer-${width}.png`),
+          path: info.outputPath(`work28-${name}-footer-${width}.png`),
         });
       }
     }
@@ -344,7 +322,7 @@ test('new shell supports keyboard sequence, text spacing, enlarged text and emul
   }
   if (info.project.name === 'chromium')
     await page.screenshot({
-      path: info.outputPath('work23-320-enlarged-spacing-forced-colors.png'),
+      path: info.outputPath('work28-320-enlarged-spacing-forced-colors.png'),
       fullPage: true,
     });
 });

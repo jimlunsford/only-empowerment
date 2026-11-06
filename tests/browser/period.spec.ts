@@ -120,7 +120,7 @@ test('draft and card survive in-site history, lesson entry, and guarded book exi
   ).toBeVisible();
   await expect(page.locator('#period-standard')).toHaveValue(standard);
   await page.getByRole('button', { name: 'Make my standard card' }).click();
-  await page.getByRole('link', { name: 'Legacy tools', exact: true }).click();
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
   await page.goBack();
   expect(await page.locator('[data-field="standard"]').textContent()).toBe(standard);
   await page.getByRole('link', { name: 'About the book', exact: true }).click();
@@ -241,8 +241,8 @@ test('authored content never enters traffic, logs, storage or history and legacy
   await page.locator('#period-standard').fill(marker);
   await page.locator('#period-nextApplication').fill(marker);
   await page.getByRole('button', { name: 'Make my standard card' }).click();
-  await page.getByRole('link', { name: 'Saved work', exact: true }).click();
-  await expect(page.getByRole('main')).toContainText('Legacy fixture');
+  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await expect(page.getByRole('main')).not.toContainText('Legacy fixture');
   await page.goBack();
   await page.getByRole('button', { name: 'Clear this draft', exact: true }).click();
   await page.getByRole('button', { name: 'Clear draft', exact: true }).click();

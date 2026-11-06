@@ -37,7 +37,7 @@ test('dirty and unidentified previews never claim a base commit is exact corresp
   }
   assert.match(siteNotices({ ...build, dirty: true }), /local changes · base aaaaaaa/);
 });
-test('build-time metadata is escaped and legacy attribution follows the existing tool', () => {
+test('build-time metadata is escaped and only PERIOD attribution remains', () => {
   const html = siteNotices({
     ...build,
     version: '<img src=x>',
@@ -46,7 +46,6 @@ test('build-time metadata is escaped and legacy attribution follows the existing
   assert.ok(!html.includes('<img'));
   assert.ok(!html.includes('<bad>'));
   assert.match(html, /&lt;img src=x&gt;/);
-  assert.match(footerEducation('/tools/next-move').text, /Pure Execution Mode/);
-  assert.match(footerEducation('/tools/reset').text, /The Discipline Loop/);
-  assert.match(footerEducation('/period/standard').text, /The PERIOD Code/);
+  assert.match(footerEducation().text, /The PERIOD Code/);
+  assert.doesNotMatch(staticFooter(build), /Existing work|#\/tools|#\/saved|#\/approach/);
 });
