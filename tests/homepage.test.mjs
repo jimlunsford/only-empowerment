@@ -36,11 +36,11 @@ test('approved Work 32 copy, comparison and reflection are complete in the root 
     assert.ok(html.includes(`href="/read/${id}.html"`));
 });
 
-test('root readings after the homepage remain byte-identical to the approved Work 30 baseline', () => {
+test('root readings after the unchanged homepage match the approved Work 35 copy and P20 static parity', () => {
   const full = periodFallback();
   const readings = full.slice(full.indexOf('<h2 id="reading-ownership"'));
   assert.equal(
     createHash('sha256').update(readings).digest('hex'),
-    '48e581524025a0c798d3ca7635fc51d917e97ec4f72e3f5676489e3c8416ec55',
+    '22dfaa1867514d877090515e2af50cf6376d408923b8c71d0fa0e95ede0e05ca',
   );
 });

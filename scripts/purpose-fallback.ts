@@ -36,7 +36,7 @@ export function purposeFallback() {
     ${h(copy.title, 2)}${p(copy.lead)}${p(copy.intro)}
     ${h(copy.situation_heading)}${p(copy.situation)}${p(copy.facts)}${p(copy.assumptions)}
     ${p('The interactive controls need JavaScript. All four fictional examples are available below.')}
-    ${p(copy.reflection)}${p(copy.planDistinction)}${p(copy.directionLimit)}
+    ${p(copy.reflection)}${p(copy.planDistinction)}${p(copy.directionLimit)}${p(copy.readingLead)}
     ${Object.values(purposeExamples)
       .map(
         (example) => `<section>
@@ -44,7 +44,7 @@ export function purposeFallback() {
       ${h('Capacity tonight', 4)}${p(purposeCapacities[example.capacity].description)}${h('A possible evening', 4)}
       <ol>${example.plan.map((row) => `<li>${h(`${row.time} · ${row.title}`, 5)}${p(row.description)}</li>`).join('')}</ol>
       ${h('What this serves', 4)}${p(example.serves)}${h('What waits, and what it costs', 4)}${p(example.cost)}
-      ${h('What this does not establish', 4)}${p(example.uncertain)}${p(example.compare)}
+      ${h('What remains open', 4)}${p(example.uncertain)}${p(example.compare)}
     </section>`,
       )
       .join('')}

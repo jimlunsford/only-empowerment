@@ -42,18 +42,18 @@ export const periodValues = [
     sourceChapter: 'Ownership',
     lesson: {
       meaning:
-        'Ownership starts with telling the truth about the part that belongs to you. You may not have caused the situation, and you cannot control every outcome. You can still decide what you will do next, what needs correcting, and where you need help.',
+        'Ownership begins when you stop defending what is yours to change. Tell the truth about your choices, their consequences and the responsibility in front of you. You may not have caused the situation. You still have a next response to own, including asking for the help you need.',
       example:
-        'You miss a commitment after a difficult week. You cannot change the week that happened. You can tell the person you missed it, acknowledge the effect, and offer a realistic next step. They decide how to respond. Your responsibility is to make the correction you said you would make.',
+        'You miss a commitment after a difficult week. Explain what happened without using the week to avoid your part. Acknowledge the effect, offer a next step you can carry out, and do it. The other person decides how to respond. Your correction is still yours to make.',
       misconceptionHeading: 'Ownership does not mean everything is your fault.',
       misconception:
-        'Accepting blame for another person’s harmful actions is not required. Neither is doing everything alone. Asking for useful support can be an act of ownership.',
+        "Someone else's harmful actions belong to them. Taking ownership of your response does not make their harm your fault. You can hold a boundary, seek support and take responsibility without carrying blame that is not yours.",
       application:
         'Choose one responsibility you have been avoiding. Identify an action you can take without waiting for someone else to change. It might be an update, an apology, a boundary, or a request for help.',
       reflection: 'What part of the next response is mine?',
       connectionHeading: 'Why Purpose comes next',
       connection:
-        'Responsibility gives you something to carry. Purpose helps you decide what you are carrying it toward. Without direction, owned effort can still become scattered.',
+        'Owning the next response gets you moving. Purpose asks where that movement is taking you. You can stop avoiding a responsibility and still scatter your effort. Decide what you are building with it.',
     },
   },
   {

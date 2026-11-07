@@ -8,7 +8,7 @@ export const pressureNote = (id: unknown): PressureNote =>
 
 export const resilienceUi = {
   refinement:
-    'When the work is useful and safe, resilience may mean continuing even when progress is slow. When the method is blocked, harmful, or beyond your present capacity, changing course may be what protects the standard. The question is not whether you pushed through everything. It is whether your response still serves the life you are building.',
+    'Keep doing useful work when boredom is the problem. Change a method that is blocked. Rest when capacity requires it. Leave harm rather than proving you can endure more of it. Resilience asks which response protects the life you are building.',
   setupHeading: 'One aim. Different conditions.',
   selectorHelp: 'Five independent versions. Change the facts, not a personal answer.',
   currentHeading: 'What Alex planned',

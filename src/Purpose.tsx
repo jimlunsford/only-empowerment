@@ -153,7 +153,7 @@ function ExampleReading({ example }: { example: PurposeExample }) {
       <p>{example.serves}</p>
       <h4>What waits, and what it costs</h4>
       <p>{example.cost}</p>
-      <h4>What this does not establish</h4>
+      <h4>What remains open</h4>
       <p>{example.uncertain}</p>
       <p class="purpose-comparison-cue">{example.compare}</p>
     </section>
@@ -270,7 +270,7 @@ export function PurposeEvening({
             <p>{example.cost}</p>
           </section>
           <section>
-            <h3>What this does not establish</h3>
+            <h3>What remains open</h3>
             <p>{example.uncertain}</p>
           </section>
         </div>

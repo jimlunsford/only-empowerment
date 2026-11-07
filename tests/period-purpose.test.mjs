@@ -34,7 +34,10 @@ test('approved refinements separate the plan from purpose and respect survival s
       'Avoiding the old life may be where rebuilding begins. Purpose is what gives you something worth building in its place.',
     ),
   );
-  assert.match(seasons.paragraphs[0], /survival, sobriety, care or basic stability/);
+  assert.match(
+    seasons.paragraphs[0],
+    /staying alive, staying sober, receiving care or keeping one stable day intact/,
+  );
   assert.match(seasons.paragraphs.at(-1), /before every detail is clear/);
   assert.match(purposeConnected, /connected standard for living/);
   assert.equal(purposeRelationships.length, 6);
@@ -78,16 +81,16 @@ test('four possible evenings preserve 120 minutes, tomorrow preparation and the 
   });
   assert.match(
     purposeExamples.work_usual.uncertain,
-    /not a submitted application, an acceptance or a job offer/,
+    /still needs checking and submitting by Friday.*not guarantee acceptance or steadier work/,
   );
   assert.match(purposeExamples.stability_usual.cost, /let this opportunity go/);
   assert.match(purposeExamples.work_lower.cost, /extension is not guaranteed/);
-  assert.match(purposeExamples.stability_lower.cost, /rest will solve everything/);
-  assert.match(purposeCopy.same_evening, /70 minutes.*30 minutes.*20 minutes/);
   assert.match(
-    purposeCopy.same_evening_end,
-    /Changing the purpose statement alone has changed nothing/,
+    purposeExamples.stability_lower.cost,
+    /Rest may be needed, but it does not finish either task/,
   );
+  assert.match(purposeCopy.same_evening, /70 minutes.*30 minutes.*20 minutes/);
+  assert.match(purposeCopy.same_evening_end, /The words changed\. The evening did not/);
 });
 
 test('fictional defaults and independent combinations are separate from any personal draft', () => {

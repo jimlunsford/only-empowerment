@@ -166,7 +166,7 @@ export function IntegrityRecord() {
                   {'replacement_label' in note ? note.replacement_label : 'A truthful replacement'}
                 </h3>
                 <p>{note.replacement}</p>
-                <h3>Action beyond wording</h3>
+                <h3>Make the correction</h3>
                 <p>{note.action}</p>
                 <h3>What this cannot settle</h3>
                 <p>{note.limit}</p>

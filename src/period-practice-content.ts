@@ -14,7 +14,7 @@ export const practiceViews = [
     path: '/period/practice/responses',
     label: 'Responses',
     title: 'Compare the responses.',
-    lead: 'Explore what each response changes. There is nothing to submit.',
+    lead: 'What does each response correct, and what does it leave untouched?',
   },
   {
     id: 'follow-through',
@@ -42,7 +42,7 @@ export const communicationConditions = {
     own: 'Acknowledge choosing to wait; explain the limit; send the available section; set a realistic check-in.',
     acknowledgement: 'I missed the 3 p.m. update and left you waiting.',
     explanation:
-      'This owns the missed update without claiming responsibility for the outage. It gives the colleague current facts and names actions within reach.',
+      'The outage was outside your control. Waiting to communicate was your choice. This update owns that delay, tells your colleague where the work stands and names what you can do next.',
   },
   unavailable: {
     label: 'Messaging was unavailable',
@@ -54,7 +54,7 @@ export const communicationConditions = {
     acknowledgement:
       'I could not send the 3 p.m. update because messaging was unavailable until now.',
     explanation:
-      'This explains a real limit without claiming you chose not to communicate. Now that messaging works, it identifies the response you can carry out.',
+      'You could not send a message before 4 p.m. Tell that truth without inventing a choice you never had. Now that messaging works, send the update and the section you can provide.',
   },
 } as const;
 export type Communication = keyof typeof communicationConditions;
@@ -63,21 +63,21 @@ export const evidenceRecords = {
     label: 'Only promised',
     record: 'The message is drafted. It has not been sent. The next check-in is planned.',
     interpretation:
-      'This is an intention. No sent update or completed check-in is established. Choosing this example or writing a card cannot perform those actions.',
+      'The draft is still unsent. Your colleague has no update, and the check-in is still ahead. The intention matters when you carry it out.',
   },
   followed: {
     label: 'Followed through',
     record:
       'At 4 p.m., the update and local section were sent. At 9 tomorrow, access was checked. At 9:10, another update was sent explaining that the shared file was still unavailable.',
     interpretation:
-      'These actions are evidence of the correction and kept check-in in this fictional record. The outage remains unresolved. One correction does not guarantee forgiveness, rebuild all trust or establish a whole way of life.',
+      "The update went out and the next check-in happened. That is follow-through, even though the outage continues. Keep building that record. One kept commitment does not settle the other person's trust or forgiveness.",
   },
   missed: {
     label: 'Missed the next update',
     record:
       'The 4 p.m. update and local section were sent. The 9:15 check-in was missed. At 10, you notice the miss.',
     interpretation:
-      'The first correction happened; the next commitment was not kept. A later repair can create new evidence, but it cannot turn the missed deadline into a kept promise.',
+      'You sent the first update, then missed the next commitment. Both facts belong in the record. Correct this miss now; a later repair will not turn it into a promise you kept.',
   },
 } as const;
 export type EvidenceRecord = keyof typeof evidenceRecords;
@@ -91,41 +91,41 @@ export const practiceCopy = {
   situationHeading: 'The update that did not arrive',
   conditionLabel: 'Change one fact in this example',
   limit:
-    'Ownership starts with the response available to you. It does not make the outage your fault, give you control over another person’s reaction, or require you to do everything alone.',
+    "Own your response, not the outage or your colleague's reaction. If the next step needs help, ask for it. Responsibility does not require you to do everything alone.",
   reflection: 'What changed about the responsibility? What can still be done now?',
   situationClose:
-    'The response starts with what is actually possible. A limit does not require false blame; an available correction still needs action.',
-  responsePause: 'Before reading the explanation, name what this response can actually carry out.',
+    'Start with what was possible. Own a delay you chose. Tell the truth about a limit you could not change. Then act on what is possible now.',
+  responsePause: 'Before reading on, ask what this response actually changes.',
   honestTitle: 'Send an honest update',
   honestMessage:
     'The shared file is still unavailable. I can send the completed section now. I will check access at 9 tomorrow and update you by 9:15, even if it is still blocked.',
   assumptions:
-    'This fictional example assumes you can send the completed section now and are available for the next morning’s check-in. Its clock times are not a rule for everyone.',
+    "Here, you can send the saved section and make the next morning's check-in. In your own situation, promise a time and contribution you can actually give.",
   honestLimit:
-    'The message gives the colleague information to plan with. It cannot guarantee access, forgiveness or restored trust. Sending it and keeping the next commitment are still required.',
+    'Send the message so your colleague has facts to work with. Then keep the check-in. You cannot promise when access will return or decide when they should trust or forgive you.',
   waiting: {
     title: 'Wait for better news',
     message: 'I’ll update them when the file is back.',
     explanation:
-      'At 4 p.m., you can communicate in either version of the situation. Waiting makes the next update depend on an outage ending, even though you can explain the current limit now. Earlier inability to communicate does not make present silence the only option.',
+      'At 4 p.m., messaging works in both versions. You can explain the problem now. Waiting for the file to return leaves your colleague without information you already have.',
   },
   overpromising: {
     title: 'Promise a late finish',
     message: 'I’m sorry. I’ll finish the whole thing tonight, whatever it takes.',
     explanation:
-      'The new promise still depends on a file you cannot access. In this situation it promises more than you can guarantee. Ownership does not require ignoring capacity or using an apology to make an unworkable commitment.',
+      'You still cannot open the file. Promising the whole task tonight uses a bigger promise to cover the missed one. Own the delay without committing yourself to work you cannot deliver.',
   },
   help: {
     title: 'See a correction that asks for help',
     message:
       'The shared file is offline. I can send the completed section now. Is there an exported copy I can use? If not, I’ll check access at 9 tomorrow and update you by 9:15.',
     explanation:
-      'Specific support may make the work possible. You still own the update and what you have promised. Asking for an exported copy is different from making someone else responsible for your whole correction. Help is legitimate, and the helper can say no.',
+      'Ask for the exported copy because it could make the work possible. The update and the check-in are still yours to carry out. The other person can decline; asking for help does not assign them your responsibility.',
   },
   responseClose:
     'A clear message begins the repair when it is sent. Follow-through is still required.',
   workedExample:
-    'The honest-update worked example continues here, regardless of which responses you examined. The original task remains blocked.',
+    'Now follow the honest update into the next day. The shared file is still blocked. Whatever responses you explored, this continuation follows the honest-update example.',
   timeline: [
     {
       when: 'Now',
@@ -135,19 +135,18 @@ export const practiceCopy = {
     {
       when: 'Tomorrow at 9',
       action: 'Check shared-file access.',
-      evidence: 'The check was carried out; access is still outside your guarantee.',
+      evidence: 'You checked access. Whether the file came back was outside your control.',
     },
     {
       when: 'By 9:15',
       action: 'Send the next update, including a continuing block.',
-      evidence:
-        'The communication commitment was kept. It does not prove the entire task is complete.',
+      evidence: 'You kept the check-in, even if the task was still blocked.',
     },
   ],
   evidenceLabel: 'Inspect what happened',
   evidenceContext: 'These are fictional records, not reports about you.',
   repair:
-    'Acknowledge the second miss now. Send the current facts, make a realistic correction, and change what failed: set a reminder, reduce the promise, or ask for specific help. Do not promise completion while access is still blocked. Your colleague does not owe reassurance. The repair becomes evidence when you carry it out.',
+    'Acknowledge the missed check-in and send the facts you have now. Address what failed: set a reminder, make a smaller promise or ask for specific help. Keep completion off the promise while access is blocked. Your colleague does not owe you reassurance. Carry out the correction.',
   evidenceReflection: 'What has actually happened? What still needs to happen?',
   evidenceClose: 'A correction can be small. It still has to happen.',
   household: {
@@ -158,12 +157,11 @@ export const practiceCopy = {
     response:
       'My shift changed. I cannot cook tonight as agreed. I can arrange a simple meal before work, or we can make another plan. What would be useful?',
     explanation:
-      'This example assumes arranging a simple meal is actually possible. If it is not, name your real limit and ask to revise the agreement without promising an unavailable contribution. The other person may disagree. Be honest, contribute what you can, and follow through on any new agreement.',
-    agreement:
-      'A revised shared agreement needs the other person’s participation. It is not accepted until they agree.',
+      'Offer the simple meal only if you can arrange it. If you cannot, say so and ask to make another plan. Your changed shift is real. So is the need to tell the other person what you can contribute and follow through on what you agree.',
+    agreement: 'A changed plan is a shared agreement only when the other person agrees.',
   },
   connectedOpening:
-    'In this situation, Ownership means responding honestly to the update that did not arrive. Purpose asks what that response serves: becoming a dependable colleague. The other values help that direction survive pressure, remain honest, become repeatable and eventually strengthen others.',
+    'Ownership gets the honest update sent. Purpose asks what you are building through that response: becoming a dependable colleague. Resilience keeps you responding when the file stays blocked. Integrity keeps the facts honest. Discipline keeps the next commitment from becoming another empty promise. Empowerment turns what you learn into useful help for someone else when it is wanted.',
   connectedStandard:
     'The PERIOD Code is a connected standard for living. This one correction is a place to practice it.',
   relationships: [
@@ -199,27 +197,28 @@ export const practiceCopy = {
       contribution:
         'Use workable structure to send updates, keep commitments and return after a miss.',
       connection:
-        'Repetition serves Ownership, Purpose, Resilience and Integrity. Greater effort alone cannot replace them.',
+        'Repeated effort needs responsibility, direction, resilience and honesty. Doing more cannot replace them.',
     },
     {
       value: 'Empowerment',
       contribution:
-        'Later, if useful and welcomed, share a method you have practiced so someone can adapt it for themselves.',
+        'When someone wants the help, share a method you have practiced and let them adapt it to their own work.',
       connection:
-        'Developed strength serves another person’s capacity. Their choices remain theirs, returning the emphasis to Ownership.',
+        'Use what you have learned to help them carry their responsibility. Their choices remain theirs. That brings the work back to Ownership.',
     },
   ],
   connectedReturn:
-    'The order teaches how the values support one another. You keep returning to all six; you do not finish one and leave it behind. One action can express several values. You do not have to manufacture an act of Empowerment in every situation.',
+    'You keep returning to all six values. One correction can call on several of them, and learning the next value does not leave the earlier ones behind. Help others when there is a useful place to do it; every situation does not need an act of service.',
   empowermentLimit:
-    'Asking for an exported copy is receiving useful support. It does not automatically mean you have empowered someone. Sharing a practiced method should be useful, respectful and free of control; it does not require claiming mastery.',
+    'Receiving an exported copy helps you do your work. Empowerment asks what your own strength can offer someone else. Share what you know honestly, respect their choices and leave them room to act.',
   availability:
     'All six values now have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',
   takeActionHeading: 'Take it into your day',
   takeAction:
-    'Think of one ordinary responsibility that needs a response. What can you honestly do next, what direction does it serve, and what would show that you did it? Keep your answer private. Take the action when it is workable, and return to the values when the situation changes.',
+    'Think of a responsibility you have been avoiding. What can you do next, what does that action serve, and what will be different once you have done it? Keep your answer private. Act when it is safe and possible, then return to the values as the situation changes.',
   cardLabel: 'Write an optional Standard Card',
-  cardNote: 'Keep a reminder of one intended behavior within the connected Code.',
+  cardNote:
+    'If a reminder helps, the optional Standard Card can hold one behavior you intend to practice within the whole Code. The action still belongs to you.',
 } as const;
 export const honestMessage = (communication: Communication) =>
   `${communicationConditions[communication].acknowledgement} ${practiceCopy.honestMessage}`;
