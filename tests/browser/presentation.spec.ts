@@ -12,7 +12,7 @@ test('presentation mode keeps six lessons available without a review banner, pre
   await page.goto('/');
   await expect(page.locator('.staging-banner, .period-review-notice')).toHaveCount(0);
   await expect(page.locator('body')).not.toContainText('Not a production release');
-  await expect(page.getByRole('heading', { name: 'Put your values into practice.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Your values have to show up.' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Why PERIOD?', exact: true })).toBeVisible();
   for (const name of values)
     await expect(
@@ -73,7 +73,7 @@ test('no-JavaScript presentation describes six lessons without review-status mes
     const page = await context.newPage();
     await page.goto(baseURL!);
     await expect(
-      page.getByRole('heading', { name: 'Only Empowerment', exact: true }),
+      page.getByRole('heading', { name: 'Your values have to show up.', exact: true }),
     ).toBeVisible();
     for (const name of values) await expect(page.getByRole('main')).toContainText(name);
     await expect(page.getByRole('main')).toContainText('Earlier tools and Saved work are retired');

@@ -26,7 +26,7 @@ test('ordered content contains only the authorized complete lesson and a substan
     'Example standard card',
     'pattern on paper',
   ])
-    assert.ok(fallback.includes(text));
+    assert.ok(fallback.replace(/<[^>]+>/g, '').includes(text));
 });
 test('presence and code-point bounds validate without modifying any text', () => {
   const d = newPeriodSession().draft;

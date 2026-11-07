@@ -1,3 +1,4 @@
+import { homepage } from '../../src/period-homepage-content';
 import { integrityContent } from '../../src/period-integrity-content';
 import { test, expect, type Page, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -235,13 +236,13 @@ test('homepage stays oriented to Ownership and the same-page five-lesson path re
   page,
 }) => {
   await page.goto('/');
-  await expect(
-    page.getByText(integrityContent.navigation.home_lead, { exact: true }),
-  ).toBeVisible();
+  await expect(page.getByText(homepage.lead, { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
-  const before = page.url();
-  await page.getByRole('link', { name: 'Explore the lessons', exact: true }).press('Enter');
-  expect(page.url()).toBe(before);
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values', exact: true })
+    .press('Enter');
+  await expect(page).toHaveURL(/#\/period\/teaching-order$/);
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await expect(
     page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),

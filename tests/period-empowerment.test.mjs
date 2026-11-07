@@ -1,3 +1,4 @@
+import { periodFallback } from '../scripts/period-fallback.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -124,7 +125,7 @@ test('every active availability source agrees that all six lessons are available
   assert.equal(integrityContent.navigation.availability, empowermentAvailability);
   assert.equal(periodPresentation.introLead, empowermentNavigation.homeLead);
   assert.equal(practiceCopy.availability, empowermentNavigation.connectedCodeAvailability);
-  assert.ok(readFileSync('index.html', 'utf8').includes('href="/read/empowerment.html"'));
+  assert.ok(periodFallback().includes('href="/read/empowerment.html"'));
 });
 
 test('new conversation has no personal data, persistence, network, grading or selection history', () => {

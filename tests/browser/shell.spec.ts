@@ -59,7 +59,10 @@ test('private marker stays out of requests and storage; internal navigation reta
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
   expect(await context.cookies()).toEqual([]);
   expect(await page.evaluate(() => indexedDB.databases())).toEqual([]);
-  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'Privacy & source', exact: true })
+    .click();
   await expect(page.locator('h1')).toContainText('Your answers are not ours to collect.');
   await page.goBack();
   await expect(page.locator('[data-field="standard"]')).toHaveText(marker);
@@ -72,7 +75,10 @@ test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('main')).toBeFocused();
-  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'Privacy & source', exact: true })
+    .click();
   await expect(page.locator('h1')).toBeFocused();
   for (const route of ['/unknown', '/preview', '/tools/unknown']) {
     await page.goto('/#' + route);
@@ -84,7 +90,10 @@ test('Privacy & source and metadata identify the same build', async ({ page, req
   await page.goto('/');
   const metadata = await (await request.get('/build.json')).json();
   expect(metadata.commit).toMatch(/^[0-9a-f]{40}$/);
-  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'Privacy & source', exact: true })
+    .click();
   await expect(page.locator('.source-information')).toContainText('No warranty');
   if (!metadata.dirty)
     await expect(

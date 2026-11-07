@@ -116,7 +116,10 @@ test('startup and normal navigation never even access local storage; cancellatio
     await expect(page.locator('h1')).toBeVisible();
     expect(await page.evaluate(() => (window as any).legacyAccesses)).toBe(0);
   }
-  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'Privacy & source', exact: true })
+    .click();
   await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
   await page.keyboard.press('Escape');
   expect(await page.evaluate(() => (window as any).legacyAccesses)).toBe(0);
@@ -151,7 +154,10 @@ test('ineffective confirmed deletion reports failure without modifying unrelated
   page,
 }) => {
   await seed(page);
-  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'Privacy & source', exact: true })
+    .click();
   await page.evaluate(() => {
     Storage.prototype.removeItem = () => {};
   });

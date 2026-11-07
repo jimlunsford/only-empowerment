@@ -24,6 +24,7 @@ import './period-integrity.css';
 import './period-discipline.css';
 import './period-empowerment.css';
 import './navigation.css';
+import './period-homepage.css';
 import './period-lessons.css';
 import './site-footer.css';
 import { EmpowermentLesson, EmpowermentConversation } from './Empowerment';
@@ -147,7 +148,8 @@ function NotFound() {
           The earlier tools, Saved work, and Approach page have been retired. Retiring these pages
           does not remove existing browser data.{' '}
           <a href="#/period/teaching-order">Explore the values</a>, return to{' '}
-          <a href="#/">Why PERIOD?</a>, or read <a href="#/privacy">Privacy &amp; source</a>.
+          <a href="#/period/why">Why PERIOD?</a>, or read{' '}
+          <a href="#/privacy">Privacy &amp; source</a>.
         </p>
       </PageIntro>
     </div>
@@ -227,16 +229,22 @@ function App() {
       </a>
       <header class="site-header">
         <a class="wordmark" href="#/" aria-label="Only Empowerment home">
-          only<span>empowerment</span>
-          <span class="brand-dot" aria-hidden="true">
-            .
+          only
+          <wbr />
+          <span>
+            {'empower\u00adment'}
+            <span class="brand-dot" aria-hidden="true">
+              .
+            </span>
           </span>
         </a>
         <nav aria-label="Main navigation">
           <a
-            href="#/"
+            href="#/period/why"
             aria-current={
-              path === '/' && location.hash !== '#/period/teaching-order' ? 'page' : undefined
+              location.hash === '#/period/why' || location.hash === '#why-period'
+                ? 'location'
+                : undefined
             }
           >
             Why PERIOD?

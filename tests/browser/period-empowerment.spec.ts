@@ -1,3 +1,4 @@
+import { homepage } from '../../src/period-homepage-content';
 import { test, expect, type Page, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFile } from 'node:fs/promises';
@@ -366,7 +367,7 @@ test('six-lesson surfaces and revisit links reach real lessons, with normal Back
     await expect(page.locator('h1')).toContainText(value);
   }
   await page.goto('/');
-  await expect(page.getByText(empowermentNavigation.homeLead, { exact: true })).toBeVisible();
+  await expect(page.getByText(homepage.lead, { exact: true })).toBeVisible();
   await page.goto('/#/period/practice/connected-code');
   await expect(
     page.getByText(empowermentNavigation.connectedCodeAvailability, { exact: true }),

@@ -135,10 +135,10 @@ test('same-page teaching order, repeat activation, Back and Forward retain locat
   await explore.click();
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await mainNav(page).getByRole('link', { name: 'Why PERIOD?', exact: true }).click();
-  await expect(page.locator('h1')).toBeFocused();
+  await expect(page.locator('[id="/period/why"]')).toBeFocused();
   await expect(
     mainNav(page).getByRole('link', { name: 'Why PERIOD?', exact: true }),
-  ).toHaveAttribute('aria-current', 'page');
+  ).toHaveAttribute('aria-current', 'location');
 });
 
 test('fictional legacy bytes survive navigation; confirmed deletion is scoped and keeps the Standard Card', async ({
