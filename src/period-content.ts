@@ -133,9 +133,9 @@ export const ownershipFoundation = {
 } as const;
 export const periodExercise = {
   title: 'Turn a Value into a Standard',
-  lead: 'Write one intended behavior within The PERIOD Code’s connected standard for living. Choose a value as the focus of this card, then name where you will practice the behavior. The other values still matter.',
+  lead: 'Use the optional Standard Card to name one behavior you intend to practice within the whole Code and where you will put it into action next. Copy or print it as a reminder. Writing the standard gives you a direction to act on; it does not do the work.',
   teaching:
-    'A value names what matters. A standard describes behavior you can return to. “Be more reliable” leaves the action unclear. “When a deadline is at risk, I send an honest update before it passes” gives you a line you can recognize.',
+    'A value names what matters. A standard makes it visible in behavior. “Be more reliable” leaves the action unclear. “Before I agree to a household task, I check what I can realistically do and say so” gives you something to practice.',
   guardrail:
     'Keep the standard within your responsibility. You can choose your response; you cannot guarantee another person’s reaction. A workable standard can include rest, support, and a change of method.',
   privacy:
@@ -156,13 +156,14 @@ export const periodExercise = {
     'Before you make the card, check: Is this my behavior to choose? Could I recognize doing it? Does it respect real limits and support needs?',
   example: {
     valueId: 'integrity',
-    standard: 'When a deadline is at risk, I send an honest update before it passes.',
+    standard: 'Before I agree to a household task, I check what I can realistically do and say so.',
     nextApplication:
-      'Before today’s project check-in, I will explain the delay and propose a realistic next step.',
-    returnPlan: 'If I avoid the update, I will send the correction as soon as I recognize it.',
+      "When my family asks me to handle Saturday's shopping, I will check my available time and say what I can take on.",
+    returnPlan:
+      'If I agree too quickly, I will correct the promise with the people affected and ask for a workable arrangement.',
   },
   exampleLesson:
-    'The standard can guide more than one situation. The next action gives you a place to begin. Sending the update, not creating this card, is the behavior that would count as evidence.',
+    'The standard reaches the moment before the promise. Check your capacity, give an honest answer and follow through on what you agree. Those actions give your word weight. The card only names what you intend to do.',
   footnote:
     'This card records one behavior you intend to practice within the connected six-value Code. It does not show that the action has happened or that you have completed the Code. Return to the standard, make the correction when needed, and let your behavior provide the evidence.',
   source: 'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
@@ -179,3 +180,19 @@ export const periodBook = {
   url: 'https://jimlunsford.com/period-code/',
 } as const;
 export type PeriodValueId = (typeof periodValues)[number]['id'];
+
+export const periodCardContext = {
+  footer:
+    'Choose one intended behavior. Copy or print it, then return to it when the situation comes up.',
+  connectedHeading: 'One behavior. The whole Code.',
+  connectedParagraphs: [
+    'The value you choose gives this card a focus. Ownership keeps the response yours. Purpose gives it a reason. Resilience helps you adapt when circumstances change. Integrity keeps the standard honest. Discipline brings you back to the behavior. Empowerment asks how what you build can help someone else without taking over their choices.',
+    'You do not need six separate actions in every situation. Keep all six values in view as you decide what this one behavior asks of you.',
+  ],
+  takeaway:
+    'Keep your copy where it will be useful before the situation arises, perhaps in a note on your phone or beside the things you need. When that moment comes, read the standard, face the facts and do the part you can. If you miss, make the correction and return.',
+  paperParagraphs: [
+    'The card editor needs JavaScript. You can use the same pattern on paper: choose a value, write one standard, name the next situation and action, and add support or correction if it would help.',
+    'Keep that note where you will see it before the situation arises. Return to it when you need to choose a response. If your circumstances change, judge what is workable now. Writing the note names an intention. Carrying it out is the work.',
+  ],
+} as const;

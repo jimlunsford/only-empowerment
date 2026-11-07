@@ -39,6 +39,7 @@ export const integrityContent = {
       heading: 'A correction has to reach the damage',
       paragraphs: [
         'An apology can begin a correction. It cannot stand in for everything the correction requires. If other people are acting on a false statement, they need an accurate account. If a task is unsafe, misleading or unfinished, the work itself needs attention. If you took something that was not yours, saying you feel bad does not return it.',
+        'If you damage something you borrowed, saying sorry while returning it without mentioning the damage leaves the other person with the consequence. Tell them what happened and discuss a repair you can actually provide. They decide whether the proposed repair is acceptable.',
         'In the volunteer example, a private apology to the person whose work was used matters. The team also needs the credit corrected, and any unchecked information must stop being presented as verified. The audience for the correction follows the people affected. It does not automatically include the entire internet.',
         'Name your part without adding blame to make it lighter. Stop the conduct that is continuing the problem. Make the repair you can actually make, communicate the limits, and carry out the next workable action. If the right action is unclear, seek appropriate help with it. Do not promise a repair you cannot deliver simply to end the discomfort.',
         'Some damage cannot be fully undone. An accurate correction may arrive too late to prevent every consequence. That does not make correction pointless, and it does not make another person responsible for making you feel redeemed.',
@@ -111,7 +112,7 @@ export const integrityContent = {
     hint: 'See where a message protects an image and what a real correction requires. No personal answer needed.',
   },
   availability: 'Discipline is next in the teaching order. Its full lesson is now available.',
-  card: 'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if it helps you remember the correction. Then carry it out.',
+  card: 'If you want a reminder, name one honest behavior on an optional Standard Card and copy or print it. Keep it where you can return to it before a promise or a correction. The card cannot make your conduct truthful. What you do next can.',
   book: 'The book develops the origins of The PERIOD Code, its six values and their deliberate order. This free lesson offers a practical way to understand Integrity. You can use it without buying anything.',
   attribution:
     'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',

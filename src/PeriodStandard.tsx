@@ -4,6 +4,7 @@ import { TextResponse, ConfirmDialog } from './components/work';
 import { renderStandardText } from './components/artifact-text';
 import {
   periodExercise as copy,
+  periodCardContext as context,
   periodValues,
   periodBook,
   contentVersion,
@@ -210,7 +211,7 @@ export function PeriodStandard({
       {view === 'edit' ? (
         <>
           <div class="editor-heading">
-            <h1 tabIndex={-1}>
+            <h1 id="reading-standard-card" tabIndex={-1}>
               Turn a Value <br />
               into a <em>Standard.</em>
             </h1>
@@ -282,6 +283,10 @@ export function PeriodStandard({
                 <summary>What makes a useful standard?</summary>
                 <p>{copy.teaching}</p>
                 <p>{copy.guardrail}</p>
+                <h2>{context.connectedHeading}</h2>
+                {context.connectedParagraphs.map((text) => (
+                  <p key={text}>{text}</p>
+                ))}
               </details>
               {(['standard', 'nextApplication'] as const).map((f, i) => (
                 <TextResponse
@@ -334,6 +339,10 @@ export function PeriodStandard({
                 </h2>
                 <p>{copy.teaching}</p>
                 <p>{copy.guardrail}</p>
+                <h3>{context.connectedHeading}</h3>
+                {context.connectedParagraphs.map((text) => (
+                  <p key={text}>{text}</p>
+                ))}
               </div>
               <details ref={example} class="period-example">
                 <summary>See a finished example</summary>
@@ -368,6 +377,7 @@ export function PeriodStandard({
               Copy or print anything you want to keep. Reloading or closing this tab can discard
               your words.
             </p>
+            <p>{context.takeaway}</p>
             <div class="actions">
               <button class="button primary" onClick={copyCard}>
                 Copy my card

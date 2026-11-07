@@ -1,3 +1,4 @@
+import { beforeWork39 } from './work39-copy-helpers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -116,7 +117,7 @@ test('approved card scope wording is exact and appears once in copied output', (
     'This card records one behavior you intend to practice within the connected six-value Code. It does not show that the action has happened or that you have completed the Code. Return to the standard, make the correction when needed, and let your behavior provide the evidence.';
   assert.equal(periodExercise.footnote, expected);
   assert.equal(
-    periodExercise.lead,
+    beforeWork39(periodExercise, 'periodExercise').lead,
     'Write one intended behavior within The PERIOD Code’s connected standard for living. Choose a value as the focus of this card, then name where you will practice the behavior. The other values still matter.',
   );
   assert.equal(periodCardText(newPeriodSession().draft).split(expected).length, 2);

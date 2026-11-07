@@ -1,0 +1,46 @@
+[
+  {
+    "name": "support-absent",
+    "draft": {
+      "valueId": "integrity",
+      "standard": "I check what I can do before I agree.",
+      "nextApplication": "Before Saturday shopping, I check the time available.",
+      "returnPlan": "",
+      "contentVersion": "work-06-v1.1-internal"
+    },
+    "text": "Your standard card\nStatus: Chosen, not yet demonstrated\n\nValue\nIntegrity\n\nMy standard\nI check what I can do before I agree.\n\nNext situation and action\nBefore Saturday shopping, I check the time available.\n\nThis card records one behavior you intend to practice within the connected six-value Code. It does not show that the action has happened or that you have completed the Code. Return to the standard, make the correction when needed, and let your behavior provide the evidence.\n\nBased on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.\nhttps://jimlunsford.com/period-code/"
+  },
+  {
+    "name": "support-present",
+    "draft": {
+      "valueId": "integrity",
+      "standard": "I check what I can do before I agree.",
+      "nextApplication": "Before Saturday shopping, I check the time available.",
+      "returnPlan": "I correct the promise with the people affected.",
+      "contentVersion": "work-06-v1.1-internal"
+    },
+    "text": "Your standard card\nStatus: Chosen, not yet demonstrated\n\nValue\nIntegrity\n\nMy standard\nI check what I can do before I agree.\n\nNext situation and action\nBefore Saturday shopping, I check the time available.\n\nSupport or correction\nI correct the promise with the people affected.\n\nThis card records one behavior you intend to practice within the connected six-value Code. It does not show that the action has happened or that you have completed the Code. Return to the standard, make the correction when needed, and let your behavior provide the evidence.\n\nBased on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.\nhttps://jimlunsford.com/period-code/"
+  },
+  {
+    "name": "long-valid",
+    "draft": {
+      "valueId": "resilience",
+      "standard": "A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response wi",
+      "nextApplication": "Before the next household task, I ask for help. Before the next household task, I ask for help. Before the next household task, I ask for help. Before the next household task, I ask for help. Before the next household task, I ask for help. Before the next household task, I ask for help. Before the n",
+      "returnPlan": "I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell",
+      "contentVersion": "work-06-v1.1-internal"
+    },
+    "text": "Your standard card\nStatus: Chosen, not yet demonstrated\n\nValue\nResilience\n\nMy standard\nA small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response within my capacity. A small response wi\n\nNext situation and action\nBefore the next household task, I ask for help. Before the next household task, I ask for help. Before the next household task, I ask for help. Before the next household task, I ask for help. Before the next household task, I ask for help. Before the next household task, I ask for help. Before the n\n\nSupport or correction\nI tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell the truth and make a workable correction. I tell\n\nThis card records one behavior you intend to practice within the connected six-value Code. It does not show that the action has happened or that you have completed the Code. Return to the standard, make the correction when needed, and let your behavior provide the evidence.\n\nBased on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.\nhttps://jimlunsford.com/period-code/"
+  },
+  {
+    "name": "unicode-and-markup",
+    "draft": {
+      "valueId": "ownership",
+      "standard": "  When <b>pressure</b> arrives, I pause.\n👩🏽‍💻 é العربية  ",
+      "nextApplication": "Before the next promise.\nCheck the facts.",
+      "returnPlan": "  Ask for help.\nReturn. ",
+      "contentVersion": "work-06-v1.1-internal"
+    },
+    "text": "Your standard card\nStatus: Chosen, not yet demonstrated\n\nValue\nOwnership\n\nMy standard\n  When <b>pressure</b> arrives, I pause.\n👩🏽‍💻 é العربية  \n\nNext situation and action\nBefore the next promise.\nCheck the facts.\n\nSupport or correction\n  Ask for help.\nReturn. \n\nThis card records one behavior you intend to practice within the connected six-value Code. It does not show that the action has happened or that you have completed the Code. Return to the standard, make the correction when needed, and let your behavior provide the evidence.\n\nBased on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.\nhttps://jimlunsford.com/period-code/"
+  }
+]

@@ -2,6 +2,7 @@ import {
   periodValues,
   ownershipFoundation as foundation,
   periodExercise as exercise,
+  periodCardContext as context,
   periodBook as book,
 } from '../src/period-content.ts';
 import { periodPresentation } from '../src/period-presentation.ts';
@@ -38,10 +39,11 @@ export function periodFallback() {
     ${p(purposeOwnershipHandoff)}<a href="#reading-purpose">Continue to Purpose</a>
     ${practiceFallback()}
     ${purposeFallback()}
-    ${h2(exercise.title)}${p(exercise.lead)}${p(exercise.teaching)}${p(exercise.guardrail)}
-    ${p('The card editor needs JavaScript. You can still use this pattern on paper: value, standard, next situation and action, and optional support or correction.')}
-    ${h2('Example standard card')}${p('An illustration, not your personal commitment.')}${p('Status: Chosen, not yet demonstrated')}
-    <h3>Value</h3>${p('Integrity')}<h3>My standard</h3>${p(exercise.example.standard)}<h3>Next situation and action</h3>${p(exercise.example.nextApplication)}<h3>Support or correction</h3>${p(exercise.example.returnPlan)}${p(exercise.exampleLesson)}${p(exercise.footnote)}<p class="source-note">${escape(exercise.source)}</p>
+    <section class="standard-paper-reading"><h2 id="reading-standard-card" tabindex="-1">${escape(exercise.title)}</h2>${p(exercise.lead)}${p(exercise.teaching)}${p(exercise.guardrail)}
+    <h3>${escape(context.connectedHeading)}</h3>${context.connectedParagraphs.map(p).join('')}
+    ${context.paperParagraphs.map(p).join('')}
+    <div class="standard-paper-example-heading">${h2('Example standard card')}${p('An illustration, not your personal commitment.')}${p('Status: Chosen, not yet demonstrated')}</div>
+    <h3>Value</h3>${p('Integrity')}<h3>My standard</h3>${p(exercise.example.standard)}<h3>Next situation and action</h3>${p(exercise.example.nextApplication)}<h3>Support or correction</h3>${p(exercise.example.returnPlan)}${p(exercise.exampleLesson)}${p(exercise.footnote)}<p class="source-note">${escape(exercise.source)}</p></section>
     <section class="no-print">${h2(book.heading)}${book.paragraphs.map(p).join('')}<a href="${book.url}" rel="noreferrer">${escape(book.label)}</a></section>
   </div>`;
 }
