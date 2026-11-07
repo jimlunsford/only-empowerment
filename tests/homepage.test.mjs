@@ -36,11 +36,11 @@ test('approved Work 32 copy, comparison and reflection are complete in the root 
     assert.ok(html.includes(`href="/read/${id}.html"`));
 });
 
-test('root readings after the unchanged homepage match the approved Work 35 copy and P20 static parity', () => {
+test('root readings after the unchanged homepage match Work 37 foundation and retained Work 35 teaching', () => {
   const full = periodFallback();
   const readings = full.slice(full.indexOf('<h2 id="reading-ownership"'));
   assert.equal(
     createHash('sha256').update(readings).digest('hex'),
-    '22dfaa1867514d877090515e2af50cf6376d408923b8c71d0fa0e95ede0e05ca',
+    'a4dc39b191157e0023d3a772eaa89a7d8e6ea83f491b0ba1ccf0589d867f0c2a',
   );
 });

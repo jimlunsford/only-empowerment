@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { format, resolveConfig } from 'prettier';
 import fixture from './fixtures/work35-editorial.json' with { type: 'json' };
 import { parseCopy, fieldNode, headingNodes, patchLocations } from './editorial-copy-helpers.mjs';
+import { beforeWork37Source } from './work37-copy-helpers.mjs';
 import { periodFallback } from '../scripts/period-fallback.ts';
 import { resilienceReading } from '../scripts/resilience-reading.ts';
 import { integrityReading } from '../scripts/integrity-reading.ts';
@@ -33,7 +34,7 @@ test('Work 35 has exactly the 177 approved records, the founder O01 override and
 
 for (const [path, baselineDigest] of Object.entries(fixture.baselineFiles)) {
   test(`Work 35 exact approved fields and all unlisted source preserved: ${path}`, async () => {
-    let source = readFileSync(path, 'utf8');
+    let source = beforeWork37Source(readFileSync(path, 'utf8'), path);
     if (path === 'scripts/purpose-fallback.ts') {
       assert.equal(
         source.split('${p(copy.readingLead)}').length,

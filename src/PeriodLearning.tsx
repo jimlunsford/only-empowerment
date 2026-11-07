@@ -1,6 +1,11 @@
 import { PeriodHomepage } from './PeriodHomepage';
 import { LessonTitle } from './LessonTitle';
-import { periodValues, periodBook as book, periodExercise } from './period-content';
+import {
+  periodValues,
+  ownershipFoundation as foundation,
+  periodBook as book,
+  periodExercise,
+} from './period-content';
 import { periodPresentation as presentation } from './period-presentation';
 import { PageIntro } from './components/shared';
 import { purposeOwnershipHandoff } from './period-purpose-content';
@@ -107,13 +112,28 @@ export function PeriodOwnership() {
         </header>
         <PeriodSequence active lesson />
         <article class="period-lesson lesson-copy" aria-label="Ownership lesson">
-          <p class="small">
-            Read the meaning, see an ordinary example, and consider one practical response. You do
-            not need to type anything.
-          </p>
           <section>
             <h2>Meaning</h2>
             <p>{lesson.meaning}</p>
+          </section>
+          <section>
+            <h2>{foundation.whyFirst.heading}</h2>
+            {foundation.whyFirst.paragraphs.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
+          </section>
+          <section class="guardrail">
+            <h2>{lesson.misconceptionHeading}</h2>
+            <p>{lesson.misconception}</p>
+            {foundation.responsibilityWithoutShame.paragraphs.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
+          </section>
+          <section>
+            <h2>{foundation.explanation.heading}</h2>
+            {foundation.explanation.paragraphs.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
           </section>
           <section class="ownership-example">
             <h2>Everyday example</h2>
@@ -131,15 +151,41 @@ export function PeriodOwnership() {
               ))}
             </div>
           </section>
-          <section class="guardrail">
-            <h2>{lesson.misconceptionHeading}</h2>
-            <p>{lesson.misconception}</p>
+          <section>
+            <h2>{foundation.help.heading}</h2>
+            {foundation.help.paragraphs.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
+          </section>
+          <section>
+            <h2>{foundation.evidence.heading}</h2>
+            {foundation.evidence.paragraphs.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
           </section>
           <section>
             <h2>Put it into practice</h2>
             <p>{lesson.application}</p>
             <p class="reflection">{lesson.reflection}</p>
             <p class="small">No answer required.</p>
+          </section>
+          <section>
+            <h2>{foundation.connected.heading}</h2>
+            {foundation.connected.paragraphs.map((text) => (
+              <p key={text}>{text}</p>
+            ))}
+          </section>
+          <section class="lesson-practice">
+            <h2>Put Ownership into an ordinary moment</h2>
+            <p>{presentation.practiceInvitation}</p>
+            <p>{foundation.practiceBridge}</p>
+            <div class="actions">
+              <a class="button primary" href="#/period/practice">
+                Practice Ownership
+              </a>
+              <a href="#/">Return to Why PERIOD?</a>
+            </div>
+            <p class="small">No written answer or Standard Card is required.</p>
           </section>
           <section class="transition">
             <div class="transition-path">
@@ -159,17 +205,6 @@ export function PeriodOwnership() {
             <p>{lesson.connection}</p>
             <p>{purposeOwnershipHandoff}</p>
             <a href="#/period/values/purpose">Continue to Purpose</a>
-          </section>
-          <section class="lesson-practice">
-            <h2>Put Ownership into an ordinary moment</h2>
-            <p>{presentation.practiceInvitation}</p>
-            <div class="actions">
-              <a class="button primary" href="#/period/practice">
-                Practice Ownership
-              </a>
-              <a href="#/">Return to Why PERIOD?</a>
-            </div>
-            <p class="small">No written answer or Standard Card is required.</p>
           </section>
         </article>
       </div>

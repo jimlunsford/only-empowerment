@@ -1,5 +1,6 @@
 import {
   periodValues,
+  ownershipFoundation as foundation,
   periodExercise as exercise,
   periodBook as book,
 } from '../src/period-content.ts';
@@ -19,12 +20,22 @@ const p = (text: string) => `<p>${escape(text)}</p>`;
 const h2 = (text: string) => `<h2>${escape(text)}</h2>`;
 export function periodFallback() {
   const lesson = periodValues[0].lesson;
+  const section = (value: { heading: string; paragraphs: readonly string[] }) =>
+    `<h3>${escape(value.heading)}</h3>${value.paragraphs.map(p).join('')}`;
   return `${homepageFallback()}<div class="period-learning period-reading">
-    <h2 id="reading-ownership">Ownership</h2>${p(periodValues[0].role)}${p(lesson.meaning)}<h3>Everyday example</h3>${p(lesson.example)}
-    <h3>${escape(lesson.misconceptionHeading)}</h3>${p(lesson.misconception)}<h3>Put it into practice</h3>${p(lesson.application)}${p(lesson.reflection)}
+    <h2 id="reading-ownership">Ownership</h2>${p(periodValues[0].role)}<h3>Meaning</h3>${p(lesson.meaning)}
+    ${section(foundation.whyFirst)}
+    <h3>${escape(lesson.misconceptionHeading)}</h3>${p(lesson.misconception)}${foundation.responsibilityWithoutShame.paragraphs.map(p).join('')}
+    ${section(foundation.explanation)}
+    <h3>Everyday example</h3>${p(lesson.example)}
+    ${periodPresentation.response.map((part) => `<h4>${escape(part.heading)}</h4><ul>${part.actions.map((action) => `<li>${escape(action)}</li>`).join('')}</ul>`).join('')}
+    ${section(foundation.help)}${section(foundation.evidence)}
+    <h3>Put it into practice</h3>${p(lesson.application)}${p(lesson.reflection)}${p('No answer required.')}
+    ${section(foundation.connected)}
+    <section class="lesson-practice"><h3>Put Ownership into an ordinary moment</h3>${p(periodPresentation.practiceInvitation)}${p(foundation.practiceBridge)}
+    <div class="actions"><a href="#reading-ownership-practice">Practice Ownership</a> <a href="#why-period">Return to Why PERIOD?</a></div>${p('No written answer or Standard Card is required.')}</section>
     <h3>${escape(lesson.connectionHeading)}</h3>${p(lesson.connection)}
     ${p(purposeOwnershipHandoff)}<a href="#reading-purpose">Continue to Purpose</a>
-    ${h2('Put Ownership into an ordinary moment')}${p(periodPresentation.practiceInvitation)}${p('No written answer or Standard Card is required.')}
     ${practiceFallback()}
     ${purposeFallback()}
     ${h2(exercise.title)}${p(exercise.lead)}${p(exercise.teaching)}${p(exercise.guardrail)}

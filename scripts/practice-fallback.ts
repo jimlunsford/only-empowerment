@@ -19,11 +19,18 @@ export function practiceFallback() {
       .replaceAll('"', '&quot;');
   const p = (text: string) => `<p>${escape(text)}</p>`;
   const heading = (text: string, level = 3) => `<h${level}>${escape(text)}</h${level}>`;
+  const anchors = [
+    'reading-ownership-practice',
+    'reading-ownership-responses',
+    'reading-ownership-follow-through',
+    'reading-ownership-connected-code',
+  ];
   const view = (index: number) =>
-    heading(practiceViews[index].title, 2) + p(practiceViews[index].lead);
+    `<h2 id="${anchors[index]}" tabindex="-1">${escape(practiceViews[index].title)}</h2>` +
+    p(practiceViews[index].lead);
   return `<section aria-label="Practice Ownership linear reading">
     ${view(0)}${p(c.fictional)}${p('The interactive controls need JavaScript. Both situations and all explanations are available below.')}
-    ${heading(c.situationHeading)}${p(c.limit)}
+    ${heading(c.situationHeading)}${p(c.lessonBridge)}${p(c.limit)}
     ${Object.values(communicationConditions)
       .map(
         (condition) =>
@@ -65,6 +72,6 @@ export function practiceFallback() {
     ${p(c.evidenceReflection)}${heading(c.household.title)}${p(c.household.situation)}${heading(c.household.disclosure, 4)}${p(c.household.response)}${p(c.household.explanation)}${p(c.household.agreement)}${p(c.evidenceClose)}
     ${view(3)}${p(c.connectedOpening)}${p(c.connectedStandard)}
     <ol>${c.relationships.map((row) => `<li>${heading(row.value)}${p(row.contribution)}${p(row.connection)}</li>`).join('')}</ol>
-    ${p(c.connectedReturn)}${p(c.empowermentLimit)}${p(c.availability)}${heading(c.takeActionHeading)}${p(c.takeAction)}${p(purposeOwnershipHandoff)}<a href="#reading-purpose">Continue to Purpose</a>${heading('A reminder is optional')}${p(c.cardNote)}
+    ${p(c.connectedReturn)}${p(c.empowermentLimit)}${p(c.availability)}${heading(c.takeActionHeading)}${p(c.takeAction)}${p(c.purposeBridge)}${p(purposeOwnershipHandoff)}<a href="#reading-purpose">Continue to Purpose</a>${heading('A reminder is optional')}${p(c.cardNote)}
   </section>`;
 }

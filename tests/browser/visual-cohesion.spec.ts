@@ -14,8 +14,8 @@ const ownership = periodValues[0].lesson;
 const paragraphs: Record<string, readonly string[]> = {
   ownership: [
     ownership.meaning,
-    ownership.example,
     ownership.misconception,
+    ownership.example,
     ownership.application,
     ownership.reflection,
     ownership.connection,
