@@ -15,13 +15,13 @@ async function populated(page: Page) {
 const fits = (page: Page) =>
   page.evaluate(() => document.documentElement.scrollWidth <= innerWidth);
 
-test('mobile meaning precedes the action and first input precedes optional teaching', async ({
+test('mobile ordinary moment precedes the explanation and first input precedes optional teaching', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 900 });
   await page.goto('/');
   await page.evaluate(() => document.fonts.ready);
-  const meaning = await page.locator('.period-panel').boundingBox();
+  const meaning = await page.locator('.home-moment').boundingBox();
   const action = await page.getByRole('link', { name: 'Start with Ownership' }).boundingBox();
   expect(meaning!.y + meaning!.height).toBeLessThan(action!.y);
   await page.goto('/#/period/standard');

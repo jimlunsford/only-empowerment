@@ -1,10 +1,6 @@
+import { PeriodHomepage } from './PeriodHomepage';
 import { LessonTitle } from './LessonTitle';
-import {
-  periodIntro as intro,
-  periodValues,
-  periodBook as book,
-  periodExercise,
-} from './period-content';
+import { periodValues, periodBook as book, periodExercise } from './period-content';
 import { periodPresentation as presentation } from './period-presentation';
 import { PageIntro } from './components/shared';
 import { purposeOwnershipHandoff } from './period-purpose-content';
@@ -16,11 +12,13 @@ export function PeriodSequence({
   active = false,
   focusOnly = false,
   lesson = false,
+  showAvailability = true,
 }: {
   active?:
     boolean | 'ownership' | 'purpose' | 'resilience' | 'integrity' | 'discipline' | 'empowerment';
   focusOnly?: boolean;
   lesson?: boolean;
+  showAvailability?: boolean;
 }) {
   const focus = active === true ? 'ownership' : active;
   return (
@@ -84,121 +82,12 @@ export function PeriodSequence({
           </li>
         ))}
       </ol>
-      <p class="path-note">{empowermentAvailability}</p>
+      {showAvailability && <p class="path-note">{empowermentAvailability}</p>}
     </nav>
   );
 }
 export function PeriodIntro() {
-  // Split the existing sentence for emphasis without tightening its wording.
-  const distinction = intro.meaning[2].match(/[^.]+\./g)!;
-  return (
-    <div class="period-learning">
-      <section class="intro-hero">
-        <div class="intro-opening">
-          <h1 tabIndex={-1}>
-            Put your values <br />
-            into <em>practice.</em>
-          </h1>
-          <p class="lead">{presentation.introLead}</p>
-        </div>
-        <aside class="period-panel" aria-labelledby="period-meaning-title">
-          <p>The PERIOD Code by Jim Lunsford</p>
-          <div class="period-word" aria-hidden="true">
-            PERIOD<span>.</span>
-          </div>
-          <h2 id="period-meaning-title">Why PERIOD?</h2>
-          {intro.meaning.slice(0, 2).map((p) => (
-            <p key={p}>{p}</p>
-          ))}
-        </aside>
-        <div class="intro-invitation">
-          <div class="actions">
-            <a class="button primary" href="#/period/values/ownership">
-              Start with Ownership <span aria-hidden="true">→</span>
-            </a>
-            <a
-              href="#/period/teaching-order"
-              onClick={(event) => {
-                event.preventDefault();
-                const section = document.getElementById('/period/teaching-order');
-                section?.focus({ preventScroll: true });
-                section?.scrollIntoView({ block: 'start' });
-              }}
-            >
-              Explore the lessons
-            </a>
-          </div>
-          <p class="small">Read any available lesson. No written answer or purchase is required.</p>
-        </div>
-      </section>
-      <section class="value-standard">
-        <h2>{distinction[0].trim()}</h2>
-        <div>
-          <h2>{distinction[1].trim()}</h2>
-          <p>{distinction[2].trim()}</p>
-        </div>
-        <p class="connected-clarification">{presentation.connectedClarification}</p>
-      </section>
-      <section class="comparison">
-        <h2>{intro.comparison.heading}</h2>
-        <p class="scenario">{intro.comparison.situation}</p>
-        <div class="contrast">
-          <section>
-            <h3>The negotiation</h3>
-            <blockquote>{intro.comparison.negotiation}</blockquote>
-            <p>{intro.comparison.negotiationExplanation}</p>
-          </section>
-          <section class="standard">
-            <h3>The standard</h3>
-            <blockquote>{intro.comparison.standard}</blockquote>
-            <p>{intro.comparison.standardExplanation}</p>
-          </section>
-        </div>
-        <p class="takeaway">{intro.comparison.takeaway}</p>
-        <details>
-          <summary>{intro.comparison.disclosure}</summary>
-          <p>{intro.comparison.adaptation}</p>
-        </details>
-      </section>
-      <section
-        class="sequence-section"
-        id="/period/teaching-order"
-        tabIndex={-1}
-        aria-label="Explore the lessons"
-      >
-        <div>
-          <h2>
-            The name ends the negotiation.
-            <br />
-            <em>The order guides the work.</em>
-          </h2>
-          {intro.order.map((p) => (
-            <p key={p}>{p}</p>
-          ))}
-        </div>
-        <PeriodSequence />
-      </section>
-      <section class="site-guidance">
-        <h2>How to use this site</h2>
-        <p>
-          Start with Ownership or revisit any of the six values. Read the lesson, explore its
-          example, and decide what you will put into practice outside this page. The values work
-          together; reading a lesson does not complete a value.
-        </p>
-        <p>
-          You do not need to write an answer or buy the book. If a reminder would help, make an
-          optional Standard Card. Its draft stays only in this open tab. Copy or print it if you
-          want to keep it.
-        </p>
-      </section>
-      <section class="origin">
-        <h2>Built from lived experience.</h2>
-        <p>{intro.origin}</p>
-        <p>The PERIOD Code by Jim Lunsford</p>
-      </section>
-      <PeriodBook />
-    </div>
-  );
+  return <PeriodHomepage sequence={<PeriodSequence showAvailability={false} />} />;
 }
 export function PeriodOwnership() {
   const value = periodValues[0],

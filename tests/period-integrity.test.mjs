@@ -1,3 +1,4 @@
+import { periodFallback } from '../scripts/period-fallback.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -100,7 +101,7 @@ test('the Integrity module cannot access private drafts or create new records an
     /PeriodDraft|PeriodSession|period-standard-model|localStorage|sessionStorage|fetch\(|console\.|<input|<textarea|<select|aria-expanded|aria-live/,
   );
   assert.match(component, /target="_blank"\s+rel="noopener noreferrer"/);
-  assert.match(readFileSync('index.html', 'utf8'), /href="\/read\/integrity.html"/);
+  assert.match(periodFallback(), /href="\/read\/integrity.html"/);
   assert.doesNotMatch(JSON.stringify(content), /I built the workshop guide/);
 });
 

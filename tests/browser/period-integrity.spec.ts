@@ -1,3 +1,4 @@
+import { homepage } from '../../src/period-homepage-content';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFile } from 'node:fs/promises';
@@ -239,7 +240,7 @@ test('bounded navigation keeps Ownership first and connects both Resilience endi
   page,
 }) => {
   await page.goto('/');
-  await expect(page.getByText(content.navigation.home_lead, { exact: true })).toBeVisible();
+  await expect(page.getByText(homepage.lead, { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Start with Ownership', exact: true })).toHaveClass(
     /primary/,
   );
@@ -365,8 +366,9 @@ test('direct static reading survives disabled, blocked and failing application s
     await page.goto(baseURL! + recordPath);
     await page
       .locator('#educational-fallback')
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', {
-        name: 'Read Integrity and the complete fictional record without JavaScript',
+        name: 'Integrity',
         exact: true,
       })
       .click();

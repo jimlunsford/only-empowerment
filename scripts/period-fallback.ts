@@ -1,5 +1,4 @@
 import {
-  periodIntro as intro,
   periodValues,
   periodExercise as exercise,
   periodBook as book,
@@ -8,7 +7,7 @@ import { periodPresentation } from '../src/period-presentation.ts';
 import { practiceFallback } from './practice-fallback.ts';
 import { purposeFallback } from './purpose-fallback.ts';
 import { purposeOwnershipHandoff } from '../src/period-purpose-content.ts';
-import { empowermentAvailability } from '../src/period-empowerment-content.ts';
+import { homepageFallback } from './homepage-fallback.ts';
 // Build-time, fixed editorial content only. Never receives a private draft.
 const escape = (text: string) =>
   text
@@ -20,16 +19,7 @@ const p = (text: string) => `<p>${escape(text)}</p>`;
 const h2 = (text: string) => `<h2>${escape(text)}</h2>`;
 export function periodFallback() {
   const lesson = periodValues[0].lesson;
-  return `<div class="period-learning period-reading">
-    <nav aria-label="Available PERIOD reading"><a href="#reading-ownership">Start with Ownership</a> · <a href="#reading-purpose">Explore Purpose</a> · <a href="/read/resilience.html">Read Resilience</a> · <a href="/read/integrity.html">Read Integrity</a> · <a href="/read/discipline.html">Read Discipline</a> · <a href="/read/empowerment.html">Read Empowerment</a></nav>
-    ${h2(intro.title)}${p(periodPresentation.introLead)}${p('The PERIOD Code by Jim Lunsford')}${p(intro.origin)}
-    ${h2('Why PERIOD?')}${intro.meaning.map(p).join('')}${p(periodPresentation.connectedClarification)}
-    ${h2(intro.comparison.heading)}${p(intro.comparison.situation)}
-    <h3>The negotiation</h3>${p(intro.comparison.negotiation)}${p(intro.comparison.negotiationExplanation)}
-    <h3>The standard</h3>${p(intro.comparison.standard)}${p(intro.comparison.standardExplanation)}${p(intro.comparison.takeaway)}
-    <details><summary>${escape(intro.comparison.disclosure)}</summary>${p(intro.comparison.adaptation)}</details>
-    ${h2(intro.orderHeading)}${intro.order.map(p).join('')}<ol>${periodValues.map((v) => `<li>${escape(v.name)}</li>`).join('')}</ol>
-    ${p(empowermentAvailability)}
+  return `${homepageFallback()}<div class="period-learning period-reading">
     <h2 id="reading-ownership">Ownership</h2>${p(periodValues[0].role)}${p(lesson.meaning)}<h3>Everyday example</h3>${p(lesson.example)}
     <h3>${escape(lesson.misconceptionHeading)}</h3>${p(lesson.misconception)}<h3>Put it into practice</h3>${p(lesson.application)}${p(lesson.reflection)}
     <h3>${escape(lesson.connectionHeading)}</h3>${p(lesson.connection)}

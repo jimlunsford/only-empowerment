@@ -1556,16 +1556,21 @@
   margin-bottom: 24px;
 }
 #educational-fallback .site-main {
-  max-width: 900px;
-  padding: 32px 24px;
+  max-width: 1248px;
+  padding: 0 24px;
 }
-#educational-fallback h2 {
+#educational-fallback .period-reading {
+  max-width: 852px;
+  margin: auto;
+  padding: 32px 0;
+}
+#educational-fallback .period-reading h2 {
   margin-top: 36px;
 }
-#educational-fallback h3 {
+#educational-fallback .period-reading h3 {
   margin-top: 24px;
 }
-#educational-fallback p {
+#educational-fallback .period-reading p {
   margin-top: 16px;
 }
 @media (max-width: 1000px) {

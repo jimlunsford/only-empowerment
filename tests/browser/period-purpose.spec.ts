@@ -210,7 +210,10 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   await page.goto('/');
   await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
-  await page.getByRole('link', { name: 'Explore the lessons', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Explore the values', exact: true })
+    .click();
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Purpose', exact: true })

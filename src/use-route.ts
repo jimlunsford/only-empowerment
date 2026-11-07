@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
+import { homepageAnchors } from './period-homepage-content';
 import { disciplineAnchorRoute } from './period-discipline-navigation';
 // The root fallback contains these reading anchors when scripts are unavailable.
 // With scripts running, the same ordinary links open their complete app lessons.
@@ -9,9 +10,14 @@ const readingRoutes: Record<string, string> = {
 const anchorRoute = (fragment: string) =>
   Object.hasOwn(readingRoutes, fragment)
     ? readingRoutes[fragment]
-    : fragment === '/period/teaching-order'
+    : Object.hasOwn(homepageAnchors, fragment) ||
+        Object.values(homepageAnchors).some((native) => native === fragment)
       ? '/'
       : disciplineAnchorRoute(fragment);
+const anchorTarget = (fragment: string) => {
+  const appAnchor = Object.entries(homepageAnchors).find(([, native]) => native === fragment)?.[0];
+  return document.getElementById(appAnchor || fragment);
+};
 // Only a public navigation index enters history. Positions and focus stay in page memory.
 export function useRoute() {
   const [fragment, setFragment] = useState(() => location.hash.slice(1));
@@ -43,7 +49,8 @@ export function useRoute() {
       if (!link || link.target || link.hasAttribute('download')) return;
       const fragment = link.getAttribute('href')!.slice(1);
       if (fragment === location.hash.slice(1)) {
-        const target = document.getElementById(fragment);
+        event.preventDefault();
+        const target = anchorTarget(fragment);
         target?.focus({ preventScroll: true });
         target?.scrollIntoView({ block: 'start' });
         return;
@@ -79,7 +86,7 @@ export function useRoute() {
   useLayoutEffect(() => {
     const heading = document.querySelector<HTMLElement>('h1');
     document.title = `${heading?.textContent || 'Page'} | Only Empowerment`;
-    const target = document.getElementById(location.hash.slice(1));
+    const target = anchorTarget(location.hash.slice(1));
     if (
       !restoring.current &&
       target &&

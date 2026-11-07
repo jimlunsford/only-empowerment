@@ -42,13 +42,20 @@
 }
 .site-shell .wordmark {
   flex-shrink: 0;
-  white-space: nowrap;
-  font-size: min(1.625rem, 7.5vw);
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: normal;
+  font-size: 1.625rem;
   font-weight: 400;
   letter-spacing: -1px;
 }
-.site-shell .wordmark > span:first-child {
+.site-shell .wordmark > span {
+  display: inline-block;
   font-weight: 700;
+  max-width: 100%;
+  white-space: normal;
+  hyphens: manual;
 }
 .site-shell .brand-dot {
   color: #98422e;

@@ -1,3 +1,4 @@
+import { periodFallback } from '../scripts/period-fallback.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -99,7 +100,7 @@ test('static export includes all lesson copy, every consequence, all fifteen exp
 });
 
 test('both static entry points are real links and reading cannot depend on the client bundle', () => {
-  const index = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const index = periodFallback();
   assert.match(index, /href="\/read\/resilience\.html"/);
   const source = readFileSync(new URL('../src/Resilience.tsx', import.meta.url), 'utf8');
   assert.match(source, /\/read\/resilience\.html/);

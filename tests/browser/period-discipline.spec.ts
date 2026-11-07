@@ -199,8 +199,9 @@ test('direct reading and blocked application scripts retain every occasion and e
     if (mode === 'blocked') await page.route('**/assets/*.js', (r) => r.abort());
     await page.goto('/');
     await page
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', {
-        name: 'Read the complete Discipline lesson and comparison',
+        name: 'Discipline',
         exact: true,
       })
       .click();

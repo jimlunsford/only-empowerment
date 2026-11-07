@@ -1,3 +1,4 @@
+import { homepage } from '../../src/period-homepage-content';
 import { test, expect, type Page, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFile } from 'node:fs/promises';
@@ -193,8 +194,9 @@ test('complete reading is independently served with scripts disabled or blocked 
     if (mode === 'blocked') await page.route('**/*.js', (r) => r.abort());
     await page.goto(lessonPath);
     await page
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', {
-        name: 'Read the complete Empowerment lesson and all three replies without JavaScript',
+        name: 'Empowerment',
         exact: true,
       })
       .click();
@@ -366,7 +368,7 @@ test('six-lesson surfaces and revisit links reach real lessons, with normal Back
     await expect(page.locator('h1')).toContainText(value);
   }
   await page.goto('/');
-  await expect(page.getByText(empowermentNavigation.homeLead, { exact: true })).toBeVisible();
+  await expect(page.getByText(homepage.lead, { exact: true })).toBeVisible();
   await page.goto('/#/period/practice/connected-code');
   await expect(
     page.getByText(empowermentNavigation.connectedCodeAvailability, { exact: true }),

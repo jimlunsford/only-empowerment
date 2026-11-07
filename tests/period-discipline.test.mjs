@@ -1,3 +1,4 @@
+import { periodFallback } from '../scripts/period-fallback.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -135,7 +136,7 @@ test('comparison state cannot access drafts, persist, submit or track and no-scr
   );
   assert.match(source, /type="radio"/);
   assert.match(source, /role="status" aria-live="polite" aria-atomic="true"/);
-  assert.match(readFileSync('index.html', 'utf8'), /href="\/read\/discipline.html"/);
+  assert.match(periodFallback(), /href="\/read\/discipline.html"/);
 });
 
 test('Discipline preselection changes only a pristine Standard Card and preserves exact authored or selected work', () => {
