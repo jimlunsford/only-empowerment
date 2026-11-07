@@ -15,7 +15,7 @@ export const empowermentContent = {
         paragraphs: [
           'Discipline gives your values a record. Empowerment asks who that strength can help. Teach a skill. Make a task more accessible. Offer steady support. Show someone what an honest response looks like. Put what you have built to use.',
           'You may know a method that works. You may have rebuilt an area of your life that another person is struggling with. Neither gives you ownership of their choices. Your experience is something you can offer, with its limits, rather than a rule they must obey to deserve your respect.',
-          'An experienced colleague can explain the agenda tool and leave room for a new meeting leader to use it. Taking over the topics, decisions and final message may finish the agenda while taking the leadership away. Getting the task done and helping someone become more capable are not the same achievement.',
+          'A friend wants to learn how to mend a loose button. Show the step, leave room for them to try and give the help they need. If they need you to hold the fabric while they work, that assistance can remain. Taking the garment away and finishing it may solve the immediate task. It does not, by itself, give them the practice they wanted.',
           'Empowerment comes last because influence needs the grounding of the earlier values. Live what you offer. Keep correcting yourself while you help. Reading five lessons cannot do that work for you.',
         ],
       },
@@ -118,7 +118,7 @@ export const empowermentContent = {
     returnLink: 'Revisit the six values',
     cardTitle: 'Keep one intention if it is useful',
     cardNote:
-      'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder if it helps. The support becomes real in how you treat the person.',
+      "If a reminder helps, put one behavior for how you offer help on an optional Standard Card. Copy or print it and return to it before you step in. Keep the other person's choices with them. The support becomes real in how you treat them.",
     cardLink: 'Create an optional Standard Card',
     bookTitle: 'Explore The PERIOD Code book',
     bookNote:

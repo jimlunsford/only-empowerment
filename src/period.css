@@ -1828,3 +1828,12 @@
     grid-column: 1 / -1;
   }
 }
+
+@media print {
+  #educational-fallback .standard-paper-example-heading {
+    break-inside: avoid;
+  }
+  #educational-fallback .standard-paper-reading :is(h2, h3) {
+    break-after: avoid;
+  }
+}

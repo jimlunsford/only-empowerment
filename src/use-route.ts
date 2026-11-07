@@ -10,6 +10,7 @@ const readingRoutes: Record<string, string> = {
   'reading-ownership-follow-through': '/period/practice/follow-through',
   'reading-ownership-connected-code': '/period/practice/connected-code',
   'reading-purpose': '/period/values/purpose',
+  'reading-standard-card': '/period/standard',
 };
 const anchorRoute = (fragment: string) =>
   Object.hasOwn(readingRoutes, fragment)

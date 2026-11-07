@@ -49,6 +49,7 @@ export const resilienceContent = {
         'Resilience does not require you to outwill exhaustion or do everything alone. Rest, a changed environment, practical help, professional care and clearer boundaries can be part of protecting the rebuild.',
         'If your capacity has changed, acknowledge what that changes for an agreement. Communicate when it is possible, ask for specific help or a revised arrangement, and avoid promising capacity you do not have. Another person may not be able to agree; their response is not yours to control.',
         'Sometimes a smaller action fits. Sometimes the responsible response is to stop the task and rest. You do not have to produce something first to earn necessary rest. When you can reassess, return to the facts rather than assuming rest has solved the problem.',
+        'Suppose a health setback leaves you unable to manage your usual household tasks. Keeping the home workable may now mean asking for help and leaving nonessential work undone. When you can reassess, choose a method that fits your capacity. Protecting stability does not require pretending nothing changed.',
         'Use support to help carry your responsibility. Ongoing care can belong in that support. Needing it does not make your effort less real.',
       ],
     },
@@ -103,7 +104,7 @@ export const resilienceContent = {
       id: 'L11',
       heading: 'A reminder is optional',
       paragraphs: [
-        'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder. The return becomes real in what you do.',
+        'If a reminder helps, use the optional Standard Card to name one response you intend to return to under pressure. Copy or print it. When the plan is tested, use it to reconsider what protects the standard and fits the facts. Then make the response real.',
       ],
       cta: 'Write an optional Standard Card',
     },

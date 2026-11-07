@@ -223,7 +223,7 @@ export const practiceCopy = {
     'Think of a responsibility you have been avoiding. What can you do next, what does that action serve, and what will be different once you have done it? Keep your answer private. Act when it is safe and possible, then return to the values as the situation changes.',
   cardLabel: 'Write an optional Standard Card',
   cardNote:
-    'If a reminder helps, the optional Standard Card can hold one behavior you intend to practice within the whole Code. The action still belongs to you.',
+    'If a reminder would help with the responsibility you have in mind, write one intended behavior on an optional Standard Card. Copy or print it and keep it where you can return to it before that situation. The correction still has to happen.',
 } as const;
 export const honestMessage = (communication: Communication) =>
   `${communicationConditions[communication].acknowledgement} ${practiceCopy.honestMessage}`;

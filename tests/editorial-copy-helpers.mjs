@@ -1,3 +1,4 @@
+import { beforeWork39 } from './work39-copy-helpers.mjs';
 import assert from 'node:assert/strict';
 import { parsers } from 'prettier/plugins/typescript';
 import fixture from './fixtures/work35-editorial.json' with { type: 'json' };
@@ -5,7 +6,7 @@ import fixture from './fixtures/work35-editorial.json' with { type: 'json' };
 // Preserve earlier independent content digests while allowing only the exact
 // founder-approved replacements. Every restored value is checked first.
 export function beforeWork35(value, prefix) {
-  const copy = structuredClone(value);
+  const copy = beforeWork39(value, prefix);
   for (const record of fixture.records.filter((record) => record.field.startsWith(prefix + '.'))) {
     const keys = record.field.slice(prefix.length + 1).match(/[^.[\]]+/g);
     let owner = copy;

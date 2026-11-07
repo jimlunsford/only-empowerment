@@ -12,7 +12,7 @@ import { PurposeLesson, PurposeEvening } from './Purpose';
 import { newPurposeSession } from './period-purpose-content';
 import { newPracticeSession, practiceViews } from './period-practice-content';
 import { newPeriodSession, enterPeriodExercise, hasPeriodDraft } from './period-standard-model';
-import { periodBook } from './period-content';
+import { periodBook, periodCardContext } from './period-content';
 import { ConfirmDialog } from './components/work';
 import { PageIntro } from './components/shared';
 import './style.css';
@@ -309,6 +309,7 @@ function App() {
         </nav>
         <nav class="footer-group" aria-label="Your practice">
           <h2>Your practice</h2>
+          <p>{periodCardContext.footer}</p>
           <a
             href="#/period/standard"
             aria-current={path === '/period/standard' ? 'page' : undefined}

@@ -34,7 +34,7 @@ export const disciplineContent = {
         title: 'Repetition builds evidence',
         paragraphs: [
           'Self-trust needs something to stand on. Each time you act in line with a worthwhile standard, you create another piece of evidence that your word can be followed by conduct. Repetition makes that evidence less dependent on a single good day.',
-          'Consider someone who has repeatedly avoided difficult work conversations. One honest conversation matters. Returning to honesty in later conversations begins to establish a different pattern. They do not have to wait until they feel like a completely different person before speaking truthfully. The action can come first. Over time, a changed pattern can support a changed understanding of who they are.',
+          'Consider someone rebuilding a dependable morning. When time and capacity allow, they put the things they need by the door before settling down for the evening. One prepared morning helps. Returning to that small action on later evenings begins a pattern. If their needs or capacity change, the arrangement can change too. The evidence is in the preparation they keep doing, not the routine they describe.',
           'Keep building the record. There is no number of actions that settles your worth or guarantees a new identity. As you learn to trust your own word, respect the time, evidence and boundaries another person may still need.',
           'Ordinary action gains weight when you return to it. Intensity can serve the work, but it cannot replace the pattern. Build a way to keep the standard alive across real days, with room to adapt when the facts change.',
         ],
@@ -94,7 +94,7 @@ export const disciplineContent = {
     readingLink: 'Read the complete example',
     cardTitle: 'Name one intended behavior',
     cardDescription:
-      'The optional Standard Card holds one behavior you intend to practice within the whole Code. A reminder can help you return to it. The evidence comes from doing it, and you can act without making a card.',
+      'Choose one behavior worth returning to. If a reminder helps, put the intention on an optional Standard Card and copy or print it. Keep it near the ordinary situation where you will use it. The repetition comes from your conduct, and you can begin without a card.',
     cardLink: 'Create an optional Standard Card',
     nextTitle: 'Empowerment is next',
     nextDescription: empowermentNavigation.disciplineBridge,

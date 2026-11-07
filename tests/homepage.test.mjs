@@ -1,3 +1,4 @@
+import { beforeWork39RootReading } from './work39-copy-helpers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -37,7 +38,7 @@ test('approved Work 32 copy, comparison and reflection are complete in the root 
 });
 
 test('root readings after the unchanged homepage match Work 37 foundation and retained Work 35 teaching', () => {
-  const full = periodFallback();
+  const full = beforeWork39RootReading(periodFallback());
   const readings = full.slice(full.indexOf('<h2 id="reading-ownership"'));
   assert.equal(
     createHash('sha256').update(readings).digest('hex'),

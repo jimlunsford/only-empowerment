@@ -1,3 +1,4 @@
+import { beforeWork39Source, supersessions } from './work39-copy-helpers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -34,7 +35,7 @@ test('Work 35 has exactly the 177 approved records, the founder O01 override and
 
 for (const [path, baselineDigest] of Object.entries(fixture.baselineFiles)) {
   test(`Work 35 exact approved fields and all unlisted source preserved: ${path}`, async () => {
-    let source = beforeWork37Source(readFileSync(path, 'utf8'), path);
+    let source = beforeWork37Source(beforeWork39Source(readFileSync(path, 'utf8'), path), path);
     if (path === 'scripts/purpose-fallback.ts') {
       assert.equal(
         source.split('${p(copy.readingLead)}').length,
@@ -100,7 +101,7 @@ test('all 177 records have complete static reading coverage or their approved al
     const equivalent = pairEquivalents[record.id];
     const approved = equivalent
       ? records.find((r) => r.id === equivalent).approved
-      : record.approved;
+      : (supersessions[record.id]?.proposed ?? record.approved);
     assert.ok(
       reading[record.id[0]].includes(escape(approved)),
       `${record.id}: ${equivalent ?? 'exact static copy'}`,

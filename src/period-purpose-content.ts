@@ -113,7 +113,7 @@ export const purposeBridge = [
 ] as const;
 
 export const purposeCardNote =
-  'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if a reminder helps, then put the intention into action.' as const;
+  'Give the direction one behavior you can recognize in your day. If a reminder helps, put that intention on an optional Standard Card and copy or print it. Return to it when competing demands pull at your time. The choice still has to be carried out.' as const;
 
 export const purposeCopy = {
   title: 'A purpose changes the plan.',
