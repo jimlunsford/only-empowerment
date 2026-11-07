@@ -479,6 +479,9 @@
     orphans: 3;
     widows: 3;
   }
+  .period-shell .lesson-practice .actions {
+    break-inside: avoid;
+  }
 }
 
 /* A single document-end action, after all lesson content. */
