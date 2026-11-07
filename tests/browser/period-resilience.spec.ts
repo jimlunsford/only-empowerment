@@ -504,10 +504,10 @@ test('direct static reading and the root fallback work with JavaScript disabled,
       );
     const page = await context.newPage();
     await page.goto(baseURL! + pressurePath);
-    const link = page.locator('#educational-fallback').getByRole('link', {
-      name: 'Read Resilience and all five pressure notes without JavaScript',
-      exact: true,
-    });
+    const link = page
+      .locator('#educational-fallback')
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
+      .getByRole('link', { name: 'Resilience', exact: true });
     await expect(link).toBeVisible();
     await link.click();
     await expect(page).toHaveURL(baseURL! + '/read/resilience.html');

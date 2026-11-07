@@ -193,7 +193,7 @@ test('static reading and failed enhancement contain no legacy entry points and d
         await expect(page.getByRole('navigation', { name: 'Existing work' })).toHaveCount(0);
         await expect(page.locator('.founder-copyright')).toHaveCount(1);
         await expect(
-          page.getByRole('link', { name: 'Privacy & source', exact: true }),
+          page.locator('footer').getByRole('link', { name: 'Privacy & source', exact: true }),
         ).toHaveAttribute('href', '/read/privacy.html');
         if (path === '/') {
           await expect(page.getByRole('main')).toContainText(

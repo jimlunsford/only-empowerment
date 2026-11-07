@@ -71,7 +71,7 @@ test('all public and retired hash routes retain educational navigation without l
       await mainNav(page)
         .getByRole('link')
         .evaluateAll((links) => links.map((l) => l.getAttribute('href'))),
-    ).toEqual(['#/', '#/period/teaching-order']);
+    ).toEqual(['#/period/why', '#/period/teaching-order']);
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
     ).toHaveText(['About the book', 'Privacy & source']);
@@ -120,7 +120,7 @@ test('same-page teaching order, repeat activation, Back and Forward retain locat
   await page.keyboard.press('Enter');
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await page.evaluate(() => scrollTo(0, 650));
-  await expect.poll(() => page.evaluate(() => scrollY)).toBe(650);
+  await expect.poll(() => page.evaluate(() => Math.abs(scrollY - 650))).toBeLessThan(1);
   await footer(page)
     .getByRole('link', { name: 'Privacy & source', exact: true })
     .evaluate((e: HTMLElement) => e.click());

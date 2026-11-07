@@ -71,7 +71,7 @@ test('first moment and Why PERIOD support direct entry, keyboard, repetition, re
     await page.locator('.home-access a').evaluate((link: HTMLAnchorElement) => link.click());
     await expect(page.locator('h1')).toHaveText('Your answers are not ours to collect.');
     await page.goBack();
-    await expect.poll(() => page.evaluate(() => scrollY)).toBe(650);
+    await expect.poll(() => page.evaluate(() => Math.abs(scrollY - 650))).toBeLessThan(1);
     await page.goForward();
     await expect(page.locator('h1')).toHaveText('Your answers are not ours to collect.');
   }

@@ -366,8 +366,9 @@ test('direct static reading survives disabled, blocked and failing application s
     await page.goto(baseURL! + recordPath);
     await page
       .locator('#educational-fallback')
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', {
-        name: 'Read Integrity and the complete fictional record without JavaScript',
+        name: 'Integrity',
         exact: true,
       })
       .click();

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('hash-route navigation updates title and focuses the new page heading', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
+  await page.locator('footer').getByRole('link', { name: 'Privacy & source', exact: true }).click();
   const heading = page.getByRole('heading', {
     level: 1,
     name: 'Your answers are not ours to collect.',

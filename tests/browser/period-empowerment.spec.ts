@@ -194,8 +194,9 @@ test('complete reading is independently served with scripts disabled or blocked 
     if (mode === 'blocked') await page.route('**/*.js', (r) => r.abort());
     await page.goto(lessonPath);
     await page
+      .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', {
-        name: 'Read the complete Empowerment lesson and all three replies without JavaScript',
+        name: 'Empowerment',
         exact: true,
       })
       .click();
