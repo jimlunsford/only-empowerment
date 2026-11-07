@@ -87,6 +87,50 @@ export const periodValues = [
     sourceChapter: 'Empowerment',
   },
 ] as const;
+export const ownershipFoundation = {
+  whyFirst: {
+    heading: 'Why Ownership comes first',
+    paragraphs: [
+      'You can want a different life and still leave the responsibility for it somewhere else. You can wait for an apology, a quieter week or someone who finally understands. While you wait, the part you could change stays untouched.',
+      'Ownership brings you back to that part. Before you decide where your life is going, you have to face where you are and what your choices are doing. That gives the rest of the Code somewhere to begin. You do not need to control the whole situation. You need to stop handing away the response that is yours.',
+    ],
+  },
+  responsibilityWithoutShame: {
+    paragraphs: [
+      "When a choice was yours, face it without making it a verdict on your worth. Calling yourself hopeless leaves the correction untouched. Responsibility asks you to name what happened and address your part. It does not ask you to punish yourself or accept someone else's abuse.",
+    ],
+  },
+  explanation: {
+    heading: 'An explanation still leaves a response',
+    paragraphs: [
+      'A difficult week can explain why a commitment became harder to keep. Those facts matter. They help you understand what went wrong and choose a correction that fits the situation. The problem begins when the explanation becomes the reason nothing else is required of you.',
+      'If you could act and chose to avoid it, own that choice. If you could not act, tell the truth about the limit. Do not invent a failure just to sound accountable. In either case, look honestly at what is available now. A real limit changes the response you can make. It does not turn an unavailable action into something you should have done.',
+    ],
+  },
+  help: {
+    heading: 'Help belongs in the work',
+    paragraphs: [
+      'Ownership does not require you to pretend you have time, strength, access or knowledge you do not have. A promise beyond your capacity does not become responsible because you mean it. Tell the truth about what you can contribute and where you need help.',
+      'That help may be practical support, treatment, care or someone working beside you. Receiving it does not cancel your ownership. Take part in the choices available to you and carry out the part you can. Needing ongoing help is not a failure to live the Code. The question is how you participate, not how quickly you can stop needing anyone.',
+    ],
+  },
+  evidence: {
+    heading: 'The correction has to happen',
+    paragraphs: [
+      'Regret can tell you something needs to change. A promise can name what you intend to do. Neither carries out the correction. The message has to be sent. The boundary has to be held. The request for help has to be made. Let the action be small enough to carry out and honest enough to matter.',
+      "If you miss again, tell the truth about that miss and return to the work. A later repair does not erase it. And doing your part does not buy another person's forgiveness. Their response belongs to them. Your responsibility is to keep making the correction real.",
+    ],
+  },
+  connected: {
+    heading: 'The foundation stays with you',
+    paragraphs: [
+      "Ownership is first in the teaching order because the other values need an honest starting point. Purpose gives the responsibility direction. Resilience helps you keep responding when that direction is tested. Integrity keeps you truthful about your part. Discipline makes the response something you repeat. Empowerment turns what you have learned into useful help that leaves another person's choices with them.",
+      'You do not finish Ownership and move beyond it. You return when blame starts deciding for you, when a promise needs correcting or when helping someone becomes a way to avoid your own work. The six values belong together. This is a standard for living, not six separate achievements.',
+    ],
+  },
+  practiceBridge:
+    'In the practice, change whether a message could be sent and examine what that changes about the responsibility. You can also continue straight to Purpose.',
+} as const;
 export const periodExercise = {
   title: 'Turn a Value into a Standard',
   lead: 'Write one intended behavior within The PERIOD Code’s connected standard for living. Choose a value as the focus of this card, then name where you will practice the behavior. The other values still matter.',

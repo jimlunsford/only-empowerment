@@ -87,6 +87,11 @@ export const newPracticeSession = (): PracticeSession => ({
   evidence: 'promised',
 });
 export const practiceCopy = {
+  lessonBridge:
+    'The same missed update can involve a choice you avoided or a limit you could not change. That difference matters. Change the communication condition and see what is yours to own in each version.',
+  purposeBridge:
+    'The update is one response. Becoming dependable gives that response a direction beyond this delay.',
+
   fictional: 'This is a fictional example. No answer about you is collected.',
   situationHeading: 'The update that did not arrive',
   conditionLabel: 'Change one fact in this example',

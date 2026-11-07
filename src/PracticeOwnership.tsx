@@ -59,6 +59,7 @@ export function PracticeOwnership({
           {view.id === 'situation' && (
             <>
               <h2>{copy.situationHeading}</h2>
+              <p>{copy.lessonBridge}</p>
               <p>{condition.situation}</p>
               <div
                 class="practice-controls"
@@ -238,6 +239,7 @@ export function PracticeOwnership({
               <section class="practice-take-action">
                 <h2>{copy.takeActionHeading}</h2>
                 <p>{copy.takeAction}</p>
+                <p>{copy.purposeBridge}</p>
                 <p>{purposeOwnershipHandoff}</p>
                 <div class="actions">
                   <a class="button primary" href="#/period/values/purpose">

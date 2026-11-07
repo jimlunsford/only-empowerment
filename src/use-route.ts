@@ -5,6 +5,10 @@ import { disciplineAnchorRoute } from './period-discipline-navigation';
 // With scripts running, the same ordinary links open their complete app lessons.
 const readingRoutes: Record<string, string> = {
   'reading-ownership': '/period/values/ownership',
+  'reading-ownership-practice': '/period/practice',
+  'reading-ownership-responses': '/period/practice/responses',
+  'reading-ownership-follow-through': '/period/practice/follow-through',
+  'reading-ownership-connected-code': '/period/practice/connected-code',
   'reading-purpose': '/period/values/purpose',
 };
 const anchorRoute = (fragment: string) =>
