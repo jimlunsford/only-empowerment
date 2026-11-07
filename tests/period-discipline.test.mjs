@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { beforeWork35 } from './editorial-copy-helpers.mjs';
 import {
   disciplineContent as content,
   disciplineWayfinding,
@@ -22,7 +23,7 @@ import {
 const originalNextDescription =
   'The sixth value asks how developed strength can help other people stand. Its full lesson is not available yet.';
 
-test('the entire approved eight-part lesson and seven-occasion comparison retain Work 15 copy exactly', () => {
+test('the eight-part lesson and seven-occasion comparison preserve Work 15 plus approved Work 35 edits', () => {
   // Independent digests of the two visitor-copy objects in the accepted Work 15 archive.
   for (const [key, digest] of Object.entries({
     lesson: '0ef34666e7aaa6dce4c6a3f48a71bcfa117f6e3ab47a3e4ca94521502d1e00cc',
@@ -34,11 +35,11 @@ test('the entire approved eight-part lesson and seven-occasion comparison retain
           JSON.stringify(
             key === 'lesson'
               ? {
-                  ...content.lesson,
+                  ...beforeWork35(content.lesson, 'disciplineContent.lesson'),
                   nextDescription: originalNextDescription,
                   nextLink: 'Read the Empowerment orientation',
                 }
-              : content[key],
+              : beforeWork35(content[key], 'disciplineContent.' + key),
           ),
         )
         .digest('hex'),

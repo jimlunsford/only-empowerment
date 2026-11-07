@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { beforeWork35 } from './editorial-copy-helpers.mjs';
 import {
   empowermentContent as content,
   empowermentAvailability,
@@ -24,16 +25,16 @@ const escape = (s) =>
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;');
 
-test('the full accepted Work 19 copy stays exact apart from one integrated founder passage', () => {
+test('Work 19 copy retains the founder passage and only the approved Work 35 edits', () => {
   // Independently calculated from the accepted Work 19 visitor-copy JSON.
-  const originalLesson = structuredClone(content.lesson);
+  const originalLesson = beforeWork35(content.lesson, 'empowermentContent.lesson');
   originalLesson.sections.find((s) => s.id === 'help-that-fits').paragraphs.splice(4, 1);
   assert.equal(
     hash(originalLesson),
     '033818d4ffdb5fc4e1fe2765ae7940123754ebe2a3770d340f646be6111e973e',
   );
   assert.equal(
-    hash(content.conversation),
+    hash(beforeWork35(content.conversation, 'empowermentContent.conversation')),
     'b19c4b96b4d95875955a85c268365c09e0ae107d218e11689924aa99b3759703',
   );
   assert.equal(content.lesson.sections.length, 7);
@@ -42,15 +43,13 @@ test('the full accepted Work 19 copy stays exact apart from one integrated found
 
 test('the founder passage distinguishes avoidable irresponsibility from necessary support', () => {
   for (const text of [
-    "repeatedly covering for someone's avoidable decisions or responsibilities",
-    'every ordinary consequence',
-    'exercise ownership where they have a real choice',
-    'without becoming punishment or humiliation',
-    'Necessary care, legitimate treatment, disability accommodations, medical assistance, emergency help',
-    'genuine limitations must never be withheld to teach someone a lesson',
-    'real needs',
-    'human dignity',
-    'agency the person actually has',
+    'Do not keep covering avoidable choices while calling it help',
+    'Where a person can act, leave them responsibility and room to face the ordinary consequences',
+    'without punishment or humiliation',
+    'Never withhold necessary care, treatment, disability accommodations, medical or emergency help',
+    'support required by genuine limits to teach someone a lesson',
+    'Give the help the need requires',
+    'respect the choices the person can make',
   ])
     assert.ok(refinement.includes(text), text);
   assert.ok(empowermentReading().includes(escape(refinement)));
@@ -70,9 +69,12 @@ test('all three alternatives preserve explicit agreement, actual actions and unc
     n.confirmation,
     'Dev agrees to that limited arrangement. Mara has not promised that all three items will be finished before 3:20.',
   );
-  assert.match(n.action, /third is still unfinished/);
-  assert.match(n.action, /Jordan has not yet been asked/);
-  assert.match(c.states[2].action, /does not show whether Dev later/);
+  assert.match(n.action, /third is unfinished at 3:20/);
+  assert.match(
+    n.action,
+    /Dev plans to ask Jordan for help\. That conversation and agreement have not happened yet/,
+  );
+  assert.match(c.states[2].action, /What Dev does next is not shown/);
   assert.match(
     c.states[2].agreement[1][1],
     /No message, draft, reminder or unsolicited check-in is agreed/,

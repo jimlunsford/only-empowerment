@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { beforeWork35 } from './editorial-copy-helpers.mjs';
 import { integrityContent } from '../src/period-integrity-content.ts';
 import { resilienceContent as content } from '../src/period-resilience-content.ts';
 import { pressureNote, resilienceUi as ui } from '../src/period-resilience-state.ts';
@@ -17,11 +18,16 @@ import {
 const originalAvailability =
   'Teaching order, not completion. Ownership, Purpose and Resilience have full lessons. Integrity, Discipline and Empowerment are shown for orientation; their full lessons are not available yet.';
 
-test('all approved Work 10 copy matches the verified design archive without editorial drift', () => {
+test('Work 10 copy retains its verified baseline with only the approved Work 35 edits', () => {
   // SHA-256 of JSON.stringify(proposed-copy.json), checked against the complete Doc and PDF.
   assert.equal(
     createHash('sha256')
-      .update(JSON.stringify({ ...content, availability: originalAvailability }))
+      .update(
+        JSON.stringify({
+          ...beforeWork35(content, 'resilienceContent'),
+          availability: originalAvailability,
+        }),
+      )
       .digest('hex'),
     '96ad7684b970d2a13d6ce042393436495803a88462dbffc3fd54811a8f007a88',
   );
@@ -37,7 +43,7 @@ test('all approved Work 10 copy matches the verified design archive without edit
 test('the complete founder refinement preserves useful ordinary persistence', () => {
   assert.equal(
     ui.refinement,
-    'When the work is useful and safe, resilience may mean continuing even when progress is slow. When the method is blocked, harmful, or beyond your present capacity, changing course may be what protects the standard. The question is not whether you pushed through everything. It is whether your response still serves the life you are building.',
+    'Keep doing useful work when boredom is the problem. Change a method that is blocked. Rest when capacity requires it. Leave harm rather than proving you can endure more of it. Resilience asks which response protects the life you are building.',
   );
 });
 

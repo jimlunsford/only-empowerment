@@ -3,6 +3,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import { beforeWork35 } from './editorial-copy-helpers.mjs';
 import { integrityContent as content } from '../src/period-integrity-content.ts';
 import { integrityReading } from '../scripts/integrity-reading.ts';
 import {
@@ -11,10 +12,12 @@ import {
   periodCardText,
 } from '../src/period-standard-model.ts';
 
-test('all ten lesson sections retain the approved Work 12 teaching without editorial drift', () => {
+test('all ten lesson sections retain Work 12 with only the approved Work 35 edits', () => {
   // Digest of the accepted archive lesson, independently matched to all ten Doc sections.
   assert.equal(
-    createHash('sha256').update(JSON.stringify(content.lesson)).digest('hex'),
+    createHash('sha256')
+      .update(JSON.stringify(beforeWork35(content, 'integrityContent').lesson))
+      .digest('hex'),
     'eccc4f90df9c49e9eedbd09aa7d2d2976b2d7dbc37f07609b3213b425e866f3d',
   );
   assert.deepEqual(
@@ -45,12 +48,9 @@ test('the fixed record incorporates all three founder corrections without invent
   ])
     assert.ok(c.correction.includes(text));
   assert.equal(c.notes[2].replacement_label, 'A private assurance to Maya');
-  assert.match(c.continuation[1], /does not establish that every printed copy has been replaced/);
+  assert.match(c.continuation[1], /still needs to check that every copy was replaced/);
   assert.match(c.continuation[2], /Maya has not said whether she wants to collaborate again/);
-  assert.match(
-    c.correction_note,
-    /If Riley only drafts it, the team still has not received a correction/,
-  );
+  assert.match(c.correction_note, /While it stays in a draft, the team is still misled/);
 });
 
 test('the static reading page contains every teaching paragraph, note, comparison and limit with no enhancement dependency', () => {

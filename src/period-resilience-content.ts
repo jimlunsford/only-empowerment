@@ -9,7 +9,7 @@ export const resilienceContent = {
       id: 'L01',
       heading: 'A worthwhile direction will be tested',
       paragraphs: [
-        'Ownership gives you responsibility for the response available now. Purpose gives that responsibility direction. Resilience keeps that direction active when the conditions become difficult.',
+        'Purpose gives you a direction. Resilience keeps that direction from disappearing the first time life pushes back. The responsibility you owned still needs a response, even when the original plan no longer works.',
         'Plans break. Progress slows. Grief, conflict or a sudden loss can interrupt the life you are building. So can an ordinary week of boredom, fatigue and work that nobody notices. Feeling the pressure does not mean you have failed. What matters is how you respond to it.',
         'Resilience means continuing to live the standard while responding honestly to reality. Sometimes that means continuing the work. Sometimes it means correcting, resting, asking for help, holding a boundary or leaving a harmful situation.',
       ],
@@ -18,9 +18,9 @@ export const resilienceContent = {
       id: 'L02',
       heading: 'Keep the standard. Reconsider the method.',
       paragraphs: [
-        'A standard tells you what the behavior must serve. A method is one way of putting it into practice. Confusing them can make a broken plan look more important than the life it was meant to support.',
+        'The standard tells you what you are protecting. The method is how you are trying to protect it. When the method stops working, do not sacrifice the life you are building just to defend the plan.',
         'Consider Alex, a fictional learner working toward dependable employment. Learning honestly and protecting health and safety belong to the standard. Attending one particular practice group is a method. If the room closes, Alex can look for another way to practice. If the group becomes harmful, leaving it can protect the same direction.',
-        'Changing the method still has consequences. A replacement may take time, cost more or be unavailable. Resilience faces those limits and chooses an available response. It does not promise that every obstacle has an easy workaround.',
+        'Another method may cost more, take longer or be unavailable. Face that cost. Resilience asks for the next response you can actually make, not a promise that every obstacle has an easy way around it.',
       ],
     },
     {
@@ -29,7 +29,7 @@ export const resilienceContent = {
       paragraphs: [
         'Not every difficult day calls for a new plan. Repetition can feel dull while still doing useful work. Slow progress is a reason to examine the evidence, not automatic proof that the direction is wrong.',
         'If Alex has time, capacity and a useful practice task, continuing may be the responsible response even without enthusiasm. If the same error keeps returning, feedback or a different exercise may serve learning better than more of the same.',
-        'The question is what the effort is doing. Adding intensity to look determined is different from doing the ordinary work the purpose requires. There is no audience to impress and no amount of suffering that proves your values.',
+        'Ask what the effort is doing. Useful repetition can be dull and still matter. Extra strain that only makes you look determined is not the same work. Suffering is not proof that you are living your values.',
       ],
     },
     {
@@ -49,7 +49,7 @@ export const resilienceContent = {
         'Resilience does not require you to outwill exhaustion or do everything alone. Rest, a changed environment, practical help, professional care and clearer boundaries can be part of protecting the rebuild.',
         'If your capacity has changed, acknowledge what that changes for an agreement. Communicate when it is possible, ask for specific help or a revised arrangement, and avoid promising capacity you do not have. Another person may not be able to agree; their response is not yours to control.',
         'Sometimes a smaller action fits. Sometimes the responsible response is to stop the task and rest. You do not have to produce something first to earn necessary rest. When you can reassess, return to the facts rather than assuming rest has solved the problem.',
-        'Support can strengthen the part you are responsible for without taking it away. Needing help, including ongoing appropriate care, is not proof that the Code has failed.',
+        'Use support to help carry your responsibility. Ongoing care can belong in that support. Needing it does not make your effort less real.',
       ],
     },
     {
@@ -58,16 +58,16 @@ export const resilienceContent = {
       paragraphs: [
         'A missed commitment is an event to face, not a permanent description of who you are. It may have caused damage. Calling it a learning experience does not erase that damage, and punishing yourself does not repair it.',
         'In a fictional example, Alex avoids asking about a confusing task and misses an agreed draft. A fresh promise to try harder leaves the same barrier in place. A responsible return names the miss, gives the other person accurate information, addresses the confusion and offers a next step Alex can actually carry out.',
-        'Then the response has to happen. Sending the usable work, asking the specific question and keeping the next realistic agreement create evidence. Writing a return plan does not. The other person may still need time or may choose a different arrangement.',
-        'If another limit interrupts the return, tell the truth again and revise what needs revising. Correction remains available. It does not turn the earlier miss into something that never happened.',
+        'Send the usable work. Ask the question you avoided. Keep the next agreement. That is what turns the return into action. The other person may still need time or choose a different arrangement.',
+        'If another limit interrupts the repair, tell the truth and adjust again. You can correct what comes next without pretending the earlier miss disappeared.',
       ],
     },
     {
       id: 'L07',
       heading: 'Protect the rebuild without performing strength',
       paragraphs: [
-        'The manuscript places recovery and rebuilding inside ordinary life. Pressure can bring an old escape pattern back into reach. Resilience recognizes that pressure and moves toward a protective response, which may include leaving an environment, contacting support or receiving treatment when needed.',
-        'This is not a demand to manage recovery alone, a claim that relapse must happen, or a promise that willpower prevents every setback. A setback needs an honest response and appropriate help, not a permanent identity of failure.',
+        'An old escape can look useful when pressure gets heavy. Recognize where it leads and take the next step that protects your recovery: leave the environment, contact support or seek treatment when needed. You are protecting the life you are building.',
+        'Get appropriate help when you need it. Relapse is not a requirement of recovery, and willpower is not a guarantee against every setback. If you fall short, face what happened and respond. Do not turn it into a permanent sentence against yourself.',
         'The same distinction matters when progress feels slow or unremarkable. Keeping a useful routine, waiting patiently while trust is rebuilt, admitting a limit and making a quiet correction can all carry more weight than a public display of toughness.',
       ],
     },
@@ -75,7 +75,7 @@ export const resilienceContent = {
       id: 'L08',
       heading: 'Practice the judgment',
       paragraphs: [
-        'Begin with the worthwhile direction and the standard it asks you to protect. Look at what has actually changed: the circumstances, your capacity, the effect of the method or a commitment you missed.',
+        'Start with what is worth protecting. Then name what changed: the circumstances, your capacity, a method that stopped working or a commitment you missed. You cannot choose a useful response while arguing with the facts.',
         'Consider what fits those facts. Continue useful work where it is workable. Adapt a failed method. Ask for help where support is needed. Correct your part. Rest when rest is required. Set a boundary or leave when continuing would preserve harm.',
         'Make the next response concrete enough to carry out, including what must be communicated and when the situation needs another look. Then act when it is safe and workable. You can do this privately without writing anything here.',
       ],
@@ -93,8 +93,8 @@ export const resilienceContent = {
       id: 'L10',
       heading: 'Keep going in a way you can stand behind',
       paragraphs: [
-        'Persistence alone cannot tell you whether the direction is right or the method is honest. A person can keep working while hiding mistakes, harming themselves or treating others badly. Endurance does not make those choices aligned.',
-        'That is why Integrity follows Resilience. It examines whether your conduct matches the values you claim, including the way you continue, adapt and correct. The next question is not only whether you can keep going. It is whether the way you keep going remains honest and responsible.',
+        'You can keep going and still be going wrong. You can work hard while hiding a mistake, damaging your health or treating someone badly. Endurance does not make those choices right.',
+        'Integrity comes next because the way you continue matters. It asks whether your conduct matches the values you claim. Can you keep moving without protecting a lie or betraying the standard?',
       ],
       availability:
         'Integrity is next in the teaching order. Its full lesson is not available yet.',
@@ -103,7 +103,7 @@ export const resilienceContent = {
       id: 'L11',
       heading: 'A reminder is optional',
       paragraphs: [
-        'The optional Standard Card records one intended behavior within the connected Code. It does not prove that the action happened or that you have completed Resilience or the Code.',
+        'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder. The return becomes real in what you do.',
       ],
       cta: 'Write an optional Standard Card',
     },
@@ -146,7 +146,7 @@ export const resilienceContent = {
     title: 'When the plan meets pressure.',
     lead: 'Keep the aim in view. Examine what needs to change.',
     intro:
-      'Alex is fictional. Change one pressure note and compare possible responses. You are examining a case, not choosing an answer about yourself. There is no score or result to earn.',
+      'Alex is fictional. Compare five different pressures and the responses they call for. You are examining the situation, not answering questions about yourself. There is nothing to submit or score.',
     setup:
       'Alex is taking a practical skills course toward more dependable work. The current method is a weekly practice group and an agreed draft shared with a study partner, Morgan. This is one route toward that life, not the whole purpose. Each pressure note below is a separate version of the case, not a sequence of events.',
     standard: 'Learn honestly, make workable agreements and protect health, safety and dignity.',
@@ -155,14 +155,14 @@ export const resilienceContent = {
     reflection:
       'Before reading on, notice what is still worth protecting and what the facts no longer support.',
     shared:
-      'No response label is automatically strong or weak. The facts decide what a response protects, what it risks and what still needs attention. These are possible responses, not predictions or a rule for every life.',
+      'Continuing, adapting, resting and leaving can each be responsible. The facts decide which one protects the standard here. Look at the reason for the response and the work it leaves to be done.',
     returnTitle: 'A plan is still an intention',
     returnCopy:
-      'In the missed-commitment version, Alex can describe a good return and still do nothing. Read the continuation to see the difference between a proposed repair and action.',
+      'Alex can describe a good repair and still leave the draft unsent. In the missed-commitment version, follow what happens after the promise.',
     returnStory:
-      "Fictional continuation: Alex sends the unfinished draft and names the missing section. Morgan agrees to a Friday check-in. Alex asks the specific question, uses the explanation to revise the section and sends that revision by the agreed time. Those actions establish this return. They do not erase the missed agreement, guarantee Morgan's trust or prove mastery of the Code.",
+      'In this fictional continuation, Alex sends the unfinished draft and identifies the missing section. Morgan agrees to a Friday check-in. Alex asks the specific question, uses the answer to revise the section and sends it on time. That is a real correction within this story. The earlier miss still happened, and Morgan decides what to trust.',
     closing:
-      'Take the judgment into life: protect the worthwhile direction, change what the facts require, and carry out the next honest response. You do not have to make a card or finish every example.',
+      'Take that judgment into your day. Protect what matters, change what the facts require and carry out the next honest response. The card and the remaining examples are optional.',
   },
   states: [
     {
@@ -175,13 +175,13 @@ export const resilienceContent = {
         'Keep the useful repetition. Stop treating the repeated error as proof that the whole direction is pointless.',
       revision:
         'Practice the improving part as planned, then ask a focused question about the repeated error. Change that part of the exercise if the explanation shows a better method.',
-      cost: 'Progress may remain slow. Feedback may be delayed, and a practice session cannot guarantee employment.',
+      cost: 'Learning may still be slow, and the answer may take time. Practice builds capability; it cannot promise Alex a job.',
       review:
         'Look at what the next practice attempt shows. Continued repetition is useful only while it still serves learning.',
       responses: [
         {
           title: 'Continue useful practice',
-          text: 'Continuing is reasonable where the task is useful and within capacity. Boredom alone does not make it harmful. Repeating the same mistake indefinitely would still need attention.',
+          text: 'The practice is useful and Alex can do it. Boredom is not a reason to throw it away. Keep the useful repetition and get help with the error that keeps returning.',
         },
         {
           title: 'Adapt with feedback',
@@ -189,7 +189,7 @@ export const resilienceContent = {
         },
         {
           title: 'Chase a more exciting course',
-          text: 'A different course might eventually be appropriate, but novelty alone does not address the stated problem. Leaving now loses the useful practice already available. Reassess if evidence shows the course is a poor fit.',
+          text: 'A new course might feel more exciting, but excitement will not correct this error. Use the practice and feedback available now. Reconsider the course if the evidence shows it is the wrong fit.',
         },
       ],
     },
@@ -209,7 +209,7 @@ export const resilienceContent = {
       responses: [
         {
           title: 'Adapt the available work',
-          text: 'Changing the setting preserves useful practice. It does not solve the equipment constraint, and the available exercise is not a substitute for every course requirement.',
+          text: 'Practice the exercise that can be done at home. Keep the equipment task marked as blocked. Making progress on one part does not finish the other.',
         },
         {
           title: 'Seek specific support',
@@ -217,7 +217,7 @@ export const resilienceContent = {
         },
         {
           title: 'Keep insisting on the old plan',
-          text: 'Turning up at a closed room cannot create access. Protecting that method leaves the available work untouched. Waiting can be necessary for the equipment task, but it should be acknowledged rather than disguised as progress.',
+          text: 'The room is closed. Insisting on the old plan will not open it. Use the work that is available and tell the truth about the equipment task that must wait.',
         },
       ],
     },
@@ -237,7 +237,7 @@ export const resilienceContent = {
       responses: [
         {
           title: 'Rest without earning it first',
-          text: 'Stopping the task protects the person doing the work. A smaller task is not compulsory when even that would be inappropriate. The next review responds to real capacity, not a demand to recover on schedule.',
+          text: 'Alex needs to stop and rest. There is no smaller task to complete as the price of that rest. Review the plan when Alex can, using actual capacity rather than a deadline for feeling better.',
         },
         {
           title: 'Ask for help and revise the agreement',
@@ -245,7 +245,7 @@ export const resilienceContent = {
         },
         {
           title: 'Push through to look committed',
-          text: 'An all-night effort may create more errors and further reduce capacity. Under these facts, visible effort protects an image more than the learning. Different facts could justify continued work; these do not establish it.',
+          text: 'Alex cannot rely on useful concentration tonight. An all-night effort risks more errors and less capacity. Looking committed is no reason to ignore the limit already in front of Alex.',
         },
       ],
     },
@@ -265,11 +265,11 @@ export const resilienceContent = {
       responses: [
         {
           title: 'Correct the barrier and return',
-          text: 'The response repairs the information gap and addresses the confusion that helped produce the miss. It becomes evidence only when Alex actually does it. Morgan does not owe immediate trust.',
+          text: 'This response gives Morgan the missing facts and addresses the confusion Alex avoided. Send it, ask the question and follow through. Morgan still decides whether to trust another agreement.',
         },
         {
           title: 'Make a bigger promise',
-          text: 'A more impressive deadline can briefly relieve embarrassment, but it leaves the barrier untouched and may create another broken agreement. Intention is not a return.',
+          text: "A bigger promise may ease Alex's embarrassment for a moment. It leaves the confusing section untouched and creates another deadline to miss. Address the barrier before promising more.",
         },
         {
           title: 'Treat the miss as a permanent identity',
@@ -301,7 +301,7 @@ export const resilienceContent = {
         },
         {
           title: 'Stay to prove toughness',
-          text: "Enduring the leader's behavior does not make it acceptable or turn it into useful training. Under these stated facts, continuing the same method puts the standard at risk. This is not an equally sound option simply because it looks determined.",
+          text: "The threats and humiliation are harm, not useful training. Staying to prove toughness protects the group leader's conduct at Alex's expense. Leaving can protect the standard Alex came here to build.",
         },
       ],
     },

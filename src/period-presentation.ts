@@ -7,7 +7,7 @@ export const periodPresentation = {
   connectedClarification:
     'The PERIOD Code is a connected standard for living. A specific behavior gives you one place to practice it. The six values continue to shape the rest of your life.',
   practiceInvitation:
-    'Explore a missed update, change what was possible, and compare the response. Then see what would count as action and how the six values support it.',
+    'Look at a missed update. Separate what was outside your control from what you could have done. Then follow the correction into action and see where the other values enter the work.',
   response: [
     {
       heading: 'What you cannot control',

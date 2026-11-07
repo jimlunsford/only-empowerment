@@ -195,7 +195,7 @@ export function DisciplinePattern() {
                 </section>
               ))}
             </div>
-            <h3>What this establishes</h3>
+            <h3>What the actions show</h3>
             <p class="discipline-interpretation no-print">{moment.interpretations[choice]}</p>
             <p class="discipline-print-only">{moment.interpretation}</p>
             <h3>A responsible response</h3>

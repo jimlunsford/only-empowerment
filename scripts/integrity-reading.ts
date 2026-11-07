@@ -43,7 +43,7 @@ ${copy.notes
     (
       note,
     ) => `<section class="integrity-reading-note" id="integrity-note-${note.id}">${h(note.label)}<p class="integrity-claim">${escape(note.claim)}</p><div class="integrity-note-body">
-${h('What the record shows', 3)}${p(note.fact)}${h('Why it matters', 3)}${p(note.explanation)}${h('replacement_label' in note ? note.replacement_label : 'A truthful replacement', 3)}${p(note.replacement)}${h('Action beyond wording', 3)}${p(note.action)}${h('What this cannot settle', 3)}${p(note.limit)}</div></section>`,
+${h('What the record shows', 3)}${p(note.fact)}${h('Why it matters', 3)}${p(note.explanation)}${h('replacement_label' in note ? note.replacement_label : 'A truthful replacement', 3)}${p(note.replacement)}${h('Make the correction', 3)}${p(note.action)}${h('What this cannot settle', 3)}${p(note.limit)}</div></section>`,
   )
   .join('')}${top()}</section>
 <section id="comparison" class="integrity-comparison">${h('What each response leaves in place')}${p(copy.comparison_intro)}${copy.responses.map(([heading, words, result]) => `<section>${h(heading, 3)}<blockquote>${escape(words)}</blockquote>${p(result)}</section>`).join('')}</section>

@@ -6,7 +6,7 @@ export const purposeLesson = [
     id: 'L01',
     heading: 'What are you building with that responsibility?',
     paragraphs: [
-      'Ownership puts responsibility for the next response in your hands. Purpose gives that responsibility a meaningful direction. It helps you decide what deserves your time, energy and attention.',
+      'Once you own your life, you have to decide what you are building with it. Purpose gives your effort somewhere to go. It helps you choose what deserves your time, energy and attention when everything wants a piece of them.',
       'You do not need an extraordinary mission or a permanent calling. You need a direction that matters enough to shape the choices available to you in this season of your life.',
     ],
   },
@@ -14,7 +14,7 @@ export const purposeLesson = [
     id: 'L02',
     heading: 'From a correction to a direction',
     paragraphs: [
-      'In Practice Ownership, the honest update addresses a real responsibility. Purpose asks what that response serves. Becoming a dependable colleague gives the correction a direction beyond getting through one uncomfortable conversation.',
+      'In the Ownership example, sending an honest update means facing the responsibility instead of hiding behind a blocked file. Purpose asks why that response matters beyond ending an uncomfortable conversation. Becoming a dependable colleague gives the correction somewhere to lead.',
       'That direction reaches the next commitment too: make realistic promises, communicate limits and leave other people with facts they can use. Purpose does not replace Ownership. It gives your owned actions something worth building.',
     ],
   },
@@ -22,7 +22,7 @@ export const purposeLesson = [
     id: 'L03',
     heading: 'A full day can still leave what matters untouched',
     paragraphs: [
-      'Activity tells you that something occupied your time. Progress asks whether the activity served a meaningful direction. A longer task list cannot answer that question for you.',
+      'Activity fills time. Purpose asks what that time is building. A longer list of finished tasks cannot answer that question for you.',
       'Consider a fictional example. Lee wants a more dependable home life. An evening spent comparing organizing apps may feel productive. Checking tomorrow’s arrangements with the other person and preparing what they agreed can serve that direction more directly.',
       'Planning, messages and routine chores can be necessary. Their value depends on what they serve. The question is whether the activity helps build the life you are responsible for, or keeps postponing the work that matters.',
     ],
@@ -32,20 +32,20 @@ export const purposeLesson = [
     heading: 'Purpose has a different job',
     paragraphs: [
       'Motivation is the feeling that makes starting appealing. Purpose gives the action a reason when that feeling is absent.',
-      'Productivity concerns what gets done. Purpose asks whether what gets done matters. Doing more can still leave your direction unattended.',
+      'Productivity asks how much you got done. Purpose asks whether that work deserved the hours you gave it.',
       'Ambition may name a large achievement. Purpose explains why the effort is worth making. A quiet commitment to stability can carry more meaning than an impressive title.',
       'Discipline gives direction repeated behavior and structure. Purpose gives that repetition something to serve.',
-      'Identity develops through how you repeatedly live. Declaring a purpose does not establish a new identity or prove that you have acted.',
+      'You become believable to yourself by living the direction you claim. Naming a purpose starts the work. Repeated choices give it weight.',
     ],
   },
   {
     id: 'L05',
     heading: 'Choose a direction for the season you are in',
     paragraphs: [
-      'Some seasons narrow the work to survival, sobriety, care or basic stability. Those responsibilities count. A person does not need to invent a grand mission while struggling to keep one stable day intact.',
+      'Some seasons come down to staying alive, staying sober, receiving care or keeping one stable day intact. That work counts. Start with what this season asks of you; you do not need an impressive mission to make it matter.',
       'As immediate pressures ease, ask what that stability can support: a trustworthy relationship, a healthier routine, useful work or a way to help others. The Code calls you toward something worth building, beyond only escaping what came before.',
       'Avoiding the old life may be where rebuilding begins. Purpose is what gives you something worth building in its place.',
-      'Your direction can deepen or change as your life changes. An honest change answers new responsibilities or clearer understanding. Replacing a purpose every time it becomes inconvenient leaves the old drift in charge.',
+      'Your purpose can deepen as your life changes. New responsibilities or clearer understanding may call for a different direction. Changing it whenever the work gets uncomfortable is something else. That lets drift keep choosing for you.',
       'You can begin before every detail is clear. Carry out one worthwhile responsibility and pay attention to what the action reveals. Purpose can become clearer through living it.',
     ],
   },
@@ -53,10 +53,10 @@ export const purposeLesson = [
     id: 'L06',
     heading: 'A direction becomes visible in a choice',
     paragraphs: [
-      'If a direction never affects what you protect, postpone, accept or refuse, it has little influence over the day. Meaningful purpose changes behavior, including what you choose to leave undone.',
+      'A purpose has to change a decision. What will you protect? What will you turn down? What will you leave undone so the work that matters gets a place in the day?',
       'In the fictional evening explored here, Sam could use an hour to prepare a training application that might lead to steadier work. Sam could instead protect basic stability by sorting the coming week and leaving more room to rest. Each direction has a real benefit and a real cost.',
       'Neither a future opportunity nor a busy schedule cancels existing responsibilities. Other people’s needs, shared agreements and your actual capacity still matter. A purpose does not give you permission to leave someone else carrying your commitments.',
-      'Rest can support the life you are building. The distinction is whether it answers a real need and protects the direction, or whether calling something rest keeps an avoidable pattern untouched. You cannot judge that from the amount of visible effort alone.',
+      'Rest can serve your purpose. So can work you would rather avoid. Look at the need you are answering: are you restoring the capacity to live your life, or using the word rest to protect an avoidable pattern? The busiest-looking choice is not automatically the right one.',
     ],
   },
   {
@@ -65,7 +65,7 @@ export const purposeLesson = [
     paragraphs: [
       'Start with something worth protecting or building in your present circumstances. It can be as ordinary as becoming reliable at home or keeping the next day stable.',
       'Look at the choices actually available. Protect one workable action, recognize what it displaces, and make any needed agreement with the people affected. Ask for useful support where it is needed.',
-      'Then act and notice the result. A plan names an intention. The behavior, and your willingness to correct it, provide the evidence. You can use this thinking privately without writing anything here.',
+      'Then carry out the choice and look at what happened. Keep what serves the direction and correct what does not. You can think this through privately; nothing needs to be written here.',
     ],
   },
 ] as const;
@@ -104,29 +104,29 @@ export const purposeRelationships = [
 ] as const;
 
 export const purposeConnected =
-  'The PERIOD Code is a connected standard for living. The values keep working together; this is a teaching order, not a checklist to finish. One decision can express several values. You do not need to manufacture an act of Empowerment in every situation.' as const;
+  'The PERIOD Code is a connected standard for living. Purpose gives direction to responsibility, but it still needs resilience, honesty, repeated action and a willingness to help others stand. Keep returning to the whole Code. One decision can call on several values without requiring six separate acts.' as const;
 
 export const purposeBridge = [
-  'A direction does not remove pressure. A shift changes, energy drops, progress slows or a plan stops working. Purpose tells you why the work matters. The next question is how to protect that direction when the original method no longer fits.',
-  'That is where Resilience enters the Code: adapting, returning and continuing without surrendering the standard. Purpose gives the reason to move. Resilience helps keep that reason active when it is tested.',
+  'The direction will be tested. A shift changes. Energy drops. Progress slows. The plan that worked yesterday may not work today. Purpose gives you a reason to continue; you still have to decide how.',
+  'That is the work of Resilience: adapt the method, correct the miss and return to the standard. Keep the purpose alive when the original plan breaks.',
   'Resilience is next in the teaching order.',
 ] as const;
 
 export const purposeCardNote =
-  'The optional Standard Card records one intended behavior within the connected Code. It does not show that the action has happened or that you have completed the Code.' as const;
+  'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if a reminder helps, then put the intention into action.' as const;
 
 export const purposeCopy = {
   title: 'A purpose changes the plan.',
   lead: 'The same evening. Two worthwhile directions. Real limits.',
   intro:
-    'Explore Sam’s fictional evening. Both directions could belong to the same life; here, each guides a different use of the time. Changing an example shows what its direction protects and what it leaves undone. There is no answer to submit.',
+    'Sam has one evening and two worthwhile directions. Look at what each direction protects and what has to wait. There is no answer to submit.',
   situation_heading: 'Two hours, with choices still to make',
   situation:
     'It is Wednesday. Sam has 7–9 p.m. available after essential work and care responsibilities are covered. The evening stops at 9; these examples do not borrow from sleep. Routine messages can wait until tomorrow.',
   facts:
     'A training application closes on Friday. Sam estimates about an hour to prepare a usable draft; acceptance and steadier hours are not guaranteed. Tomorrow needs 20 minutes of preparation. Nonurgent bill dates and the coming week’s arrangements also need attention.',
   assumptions:
-    'These are fictional circumstances and illustrative time blocks, not a recommended routine. No urgent bill or another person’s unmet care need is hidden in the example. Real changes to those facts would change the decision.',
+    "This is a fictional evening, not a routine to copy. Sam's essential care responsibilities are covered, and no bill is urgent tonight. If those facts change, the decision changes.",
   direction_label: 'Which direction are you examining for Sam?',
   capacity_label: 'Change Sam’s capacity tonight',
   reflection:
@@ -135,18 +135,18 @@ export const purposeCopy = {
   same_evening:
     'Imagine Sam names either purpose, then spends 70 minutes on routine messages and inbox sorting, 30 minutes browsing courses and the final 20 minutes resting. The evening was occupied. The application, tomorrow’s preparation and the coming week’s arrangements remain untouched.',
   same_evening_end:
-    'Those activities are not automatically worthless. In these stated circumstances, they have displaced both proposed directions. Changing the purpose statement alone has changed nothing in the behavior.',
-  close_heading: 'The point is a direction you can recognize in conduct',
+    'Messages and planning can matter. Tonight, they have crowded out both directions Sam named. The words changed. The evening did not.',
+  close_heading: 'Give the direction a place in the day',
   close:
-    'These examples do not identify the best life for Sam. Both directions can be worthwhile. They make the tradeoff visible: what gets attention, what waits, what must be communicated and what remains uncertain. A real person still has to judge the circumstances and carry out the response.',
+    "Both directions matter in Sam's life. Choosing one tonight means giving something time and making something else wait. Face that tradeoff, tell the truth about what remains, and carry out the choice. A purpose has to reach the evening, not just the sentence describing it.",
   pressure:
-    'When capacity changes, the purpose may remain while the method changes. That introduces the need for Resilience; it does not complete that next lesson.',
+    'Less capacity can change the plan without changing what matters. Resilience is what helps you protect that direction under pressure.',
   planDistinction:
     "The evening plan is not Sam's purpose. It is one decision that can serve the life Sam is trying to build. Steadier work and basic stability may both contribute to that larger direction.",
   directionLimit:
     'The direction guides the plan. It does not remove other responsibilities or guarantee an outcome.',
   readingLead:
-    'These are the four fictional examples shown by the controls above. Read them in any order. A possible plan is not evidence that the action happened.',
+    "Read all four versions of Sam's evening below. Each is a possible plan; Sam still has to carry it out.",
   readingLabel: 'Read every example as text',
   reassurance: 'Explore freely. Nothing to submit or save.',
 } as const;
@@ -200,7 +200,7 @@ export const purposeExamples = {
       'The application gives the wish for steadier work a concrete place in the evening. Tomorrow’s responsibilities and a period of rest remain protected.',
     cost: 'The nonurgent bill review and wider weekly planning wait. Sam needs another workable time for them; choosing this opportunity does not make those responsibilities disappear.',
     uncertain:
-      'A usable draft is not a submitted application, an acceptance or a job offer. Sam still needs to check and submit it by Friday.',
+      'The draft still needs checking and submitting by Friday. Finishing it tonight would move the application forward, not guarantee acceptance or steadier work.',
     compare:
       'Try Basic stability. The circumstances stay the same; the direction changes where the discretionary time goes.',
     direction: 'work',
@@ -230,7 +230,7 @@ export const purposeExamples = {
       'The evening supports a manageable next few days. Practical preparation and rest can express Purpose when stability is what Sam is building.',
     cost: 'The application does not move forward tonight. With Friday approaching, Sam must judge whether there is room tomorrow, whether to ask about an extension, or whether to let this opportunity go.',
     uncertain:
-      'A review does not pay a bill, settle every problem or make another person agree. Sam still has to act on anything that requires action.',
+      'After reviewing the week, Sam still has to make any needed payments and arrangements. Other people must agree to changes that involve them.',
     compare:
       'Try Steadier work. The potential opportunity gains time, while the wider review and some rest give way.',
     direction: 'stability',
@@ -256,10 +256,10 @@ export const purposeExamples = {
       },
     ],
     serves:
-      'The direction still matters, but the plan no longer assumes an hour Sam cannot reliably give. A small useful start and rest keep the next response workable.',
+      'Sam still wants steadier work. Tonight, that means making a useful start and resting instead of promising an hour of concentration that is not there.',
     cost: 'The draft remains unfinished. Sam needs to reassess the remaining work tomorrow, ask for specific help if useful, or accept that this application may not happen. An extension is not guaranteed.',
     uncertain:
-      'A smaller action cannot guarantee the Friday deadline or future capacity. If even this plan is too much, the honest next move is to reduce it again and address what that changes.',
+      "Friday is still the deadline, and tomorrow's capacity is unknown. If this smaller plan is also too much, reduce it again and face what that means for the application.",
     compare:
       'Keep this lower capacity and examine Basic stability. A shorter plan does not automatically mean the same priorities.',
     direction: 'work',
@@ -286,9 +286,9 @@ export const purposeExamples = {
     ],
     serves:
       'Basic stability becomes a small amount of essential preparation with more room to recover capacity. The plan serves ordinary responsibilities without pretending every task fits.',
-    cost: 'The wider review and the application wait. Sam must face those deferrals, including the possibility of missing this opportunity, rather than promising that rest will solve everything.',
+    cost: 'The wider review and application wait. Rest may be needed, but it does not finish either task. Sam still has to face the possibility of losing this opportunity.',
     uncertain:
-      'Checking dates is not the same as completing a payment or arrangement. If an urgent responsibility appears, Sam needs to respond or seek specific help; this fictional plan is not permission to ignore it.',
+      'Checking a due date leaves the payment or arrangement to be made. If an urgent need appears, respond to it or ask for specific help. The plan has to answer the facts.',
     compare:
       'Compare the other direction at this same capacity. Both protect rest; they use the small practical block differently.',
     direction: 'stability',
@@ -297,7 +297,7 @@ export const purposeExamples = {
 } as const;
 
 export const purposeOwnershipHandoff =
-  'Ownership began with the response available now. Purpose asks what that responsibility is building toward. Explore a direction that can guide ordinary choices.' as const;
+  'Carry that responsibility into the next ordinary choice. Purpose will help you decide what deserves your time and effort.' as const;
 
 export const purposeBook = {
   heading: 'Explore the complete PERIOD Code',

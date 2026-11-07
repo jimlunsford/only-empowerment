@@ -9,9 +9,9 @@ export const integrityContent = {
       id: 'L01',
       heading: 'Endurance still needs an honest direction',
       paragraphs: [
-        'Resilience helps you keep going when the work gets difficult. Integrity asks what you are continuing, and whether the way you are doing it deserves to continue. A person can work hard, withstand criticism and keep a promise to a bad direction. Endurance alone cannot make that direction right.',
+        'Resilience helps you keep going. Integrity asks whether you can respect the way you are doing it. Working hard, taking criticism and refusing to quit cannot make a dishonest direction right.',
         'You can also stay busy protecting a version of yourself that the facts no longer support. You explain the shortcut. You defend the misleading statement. You point to how much pressure you were under. The effort is real, but it is serving the contradiction.',
-        'Integrity brings your conduct back into line with the values you claim. It requires enough honesty to recognize a gap, enough responsibility to correct your part, and a willingness to keep living differently after the conversation is over. That is why it follows Resilience. Strength needs alignment.',
+        'Integrity closes the gap between the values you claim and the way you live. Name the contradiction. Correct your part. Keep living differently after the conversation ends. That is why Integrity follows Resilience. Strength has to answer to what is right.',
       ],
     },
     {
@@ -31,7 +31,7 @@ export const integrityContent = {
         'Being corrected can threaten the image you have of yourself. You may want to explain your intentions before the other person has finished naming the effect. You may want to argue about their tone so you do not have to face the substance.',
         'Listen for the part that is true. Check the facts when they are uncertain. If you gave the wrong impression, say what was wrong with it. If your conduct caused damage, stop using a good intention to make that damage disappear.',
         'Accepting correction does not require agreeing with every accusation or surrendering a legitimate boundary. You can reject an inaccurate claim and still examine your own conduct honestly. You can seek a safer way to address a problem without pretending the problem is gone.',
-        'A useful response is specific: I took credit for work I did not do. I marked something checked when it was still unconfirmed. I used privacy to avoid correcting what the team believed. Each statement names something that can now be addressed. A sweeping declaration that you are a terrible person leaves the actual work untouched.',
+        'Be specific: I took credit for work I did not do. I marked information checked when it was not. I used privacy to avoid correcting what the team believed. Each admission points to work you can do. Calling yourself a terrible person leaves that work untouched.',
       ],
     },
     {
@@ -59,7 +59,7 @@ export const integrityContent = {
       heading: 'Privacy can protect dignity without protecting a lie',
       paragraphs: [
         'Integrity does not require a public inventory of your thoughts, your history or your private pain. You do not owe everyone access to every part of your life. Confidential information about another person is not yours to expose so that your own explanation sounds more convincing.',
-        'The distinction is what the silence is protecting. Keeping a personal experience within appropriate boundaries can protect dignity. Withholding a relevant fact so that someone continues to believe a lie protects the contradiction.',
+        'Ask what the silence is protecting. A personal experience can remain private. A false account that people are still relying on needs correcting. You can protect dignity without protecting the lie.',
         "In the volunteer example, a colleague's reason for being away can remain private. Who wrote the material and whether the room information was checked are relevant to the team's work. Those facts can be corrected without revealing why the colleague was absent.",
         'Fear of disclosure alone does not prove dishonesty. A person may fear retaliation or simply want a private life. Look at the actual claim, the relevant facts and who needs accurate information. Use a suitable, safe channel. Integrity asks for truthful responsibility, not unrestricted access to you.',
       ],
@@ -88,7 +88,7 @@ export const integrityContent = {
       id: 'L09',
       heading: 'One connected standard, six values at work',
       paragraphs: [
-        'The PERIOD Code is a connected standard for living. Integrity is its fourth value in the teaching order, not a separate personality trait or a badge you earn after finishing the earlier lessons. The values continue to shape the same life.',
+        'The PERIOD Code is a connected standard for living. Integrity keeps the whole Code honest. Reaching this lesson does not leave Ownership, Purpose or Resilience behind, and the work will still need Discipline and Empowerment.',
         'Ownership puts your part of the correction back in your hands. Purpose asks what kind of life the work serves. Resilience helps you face the discomfort and consequences without abandoning the standard. Integrity keeps both the direction and the method truthful. Discipline gives that alignment repeated behavior. Empowerment uses developed strength to help others become capable without controlling their choices.',
         'These relationships matter together. A good purpose cannot excuse a dishonest method. Endurance cannot turn a false statement into truth. Admitting responsibility cannot replace repair. Helping someone cannot justify taking over their decision about whether to trust you.',
         'You do not have to perform six separate actions in every situation. You do have to stop treating one strength as permission to ignore the rest of the Code.',
@@ -99,7 +99,7 @@ export const integrityContent = {
       heading: 'Knowing the correction is not the same as living it',
       paragraphs: [
         'You can recognize a contradiction, explain it clearly and still leave it in place. You can write the right message and never send the correction to the people who need it. You can repair one moment and return to the same shortcut tomorrow.',
-        'Integrity identifies what must come back into alignment and requires you to begin correcting it. Discipline follows because that alignment needs structure and repetition. It puts the honest check, the realistic promise and the necessary correction into the ordinary day.',
+        'Integrity asks you to close the gap, not just recognize it. Discipline gives that correction a place in the day: check the facts, make a promise you can keep and correct the record when you are wrong. Then do it again.',
         'Discipline also needs Integrity. Repeating a dishonest method only makes the dishonesty more practiced. The purpose is not to become more efficient at protecting an image. It is to make truthful conduct reliable when convenience pulls the other way.',
         'Leave with a correction you can recognize in behavior: a false impression addressed, relevant information made accurate, a boundary respected and a different action repeated. Understanding that work is useful. Living it is what gives it weight.',
       ],
@@ -111,7 +111,7 @@ export const integrityContent = {
     hint: 'See where a message protects an image and what a real correction requires. No personal answer needed.',
   },
   availability: 'Discipline is next in the teaching order. Its full lesson is now available.',
-  card: 'The optional Standard Card records one intended behavior within the connected PERIOD Code. It is not evidence that you acted, proof of Integrity or completion of the Code.',
+  card: 'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if it helps you remember the correction. Then carry it out.',
   book: 'The book develops the origins of The PERIOD Code, its six values and their deliberate order. This free lesson offers a practical way to understand Integrity. You can use it without buying anything.',
   attribution:
     'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
@@ -119,7 +119,7 @@ export const integrityContent = {
     title: "When the record doesn't match.",
     lead: 'Read the claim. Examine the facts. Follow the correction into action.',
     intro:
-      'Riley and Maya are fictional volunteers. The facts stay the same as you examine three parts of one message. Nothing here asks you to disclose your own history or choose an answer about yourself.',
+      'Riley and Maya are fictional volunteers. Read three parts of the same message against the facts. Your own history can stay private; there is no answer to submit.',
     setup:
       'Riley coordinates a community workshop guide and says the team should share credit and give people information they can rely on. Maya writes the session descriptions. Riley finishes the layout during a demanding evening, then sends the team the message below before the workshop takes place.',
     original:
@@ -132,7 +132,7 @@ export const integrityContent = {
     challenge:
       "Maya's correction: I wrote the session text, and two room numbers still needed checking. Please correct what the team was told. Why I was away is still private.",
     reflection:
-      'Before opening a note, compare the sentence with the record. What is inaccurate? Who needs a correction? What can remain private? No written answer is needed.',
+      'Compare the sentence with what happened. What needs correcting, who needs to hear it, and what can stay private? Think it through before opening the note.',
     notes: [
       {
         id: 'credit',
@@ -145,7 +145,7 @@ export const integrityContent = {
         action:
           'Correct the credit with the same team that received the original claim, and put accurate attribution on the guide. Maya does not have to supply the correction for Riley.',
         limit:
-          'The correction cannot recover the earlier moment of recognition or require Maya to feel satisfied.',
+          'Maya missed the recognition she was due. Correcting the credit now cannot give that moment back or decide how she should feel.',
       },
       {
         id: 'check',
@@ -159,7 +159,7 @@ export const integrityContent = {
         action:
           'Tell the team which draft is affected, stop presenting it as final, verify the rooms with the organizer and send the corrected guide. Ask the team to replace the draft copies; do not claim every copy has been replaced without checking.',
         limit:
-          'There may be extra work and a delay. Confirmation and replacement have to happen; neither follows from an apology.',
+          'The rooms still need checking and the copies still need replacing. That may take time and extra work. The apology does neither job.',
       },
       {
         id: 'privacy',
@@ -173,7 +173,7 @@ export const integrityContent = {
         action:
           "Keep Maya's personal information out of the correction. Give the relevant work facts to the people affected. Do not forward her private message as proof or ask her to make the correction easier by explaining herself.",
         limit:
-          "A truthful boundary does not require Maya to approve Riley's behavior or continue the collaboration.",
+          "Maya can keep her personal information private and still object to Riley's conduct. She can also choose not to work together again.",
         replacement_label: 'A private assurance to Maya',
       },
     ],
@@ -186,34 +186,34 @@ export const integrityContent = {
       [
         'Apologize only in private',
         'You are right. I am sorry. Can we leave it between us?',
-        'This acknowledges something to Maya, but the team still has the misleading message and draft guides. In these facts, private acknowledgment is part of the responsibility, not the whole repair.',
+        'Maya has heard an apology. The team still has the false message and the draft guides. Keeping it between two people leaves the people using that information misled.',
       ],
       [
         'Correct the record and the work',
         'I gave the team an inaccurate account. I will correct it with them, address the guide and keep your private information out of it.',
-        'This identifies a responsible direction. The correction is still only promised until Riley does it. Maya can decline further discussion or collaboration.',
+        'This names the repair Riley needs to make. Now Riley has to send the correction and fix the guide. Maya remains free to end the discussion or the collaboration.',
       ],
     ],
     correction:
       "I need to correct my earlier message. Maya wrote the session descriptions; I arranged the layout. The two room numbers marked unconfirmed in Monday's draft were not checked, and I removed that note. Please do not use the current guide or the 20 printed draft copies. I will check those rooms with the organizer, send a corrected version and ask the team to replace the affected copies before using the guide.",
     correction_note:
-      "This is proposed wording, not a universal apology script. It reaches the team that received the inaccurate account, names Riley's conduct and preserves Maya's privacy. If Riley only drafts it, the team still has not received a correction.",
-    continuation_title: 'What Riley actually does in this fictional continuation',
+      "The correction reaches the people who received the false account, owns Riley's part and protects Maya's privacy. It is wording for this situation, not a script for every apology. While it stays in a draft, the team is still misled.",
+    continuation_title: 'What Riley does next',
     continuation: [
       "Riley sends the correction to the same team, restores Maya's credit on the guide and asks the organizer to confirm the two rooms. Riley tells the team not to use the earlier draft while the check is outstanding.",
-      'After the organizer replies, Riley sends the corrected guide and asks the team to replace the 20 draft copies. The example does not establish that every printed copy has been replaced; that still needs checking.',
+      'After the organizer replies, Riley sends the corrected guide and asks the team to replace the 20 draft copies. Riley still needs to check that every copy was replaced.',
       "The following week, Riley labels another uncertain entry as pending and credits Maya's existing text without being reminded. Maya has not said whether she wants to collaborate again.",
     ],
     evidence:
-      "These are actions established inside the fictional story: a correction sent, attribution restored, information checked and a later choice handled honestly. They provide bounded evidence of changed conduct. They do not erase the earlier message, establish Riley's permanent character or guarantee restored trust.",
+      'Riley sent the correction, restored the credit, checked the information and handled a later choice honestly. Those actions begin a different record. They do not erase the earlier message or decide when Maya should trust Riley.',
     closure:
       'The useful question is what changes beyond the message. Correct the relevant account, address the affected work, protect legitimate privacy and keep the next action honest. Their response remains theirs.',
     bridge:
       'Integrity requires truthful correction. Discipline gives that alignment repeated form. Its full lesson is now available.',
     comparison_intro:
-      'This comparison remains visible beneath the annotations. It examines three possible responses to the same record; it is not a set of answers to choose, and it does not branch the story.',
+      'Compare three responses to the same mistake. What would each one leave for Maya and the team to deal with? These are alternatives, not later events in the story.',
     limits:
-      'Maya may remain upset, decline further discussion or choose a different collaborator. The team may ask someone else to review future guides. These are possibilities, not simulated consequences the interface assigns. The example specifies no forgiveness, reconciliation, restored reputation or permanent change of identity. It also does not assert that every draft copy was replaced.',
+      "Maya may remain upset, end the conversation or choose another collaborator. The team may ask someone else to review future guides. Riley's correction gives nobody an obligation to forgive, restore the relationship or repair Riley's reputation. The 20 draft copies still need a replacement check. Judge the actions shown; a whole character cannot be settled by this account.",
   },
   navigation: {
     home_lead: empowermentNavigation.homeLead,

@@ -48,7 +48,7 @@ ${copy.moments
       moment,
     ) => `<section class="discipline-occasion" data-occasion="${moment.id}"><h3 id="occasion-${moment.id}" tabindex="-1">${escape(moment.title)}</h3>${p(moment.context)}
 <div class="discipline-actions"><section class="discipline-pattern">${h(copy.fixedLabel, 4)}${p(moment.reference)}</section>${copy.choices.map((choice) => `<section class="discipline-pattern">${h(choice.label, 4)}${p(moment[choice.id])}</section>`).join('')}</div>
-${h('What this establishes', 4)}${p(moment.interpretation)}${h('A responsible response', 4)}${p(moment.correction)}</section>`,
+${h('What the actions show', 4)}${p(moment.interpretation)}${h('A responsible response', 4)}${p(moment.correction)}</section>`,
   )
   .join('')}
 <section class="discipline-conclusion">${h(copy.conclusionTitle, 3)}${copy.conclusion.map(p).join('')}<p class="discipline-prompt">${escape(copy.transferPrompt)}</p>${link('#lesson', copy.backLink)}</section>

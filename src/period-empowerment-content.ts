@@ -6,17 +6,17 @@ export const empowermentContent = {
     deck: 'Use what you have built to help someone else become more capable.',
     intro: [
       'Your strength affects other people. It can make room for them to learn, decide and act. It can also crowd them out when being helpful becomes a reason to control the outcome.',
-      'Empowerment is the outward expression of The PERIOD Code. You bring the responsibility, direction, resilience, integrity and discipline you are practicing into how you support others. Their life does not become yours to run.',
+      'Empowerment is where the strength you build through the Code becomes useful to someone else. Bring responsibility, direction, resilience, honesty and discipline into the help you offer. Their life remains theirs to lead.',
     ],
     sections: [
       {
         id: 'strength-in-service',
         title: 'Put strength to use without placing yourself above people',
         paragraphs: [
-          'Discipline gives your values repeated expression. Empowerment asks what that developed capacity makes possible for someone beyond yourself. The movement is toward useful service: sharing a skill, making a responsibility more accessible, offering steady support or demonstrating an honest way to respond.',
+          'Discipline gives your values a record. Empowerment asks who that strength can help. Teach a skill. Make a task more accessible. Offer steady support. Show someone what an honest response looks like. Put what you have built to use.',
           'You may know a method that works. You may have rebuilt an area of your life that another person is struggling with. Neither gives you ownership of their choices. Your experience is something you can offer, with its limits, rather than a rule they must obey to deserve your respect.',
-          'Think of an experienced colleague helping someone lead a meeting for the first time. Explaining the agenda tool can make the work more accessible. Taking over every topic, every decision and the final message may produce an agenda while leaving the other person with less room to lead. A completed task and increased capability are related questions, but they are not the same question.',
-          'This is why Empowerment comes last in the teaching order. Influence needs the grounding of the earlier values. It is not a reward for reading five lessons or a declaration that your own work is finished.',
+          'An experienced colleague can explain the agenda tool and leave room for a new meeting leader to use it. Taking over the topics, decisions and final message may finish the agenda while taking the leadership away. Getting the task done and helping someone become more capable are not the same achievement.',
+          'Empowerment comes last because influence needs the grounding of the earlier values. Live what you offer. Keep correcting yourself while you help. Reading five lessons cannot do that work for you.',
         ],
       },
       {
@@ -25,9 +25,9 @@ export const empowermentContent = {
         paragraphs: [
           'Start by understanding what the person is trying to do and what is making it difficult. They may need an explanation, a practical tool, someone to share a task, time to recover, an accommodation or appropriate professional care. Asking what would help is more useful than assuming that the help you like giving is the help they need.',
           'Guidance can include showing a step and letting someone try it with support. Practical assistance can include doing a task they cannot currently do, or continuing to provide help they need over time. Where participation is possible, preserve a meaningful place for their preferences and decisions. Do not invent a task they must perform to earn necessary assistance.',
-          "The manuscript accepts treatment, medical care, counseling, community and other support. Receiving help does not automatically surrender ownership. A person who uses assistive technology, ongoing care or another person's practical assistance can still direct important parts of their life. Physical independence is not a measure of human worth.",
-          "The concern is help that unnecessarily displaces a person's available responsibility or makes the helper's approval a condition of having a voice. Repeated help is not enough evidence to call a relationship dependent. Examine what the arrangement permits, what the person actually needs and whose choices are being overridden.",
-          "Empowerment does not mean repeatedly covering for someone's avoidable decisions or responsibilities. Protecting a person from every ordinary consequence can remove an opportunity to exercise ownership where they have a real choice. Honest limits can leave responsibility with them without becoming punishment or humiliation. Necessary care, legitimate treatment, disability accommodations, medical assistance, emergency help and support required by genuine limitations must never be withheld to teach someone a lesson. Match support to real needs, preserve human dignity and respect the agency the person actually has.",
+          'Treatment, medical care, counseling and community can belong in a responsible life. So can assistive technology and ongoing practical help. Receiving that support does not hand your life away. How much you can do physically on your own does not decide your worth.',
+          "Look at what the help is doing. Does it support choices the person can make, or take those choices away? Does it make your approval the price of having a say? Repeated help alone does not answer those questions. The person's needs and the way you treat them do.",
+          'Do not keep covering avoidable choices while calling it help. Where a person can act, leave them responsibility and room to face the ordinary consequences. Hold an honest limit without punishment or humiliation. Never withhold necessary care, treatment, disability accommodations, medical or emergency help, or support required by genuine limits to teach someone a lesson. Give the help the need requires and respect the choices the person can make.',
           'If a family member is facing genuine hardship, groceries, transport or help with an urgent responsibility may be exactly what is needed. You do not have to leave the need unmet to teach a lesson. Support can create room for someone to participate when they are able.',
         ],
       },
@@ -39,7 +39,7 @@ export const empowermentContent = {
           'Suppose you offer to teach a colleague a document tool. They ask you to type while they dictate because the immediate need is to prepare the content. That can still preserve their ownership: they choose the content, check what is entered and decide what to send. Entering their words is different from making their decisions for them.',
           'They may instead want help from someone else, or may want time without your involvement. Respecting that choice is part of the work. Do not turn a refusal into an argument about how grateful they should be. Your concern does not entitle you to private information, repeated contact or an outcome you prefer.',
           'Shared responsibilities still need honest agreements. A person cannot quietly assign their work to you, and you cannot quietly assign your preferred plan to them. Clarify what each person has actually agreed to do, what remains undecided and when the arrangement needs another look.',
-          "When you have a real duty to act, be honest about that role and its limits. A supervisor's required decision or an urgent protective response is different from an optional personal offer. Do not disguise authority as a free choice, or use this lesson as a reason to withhold necessary care.",
+          "If your role requires you to act, say so. A supervisor's decision or an urgent protective response is not an optional offer. Be truthful about that authority and its limits. Respecting choice is never a reason to withhold necessary care.",
         ],
       },
       {
@@ -48,7 +48,7 @@ export const empowermentContent = {
         paragraphs: [
           'Good intentions do not make an unlimited promise sustainable. Be clear about the time, skill, money or involvement you can actually offer. A limit stated early gives the other person useful information. A promise you later resent can leave both of you with an arrangement neither can trust.',
           'A boundary describes your participation. You might help a family member organize accurate information while refusing to lie for them. You might explain a task during agreed work time while refusing to be permanently available at night. Those limits can protect both people without making affection or dignity conditional on obedience.',
-          'A boundary is not a guarantee that the other person will grow, agree or thank you. Nor is every withdrawal of help a healthy boundary. If someone relies on an existing care arrangement, suddenly removing necessary help to force independence can create harm. Address the actual responsibility and seek a workable transition or appropriate support where needed.',
+          'Your boundary does not decide how someone else will grow or respond. It also does not excuse abandoning care you are responsible for. If someone relies on necessary help, work through a safe transition or seek appropriate support. Do not withdraw that help to force independence.',
           'Truth should identify the conduct or problem clearly. Humiliation adds an attack to the information. Telling someone which part of a task still needs attention can help them act. Calling them useless does not make the correction more honest. Accountability should leave the person able to understand what needs changing without having to accept contempt.',
           'Check your own motives as well as the arrangement. Would you still consider the help worthwhile if you received no credit, the person chose another helper or they stopped needing your direction? If you overstep, acknowledge the specific intrusion and change your behavior. Do not make them reassure you before you respect their boundary.',
         ],
@@ -58,7 +58,7 @@ export const empowermentContent = {
         title: 'Let your conduct make the guidance credible',
         paragraphs: [
           'Advice has less weight when you demand a standard you keep exempting yourself from. If you ask for honest updates, give honest updates. If you ask people to respect limits, respect theirs. If you teach responsibility, acknowledge your own part when something goes wrong.',
-          'Credibility does not require a spotless history. You can admit a mistake, describe what you have learned and be clear about what you still do not know. A practiced skill can be useful even while other parts of your life need work. What undermines guidance is pretending to have certainty, authority or consistency you have not earned.',
+          'Credibility does not require a spotless past. Own your mistakes. Say what you have learned and what you still do not know. You can offer a skill you have practiced while other parts of your life still need work. Keep your claims no larger than the life behind them.',
           "Stay within the help you are able to give. Personal experience can inform a conversation without replacing someone else's treatment, professional judgment or knowledge of their own circumstances. Sometimes the useful contribution is helping someone reach more appropriate support, with their participation.",
           'Your example also includes how you receive correction. If the person says your help is taking over, listen to the facts instead of defending the label of being helpful. Correcting your conduct demonstrates the same Ownership and Integrity you hope to encourage. Helping others does not place you beyond the need to learn.',
         ],
@@ -67,7 +67,7 @@ export const empowermentContent = {
         id: 'whole-code',
         title: 'Bring the whole Code into the relationship',
         paragraphs: [
-          'The six values remain connected while you help. They are not six separate achievements that give you permission to move on. They govern the same exchange from different directions.',
+          "Bring the whole Code into the help you offer. The earlier values still govern your conduct when another person's life enters the picture.",
         ],
         connections: [
           {
@@ -103,9 +103,9 @@ export const empowermentContent = {
         id: 'return-to-life',
         title: 'Return to the next ordinary decision',
         paragraphs: [
-          'Reaching the sixth value changes what you have read. Living the Code changes what you do. There is no graduation from telling the truth, choosing a worthwhile direction, facing pressure responsibly, correcting a contradiction or keeping a sound agreement.',
+          'You have reached the sixth value. The next decision still asks you to live all six. Tell the truth, choose a worthwhile direction, face pressure, correct what is wrong and keep your word. Carry that standard into how you help.',
           'Consider the next ordinary moment when your conduct affects someone else. What help is actually wanted or needed? What can you honestly offer? Which choice belongs to them, and which commitment belongs to you? You can consider those questions privately. Nothing needs to be entered here.',
-          "Then make the responsible response available in that situation. It may be a useful explanation, practical assistance, a respectful limit, an apology for taking over or space after a declined offer. Do your part and remain willing to correct it. The other person's response and longer-term outcome remain uncertain.",
+          'Then do the part that belongs to you. Explain the step, provide the agreed help, hold the limit, apologize for taking over or give the space someone asked for. Their response is theirs. Your responsibility is to make your conduct match the help you claim to offer.',
           'The PERIOD Code is a connected standard for living. Keep returning to all six values as circumstances change. You do not need to manufacture an act of service in every moment, and you do not leave the earlier values behind when you help someone. The next decision is another place to practice.',
         ],
       },
@@ -118,7 +118,7 @@ export const empowermentContent = {
     returnLink: 'Revisit the six values',
     cardTitle: 'Keep one intention if it is useful',
     cardNote:
-      'The optional Standard Card records one intended behavior within the connected Code. It does not certify that you helped someone, lived all six values or completed the work.',
+      'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder if it helps. The support becomes real in how you treat the person.',
     cardLink: 'Create an optional Standard Card',
     bookTitle: 'Explore The PERIOD Code book',
     bookNote:
@@ -129,14 +129,14 @@ export const empowermentContent = {
     title: 'Leave room for a reply.',
     deck: 'A useful offer still belongs to two people.',
     intro:
-      'Mara and Dev are fictional coworkers. Explore three possible replies to the same offer. These are authored alternatives, not a prediction of how a real person will respond.',
+      'Mara and Dev are fictional coworkers. The same offer receives three possible replies. Follow what each reply changes in the agreement; real people still choose for themselves.',
     readingLink: 'Read all three replies together',
     lessonLink: 'Return to Empowerment',
     setupTitle: 'Dev wants help preparing an agenda',
     setup: [
       "Dev will lead tomorrow's routine team meeting. They know the topics they want to discuss, but the shared agenda tool is unfamiliar. Dev sometimes uses assistance with typing. That support may continue; choosing content and physically entering it are different responsibilities.",
       "Mara is an experienced coworker, not Dev's supervisor. Mara has offered time until 3:20 today and has another commitment afterward. There is no emergency, and another colleague, Jordan, knows Dev's usual input setup. Jordan's availability has not been confirmed.",
-      'The purpose is to help Dev prepare and lead with useful support. A finished document, learning the tool and doing every physical step alone are not interchangeable outcomes.',
+      'The purpose is to help Dev prepare and lead. Finishing the agenda, learning the tool and typing without help are different things. Keep the support aimed at what Dev needs.',
     ],
     request: {
       speaker: 'Dev asks',
@@ -147,7 +147,7 @@ export const empowermentContent = {
       text: "I can show you one step, then stay while you work on the draft until 3:20. You choose the topics and check what goes in. Would that help, or do you need a different kind of support? I can't continue after 3:20.",
     },
     offerNote:
-      "Mara has named an available contribution and a real limit. Dev has not agreed yet. The offer does not entitle Mara to choose the agenda, send it or arrange other help without Dev's agreement.",
+      'Mara has offered real help and named when it ends. Now Dev gets to answer. Until they agree, Mara has no permission to choose or send the agenda or arrange another helper.',
     controlLegend: "Explore Dev's possible reply",
     controlHint:
       'Change the fictional reply, not an answer about yourself. Each alternative begins from the same offer.',
@@ -175,9 +175,9 @@ export const empowermentContent = {
         action:
           'Mara demonstrates one sample item. Dev then creates and checks two real agenda items using their usual input support, asks a question and receives an explanation. At 3:20 they identify the unfinished items, and Mara leaves as agreed. The agenda has not been sent.',
         interpretation:
-          "The assistance gives Dev a usable method and room to act. Mara's restraint is useful because support is actually available and Dev has agreed to this approach. It does not require Dev to stop using other assistance.",
+          "Mara shows the step, answers the question and leaves Dev room to use it. That fits the help Dev accepted. Dev's usual input support remains available; learning the tool does not require giving that assistance up.",
         uncertainty:
-          'Two drafted items do not prove lasting confidence, future independence or a successful meeting. More work and possibly more help remain. Mara cannot guarantee the result.',
+          'Two items are drafted. The rest of the agenda, any further help and the meeting are still ahead. This is a useful start, not a promise that Dev will need no support or that the meeting will go well.',
         status: 'Showing Dev accepting the offer. The original offer and limits are unchanged.',
       },
       {
@@ -206,11 +206,11 @@ export const empowermentContent = {
         ],
         actionTitle: 'What happens in this fictional continuation',
         action:
-          'Dev dictates and reviews two items while Mara types. A third is still unfinished at 3:20. They identify that gap, and Mara stops at the agreed time. Dev says they will ask Jordan about further help. Jordan has not yet been asked, and no further arrangement is established.',
+          'Dev dictates and reviews two items while Mara types. A third is unfinished at 3:20. They name what remains, and Mara stops as agreed. Dev plans to ask Jordan for help. That conversation and agreement have not happened yet.',
         interpretation:
-          "Dev participates by directing and reviewing the work while Mara performs a practical task. The help respects Dev's stated need instead of making a lesson or unsupported independence the price of assistance. Mara also keeps an honest limit.",
+          'Dev directs and checks the work. Mara types and keeps the time limit they agreed. The assistance leaves Dev in charge of the content. Dev does not have to accept a lesson or give up ongoing help to deserve useful support.',
         uncertainty:
-          'The remaining support may take time to arrange or may be unavailable. That is an unresolved practical need, not evidence that Dev is unwilling or less worthy. No promise of permanent independence is made.',
+          "Dev still needs help with the unfinished work. It may take time to find, and Jordan may be unavailable. An unmet need is not a verdict on Dev's effort or worth. Ongoing assistance can remain part of the plan.",
         status:
           'Showing Dev asking for different help. The original offer and limits are unchanged.',
       },
@@ -238,24 +238,24 @@ export const empowermentContent = {
         ],
         actionTitle: 'What happens in this fictional continuation',
         action:
-          'Mara leaves the agenda alone and does not contact Jordan. The example does not show whether Dev later asks Jordan, completes the agenda or changes the meeting arrangements.',
+          'Mara leaves the agenda alone and does not contact Jordan. What Dev does next is not shown.',
         interpretation:
           "Mara's offer was reasonable. Dev's refusal still matters. Respecting it keeps a free offer from turning into pressure. Mara does not need evidence of a successful alternative before honoring this boundary.",
         uncertainty:
-          'A declined offer does not establish that Dev will succeed, fail or come back for help. Mara is responsible for the conduct described here, not for producing a favorable ending.',
+          "Dev's next step and the meeting's outcome remain unknown. Mara can respect the refusal without making Dev prove that another plan will succeed.",
         status: 'Showing Dev declining the offer. The original offer and limits are unchanged.',
       },
     ],
     alternativesTitle: 'Compare two other ways Mara could respond',
     alternativesIntro:
-      'These responses address the same original request. They are alternatives to the offer above, not extra events in the story and not options you must choose.',
+      "Compare two different responses to Dev's original request. Each changes the kind of help being offered. Neither is a later event in the conversation above.",
     alternatives: [
       {
         title: 'Take over the agenda',
         message:
           "I've done this for years. I'll choose the topics and send it. Just leave it with me.",
         effect:
-          "Mara might produce a usable document, but the offer overrides Dev's stated wish to choose the topics and lead. It takes decisions as well as work. A demonstration or agreed practical assistance could be useful; this response has not asked for that agreement.",
+          'Mara may finish a useful agenda, but Dev asked to choose the topics and lead. This takes those decisions away without agreement. Being quicker does not make the takeover helpful.',
         correction:
           'Mara can withdraw the assumption, ask which part of the tool needs support and agree on who decides and who does each part. Faster completion would not by itself justify taking control.',
       },
@@ -263,14 +263,14 @@ export const empowermentContent = {
         title: 'Withhold available guidance',
         message: "You're leading the meeting. If I help, you'll never learn. Work it out yourself.",
         effect:
-          "This treats assistance as incompatible with ownership even though Dev has named a real barrier. It offers neither explanation nor an honest account of Mara's limit. Under these facts, refusing useful support does not teach a method or make the task more accessible.",
+          "Dev has asked for help with a real barrier. This response leaves the barrier in place and calls that teaching. It gives no explanation and names no actual limit on Mara's ability to help.",
         correction:
           'Mara can offer the available help honestly or state a real inability to help. A person may decline an optional request; they should not claim that unmet support needs prove someone is learning responsibility.',
       },
     ],
-    closeTitle: 'The agreement can change. Their agency remains.',
+    closeTitle: 'The help can change. Their choices remain theirs.',
     close: [
-      "The same offer can lead to guided practice, practical assistance or no agreed involvement. None entitles Mara to control Dev's choices. The appropriate support follows the actual need, the person's reply and the limits both people can honestly hold.",
+      "Dev can accept the demonstration, ask for typing help or decline Mara's involvement. Listen to that answer. Agree on support that fits the need and the limits both people can honestly keep. A useful offer never makes the other person's choices yours.",
       "Notice the whole Code in the exchange: Ownership of each person's part; Purpose in helping Dev prepare and lead; Resilience in adapting the method; Integrity in honest limits; Discipline in carrying out the agreement; and Empowerment in making room for supported participation.",
       'In your next ordinary offer of help, consider what the other person has actually agreed to. Then do your part, respect their answer and correct your conduct if you overstep. No personal response needs to be entered here.',
     ],
