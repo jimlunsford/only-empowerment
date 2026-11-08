@@ -1,3 +1,4 @@
+import { NativeSelect } from './components/NativeSelect';
 import { Fragment } from 'preact';
 import { LessonTransition } from './LessonTransition';
 import { LessonTitle } from './LessonTitle';
@@ -246,7 +247,7 @@ function PressureWorkspace() {
     <>
       <div class="resilience-control">
         <label htmlFor="resilience-pressure">{copy.selectorLabel}</label>
-        <select
+        <NativeSelect
           id="resilience-pressure"
           value={note.id}
           aria-describedby="resilience-pressure-help"
@@ -264,7 +265,7 @@ function PressureWorkspace() {
               {item.name}
             </option>
           ))}
-        </select>
+        </NativeSelect>
         <p class="small" id="resilience-pressure-help">
           {ui.selectorHelp}
         </p>
