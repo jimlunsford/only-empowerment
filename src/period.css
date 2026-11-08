@@ -1578,6 +1578,7 @@
    The enhanced application retains its Source Serif / Source Sans typography. */
 #educational-fallback {
   font-family: Arial, sans-serif;
+  overflow-wrap: anywhere;
 }
 #educational-fallback :where(*) {
   font-family: inherit;

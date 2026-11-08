@@ -33,11 +33,11 @@
   },
   "src/period.css": {
     "beforeSha256": "c510f60de8e4345c7656e82e3181f171c4ffcd7fe9a3d13c446ec5e79d24ca1f",
-    "afterSha256": "97cf96ac2bd2db21340ab5dd4481786bd1230f8c0bb9799dc6db10e56becaa47",
+    "afterSha256": "647ee427e4c155249814a6c5cd8b32a14a0066ac0505d18fa2f2352d02a3cc34",
     "edits": [
       {
         "before": "#educational-fallback .period-reading p {\n  margin-top: 16px;\n}\n@media (max-width: 1000px) {\n  .period-shell .intro-hero {\n    column-gap: 36px;\n",
-        "after": "#educational-fallback .period-reading p {\n  margin-top: 16px;\n}\n/* Native fragment restoration must not depend on a later web-font layout.\n   Keep the script-independent root reading on immediately available fonts.\n   The enhanced application retains its Source Serif / Source Sans typography. */\n#educational-fallback {\n  font-family: Arial, sans-serif;\n}\n#educational-fallback :where(*) {\n  font-family: inherit;\n}\n#educational-fallback\n  :is(h1, h2, blockquote, .home-question, .path-name, .path a, .transition-path b) {\n  font-family: Georgia, serif;\n}\n@media (max-width: 1000px) {\n  .period-shell .intro-hero {\n    column-gap: 36px;\n"
+        "after": "#educational-fallback .period-reading p {\n  margin-top: 16px;\n}\n/* Native fragment restoration must not depend on a later web-font layout.\n   Keep the script-independent root reading on immediately available fonts.\n   The enhanced application retains its Source Serif / Source Sans typography. */\n#educational-fallback {\n  font-family: Arial, sans-serif;\n  overflow-wrap: anywhere;\n}\n#educational-fallback :where(*) {\n  font-family: inherit;\n}\n#educational-fallback\n  :is(h1, h2, blockquote, .home-question, .path-name, .path a, .transition-path b) {\n  font-family: Georgia, serif;\n}\n@media (max-width: 1000px) {\n  .period-shell .intro-hero {\n    column-gap: 36px;\n"
       }
     ]
   },
