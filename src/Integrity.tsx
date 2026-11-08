@@ -1,3 +1,4 @@
+import { LessonTransition } from './LessonTransition';
 import { LessonTitle } from './LessonTitle';
 import { LessonParagraphs } from './LessonParagraphs';
 import { PeriodSequence } from './PeriodLearning';
@@ -44,45 +45,41 @@ export function IntegrityLesson({ openCard }: { openCard: () => void }) {
         <IntegrityNavigation />
       </div>
       <article class="integrity-lesson lesson-copy" aria-label="Integrity lesson">
-        {content.lesson.map((section) => (
-          <section
-            id={`integrity-${section.id}`}
-            key={section.id}
-            class={
-              section.id === 'L02'
-                ? 'integrity-evidence'
-                : section.id === 'L04'
-                  ? 'integrity-correction'
-                  : undefined
-            }
-          >
-            <h2>{section.heading}</h2>
-            <LessonParagraphs
-              texts={section.paragraphs}
-              treatment={
+        {content.lesson
+          .filter((section) => section.id !== 'L10')
+          .map((section) => (
+            <section
+              id={`integrity-${section.id}`}
+              key={section.id}
+              class={
                 section.id === 'L02'
                   ? 'integrity-evidence'
                   : section.id === 'L04'
                     ? 'integrity-correction'
                     : undefined
               }
-            />
-            {section.id === content.activity_invitation.after && (
-              <div class="integrity-invitation">
-                <a class="button primary" href="#/period/integrity/record">
-                  {content.activity_invitation.label}
-                </a>
-                <p class="small">{content.activity_invitation.hint}</p>
-              </div>
-            )}
-            {section.id === 'L10' && (
-              <p class="small">
-                <strong>{content.availability}</strong>{' '}
-                <a href="#/period/values/discipline">Continue to Discipline</a>
-              </p>
-            )}
-          </section>
-        ))}
+            >
+              <h2>{section.heading}</h2>
+              <LessonParagraphs
+                texts={section.paragraphs}
+                treatment={
+                  section.id === 'L02'
+                    ? 'integrity-evidence'
+                    : section.id === 'L04'
+                      ? 'integrity-correction'
+                      : undefined
+                }
+              />
+              {section.id === content.activity_invitation.after && (
+                <div class="integrity-invitation">
+                  <a class="button primary" href="#/period/integrity/record">
+                    {content.activity_invitation.label}
+                  </a>
+                  <p class="small">{content.activity_invitation.hint}</p>
+                </div>
+              )}
+            </section>
+          ))}
         <section class="integrity-reminder">
           <h2>A reminder is optional</h2>
           <p>{content.card}</p>
@@ -102,9 +99,9 @@ export function IntegrityLesson({ openCard }: { openCard: () => void }) {
             >
               Write an optional Standard Card
             </a>
-            <a href="#/period/values/resilience">Return to Resilience</a>
           </div>
         </section>
+        <LessonTransition value="integrity" />
         <section>
           <h2>Explore the complete PERIOD Code</h2>
           <p>{content.book}</p>

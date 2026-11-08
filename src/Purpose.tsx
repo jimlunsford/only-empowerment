@@ -1,3 +1,4 @@
+import { LessonTransition } from './LessonTransition';
 import { LessonTitle } from './LessonTitle';
 import { LessonParagraphs } from './LessonParagraphs';
 import { useState } from 'preact/hooks';
@@ -8,7 +9,6 @@ import {
   purposeLesson,
   purposeRelationships,
   purposeConnected,
-  purposeBridge,
   purposeCardNote,
   purposeBook,
   purposeCopy as copy,
@@ -86,17 +86,6 @@ export function PurposeLesson({ openCard }: { openCard: () => void }) {
             ))}
           </ol>
         </section>
-        <section class="purpose-pressure">
-          <h2>Direction will meet pressure</h2>
-          {purposeBridge.slice(0, 2).map((text) => (
-            <p key={text}>{text}</p>
-          ))}
-          <p class="small">
-            <strong>{purposeBridge[2]}</strong>
-          </p>
-          <a href="#/period/values/resilience">Continue to Resilience</a>
-          <a href="#/period/values/ownership">Return to Ownership</a>
-        </section>
         <section class="purpose-reminder">
           <h2>A reminder is optional</h2>
           <p>{purposeCardNote}</p>
@@ -116,6 +105,7 @@ export function PurposeLesson({ openCard }: { openCard: () => void }) {
             Write an optional Standard Card
           </a>
         </section>
+        <LessonTransition value="purpose" />
         <section class="purpose-book no-print">
           <h2>{purposeBook.heading}</h2>
           <p>{purposeBook.description}</p>

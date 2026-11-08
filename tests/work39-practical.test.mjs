@@ -1,3 +1,4 @@
+import { beforeWork42Source } from './work42-copy-helpers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -93,7 +94,7 @@ test('exactly 21 Work 38 A records and seven named Work 35 supersessions', () =>
 
 for (const [path, digest] of Object.entries(approved.baselineFiles)) {
   test(`Work 39 reverses only approved changes to exact Work 37 source: ${path}`, () => {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeWork42Source(readFileSync(path, 'utf8'), path);
     for (const r of approved.excluded) assert.ok(!source.includes(r.proposed), r.id);
     assert.equal(
       createHash('sha256').update(beforeWork39Source(source, path)).digest('hex'),

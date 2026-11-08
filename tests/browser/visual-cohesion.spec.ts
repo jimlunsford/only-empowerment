@@ -21,7 +21,13 @@ const paragraphs: Record<string, readonly string[]> = {
     ownership.connection,
   ],
   purpose: purposeLesson.flatMap((s) => s.paragraphs),
-  resilience: resilienceContent.lesson.flatMap((s) => s.paragraphs),
+  // Work 42 moves only the existing L10 bridge after the optional L11 Card note.
+  resilience: [
+    ...resilienceContent.lesson.slice(0, 9),
+    resilienceContent.lesson[10],
+    resilienceContent.lesson[9],
+    resilienceContent.lesson[11],
+  ].flatMap((s) => s.paragraphs),
   integrity: integrityContent.lesson.flatMap((s) => s.paragraphs),
   discipline: [
     ...disciplineContent.lesson.intro,
@@ -34,7 +40,7 @@ const paragraphs: Record<string, readonly string[]> = {
 };
 const treatments: Record<string, string[]> = {
   ownership: ['.ownership-example', '.guardrail', '.transition'],
-  purpose: ['.purpose-contrast', '.purpose-connections', '.purpose-pressure'],
+  purpose: ['.purpose-contrast', '.purpose-connections', '.lesson-transition'],
   resilience: ['.resilience-standard', '.resilience-support'],
   integrity: ['.integrity-evidence', '.integrity-correction'],
   discipline: [

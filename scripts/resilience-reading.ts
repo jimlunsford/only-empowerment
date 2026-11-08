@@ -1,3 +1,4 @@
+import { readingTransition } from './lesson-transition.ts';
 import { staticFooter } from './site-footer.ts';
 import type { FooterBuild } from '../src/site-footer-content.ts';
 import { resilienceContent as content } from '../src/period-resilience-content.ts';
@@ -29,13 +30,13 @@ export function resilienceReading(staging = true, metadata?: FooterBuild) {
 <header class="resilience-heading"><p class="position">3 of 6 in the teaching order</p>${h(content.title, 1)}<p class="lead">${escape(content.lead)}</p></header>
 <article class="resilience-lesson" id="resilience-lesson" aria-label="Resilience lesson">
 ${content.lesson
+  .filter((section) => section.id !== 'L10')
   .map(
     (
       section,
-    ) => `<section id="resilience-${section.id}">${h(section.heading)}${section.paragraphs.map(p).join('')}
+    ) => `${section.id === 'L12' ? readingTransition('resilience') : ''}<section id="resilience-${section.id}">${h(section.heading)}${section.paragraphs.map(p).join('')}
 ${section.id === 'L08' ? link('#pressure-notes', section.cta) + p(section.hint) : ''}
 ${section.id === 'L09' ? `<ol class="resilience-connections">${content.values.map(([name, text]) => `<li>${h(name, 3)}${p(text)}</li>`).join('')}</ol>` : ''}
-${section.id === 'L10' ? p(integrityContent.navigation.resilience_bridge) + link('/read/integrity.html', 'Continue to Integrity') : ''}
 ${section.id === 'L11' ? link('/#/period/standard', section.cta + ' (requires JavaScript)') : ''}
 ${section.id === 'L12' ? link(periodBook.url, section.cta) : ''}</section>`,
   )

@@ -1,3 +1,4 @@
+import { beforeWork42Source } from './work42-copy-helpers.mjs';
 import { beforeWork39Source, supersessions } from './work39-copy-helpers.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -35,7 +36,10 @@ test('Work 35 has exactly the 177 approved records, the founder O01 override and
 
 for (const [path, baselineDigest] of Object.entries(fixture.baselineFiles)) {
   test(`Work 35 exact approved fields and all unlisted source preserved: ${path}`, async () => {
-    let source = beforeWork37Source(beforeWork39Source(readFileSync(path, 'utf8'), path), path);
+    let source = beforeWork37Source(
+      beforeWork39Source(beforeWork42Source(readFileSync(path, 'utf8'), path), path),
+      path,
+    );
     if (path === 'scripts/purpose-fallback.ts') {
       assert.equal(
         source.split('${p(copy.readingLead)}').length,

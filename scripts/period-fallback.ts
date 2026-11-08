@@ -1,3 +1,4 @@
+import { readingTransition } from './lesson-transition.ts';
 import {
   periodValues,
   ownershipFoundation as foundation,
@@ -8,7 +9,6 @@ import {
 import { periodPresentation } from '../src/period-presentation.ts';
 import { practiceFallback } from './practice-fallback.ts';
 import { purposeFallback } from './purpose-fallback.ts';
-import { purposeOwnershipHandoff } from '../src/period-purpose-content.ts';
 import { homepageFallback } from './homepage-fallback.ts';
 // Build-time, fixed editorial content only. Never receives a private draft.
 const escape = (text: string) =>
@@ -35,8 +35,7 @@ export function periodFallback() {
     ${section(foundation.connected)}
     <section class="lesson-practice"><h3>Put Ownership into an ordinary moment</h3>${p(periodPresentation.practiceInvitation)}${p(foundation.practiceBridge)}
     <div class="actions"><a href="#reading-ownership-practice">Practice Ownership</a> <a href="#why-period">Return to Why PERIOD?</a></div>${p('No written answer or Standard Card is required.')}</section>
-    <h3>${escape(lesson.connectionHeading)}</h3>${p(lesson.connection)}
-    ${p(purposeOwnershipHandoff)}<a href="#reading-purpose">Continue to Purpose</a>
+    ${readingTransition('ownership', 3)}
     ${practiceFallback()}
     ${purposeFallback()}
     <section class="standard-paper-reading"><h2 id="reading-standard-card" tabindex="-1">${escape(exercise.title)}</h2>${p(exercise.lead)}${p(exercise.teaching)}${p(exercise.guardrail)}

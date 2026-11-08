@@ -1,7 +1,6 @@
 import { LegacyDataRemoval } from './LegacyDataRemoval';
 import { SiteNotices } from './SiteNotices';
 import { SourceNotice } from './SourceNotice';
-import { LessonProgression } from './LessonProgression';
 import { render } from 'preact';
 import { useState } from 'preact/hooks';
 import { useRoute } from './use-route';
@@ -26,6 +25,7 @@ import './period-empowerment.css';
 import './navigation.css';
 import './period-homepage.css';
 import './period-lessons.css';
+import './lesson-transitions.css';
 import './site-footer.css';
 import { EmpowermentLesson, EmpowermentConversation } from './Empowerment';
 import { DisciplineLesson, DisciplinePattern } from './Discipline';
@@ -278,7 +278,6 @@ function App() {
         }}
       >
         {content}
-        <LessonProgression path={path} />
         {bookExit && (
           <ConfirmDialog
             title="Before you leave"

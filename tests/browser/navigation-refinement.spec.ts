@@ -14,18 +14,26 @@ const labels = [
 ];
 const targets = [...values.slice(1).map((v) => '#/period/values/' + v), '#/period/teaching-order'];
 for (const [index, value] of values.entries()) {
-  test(`${value} document-end progression supports direct entry, keyboard, Back, Forward and reload`, async ({
+  test(`${value} lesson transition supports direct entry, keyboard, Back, Forward and reload`, async ({
     page,
   }, info) => {
     await page.goto('/#/period/values/' + value);
     const navigation = page.getByRole('navigation', { name: 'Lesson progression' });
-    const link = navigation.getByRole('link');
-    await expect(link).toHaveText(labels[index] + ' →');
+    const link = navigation.getByRole('link', { name: labels[index], exact: true });
+    await expect(link).toHaveText(labels[index]);
     await expect(link).toHaveAttribute('href', targets[index]);
     expect(await navigation.evaluate((el) => el.parentElement?.lastElementChild === el)).toBe(true);
-    const lesson = await page.locator('.value-lesson').boundingBox();
-    const end = await navigation.boundingBox();
-    expect(end!.y).toBeGreaterThanOrEqual(lesson!.y + lesson!.height);
+    await expect(page.locator('.value-lesson .lesson-transition')).toHaveCount(1);
+    await expect(page.locator('main > .lesson-progression')).toHaveCount(0);
+    expect(
+      await navigation.evaluate((el) => {
+        const section = el.closest('.lesson-transition')!;
+        const sections = [...section.parentElement!.children].filter(
+          (child) => child.tagName === 'SECTION',
+        );
+        return sections.indexOf(section) >= sections.length - 2;
+      }),
+    ).toBe(true);
     await link.scrollIntoViewIfNeeded();
     await link.focus();
     const y = await page.evaluate(() => scrollY);
@@ -63,7 +71,7 @@ for (const [index, value] of values.entries()) {
           focus: true,
           history: true,
           reload: true,
-          atDocumentEnd: true,
+          atLessonEnd: true,
         },
         null,
         2,
@@ -92,7 +100,9 @@ for (const width of [1440, 390, 320])
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
         true,
       );
-      const next = page.getByRole('navigation', { name: 'Lesson progression' }).getByRole('link');
+      const next = page
+        .getByRole('navigation', { name: 'Lesson progression' })
+        .locator('.transition-next');
       await next.scrollIntoViewIfNeeded();
       const box = (await next.boundingBox())!;
       expect(box.x).toBeGreaterThanOrEqual(0);
@@ -160,7 +170,7 @@ test('end navigation and footer retain focus, contrast, enlarged text and access
     );
     await page.emulateMedia({ forcedColors: 'active' });
     for (const link of [
-      page.getByRole('navigation', { name: 'Lesson progression' }).getByRole('link'),
+      page.getByRole('navigation', { name: 'Lesson progression' }).locator('.transition-next'),
       page.getByRole('navigation', { name: 'Your practice' }).getByRole('link'),
     ]) {
       await link.focus();

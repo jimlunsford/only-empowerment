@@ -22,19 +22,43 @@ const metadata = {
   presentation,
 };
 const resilienceStyles = () =>
-  ['src/style.css', 'src/period.css', 'src/period-resilience.css', 'src/site-footer.css']
+  [
+    'src/style.css',
+    'src/period.css',
+    'src/period-resilience.css',
+    'src/site-footer.css',
+    'src/lesson-transitions.css',
+  ]
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const integrityStyles = () =>
-  ['src/style.css', 'src/period.css', 'src/period-integrity.css', 'src/site-footer.css']
+  [
+    'src/style.css',
+    'src/period.css',
+    'src/period-integrity.css',
+    'src/site-footer.css',
+    'src/lesson-transitions.css',
+  ]
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const empowermentStyles = () =>
-  ['src/style.css', 'src/period.css', 'src/period-empowerment.css', 'src/site-footer.css']
+  [
+    'src/style.css',
+    'src/period.css',
+    'src/period-empowerment.css',
+    'src/site-footer.css',
+    'src/lesson-transitions.css',
+  ]
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const disciplineStyles = () =>
-  ['src/style.css', 'src/period.css', 'src/period-discipline.css', 'src/site-footer.css']
+  [
+    'src/style.css',
+    'src/period.css',
+    'src/period-discipline.css',
+    'src/site-footer.css',
+    'src/lesson-transitions.css',
+  ]
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 export default defineConfig({

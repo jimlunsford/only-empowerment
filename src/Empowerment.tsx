@@ -1,3 +1,5 @@
+import { LessonTransition } from './LessonTransition';
+import { lessonBridges } from './period-lesson-transitions';
 import { LessonTitle } from './LessonTitle';
 import { LessonParagraphs } from './LessonParagraphs';
 import { useState } from 'preact/hooks';
@@ -146,6 +148,8 @@ function CompletePrintReading() {
       <p>{lesson.practiceDescription}</p>
       <h2>{lesson.cardTitle}</h2>
       <p>{lesson.cardNote}</p>
+      <h2>{lessonBridges.empowerment.heading}</h2>
+      <Paragraphs texts={lessonBridges.empowerment.paragraphs} />
       <h2>{lesson.bookTitle}</h2>
       <p>{lesson.bookNote}</p>
       <h2 class="empowerment-print-title">{copy.title}</h2>
@@ -195,7 +199,6 @@ export function EmpowermentLesson({ openCard }: { openCard: () => void }) {
             <p>{lesson.practiceDescription}</p>
             <div class="empowerment-links">
               <a href="#/period/empowerment/conversation">{lesson.practiceLink}</a>
-              <a href="#/period/teaching-order">{lesson.returnLink}</a>
             </div>
           </section>
           <section>
@@ -218,6 +221,7 @@ export function EmpowermentLesson({ openCard }: { openCard: () => void }) {
               {lesson.cardLink}
             </a>
           </section>
+          <LessonTransition value="empowerment" />
           <section>
             <h2>{lesson.bookTitle}</h2>
             <p>{lesson.bookNote}</p>

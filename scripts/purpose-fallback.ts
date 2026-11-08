@@ -1,8 +1,8 @@
+import { readingTransition } from './lesson-transition.ts';
 import {
   purposeLesson,
   purposeRelationships,
   purposeConnected,
-  purposeBridge,
   purposeCardNote,
   purposeCopy as copy,
   purposeDirections,
@@ -24,12 +24,12 @@ export function purposeFallback() {
   const h = (text: string, level = 3) => `<h${level}>${escape(text)}</h${level}>`;
   return `<section aria-label="Purpose linear reading" id="reading-purpose">
     ${h('Purpose.', 2)}${p('2 of 6 in the teaching order')}${p('Give responsibility a direction.')}
-    <nav aria-label="Purpose reading links"><a href="#reading-ownership">Return to Ownership</a> · <a href="#reading-purpose-evening">Explore one evening</a></nav>
+    <nav aria-label="Purpose reading links"><a href="#reading-purpose-evening">Explore one evening</a></nav>
     ${purposeLesson.map((part) => h(part.heading) + part.paragraphs.map(p).join('')).join('')}
     ${h('Purpose belongs to the whole Code')}${p(purposeConnected)}
     <ol>${purposeRelationships.map((item) => `<li>${h(item.value, 4)}${p(item.connection)}</li>`).join('')}</ol>
-    ${h('Direction will meet pressure')}${purposeBridge.map(p).join('')}<a href="/read/resilience.html">Continue to Resilience</a>
     ${h('A reminder is optional')}${p(purposeCardNote)}
+    ${readingTransition('purpose', 3)}
     ${h(purposeBook.heading)}${p(purposeBook.description)}<a href="${periodBook.url}" rel="noreferrer">${escape(purposeBook.label)}</a>
   </section>
   <section aria-label="Purpose evening linear reading" id="reading-purpose-evening">

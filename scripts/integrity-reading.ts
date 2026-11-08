@@ -1,3 +1,4 @@
+import { readingTransition } from './lesson-transition.ts';
 import { staticFooter } from './site-footer.ts';
 import type { FooterBuild } from '../src/site-footer-content.ts';
 import { integrityContent as content } from '../src/period-integrity-content.ts';
@@ -29,8 +30,15 @@ export function integrityReading(staging = true, metadata?: FooterBuild) {
 <nav aria-label="Contents">${link('#lesson', 'Read Integrity')}${link('#record', 'Read the fictional record')}${link('#annotations', 'Read all three annotations')}${link('#comparison', 'Compare responses')}${link('#correction', 'Read the correction')}${link('#continuation', 'Read what actually happens')}</nav>
 ${p(content.navigation.availability)}
 <article id="lesson" class="integrity-lesson" aria-label="Integrity lesson">
-${content.lesson.map((section) => `<section id="integrity-${section.id}">${h(section.heading)}${section.paragraphs.map(p).join('')}${section.id === content.activity_invitation.after ? link('#record', content.activity_invitation.label) + p(content.activity_invitation.hint) : ''}${section.id === 'L10' ? p(content.availability) + link('/read/discipline.html', 'Continue to Discipline') : ''}</section>`).join('')}
-<section class="integrity-reminder">${h('A reminder is optional')}${p(content.card)}${link('/#/period/standard', 'Write an optional Standard Card (requires JavaScript)')} ${link('/read/resilience.html', 'Return to Resilience')}</section>
+${content.lesson
+  .filter((section) => section.id !== 'L10')
+  .map(
+    (section) =>
+      `<section id="integrity-${section.id}">${h(section.heading)}${section.paragraphs.map(p).join('')}${section.id === content.activity_invitation.after ? link('#record', content.activity_invitation.label) + p(content.activity_invitation.hint) : ''}</section>`,
+  )
+  .join('')}
+<section class="integrity-reminder">${h('A reminder is optional')}${p(content.card)}${link('/#/period/standard', 'Write an optional Standard Card (requires JavaScript)')}</section>
+${readingTransition('integrity')}
 <section>${h('Explore the complete PERIOD Code')}${p(content.book)}${link(periodBook.url, "Explore the book on Jim's website")}</section>${top()}</article>
 <article id="record" class="integrity-record" aria-label="Riley and Maya's fictional record">
 ${h(copy.title)}<p class="lead">${escape(copy.lead)}</p>${p(copy.intro)}

@@ -1,3 +1,4 @@
+import { LessonTransition } from './LessonTransition';
 import { LessonTitle } from './LessonTitle';
 import { LessonParagraphs } from './LessonParagraphs';
 import { useState } from 'preact/hooks';
@@ -97,13 +98,7 @@ export function DisciplineLesson({ openCard }: { openCard: () => void }) {
             {lesson.cardLink}
           </a>
         </section>
-        <section>
-          <h2>{lesson.nextTitle}</h2>
-          <p>{lesson.nextDescription}</p>
-          <a class="discipline-text-link no-print" href="#/period/values/empowerment">
-            {lesson.nextLink}
-          </a>
-        </section>
+        <LessonTransition value="discipline" />
         <section>
           <p>{lesson.bookDescription}</p>
           <a class="discipline-text-link no-print" href={periodBook.url} rel="noreferrer">

@@ -1,3 +1,4 @@
+import { LessonTransition } from './LessonTransition';
 import { PeriodHomepage } from './PeriodHomepage';
 import { LessonTitle } from './LessonTitle';
 import {
@@ -8,7 +9,6 @@ import {
 } from './period-content';
 import { periodPresentation as presentation } from './period-presentation';
 import { PageIntro } from './components/shared';
-import { purposeOwnershipHandoff } from './period-purpose-content';
 import { empowermentAvailability } from './period-empowerment-content';
 export function PeriodAttribution() {
   return <p class="source-note">{periodExercise.source}</p>;
@@ -187,25 +187,7 @@ export function PeriodOwnership() {
             </div>
             <p class="small">No written answer or Standard Card is required.</p>
           </section>
-          <section class="transition">
-            <div class="transition-path">
-              <span>
-                01 Ownership
-                <br />
-                <b>Responsibility</b>
-              </span>
-              <span aria-hidden="true">→</span>
-              <span>
-                02 Purpose
-                <br />
-                <b>Direction</b>
-              </span>
-            </div>
-            <h2>{lesson.connectionHeading}</h2>
-            <p>{lesson.connection}</p>
-            <p>{purposeOwnershipHandoff}</p>
-            <a href="#/period/values/purpose">Continue to Purpose</a>
-          </section>
+          <LessonTransition value="ownership" />
         </article>
       </div>
       <PeriodBook />
