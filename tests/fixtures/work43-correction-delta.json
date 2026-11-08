@@ -1,0 +1,54 @@
+{
+  "package.json": {
+    "beforeSha256": "37dd62433e2dfdece0ef1d3f09ac0beb7623bea536bcd0ca60d15c25775eb13e",
+    "afterSha256": "4ad0b5d95c73169558978cf8345097642c4f449f87a3a3be0dd6f6249f22972f",
+    "edits": [
+      {
+        "before": "  },\n  \"devDependencies\": {\n    \"@axe-core/playwright\": \"4.13.0\",\n    \"@playwright/test\": \"1.63.0\",\n    \"@types/node\": \"22.20.3\",\n    \"prettier\": \"3.9.7\",\n    \"typescript\": \"7.0.2\",\n",
+        "after": "  },\n  \"devDependencies\": {\n    \"@axe-core/playwright\": \"4.13.0\",\n    \"@playwright/test\": \"1.64.1\",\n    \"@types/node\": \"22.20.3\",\n    \"prettier\": \"3.9.7\",\n    \"typescript\": \"7.0.2\",\n"
+      }
+    ]
+  },
+  "package-lock.json": {
+    "beforeSha256": "6f34f8cacc841235b9aca4279954a48df5db95ff8d592710cb25c5cef4cd81a5",
+    "afterSha256": "9fe5614b508c02bb88b3f2c695718c7534d5b11167d80f89ec50ca47967c2ead",
+    "edits": [
+      {
+        "before": "      },\n      \"devDependencies\": {\n        \"@axe-core/playwright\": \"4.13.0\",\n        \"@playwright/test\": \"1.63.0\",\n        \"@types/node\": \"22.20.3\",\n        \"prettier\": \"3.9.7\",\n        \"typescript\": \"7.0.2\",\n",
+        "after": "      },\n      \"devDependencies\": {\n        \"@axe-core/playwright\": \"4.13.0\",\n        \"@playwright/test\": \"1.64.1\",\n        \"@types/node\": \"22.20.3\",\n        \"prettier\": \"3.9.7\",\n        \"typescript\": \"7.0.2\",\n"
+      },
+      {
+        "before": "      }\n    },\n    \"node_modules/@playwright/test\": {\n      \"version\": \"1.63.0\",\n      \"resolved\": \"https://registry.npmjs.org/@playwright/test/-/test-1.63.0.tgz\",\n      \"integrity\": \"sha512-oxMK4vllB9RK5NQ2l1pq1IfOf2AvnEuj/vYGDj0H2nMtmtZpKtCwt/l00GEO6xjGfpBNAvjovvYdCm50dRQkpQ==\",\n      \"dev\": true,\n      \"license\": \"Apache-2.0\",\n      \"dependencies\": {\n        \"playwright\": \"1.63.0\"\n      },\n      \"bin\": {\n        \"playwright\": \"cli.js\"\n",
+        "after": "      }\n    },\n    \"node_modules/@playwright/test\": {\n      \"version\": \"1.64.1\",\n      \"resolved\": \"https://registry.npmjs.org/@playwright/test/-/test-1.64.1.tgz\",\n      \"integrity\": \"sha512-IaYGml/nSOiZWROfPtuIL7neuu9qDOZ3TNvNljUIrhDMxiGTgPjzj/g9p9RxpS2tSepPDRY+UwAaEeiKtUvIAg==\",\n      \"dev\": true,\n      \"license\": \"Apache-2.0\",\n      \"dependencies\": {\n        \"playwright\": \"1.64.1\"\n      },\n      \"bin\": {\n        \"playwright\": \"cli.js\"\n"
+      },
+      {
+        "before": "      }\n    },\n    \"node_modules/playwright\": {\n      \"version\": \"1.63.0\",\n      \"resolved\": \"https://registry.npmjs.org/playwright/-/playwright-1.63.0.tgz\",\n      \"integrity\": \"sha512-+7ziBLidS4NaNCdt57SUDT+wYmmd5fmiQejUic/kb+YsYSCPyOOE9sebzMjNmQrsnNpDJqd4WHvV/8lfKfUDUg==\",\n      \"dev\": true,\n      \"license\": \"Apache-2.0\",\n      \"dependencies\": {\n        \"playwright-core\": \"1.63.0\"\n      },\n      \"bin\": {\n        \"playwright\": \"cli.js\"\n",
+        "after": "      }\n    },\n    \"node_modules/playwright\": {\n      \"version\": \"1.64.1\",\n      \"resolved\": \"https://registry.npmjs.org/playwright/-/playwright-1.64.1.tgz\",\n      \"integrity\": \"sha512-HCrVhHr5QQuwYoswEUGTb7gGp522yflbv/ST8nF4sFWGuLjQCt17Q/EubpGGSNKYn1tsTCPZxqHhHCfVURu7UA==\",\n      \"dev\": true,\n      \"license\": \"Apache-2.0\",\n      \"dependencies\": {\n        \"playwright-core\": \"1.64.1\"\n      },\n      \"bin\": {\n        \"playwright\": \"cli.js\"\n"
+      },
+      {
+        "before": "      }\n    },\n    \"node_modules/playwright-core\": {\n      \"version\": \"1.63.0\",\n      \"resolved\": \"https://registry.npmjs.org/playwright-core/-/playwright-core-1.63.0.tgz\",\n      \"integrity\": \"sha512-rYCsBF/M5HjUch52bbtVONEFjv6Xu8sm8h72dNlR5bzIE1fvC/bxgspzkjSfU+MweEMmPM8KJebG6nnyxo5mCg==\",\n      \"dev\": true,\n      \"license\": \"Apache-2.0\",\n      \"bin\": {\n",
+        "after": "      }\n    },\n    \"node_modules/playwright-core\": {\n      \"version\": \"1.64.1\",\n      \"resolved\": \"https://registry.npmjs.org/playwright-core/-/playwright-core-1.64.1.tgz\",\n      \"integrity\": \"sha512-BC4s8y6SEVA6Q1rSxZTto8hI1KUI3xXlHGZgvGqP4IqPdI/a6FX9H29IDNz7vKo9l21b6LfYosScPL6M3xxyDQ==\",\n      \"dev\": true,\n      \"license\": \"Apache-2.0\",\n      \"bin\": {\n"
+      }
+    ]
+  },
+  "src/period.css": {
+    "beforeSha256": "c510f60de8e4345c7656e82e3181f171c4ffcd7fe9a3d13c446ec5e79d24ca1f",
+    "afterSha256": "97cf96ac2bd2db21340ab5dd4481786bd1230f8c0bb9799dc6db10e56becaa47",
+    "edits": [
+      {
+        "before": "#educational-fallback .period-reading p {\n  margin-top: 16px;\n}\n@media (max-width: 1000px) {\n  .period-shell .intro-hero {\n    column-gap: 36px;\n",
+        "after": "#educational-fallback .period-reading p {\n  margin-top: 16px;\n}\n/* Native fragment restoration must not depend on a later web-font layout.\n   Keep the script-independent root reading on immediately available fonts.\n   The enhanced application retains its Source Serif / Source Sans typography. */\n#educational-fallback {\n  font-family: Arial, sans-serif;\n}\n#educational-fallback :where(*) {\n  font-family: inherit;\n}\n#educational-fallback\n  :is(h1, h2, blockquote, .home-question, .path-name, .path a, .transition-path b) {\n  font-family: Georgia, serif;\n}\n@media (max-width: 1000px) {\n  .period-shell .intro-hero {\n    column-gap: 36px;\n"
+      }
+    ]
+  },
+  "src/use-route.ts": {
+    "beforeSha256": "dcba3ab90fdd219684c86d8b8ee6a45132399c51374ae19bd195e60be4a2c058",
+    "afterSha256": "9207e865242d4bf06ac4376f47eaa09a0857857daff9009832cbb6f20769b49c",
+    "edits": [
+      {
+        "before": "      target &&\n      anchorRoute(location.hash.slice(1)) !== location.hash.slice(1)\n    ) {\n      target.focus({ preventScroll: true });\n      target.scrollIntoView({ block: 'start' });\n      first.current = false;\n      restoring.current = null;\n      return;\n    }\n    if (first.current) {\n      first.current = false;\n",
+        "after": "      target &&\n      anchorRoute(location.hash.slice(1)) !== location.hash.slice(1)\n    ) {\n      // Font loading can change the target's position after the initial render.\n      // Measure to start font layout, then align focus and scroll to its final position.\n      target.getBoundingClientRect();\n      let cancelled = false;\n      const alignTarget = () => {\n        if (cancelled) return;\n        target.focus({ preventScroll: true });\n        target.scrollIntoView({ block: 'start' });\n      };\n      if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);\n      else alignTarget();\n      first.current = false;\n      restoring.current = null;\n      return () => {\n        cancelled = true;\n      };\n    }\n    if (first.current) {\n      first.current = false;\n"
+      }
+    ]
+  }
+}

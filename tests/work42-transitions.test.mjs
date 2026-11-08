@@ -4,11 +4,12 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import delta from './fixtures/work42-navigation-delta.json' with { type: 'json' };
 import { beforeWork42Source } from './work42-copy-helpers.mjs';
+import { beforeWork43Source } from './work43-correction-helpers.mjs';
 
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
-test('Work 42 preserves approved teaching, drafts, router, retired boundaries and verification inputs byte for byte', () => {
+test('Work 42 preserves approved teaching, drafts and verification inputs outside exact Work 43 corrections', () => {
   for (const [path, digest] of Object.entries(delta.protectedFiles))
-    assert.equal(hash(readFileSync(path)), digest, path);
+    assert.equal(hash(beforeWork43Source(readFileSync(path, 'utf8'), path)), digest, path);
 });
 test('only the recorded navigation refactor separates touched source from the approved Work 39 candidate', () => {
   for (const [path, change] of Object.entries(delta.files))

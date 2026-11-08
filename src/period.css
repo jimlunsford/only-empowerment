@@ -1573,6 +1573,19 @@
 #educational-fallback .period-reading p {
   margin-top: 16px;
 }
+/* Native fragment restoration must not depend on a later web-font layout.
+   Keep the script-independent root reading on immediately available fonts.
+   The enhanced application retains its Source Serif / Source Sans typography. */
+#educational-fallback {
+  font-family: Arial, sans-serif;
+}
+#educational-fallback :where(*) {
+  font-family: inherit;
+}
+#educational-fallback
+  :is(h1, h2, blockquote, .home-question, .path-name, .path a, .transition-path b) {
+  font-family: Georgia, serif;
+}
 @media (max-width: 1000px) {
   .period-shell .intro-hero {
     column-gap: 36px;
