@@ -1,3 +1,4 @@
+import { NativeSelect } from './components/NativeSelect';
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import type { Dispatch, StateUpdater } from 'preact/hooks';
 import { TextResponse, ConfirmDialog } from './components/work';
@@ -225,7 +226,7 @@ export function PeriodStandard({
                 <p class="field-hint" id="period-value-hint">
                   {copy.hints[0]}
                 </p>
-                <select
+                <NativeSelect
                   id="period-valueId"
                   value={draft.valueId}
                   aria-required="true"
@@ -253,7 +254,7 @@ export function PeriodStandard({
                       {v.name}
                     </option>
                   ))}
-                </select>
+                </NativeSelect>
                 {errors.valueId && (
                   <p class="error" id="period-value-error" role="alert">
                     {errors.valueId}

@@ -1,3 +1,4 @@
+import { beforeWork45Source } from './work45-correction-helpers.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import delta from './fixtures/work42-navigation-delta.json' with { type: 'json' };
@@ -7,6 +8,7 @@ import delta from './fixtures/work42-navigation-delta.json' with { type: 'json' 
 export function beforeWork42Source(source, path) {
   const change = delta.files[path];
   if (!change) return source;
+  source = beforeWork45Source(source, path);
   for (const edit of [...change.edits].reverse()) {
     assert.equal(source.split(edit.after).length, 2, `Unique Work 42 navigation edit: ${path}`);
     source = source.replace(edit.after, edit.before);

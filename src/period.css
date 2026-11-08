@@ -1851,3 +1851,8 @@
     break-after: avoid;
   }
 }
+
+/* Keep the native control in the existing form layout, without an extra box. */
+.native-select {
+  display: contents;
+}
