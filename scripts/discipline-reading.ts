@@ -1,3 +1,4 @@
+import { readingTransition } from './lesson-transition.ts';
 import { staticFooter } from './site-footer.ts';
 import type { FooterBuild } from '../src/site-footer-content.ts';
 import {
@@ -35,7 +36,7 @@ export function disciplineReading(staging = true, metadata?: FooterBuild) {
 ${lesson.sections.map((section) => `<section id="discipline-${section.id}">${h(section.title)}${section.paragraphs.map(p).join('')}</section>`).join('')}
 <section class="discipline-exit">${h('Examine the pattern')}${p(lesson.interactionDescription)}<div class="actions no-print">${link('/#/period/discipline/pattern', lesson.interactionLink + ' (requires JavaScript)')}${link('#comparison', lesson.readingLink)}</div></section>
 <section>${h(lesson.cardTitle)}${p(lesson.cardDescription)}<p class="no-print">${link('/#/period/standard', lesson.cardLink + ' (requires JavaScript)')}</p></section>
-<section>${h(lesson.nextTitle)}${p(lesson.nextDescription)}<p class="no-print">${link('/read/empowerment.html', lesson.nextLink)}</p></section>
+${readingTransition('discipline')}
 <section>${p(lesson.bookDescription)}${link(periodBook.url, lesson.bookLink)}</section>
 <p class="no-print">${link('#top', 'Back to top')}</p></article>
 <article class="discipline-comparison" aria-label="Noor and Eli's fictional patterns">

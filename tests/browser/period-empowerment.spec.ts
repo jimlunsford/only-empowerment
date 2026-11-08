@@ -385,7 +385,7 @@ test('six-lesson surfaces and revisit links reach real lessons, with normal Back
   await radio(page, 2).check();
   await page.goBack();
   await expect(page.locator('h1')).toHaveText(content.lesson.title);
-  await screen(page).getByRole('link', { name: content.lesson.returnLink, exact: true }).click();
+  await screen(page).getByRole('link', { name: 'Review all six values', exact: true }).click();
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await page.reload();
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();

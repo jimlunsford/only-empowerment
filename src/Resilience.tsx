@@ -1,3 +1,5 @@
+import { Fragment } from 'preact';
+import { LessonTransition } from './LessonTransition';
 import { LessonTitle } from './LessonTitle';
 import { LessonParagraphs } from './LessonParagraphs';
 import { useErrorBoundary, useState } from 'preact/hooks';
@@ -52,72 +54,75 @@ export function ResilienceLesson({ openCard }: { openCard: () => void }) {
         <ResilienceNavigation />
       </div>
       <article class="resilience-lesson lesson-copy" aria-label="Resilience lesson">
-        {content.lesson.map((section) => (
-          <section
-            key={section.id}
-            id={`resilience-${section.id}`}
-            class={
-              section.id === 'L02'
-                ? 'resilience-standard'
-                : section.id === 'L05'
-                  ? 'resilience-support'
-                  : undefined
-            }
-          >
-            <h2>{section.heading}</h2>
-            <LessonParagraphs
-              texts={section.paragraphs}
-              treatment={section.id === 'L02' ? 'resilience-standard' : undefined}
-            />
-            {section.id === 'L08' && (
-              <div class="resilience-invitation">
-                <a class="button primary" href="#/period/resilience/pressure">
-                  {section.cta}
-                </a>
-                <p class="small">{section.hint}</p>
-              </div>
-            )}
-            {section.id === 'L09' && (
-              <ol class="resilience-connections" role="list" aria-label="The connected six values">
-                {content.values.map(([name, text]) => (
-                  <li key={name}>
-                    <h3>{name}</h3>
-                    <p>{text}</p>
-                  </li>
-                ))}
-              </ol>
-            )}
-            {section.id === 'L10' && (
-              <p class="small">
-                <strong>{integrityContent.navigation.resilience_bridge}</strong>{' '}
-                <a href="#/period/values/integrity">Continue to Integrity</a>
-              </p>
-            )}
-            {section.id === 'L11' && (
-              <a
-                class="resilience-card-link"
-                href="#/period/standard"
-                onClick={(event) => {
-                  if (
-                    event.button === 0 &&
-                    !event.metaKey &&
-                    !event.ctrlKey &&
-                    !event.shiftKey &&
-                    !event.altKey
-                  )
-                    openCard();
-                }}
+        {content.lesson
+          .filter((section) => section.id !== 'L10')
+          .map((section) => (
+            <Fragment key={section.id}>
+              {section.id === 'L12' && <LessonTransition value="resilience" />}
+              <section
+                key={section.id}
+                id={`resilience-${section.id}`}
+                class={
+                  section.id === 'L02'
+                    ? 'resilience-standard'
+                    : section.id === 'L05'
+                      ? 'resilience-support'
+                      : undefined
+                }
               >
-                {section.cta}
-              </a>
-            )}
-            {section.id === 'L12' && (
-              <a href={periodBook.url} rel="noreferrer">
-                {section.cta}
-              </a>
-            )}
-          </section>
-        ))}
+                <h2>{section.heading}</h2>
+                <LessonParagraphs
+                  texts={section.paragraphs}
+                  treatment={section.id === 'L02' ? 'resilience-standard' : undefined}
+                />
+                {section.id === 'L08' && (
+                  <div class="resilience-invitation">
+                    <a class="button primary" href="#/period/resilience/pressure">
+                      {section.cta}
+                    </a>
+                    <p class="small">{section.hint}</p>
+                  </div>
+                )}
+                {section.id === 'L09' && (
+                  <ol
+                    class="resilience-connections"
+                    role="list"
+                    aria-label="The connected six values"
+                  >
+                    {content.values.map(([name, text]) => (
+                      <li key={name}>
+                        <h3>{name}</h3>
+                        <p>{text}</p>
+                      </li>
+                    ))}
+                  </ol>
+                )}
+                {section.id === 'L11' && (
+                  <a
+                    class="resilience-card-link"
+                    href="#/period/standard"
+                    onClick={(event) => {
+                      if (
+                        event.button === 0 &&
+                        !event.metaKey &&
+                        !event.ctrlKey &&
+                        !event.shiftKey &&
+                        !event.altKey
+                      )
+                        openCard();
+                    }}
+                  >
+                    {section.cta}
+                  </a>
+                )}
+                {section.id === 'L12' && (
+                  <a href={periodBook.url} rel="noreferrer">
+                    {section.cta}
+                  </a>
+                )}
+              </section>
+            </Fragment>
+          ))}
       </article>
     </div>
   );

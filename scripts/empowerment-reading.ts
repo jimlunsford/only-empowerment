@@ -1,3 +1,4 @@
+import { readingTransition } from './lesson-transition.ts';
 import { staticFooter } from './site-footer.ts';
 import type { FooterBuild } from '../src/site-footer-content.ts';
 import {
@@ -38,8 +39,9 @@ export function empowermentReading(staging = true, metadata?: FooterBuild) {
 <p class="small no-print">${escape(empowermentAvailability)}</p>
 <article class="empowerment-lesson" aria-label="Empowerment lesson">
 ${lesson.sections.map((s) => `<section id="${s.id}">${h(s.title)}${s.paragraphs.map(p).join('')}${'connections' in s ? agreement(s.connections.map((c) => [c.value, c.text])) : ''}${'after' in s ? s.after.map(p).join('') : ''}</section>`).join('')}
-<section class="empowerment-exit">${h(lesson.practiceTitle)}${p(lesson.practiceDescription)}<div class="empowerment-links no-print">${link('/#/period/empowerment/conversation', lesson.practiceLink + ' (requires JavaScript)')}${link('#conversation', lesson.readingLink)}${link('/#/period/teaching-order', lesson.returnLink + ' (requires JavaScript)')}</div></section>
+<section class="empowerment-exit">${h(lesson.practiceTitle)}${p(lesson.practiceDescription)}<div class="empowerment-links no-print">${link('/#/period/empowerment/conversation', lesson.practiceLink + ' (requires JavaScript)')}${link('#conversation', lesson.readingLink)}</div></section>
 <section>${h(lesson.cardTitle)}${p(lesson.cardNote)}<p class="no-print">${link('/#/period/standard', lesson.cardLink + ' (requires JavaScript)')}</p></section>
+${readingTransition('empowerment')}
 <section>${h(lesson.bookTitle)}${p(lesson.bookNote)}<p class="no-print">${link(periodBook.url, lesson.bookLink)}</p></section></article>
 <article class="empowerment-conversation" aria-label="Mara and Dev's fictional conversation">
 <h2 id="conversation">${escape(c.title)}</h2><p class="lead">${escape(c.deck)}</p>${p(c.intro)}

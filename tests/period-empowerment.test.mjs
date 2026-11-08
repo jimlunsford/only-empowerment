@@ -95,7 +95,12 @@ test('script-free reading contains every teaching string and real in-page links'
                 !['id', 'status', 'defaultReply', 'controlLegend', 'controlHint'].includes(k),
             )
             .flatMap(([, v]) => strings(v));
-  for (const text of strings(content)) assert.ok(html.includes(escape(text)), text);
+  for (const text of strings(content)) {
+    // Work 42 consolidates the old body return link and footer review link into one native action.
+    const rendered = text === content.lesson.returnLink ? 'Review all six values' : text;
+    assert.ok(html.includes(escape(rendered)), rendered);
+  }
+  assert.match(html, /href="\/#teaching-order">Review all six values<\/a>/);
   assert.doesNotMatch(html, /<script|<details|<input|<button|\shidden|aria-live/);
   for (const id of [
     'lesson',
