@@ -97,11 +97,22 @@ export function useRoute() {
       target &&
       anchorRoute(location.hash.slice(1)) !== location.hash.slice(1)
     ) {
-      target.focus({ preventScroll: true });
-      target.scrollIntoView({ block: 'start' });
+      // Font loading can change the target's position after the initial render.
+      // Measure to start font layout, then align focus and scroll to its final position.
+      target.getBoundingClientRect();
+      let cancelled = false;
+      const alignTarget = () => {
+        if (cancelled) return;
+        target.focus({ preventScroll: true });
+        target.scrollIntoView({ block: 'start' });
+      };
+      if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);
+      else alignTarget();
       first.current = false;
       restoring.current = null;
-      return;
+      return () => {
+        cancelled = true;
+      };
     }
     if (first.current) {
       first.current = false;
