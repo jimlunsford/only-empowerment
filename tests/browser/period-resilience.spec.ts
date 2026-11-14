@@ -235,7 +235,7 @@ test('keyboard selection, local routes, Back and Forward preserve reading positi
 test('homepage stays oriented to Ownership and the same-page five-lesson path reaches Resilience from Purpose', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/#/period');
   await expect(page.getByText(homepage.lead, { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   await page
@@ -587,7 +587,7 @@ test('lesson and five cases reflow at 320, 390, 768 and 1440 with real desktop a
         });
       }
     };
-    await page.goto('/');
+    await page.goto('/#/period');
     await page.evaluate(() => document.fonts.ready);
     await capture('homepage');
     await page.goto(lessonPath);

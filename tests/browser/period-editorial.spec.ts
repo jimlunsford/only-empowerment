@@ -19,7 +19,7 @@ test('mobile ordinary moment precedes the explanation and first input precedes o
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 900 });
-  await page.goto('/');
+  await page.goto('/#/period');
   await page.evaluate(() => document.fonts.ready);
   const meaning = await page.locator('.home-moment').boundingBox();
   const action = await page.getByRole('link', { name: 'Start with Ownership' }).boundingBox();

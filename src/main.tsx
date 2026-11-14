@@ -254,15 +254,48 @@ function App() {
           </span>
         </a>
         <nav aria-label="Main navigation">
-          <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
-            Frameworks
-          </a>
-          <a href="#/period" aria-current={editorial ? 'location' : undefined}>
-            The PERIOD Code
-          </a>
-          <a href="#/rebuild" aria-current={path.startsWith('/rebuild') ? 'location' : undefined}>
-            How to Rebuild Yourself
-          </a>
+          {editorial ? (
+            <>
+              <a
+                href="#/period/why"
+                aria-current={
+                  path === '/period/why' ||
+                  location.hash === '#/period/why' ||
+                  location.hash === '#why-period'
+                    ? 'location'
+                    : undefined
+                }
+              >
+                Why PERIOD?
+              </a>
+              <a
+                href="#/period/teaching-order"
+                aria-current={
+                  (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&
+                  path !== '/period/standard' &&
+                  path !== '/period/book' &&
+                  path !== '/period/why'
+                    ? 'location'
+                    : undefined
+                }
+              >
+                Explore the values
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
+                Frameworks
+              </a>
+              <a href="#/period">The PERIOD Code</a>
+              <a
+                href="#/rebuild"
+                aria-current={path.startsWith('/rebuild') ? 'location' : undefined}
+              >
+                How to Rebuild Yourself
+              </a>
+            </>
+          )}
         </nav>
       </header>
       <main
@@ -299,8 +332,8 @@ function App() {
         </div>
         <nav class="footer-group" aria-label="About this site">
           <h2>About this site</h2>
-          <a href="#/period">The PERIOD Code</a>
-          <a href="#/rebuild">How to Rebuild Yourself</a>
+          {!editorial && <a href="#/period">The PERIOD Code</a>}
+          {!editorial && <a href="#/rebuild">How to Rebuild Yourself</a>}
           <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
             About the book
           </a>

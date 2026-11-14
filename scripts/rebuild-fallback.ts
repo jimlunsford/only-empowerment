@@ -16,7 +16,7 @@ export function rebuildFallback() {
   return (
     '<section class="rebuild-guide" id="rebuild-reading" aria-label="How to Rebuild Yourself, complete teaching">' +
     '<div class="wrap all-reading">' +
-    body +
+    body.replaceAll('<h1', '<h2').replaceAll('</h1>', '</h2>') +
     '</div></section>'
   );
 }

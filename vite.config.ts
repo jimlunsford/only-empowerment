@@ -76,7 +76,9 @@ export default defineConfig({
               '<p>Explore complete educational experiences from The PERIOD Code and How to Rebuild Yourself.</p>' +
               '<p><a href="#teaching-order">Explore The PERIOD Code</a> or ' +
               '<a href="#rebuild-reading">read How to Rebuild Yourself</a>.</p></section>' +
-              periodFallback() +
+              periodFallback()
+                .replace('<h1 id="home-title"', '<h2 id="home-title"')
+                .replace('</h1>', '</h2>') +
               rebuildFallback(),
           )
           .replace('<!-- site-footer -->', staticFooter(metadata))

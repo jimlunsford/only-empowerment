@@ -123,3 +123,39 @@
     display: none;
   }
 }
+
+/* The complete no-script root has one site-wide h1.
+   Preserve the original PERIOD hero proportions at heading level two. */
+#educational-fallback .homepage .home-hero > h2 {
+  font-size: 4.5rem;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  max-width: 550px;
+}
+@media (max-width: 1000px) {
+  #educational-fallback .homepage .home-hero > h2 {
+    font-size: 3.625rem;
+  }
+}
+@media (max-width: 700px) {
+  #educational-fallback .homepage .home-hero > h2 {
+    font-size: 3rem;
+    line-height: 1.07;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 359px) {
+  #educational-fallback .homepage .home-hero > h2 {
+    font-size: 2.5rem;
+  }
+}
+.framework-options > article {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 42rem) {
+  .framework-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

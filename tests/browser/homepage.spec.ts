@@ -31,7 +31,7 @@ const visibleTarget = async (page: Page, id: string) => {
 test('approved copy, always-visible comparison, privacy and exact attribution', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/#/period');
   await copy(page);
   await expect(page.locator('.home-limits')).toContainText(c.comparison.adaptation);
   await expect(page.locator('.home-access')).toContainText(
@@ -94,7 +94,7 @@ test('modified anchor clicks retain native new-tab semantics without moving the 
   for (const label of [c.start, c.whyHeading, 'Explore the values']) {
     const context = await browser.newContext();
     const page = await context.newPage();
-    await page.goto(baseURL! + '/');
+    await page.goto(baseURL! + '/#/period');
     await page.bringToFront();
     const link = page.getByRole('link', { name: label, exact: true });
     const before = page.url();
@@ -117,7 +117,7 @@ test('disabled and failed JavaScript retain the teaching, native anchors and com
     const context = await browser.newContext({ javaScriptEnabled: mode !== 'disabled' });
     if (mode === 'failed') await context.route('**/*.js', (route) => route.abort());
     const page = await context.newPage();
-    await page.goto(baseURL! + '/');
+    await page.goto(baseURL! + '/#/period');
     await expect.poll(() => page.evaluate(() => document.fonts.status)).toBe('loaded');
     await copy(page);
     await expect(page.locator('footer')).toHaveCount(1);
@@ -207,11 +207,18 @@ test('desktop and mobile openings, full pages, text enlargement and reflow remai
         width,
         height: width === 1440 ? 900 : width === 390 ? 844 : 740,
       });
-      await page.goto(baseURL! + '/');
+      await page.goto(baseURL! + '/#/period');
       await expect.poll(() => page.evaluate(() => document.fonts.status)).toBe('loaded');
       expect(await fits(page)).toBe(true);
       const moment = await page.locator('.home-moment h2').boundingBox();
-      expect(moment!.y).toBeLessThan(width === 1440 ? 600 : 740);
+      if (javaScriptEnabled) {
+        expect(moment!.y).toBeLessThan(width === 1440 ? 600 : 740);
+      } else {
+        // The two-framework no-script index intentionally precedes PERIOD teaching.
+        await expect(page.locator('.framework-hub')).toBeVisible();
+        await page.getByRole('link', { name: c.start, exact: true }).click();
+        await expect(page.locator('#first-moment')).toBeInViewport();
+      }
       const stem = `work33-${javaScriptEnabled ? 'app' : 'reading'}-${width}`;
       // Chromium produces the requested uninterrupted full-resolution evidence.
       // All engines still verify the complete document's geometry and reading.
@@ -238,7 +245,7 @@ test('reduced motion, forced colors, missing fonts and text spacing preserve rea
   await page.route('**/*.woff2', (route) => route.abort());
   await page.setViewportSize({ width: 320, height: 740 });
   await page.emulateMedia({ reducedMotion: 'reduce', forcedColors: 'active' });
-  await page.goto('/');
+  await page.goto('/#/period');
   await page.evaluate(() => {
     document.documentElement.style.fontSize = '200%';
     const s = document.createElement('style');
@@ -266,7 +273,7 @@ test('A4 and Letter retain full homepage teaching and the complete root reading'
   for (const javaScriptEnabled of [true, false]) {
     const context = await browser.newContext({ javaScriptEnabled });
     const page = await context.newPage();
-    await page.goto(baseURL! + '/');
+    await page.goto(baseURL! + '/#/period');
     await expect.poll(() => page.evaluate(() => document.fonts.status)).toBe('loaded');
     await page.emulateMedia({ media: 'print' });
     const text = (await page.locator('.homepage').innerText()).replace(/\s+/g, ' ');
