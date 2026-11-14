@@ -4,6 +4,9 @@ import { SourceNotice } from './SourceNotice';
 import { render } from 'preact';
 import { useState } from 'preact/hooks';
 import { useRoute } from './use-route';
+import { RebuildGuide, FrameworkHome } from './Rebuild';
+import { rebuildTrees } from './rebuild-content';
+import type { RebuildSection } from './Rebuild';
 import { PeriodIntro, PeriodOwnership, PeriodUnavailable, PeriodBook } from './PeriodLearning';
 import { PeriodStandard } from './PeriodStandard';
 import { PracticeOwnership } from './PracticeOwnership';
@@ -27,6 +30,8 @@ import './period-homepage.css';
 import './period-lessons.css';
 import './lesson-transitions.css';
 import './site-footer.css';
+import './rebuild-source-scoped.css';
+import './rebuild-app.css';
 import { EmpowermentLesson, EmpowermentConversation } from './Empowerment';
 import { DisciplineLesson, DisciplinePattern } from './Discipline';
 import { IntegrityLesson, IntegrityRecord } from './Integrity';
@@ -157,7 +162,7 @@ function NotFound() {
 }
 function App() {
   const path = useRoute();
-  const editorial = path === '/' || path.startsWith('/period/');
+  const editorial = path === '/period' || path.startsWith('/period/');
   const [periodSession, setPeriodSession] = useState(newPeriodSession);
   const [practiceSession, setPracticeSession] = useState(newPracticeSession);
   const [purposeSession, setPurposeSession] = useState(newPurposeSession);
@@ -181,8 +186,18 @@ function App() {
     setPeriodSession((old) => enterPeriodExercise(old, 'resilience'));
   const [bookExit, setBookExit] = useState(false);
   let content;
-  if (path === '/') content = <PeriodIntro />;
-  else if (path === '/period/values/ownership' || path === '/period/values')
+  if (path === '/') content = <FrameworkHome />;
+  else if (path === '/period' || path === '/period/why' || path === '/period/teaching-order')
+    content = <PeriodIntro />;
+  else if (path === '/rebuild') content = <RebuildGuide section="index" />;
+  else if (path.startsWith('/rebuild/')) {
+    const section = path.slice('/rebuild/'.length);
+    content = Object.hasOwn(rebuildTrees, section) ? (
+      <RebuildGuide section={section as RebuildSection} key={section} />
+    ) : (
+      <NotFound />
+    );
+  } else if (path === '/period/values/ownership' || path === '/period/values')
     content = <PeriodOwnership />;
   else if (path === '/period/values/purpose')
     content = <PurposeLesson openCard={openPurposeCard} />;
@@ -239,29 +254,14 @@ function App() {
           </span>
         </a>
         <nav aria-label="Main navigation">
-          <a
-            href="#/period/why"
-            aria-current={
-              location.hash === '#/period/why' || location.hash === '#why-period'
-                ? 'location'
-                : undefined
-            }
-          >
-            Why PERIOD?
+          <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
+            Frameworks
           </a>
-          <a
-            href="#/period/teaching-order"
-            aria-current={
-              location.hash === '#/period/teaching-order'
-                ? 'location'
-                : path.startsWith('/period/') &&
-                    path !== '/period/standard' &&
-                    path !== '/period/book'
-                  ? 'location'
-                  : undefined
-            }
-          >
-            Explore the values
+          <a href="#/period" aria-current={editorial ? 'location' : undefined}>
+            The PERIOD Code
+          </a>
+          <a href="#/rebuild" aria-current={path.startsWith('/rebuild') ? 'location' : undefined}>
+            How to Rebuild Yourself
           </a>
         </nav>
       </header>
@@ -299,6 +299,8 @@ function App() {
         </div>
         <nav class="footer-group" aria-label="About this site">
           <h2>About this site</h2>
+          <a href="#/period">The PERIOD Code</a>
+          <a href="#/rebuild">How to Rebuild Yourself</a>
           <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
             About the book
           </a>

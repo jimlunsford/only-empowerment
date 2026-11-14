@@ -1,0 +1,125 @@
+/* Work 54 integration, limited to the second framework and neutral home. */
+.rebuild-guide {
+  min-width: 0;
+  padding: 1.35rem 0 2rem;
+}
+.rebuild-guide .rebuild-approval,
+.rebuild-guide .rebuild-footlinks {
+  width: min(calc(100% - 5rem), 74rem);
+  margin-inline: auto;
+  display: flex;
+  gap: 0.55rem 1.5rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.rebuild-guide .rebuild-approval {
+  border-block: 1px solid var(--line);
+  margin-block: 0.25rem 0;
+  padding-block: 0.7rem;
+  font-size: 0.76rem;
+  font-family: var(--sans);
+}
+.rebuild-guide .rebuild-approval span {
+  color: var(--muted);
+}
+.rebuild-guide .rebuild-footlinks {
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+  padding-block: 1.3rem;
+  font-weight: 700;
+}
+.rebuild-guide[data-note] .linkedset .linkedpanel.first {
+  display: none;
+}
+.rebuild-guide[data-note='note-1'] .linkedset #note-1,
+.rebuild-guide[data-note='note-2'] .linkedset #note-2,
+.rebuild-guide[data-note='note-3'] .linkedset #note-3,
+.rebuild-guide[data-note='note-4'] .linkedset #note-4 {
+  display: block;
+}
+.rebuild-guide[data-note='note-1'] .quotesheet .q1,
+.rebuild-guide[data-note='note-2'] .quotesheet .q2,
+.rebuild-guide[data-note='note-3'] .quotesheet .q3,
+.rebuild-guide[data-note='note-4'] .quotesheet .q4 {
+  background: #f0dfbd;
+  box-shadow: inset 0 3px var(--rust);
+}
+.framework-hub {
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 5vw, 4rem);
+}
+.framework-hub-intro {
+  max-width: 51rem;
+}
+.framework-hub-intro h1 {
+  margin: 0.8rem 0 1.15rem;
+  font-size: clamp(2.65rem, 5.1vw, 5rem);
+}
+.framework-hub-intro p {
+  line-height: 1.65;
+  max-width: 64ch;
+}
+.framework-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.77rem;
+  font-weight: 750;
+  color: #446559;
+}
+.framework-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+.framework-options article {
+  border-top: 5px solid #244b3f;
+  padding: clamp(1.25rem, 3vw, 2.2rem);
+  background: #e7ecdf;
+}
+.framework-options h2 {
+  font-size: clamp(1.75rem, 2.8vw, 2.65rem);
+  margin: 0.65rem 0;
+}
+.framework-options article p {
+  line-height: 1.6;
+  max-width: 55ch;
+}
+.framework-options article > a {
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 1.2rem;
+  padding: 0.8rem 1rem;
+  background: #244b3f;
+  color: #fff;
+  text-decoration: none;
+}
+.framework-options article > a:hover {
+  background: #17362e;
+}
+.framework-stage {
+  font-size: 0.91rem;
+  color: #4e5d52;
+  margin-top: 2.2rem;
+  max-width: 65ch;
+}
+@media (max-width: 42rem) {
+  .framework-options {
+    grid-template-columns: 1fr;
+  }
+  .rebuild-guide .rebuild-approval,
+  .rebuild-guide .rebuild-footlinks {
+    width: calc(100% - 2rem);
+  }
+}
+@media print {
+  .rebuild-guide .rebuild-approval,
+  .rebuild-guide .rebuild-footlinks,
+  .framework-hub {
+    display: none;
+  }
+  .rebuild-guide[data-note] .linkedset .linkedpanel.first {
+    display: none;
+  }
+}

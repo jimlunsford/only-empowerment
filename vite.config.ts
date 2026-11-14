@@ -8,6 +8,7 @@ import { disciplineReading } from './scripts/discipline-reading.ts';
 import { integrityReading } from './scripts/integrity-reading.ts';
 import { resilienceReading } from './scripts/resilience-reading.ts';
 import { periodFallback } from './scripts/period-fallback.ts';
+import { rebuildFallback } from './scripts/rebuild-fallback.ts';
 import { buildInfo } from './scripts/build-info.mjs';
 import { releaseState } from './scripts/release-state.mjs';
 // Default safely to staging; production presentation must be explicitly requested.
@@ -68,7 +69,16 @@ export default defineConfig({
       name: 'source-metadata',
       transformIndexHtml(html) {
         return html
-          .replace('<!-- period-fallback -->', periodFallback())
+          .replace(
+            '<!-- period-fallback -->',
+            '<section class="framework-hub" aria-label="Framework introduction">' +
+              '<h1>Only Empowerment</h1>' +
+              '<p>Explore complete educational experiences from The PERIOD Code and How to Rebuild Yourself.</p>' +
+              '<p><a href="#teaching-order">Explore The PERIOD Code</a> or ' +
+              '<a href="#rebuild-reading">read How to Rebuild Yourself</a>.</p></section>' +
+              periodFallback() +
+              rebuildFallback(),
+          )
           .replace('<!-- site-footer -->', staticFooter(metadata))
           .replace(
             'content="noindex, nofollow"',
