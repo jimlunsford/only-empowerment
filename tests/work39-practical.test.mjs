@@ -3,6 +3,7 @@ import test from 'node:test';
 import { beforeWork43Source } from './work43-correction-helpers.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { historicalPeriodSource } from './work54-history-reader.mjs';
 import { createHash } from 'node:crypto';
 import approved from './fixtures/work39-approved.json' with { type: 'json' };
 import exports from './fixtures/work39-card-exports.json' with { type: 'json' };
@@ -95,7 +96,7 @@ test('exactly 21 Work 38 A records and seven named Work 35 supersessions', () =>
 
 for (const [path, digest] of Object.entries(approved.baselineFiles)) {
   test(`Work 39 reverses only approved changes to exact Work 37 source: ${path}`, () => {
-    const source = beforeWork42Source(beforeWork43Source(readFileSync(path, 'utf8'), path), path);
+    const source = beforeWork42Source(beforeWork43Source(historicalPeriodSource(path), path), path);
     for (const r of approved.excluded) assert.ok(!source.includes(r.proposed), r.id);
     assert.equal(
       createHash('sha256').update(beforeWork39Source(source, path)).digest('hex'),

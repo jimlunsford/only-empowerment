@@ -15,6 +15,7 @@ const tools = [
 ];
 const routes = [
   '/',
+  '/period',
   '/period/teaching-order',
   '/period/values',
   ...values.map((v) => '/period/values/' + v),
@@ -66,15 +67,33 @@ test('all public and retired hash routes retain educational navigation without l
       !route.startsWith('/tools/')
     )
       await expect(page.locator('h1')).not.toHaveText('That page is not here.');
-    await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
+    const periodRoute = route === '/period' || route.startsWith('/period/');
+    if (periodRoute) {
+      await expect(mainNav(page).getByRole('link')).toHaveText([
+        'Why PERIOD?',
+        'Explore the values',
+      ]);
+    } else {
+      await expect(mainNav(page).getByRole('link')).toHaveText([
+        'Frameworks',
+        'The PERIOD Code',
+        'How to Rebuild Yourself',
+      ]);
+    }
     expect(
       await mainNav(page)
         .getByRole('link')
         .evaluateAll((links) => links.map((l) => l.getAttribute('href'))),
-    ).toEqual(['#/period/why', '#/period/teaching-order']);
+    ).toEqual(
+      periodRoute ? ['#/period/why', '#/period/teaching-order'] : ['#/', '#/period', '#/rebuild'],
+    );
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
-    ).toHaveText(['About the book', 'Privacy & source']);
+    ).toHaveText(
+      periodRoute
+        ? ['About the book', 'Privacy & source']
+        : ['The PERIOD Code', 'How to Rebuild Yourself', 'About the book', 'Privacy & source'],
+    );
     await expect(footer(page).getByRole('navigation', { name: 'Existing work' })).toHaveCount(0);
     await expect(
       page.locator('a[href^="#/tools"], a[href="#/saved"], a[href="#/approach"]'),
@@ -99,6 +118,7 @@ test('all public and retired hash routes retain educational navigation without l
       'href',
       'https://phoenix233.com/',
     );
+    if (!periodRoute) await mainNav(page).getByRole('link', { name: 'The PERIOD Code' }).click();
     await mainNav(page).getByRole('link', { name: 'Explore the values' }).click();
     await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
     await expect(
@@ -114,7 +134,7 @@ test('all public and retired hash routes retain educational navigation without l
 test('same-page teaching order, repeat activation, Back and Forward retain location, focus and reading position', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/#/period');
   const explore = mainNav(page).getByRole('link', { name: 'Explore the values' });
   await explore.focus();
   await page.keyboard.press('Enter');
@@ -129,6 +149,7 @@ test('same-page teaching order, repeat activation, Back and Forward retain locat
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(650);
   await page.goForward();
   await expect(page.locator('h1')).toHaveText('Your answers are not ours to collect.');
+  await page.goBack();
   await explore.click();
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await page.evaluate(() => scrollTo(0, 0));

@@ -207,7 +207,7 @@ test('native text disclosure gives every example without selecting it and stays 
 test('six-value navigation preserves Ownership practice and identifies every full lesson', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/#/period');
   await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   await page
@@ -554,7 +554,7 @@ test('lesson and all four examples reflow at 320, 390, 768 and 1440 with applica
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     if (info.project.name === 'chromium' && [390, 1440].includes(width)) {
-      await page.goto('/');
+      await page.goto('/#/period');
       await page.evaluate(() => document.fonts.ready);
       await page.screenshot({
         path: info.outputPath(`three-value-introduction-${width}.png`),

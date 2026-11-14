@@ -17,7 +17,7 @@ const anchorRoute = (fragment: string) =>
     ? readingRoutes[fragment]
     : Object.hasOwn(homepageAnchors, fragment) ||
         Object.values(homepageAnchors).some((native) => native === fragment)
-      ? '/'
+      ? '/period'
       : disciplineAnchorRoute(fragment);
 const anchorTarget = (fragment: string) => {
   const appAnchor = Object.entries(homepageAnchors).find(([, native]) => native === fragment)?.[0];
