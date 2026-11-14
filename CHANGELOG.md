@@ -1,7 +1,15 @@
 # Changelog
 
+## Work 20 candidate: Empowerment
+
+- Implement the approved standalone Empowerment lesson with the founder's integrated accountability refinement.
+- Add the native three-reply Mara/Dev conversation, complete script-free reading and all-reply printing.
+- Advance bounded navigation to six full lessons while preserving existing lessons, Standard Card drafts and legacy work.
+- Add focused copy, agreement, accessibility, privacy, reading, print and regression evidence. Feature-branch review only; no deployment or merge.
+
 ## 1.0.0-rc.3 (development candidate, untagged)
 
+- Correct lesson availability after Discipline staging: the Standard Card links to the Discipline lesson, and Ownership's connected-Code view and reading fallback identify all five full lessons while keeping Empowerment orientation only.
 - Correct analytics/privacy doctrine following hands-on rc.2 review: Google Analytics is selected for future minimal production site and product analytics.
 - Update Home and Privacy & Source wording to distinguish production intent from current staging, which still sends no analytics.
 - Keep private tool answers, Saved Work, artifact contents, copied text and all other user-authored private content excluded from analytics.

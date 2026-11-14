@@ -1,24 +1,18 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { executionCard } from './helpers/next-move';
-const toolNames: Record<string, string> = {
-  '/tools/decision-room': 'Decision Room',
-  '/tools/next-move': 'Next Move',
-  '/tools/build-a-standard': 'Build a Standard',
-  '/tools/reset': 'Reset',
-  '/tools/rebuild-map': 'Rebuild Map',
-  '/tools/do-it-now': 'Do It Now',
-};
+import { periodCard } from './helpers/period-card';
 const routes = [
   '/',
-  '/tools',
-  '/approach',
   '/privacy',
+  '/period/book',
+  '/period/standard',
+  '/tools',
   '/saved',
+  '/approach',
   '/tools/decision-room',
   '/tools/next-move',
-  '/tools/reset',
   '/tools/build-a-standard',
+  '/tools/reset',
   '/tools/rebuild-map',
   '/tools/do-it-now',
 ];
@@ -26,10 +20,6 @@ test('all shell routes are accessible and fit the viewport', async ({ page }, te
   for (const route of routes) {
     await page.goto(`/#${route}`);
     await expect(page.locator('h1')).toBeVisible();
-    if (toolNames[route])
-      await expect(
-        page.getByRole('region', { name: toolNames[route], exact: true }).locator('h1'),
-      ).toBeVisible();
     expect(
       (
         await new AxeBuilder({ page })
@@ -57,7 +47,7 @@ test('private marker stays out of requests and storage; internal navigation reta
     requests.push({ url: r.url(), method: r.method(), data: r.postData() }),
   );
   const marker = 'PRIVATE-SYNTHETIC-OE-9136';
-  await executionCard(page, marker);
+  await periodCard(page, marker);
   expect(
     requests.every(
       (r) =>
@@ -69,12 +59,15 @@ test('private marker stays out of requests and storage; internal navigation reta
   expect(await page.evaluate(() => [localStorage.length, sessionStorage.length])).toEqual([0, 0]);
   expect(await context.cookies()).toEqual([]);
   expect(await page.evaluate(() => indexedDB.databases())).toEqual([]);
-  await page.getByRole('link', { name: 'The approach', exact: true }).click();
-  await expect(page.locator('h1')).toContainText('Understand it.');
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'Privacy & source', exact: true })
+    .click();
+  await expect(page.locator('h1')).toContainText('Your answers are not ours to collect.');
   await page.goBack();
-  await expect(page.locator('.artifact-action .answer')).toHaveText(marker);
+  await expect(page.locator('[data-field="standard"]')).toHaveText(marker);
   await page.reload();
-  await expect(page.getByLabel('What needs movement?', { exact: true })).toHaveValue('');
+  await expect(page.locator('#period-standard')).toHaveValue('');
 });
 test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
   await page.goto('/');
@@ -82,7 +75,10 @@ test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Skip to content' })).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('main')).toBeFocused();
-  await page.getByRole('link', { name: 'The tools', exact: true }).click();
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'Privacy & source', exact: true })
+    .click();
   await expect(page.locator('h1')).toBeFocused();
   for (const route of ['/unknown', '/preview', '/tools/unknown']) {
     await page.goto('/#' + route);
@@ -90,13 +86,21 @@ test('keyboard skip, route focus and not-found recovery', async ({ page }) => {
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   }
 });
-test('source footer and metadata identify the same build', async ({ page, request }) => {
+test('Privacy & source and metadata identify the same build', async ({ page, request }) => {
   await page.goto('/');
   const metadata = await (await request.get('/build.json')).json();
   expect(metadata.commit).toMatch(/^[0-9a-f]{40}$/);
-  await expect(page.locator('.footer-meta')).toContainText(metadata.commit.slice(0, 7));
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'Privacy & source', exact: true })
+    .click();
+  await expect(page.locator('.source-information')).toContainText('No warranty');
   if (!metadata.dirty)
-    await expect(page.locator('.footer-meta a').last()).toHaveAttribute('href', metadata.source);
+    await expect(
+      page
+        .locator('.source-information')
+        .getByRole('link', { name: 'Corresponding source for this build' }),
+    ).toHaveAttribute('href', metadata.source);
 });
 
 test('320px layout and long answers reflow without horizontal scrolling', async ({ page }) => {
@@ -105,6 +109,6 @@ test('320px layout and long answers reflow without horizontal scrolling', async 
   await page.goto('/');
   await expect(page.locator('h1')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await executionCard(page, 'x'.repeat(2000));
+  await periodCard(page, 'x'.repeat(500));
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

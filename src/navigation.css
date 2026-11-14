@@ -1,0 +1,271 @@
+/* Work 23 shared shell. Legacy tool forms and artifact print styles keep their own rules. */
+.site-shell {
+  min-height: 100vh;
+  background: #f7f3eb;
+}
+.site-shell .site-footer,
+.legacy-info {
+  overflow-wrap: anywhere;
+}
+.site-shell .site-header,
+.site-shell .site-footer,
+.site-shell .period-review-notice {
+  color: #173c34;
+  font-family: 'Source Sans', Arial, sans-serif;
+  line-height: 1.55;
+}
+.site-shell .period-review-notice {
+  max-width: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 8px;
+  border: 0;
+  background: #e5ebe2;
+  padding: 6px 20px;
+  text-align: center;
+  font-size: 0.875rem;
+}
+.site-shell .period-review-notice > span {
+  width: auto;
+}
+.site-shell .site-header {
+  max-width: 1248px;
+  margin: auto;
+  padding: 26px 24px;
+  border-bottom: 1px solid #c9cec4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px 40px;
+}
+.site-shell .wordmark {
+  flex-shrink: 0;
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: normal;
+  font-size: 1.625rem;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.site-shell .wordmark > span {
+  display: inline-block;
+  font-weight: 700;
+  max-width: 100%;
+  white-space: normal;
+  hyphens: manual;
+}
+.site-shell .brand-dot {
+  color: #98422e;
+}
+.site-shell .site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 34px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.site-shell .site-header nav a {
+  padding: 11px 0;
+  font-size: 1.125rem;
+  min-height: 44px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.site-shell .site-header nav a[aria-current],
+.site-shell .site-header nav a:hover {
+  border-color: #173c34;
+}
+.site-shell .site-header nav a[aria-current] {
+  font-weight: 600;
+}
+.legacy-info :is(a, button, [tabindex]):focus-visible,
+.site-shell :is(.site-header, .site-footer) a:focus-visible {
+  outline: 3px solid #98422e;
+  outline-offset: 4px;
+}
+.site-shell .site-main {
+  max-width: 1248px;
+  padding: 0 24px;
+}
+.site-shell .site-footer {
+  max-width: 1248px;
+  margin: auto;
+  padding: 36px 24px;
+  border-top: 1px solid #c9cec4;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px 40px;
+  font-size: 1.0625rem;
+}
+.site-shell .site-footer .footer-intro p {
+  margin: 0 0 18px;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.site-shell .site-footer .footer-intro span {
+  font-size: 1.0625rem;
+  font-weight: 400;
+}
+.site-shell .footer-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+.site-shell .footer-group h2 {
+  margin: 0 0 18px;
+  font:
+    600 1.125rem/1.55 'Source Sans',
+    Arial,
+    sans-serif;
+  letter-spacing: normal;
+}
+.site-shell .footer-group a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
+  font-size: 1.0625rem;
+  text-decoration: underline;
+}
+.site-shell .footer-group a[aria-current] {
+  font-weight: 600;
+}
+.site-shell .footer-group span {
+  color: #52615a;
+  font-size: 1rem;
+}
+.site-shell .site-footer .footer-provenance {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px 40px;
+  border-top: 1px solid #c9cec4;
+  padding-top: 22px;
+  font-size: 0.9375rem;
+  color: #52615a;
+}
+.site-shell .footer-provenance p {
+  margin: 0;
+}
+.site-shell .footer-provenance a,
+.site-shell .footer-provenance .small {
+  font-size: inherit;
+}
+.site-shell .site-footer .footer-meta {
+  display: block;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.site-guidance {
+  max-width: 780px;
+  padding: 56px 0;
+  border-top: 1px solid #c9cec4;
+}
+@media screen {
+  .legacy-info {
+    font:
+      1.25rem/1.55 'Source Sans',
+      Arial,
+      sans-serif;
+    color: #173c34;
+  }
+  .legacy-info .page-intro {
+    padding: 64px 0 40px;
+  }
+  .legacy-info .intro-copy {
+    max-width: 900px;
+    font-size: inherit;
+    color: inherit;
+  }
+  .legacy-info h1,
+  .legacy-info h2 {
+    font-family: 'Source Serif', Georgia, serif;
+    font-weight: 400;
+  }
+  .legacy-info h1 {
+    font-size: clamp(2.8rem, 4.7vw, 4.5rem);
+  }
+  .legacy-info .page-intro h1 {
+    max-width: none;
+    margin-bottom: 28px;
+  }
+  .legacy-info .local-delete h2 {
+    margin-bottom: 16px;
+  }
+  .legacy-info p + p {
+    margin-top: 16px;
+  }
+}
+@media screen {
+  .legacy-info.narrow {
+    max-width: 1000px;
+    margin-left: 0;
+  }
+}
+@media (max-width: 700px) {
+  .site-shell .site-header {
+    display: block;
+    padding: 20px;
+  }
+  .site-shell .site-header nav {
+    width: 100%;
+    margin-top: 15px;
+    gap: 0 24px;
+  }
+  .site-shell .site-header nav a {
+    font-size: 1rem;
+  }
+  .site-shell .period-review-notice {
+    font-size: 0.8125rem;
+    padding: 6px 12px;
+  }
+  .site-shell .site-main {
+    padding: 0 20px;
+  }
+  .site-shell .site-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 30px 20px;
+    gap: 26px;
+  }
+  .site-shell .site-footer .footer-provenance {
+    display: block;
+  }
+  .site-shell .site-footer .footer-meta {
+    margin-top: 18px;
+  }
+  .site-guidance {
+    padding: 36px 0;
+  }
+  .legacy-info {
+    font-size: 1.1875rem;
+  }
+  .legacy-info .page-intro {
+    padding-top: 36px;
+  }
+}
+@media (forced-colors: active) {
+  .legacy-info :is(a, button, [tabindex]):focus-visible,
+  .site-shell :is(.site-header, .site-footer) a:focus-visible {
+    outline-color: Highlight;
+  }
+  .site-shell .site-header nav a[aria-current] {
+    border-color: CanvasText;
+  }
+}
+@media print {
+  .site-shell {
+    min-height: 0;
+    background: white;
+  }
+  .site-shell .site-main {
+    max-width: none;
+    padding: 0;
+  }
+}

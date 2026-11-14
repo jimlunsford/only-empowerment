@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { executionCard } from './helpers/next-move';
+import { periodCard } from './helpers/period-card';
 const staging = 'https://dev.onlyempowerment.com';
 import { stagingExpectations } from '../staging-expectations.mjs';
 test.beforeEach(({ baseURL }) => {
@@ -41,7 +41,7 @@ test('deployed layouts and print artifact are reviewable at laptop and narrow wi
     if (testInfo.project.name === 'chromium')
       await page.screenshot({ path: testInfo.outputPath(`home-${width}.png`), fullPage: true });
   }
-  await executionCard(
+  await periodCard(
     page,
     'SYNTHETIC STAGING REVIEW: Clear one shelf. Done when the surface is empty.',
   );
@@ -56,10 +56,10 @@ test('deployed layouts and print artifact are reviewable at laptop and narrow wi
     await page.screenshot({ path: testInfo.outputPath('card-320.png'), fullPage: true });
   await page.setViewportSize({ width: 800, height: 1000 });
   await page.emulateMedia({ media: 'print' });
-  await expect(page.locator('.output-card')).toBeVisible();
+  await expect(page.locator('.period-card')).toBeVisible();
   await expect(page.locator('.site-header')).toBeHidden();
   await expect(page.locator('.staging-banner')).toBeHidden();
-  await expect(page.getByRole('button', { name: 'Copy card', exact: true })).toBeHidden();
+  await expect(page.getByRole('button', { name: 'Copy my card', exact: true })).toBeHidden();
   if (testInfo.project.name === 'chromium') {
     await page.screenshot({ path: testInfo.outputPath('print-card.png'), fullPage: true });
     await page.pdf({
@@ -84,15 +84,12 @@ test('deployed answer lifecycle emits only first-party static requests and no pe
     if (message.type() === 'error') consoleErrors.push(message.text());
   });
   const marker = 'OE-PRIVATE-SYNTHETIC-DEPLOYED-20260916';
-  await executionCard(page, marker);
-  await page.getByRole('button', { name: 'Edit card', exact: true }).click();
-  await expect(page.getByLabel('My next move', { exact: true })).toHaveValue(marker);
-  await page.getByRole('button', { name: 'Clear current work', exact: true }).click();
-  await page
-    .getByRole('dialog')
-    .getByRole('button', { name: 'Clear current work', exact: true })
-    .click();
-  const field = page.getByLabel('What needs movement?', { exact: true });
+  await periodCard(page, marker);
+  await page.getByRole('button', { name: 'Edit my card', exact: true }).click();
+  await expect(page.locator('#period-standard')).toHaveValue(marker);
+  await page.getByRole('button', { name: 'Clear this draft', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Clear draft', exact: true }).click();
+  const field = page.locator('#period-standard');
   await expect(field).toHaveValue('');
   await field.fill(marker);
   await page.reload();

@@ -1,0 +1,82 @@
+/* One teaching handoff within each lesson, using Ownership's established treatment. */
+.period-shell .lesson-transition {
+  hyphens: none;
+}
+.period-shell .lesson-transition .lesson-progression {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.period-shell .lesson-transition .lesson-progression a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  max-width: 100%;
+  text-underline-offset: 0.2em;
+}
+.period-shell .lesson-transition .transition-previous {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 1.0625rem;
+}
+.period-shell .lesson-transition .transition-previous a {
+  color: var(--ink);
+  font-weight: 400;
+}
+.period-shell .lesson-transition a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+@media screen and (max-width: 700px) {
+  .period-shell .lesson-transition .transition-path > span {
+    min-width: 0;
+  }
+  .period-shell .lesson-transition .transition-previous {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 359px) {
+  .period-shell .lesson-transition:not([data-value='ownership']) .transition-path {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .period-shell
+    .lesson-transition:not([data-value='ownership'])
+    .transition-path
+    > span:nth-child(2) {
+    transform: rotate(90deg);
+  }
+}
+@media (forced-colors: active) {
+  .period-shell .lesson-transition a:focus-visible {
+    outline-color: Highlight;
+  }
+}
+@media print {
+  .period-shell .lesson-transition {
+    background: transparent;
+    color: #000;
+    padding: 0;
+    break-inside: auto;
+  }
+  .period-shell .lesson-transition .transition-path,
+  .period-shell .lesson-transition .lesson-progression {
+    display: none !important;
+  }
+  .period-shell .lesson-transition h2,
+  .period-shell .lesson-transition h3 {
+    break-after: avoid;
+  }
+  .period-shell .lesson-transition p {
+    orphans: 3;
+    widows: 3;
+  }
+}

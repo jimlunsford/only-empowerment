@@ -1,0 +1,485 @@
+/* Work 26: shared geometry applies only to full lessons, never activity layouts. */
+@media screen {
+  .period-shell .value-lesson {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-areas: 'rail heading' 'rail local' 'rail article';
+    gap: 0 80px;
+    padding: 40px 0 56px;
+    font-size: 1.25rem;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+  .period-shell .value-lesson > .lesson-heading {
+    grid-area: heading;
+    min-width: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 0 0 28px;
+    margin: 0 0 24px;
+  }
+  .period-shell .value-lesson > .lesson-heading h1 {
+    font:
+      400 5.125rem/1.18 'Source Serif',
+      Georgia,
+      serif;
+    letter-spacing: -2px;
+    margin: 0;
+    max-width: none;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  .period-shell .value-lesson > .lesson-heading .position {
+    font-size: 1.0625rem;
+    color: var(--accent);
+    margin: 0 0 16px;
+  }
+  .period-shell .value-lesson > .lesson-heading .lead {
+    font:
+      400 1.75rem/1.4 'Source Serif',
+      Georgia,
+      serif;
+    margin: 18px 0 0;
+    max-width: 740px;
+  }
+  .period-shell .value-lesson > .period-sequence {
+    grid-area: rail;
+    align-self: start;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+  }
+  .period-shell .value-lesson > .period-sequence h2 {
+    display: block;
+    font:
+      400 1.5rem/1.25 'Source Serif',
+      Georgia,
+      serif;
+    margin: 0 0 22px;
+    letter-spacing: normal;
+  }
+  .period-shell .value-lesson .path {
+    display: block;
+  }
+  .period-shell .value-lesson .path li {
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+  }
+  .period-shell .value-lesson .path li::before {
+    display: none;
+  }
+  .period-shell .value-lesson .path .lesson-value-link {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 9px;
+    padding: 14px 12px;
+    min-height: 48px;
+    text-decoration: none;
+  }
+  .period-shell .value-lesson .path .num {
+    min-width: 0;
+    padding: 4px 0 0;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--accent);
+    background: none;
+  }
+  .period-shell .value-lesson .path .path-name {
+    overflow-wrap: normal;
+    font:
+      600 1.1875rem/1.35 'Source Sans',
+      Arial,
+      sans-serif;
+  }
+  .period-shell .value-lesson .path .path-role {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font:
+      400 1rem/1.4 'Source Sans',
+      Arial,
+      sans-serif;
+  }
+  .period-shell .value-lesson .selected .lesson-value-link {
+    background: var(--ink);
+    color: var(--white);
+    border-left: 4px solid var(--accent);
+    padding-left: 8px;
+  }
+  .period-shell .value-lesson .selected .path-name {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .period-shell .value-lesson .selected :is(.num, .path-role) {
+    color: var(--white);
+  }
+  .period-shell .value-lesson .path-note {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 20px 0 0;
+  }
+  .period-shell .value-lesson > .lesson-local {
+    grid-area: local;
+    min-width: 0;
+    margin: 0 0 26px;
+  }
+  .period-shell .value-lesson .lesson-local :is(nav, p, div) {
+    margin: 0;
+    border: 0;
+    padding: 0;
+  }
+  .period-shell .value-lesson .lesson-local a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 1.0625rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 8px 0;
+    text-decoration: underline;
+    border: 0;
+  }
+  .period-shell .value-lesson .lesson-local .empowerment-links {
+    flex-direction: row;
+    gap: 8px 24px;
+    flex-wrap: wrap;
+  }
+  .period-shell .value-lesson > .lesson-copy {
+    grid-area: article;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+  }
+  .period-shell .value-lesson .lesson-copy > section {
+    margin: 0 0 40px;
+  }
+  .period-shell .value-lesson .lesson-copy > p {
+    margin: 0 0 30px;
+  }
+  .period-shell .value-lesson .lesson-copy p {
+    max-width: 760px;
+  }
+  .period-shell .value-lesson .lesson-copy h2 {
+    font:
+      400 2.125rem/1.18 'Source Serif',
+      Georgia,
+      serif;
+    letter-spacing: -0.5px;
+    margin: 0 0 24px;
+  }
+  .period-shell .value-lesson .lesson-copy h2 + p {
+    margin-top: 0;
+  }
+  .period-shell .value-lesson .lesson-copy p + p {
+    margin-top: 20px;
+  }
+  .period-shell .value-lesson .empowerment-lesson > section:first-of-type {
+    border: 0;
+    padding-top: 0;
+  }
+
+  .period-shell .value-lesson .purpose-contrast {
+    background: var(--white);
+    padding: 32px;
+  }
+  .period-shell .value-lesson .lesson-distinction {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    max-width: none;
+    margin-bottom: 24px;
+  }
+  .period-shell .value-lesson .lesson-distinction > span {
+    font:
+      400 1.5rem/1.4 'Source Serif',
+      Georgia,
+      serif;
+    padding-right: 24px;
+  }
+  .period-shell .value-lesson .activity-direction > span + span {
+    border-left: 3px solid var(--accent);
+    padding: 0 0 0 24px;
+  }
+  .period-shell .value-lesson .activity-direction + p {
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  .period-shell .value-lesson .resilience-standard {
+    border: 1px solid var(--border);
+    padding: 32px;
+    background: var(--white);
+  }
+  .period-shell .value-lesson .standard-method {
+    grid-template-columns: 1fr 1fr;
+  }
+  .period-shell .value-lesson .standard-method > span {
+    padding: 24px;
+    background: var(--sage);
+  }
+  .period-shell .value-lesson .standard-method > span + span {
+    background: var(--white);
+    border-left: 1px solid var(--border);
+  }
+  .period-shell .value-lesson .standard-method > .distinction-remainder {
+    grid-column: 1 / -1;
+    border: 0;
+    padding: 24px 0 0;
+    font: inherit;
+  }
+  .period-shell .value-lesson .resilience-support {
+    padding: 28px 32px;
+    background: var(--sage);
+    border-top: 3px solid var(--ink);
+  }
+  .period-shell .value-lesson .integrity-evidence {
+    border-top: 4px solid var(--ink);
+    padding: 28px 32px;
+    background: var(--white);
+  }
+  .period-shell .value-lesson .evidence-question {
+    border-top: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 20px 0 0 24px;
+  }
+  .period-shell .value-lesson .integrity-correction {
+    border-left: 4px solid var(--accent);
+    padding-left: 28px;
+  }
+  .period-shell .value-lesson .correction-action {
+    background: var(--sage);
+    padding: 24px;
+  }
+  .period-shell .value-lesson .discipline-repetition {
+    border-left: 4px solid var(--ink);
+    padding-left: 28px;
+  }
+  .period-shell .value-lesson .repetition-statement {
+    font:
+      400 1.5625rem/1.4 'Source Serif',
+      Georgia,
+      serif;
+  }
+  .period-shell .value-lesson .discipline-resistance {
+    background: var(--white);
+    padding: 28px 32px;
+    border-top: 3px solid var(--ink);
+    margin-bottom: 0;
+  }
+  .period-shell .value-lesson .discipline-limits {
+    background: var(--sage);
+    padding: 28px 32px;
+    border-top: 1px solid var(--border);
+  }
+  .period-shell .value-lesson .correction-return {
+    border-left: 4px solid var(--accent);
+    padding-left: 24px;
+    font:
+      400 1.5rem/1.45 'Source Serif',
+      Georgia,
+      serif;
+  }
+  .period-shell .value-lesson .offer-stage {
+    background: var(--white);
+    border-top: 3px solid var(--ink);
+    padding: 24px;
+  }
+  .period-shell .value-lesson :is(.reply-stage, .necessary-care) {
+    border-left: 3px solid var(--accent);
+    padding-left: 24px;
+  }
+  .period-shell .value-lesson .agreement-stage {
+    background: var(--sage);
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .period-shell .value-lesson {
+    grid-template-columns: 220px minmax(0, 1fr);
+    column-gap: 36px;
+  }
+  .period-shell .value-lesson > .lesson-heading h1 {
+    font-size: 3.75rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .period-shell .value-lesson {
+    display: flex;
+    flex-direction: column;
+    padding-top: 28px;
+    font-size: 1.1875rem;
+    hyphens: auto;
+  }
+  .period-shell .value-lesson > .lesson-heading {
+    padding-bottom: 22px;
+  }
+  .period-shell .value-lesson > .lesson-heading h1 {
+    font-size: clamp(2.125rem, 10.3vw, 3.375rem);
+    letter-spacing: -1px;
+  }
+  .period-shell .value-lesson > .lesson-heading .lead {
+    font-size: 1.4375rem;
+    margin-top: 14px;
+  }
+  .period-shell .value-lesson > .lesson-heading .position {
+    font-size: 0.9375rem;
+    margin-bottom: 12px;
+  }
+  .period-shell .value-lesson > .period-sequence {
+    width: 100%;
+    margin-bottom: 26px;
+  }
+  .period-shell .value-lesson > .period-sequence h2 {
+    font-size: 1.3125rem;
+    margin-bottom: 12px;
+  }
+  .period-shell .value-lesson .path {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 8px;
+  }
+  .period-shell .value-lesson .path .lesson-value-link {
+    grid-template-columns: 21px minmax(0, 1fr);
+    gap: 6px;
+    padding: 10px 6px;
+  }
+  .period-shell .value-lesson .path .num {
+    font-size: 0.75rem;
+    padding-top: 5px;
+  }
+  .period-shell .value-lesson .path .path-name {
+    font-size: 1.0625rem;
+  }
+  .period-shell .value-lesson .path .path-role {
+    display: none;
+  }
+  .period-shell .value-lesson .selected .lesson-value-link {
+    border-left-width: 2px;
+    padding-left: 4px;
+  }
+  .period-shell .value-lesson .path-note {
+    margin-top: 14px;
+  }
+  .period-shell .value-lesson > .lesson-local {
+    margin-bottom: 24px;
+  }
+  .period-shell .value-lesson .lesson-local a {
+    font-size: 1rem;
+  }
+  .period-shell .value-lesson .lesson-copy > section {
+    margin-bottom: 32px;
+  }
+  .period-shell .value-lesson .lesson-copy h2 {
+    font-size: 1.8125rem;
+    line-height: 1.2;
+  }
+  .period-shell
+    .value-lesson
+    :is(
+      .purpose-contrast,
+      .resilience-standard,
+      .resilience-support,
+      .integrity-evidence,
+      .discipline-resistance,
+      .discipline-limits
+    ) {
+    padding: 24px 20px;
+  }
+  .period-shell .value-lesson .lesson-distinction {
+    display: block;
+  }
+  .period-shell .value-lesson .lesson-distinction > span {
+    display: block;
+    font-size: 1.4375rem;
+    padding: 0 0 20px;
+  }
+  .period-shell .value-lesson .activity-direction > span + span {
+    border-left: 0;
+    border-top: 3px solid var(--accent);
+    padding: 20px 0 0;
+  }
+  .period-shell .value-lesson .standard-method > span {
+    padding: 20px;
+  }
+  .period-shell .value-lesson .standard-method > span + span {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+  .period-shell .value-lesson .standard-method > .distinction-remainder {
+    border: 0;
+    font: inherit;
+    padding: 20px 0 0;
+  }
+  .period-shell .value-lesson :is(.integrity-correction, .discipline-repetition) {
+    padding-left: 20px;
+  }
+  .period-shell .value-lesson :is(.correction-action, .offer-stage, .agreement-stage) {
+    padding: 20px;
+  }
+  .period-shell .value-lesson .discipline-resistance {
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 359px) {
+  .period-shell .value-lesson .path {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .period-shell .value-lesson .path .path-name {
+    font-size: 1.125rem;
+  }
+}
+@media (forced-colors: active) {
+  .period-shell .value-lesson .selected .lesson-value-link {
+    border: 2px solid CanvasText;
+  }
+  .period-shell .value-lesson a:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 4px;
+  }
+}
+@media print {
+  .period-shell .value-lesson {
+    display: block;
+    padding: 0;
+  }
+  .period-shell .value-lesson > :is(.period-sequence, .lesson-local) {
+    display: none !important;
+  }
+  .period-shell .value-lesson > .lesson-heading {
+    margin: 0 0 18pt;
+    padding: 0;
+    border: 0;
+  }
+  .period-shell .value-lesson > .lesson-heading h1 {
+    font-size: 28pt;
+  }
+  .period-shell .value-lesson .lesson-heading .lead {
+    font-size: 16pt;
+  }
+  .period-shell .value-lesson .lesson-copy {
+    max-width: none;
+    margin: 0;
+  }
+  .period-shell .value-lesson .lesson-copy > section {
+    margin: 18pt 0;
+    break-inside: auto;
+  }
+  .period-shell .value-lesson .lesson-copy h2 {
+    font-size: 18pt;
+    break-after: avoid;
+  }
+  .period-shell .value-lesson :is(p, h2, h3) {
+    color: #000;
+    background: #fff;
+  }
+  .period-shell .value-lesson p {
+    orphans: 3;
+    widows: 3;
+  }
+  .period-shell .lesson-practice .actions {
+    break-inside: avoid;
+  }
+}

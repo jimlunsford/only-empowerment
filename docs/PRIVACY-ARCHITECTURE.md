@@ -1,5 +1,7 @@
 # Privacy architecture
 
+> Work 28 supersedes the six-tool public behavior described historically below. The public application retains the six PERIOD lessons and memory-only Standard Card. Legacy modules and Saved work are retired; browser-local records remain untouched except for explicit confirmed deletion. See [Work 28 retirement and test accounting](WORK-28-RETIREMENT.md).
+
 ## Current presentation and privacy contract
 
 All six accepted tools keep unsaved answers in memory across internal navigation. Only explicit confirmation saves an artifact to this browser profile. Reload/close can discard unsaved work; browser recovery, extensions, clipboard, PDFs, screenshots, and device backups remain outside app deletion. There is no account, answer-submission endpoint, AI API, server recovery, or cross-device sync. The current staging runtime and both presentation builds have no analytics, tracker, or remote font/script. Future production analytics are governed by the [Analytics policy](ANALYTICS-POLICY.md); private tool content is categorically excluded.

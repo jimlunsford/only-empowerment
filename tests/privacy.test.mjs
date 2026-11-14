@@ -31,10 +31,10 @@ test('HTML blocks answer submission and third-party runtime requests', () => {
   assert.doesNotMatch(html, /<script[^>]+src="https?:/);
 });
 
-test('localStorage access is confined to the explicit artifact service', () => {
+test('localStorage access is confined to the explicit confirmed-deletion service', () => {
   for (const p of sourceFiles('src').filter(
-    (p) => /\.(tsx?|mjs)$/.test(p) && !p.endsWith('local-cards.ts'),
+    (p) => /\.(tsx?|mjs)$/.test(p) && !p.endsWith('legacy-data-removal.ts'),
   ))
     assert.doesNotMatch(readFileSync(p, 'utf8'), /\blocalStorage\b/);
-  assert.doesNotMatch(readFileSync('src/local-cards.ts', 'utf8'), /\.clear\s*\(/);
+  assert.doesNotMatch(readFileSync('src/legacy-data-removal.ts', 'utf8'), /\.clear\s*\(/);
 });

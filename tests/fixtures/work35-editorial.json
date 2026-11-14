@@ -1,0 +1,1275 @@
+{
+  "baseline": "218ead21259b44075935b3ba74cdfc34a8bc2414",
+  "approval": "Product Vision v0.69; Work 34 approved November 7, 2026",
+  "records": [
+    {
+      "id": "O01",
+      "field": "periodValues[0].lesson.meaning",
+      "files": ["src/period-content.ts"],
+      "original": "Ownership starts with telling the truth about the part that belongs to you. You may not have caused the situation, and you cannot control every outcome. You can still decide what you will do next, what needs correcting, and where you need help.",
+      "approved": "Ownership begins when you stop defending what is yours to change. Tell the truth about your choices, their consequences and the responsibility in front of you. You may not have caused the situation. You still have a next response to own, including asking for the help you need.",
+      "founderOverride": true
+    },
+    {
+      "id": "O02",
+      "field": "periodValues[0].lesson.example",
+      "files": ["src/period-content.ts"],
+      "original": "You miss a commitment after a difficult week. You cannot change the week that happened. You can tell the person you missed it, acknowledge the effect, and offer a realistic next step. They decide how to respond. Your responsibility is to make the correction you said you would make.",
+      "approved": "You miss a commitment after a difficult week. Explain what happened without using the week to avoid your part. Acknowledge the effect, offer a next step you can carry out, and do it. The other person decides how to respond. Your correction is still yours to make."
+    },
+    {
+      "id": "O03",
+      "field": "periodValues[0].lesson.misconception",
+      "files": ["src/period-content.ts"],
+      "original": "Accepting blame for another person’s harmful actions is not required. Neither is doing everything alone. Asking for useful support can be an act of ownership.",
+      "approved": "Someone else's harmful actions belong to them. Taking ownership of your response does not make their harm your fault. You can hold a boundary, seek support and take responsibility without carrying blame that is not yours."
+    },
+    {
+      "id": "O04",
+      "field": "periodValues[0].lesson.connection",
+      "files": ["src/period-content.ts"],
+      "original": "Responsibility gives you something to carry. Purpose helps you decide what you are carrying it toward. Without direction, owned effort can still become scattered.",
+      "approved": "Owning the next response gets you moving. Purpose asks where that movement is taking you. You can stop avoiding a responsibility and still scatter your effort. Decide what you are building with it."
+    },
+    {
+      "id": "O05",
+      "field": "periodPresentation.practiceInvitation",
+      "files": ["src/period-presentation.ts"],
+      "original": "Explore a missed update, change what was possible, and compare the response. Then see what would count as action and how the six values support it.",
+      "approved": "Look at a missed update. Separate what was outside your control from what you could have done. Then follow the correction into action and see where the other values enter the work."
+    },
+    {
+      "id": "O06",
+      "field": "practiceViews[1].lead",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Explore what each response changes. There is nothing to submit.",
+      "approved": "What does each response correct, and what does it leave untouched?"
+    },
+    {
+      "id": "O07",
+      "field": "communicationConditions.worked.explanation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "This owns the missed update without claiming responsibility for the outage. It gives the colleague current facts and names actions within reach.",
+      "approved": "The outage was outside your control. Waiting to communicate was your choice. This update owns that delay, tells your colleague where the work stands and names what you can do next."
+    },
+    {
+      "id": "O08",
+      "field": "communicationConditions.unavailable.explanation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "This explains a real limit without claiming you chose not to communicate. Now that messaging works, it identifies the response you can carry out.",
+      "approved": "You could not send a message before 4 p.m. Tell that truth without inventing a choice you never had. Now that messaging works, send the update and the section you can provide."
+    },
+    {
+      "id": "O09",
+      "field": "practiceCopy.limit",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Ownership starts with the response available to you. It does not make the outage your fault, give you control over another person’s reaction, or require you to do everything alone.",
+      "approved": "Own your response, not the outage or your colleague's reaction. If the next step needs help, ask for it. Responsibility does not require you to do everything alone."
+    },
+    {
+      "id": "O10",
+      "field": "practiceCopy.situationClose",
+      "files": ["src/period-practice-content.ts"],
+      "original": "The response starts with what is actually possible. A limit does not require false blame; an available correction still needs action.",
+      "approved": "Start with what was possible. Own a delay you chose. Tell the truth about a limit you could not change. Then act on what is possible now."
+    },
+    {
+      "id": "O11",
+      "field": "practiceCopy.responsePause",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Before reading the explanation, name what this response can actually carry out.",
+      "approved": "Before reading on, ask what this response actually changes."
+    },
+    {
+      "id": "O12",
+      "field": "practiceCopy.assumptions",
+      "files": ["src/period-practice-content.ts"],
+      "original": "This fictional example assumes you can send the completed section now and are available for the next morning’s check-in. Its clock times are not a rule for everyone.",
+      "approved": "Here, you can send the saved section and make the next morning's check-in. In your own situation, promise a time and contribution you can actually give."
+    },
+    {
+      "id": "O13",
+      "field": "practiceCopy.honestLimit",
+      "files": ["src/period-practice-content.ts"],
+      "original": "The message gives the colleague information to plan with. It cannot guarantee access, forgiveness or restored trust. Sending it and keeping the next commitment are still required.",
+      "approved": "Send the message so your colleague has facts to work with. Then keep the check-in. You cannot promise when access will return or decide when they should trust or forgive you."
+    },
+    {
+      "id": "O14",
+      "field": "practiceCopy.waiting.explanation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "At 4 p.m., you can communicate in either version of the situation. Waiting makes the next update depend on an outage ending, even though you can explain the current limit now. Earlier inability to communicate does not make present silence the only option.",
+      "approved": "At 4 p.m., messaging works in both versions. You can explain the problem now. Waiting for the file to return leaves your colleague without information you already have."
+    },
+    {
+      "id": "O15",
+      "field": "practiceCopy.overpromising.explanation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "The new promise still depends on a file you cannot access. In this situation it promises more than you can guarantee. Ownership does not require ignoring capacity or using an apology to make an unworkable commitment.",
+      "approved": "You still cannot open the file. Promising the whole task tonight uses a bigger promise to cover the missed one. Own the delay without committing yourself to work you cannot deliver."
+    },
+    {
+      "id": "O16",
+      "field": "practiceCopy.help.explanation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Specific support may make the work possible. You still own the update and what you have promised. Asking for an exported copy is different from making someone else responsible for your whole correction. Help is legitimate, and the helper can say no.",
+      "approved": "Ask for the exported copy because it could make the work possible. The update and the check-in are still yours to carry out. The other person can decline; asking for help does not assign them your responsibility."
+    },
+    {
+      "id": "O17",
+      "field": "practiceCopy.workedExample",
+      "files": ["src/period-practice-content.ts"],
+      "original": "The honest-update worked example continues here, regardless of which responses you examined. The original task remains blocked.",
+      "approved": "Now follow the honest update into the next day. The shared file is still blocked. Whatever responses you explored, this continuation follows the honest-update example."
+    },
+    {
+      "id": "O18",
+      "field": "practiceCopy.timeline[1].evidence",
+      "files": ["src/period-practice-content.ts"],
+      "original": "The check was carried out; access is still outside your guarantee.",
+      "approved": "You checked access. Whether the file came back was outside your control."
+    },
+    {
+      "id": "O19",
+      "field": "practiceCopy.timeline[2].evidence",
+      "files": ["src/period-practice-content.ts"],
+      "original": "The communication commitment was kept. It does not prove the entire task is complete.",
+      "approved": "You kept the check-in, even if the task was still blocked."
+    },
+    {
+      "id": "O20",
+      "field": "evidenceRecords.promised.interpretation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "This is an intention. No sent update or completed check-in is established. Choosing this example or writing a card cannot perform those actions.",
+      "approved": "The draft is still unsent. Your colleague has no update, and the check-in is still ahead. The intention matters when you carry it out."
+    },
+    {
+      "id": "O21",
+      "field": "evidenceRecords.followed.interpretation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "These actions are evidence of the correction and kept check-in in this fictional record. The outage remains unresolved. One correction does not guarantee forgiveness, rebuild all trust or establish a whole way of life.",
+      "approved": "The update went out and the next check-in happened. That is follow-through, even though the outage continues. Keep building that record. One kept commitment does not settle the other person's trust or forgiveness."
+    },
+    {
+      "id": "O22",
+      "field": "evidenceRecords.missed.interpretation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "The first correction happened; the next commitment was not kept. A later repair can create new evidence, but it cannot turn the missed deadline into a kept promise.",
+      "approved": "You sent the first update, then missed the next commitment. Both facts belong in the record. Correct this miss now; a later repair will not turn it into a promise you kept."
+    },
+    {
+      "id": "O23",
+      "field": "practiceCopy.repair",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Acknowledge the second miss now. Send the current facts, make a realistic correction, and change what failed: set a reminder, reduce the promise, or ask for specific help. Do not promise completion while access is still blocked. Your colleague does not owe reassurance. The repair becomes evidence when you carry it out.",
+      "approved": "Acknowledge the missed check-in and send the facts you have now. Address what failed: set a reminder, make a smaller promise or ask for specific help. Keep completion off the promise while access is blocked. Your colleague does not owe you reassurance. Carry out the correction."
+    },
+    {
+      "id": "O24",
+      "field": "practiceCopy.household.explanation",
+      "files": ["src/period-practice-content.ts"],
+      "original": "This example assumes arranging a simple meal is actually possible. If it is not, name your real limit and ask to revise the agreement without promising an unavailable contribution. The other person may disagree. Be honest, contribute what you can, and follow through on any new agreement.",
+      "approved": "Offer the simple meal only if you can arrange it. If you cannot, say so and ask to make another plan. Your changed shift is real. So is the need to tell the other person what you can contribute and follow through on what you agree."
+    },
+    {
+      "id": "O25",
+      "field": "practiceCopy.household.agreement",
+      "files": ["src/period-practice-content.ts"],
+      "original": "A revised shared agreement needs the other person’s participation. It is not accepted until they agree.",
+      "approved": "A changed plan is a shared agreement only when the other person agrees."
+    },
+    {
+      "id": "O26",
+      "field": "practiceCopy.connectedOpening",
+      "files": ["src/period-practice-content.ts"],
+      "original": "In this situation, Ownership means responding honestly to the update that did not arrive. Purpose asks what that response serves: becoming a dependable colleague. The other values help that direction survive pressure, remain honest, become repeatable and eventually strengthen others.",
+      "approved": "Ownership gets the honest update sent. Purpose asks what you are building through that response: becoming a dependable colleague. Resilience keeps you responding when the file stays blocked. Integrity keeps the facts honest. Discipline keeps the next commitment from becoming another empty promise. Empowerment turns what you learn into useful help for someone else when it is wanted."
+    },
+    {
+      "id": "O27",
+      "field": "practiceCopy.relationships[4].connection",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Repetition serves Ownership, Purpose, Resilience and Integrity. Greater effort alone cannot replace them.",
+      "approved": "Repeated effort needs responsibility, direction, resilience and honesty. Doing more cannot replace them."
+    },
+    {
+      "id": "O28",
+      "field": "practiceCopy.relationships[5].contribution",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Later, if useful and welcomed, share a method you have practiced so someone can adapt it for themselves.",
+      "approved": "When someone wants the help, share a method you have practiced and let them adapt it to their own work."
+    },
+    {
+      "id": "O29",
+      "field": "practiceCopy.relationships[5].connection",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Developed strength serves another person’s capacity. Their choices remain theirs, returning the emphasis to Ownership.",
+      "approved": "Use what you have learned to help them carry their responsibility. Their choices remain theirs. That brings the work back to Ownership."
+    },
+    {
+      "id": "O30",
+      "field": "practiceCopy.connectedReturn",
+      "files": ["src/period-practice-content.ts"],
+      "original": "The order teaches how the values support one another. You keep returning to all six; you do not finish one and leave it behind. One action can express several values. You do not have to manufacture an act of Empowerment in every situation.",
+      "approved": "You keep returning to all six values. One correction can call on several of them, and learning the next value does not leave the earlier ones behind. Help others when there is a useful place to do it; every situation does not need an act of service."
+    },
+    {
+      "id": "O31",
+      "field": "practiceCopy.empowermentLimit",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Asking for an exported copy is receiving useful support. It does not automatically mean you have empowered someone. Sharing a practiced method should be useful, respectful and free of control; it does not require claiming mastery.",
+      "approved": "Receiving an exported copy helps you do your work. Empowerment asks what your own strength can offer someone else. Share what you know honestly, respect their choices and leave them room to act."
+    },
+    {
+      "id": "O32",
+      "field": "practiceCopy.takeAction",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Think of one ordinary responsibility that needs a response. What can you honestly do next, what direction does it serve, and what would show that you did it? Keep your answer private. Take the action when it is workable, and return to the values when the situation changes.",
+      "approved": "Think of a responsibility you have been avoiding. What can you do next, what does that action serve, and what will be different once you have done it? Keep your answer private. Act when it is safe and possible, then return to the values as the situation changes."
+    },
+    {
+      "id": "O33",
+      "field": "practiceCopy.cardNote",
+      "files": ["src/period-practice-content.ts"],
+      "original": "Keep a reminder of one intended behavior within the connected Code.",
+      "approved": "If a reminder helps, the optional Standard Card can hold one behavior you intend to practice within the whole Code. The action still belongs to you."
+    },
+    {
+      "id": "O34",
+      "field": "purposeOwnershipHandoff",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Ownership began with the response available now. Purpose asks what that responsibility is building toward. Explore a direction that can guide ordinary choices.",
+      "approved": "Carry that responsibility into the next ordinary choice. Purpose will help you decide what deserves your time and effort."
+    },
+    {
+      "id": "P01",
+      "field": "purposeLesson[0].paragraphs[0]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Ownership puts responsibility for the next response in your hands. Purpose gives that responsibility a meaningful direction. It helps you decide what deserves your time, energy and attention.",
+      "approved": "Once you own your life, you have to decide what you are building with it. Purpose gives your effort somewhere to go. It helps you choose what deserves your time, energy and attention when everything wants a piece of them."
+    },
+    {
+      "id": "P02",
+      "field": "purposeLesson[1].paragraphs[0]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "In Practice Ownership, the honest update addresses a real responsibility. Purpose asks what that response serves. Becoming a dependable colleague gives the correction a direction beyond getting through one uncomfortable conversation.",
+      "approved": "In the Ownership example, sending an honest update means facing the responsibility instead of hiding behind a blocked file. Purpose asks why that response matters beyond ending an uncomfortable conversation. Becoming a dependable colleague gives the correction somewhere to lead."
+    },
+    {
+      "id": "P03",
+      "field": "purposeLesson[2].paragraphs[0]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Activity tells you that something occupied your time. Progress asks whether the activity served a meaningful direction. A longer task list cannot answer that question for you.",
+      "approved": "Activity fills time. Purpose asks what that time is building. A longer list of finished tasks cannot answer that question for you."
+    },
+    {
+      "id": "P04",
+      "field": "purposeLesson[3].paragraphs[1]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Productivity concerns what gets done. Purpose asks whether what gets done matters. Doing more can still leave your direction unattended.",
+      "approved": "Productivity asks how much you got done. Purpose asks whether that work deserved the hours you gave it."
+    },
+    {
+      "id": "P05",
+      "field": "purposeLesson[3].paragraphs[4]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Identity develops through how you repeatedly live. Declaring a purpose does not establish a new identity or prove that you have acted.",
+      "approved": "You become believable to yourself by living the direction you claim. Naming a purpose starts the work. Repeated choices give it weight."
+    },
+    {
+      "id": "P06",
+      "field": "purposeLesson[4].paragraphs[0]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Some seasons narrow the work to survival, sobriety, care or basic stability. Those responsibilities count. A person does not need to invent a grand mission while struggling to keep one stable day intact.",
+      "approved": "Some seasons come down to staying alive, staying sober, receiving care or keeping one stable day intact. That work counts. Start with what this season asks of you; you do not need an impressive mission to make it matter."
+    },
+    {
+      "id": "P07",
+      "field": "purposeLesson[4].paragraphs[3]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Your direction can deepen or change as your life changes. An honest change answers new responsibilities or clearer understanding. Replacing a purpose every time it becomes inconvenient leaves the old drift in charge.",
+      "approved": "Your purpose can deepen as your life changes. New responsibilities or clearer understanding may call for a different direction. Changing it whenever the work gets uncomfortable is something else. That lets drift keep choosing for you."
+    },
+    {
+      "id": "P08",
+      "field": "purposeLesson[5].paragraphs[0]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "If a direction never affects what you protect, postpone, accept or refuse, it has little influence over the day. Meaningful purpose changes behavior, including what you choose to leave undone.",
+      "approved": "A purpose has to change a decision. What will you protect? What will you turn down? What will you leave undone so the work that matters gets a place in the day?"
+    },
+    {
+      "id": "P09",
+      "field": "purposeLesson[5].paragraphs[3]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Rest can support the life you are building. The distinction is whether it answers a real need and protects the direction, or whether calling something rest keeps an avoidable pattern untouched. You cannot judge that from the amount of visible effort alone.",
+      "approved": "Rest can serve your purpose. So can work you would rather avoid. Look at the need you are answering: are you restoring the capacity to live your life, or using the word rest to protect an avoidable pattern? The busiest-looking choice is not automatically the right one."
+    },
+    {
+      "id": "P10",
+      "field": "purposeLesson[6].paragraphs[2]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Then act and notice the result. A plan names an intention. The behavior, and your willingness to correct it, provide the evidence. You can use this thinking privately without writing anything here.",
+      "approved": "Then carry out the choice and look at what happened. Keep what serves the direction and correct what does not. You can think this through privately; nothing needs to be written here."
+    },
+    {
+      "id": "P11",
+      "field": "purposeConnected",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "The PERIOD Code is a connected standard for living. The values keep working together; this is a teaching order, not a checklist to finish. One decision can express several values. You do not need to manufacture an act of Empowerment in every situation.",
+      "approved": "The PERIOD Code is a connected standard for living. Purpose gives direction to responsibility, but it still needs resilience, honesty, repeated action and a willingness to help others stand. Keep returning to the whole Code. One decision can call on several values without requiring six separate acts."
+    },
+    {
+      "id": "P12",
+      "field": "purposeBridge[0]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "A direction does not remove pressure. A shift changes, energy drops, progress slows or a plan stops working. Purpose tells you why the work matters. The next question is how to protect that direction when the original method no longer fits.",
+      "approved": "The direction will be tested. A shift changes. Energy drops. Progress slows. The plan that worked yesterday may not work today. Purpose gives you a reason to continue; you still have to decide how."
+    },
+    {
+      "id": "P13",
+      "field": "purposeBridge[1]",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "That is where Resilience enters the Code: adapting, returning and continuing without surrendering the standard. Purpose gives the reason to move. Resilience helps keep that reason active when it is tested.",
+      "approved": "That is the work of Resilience: adapt the method, correct the miss and return to the standard. Keep the purpose alive when the original plan breaks."
+    },
+    {
+      "id": "P14",
+      "field": "purposeCopy.intro",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Explore Sam’s fictional evening. Both directions could belong to the same life; here, each guides a different use of the time. Changing an example shows what its direction protects and what it leaves undone. There is no answer to submit.",
+      "approved": "Sam has one evening and two worthwhile directions. Look at what each direction protects and what has to wait. There is no answer to submit."
+    },
+    {
+      "id": "P15",
+      "field": "purposeCopy.assumptions",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "These are fictional circumstances and illustrative time blocks, not a recommended routine. No urgent bill or another person’s unmet care need is hidden in the example. Real changes to those facts would change the decision.",
+      "approved": "This is a fictional evening, not a routine to copy. Sam's essential care responsibilities are covered, and no bill is urgent tonight. If those facts change, the decision changes."
+    },
+    {
+      "id": "P16",
+      "field": "purposeCopy.same_evening_end",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Those activities are not automatically worthless. In these stated circumstances, they have displaced both proposed directions. Changing the purpose statement alone has changed nothing in the behavior.",
+      "approved": "Messages and planning can matter. Tonight, they have crowded out both directions Sam named. The words changed. The evening did not."
+    },
+    {
+      "id": "P17",
+      "field": "purposeCopy.close_heading",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "The point is a direction you can recognize in conduct",
+      "approved": "Give the direction a place in the day"
+    },
+    {
+      "id": "P18",
+      "field": "purposeCopy.close",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "These examples do not identify the best life for Sam. Both directions can be worthwhile. They make the tradeoff visible: what gets attention, what waits, what must be communicated and what remains uncertain. A real person still has to judge the circumstances and carry out the response.",
+      "approved": "Both directions matter in Sam's life. Choosing one tonight means giving something time and making something else wait. Face that tradeoff, tell the truth about what remains, and carry out the choice. A purpose has to reach the evening, not just the sentence describing it."
+    },
+    {
+      "id": "P19",
+      "field": "purposeCopy.pressure",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "When capacity changes, the purpose may remain while the method changes. That introduces the need for Resilience; it does not complete that next lesson.",
+      "approved": "Less capacity can change the plan without changing what matters. Resilience is what helps you protect that direction under pressure."
+    },
+    {
+      "id": "P20",
+      "field": "purposeCopy.readingLead",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "These are the four fictional examples shown by the controls above. Read them in any order. A possible plan is not evidence that the action happened.",
+      "approved": "Read all four versions of Sam's evening below. Each is a possible plan; Sam still has to carry it out."
+    },
+    {
+      "id": "P21",
+      "field": "purposeExamples.work_usual.uncertain",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "A usable draft is not a submitted application, an acceptance or a job offer. Sam still needs to check and submit it by Friday.",
+      "approved": "The draft still needs checking and submitting by Friday. Finishing it tonight would move the application forward, not guarantee acceptance or steadier work."
+    },
+    {
+      "id": "P22",
+      "field": "purposeExamples.stability_usual.uncertain",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "A review does not pay a bill, settle every problem or make another person agree. Sam still has to act on anything that requires action.",
+      "approved": "After reviewing the week, Sam still has to make any needed payments and arrangements. Other people must agree to changes that involve them."
+    },
+    {
+      "id": "P23",
+      "field": "purposeExamples.work_lower.serves",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "The direction still matters, but the plan no longer assumes an hour Sam cannot reliably give. A small useful start and rest keep the next response workable.",
+      "approved": "Sam still wants steadier work. Tonight, that means making a useful start and resting instead of promising an hour of concentration that is not there."
+    },
+    {
+      "id": "P24",
+      "field": "purposeExamples.work_lower.uncertain",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "A smaller action cannot guarantee the Friday deadline or future capacity. If even this plan is too much, the honest next move is to reduce it again and address what that changes.",
+      "approved": "Friday is still the deadline, and tomorrow's capacity is unknown. If this smaller plan is also too much, reduce it again and face what that means for the application."
+    },
+    {
+      "id": "P25",
+      "field": "purposeExamples.stability_lower.cost",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "The wider review and the application wait. Sam must face those deferrals, including the possibility of missing this opportunity, rather than promising that rest will solve everything.",
+      "approved": "The wider review and application wait. Rest may be needed, but it does not finish either task. Sam still has to face the possibility of losing this opportunity."
+    },
+    {
+      "id": "P26",
+      "field": "purposeExamples.stability_lower.uncertain",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "Checking dates is not the same as completing a payment or arrangement. If an urgent responsibility appears, Sam needs to respond or seek specific help; this fictional plan is not permission to ignore it.",
+      "approved": "Checking a due date leaves the payment or arrangement to be made. If an urgent need appears, respond to it or ask for specific help. The plan has to answer the facts."
+    },
+    {
+      "id": "P27",
+      "field": "purposeCardNote",
+      "files": ["src/period-purpose-content.ts"],
+      "original": "The optional Standard Card records one intended behavior within the connected Code. It does not show that the action has happened or that you have completed the Code.",
+      "approved": "The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if a reminder helps, then put the intention into action."
+    },
+    {
+      "id": "P28",
+      "field": "Visible explanatory heading (all occurrences)",
+      "files": ["src/Purpose.tsx", "scripts/purpose-fallback.ts"],
+      "original": "What this does not establish",
+      "approved": "What remains open",
+      "occurrences": {
+        "src/Purpose.tsx": 2,
+        "scripts/purpose-fallback.ts": 1
+      }
+    },
+    {
+      "id": "R01",
+      "field": "resilienceContent.lesson[0].paragraphs[0]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Ownership gives you responsibility for the response available now. Purpose gives that responsibility direction. Resilience keeps that direction active when the conditions become difficult.",
+      "approved": "Purpose gives you a direction. Resilience keeps that direction from disappearing the first time life pushes back. The responsibility you owned still needs a response, even when the original plan no longer works."
+    },
+    {
+      "id": "R02",
+      "field": "resilienceContent.lesson[1].paragraphs[0]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "A standard tells you what the behavior must serve. A method is one way of putting it into practice. Confusing them can make a broken plan look more important than the life it was meant to support.",
+      "approved": "The standard tells you what you are protecting. The method is how you are trying to protect it. When the method stops working, do not sacrifice the life you are building just to defend the plan."
+    },
+    {
+      "id": "R03",
+      "field": "resilienceContent.lesson[1].paragraphs[2]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Changing the method still has consequences. A replacement may take time, cost more or be unavailable. Resilience faces those limits and chooses an available response. It does not promise that every obstacle has an easy workaround.",
+      "approved": "Another method may cost more, take longer or be unavailable. Face that cost. Resilience asks for the next response you can actually make, not a promise that every obstacle has an easy way around it."
+    },
+    {
+      "id": "R04",
+      "field": "resilienceContent.lesson[2].paragraphs[2]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "The question is what the effort is doing. Adding intensity to look determined is different from doing the ordinary work the purpose requires. There is no audience to impress and no amount of suffering that proves your values.",
+      "approved": "Ask what the effort is doing. Useful repetition can be dull and still matter. Extra strain that only makes you look determined is not the same work. Suffering is not proof that you are living your values."
+    },
+    {
+      "id": "R05",
+      "field": "resilienceContent.lesson[4].paragraphs[3]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Support can strengthen the part you are responsible for without taking it away. Needing help, including ongoing appropriate care, is not proof that the Code has failed.",
+      "approved": "Use support to help carry your responsibility. Ongoing care can belong in that support. Needing it does not make your effort less real."
+    },
+    {
+      "id": "R06",
+      "field": "resilienceContent.lesson[5].paragraphs[2]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Then the response has to happen. Sending the usable work, asking the specific question and keeping the next realistic agreement create evidence. Writing a return plan does not. The other person may still need time or may choose a different arrangement.",
+      "approved": "Send the usable work. Ask the question you avoided. Keep the next agreement. That is what turns the return into action. The other person may still need time or choose a different arrangement."
+    },
+    {
+      "id": "R07",
+      "field": "resilienceContent.lesson[5].paragraphs[3]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "If another limit interrupts the return, tell the truth again and revise what needs revising. Correction remains available. It does not turn the earlier miss into something that never happened.",
+      "approved": "If another limit interrupts the repair, tell the truth and adjust again. You can correct what comes next without pretending the earlier miss disappeared."
+    },
+    {
+      "id": "R08",
+      "field": "resilienceContent.lesson[6].paragraphs[0]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "The manuscript places recovery and rebuilding inside ordinary life. Pressure can bring an old escape pattern back into reach. Resilience recognizes that pressure and moves toward a protective response, which may include leaving an environment, contacting support or receiving treatment when needed.",
+      "approved": "An old escape can look useful when pressure gets heavy. Recognize where it leads and take the next step that protects your recovery: leave the environment, contact support or seek treatment when needed. You are protecting the life you are building."
+    },
+    {
+      "id": "R09",
+      "field": "resilienceContent.lesson[6].paragraphs[1]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "This is not a demand to manage recovery alone, a claim that relapse must happen, or a promise that willpower prevents every setback. A setback needs an honest response and appropriate help, not a permanent identity of failure.",
+      "approved": "Get appropriate help when you need it. Relapse is not a requirement of recovery, and willpower is not a guarantee against every setback. If you fall short, face what happened and respond. Do not turn it into a permanent sentence against yourself."
+    },
+    {
+      "id": "R10",
+      "field": "resilienceContent.lesson[7].paragraphs[0]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Begin with the worthwhile direction and the standard it asks you to protect. Look at what has actually changed: the circumstances, your capacity, the effect of the method or a commitment you missed.",
+      "approved": "Start with what is worth protecting. Then name what changed: the circumstances, your capacity, a method that stopped working or a commitment you missed. You cannot choose a useful response while arguing with the facts."
+    },
+    {
+      "id": "R11",
+      "field": "resilienceContent.lesson[9].paragraphs[0]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Persistence alone cannot tell you whether the direction is right or the method is honest. A person can keep working while hiding mistakes, harming themselves or treating others badly. Endurance does not make those choices aligned.",
+      "approved": "You can keep going and still be going wrong. You can work hard while hiding a mistake, damaging your health or treating someone badly. Endurance does not make those choices right."
+    },
+    {
+      "id": "R12",
+      "field": "resilienceContent.lesson[9].paragraphs[1]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "That is why Integrity follows Resilience. It examines whether your conduct matches the values you claim, including the way you continue, adapt and correct. The next question is not only whether you can keep going. It is whether the way you keep going remains honest and responsible.",
+      "approved": "Integrity comes next because the way you continue matters. It asks whether your conduct matches the values you claim. Can you keep moving without protecting a lie or betraying the standard?"
+    },
+    {
+      "id": "R13",
+      "field": "resilienceContent.lesson[10].paragraphs[0]",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "The optional Standard Card records one intended behavior within the connected Code. It does not prove that the action happened or that you have completed Resilience or the Code.",
+      "approved": "The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder. The return becomes real in what you do."
+    },
+    {
+      "id": "R14",
+      "field": "resilienceContent.activity.intro",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Alex is fictional. Change one pressure note and compare possible responses. You are examining a case, not choosing an answer about yourself. There is no score or result to earn.",
+      "approved": "Alex is fictional. Compare five different pressures and the responses they call for. You are examining the situation, not answering questions about yourself. There is nothing to submit or score."
+    },
+    {
+      "id": "R15",
+      "field": "resilienceContent.activity.shared",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "No response label is automatically strong or weak. The facts decide what a response protects, what it risks and what still needs attention. These are possible responses, not predictions or a rule for every life.",
+      "approved": "Continuing, adapting, resting and leaving can each be responsible. The facts decide which one protects the standard here. Look at the reason for the response and the work it leaves to be done."
+    },
+    {
+      "id": "R16",
+      "field": "resilienceContent.activity.returnCopy",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "In the missed-commitment version, Alex can describe a good return and still do nothing. Read the continuation to see the difference between a proposed repair and action.",
+      "approved": "Alex can describe a good repair and still leave the draft unsent. In the missed-commitment version, follow what happens after the promise."
+    },
+    {
+      "id": "R17",
+      "field": "resilienceContent.activity.returnStory",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Fictional continuation: Alex sends the unfinished draft and names the missing section. Morgan agrees to a Friday check-in. Alex asks the specific question, uses the explanation to revise the section and sends that revision by the agreed time. Those actions establish this return. They do not erase the missed agreement, guarantee Morgan's trust or prove mastery of the Code.",
+      "approved": "In this fictional continuation, Alex sends the unfinished draft and identifies the missing section. Morgan agrees to a Friday check-in. Alex asks the specific question, uses the answer to revise the section and sends it on time. That is a real correction within this story. The earlier miss still happened, and Morgan decides what to trust."
+    },
+    {
+      "id": "R18",
+      "field": "resilienceContent.activity.closing",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Take the judgment into life: protect the worthwhile direction, change what the facts require, and carry out the next honest response. You do not have to make a card or finish every example.",
+      "approved": "Take that judgment into your day. Protect what matters, change what the facts require and carry out the next honest response. The card and the remaining examples are optional."
+    },
+    {
+      "id": "R19",
+      "field": "resilienceContent.states[0].cost",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Progress may remain slow. Feedback may be delayed, and a practice session cannot guarantee employment.",
+      "approved": "Learning may still be slow, and the answer may take time. Practice builds capability; it cannot promise Alex a job."
+    },
+    {
+      "id": "R20",
+      "field": "resilienceContent.states[0].responses[0].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Continuing is reasonable where the task is useful and within capacity. Boredom alone does not make it harmful. Repeating the same mistake indefinitely would still need attention.",
+      "approved": "The practice is useful and Alex can do it. Boredom is not a reason to throw it away. Keep the useful repetition and get help with the error that keeps returning."
+    },
+    {
+      "id": "R21",
+      "field": "resilienceContent.states[0].responses[2].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "A different course might eventually be appropriate, but novelty alone does not address the stated problem. Leaving now loses the useful practice already available. Reassess if evidence shows the course is a poor fit.",
+      "approved": "A new course might feel more exciting, but excitement will not correct this error. Use the practice and feedback available now. Reconsider the course if the evidence shows it is the wrong fit."
+    },
+    {
+      "id": "R22",
+      "field": "resilienceContent.states[1].responses[0].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Changing the setting preserves useful practice. It does not solve the equipment constraint, and the available exercise is not a substitute for every course requirement.",
+      "approved": "Practice the exercise that can be done at home. Keep the equipment task marked as blocked. Making progress on one part does not finish the other."
+    },
+    {
+      "id": "R23",
+      "field": "resilienceContent.states[1].responses[2].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Turning up at a closed room cannot create access. Protecting that method leaves the available work untouched. Waiting can be necessary for the equipment task, but it should be acknowledged rather than disguised as progress.",
+      "approved": "The room is closed. Insisting on the old plan will not open it. Use the work that is available and tell the truth about the equipment task that must wait."
+    },
+    {
+      "id": "R24",
+      "field": "resilienceContent.states[2].responses[0].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Stopping the task protects the person doing the work. A smaller task is not compulsory when even that would be inappropriate. The next review responds to real capacity, not a demand to recover on schedule.",
+      "approved": "Alex needs to stop and rest. There is no smaller task to complete as the price of that rest. Review the plan when Alex can, using actual capacity rather than a deadline for feeling better."
+    },
+    {
+      "id": "R25",
+      "field": "resilienceContent.states[2].responses[2].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "An all-night effort may create more errors and further reduce capacity. Under these facts, visible effort protects an image more than the learning. Different facts could justify continued work; these do not establish it.",
+      "approved": "Alex cannot rely on useful concentration tonight. An all-night effort risks more errors and less capacity. Looking committed is no reason to ignore the limit already in front of Alex."
+    },
+    {
+      "id": "R26",
+      "field": "resilienceContent.states[3].responses[0].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "The response repairs the information gap and addresses the confusion that helped produce the miss. It becomes evidence only when Alex actually does it. Morgan does not owe immediate trust.",
+      "approved": "This response gives Morgan the missing facts and addresses the confusion Alex avoided. Send it, ask the question and follow through. Morgan still decides whether to trust another agreement."
+    },
+    {
+      "id": "R27",
+      "field": "resilienceContent.states[3].responses[1].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "A more impressive deadline can briefly relieve embarrassment, but it leaves the barrier untouched and may create another broken agreement. Intention is not a return.",
+      "approved": "A bigger promise may ease Alex's embarrassment for a moment. It leaves the confusing section untouched and creates another deadline to miss. Address the barrier before promising more."
+    },
+    {
+      "id": "R28",
+      "field": "resilienceContent.states[4].responses[2].text",
+      "files": ["src/period-resilience-content.ts"],
+      "original": "Enduring the leader's behavior does not make it acceptable or turn it into useful training. Under these stated facts, continuing the same method puts the standard at risk. This is not an equally sound option simply because it looks determined.",
+      "approved": "The threats and humiliation are harm, not useful training. Staying to prove toughness protects the group leader's conduct at Alex's expense. Leaving can protect the standard Alex came here to build."
+    },
+    {
+      "id": "R29",
+      "field": "resilienceUi.refinement",
+      "files": ["src/period-resilience-state.ts"],
+      "original": "When the work is useful and safe, resilience may mean continuing even when progress is slow. When the method is blocked, harmful, or beyond your present capacity, changing course may be what protects the standard. The question is not whether you pushed through everything. It is whether your response still serves the life you are building.",
+      "approved": "Keep doing useful work when boredom is the problem. Change a method that is blocked. Rest when capacity requires it. Leave harm rather than proving you can endure more of it. Resilience asks which response protects the life you are building."
+    },
+    {
+      "id": "I01",
+      "field": "integrityContent.lesson[0].paragraphs[0]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "Resilience helps you keep going when the work gets difficult. Integrity asks what you are continuing, and whether the way you are doing it deserves to continue. A person can work hard, withstand criticism and keep a promise to a bad direction. Endurance alone cannot make that direction right.",
+      "approved": "Resilience helps you keep going. Integrity asks whether you can respect the way you are doing it. Working hard, taking criticism and refusing to quit cannot make a dishonest direction right."
+    },
+    {
+      "id": "I02",
+      "field": "integrityContent.lesson[0].paragraphs[2]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "Integrity brings your conduct back into line with the values you claim. It requires enough honesty to recognize a gap, enough responsibility to correct your part, and a willingness to keep living differently after the conversation is over. That is why it follows Resilience. Strength needs alignment.",
+      "approved": "Integrity closes the gap between the values you claim and the way you live. Name the contradiction. Correct your part. Keep living differently after the conversation ends. That is why Integrity follows Resilience. Strength has to answer to what is right."
+    },
+    {
+      "id": "I03",
+      "field": "integrityContent.lesson[2].paragraphs[3]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "A useful response is specific: I took credit for work I did not do. I marked something checked when it was still unconfirmed. I used privacy to avoid correcting what the team believed. Each statement names something that can now be addressed. A sweeping declaration that you are a terrible person leaves the actual work untouched.",
+      "approved": "Be specific: I took credit for work I did not do. I marked information checked when it was not. I used privacy to avoid correcting what the team believed. Each admission points to work you can do. Calling yourself a terrible person leaves that work untouched."
+    },
+    {
+      "id": "I04",
+      "field": "integrityContent.lesson[5].paragraphs[1]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "The distinction is what the silence is protecting. Keeping a personal experience within appropriate boundaries can protect dignity. Withholding a relevant fact so that someone continues to believe a lie protects the contradiction.",
+      "approved": "Ask what the silence is protecting. A personal experience can remain private. A false account that people are still relying on needs correcting. You can protect dignity without protecting the lie."
+    },
+    {
+      "id": "I05",
+      "field": "integrityContent.lesson[8].paragraphs[0]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "The PERIOD Code is a connected standard for living. Integrity is its fourth value in the teaching order, not a separate personality trait or a badge you earn after finishing the earlier lessons. The values continue to shape the same life.",
+      "approved": "The PERIOD Code is a connected standard for living. Integrity keeps the whole Code honest. Reaching this lesson does not leave Ownership, Purpose or Resilience behind, and the work will still need Discipline and Empowerment."
+    },
+    {
+      "id": "I06",
+      "field": "integrityContent.lesson[9].paragraphs[1]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "Integrity identifies what must come back into alignment and requires you to begin correcting it. Discipline follows because that alignment needs structure and repetition. It puts the honest check, the realistic promise and the necessary correction into the ordinary day.",
+      "approved": "Integrity asks you to close the gap, not just recognize it. Discipline gives that correction a place in the day: check the facts, make a promise you can keep and correct the record when you are wrong. Then do it again."
+    },
+    {
+      "id": "I07",
+      "field": "integrityContent.card",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "The optional Standard Card records one intended behavior within the connected PERIOD Code. It is not evidence that you acted, proof of Integrity or completion of the Code.",
+      "approved": "The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if it helps you remember the correction. Then carry it out."
+    },
+    {
+      "id": "I08",
+      "field": "integrityContent.case.intro",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "Riley and Maya are fictional volunteers. The facts stay the same as you examine three parts of one message. Nothing here asks you to disclose your own history or choose an answer about yourself.",
+      "approved": "Riley and Maya are fictional volunteers. Read three parts of the same message against the facts. Your own history can stay private; there is no answer to submit."
+    },
+    {
+      "id": "I09",
+      "field": "integrityContent.case.reflection",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "Before opening a note, compare the sentence with the record. What is inaccurate? Who needs a correction? What can remain private? No written answer is needed.",
+      "approved": "Compare the sentence with what happened. What needs correcting, who needs to hear it, and what can stay private? Think it through before opening the note."
+    },
+    {
+      "id": "I10",
+      "field": "integrityContent.case.notes[0].limit",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "The correction cannot recover the earlier moment of recognition or require Maya to feel satisfied.",
+      "approved": "Maya missed the recognition she was due. Correcting the credit now cannot give that moment back or decide how she should feel."
+    },
+    {
+      "id": "I11",
+      "field": "integrityContent.case.notes[1].limit",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "There may be extra work and a delay. Confirmation and replacement have to happen; neither follows from an apology.",
+      "approved": "The rooms still need checking and the copies still need replacing. That may take time and extra work. The apology does neither job."
+    },
+    {
+      "id": "I12",
+      "field": "integrityContent.case.notes[2].limit",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "A truthful boundary does not require Maya to approve Riley's behavior or continue the collaboration.",
+      "approved": "Maya can keep her personal information private and still object to Riley's conduct. She can also choose not to work together again."
+    },
+    {
+      "id": "I13",
+      "field": "integrityContent.case.responses[1][2]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "This acknowledges something to Maya, but the team still has the misleading message and draft guides. In these facts, private acknowledgment is part of the responsibility, not the whole repair.",
+      "approved": "Maya has heard an apology. The team still has the false message and the draft guides. Keeping it between two people leaves the people using that information misled."
+    },
+    {
+      "id": "I14",
+      "field": "integrityContent.case.responses[2][2]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "This identifies a responsible direction. The correction is still only promised until Riley does it. Maya can decline further discussion or collaboration.",
+      "approved": "This names the repair Riley needs to make. Now Riley has to send the correction and fix the guide. Maya remains free to end the discussion or the collaboration."
+    },
+    {
+      "id": "I15",
+      "field": "integrityContent.case.correction_note",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "This is proposed wording, not a universal apology script. It reaches the team that received the inaccurate account, names Riley's conduct and preserves Maya's privacy. If Riley only drafts it, the team still has not received a correction.",
+      "approved": "The correction reaches the people who received the false account, owns Riley's part and protects Maya's privacy. It is wording for this situation, not a script for every apology. While it stays in a draft, the team is still misled."
+    },
+    {
+      "id": "I16",
+      "field": "integrityContent.case.continuation_title",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "What Riley actually does in this fictional continuation",
+      "approved": "What Riley does next"
+    },
+    {
+      "id": "I17",
+      "field": "integrityContent.case.continuation[1]",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "After the organizer replies, Riley sends the corrected guide and asks the team to replace the 20 draft copies. The example does not establish that every printed copy has been replaced; that still needs checking.",
+      "approved": "After the organizer replies, Riley sends the corrected guide and asks the team to replace the 20 draft copies. Riley still needs to check that every copy was replaced."
+    },
+    {
+      "id": "I18",
+      "field": "integrityContent.case.evidence",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "These are actions established inside the fictional story: a correction sent, attribution restored, information checked and a later choice handled honestly. They provide bounded evidence of changed conduct. They do not erase the earlier message, establish Riley's permanent character or guarantee restored trust.",
+      "approved": "Riley sent the correction, restored the credit, checked the information and handled a later choice honestly. Those actions begin a different record. They do not erase the earlier message or decide when Maya should trust Riley."
+    },
+    {
+      "id": "I19",
+      "field": "integrityContent.case.comparison_intro",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "This comparison remains visible beneath the annotations. It examines three possible responses to the same record; it is not a set of answers to choose, and it does not branch the story.",
+      "approved": "Compare three responses to the same mistake. What would each one leave for Maya and the team to deal with? These are alternatives, not later events in the story."
+    },
+    {
+      "id": "I20",
+      "field": "integrityContent.case.limits",
+      "files": ["src/period-integrity-content.ts"],
+      "original": "Maya may remain upset, decline further discussion or choose a different collaborator. The team may ask someone else to review future guides. These are possibilities, not simulated consequences the interface assigns. The example specifies no forgiveness, reconciliation, restored reputation or permanent change of identity. It also does not assert that every draft copy was replaced.",
+      "approved": "Maya may remain upset, end the conversation or choose another collaborator. The team may ask someone else to review future guides. Riley's correction gives nobody an obligation to forgive, restore the relationship or repair Riley's reputation. The 20 draft copies still need a replacement check. Judge the actions shown; a whole character cannot be settled by this account."
+    },
+    {
+      "id": "I21",
+      "field": "Visible action heading",
+      "files": ["src/Integrity.tsx", "scripts/integrity-reading.ts"],
+      "original": "Action beyond wording",
+      "approved": "Make the correction",
+      "occurrences": {
+        "src/Integrity.tsx": 1,
+        "scripts/integrity-reading.ts": 1
+      }
+    },
+    {
+      "id": "D01",
+      "field": "disciplineContent.lesson.deck",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Give your standards repeated expression in the life you actually live.",
+      "approved": "Put your values into the day. Keep practicing them when the feeling fades."
+    },
+    {
+      "id": "D02",
+      "field": "disciplineContent.lesson.intro[1]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "In The PERIOD Code, Discipline is self-leadership. It asks you to live an honest standard repeatedly, respond to the facts in front of you and correct your conduct when you miss. The work has to serve a worthwhile life. Effort alone cannot decide what is right.",
+      "approved": "Discipline is self-leadership. Keep an honest standard when your mood wants something else. Respond to real limits and correct the miss. The work must serve the life you are building; effort alone cannot tell you what is right."
+    },
+    {
+      "id": "D03",
+      "field": "disciplineContent.lesson.sections[0].paragraphs[1]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Integrity asks whether your conduct is aligned with what is right. Discipline gives that alignment recurring expression. If you claim honesty, you tell the truth when an inaccurate report would protect your reputation. If you claim respect, you honor another person’s boundary after the conversation has become inconvenient. The standard has to survive contact with your behavior.",
+      "approved": "Integrity tells you what needs to line up. Discipline puts it into your behavior, again. If you claim honesty, correct the report that would protect your reputation. If you claim respect, honor the other person's boundary when it becomes inconvenient. Let the standard reach the choice."
+    },
+    {
+      "id": "D04",
+      "field": "disciplineContent.lesson.sections[1].paragraphs[0]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "A commitment gives you something to answer for. It is not evidence that you have already done the work. Saying you will share the household responsibilities is different from completing your agreed part. Deciding to handle your work honestly is different from correcting the inaccurate information you have already sent.",
+      "approved": "A promise gives you work to do. Sharing the household responsibility means doing your agreed part. Handling work honestly means correcting the false information you already sent. Saying you will do either one leaves the action waiting."
+    },
+    {
+      "id": "D05",
+      "field": "disciplineContent.lesson.sections[1].paragraphs[2]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "One action still tells a limited story. An ambitious first effort may be useful and sincere. The question is whether you can return to an appropriate action when the novelty has passed. A spectacular beginning cannot carry every ordinary responsibility that follows it. Start with the actual work in reach, and let what you do next give the commitment more weight.",
+      "approved": "A strong first effort can matter. Then comes the ordinary day after it. Can you return to the work when the novelty has gone? Begin with what you can responsibly do and keep giving the commitment weight through action."
+    },
+    {
+      "id": "D06",
+      "field": "disciplineContent.lesson.sections[2].paragraphs[2]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "That is a reason to return, not a formula for proving your worth. No fixed number of actions guarantees a new identity. Your own growing confidence does not require another person to trust you immediately, forgive you or ignore previous harm. Their judgment and boundaries remain theirs.",
+      "approved": "Keep building the record. There is no number of actions that settles your worth or guarantees a new identity. As you learn to trust your own word, respect the time, evidence and boundaries another person may still need."
+    },
+    {
+      "id": "D07",
+      "field": "disciplineContent.lesson.sections[2].paragraphs[3]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Discipline gives ordinary action weight through recurrence. It asks whether the useful behavior keeps appearing across the conditions of your life. Intensity has a place when the work calls for it, but effort that cannot be repeated or adapted responsibly cannot do the job of a sustained standard.",
+      "approved": "Ordinary action gains weight when you return to it. Intensity can serve the work, but it cannot replace the pattern. Build a way to keep the standard alive across real days, with room to adapt when the facts change."
+    },
+    {
+      "id": "D08",
+      "field": "disciplineContent.lesson.sections[4].paragraphs[3]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Different people have different capacities, schedules and resources. Discipline does not impose one daily routine on them all. It asks for the responsible action available in the actual situation. Sometimes that action is continued effort. Sometimes it is a boundary, support or recovery. The test is whether it serves the honest standard, not whether it produces the greatest visible strain.",
+      "approved": "Your schedule, health and resources shape what you can do. The Code does not hand everyone the same routine. It asks you to act on the responsibility in front of you, whether that calls for effort, a boundary, support or recovery. Choose what serves the standard, not what looks hardest."
+    },
+    {
+      "id": "D09",
+      "field": "disciplineContent.lesson.sections[7].paragraphs[0]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "As your conduct becomes more dependable, you may have more capacity to contribute. That strength is not a rank above people whose circumstances differ from yours. It does not give you authority to control their choices, demand your routine from them or turn their difficulty into a judgment about their worth.",
+      "approved": "As your conduct becomes dependable, use that strength well. It gives you something to contribute, not a rank above someone else. Their circumstances are not yours, and your routine is not a measure of their worth."
+    },
+    {
+      "id": "D10",
+      "field": "disciplineContent.lesson.cardDescription",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "The optional Standard Card can help you name one behavior you intend to practice. It records an intention, not demonstrated discipline or mastery of The PERIOD Code. You can use the lesson without writing anything.",
+      "approved": "The optional Standard Card holds one behavior you intend to practice within the whole Code. A reminder can help you return to it. The evidence comes from doing it, and you can act without making a card."
+    },
+    {
+      "id": "D11",
+      "field": "disciplineContent.interaction.intro[2]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "The occasions below are selected moments, not a daily schedule or a record of a real person. Each pattern is an invented alternative under the same stated conditions. Only the conduct explicitly described is known. No number of occasions proves a person’s character.",
+      "approved": "These are three fictional versions of the same occasions, not a daily schedule. Follow the actions described. They show a pattern of conduct, not the whole person."
+    },
+    {
+      "id": "D12",
+      "field": "disciplineContent.interaction.readingIntro",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "This reading page contains the complete fictional example, all three patterns and an interpretation of every occasion. It teaches the same material without comparison controls. Nothing is hidden or required to be selected.",
+      "approved": "Read all three patterns and each occasion's explanation here. The comparison is complete without using any controls."
+    },
+    {
+      "id": "D13",
+      "field": "disciplineContent.interaction.moments[0].interpretation",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "All three begin with words. The first agreement leaves room for responsible changes in method. The third makes a rigid method part of the promise. None yet provides evidence of a meal arranged.",
+      "approved": "So far, all three versions contain a promise. The first leaves room to change the method responsibly. The third commits Noor to cooking from scratch whatever happens. No meal has been arranged."
+    },
+    {
+      "id": "D14",
+      "field": "disciplineContent.interaction.moments[0].correction",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "A useful commitment names the responsibility without promising to ignore future facts. The next evidence would be an actual meal arrangement, not a stronger declaration.",
+      "approved": "Promise the responsibility you can own, with room to respond honestly when conditions change. Then arrange the meal."
+    },
+    {
+      "id": "D15",
+      "field": "disciplineContent.interaction.moments[0].interpretations.strong-start",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Both patterns begin with words. A promise can clarify a responsibility, but neither pattern yet provides evidence of a meal arranged. A more impressive declaration does not change that.",
+      "approved": "Both versions begin with a promise. Neither has put a meal on the table or arranged one. A more impressive declaration does not do that work."
+    },
+    {
+      "id": "D16",
+      "field": "disciplineContent.interaction.moments[0].interpretations.rigid-effort",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Both patterns begin with words. The reference agreement leaves room for responsible changes in method. The alternative makes an unchanging method part of the promise. Neither yet provides evidence of a meal arranged.",
+      "approved": "Both versions begin with a promise. Repeated care leaves room to change the method. The other promise locks Noor into cooking from scratch whatever happens. No meal has been arranged in either version."
+    },
+    {
+      "id": "D17",
+      "field": "disciplineContent.interaction.moments[1].correction",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "There is nothing to repair in this occasion. Keep the scale of the evidence honest: one completed responsibility, with further conduct still to come.",
+      "approved": "The responsibility was met. There is nothing to repair here. Let that first evening count, then look at what follows it."
+    },
+    {
+      "id": "D18",
+      "field": "disciplineContent.interaction.moments[2].interpretation",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Repeated care adds evidence beyond the first evening. Waiting for interest leaves an avoidable burden on Eli. Rigid effort produces meals, but begins to treat visible effort as the measure of commitment.",
+      "approved": "Noor's ordinary meals meet the responsibility again. Waiting for interest leaves Eli carrying work they never agreed to take. Cooking more than the agreement needs gets the meals made but costs rest for no useful reason."
+    },
+    {
+      "id": "D19",
+      "field": "disciplineContent.interaction.moments[2].interpretations.strong-start",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Repeated care adds evidence beyond the first evening. Waiting for interest leaves an avoidable burden on Eli. The difference is conduct repeated under ordinary resistance, not the strength of the original promise.",
+      "approved": "In repeated care, Noor makes the meals despite wanting to watch videos. In the other version, waiting for interest leaves Eli carrying the work. The difference is what Noor keeps doing after the first evening."
+    },
+    {
+      "id": "D20",
+      "field": "disciplineContent.interaction.moments[2].interpretations.rigid-effort",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Both patterns produce meals again. The reference uses effort proportionate to the responsibility. The alternative adds unnecessary strain and begins to treat visible effort as the measure of commitment.",
+      "approved": "Both versions get the meals made. Repeated care uses the effort the agreement needs. Cooking elaborate meals at the cost of rest adds strain without adding responsibility."
+    },
+    {
+      "id": "D21",
+      "field": "disciplineContent.interaction.moments[3].interpretation",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "This is the same avoidable miss in every pattern. Earlier follow-through does not erase it. It also does not erase earlier evidence. Eli has carried work they did not agree to carry.",
+      "approved": "Noor misses the same responsibility in all three versions, and Eli carries the work without an agreement. Earlier follow-through still counts. It does not cancel this miss."
+    },
+    {
+      "id": "D22",
+      "field": "disciplineContent.interaction.moments[3].interpretations.strong-start",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "This is the same avoidable miss in both patterns. Earlier follow-through does not erase it. It also does not erase earlier evidence. Eli has carried work they did not agree to carry.",
+      "approved": "Noor misses the same responsibility in both versions, and Eli carries the work without an agreement. Earlier follow-through still counts. It does not cancel this miss."
+    },
+    {
+      "id": "D23",
+      "field": "disciplineContent.interaction.moments[3].interpretations.rigid-effort",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "This is the same avoidable miss in both patterns. Earlier follow-through does not erase it. It also does not erase earlier evidence. Eli has carried work they did not agree to carry.",
+      "approved": "Noor misses the same responsibility in both versions, and Eli carries the work without an agreement. Earlier follow-through still counts. It does not cancel this miss."
+    },
+    {
+      "id": "D24",
+      "field": "disciplineContent.interaction.moments[4].interpretation",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "The first response contains an acknowledgment and a completed, agreed repair. The reminder supports a future action; setting it is not proof the next meal will happen. Neither a future spectacle nor a punishment repairs the past by itself.",
+      "approved": "In repeated care, Noor acknowledges the miss and completes a repair Eli agreed to. The reminder supports the next evening; Noor still has to act on it. Promising a bigger restart or cooking unwanted food leaves the earlier burden untouched."
+    },
+    {
+      "id": "D25",
+      "field": "disciplineContent.interaction.moments[4].interpretations.strong-start",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "The reference contains an acknowledgment and a completed, agreed repair. The reminder supports a future action; setting it is not proof the next meal will happen. The alternative offers a new promise while an available repair remains undone.",
+      "approved": "Noor acknowledges the miss and completes an agreed repair in repeated care. In the other version, Noor promises a new start while useful repair is still available now. The reminder may help next time; it cannot keep the next agreement for Noor."
+    },
+    {
+      "id": "D26",
+      "field": "disciplineContent.interaction.moments[4].interpretations.rigid-effort",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "The reference contains an acknowledgment and a completed, agreed repair. The reminder supports a future action; setting it is not proof the next meal will happen. The alternative creates a penalty without undoing the burden Eli already carried.",
+      "approved": "Noor completes an agreed repair in repeated care. Cooking unwanted food in the other version costs sleep without undoing the work Eli carried. The reminder may help next time; it cannot keep the next agreement for Noor."
+    },
+    {
+      "id": "D27",
+      "field": "disciplineContent.interaction.moments[5].rigid-effort",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Noor refuses the help and insists on cooking from scratch to prove commitment, despite the stated safety limit. No injury or later outcome is assumed.",
+      "approved": "Noor refuses the help and insists on cooking from scratch to prove commitment, despite being unable to cook safely. What happens afterward is not described."
+    },
+    {
+      "id": "D28",
+      "field": "disciplineContent.interaction.moments[5].correction",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Accept the available support and stop the unsafe method. Rest can be the responsible action. In other circumstances, support may differ or be unavailable; the lesson does not assume everyone has these resources.",
+      "approved": "Accept the available help and stop the unsafe method. Noor needs rest, not another task to earn it. In another household the support might differ or be unavailable; the response has to fit those facts."
+    },
+    {
+      "id": "D29",
+      "field": "disciplineContent.interaction.moments[6].strong-start",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Noor says they will begin again soon. No later completed action is reported. There is not enough evidence here to claim a dependable new pattern or to declare that change is impossible.",
+      "approved": "Noor says they will begin again soon. No later action is shown. The promise still needs follow-through, and correction remains possible."
+    },
+    {
+      "id": "D30",
+      "field": "disciplineContent.interaction.moments[6].rigid-effort",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "Noor continues to defend cooking from scratch as the only acceptable method. No revised arrangement or later completed action is reported. Future harm or failure is not invented.",
+      "approved": "Noor still defends cooking from scratch as the only acceptable method. No changed agreement or later action is shown. The next response remains open."
+    },
+    {
+      "id": "D31",
+      "field": "disciplineContent.interaction.moments[6].interpretation",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "The reference pattern contains repetition, an actual miss, repair, responsible rest and later follow-through. It is not perfect, and it does not guarantee Eli’s trust. The other patterns remain open to correction; they are not fixed identities.",
+      "approved": "Repeated care includes ordinary meals, a real miss, repair, necessary rest and later follow-through. That is a growing record, not a perfect one. Eli decides what to trust. The other two versions still leave Noor with a correction to make."
+    },
+    {
+      "id": "D32",
+      "field": "disciplineContent.interaction.moments[6].interpretations.strong-start",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "The reference contains repetition, an actual miss, repair, responsible rest and later follow-through. It does not guarantee Eli’s trust. The alternative reports a promise without later completed action, so a dependable new pattern is not yet established. Change remains possible.",
+      "approved": "Repeated care includes ordinary meals, a miss, repair, necessary rest and later follow-through. Eli still decides what to trust. The other version ends with a promise. Noor can change that record by acting."
+    },
+    {
+      "id": "D33",
+      "field": "disciplineContent.interaction.moments[6].interpretations.rigid-effort",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "The reference contains repetition, an actual miss, repair, responsible rest and later follow-through. It does not guarantee Eli’s trust. The alternative still defends the method, with no revised arrangement or later action reported. No future harm or fixed identity can be inferred.",
+      "approved": "Repeated care includes ordinary meals, a miss, repair, necessary rest and later follow-through. Eli still decides what to trust. In the other version, Noor is still defending the method. Changing that position is the next work; the story does not show what happens afterward."
+    },
+    {
+      "id": "D34",
+      "field": "disciplineContent.interaction.conclusionTitle",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "What the pattern can establish",
+      "approved": "What repeated conduct shows"
+    },
+    {
+      "id": "D35",
+      "field": "disciplineContent.interaction.conclusion[2]",
+      "files": ["src/period-discipline-content.ts"],
+      "original": "This invented account supports a limited conclusion about the conduct described. It cannot measure a whole person, guarantee self-trust or decide what Eli must feel. In your own life, choosing a comparison or reading an example creates no evidence of disciplined behavior. The evidence comes from your actions and your responsible return to them.",
+      "approved": "Noor's actions give us a record to examine, not a verdict on a whole life or a guarantee of Eli's trust. Bring the question back to your own day: what responsibility will you meet, and how will you return when you miss? The evidence comes from living that answer."
+    },
+    {
+      "id": "D36",
+      "field": "Visible interpretation heading",
+      "files": ["src/Discipline.tsx", "scripts/discipline-reading.ts"],
+      "original": "What this establishes",
+      "approved": "What the actions show",
+      "occurrences": {
+        "src/Discipline.tsx": 1,
+        "scripts/discipline-reading.ts": 1
+      }
+    },
+    {
+      "id": "E01",
+      "field": "empowermentContent.lesson.intro[1]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Empowerment is the outward expression of The PERIOD Code. You bring the responsibility, direction, resilience, integrity and discipline you are practicing into how you support others. Their life does not become yours to run.",
+      "approved": "Empowerment is where the strength you build through the Code becomes useful to someone else. Bring responsibility, direction, resilience, honesty and discipline into the help you offer. Their life remains theirs to lead."
+    },
+    {
+      "id": "E02",
+      "field": "empowermentContent.lesson.sections[0].paragraphs[0]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Discipline gives your values repeated expression. Empowerment asks what that developed capacity makes possible for someone beyond yourself. The movement is toward useful service: sharing a skill, making a responsibility more accessible, offering steady support or demonstrating an honest way to respond.",
+      "approved": "Discipline gives your values a record. Empowerment asks who that strength can help. Teach a skill. Make a task more accessible. Offer steady support. Show someone what an honest response looks like. Put what you have built to use."
+    },
+    {
+      "id": "E03",
+      "field": "empowermentContent.lesson.sections[0].paragraphs[2]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Think of an experienced colleague helping someone lead a meeting for the first time. Explaining the agenda tool can make the work more accessible. Taking over every topic, every decision and the final message may produce an agenda while leaving the other person with less room to lead. A completed task and increased capability are related questions, but they are not the same question.",
+      "approved": "An experienced colleague can explain the agenda tool and leave room for a new meeting leader to use it. Taking over the topics, decisions and final message may finish the agenda while taking the leadership away. Getting the task done and helping someone become more capable are not the same achievement."
+    },
+    {
+      "id": "E04",
+      "field": "empowermentContent.lesson.sections[0].paragraphs[3]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "This is why Empowerment comes last in the teaching order. Influence needs the grounding of the earlier values. It is not a reward for reading five lessons or a declaration that your own work is finished.",
+      "approved": "Empowerment comes last because influence needs the grounding of the earlier values. Live what you offer. Keep correcting yourself while you help. Reading five lessons cannot do that work for you."
+    },
+    {
+      "id": "E05",
+      "field": "empowermentContent.lesson.sections[1].paragraphs[2]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The manuscript accepts treatment, medical care, counseling, community and other support. Receiving help does not automatically surrender ownership. A person who uses assistive technology, ongoing care or another person's practical assistance can still direct important parts of their life. Physical independence is not a measure of human worth.",
+      "approved": "Treatment, medical care, counseling and community can belong in a responsible life. So can assistive technology and ongoing practical help. Receiving that support does not hand your life away. How much you can do physically on your own does not decide your worth."
+    },
+    {
+      "id": "E06",
+      "field": "empowermentContent.lesson.sections[1].paragraphs[3]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The concern is help that unnecessarily displaces a person's available responsibility or makes the helper's approval a condition of having a voice. Repeated help is not enough evidence to call a relationship dependent. Examine what the arrangement permits, what the person actually needs and whose choices are being overridden.",
+      "approved": "Look at what the help is doing. Does it support choices the person can make, or take those choices away? Does it make your approval the price of having a say? Repeated help alone does not answer those questions. The person's needs and the way you treat them do."
+    },
+    {
+      "id": "E07",
+      "field": "empowermentContent.lesson.sections[1].paragraphs[4]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Empowerment does not mean repeatedly covering for someone's avoidable decisions or responsibilities. Protecting a person from every ordinary consequence can remove an opportunity to exercise ownership where they have a real choice. Honest limits can leave responsibility with them without becoming punishment or humiliation. Necessary care, legitimate treatment, disability accommodations, medical assistance, emergency help and support required by genuine limitations must never be withheld to teach someone a lesson. Match support to real needs, preserve human dignity and respect the agency the person actually has.",
+      "approved": "Do not keep covering avoidable choices while calling it help. Where a person can act, leave them responsibility and room to face the ordinary consequences. Hold an honest limit without punishment or humiliation. Never withhold necessary care, treatment, disability accommodations, medical or emergency help, or support required by genuine limits to teach someone a lesson. Give the help the need requires and respect the choices the person can make."
+    },
+    {
+      "id": "E08",
+      "field": "empowermentContent.lesson.sections[2].paragraphs[4]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "When you have a real duty to act, be honest about that role and its limits. A supervisor's required decision or an urgent protective response is different from an optional personal offer. Do not disguise authority as a free choice, or use this lesson as a reason to withhold necessary care.",
+      "approved": "If your role requires you to act, say so. A supervisor's decision or an urgent protective response is not an optional offer. Be truthful about that authority and its limits. Respecting choice is never a reason to withhold necessary care."
+    },
+    {
+      "id": "E09",
+      "field": "empowermentContent.lesson.sections[3].paragraphs[2]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "A boundary is not a guarantee that the other person will grow, agree or thank you. Nor is every withdrawal of help a healthy boundary. If someone relies on an existing care arrangement, suddenly removing necessary help to force independence can create harm. Address the actual responsibility and seek a workable transition or appropriate support where needed.",
+      "approved": "Your boundary does not decide how someone else will grow or respond. It also does not excuse abandoning care you are responsible for. If someone relies on necessary help, work through a safe transition or seek appropriate support. Do not withdraw that help to force independence."
+    },
+    {
+      "id": "E10",
+      "field": "empowermentContent.lesson.sections[4].paragraphs[1]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Credibility does not require a spotless history. You can admit a mistake, describe what you have learned and be clear about what you still do not know. A practiced skill can be useful even while other parts of your life need work. What undermines guidance is pretending to have certainty, authority or consistency you have not earned.",
+      "approved": "Credibility does not require a spotless past. Own your mistakes. Say what you have learned and what you still do not know. You can offer a skill you have practiced while other parts of your life still need work. Keep your claims no larger than the life behind them."
+    },
+    {
+      "id": "E11",
+      "field": "empowermentContent.lesson.sections[5].paragraphs[0]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The six values remain connected while you help. They are not six separate achievements that give you permission to move on. They govern the same exchange from different directions.",
+      "approved": "Bring the whole Code into the help you offer. The earlier values still govern your conduct when another person's life enters the picture."
+    },
+    {
+      "id": "E12",
+      "field": "empowermentContent.lesson.sections[6].paragraphs[0]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Reaching the sixth value changes what you have read. Living the Code changes what you do. There is no graduation from telling the truth, choosing a worthwhile direction, facing pressure responsibly, correcting a contradiction or keeping a sound agreement.",
+      "approved": "You have reached the sixth value. The next decision still asks you to live all six. Tell the truth, choose a worthwhile direction, face pressure, correct what is wrong and keep your word. Carry that standard into how you help."
+    },
+    {
+      "id": "E13",
+      "field": "empowermentContent.lesson.sections[6].paragraphs[2]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Then make the responsible response available in that situation. It may be a useful explanation, practical assistance, a respectful limit, an apology for taking over or space after a declined offer. Do your part and remain willing to correct it. The other person's response and longer-term outcome remain uncertain.",
+      "approved": "Then do the part that belongs to you. Explain the step, provide the agreed help, hold the limit, apologize for taking over or give the space someone asked for. Their response is theirs. Your responsibility is to make your conduct match the help you claim to offer."
+    },
+    {
+      "id": "E14",
+      "field": "empowermentContent.lesson.cardNote",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The optional Standard Card records one intended behavior within the connected Code. It does not certify that you helped someone, lived all six values or completed the work.",
+      "approved": "The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder if it helps. The support becomes real in how you treat the person."
+    },
+    {
+      "id": "E15",
+      "field": "empowermentContent.conversation.intro",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Mara and Dev are fictional coworkers. Explore three possible replies to the same offer. These are authored alternatives, not a prediction of how a real person will respond.",
+      "approved": "Mara and Dev are fictional coworkers. The same offer receives three possible replies. Follow what each reply changes in the agreement; real people still choose for themselves."
+    },
+    {
+      "id": "E16",
+      "field": "empowermentContent.conversation.setup[2]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The purpose is to help Dev prepare and lead with useful support. A finished document, learning the tool and doing every physical step alone are not interchangeable outcomes.",
+      "approved": "The purpose is to help Dev prepare and lead. Finishing the agenda, learning the tool and typing without help are different things. Keep the support aimed at what Dev needs."
+    },
+    {
+      "id": "E17",
+      "field": "empowermentContent.conversation.offerNote",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Mara has named an available contribution and a real limit. Dev has not agreed yet. The offer does not entitle Mara to choose the agenda, send it or arrange other help without Dev's agreement.",
+      "approved": "Mara has offered real help and named when it ends. Now Dev gets to answer. Until they agree, Mara has no permission to choose or send the agenda or arrange another helper."
+    },
+    {
+      "id": "E18",
+      "field": "empowermentContent.conversation.states[0].interpretation",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The assistance gives Dev a usable method and room to act. Mara's restraint is useful because support is actually available and Dev has agreed to this approach. It does not require Dev to stop using other assistance.",
+      "approved": "Mara shows the step, answers the question and leaves Dev room to use it. That fits the help Dev accepted. Dev's usual input support remains available; learning the tool does not require giving that assistance up."
+    },
+    {
+      "id": "E19",
+      "field": "empowermentContent.conversation.states[0].uncertainty",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Two drafted items do not prove lasting confidence, future independence or a successful meeting. More work and possibly more help remain. Mara cannot guarantee the result.",
+      "approved": "Two items are drafted. The rest of the agenda, any further help and the meeting are still ahead. This is a useful start, not a promise that Dev will need no support or that the meeting will go well."
+    },
+    {
+      "id": "E20",
+      "field": "empowermentContent.conversation.states[1].action",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Dev dictates and reviews two items while Mara types. A third is still unfinished at 3:20. They identify that gap, and Mara stops at the agreed time. Dev says they will ask Jordan about further help. Jordan has not yet been asked, and no further arrangement is established.",
+      "approved": "Dev dictates and reviews two items while Mara types. A third is unfinished at 3:20. They name what remains, and Mara stops as agreed. Dev plans to ask Jordan for help. That conversation and agreement have not happened yet."
+    },
+    {
+      "id": "E21",
+      "field": "empowermentContent.conversation.states[1].interpretation",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Dev participates by directing and reviewing the work while Mara performs a practical task. The help respects Dev's stated need instead of making a lesson or unsupported independence the price of assistance. Mara also keeps an honest limit.",
+      "approved": "Dev directs and checks the work. Mara types and keeps the time limit they agreed. The assistance leaves Dev in charge of the content. Dev does not have to accept a lesson or give up ongoing help to deserve useful support."
+    },
+    {
+      "id": "E22",
+      "field": "empowermentContent.conversation.states[1].uncertainty",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The remaining support may take time to arrange or may be unavailable. That is an unresolved practical need, not evidence that Dev is unwilling or less worthy. No promise of permanent independence is made.",
+      "approved": "Dev still needs help with the unfinished work. It may take time to find, and Jordan may be unavailable. An unmet need is not a verdict on Dev's effort or worth. Ongoing assistance can remain part of the plan."
+    },
+    {
+      "id": "E23",
+      "field": "empowermentContent.conversation.states[2].action",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Mara leaves the agenda alone and does not contact Jordan. The example does not show whether Dev later asks Jordan, completes the agenda or changes the meeting arrangements.",
+      "approved": "Mara leaves the agenda alone and does not contact Jordan. What Dev does next is not shown."
+    },
+    {
+      "id": "E24",
+      "field": "empowermentContent.conversation.states[2].uncertainty",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "A declined offer does not establish that Dev will succeed, fail or come back for help. Mara is responsible for the conduct described here, not for producing a favorable ending.",
+      "approved": "Dev's next step and the meeting's outcome remain unknown. Mara can respect the refusal without making Dev prove that another plan will succeed."
+    },
+    {
+      "id": "E25",
+      "field": "empowermentContent.conversation.alternativesIntro",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "These responses address the same original request. They are alternatives to the offer above, not extra events in the story and not options you must choose.",
+      "approved": "Compare two different responses to Dev's original request. Each changes the kind of help being offered. Neither is a later event in the conversation above."
+    },
+    {
+      "id": "E26",
+      "field": "empowermentContent.conversation.alternatives[0].effect",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "Mara might produce a usable document, but the offer overrides Dev's stated wish to choose the topics and lead. It takes decisions as well as work. A demonstration or agreed practical assistance could be useful; this response has not asked for that agreement.",
+      "approved": "Mara may finish a useful agenda, but Dev asked to choose the topics and lead. This takes those decisions away without agreement. Being quicker does not make the takeover helpful."
+    },
+    {
+      "id": "E27",
+      "field": "empowermentContent.conversation.alternatives[1].effect",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "This treats assistance as incompatible with ownership even though Dev has named a real barrier. It offers neither explanation nor an honest account of Mara's limit. Under these facts, refusing useful support does not teach a method or make the task more accessible.",
+      "approved": "Dev has asked for help with a real barrier. This response leaves the barrier in place and calls that teaching. It gives no explanation and names no actual limit on Mara's ability to help."
+    },
+    {
+      "id": "E28",
+      "field": "empowermentContent.conversation.closeTitle",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The agreement can change. Their agency remains.",
+      "approved": "The help can change. Their choices remain theirs."
+    },
+    {
+      "id": "E29",
+      "field": "empowermentContent.conversation.close[0]",
+      "files": ["src/period-empowerment-content.ts"],
+      "original": "The same offer can lead to guided practice, practical assistance or no agreed involvement. None entitles Mara to control Dev's choices. The appropriate support follows the actual need, the person's reply and the limits both people can honestly hold.",
+      "approved": "Dev can accept the demonstration, ask for typing help or decline Mara's involvement. Listen to that answer. Agree on support that fits the need and the limits both people can honestly keep. A useful offer never makes the other person's choices yours."
+    }
+  ],
+  "baselineFiles": {
+    "src/period-content.ts": "524380e55e47d0f4d7b975c0f2eb1436bbcd1a54c20cea4bce9bf73f4c5639a3",
+    "src/period-presentation.ts": "02caf75cf2427c5d07a7460a5848eabfa3b959c3a5b545a55675f55c1752b93a",
+    "src/period-practice-content.ts": "f751b15d8193776d9ac5fa4dc8ac61e64218b70c46c83a276120077085fe0c6e",
+    "src/period-purpose-content.ts": "911b1e9760fe953de242ca6b5ed336c794dd13e3fcf4c1915ea479678c384bbc",
+    "src/Purpose.tsx": "7d8de54d25c83fd82151ee4ff133b2e84f964e604b4ffba1f800663cbb75d906",
+    "scripts/purpose-fallback.ts": "b2d2c88c6256152ab5e2ce03eb1f3a26a3b603c3668926ddb30e8c4bdca708c8",
+    "src/period-resilience-content.ts": "ae17277d70cbc84899158aad6f8cc53ea3b8596baacf11865707f527ec55d70e",
+    "src/period-resilience-state.ts": "d29738b17d40f3d7d8fb3e22f91b6c4c484d87e0a50565cf3695f5b4ebd4e29a",
+    "src/period-integrity-content.ts": "ef0de4d31e53f492105e8d51a48204eb034294e586c1f54ccb4b37ca8f9ca4ba",
+    "src/Integrity.tsx": "5c1391ccc22ceb6bcf010df063e5f8a7461fe5eb77291ff7ecc54a85197f2e9e",
+    "scripts/integrity-reading.ts": "f752ae05a1c690fd03250d6e88ba9189ce66a049d7487c2c5eea97c47d501968",
+    "src/period-discipline-content.ts": "41d5fc1b65d3e29f331010dbb7e1bf29328f7b07c937f683dab9bd28a6d54584",
+    "src/Discipline.tsx": "47290148ad6d240d28815bee462d1a8baf84a831dbf69bf0adc7cf2b8c64aa43",
+    "scripts/discipline-reading.ts": "f5f410d1b122d09ca14d699fc28b9f77ae8bc5698b1cca8a14190fea73d5389d",
+    "src/period-empowerment-content.ts": "4573e678d732de483b29b4f4a9979a4ed73a75993dd60edc44940ef6e67f2639"
+  }
+}

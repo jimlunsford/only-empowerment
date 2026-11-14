@@ -1,0 +1,48 @@
+{
+  "src/PeriodStandard.tsx": {
+    "beforeSha256": "2b538cd572690f548d7e3ae3cb45c59ff91ebf1cbe27d6a3405708b21934ca02",
+    "afterSha256": "974f776beefe4c32c10a1dd288a3e1c53327d6c45175bf47811d9755d648b1ad",
+    "edits": [
+      {
+        "before": "import { useLayoutEffect, useRef, useState } from 'preact/hooks';\n",
+        "after": "import { NativeSelect } from './components/NativeSelect';\nimport { useLayoutEffect, useRef, useState } from 'preact/hooks';\n"
+      },
+      {
+        "before": "<select\n",
+        "after": "<NativeSelect\n"
+      },
+      {
+        "before": "</select>",
+        "after": "</NativeSelect>"
+      }
+    ]
+  },
+  "src/Resilience.tsx": {
+    "beforeSha256": "56bc5c206818b8cbe26d6759a0d44ce75cc07275cfe6f4629b80836fea5354d2",
+    "afterSha256": "c278d1758f0522e0255b13d0d9daebd5248218ec2e729442a6b4c329eb2cb8fe",
+    "edits": [
+      {
+        "before": "import { Fragment } from 'preact';\n",
+        "after": "import { NativeSelect } from './components/NativeSelect';\nimport { Fragment } from 'preact';\n"
+      },
+      {
+        "before": "<select\n",
+        "after": "<NativeSelect\n"
+      },
+      {
+        "before": "</select>",
+        "after": "</NativeSelect>"
+      }
+    ]
+  },
+  "src/period.css": {
+    "beforeSha256": "647ee427e4c155249814a6c5cd8b32a14a0066ac0505d18fa2f2352d02a3cc34",
+    "afterSha256": "56e710bde1ff820b90fbe6528cace31d2f41307af2d272abae073efaa03c3e03",
+    "edits": [
+      {
+        "before": "id;\n  }\n  #educational-fallback .standard-paper-reading :is(h2, h3) {\n    break-after: avoid;\n  }\n}\n",
+        "after": "id;\n  }\n  #educational-fallback .standard-paper-reading :is(h2, h3) {\n    break-after: avoid;\n  }\n}\n\n/* Keep the native control in the existing form layout, without an extra box. */\n.native-select {\n  display: contents;\n}\n"
+      }
+    ]
+  }
+}

@@ -10,14 +10,11 @@ test('current public copy separates production analytics intent from disabled bu
     /No trackers|No accounts or analytics|No analytics|never uses analytics/i,
   );
   for (const promise of [
-    'No account. No tracking of what you enter. No answer collection.',
-    'What you enter into the tools is not sent to analytics.',
     '<h2>Analytics and tracking boundaries</h2>',
-    'Only Empowerment will use Google Analytics on the production site',
-    'Google Analytics is not enabled on this development staging site.',
+    'Production is planned to use minimal aggregate site and product usage analytics.',
     'Google Analytics is not enabled in this build.',
-    'What you enter into the tools is not sent to Google Analytics.',
-    'Tool answers, Saved Work, artifact contents, copied text, and other user-authored private data are excluded.',
+    'Standard Card text and residual legacy records are not sent to Google Analytics.',
+    'Written answers, artifact contents, copied text, and other user-authored private data are excluded.',
   ])
     assert.ok(copy.includes(promise), promise);
 });

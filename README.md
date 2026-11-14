@@ -1,71 +1,42 @@
 # Only Empowerment
 
-**Practical tools for clear thinking, personal standards, and deliberate action.**
+**The free interactive learning companion to The PERIOD Code.**
 
-Only Empowerment helps people examine a decision, define a standard, correct course, rebuild structure, and identify what they can do next. Short lessons teach useful distinctions inside the workflow. The user makes the decision and leaves with something they can use.
+Read the six complete lessons, Ownership, Purpose, Resilience, Integrity, Discipline, and Empowerment, and explore their six distinct educational examples. The optional PERIOD Standard Card records one intended behavior in the open tab only. About the book, Privacy & source, complete script-free readings, and source/licensing notices remain available.
 
 Built by [Jim Lunsford](https://jimlunsford.com/).
 
-## Status
+## Work 28 source candidate
 
-Untagged development candidate `1.0.0-rc.3` corrects the analytics/privacy doctrine following hands-on review of immutable `v1.0.0-rc.2`. All six core tools remain implemented and accepted into main; this candidate adds no analytics implementation. The rc.2 tag remains at `8d0a96573e41ae471bea50438068f2e2a98575c1`. This work creates no rc.3 tag, GitHub Release, or deployment.
+Based on verified commit `f15c1ea0b5c8748312b7cac30947a99d7a1f5046`, this branch retires Decision Room, Next Move, Build a Standard, Reset, Rebuild Map, Do It Now, Saved work, and legacy Approach from the public application. Their source modules, runtime storage readers, route handlers, marketing and entry links are removed. Old fragments show an unavailable page with educational navigation.
 
-The starting live staging checkpoint is rc.2, independently rebuilt and compared byte-for-byte before this source-only correction. Staging is not redeployed by this work. See [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md) for historical evidence and [RC procedure](docs/RC-PROCEDURE.md) for the source/tag/artifact contract.
+This is a draft source change only. Development staging still serves the prior release until a separately approved deployment. No merge, deployment, Nginx edit, or actual visitor-data operation is included.
 
-Six-tool scope remains frozen for final release acceptance. Production has not launched; this work claims no new human accessibility/device acceptance and does not authorize production hosting or cutover.
+## Preservation and privacy
 
-## Product family
+The complete earlier implementation, tests, documentation and source history remain at the immutable base commit. A checksum manifest covers every baseline file. Offline source/history and original CI artifact preservation, historical verification evidence, restoration instructions, test retirement accounting, and the safe rollback recommendation are documented in [Work 28](docs/WORK-28-RETIREMENT.md).
 
-| Tool | Job | Output |
-| --- | --- | --- |
-| Decision Room | Examine options, values and consequences | Decision Record |
-| Next Move | Define one executable action | Execution Card |
-| Reset | Correct a miss and repair its supporting structure | Reset Plan |
-| Build a Standard | Define a specific line and how to protect it | Personal Standard |
-| Rebuild Map | Connect a larger rebuild to structure and repeated action | Rebuild Map |
-| Do It Now | Begin a known action and record what happened | Action Record |
+The application never opens, lists, migrates, exports or automatically changes residual legacy browser records. The Privacy & source deletion control operates only after confirmation, removes only the historical `oe:` local-storage namespace, and never reads record values. Ordinary startup and navigation do not access local storage. The Standard Card remains memory-only and uses its separate Clear this draft action. Old data belongs to its original origin and cannot automatically follow a private/offline deployment to another origin.
 
-The teaching model is lesson → reflection → decision → action → result. The four frameworks remain distinct: PERIOD Code for values, How to Rebuild Yourself for process, Discipline Loop for reinforcement, and Pure Execution Mode for execution. [Framework sources and mapping](docs/FRAMEWORK-MAP.md).
+There is no account, answer-submission endpoint, AI service, third-party runtime script, or active analytics. Future analytics remain subject to the existing [Analytics policy](docs/ANALYTICS-POLICY.md) and separate authorization. Previously published GitHub history remains publicly readable.
 
-## Privacy
-
-No account, server-side answer storage, advertising, or AI API. Google Analytics is selected for future minimal production site/product measurement under the [Analytics policy](docs/ANALYTICS-POLICY.md). What users enter into the tools is never sent to Google Analytics. Current staging and both presentation builds contain no analytics or third-party runtime scripts. All six implemented tools keep text in memory by default and never submit answers. Explicit saving stores only the confirmed artifact in this browser profile. Up to 50 saved Only Empowerment records total. Copy and print happen only when requested. Browser/device behavior and ordinary hosting requests remain relevant privacy limits. Public source alone does not prove a deployed site matches it.
-
-Read [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md) and [Build a Standard](docs/BUILD-A-STANDARD.md), [Reset](docs/RESET.md), and [Rebuild Map](docs/REBUILD-MAP.md). Saved Work supports all six artifact types, per-record deletion, and Delete my local data.
-
-## Develop
+## Develop and verify
 
 Node 24 and npm:
 
 ```sh
 npm ci
 npm run dev
+npm run format:check
 npm test
 npm run build
 npx playwright install --with-deps chromium firefox webkit
 npm run test:e2e
 ```
 
-Preact + TypeScript + Vite. Static deployment with no server application runtime or database. Build metadata and SHA-256 checksums associate an artifact with its source commit. [Architecture decision](docs/decisions/0001-APPLICATION-ARCHITECTURE.md).
+Preact + TypeScript + Vite. Static deployment with no server application runtime or database. Build metadata and SHA-256 checksums associate artifacts with their source commit. The build rejects retired modules in generated application chunks. Both presentation modes and the complete applicable browser suite remain required.
 
-## Documentation
-
-- [Product doctrine](docs/PRODUCT-DOCTRINE.md)
-- [Framework map](docs/FRAMEWORK-MAP.md)
-- [Tool responsibilities](docs/TOOL-CATALOG.md)
-- [Workflow model and handoffs](docs/WORKFLOW-MODEL.md)
-- [Output artifact standard](docs/OUTPUT-ARTIFACT-STANDARD.md)
-- [Privacy architecture](docs/PRIVACY-ARCHITECTURE.md)
-- [Analytics policy](docs/ANALYTICS-POLICY.md)
-- [UI Design Standard](docs/UI-DESIGN-STANDARD.md)
-- [UX, accessibility and design direction](docs/UX-AND-ACCESSIBILITY.md)
-- [Technical architecture](docs/decisions/0001-APPLICATION-ARCHITECTURE.md)
-- [v1 scope and reference-tool recommendation](docs/V1-SCOPE.md)
-- [Development](docs/DEVELOPMENT.md) and [testing](docs/TESTING.md)
-- [Release and deployment standard](docs/RELEASE-STANDARD.md)
-- [Licensing decision](docs/LICENSING-DECISION.md)
-- [Phase 1 status](docs/PHASE-1-STATUS.md)
-- [Contributing](CONTRIBUTING.md), [security](SECURITY.md), [changelog](CHANGELOG.md)
+Historical six-tool documents below `docs/` describe the preserved implementation, not current public availability. Their original verification evidence is retained, not relabeled as a passing retirement test. See [testing](docs/TESTING.md), [development](docs/DEVELOPMENT.md), [technical architecture](docs/decisions/0001-APPLICATION-ARCHITECTURE.md), [licensing](docs/LICENSING-DECISION.md), [contributing](CONTRIBUTING.md), and [security](SECURITY.md).
 
 ## License
 
@@ -76,8 +47,3 @@ Original application code, build and test code, repository documentation, and th
 Linked framework articles on JimLunsford.com remain under their existing terms. This software license does not grant a trademark license or imply endorsement by Jim Lunsford. User-created answers and exported records remain the user's work.
 
 Third-party components retain their own licenses and notices. See [third-party notices](THIRD_PARTY_NOTICES.md).
-
-
-## Do It Now
-
-Do It Now is the sixth accepted tool. It starts an already understood action and records a user-reported Completed, Partial, or Blocked Action Record. Optional timing is memory-only; expiry never completes an action. Next Move offers an explicit reviewed handoff, and Saved Work supports six artifact types. See [Do It Now](docs/DO-IT-NOW.md) and [Phase 7 acceptance](docs/PHASE-7-ACCEPTANCE.md). This is not production or final v1 acceptance.

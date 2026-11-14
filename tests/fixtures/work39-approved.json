@@ -1,0 +1,516 @@
+{
+  "source": "Product Vision v0.73 and Work 38 Approach A, November 7, 2026",
+  "baseline": "99b5a02d534d2ce4107944242f935898b6f93bcb",
+  "records": [
+    {
+      "id": "F01",
+      "file": "src/main.tsx; scripts/site-footer.ts",
+      "field": "Your practice supporting paragraph",
+      "operation": "add",
+      "original": null,
+      "proposed": "Choose one intended behavior. Copy or print it, then return to it when the situation comes up.",
+      "location": "Immediately before the existing Optional Standard Card link in the Your practice footer group.",
+      "preserve": "Footer label, link, context handler, modified clicks, guards, copyright and legal/source access.",
+      "rationale": "Explain the outcome at the existing entry without adding a header action or reopening the homepage.",
+      "work35_supersedes": []
+    },
+    {
+      "id": "C01",
+      "file": "src/period-content.ts",
+      "field": "periodExercise.lead",
+      "operation": "replace",
+      "original": "Write one intended behavior within The PERIOD Code’s connected standard for living. Choose a value as the focus of this card, then name where you will practice the behavior. The other values still matter.",
+      "proposed": "Use the optional Standard Card to name one behavior you intend to practice within the whole Code and where you will put it into action next. Copy or print it as a reminder. Writing the standard gives you a direction to act on; it does not do the work.",
+      "location": "Existing editor lead, also used by the complete root reading.",
+      "preserve": "Title, field structure, labels, hints, validation and privacy wording.",
+      "rationale": "State what it is, why it helps and what the visitor can take away before the fields.",
+      "work35_supersedes": [],
+      "source_lines": {
+        "src/period-content.ts": 136
+      }
+    },
+    {
+      "id": "C02",
+      "file": "src/period-content.ts",
+      "field": "periodExercise.teaching",
+      "operation": "replace",
+      "original": "A value names what matters. A standard describes behavior you can return to. “Be more reliable” leaves the action unclear. “When a deadline is at risk, I send an honest update before it passes” gives you a line you can recognize.",
+      "proposed": "A value names what matters. A standard makes it visible in behavior. “Be more reliable” leaves the action unclear. “Before I agree to a household task, I check what I can realistically do and say so” gives you something to practice.",
+      "location": "Existing desktop guide and mobile disclosure, mirrored in root reading.",
+      "preserve": "Guardrail, responsive guide/disclosure behavior and all controls.",
+      "rationale": "Use an ordinary household promise that tests honest capacity before agreeing.",
+      "work35_supersedes": [],
+      "source_lines": {
+        "src/period-content.ts": 138
+      }
+    },
+    {
+      "id": "C03",
+      "file": "src/period-content.ts; src/PeriodStandard.tsx; scripts/period-fallback.ts",
+      "field": "new periodCardContext.connectedHeading and connectedParagraphs",
+      "operation": "add",
+      "original": null,
+      "proposed": {
+        "heading": "One behavior. The whole Code.",
+        "paragraphs": [
+          "The value you choose gives this card a focus. Ownership keeps the response yours. Purpose gives it a reason. Resilience helps you adapt when circumstances change. Integrity keeps the standard honest. Discipline brings you back to the behavior. Empowerment asks how what you build can help someone else without taking over their choices.",
+          "You do not need six separate actions in every situation. Keep all six values in view as you decide what this one behavior asks of you."
+        ]
+      },
+      "location": "After the preserved guardrail in the desktop teaching guide; inside the existing mobile What makes a useful standard? disclosure in the same order. Use H3 under the desktop guide H2, H2 in the mobile disclosure, and H3 in the root reading. In root reading, place after the guardrail and before the paper explanation. No new disclosure or input.",
+      "preserve": "No edits to periodValues or period-standard-model.ts. Existing one-value selector remains a focus, not completion.",
+      "rationale": "Make the relationship between one intended behavior and the connected Code explicit.",
+      "work35_supersedes": []
+    },
+    {
+      "id": "C04",
+      "file": "src/period-content.ts",
+      "field": "periodExercise.example.standard",
+      "operation": "replace",
+      "original": "When a deadline is at risk, I send an honest update before it passes.",
+      "proposed": "Before I agree to a household task, I check what I can realistically do and say so.",
+      "location": "Existing finished example only, and the root reading example. Never prefill a personal draft.",
+      "preserve": "example.valueId remains integrity; every example heading/status/field label and the Card export contract remain unchanged.",
+      "rationale": "A fictional household example distinguishes realistic agreement from a promise made to avoid saying no.",
+      "work35_supersedes": [],
+      "source_lines": {
+        "src/period-content.ts": 159
+      }
+    },
+    {
+      "id": "C05",
+      "file": "src/period-content.ts",
+      "field": "periodExercise.example.nextApplication",
+      "operation": "replace",
+      "original": "Before today’s project check-in, I will explain the delay and propose a realistic next step.",
+      "proposed": "When my family asks me to handle Saturday's shopping, I will check my available time and say what I can take on.",
+      "location": "Existing finished example only, and the root reading example. Never prefill a personal draft.",
+      "preserve": "example.valueId remains integrity; every example heading/status/field label and the Card export contract remain unchanged.",
+      "rationale": "A fictional household example distinguishes realistic agreement from a promise made to avoid saying no.",
+      "work35_supersedes": [],
+      "source_lines": {
+        "src/period-content.ts": 161
+      }
+    },
+    {
+      "id": "C06",
+      "file": "src/period-content.ts",
+      "field": "periodExercise.example.returnPlan",
+      "operation": "replace",
+      "original": "If I avoid the update, I will send the correction as soon as I recognize it.",
+      "proposed": "If I agree too quickly, I will correct the promise with the people affected and ask for a workable arrangement.",
+      "location": "Existing finished example only, and the root reading example. Never prefill a personal draft.",
+      "preserve": "example.valueId remains integrity; every example heading/status/field label and the Card export contract remain unchanged.",
+      "rationale": "A fictional household example distinguishes realistic agreement from a promise made to avoid saying no.",
+      "work35_supersedes": [],
+      "source_lines": {
+        "src/period-content.ts": 162
+      }
+    },
+    {
+      "id": "C07",
+      "file": "src/period-content.ts",
+      "field": "periodExercise.exampleLesson",
+      "operation": "replace",
+      "original": "The standard can guide more than one situation. The next action gives you a place to begin. Sending the update, not creating this card, is the behavior that would count as evidence.",
+      "proposed": "The standard reaches the moment before the promise. Check your capacity, give an honest answer and follow through on what you agree. Those actions give your word weight. The card only names what you intend to do.",
+      "location": "After the existing finished example in the editor and root reading.",
+      "preserve": "Chosen, not yet demonstrated status and unchanged footnote.",
+      "rationale": "Interpret the specific example without claiming the Card proves conduct.",
+      "work35_supersedes": [],
+      "source_lines": {
+        "src/period-content.ts": 165
+      }
+    },
+    {
+      "id": "C08",
+      "file": "src/PeriodStandard.tsx; src/period-content.ts",
+      "field": "new periodCardContext.takeaway",
+      "operation": "add",
+      "original": null,
+      "proposed": "Keep your copy where it will be useful before the situation arises, perhaps in a note on your phone or beside the things you need. When that moment comes, read the standard, face the facts and do the part you can. If you miss, make the correction and return.",
+      "location": "Result-actions aside: after the current reload/close warning and before the unchanged Copy my card / Print my card / Edit my card controls. This remains screen-only with its existing no-print parent.",
+      "preserve": "Existing heading, warning, all buttons, live status, copy fallback, footnote, printable artifact and periodCardText output.",
+      "rationale": "Explain using the copy after leaving the website without adding reminders or records.",
+      "work35_supersedes": []
+    },
+    {
+      "id": "N01",
+      "file": "scripts/period-fallback.ts; src/period-content.ts",
+      "field": "new periodCardContext.paperParagraphs",
+      "operation": "replace",
+      "original": "The card editor needs JavaScript. You can still use this pattern on paper: value, standard, next situation and action, and optional support or correction.",
+      "proposed": [
+        "The card editor needs JavaScript. You can use the same pattern on paper: choose a value, write one standard, name the next situation and action, and add support or correction if it would help.",
+        "Keep that note where you will see it before the situation arises. Return to it when you need to choose a response. If your circumstances change, judge what is workable now. Writing the note names an intention. Carrying it out is the work."
+      ],
+      "location": "Replace the existing single paper-pattern paragraph, after the preserved guardrail and before Example standard card. Render all text without scripts.",
+      "preserve": "Complete example, status, footnote, attribution, all lessons and existing no-JavaScript privacy/retirement instructions.",
+      "rationale": "Give non-JavaScript readers a complete practical explanation without suggesting the editor or clipboard controls work in that mode.",
+      "work35_supersedes": [],
+      "source_lines": {
+        "scripts/period-fallback.ts": 42
+      },
+      "layout": "Keep the static example heading, illustration note and first status line together at a print page boundary; keep each field heading with its following value. Scope any print rule to the Card reading section."
+    },
+    {
+      "id": "N02",
+      "file": "scripts/period-fallback.ts; scripts/site-footer.ts; src/use-route.ts",
+      "field": "reading-standard-card anchor and static footer reading link",
+      "operation": "add",
+      "original": null,
+      "proposed": {
+        "label": "Use the standard on paper",
+        "href": "/#reading-standard-card",
+        "id": "reading-standard-card",
+        "appAlias": "/period/standard"
+      },
+      "location": "Give the existing exercise.title H2 id=reading-standard-card and tabindex=-1. Add the native link after the existing Card link in the static footer only. Add the single readingRoutes alias to the existing Card route for JavaScript-enabled visitors.",
+      "preserve": "Existing Optional Standard Card link still requires JavaScript; retain footer-app-note. No new URL path, hosted file, Nginx rule or change to scroll restoration.",
+      "rationale": "The complete explanation currently has no native anchor and lies far down the root reading. Make it reachable from every static footer.",
+      "work35_supersedes": []
+    },
+    {
+      "id": "L01",
+      "file": "src/period-practice-content.ts",
+      "field": "practiceCopy.cardNote",
+      "operation": "replace",
+      "original": "If a reminder helps, the optional Standard Card can hold one behavior you intend to practice within the whole Code. The action still belongs to you.",
+      "proposed": "If a reminder would help with the responsibility you have in mind, write one intended behavior on an optional Standard Card. Copy or print it and keep it where you can return to it before that situation. The correction still has to happen.",
+      "location": "Existing connected-Code view practice-optional section, and scripts/practice-fallback.ts. Keep its link before the note.",
+      "preserve": "Current heading, CTA label and position, contextual value selection, draft reuse, lesson progression, interaction facts and whole-Code teaching.",
+      "rationale": "Connect this lesson to a take-away reminder without adding an exercise or requiring written reflection.",
+      "work35_supersedes": ["O33"],
+      "source_lines": {
+        "src/period-practice-content.ts": 226
+      }
+    },
+    {
+      "id": "L02",
+      "file": "src/period-purpose-content.ts",
+      "field": "purposeCardNote",
+      "operation": "replace",
+      "original": "The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if a reminder helps, then put the intention into action.",
+      "proposed": "Give the direction one behavior you can recognize in your day. If a reminder helps, put that intention on an optional Standard Card and copy or print it. Return to it when competing demands pull at your time. The choice still has to be carried out.",
+      "location": "Existing A reminder is optional section; scripts/purpose-fallback.ts equivalent.",
+      "preserve": "Current heading, CTA label and position, contextual value selection, draft reuse, lesson progression, interaction facts and whole-Code teaching.",
+      "rationale": "Connect this lesson to a take-away reminder without adding an exercise or requiring written reflection.",
+      "work35_supersedes": ["P27"],
+      "source_lines": {
+        "src/period-purpose-content.ts": 116
+      }
+    },
+    {
+      "id": "L03",
+      "file": "src/period-resilience-content.ts",
+      "field": "resilienceContent.lesson[10].paragraphs[0]",
+      "operation": "replace",
+      "original": "The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder. The return becomes real in what you do.",
+      "proposed": "If a reminder helps, use the optional Standard Card to name one response you intend to return to under pressure. Copy or print it. When the plan is tested, use it to reconsider what protects the standard and fits the facts. Then make the response real.",
+      "location": "Existing L11 A reminder is optional section; scripts/resilience-reading.ts equivalent.",
+      "preserve": "Current heading, CTA label and position, contextual value selection, draft reuse, lesson progression, interaction facts and whole-Code teaching.",
+      "rationale": "Connect this lesson to a take-away reminder without adding an exercise or requiring written reflection.",
+      "work35_supersedes": ["R13"],
+      "source_lines": {
+        "src/period-resilience-content.ts": 106
+      }
+    },
+    {
+      "id": "L04",
+      "file": "src/period-integrity-content.ts",
+      "field": "integrityContent.card",
+      "operation": "replace",
+      "original": "The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if it helps you remember the correction. Then carry it out.",
+      "proposed": "If you want a reminder, name one honest behavior on an optional Standard Card and copy or print it. Keep it where you can return to it before a promise or a correction. The card cannot make your conduct truthful. What you do next can.",
+      "location": "Existing Integrity reminder section; scripts/integrity-reading.ts equivalent.",
+      "preserve": "Current heading, CTA label and position, contextual value selection, draft reuse, lesson progression, interaction facts and whole-Code teaching.",
+      "rationale": "Connect this lesson to a take-away reminder without adding an exercise or requiring written reflection.",
+      "work35_supersedes": ["I07"],
+      "source_lines": {
+        "src/period-integrity-content.ts": 114
+      }
+    },
+    {
+      "id": "L05",
+      "file": "src/period-discipline-content.ts",
+      "field": "disciplineContent.lesson.cardDescription",
+      "operation": "replace",
+      "original": "The optional Standard Card holds one behavior you intend to practice within the whole Code. A reminder can help you return to it. The evidence comes from doing it, and you can act without making a card.",
+      "proposed": "Choose one behavior worth returning to. If a reminder helps, put the intention on an optional Standard Card and copy or print it. Keep it near the ordinary situation where you will use it. The repetition comes from your conduct, and you can begin without a card.",
+      "location": "Existing Name one intended behavior section; scripts/discipline-reading.ts equivalent.",
+      "preserve": "Current heading, CTA label and position, contextual value selection, draft reuse, lesson progression, interaction facts and whole-Code teaching.",
+      "rationale": "Connect this lesson to a take-away reminder without adding an exercise or requiring written reflection.",
+      "work35_supersedes": ["D10"],
+      "source_lines": {
+        "src/period-discipline-content.ts": 97
+      }
+    },
+    {
+      "id": "L06",
+      "file": "src/period-empowerment-content.ts",
+      "field": "empowermentContent.lesson.cardNote",
+      "operation": "replace",
+      "original": "The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder if it helps. The support becomes real in how you treat the person.",
+      "proposed": "If a reminder helps, put one behavior for how you offer help on an optional Standard Card. Copy or print it and return to it before you step in. Keep the other person's choices with them. The support becomes real in how you treat them.",
+      "location": "Existing Keep one intention if it is useful section and CompletePrintReading; scripts/empowerment-reading.ts equivalent.",
+      "preserve": "Current heading, CTA label and position, contextual value selection, draft reuse, lesson progression, interaction facts and whole-Code teaching.",
+      "rationale": "Connect this lesson to a take-away reminder without adding an exercise or requiring written reflection.",
+      "work35_supersedes": ["E14"],
+      "source_lines": {
+        "src/period-empowerment-content.ts": 121
+      }
+    },
+    {
+      "id": "E01",
+      "file": "src/period-resilience-content.ts",
+      "field": "resilienceContent.lesson[4].paragraphs, insertion after current index 2",
+      "operation": "add",
+      "original": null,
+      "proposed": "Suppose a health setback leaves you unable to manage your usual household tasks. Keeping the home workable may now mean asking for help and leaving nonessential work undone. When you can reassess, choose a method that fits your capacity. Protecting stability does not require pretending nothing changed.",
+      "location": "In L05 Rest and support can carry responsibility, between the current third and fourth paragraphs. Mirror through existing static rendering.",
+      "preserve": "All current L05 paragraphs and the five Alex pressure states.",
+      "rationale": "Show adaptation to genuine capacity in ordinary life, without a medical regimen or a requirement to earn rest.",
+      "work35_supersedes": []
+    },
+    {
+      "id": "E02",
+      "file": "src/period-integrity-content.ts",
+      "field": "integrityContent.lesson[3].paragraphs, insertion after current index 0",
+      "operation": "add",
+      "original": null,
+      "proposed": "If you damage something you borrowed, saying sorry while returning it without mentioning the damage leaves the other person with the consequence. Tell them what happened and discuss a repair you can actually provide. They decide whether the proposed repair is acceptable.",
+      "location": "In L04 A correction has to reach the damage, between current first paragraph and volunteer example. Mirror through existing static rendering.",
+      "preserve": "Every original paragraph and the complete Riley/Maya annotated record.",
+      "rationale": "Make correction materially tangible: accurate disclosure and agreed repair, beyond writing a better message.",
+      "work35_supersedes": []
+    },
+    {
+      "id": "E03",
+      "file": "src/period-discipline-content.ts",
+      "field": "disciplineContent.lesson.sections[2].paragraphs[1]",
+      "operation": "replace",
+      "original": "Consider someone who has repeatedly avoided difficult work conversations. One honest conversation matters. Returning to honesty in later conversations begins to establish a different pattern. They do not have to wait until they feel like a completely different person before speaking truthfully. The action can come first. Over time, a changed pattern can support a changed understanding of who they are.",
+      "proposed": "Consider someone rebuilding a dependable morning. When time and capacity allow, they put the things they need by the door before settling down for the evening. One prepared morning helps. Returning to that small action on later evenings begins a pattern. If their needs or capacity change, the arrangement can change too. The evidence is in the preparation they keep doing, not the routine they describe.",
+      "location": "Replace only the short work-conversation illustration in Repetition builds evidence. Mirror through existing static rendering.",
+      "preserve": "Other paragraphs in that section; Noor/Eli seven occasions and three patterns; work-handover transfer prompt.",
+      "rationale": "Teach repeated private preparation in a personal routine instead of another work conversation.",
+      "work35_supersedes": [],
+      "source_lines": {
+        "src/period-discipline-content.ts": 37
+      }
+    },
+    {
+      "id": "E04",
+      "file": "src/period-empowerment-content.ts",
+      "field": "empowermentContent.lesson.sections[0].paragraphs[2]",
+      "operation": "replace",
+      "original": "An experienced colleague can explain the agenda tool and leave room for a new meeting leader to use it. Taking over the topics, decisions and final message may finish the agenda while taking the leadership away. Getting the task done and helping someone become more capable are not the same achievement.",
+      "proposed": "A friend wants to learn how to mend a loose button. Show the step, leave room for them to try and give the help they need. If they need you to hold the fabric while they work, that assistance can remain. Taking the garment away and finishing it may solve the immediate task. It does not, by itself, give them the practice they wanted.",
+      "location": "Replace only the short agenda-tool illustration in Put strength to use without placing yourself above people. Mirror in static and complete print reading.",
+      "preserve": "All other lesson copy, necessary-care protections, Mara/Dev/Jordan facts and all three recipient replies.",
+      "rationale": "Distinguish teaching capability from taking over through a practical friendship example, with ongoing assistance respected.",
+      "work35_supersedes": ["E03"],
+      "source_lines": {
+        "src/period-empowerment-content.ts": 18
+      }
+    }
+  ],
+  "baselineFiles": {
+    "src/period-content.ts": "7b85b5f409ba9a0e8afba3c78e6852429b47031b269e48ef0c7661efb6c674dc",
+    "src/period-practice-content.ts": "65047db93e8b3c84af44f348f74774ea31cce0cc20776ea6318c1a59401d0661",
+    "src/period-purpose-content.ts": "b285bd2be93671602beb7716feacb0dd6299135a29611a6f3213c542ab2675c5",
+    "src/period-resilience-content.ts": "41ae69384eaf6e2b0a963df4b647e03387254c56a88a122d7b32b18c6be1137f",
+    "src/period-integrity-content.ts": "8dbf5ab18400c87e9dc5b9d93ee1f68b21f9b0d4f21bcb04194c47c5d7640767",
+    "src/period-discipline-content.ts": "37abfd1a7148d8fa48fa3194bb6b4d1202ee5d0e8781e11c0e249d4810b1f50d",
+    "src/period-empowerment-content.ts": "50752f802aa34493a3c61e7f068447f5972403c8c73eb94bbb790061e15e6b36",
+    "src/PeriodStandard.tsx": "161ac62c3b2db1a7cd1e04f36de91fd0a6c0b972e8102aa8a29184c1000202d1",
+    "src/main.tsx": "c422a8bf1ac0ca5ee5099be72dead05606a508c1ed3d153830ff7ca49d964913",
+    "scripts/site-footer.ts": "0dc92a90fde4a0d55765246b38ab8dd16291a979307f14a61bb996624dc22648",
+    "src/use-route.ts": "09321873dbabaae71ec58fd34bc11b83f1654104dd48d8737d1cfd0a99b717e4",
+    "scripts/period-fallback.ts": "b310a5fa75a272ef352e4050187a61a22601c09f9fe7e104e8714cee68c6333d",
+    "src/period.css": "3a01909fbb11f85c1b3be2a5c335c0b369fdddb897017a89e3d1d180762e182d"
+  },
+  "sourceEdits": {
+    "src/period-content.ts": [
+      {
+        "before": "  lead: 'Write one intended behavior within The PERIOD Code’s connected standard for living. Choose a value as the focus of this card, then name where you will practice the behavior. The other values still matter.',",
+        "after": "  lead: 'Use the optional Standard Card to name one behavior you intend to practice within the whole Code and where you will put it into action next. Copy or print it as a reminder. Writing the standard gives you a direction to act on; it does not do the work.',"
+      },
+      {
+        "before": "    'A value names what matters. A standard describes behavior you can return to. “Be more reliable” leaves the action unclear. “When a deadline is at risk, I send an honest update before it passes” gives you a line you can recognize.',",
+        "after": "    'A value names what matters. A standard makes it visible in behavior. “Be more reliable” leaves the action unclear. “Before I agree to a household task, I check what I can realistically do and say so” gives you something to practice.',"
+      },
+      {
+        "before": "    standard: 'When a deadline is at risk, I send an honest update before it passes.',",
+        "after": "    standard: 'Before I agree to a household task, I check what I can realistically do and say so.',"
+      },
+      {
+        "before": "      'Before today’s project check-in, I will explain the delay and propose a realistic next step.',\n    returnPlan: 'If I avoid the update, I will send the correction as soon as I recognize it.',",
+        "after": "      \"When my family asks me to handle Saturday's shopping, I will check my available time and say what I can take on.\",\n    returnPlan:\n      'If I agree too quickly, I will correct the promise with the people affected and ask for a workable arrangement.',"
+      },
+      {
+        "before": "    'The standard can guide more than one situation. The next action gives you a place to begin. Sending the update, not creating this card, is the behavior that would count as evidence.',",
+        "after": "    'The standard reaches the moment before the promise. Check your capacity, give an honest answer and follow through on what you agree. Those actions give your word weight. The card only names what you intend to do.',"
+      },
+      {
+        "before": "",
+        "after": "\nexport const periodCardContext = {\n  footer:\n    'Choose one intended behavior. Copy or print it, then return to it when the situation comes up.',\n  connectedHeading: 'One behavior. The whole Code.',\n  connectedParagraphs: [\n    'The value you choose gives this card a focus. Ownership keeps the response yours. Purpose gives it a reason. Resilience helps you adapt when circumstances change. Integrity keeps the standard honest. Discipline brings you back to the behavior. Empowerment asks how what you build can help someone else without taking over their choices.',\n    'You do not need six separate actions in every situation. Keep all six values in view as you decide what this one behavior asks of you.',\n  ],\n  takeaway:\n    'Keep your copy where it will be useful before the situation arises, perhaps in a note on your phone or beside the things you need. When that moment comes, read the standard, face the facts and do the part you can. If you miss, make the correction and return.',\n  paperParagraphs: [\n    'The card editor needs JavaScript. You can use the same pattern on paper: choose a value, write one standard, name the next situation and action, and add support or correction if it would help.',\n    'Keep that note where you will see it before the situation arises. Return to it when you need to choose a response. If your circumstances change, judge what is workable now. Writing the note names an intention. Carrying it out is the work.',\n  ],\n} as const;"
+      }
+    ],
+    "src/period-practice-content.ts": [
+      {
+        "before": "    'If a reminder helps, the optional Standard Card can hold one behavior you intend to practice within the whole Code. The action still belongs to you.',",
+        "after": "    'If a reminder would help with the responsibility you have in mind, write one intended behavior on an optional Standard Card. Copy or print it and keep it where you can return to it before that situation. The correction still has to happen.',"
+      }
+    ],
+    "src/period-purpose-content.ts": [
+      {
+        "before": "  'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if a reminder helps, then put the intention into action.' as const;",
+        "after": "  'Give the direction one behavior you can recognize in your day. If a reminder helps, put that intention on an optional Standard Card and copy or print it. Return to it when competing demands pull at your time. The choice still has to be carried out.' as const;"
+      }
+    ],
+    "src/period-resilience-content.ts": [
+      {
+        "before": "",
+        "after": "        'Suppose a health setback leaves you unable to manage your usual household tasks. Keeping the home workable may now mean asking for help and leaving nonessential work undone. When you can reassess, choose a method that fits your capacity. Protecting stability does not require pretending nothing changed.',"
+      },
+      {
+        "before": "        'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder. The return becomes real in what you do.',",
+        "after": "        'If a reminder helps, use the optional Standard Card to name one response you intend to return to under pressure. Copy or print it. When the plan is tested, use it to reconsider what protects the standard and fits the facts. Then make the response real.',"
+      }
+    ],
+    "src/period-integrity-content.ts": [
+      {
+        "before": "",
+        "after": "        'If you damage something you borrowed, saying sorry while returning it without mentioning the damage leaves the other person with the consequence. Tell them what happened and discuss a repair you can actually provide. They decide whether the proposed repair is acceptable.',"
+      },
+      {
+        "before": "  card: 'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it if it helps you remember the correction. Then carry it out.',",
+        "after": "  card: 'If you want a reminder, name one honest behavior on an optional Standard Card and copy or print it. Keep it where you can return to it before a promise or a correction. The card cannot make your conduct truthful. What you do next can.',"
+      }
+    ],
+    "src/period-discipline-content.ts": [
+      {
+        "before": "          'Consider someone who has repeatedly avoided difficult work conversations. One honest conversation matters. Returning to honesty in later conversations begins to establish a different pattern. They do not have to wait until they feel like a completely different person before speaking truthfully. The action can come first. Over time, a changed pattern can support a changed understanding of who they are.',",
+        "after": "          'Consider someone rebuilding a dependable morning. When time and capacity allow, they put the things they need by the door before settling down for the evening. One prepared morning helps. Returning to that small action on later evenings begins a pattern. If their needs or capacity change, the arrangement can change too. The evidence is in the preparation they keep doing, not the routine they describe.',"
+      },
+      {
+        "before": "      'The optional Standard Card holds one behavior you intend to practice within the whole Code. A reminder can help you return to it. The evidence comes from doing it, and you can act without making a card.',",
+        "after": "      'Choose one behavior worth returning to. If a reminder helps, put the intention on an optional Standard Card and copy or print it. Keep it near the ordinary situation where you will use it. The repetition comes from your conduct, and you can begin without a card.',"
+      }
+    ],
+    "src/period-empowerment-content.ts": [
+      {
+        "before": "          'An experienced colleague can explain the agenda tool and leave room for a new meeting leader to use it. Taking over the topics, decisions and final message may finish the agenda while taking the leadership away. Getting the task done and helping someone become more capable are not the same achievement.',",
+        "after": "          'A friend wants to learn how to mend a loose button. Show the step, leave room for them to try and give the help they need. If they need you to hold the fabric while they work, that assistance can remain. Taking the garment away and finishing it may solve the immediate task. It does not, by itself, give them the practice they wanted.',"
+      },
+      {
+        "before": "      'The optional Standard Card holds one behavior you intend to practice within the whole Code. Use it as a reminder if it helps. The support becomes real in how you treat the person.',",
+        "after": "      \"If a reminder helps, put one behavior for how you offer help on an optional Standard Card. Copy or print it and return to it before you step in. Keep the other person's choices with them. The support becomes real in how you treat them.\","
+      }
+    ],
+    "src/PeriodStandard.tsx": [
+      {
+        "before": "",
+        "after": "  periodCardContext as context,"
+      },
+      {
+        "before": "",
+        "after": "                <h2>{context.connectedHeading}</h2>\n                {context.connectedParagraphs.map((text) => (\n                  <p key={text}>{text}</p>\n                ))}"
+      },
+      {
+        "before": "",
+        "after": "                <h3>{context.connectedHeading}</h3>\n                {context.connectedParagraphs.map((text) => (\n                  <p key={text}>{text}</p>\n                ))}"
+      },
+      {
+        "before": "",
+        "after": "            <p>{context.takeaway}</p>"
+      },
+      {
+        "before": "            <h1 tabIndex={-1}>",
+        "after": "            <h1 id=\"reading-standard-card\" tabIndex={-1}>"
+      }
+    ],
+    "src/main.tsx": [
+      {
+        "before": "import { periodBook } from './period-content';",
+        "after": "import { periodBook, periodCardContext } from './period-content';"
+      },
+      {
+        "before": "",
+        "after": "          <p>{periodCardContext.footer}</p>"
+      }
+    ],
+    "scripts/site-footer.ts": [
+      {
+        "before": "",
+        "after": "import { periodCardContext } from '../src/period-content.ts';"
+      },
+      {
+        "before": "<nav class=\"footer-group\" aria-label=\"Your practice\"><h2>Your practice</h2>${link('/#/period/standard', 'Optional Standard Card')}</nav>",
+        "after": "<nav class=\"footer-group\" aria-label=\"Your practice\"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/#reading-standard-card', 'Use the standard on paper')}</nav>"
+      }
+    ],
+    "src/use-route.ts": [
+      {
+        "before": "",
+        "after": "  'reading-standard-card': '/period/standard',"
+      }
+    ],
+    "scripts/period-fallback.ts": [
+      {
+        "before": "",
+        "after": "  periodCardContext as context,"
+      },
+      {
+        "before": "    ${h2(exercise.title)}${p(exercise.lead)}${p(exercise.teaching)}${p(exercise.guardrail)}\n    ${p('The card editor needs JavaScript. You can still use this pattern on paper: value, standard, next situation and action, and optional support or correction.')}\n    ${h2('Example standard card')}${p('An illustration, not your personal commitment.')}${p('Status: Chosen, not yet demonstrated')}\n    <h3>Value</h3>${p('Integrity')}<h3>My standard</h3>${p(exercise.example.standard)}<h3>Next situation and action</h3>${p(exercise.example.nextApplication)}<h3>Support or correction</h3>${p(exercise.example.returnPlan)}${p(exercise.exampleLesson)}${p(exercise.footnote)}<p class=\"source-note\">${escape(exercise.source)}</p>",
+        "after": "    <section class=\"standard-paper-reading\"><h2 id=\"reading-standard-card\" tabindex=\"-1\">${escape(exercise.title)}</h2>${p(exercise.lead)}${p(exercise.teaching)}${p(exercise.guardrail)}\n    <h3>${escape(context.connectedHeading)}</h3>${context.connectedParagraphs.map(p).join('')}\n    ${context.paperParagraphs.map(p).join('')}\n    <div class=\"standard-paper-example-heading\">${h2('Example standard card')}${p('An illustration, not your personal commitment.')}${p('Status: Chosen, not yet demonstrated')}</div>\n    <h3>Value</h3>${p('Integrity')}<h3>My standard</h3>${p(exercise.example.standard)}<h3>Next situation and action</h3>${p(exercise.example.nextApplication)}<h3>Support or correction</h3>${p(exercise.example.returnPlan)}${p(exercise.exampleLesson)}${p(exercise.footnote)}<p class=\"source-note\">${escape(exercise.source)}</p></section>"
+      }
+    ],
+    "src/period.css": [
+      {
+        "before": "",
+        "after": "\n@media print {\n  #educational-fallback .standard-paper-example-heading {\n    break-inside: avoid;\n  }\n  #educational-fallback .standard-paper-reading :is(h2, h3) {\n    break-after: avoid;\n  }\n}"
+      }
+    ]
+  },
+  "excluded": [
+    {
+      "id": "B01",
+      "file": "Selected lesson content and renderers plus static/print counterparts",
+      "field": "Approach B only",
+      "operation": "add",
+      "original": null,
+      "proposed": "Before you move on, consider one choice in the day ahead. What direction should it serve, and what will you make room for? You can act on that answer without writing it here.",
+      "location": "Purpose: after purposeLesson[L07] and before connected relationships. Move the existing reminder section to immediately follow this paragraph.",
+      "preserve": "Do not duplicate the original reminder block. Existing link/guard and lesson progression stay intact. No new field or required answer.",
+      "rationale": "Optional alternative integration, excluded from recommended Approach A.",
+      "work35_supersedes": []
+    },
+    {
+      "id": "B02",
+      "file": "Selected lesson content and renderers plus static/print counterparts",
+      "field": "Approach B only",
+      "operation": "add",
+      "original": null,
+      "proposed": "Think of an ordinary situation that will come around again. What behavior will you return to when the first burst of effort has passed? Give the standard a place in that situation.",
+      "location": "Discipline: after keep-the-values-together, before let-strength-help-others. Move the existing reminder section here.",
+      "preserve": "Do not duplicate the original reminder block. Existing link/guard and lesson progression stay intact. No new field or required answer.",
+      "rationale": "Optional alternative integration, excluded from recommended Approach A.",
+      "work35_supersedes": []
+    },
+    {
+      "id": "B03",
+      "file": "Selected lesson content and renderers plus static/print counterparts",
+      "field": "Approach B only",
+      "operation": "add",
+      "original": null,
+      "proposed": "Before your next offer of help, name the part you can honestly give and the choice that belongs to the other person. Leave room to hear their answer.",
+      "location": "Empowerment: after return-to-life, before the fictional-practice invitation. Move the existing reminder section here.",
+      "preserve": "Do not duplicate the original reminder block. Existing link/guard and lesson progression stay intact. No new field or required answer.",
+      "rationale": "Optional alternative integration, excluded from recommended Approach A.",
+      "work35_supersedes": []
+    }
+  ],
+  "implementationNote": "N02 requires the same anchor ID on the existing application editor H1 so enhancement resolves to the live heading rather than the soon-removed fallback heading. No general scroll-restoration change."
+}

@@ -1,15 +1,8 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-const catalog = [
-  ['decision-room', 'Decision Room'],
-  ['next-move', 'Next Move'],
-  ['build-a-standard', 'Build a Standard'],
-  ['reset', 'Reset'],
-  ['rebuild-map', 'Rebuild Map'],
-  ['do-it-now', 'Do It Now'],
-];
+const values = ['Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline', 'Empowerment'];
 
-test('presentation mode keeps six tools available with the correct banner, indexing and privacy', async ({
+test('presentation mode keeps six lessons available without a review banner, preserving indexing and privacy', async ({
   page,
   request,
 }) => {
@@ -17,21 +10,19 @@ test('presentation mode keeps six tools available with the correct banner, index
   expect(mode).toBe(process.env.OE_PRESENTATION ?? 'staging');
   const staging = mode === 'staging';
   await page.goto('/');
-  await expect(page.locator('.staging-banner')).toHaveCount(staging ? 1 : 0);
-  if (staging)
-    await expect(page.locator('.staging-banner')).toContainText('Not a production release.');
-  else await expect(page.locator('body')).not.toContainText('Not a production release');
-  await expect(page.locator('.privacy-line')).toHaveText(
-    'No account. No tracking of what you enter. No answer collection.',
-  );
-  await expect(page.locator('.bottom-band')).toContainText(
-    'What you enter into the tools is not sent to analytics.',
-  );
-  await expect(page.locator('.tools-section')).toContainText('Do It Now are available.');
-  await expect(page.locator('.tool-card')).toHaveCount(6);
-  for (const [id, name] of catalog) {
-    await expect(page.locator(`.tool-card[href="#/tools/${id}"]`)).toContainText(name);
-  }
+  await expect(page.locator('.staging-banner, .period-review-notice')).toHaveCount(0);
+  await expect(page.locator('body')).not.toContainText('Not a production release');
+  await expect(page.getByRole('heading', { name: 'Your values have to show up.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Why PERIOD?', exact: true })).toBeVisible();
+  for (const name of values)
+    await expect(
+      page
+        .getByRole('navigation', { name: 'PERIOD teaching order' })
+        .getByRole('link', { name, exact: true }),
+    ).toBeVisible();
+  await expect(
+    page.locator('a[href^="#/tools"], a[href="#/saved"], a[href="#/approach"]'),
+  ).toHaveCount(0);
   await expect(page.locator('a[href="#/preview"]')).toHaveCount(0);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
     'content',
@@ -50,15 +41,15 @@ test('presentation mode keeps six tools available with the correct banner, index
   await expect(
     page.getByRole('heading', { name: 'Analytics and tracking boundaries', exact: true }),
   ).toBeVisible();
-  expect(privacy).toContain('Only Empowerment will use Google Analytics on the production site');
   expect(privacy).toContain(
-    staging
-      ? 'Google Analytics is not enabled on this development staging site.'
-      : 'Google Analytics is not enabled in this build.',
+    'Production is planned to use minimal aggregate site and product usage analytics.',
   );
-  expect(privacy).toContain('What you enter into the tools is not sent to Google Analytics.');
+  expect(privacy).toContain('Google Analytics is not enabled in this build.');
   expect(privacy).toContain(
-    'Tool answers, Saved Work, artifact contents, copied text, and other user-authored private data are excluded.',
+    'Standard Card text and residual legacy records are not sent to Google Analytics.',
+  );
+  expect(privacy).toContain(
+    'Written answers, artifact contents, copied text, and other user-authored private data are excluded.',
   );
   expect(privacy).not.toMatch(/No trackers|No accounts or analytics|never uses analytics/i);
 
@@ -71,7 +62,7 @@ test('presentation mode keeps six tools available with the correct banner, index
   ).toEqual([]);
 });
 
-test('no-JavaScript presentation describes all six tools and only staging identifies a review build', async ({
+test('no-JavaScript presentation describes six lessons without review-status messaging', async ({
   browser,
   baseURL,
   request,
@@ -82,12 +73,16 @@ test('no-JavaScript presentation describes all six tools and only staging identi
     const page = await context.newPage();
     await page.goto(baseURL!);
     await expect(
-      page.getByRole('heading', { name: 'Only Empowerment', exact: true }),
+      page.getByRole('heading', { name: 'Your values have to show up.', exact: true }),
     ).toBeVisible();
-    for (const [, name] of catalog) await expect(page.getByRole('main')).toContainText(name);
-    await expect(page.getByRole('main')).toContainText('available with JavaScript enabled');
+    for (const name of values) await expect(page.getByRole('main')).toContainText(name);
+    await expect(page.getByRole('main')).toContainText('Earlier tools and Saved work are retired');
     const text = await page.getByRole('main').innerText();
-    expect(text.includes('Not a production release')).toBe(staging);
+    expect(text).not.toMatch(/Not a production release|Internal review|Teaching copy is proposed/);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      staging ? 'noindex, nofollow' : 'index, follow',
+    );
     expect(text).not.toMatch(/staging candidate|other tools are in development/);
   } finally {
     await context.close();
