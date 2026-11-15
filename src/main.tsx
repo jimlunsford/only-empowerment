@@ -385,7 +385,13 @@ function App() {
     </div>
   );
 }
-render(<App />, document.getElementById('app')!);
-// Static teaching remains available if JavaScript is disabled or the app cannot load.
-// Remove it only after a successful mount, so enhancement is never a reading gate.
-document.getElementById('educational-fallback')?.remove();
+function mount() {
+  render(<App />, document.getElementById('app')!);
+  // Remove the complete native reading only after enhancement succeeds.
+  document.getElementById('educational-fallback')?.remove();
+}
+
+// On reload WebKit can run the module before linked styles are available.
+// Keep native links active through initial presentation, then read the current hash.
+if (document.readyState === 'complete') mount();
+else window.addEventListener('pageshow', mount, { once: true });

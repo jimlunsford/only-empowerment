@@ -44,3 +44,53 @@ for (const [name, hash, id] of [
     }
   });
 }
+
+test('a native reading link chosen during reload survives enhancement and history', async ({
+  page,
+}) => {
+  const first = '/period/first-moment';
+  const why = '/period/why';
+  await page.goto('/#' + first);
+  await expect(page.locator(`[id="${first}"]`)).toBeFocused();
+
+  const css = Promise.withResolvers<void>();
+  const requested = page.waitForRequest(/\/assets\/[^/]+\.css$/);
+  await page.route('**/assets/*.css', async (route) => {
+    await css.promise;
+    await route.continue();
+  });
+  try {
+    await page.reload({ waitUntil: 'commit' });
+    await requested;
+    const link = page.locator('#educational-fallback a[href="#why-period"]').first();
+    await link.focus();
+    await page.keyboard.press('Enter');
+    await page.waitForURL((url) => url.hash === '#why-period', { waitUntil: 'commit' });
+  } finally {
+    css.resolve();
+  }
+
+  async function atSection(id: string) {
+    const target = page.locator(`#app [id="${id}"]`);
+    await expect(target).toBeFocused();
+    const positions = await target.evaluate(async (element) => {
+      await document.fonts.ready;
+      const samples: number[] = [];
+      for (let frame = 0; frame < 4; frame++) {
+        await new Promise(requestAnimationFrame);
+        samples.push(element.getBoundingClientRect().top);
+      }
+      return samples;
+    });
+    expect(Math.min(...positions)).toBeGreaterThanOrEqual(0);
+    expect(Math.max(...positions)).toBeLessThan(50);
+  }
+
+  await atSection(why);
+  await page.goBack();
+  await expect(page).toHaveURL((url) => url.hash === '#' + first);
+  await atSection(first);
+  await page.goForward();
+  await expect(page).toHaveURL((url) => url.hash === '#why-period');
+  await atSection(why);
+});

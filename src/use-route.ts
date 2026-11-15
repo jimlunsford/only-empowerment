@@ -115,26 +115,21 @@ export function useRoute() {
     returnFrom.current = null;
     const target = returnLink || anchorTarget(fragment);
     if (!restoring.current && target && (returnLink || anchorRoute(fragment) !== fragment)) {
+      // Font loading can change the target's position after the initial render.
+      // Measure to start font layout, then align focus and scroll to its final position.
+      target.getBoundingClientRect();
       let cancelled = false;
       const alignTarget = () => {
         if (cancelled) return;
         target.focus({ preventScroll: true });
         target.scrollIntoView({ block: returnLink ? 'center' : 'start' });
       };
-      const alignAfterStyles = () => {
-        // A module can mount before the stylesheet on reload. Measure after load
-        // so the font set includes the faces used to lay out this destination.
-        target.getBoundingClientRect();
-        if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);
-        else alignTarget();
-      };
-      if (document.readyState === 'complete') alignAfterStyles();
-      else window.addEventListener('load', alignAfterStyles, { once: true });
+      if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);
+      else alignTarget();
       first.current = false;
       restoring.current = null;
       return () => {
         cancelled = true;
-        window.removeEventListener('load', alignAfterStyles);
       };
     }
     if (first.current) {
