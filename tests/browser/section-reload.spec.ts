@@ -132,3 +132,28 @@ test('Forward into a section before its fonts settle keeps its intended focus an
   expect(top).toBeGreaterThanOrEqual(0);
   expect(top).toBeLessThan(50);
 });
+
+test('an explicit homepage reading position survives the initial font swap', async ({ page }) => {
+  const fonts = Promise.withResolvers<void>();
+  const requested = page.waitForRequest(/\.woff2$/);
+  await page.route('**/*.woff2', async (route) => {
+    await fonts.promise;
+    await route.continue();
+  });
+  try {
+    await page.goto('/#/period', { waitUntil: 'commit' });
+    await expect(page.locator('#app .homepage')).toBeVisible();
+    await requested;
+    await page.evaluate(() => scrollTo(0, 500));
+    await expect.poll(() => page.evaluate(() => scrollY)).toBe(500);
+  } finally {
+    fonts.resolve();
+  }
+  const finalY = await page.evaluate(async () => {
+    await document.fonts.ready;
+    await new Promise(requestAnimationFrame);
+    await new Promise(requestAnimationFrame);
+    return scrollY;
+  });
+  expect(finalY).toBe(500);
+});
