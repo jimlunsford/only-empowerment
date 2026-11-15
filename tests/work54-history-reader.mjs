@@ -1,3 +1,4 @@
+import { beforeWork56Source } from './work56-preservation.mjs';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -19,7 +20,7 @@ const original = {
   },
 };
 export function historicalPeriodSource(path) {
-  if (!Object.hasOwn(original, path)) return readFileSync(path, 'utf8');
+  if (!Object.hasOwn(original, path)) return beforeWork56Source(readFileSync(path, 'utf8'), path);
   const snapshot = original[path];
   const content = readFileSync(snapshot.file, 'utf8');
   assert.equal(createHash('sha256').update(content).digest('hex'), snapshot.sha256, path);

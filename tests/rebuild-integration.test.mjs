@@ -97,7 +97,8 @@ test('rendered source has no unapproved links or runtime HTML injection', () => 
       if (x.tag === 'a') links.push(x.attrs.href);
       return false;
     });
-    for (const href of links) assert.match(href, /^#(\/rebuild(?:\/[a-z]+)?|[a-z0-9-]+)$/);
+    for (const href of links)
+      assert.match(href, /^#(\/rebuild(?:\/[a-z]+(?:\?section=[a-z][a-z0-9-]*)?)?|[a-z0-9-]+)$/);
   }
   assert.doesNotMatch(
     readFileSync('src/Rebuild.tsx', 'utf8'),

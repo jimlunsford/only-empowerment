@@ -1,3 +1,4 @@
+import { beforeWork56Reading } from './work56-preservation.mjs';
 import { beforeWork42RootReading } from './work42-copy-helpers.mjs';
 import { beforeWork39RootReading } from './work39-copy-helpers.mjs';
 import test from 'node:test';
@@ -39,7 +40,9 @@ test('approved Work 32 copy, comparison and reflection are complete in the root 
 });
 
 test('root readings after the unchanged homepage match Work 37 foundation and retained Work 35 teaching', () => {
-  const full = beforeWork39RootReading(beforeWork42RootReading(periodFallback()));
+  const full = beforeWork39RootReading(
+    beforeWork42RootReading(beforeWork56Reading(periodFallback())),
+  );
   const readings = full.slice(full.indexOf('<h2 id="reading-ownership"'));
   assert.equal(
     createHash('sha256').update(readings).digest('hex'),
