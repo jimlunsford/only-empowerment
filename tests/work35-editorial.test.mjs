@@ -1,3 +1,4 @@
+import { beforeWork56Source, beforeWork56Reading } from './work56-preservation.mjs';
 import { beforeWork42Source } from './work42-copy-helpers.mjs';
 import { beforeWork39Source, supersessions } from './work39-copy-helpers.mjs';
 import test from 'node:test';
@@ -37,7 +38,10 @@ test('Work 35 has exactly the 177 approved records, the founder O01 override and
 for (const [path, baselineDigest] of Object.entries(fixture.baselineFiles)) {
   test(`Work 35 exact approved fields and all unlisted source preserved: ${path}`, async () => {
     let source = beforeWork37Source(
-      beforeWork39Source(beforeWork42Source(readFileSync(path, 'utf8'), path), path),
+      beforeWork39Source(
+        beforeWork42Source(beforeWork56Source(readFileSync(path, 'utf8'), path), path),
+        path,
+      ),
       path,
     );
     if (path === 'scripts/purpose-fallback.ts') {
@@ -79,7 +83,7 @@ const escape = (text) =>
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;');
 const reading = {
-  O: periodFallback(),
+  O: beforeWork56Reading(periodFallback()),
   P: periodFallback(),
   R: resilienceReading(),
   I: integrityReading(),

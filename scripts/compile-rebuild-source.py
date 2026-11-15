@@ -5,6 +5,7 @@ Original guide HTML stays byte-identical in src/rebuild-source.
 No runtime HTML evaluation or arbitrary third-party markup is permitted.
 """
 import json
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -51,13 +52,15 @@ class GuideMain(HTMLParser):
                 if value.startswith('#'):
                     values[name] = value
                 else:
-                    file, *frag = value.split('#')
+                    file, separator, target = value.partition('#')
                     if file != 'all.html' and file not in [p + '.html' for p in PAGES]:
                         raise ValueError('Unapproved guide link: '+value)
                     section = ALIASES.get(file[:-5],file[:-5])
                     values[name] = '#/rebuild/' + section
-                    if frag:
-                        values['data-rebuild-target'] = frag[0]
+                    if separator:
+                        if not re.fullmatch(r'[a-z][a-z0-9-]*', target):
+                            raise ValueError('Invalid guide section: ' + value)
+                        values[name] += '?section=' + target
             else:
                 values[name] = value or ''
         if tag == 'h1': values['tabindex'] = '-1'

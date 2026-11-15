@@ -1,0 +1,138 @@
+{
+  "src/PeriodLearning.tsx": {
+    "beforeSha256": "a59824fc2fb2aa6144b7687e1c6122494853ccd71b097a22566427a28f98722f",
+    "afterSha256": "59134d02ead2fe96800b6d1405faa6ed97c367674e6be864a0015cafbdf17f7a",
+    "edits": [
+      {
+        "line": 185,
+        "before": ["              <a href=\"#/\">Return to Why PERIOD?</a>"],
+        "after": ["              <a href=\"#/period/why\">Return to Why PERIOD?</a>"]
+      },
+      {
+        "line": 203,
+        "before": ["      <a href=\"#/\">Return to Why PERIOD?</a>"],
+        "after": ["      <a href=\"#/period/why\">Return to Why PERIOD?</a>"]
+      }
+    ]
+  },
+  "scripts/site-footer.ts": {
+    "beforeSha256": "36761058ffcb9176d9031663e34eeeb1f6adc53bfcbbd587f642157f3d0a0a0b",
+    "afterSha256": "505ec32ff5162192f2bee17d03ffef6be559740e7ad9d05884231448c97b0081",
+    "edits": [
+      {
+        "line": 7,
+        "before": [],
+        "after": ["  type EducationSource,"]
+      },
+      {
+        "line": 20,
+        "before": ["export function siteNotices(build?: FooterBuild) {"],
+        "after": [
+          "export function siteNotices(build?: FooterBuild, source: EducationSource = 'period') {"
+        ]
+      },
+      {
+        "line": 22,
+        "before": ["    education = footerEducation();"],
+        "after": ["    education = footerEducation(source);"]
+      },
+      {
+        "line": 25,
+        "before": [
+          "<div class=\"footer-print-urls\"><p>${escape(education.text)} ${link(education.url, education.url)}</p><p>Software: ${link('https://www.gnu.org/licenses/agpl-3.0.html', softwareNotice.license)}. No warranty.</p>${state.source ? `<p>Corresponding source: ${link(state.source, state.source)}</p>` : ''}</div>"
+        ],
+        "after": [
+          "<div class=\"footer-print-urls\"><p>${escape(education.text)}${education.url ? ' ' + link(education.url, education.url) : ''}</p><p>Software: ${link('https://www.gnu.org/licenses/agpl-3.0.html', softwareNotice.license)}. No warranty.</p>${state.source ? `<p>Corresponding source: ${link(state.source, state.source)}</p>` : ''}</div>"
+        ]
+      },
+      {
+        "line": 29,
+        "before": ["export function staticFooter(build?: FooterBuild) {"],
+        "after": [
+          "export function staticFooter(build?: FooterBuild, source: EducationSource = 'period') {"
+        ]
+      },
+      {
+        "line": 35,
+        "before": ["${siteNotices(build)}</footer>`;"],
+        "after": ["${siteNotices(build, source)}</footer>`;"]
+      }
+    ]
+  },
+  "src/period.css": {
+    "beforeSha256": "56e710bde1ff820b90fbe6528cace31d2f41307af2d272abae073efaa03c3e03",
+    "afterSha256": "b5f16a8f206366ec381cae760a63bdd2e65f90f75770486af3990087e7455b40",
+    "edits": [
+      {
+        "line": 579,
+        "before": [],
+        "after": [
+          "}",
+          ".period-shell .editor-guide .teaching p + h3 {",
+          "  margin-block-start: 1rem;"
+        ]
+      }
+    ]
+  },
+  "src/period-practice-content.ts": {
+    "beforeSha256": "033428576b7ecb4fd64b4ad7f1f40b86b0bf0f9d92d48fede33dfaec83fe5cdc",
+    "afterSha256": "f391b16a5119689f2ca302df04c12e079f8be744ec16e1cd39f9a9f8cf6bec0a",
+    "edits": [
+      {
+        "line": 217,
+        "before": [
+          "    'Receiving an exported copy helps you do your work. Empowerment asks what your own strength can offer someone else. Share what you know honestly, respect their choices and leave them room to act.',"
+        ],
+        "after": [
+          "    'If the shared file is offline, you can ask your colleague for an exported copy. They can say no. You still owe the update. Empowerment asks what your own strength can offer someone else. Share what you know honestly, respect their choices and leave them room to act.',"
+        ]
+      },
+      {
+        "line": 219,
+        "before": [
+          "    'All six values now have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
+        ],
+        "after": [
+          "    'The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
+        ]
+      }
+    ]
+  },
+  "src/period-integrity-content.ts": {
+    "beforeSha256": "f7a5595d889e9990c56f0f4182d2d79b9bfbf60f3195cb3a1dee208905a0c4f0",
+    "afterSha256": "9b45de37cd7fb910e2f9572be2484e6bde5b0f19521cbfb14892eb2e79907442",
+    "edits": [
+      {
+        "line": 113,
+        "before": [
+          "  availability: 'Discipline is next in the teaching order. Its full lesson is now available.',"
+        ],
+        "after": ["  availability: 'Discipline is next in the teaching order.',"]
+      },
+      {
+        "line": 212,
+        "before": [
+          "      'Integrity requires truthful correction. Discipline gives that alignment repeated form. Its full lesson is now available.',"
+        ],
+        "after": [
+          "      'Integrity requires truthful correction. Discipline gives that alignment repeated form.',"
+        ]
+      }
+    ]
+  },
+  "src/period-empowerment-content.ts": {
+    "beforeSha256": "97fa2efbbb55e8db99980e4f757c00cb09c89e0b120e44ebc0c97ba93f574252",
+    "afterSha256": "62d79588947d0868e9ce729e30e3bb175c0b8e3523ed35a0ac2b22b6c6e0ff2e",
+    "edits": [
+      {
+        "line": 293,
+        "before": [
+          "    'All six values now have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
+        ],
+        "after": [
+          "    'The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
+        ]
+      }
+    ]
+  }
+}

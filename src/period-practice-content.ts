@@ -215,9 +215,9 @@ export const practiceCopy = {
   connectedReturn:
     'You keep returning to all six values. One correction can call on several of them, and learning the next value does not leave the earlier ones behind. Help others when there is a useful place to do it; every situation does not need an act of service.',
   empowermentLimit:
-    'Receiving an exported copy helps you do your work. Empowerment asks what your own strength can offer someone else. Share what you know honestly, respect their choices and leave them room to act.',
+    'If the shared file is offline, you can ask your colleague for an exported copy. They can say no. You still owe the update. Empowerment asks what your own strength can offer someone else. Share what you know honestly, respect their choices and leave them room to act.',
   availability:
-    'All six values now have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',
+    'The PERIOD Code remains a connected standard for living, not a sequence of achievements.',
   takeActionHeading: 'Take it into your day',
   takeAction:
     'Think of a responsibility you have been avoiding. What can you do next, what does that action serve, and what will be different once you have done it? Keep your answer private. Act when it is safe and possible, then return to the values as the situation changes.',

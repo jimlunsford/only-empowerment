@@ -1,3 +1,4 @@
+import { beforeWork56Source } from './work56-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -7,7 +8,7 @@ import { beforeWork45Source } from './work45-correction-helpers.mjs';
 
 test('native-control correction reverses exactly to the preserved Work 43 source', () => {
   for (const [path, change] of Object.entries(delta)) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeWork56Source(readFileSync(path, 'utf8'), path);
     const original = beforeWork45Source(source, path);
     assert.equal(createHash('sha256').update(original).digest('hex'), change.beforeSha256);
     assert.equal(beforeWork45Source(original, path), original);
@@ -20,7 +21,7 @@ test('native-control normalization cannot hide changes to teaching, handlers or 
     ['src/Resilience.tsx', 'onChange=', 'onInput='],
     ['src/period.css', 'display: contents', 'display: none'],
   ]) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeWork56Source(readFileSync(path, 'utf8'), path);
     assert.ok(source.includes(before));
     assert.throws(() => beforeWork45Source(source.replace(before, after), path));
   }

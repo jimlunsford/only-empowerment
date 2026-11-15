@@ -291,7 +291,7 @@ export const empowermentNavigation = {
     'Empowerment is next in the teaching order. Explore how developed strength can help others become more capable while respecting their choices and need for support.',
   disciplineCTA: 'Continue to Empowerment',
   connectedCodeAvailability:
-    'All six values now have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',
+    'The PERIOD Code remains a connected standard for living, not a sequence of achievements.',
   cardHint: 'Read about Empowerment',
   returnTitle: 'The six values remain in practice',
   returnNote:
