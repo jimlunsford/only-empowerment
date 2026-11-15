@@ -76,7 +76,7 @@
   },
   "src/period-practice-content.ts": {
     "beforeSha256": "033428576b7ecb4fd64b4ad7f1f40b86b0bf0f9d92d48fede33dfaec83fe5cdc",
-    "afterSha256": "dd7310f2d79cfb77699832e51995798919d87bdec8f250aed787099ae5c95ce7",
+    "afterSha256": "f391b16a5119689f2ca302df04c12e079f8be744ec16e1cd39f9a9f8cf6bec0a",
     "edits": [
       {
         "line": 217,
@@ -93,7 +93,7 @@
           "    'All six values now have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
         ],
         "after": [
-          "    'All six values have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
+          "    'The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
         ]
       }
     ]
@@ -122,7 +122,7 @@
   },
   "src/period-empowerment-content.ts": {
     "beforeSha256": "97fa2efbbb55e8db99980e4f757c00cb09c89e0b120e44ebc0c97ba93f574252",
-    "afterSha256": "661d6aa03997c1185023a062f870a347040198d6e6c9c417a5e3e81435050cd8",
+    "afterSha256": "62d79588947d0868e9ce729e30e3bb175c0b8e3523ed35a0ac2b22b6c6e0ff2e",
     "edits": [
       {
         "line": 293,
@@ -130,7 +130,7 @@
           "    'All six values now have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
         ],
         "after": [
-          "    'All six values have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
+          "    'The PERIOD Code remains a connected standard for living, not a sequence of achievements.',"
         ]
       }
     ]

@@ -26,10 +26,7 @@ export function beforeWork56Reading(html) {
       'If the shared file is offline, you can ask your colleague for an exported copy. They can say no. You still owe the update.',
       'Receiving an exported copy helps you do your work.',
     ],
-    [
-      'All six values have full lessons. The PERIOD Code remains',
-      'All six values now have full lessons. The PERIOD Code remains',
-    ],
+    ['The PERIOD Code remains', 'All six values now have full lessons. The PERIOD Code remains'],
   ]) {
     assert.equal(html.split(candidate).length, 2, candidate);
     html = html.replace(candidate, original);
