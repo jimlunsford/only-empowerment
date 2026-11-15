@@ -60,6 +60,11 @@ for (const [origin, destination, id] of edges) {
     await atSection(page, to, id);
     await page.reload();
     await atSection(page, to, id);
+    await page.goBack();
+    await expect(link).toBeFocused();
+    await expect(link).toBeInViewport();
+    await page.goForward();
+    await atSection(page, to, id);
     const fresh = await context.newPage();
     await fresh.goto(baseURL + '/' + to);
     await atSection(fresh, to, id);

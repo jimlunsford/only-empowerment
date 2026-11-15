@@ -14,6 +14,10 @@ const readingRoutes: Record<string, string> = {
 };
 // One URL fragment holds both the hash route and the optional authored section ID.
 const rebuildSection = /^(\/rebuild\/[a-z]+)\?section=([a-z][a-z0-9-]*)$/;
+const contextualLink = (fragment: string) =>
+  rebuildSection.test(fragment)
+    ? document.querySelector<HTMLAnchorElement>(`#app .rebuild-guide a[href="#${fragment}"]`)
+    : null;
 const anchorRoute = (fragment: string) =>
   Object.hasOwn(readingRoutes, fragment)
     ? readingRoutes[fragment]
@@ -36,12 +40,14 @@ export function useRoute() {
   const [fragment, setFragment] = useState(() => location.hash.slice(1));
   const path = anchorRoute(fragment) || '/';
   const first = useRef(true);
+  const returnFrom = useRef<string | null>(null);
   const restoring = useRef<{ y: number; focus: HTMLElement | null } | null>(null);
   useLayoutEffect(() => {
     let entry = Number.isSafeInteger(history.state?.oeNavigation)
       ? Number(history.state.oeNavigation)
       : 0;
     let counter = entry;
+    let currentFragment = location.hash.slice(1);
     const positions = new Map<number, { y: number; focus: HTMLElement | null }>();
     const previousRestoration = history.scrollRestoration;
     history.scrollRestoration = 'manual';
@@ -75,20 +81,24 @@ export function useRoute() {
       entry = ++counter;
       restoring.current = null;
       history.pushState({ oeNavigation: entry }, '', '#' + fragment);
+      currentFragment = fragment;
       setFragment(fragment);
     };
     const onHistory = () => {
       save();
       const id = history.state?.oeNavigation;
       if (typeof id === 'number') {
-        entry = id;
         restoring.current = positions.get(id) || null;
+        // Reload clears the viewport map. The public section URL still identifies its issuing link.
+        returnFrom.current = id < entry && !restoring.current ? currentFragment : null;
+        entry = id;
       } else {
         entry = ++counter;
         history.replaceState({ oeNavigation: entry }, '', location.href);
         restoring.current = null;
       }
-      setFragment(location.hash.slice(1));
+      currentFragment = location.hash.slice(1);
+      setFragment(currentFragment);
     };
     document.addEventListener('click', onClick);
     window.addEventListener('popstate', onHistory);
@@ -101,12 +111,10 @@ export function useRoute() {
   useLayoutEffect(() => {
     const heading = document.querySelector<HTMLElement>('h1');
     document.title = `${heading?.textContent || 'Page'} | Only Empowerment`;
-    const target = anchorTarget(location.hash.slice(1));
-    if (
-      !restoring.current &&
-      target &&
-      anchorRoute(location.hash.slice(1)) !== location.hash.slice(1)
-    ) {
+    const returnLink = returnFrom.current ? contextualLink(returnFrom.current) : null;
+    returnFrom.current = null;
+    const target = returnLink || anchorTarget(fragment);
+    if (!restoring.current && target && (returnLink || anchorRoute(fragment) !== fragment)) {
       // Font loading can change the target's position after the initial render.
       // Measure to start font layout, then align focus and scroll to its final position.
       target.getBoundingClientRect();
@@ -114,7 +122,7 @@ export function useRoute() {
       const alignTarget = () => {
         if (cancelled) return;
         target.focus({ preventScroll: true });
-        target.scrollIntoView({ block: 'start' });
+        target.scrollIntoView({ block: returnLink ? 'center' : 'start' });
       };
       if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);
       else alignTarget();
@@ -133,11 +141,7 @@ export function useRoute() {
       // A cross-route link can be unmounted. Recover its public destination on the restored page.
       const oldLink = restore.focus;
       const replacement =
-        oldLink instanceof HTMLAnchorElement && rebuildSection.test(oldLink.hash.slice(1))
-          ? Array.from(document.querySelectorAll<HTMLAnchorElement>('.rebuild-guide a[href]')).find(
-              (link) => link.href === oldLink.href,
-            )
-          : null;
+        oldLink instanceof HTMLAnchorElement ? contextualLink(oldLink.hash.slice(1)) : null;
       (oldLink?.isConnected ? oldLink : replacement || target || heading)?.focus({
         preventScroll: true,
       });
