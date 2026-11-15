@@ -244,7 +244,7 @@ function App() {
       </a>
       <header class="site-header">
         <a class="wordmark" href="#/" aria-label="Only Empowerment home">
-          only
+          {'only '}
           <wbr />
           <span>
             {'empower\u00adment'}
@@ -377,7 +377,10 @@ function App() {
             Optional Standard Card
           </a>
         </nav>
-        <SiteNotices build={__BUILD__} />
+        <SiteNotices
+          build={__BUILD__}
+          source={path.startsWith('/rebuild') ? 'rebuild' : path === '/' ? 'combined' : 'period'}
+        />
       </footer>
     </div>
   );

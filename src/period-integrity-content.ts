@@ -111,7 +111,7 @@ export const integrityContent = {
     label: 'Examine a fictional record',
     hint: 'See where a message protects an image and what a real correction requires. No personal answer needed.',
   },
-  availability: 'Discipline is next in the teaching order. Its full lesson is now available.',
+  availability: 'Discipline is next in the teaching order.',
   card: 'If you want a reminder, name one honest behavior on an optional Standard Card and copy or print it. Keep it where you can return to it before a promise or a correction. The card cannot make your conduct truthful. What you do next can.',
   book: 'The book develops the origins of The PERIOD Code, its six values and their deliberate order. This free lesson offers a practical way to understand Integrity. You can use it without buying anything.',
   attribution:
@@ -210,7 +210,7 @@ export const integrityContent = {
     closure:
       'The useful question is what changes beyond the message. Correct the relevant account, address the affected work, protect legitimate privacy and keep the next action honest. Their response remains theirs.',
     bridge:
-      'Integrity requires truthful correction. Discipline gives that alignment repeated form. Its full lesson is now available.',
+      'Integrity requires truthful correction. Discipline gives that alignment repeated form.',
     comparison_intro:
       'Compare three responses to the same mistake. What would each one leave for Maya and the team to deal with? These are alternatives, not later events in the story.',
     limits:

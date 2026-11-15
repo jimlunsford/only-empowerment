@@ -81,7 +81,7 @@ export default defineConfig({
                 .replace('</h1>', '</h2>') +
               rebuildFallback(),
           )
-          .replace('<!-- site-footer -->', staticFooter(metadata))
+          .replace('<!-- site-footer -->', staticFooter(metadata, 'combined'))
           .replace(
             'content="noindex, nofollow"',
             staging ? 'content="noindex, nofollow"' : 'content="index, follow"',
