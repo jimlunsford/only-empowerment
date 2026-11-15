@@ -48,14 +48,16 @@ export function useRoute() {
       : 0;
     let counter = entry;
     let currentFragment = location.hash.slice(1);
-    const positions = new Map<number, { y: number; focus: HTMLElement | null }>();
+    // A native visit before enhancement can inherit the same numeric index as
+    // a previous document. Only restore a snapshot for the requested fragment.
+    const positions = new Map<string, { y: number; focus: HTMLElement | null }>();
     const previousRestoration = history.scrollRestoration;
     history.scrollRestoration = 'manual';
     history.replaceState({ oeNavigation: entry }, '', location.href);
     // Scroll events may arrive after popstate in WebKit. Snapshot the current viewport
     // before changing the rendered route, rather than using a deferred event's value.
     const save = (focus = document.activeElement as HTMLElement | null) =>
-      positions.set(entry, { y: scrollY, focus });
+      positions.set(`${entry}:${currentFragment}`, { y: scrollY, focus });
     const onClick = (event: MouseEvent) => {
       if (
         event.defaultPrevented ||
@@ -88,7 +90,7 @@ export function useRoute() {
       save();
       const id = history.state?.oeNavigation;
       if (typeof id === 'number') {
-        restoring.current = positions.get(id) || null;
+        restoring.current = positions.get(`${id}:${location.hash.slice(1)}`) || null;
         // Reload clears the viewport map. The public section URL still identifies its issuing link.
         returnFrom.current = id < entry && !restoring.current ? currentFragment : null;
         entry = id;
