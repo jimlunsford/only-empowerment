@@ -94,3 +94,41 @@ test('a native reading link chosen during reload survives enhancement and histor
   await expect(page).toHaveURL((url) => url.hash === '#why-period');
   await atSection(why);
 });
+
+test('Forward into a section before its fonts settle keeps its intended focus and position', async ({
+  page,
+}) => {
+  const first = '#/period/first-moment';
+  const why = '#/period/why';
+  await page.goto('/' + first);
+  await expect(page.locator('[id="/period/first-moment"]')).toBeFocused();
+  const fonts = Promise.withResolvers<void>();
+  const requested = page.waitForRequest(/\.woff2$/);
+  await page.route('**/*.woff2', async (route) => {
+    await fonts.promise;
+    await route.continue();
+  });
+  try {
+    await page.reload({ waitUntil: 'commit' });
+    await requested;
+    const link = page.locator(`#app a[href="${why}"]`).first();
+    await link.focus();
+    await page.keyboard.press('Enter');
+    await page.waitForURL((url) => url.hash === why, { waitUntil: 'commit' });
+    await page.goBack({ waitUntil: 'commit' });
+    await page.waitForURL((url) => url.hash === first, { waitUntil: 'commit' });
+    await page.goForward({ waitUntil: 'commit' });
+    await page.waitForURL((url) => url.hash === why, { waitUntil: 'commit' });
+  } finally {
+    fonts.resolve();
+  }
+  const target = page.locator('[id="/period/why"]');
+  await expect(target).toBeFocused();
+  const top = await target.evaluate(async (element) => {
+    await document.fonts.ready;
+    await new Promise(requestAnimationFrame);
+    return element.getBoundingClientRect().top;
+  });
+  expect(top).toBeGreaterThanOrEqual(0);
+  expect(top).toBeLessThan(50);
+});

@@ -40,6 +40,7 @@ export function useRoute() {
   const [fragment, setFragment] = useState(() => location.hash.slice(1));
   const path = anchorRoute(fragment) || '/';
   const first = useRef(true);
+  const aligningSection = useRef(false);
   const returnFrom = useRef<string | null>(null);
   const restoring = useRef<{ y: number; focus: HTMLElement | null } | null>(null);
   useLayoutEffect(() => {
@@ -57,7 +58,11 @@ export function useRoute() {
     // Scroll events may arrive after popstate in WebKit. Snapshot the current viewport
     // before changing the rendered route, rather than using a deferred event's value.
     const save = (focus = document.activeElement as HTMLElement | null) =>
-      positions.set(`${entry}:${currentFragment}`, { y: scrollY, focus });
+      positions.set(`${entry}:${currentFragment}`, {
+        y: scrollY,
+        // Firefox can clear focus to the body before it delivers popstate.
+        focus: focus === document.body ? null : focus,
+      });
     const onClick = (event: MouseEvent) => {
       if (
         event.defaultPrevented ||
@@ -87,7 +92,8 @@ export function useRoute() {
       setFragment(fragment);
     };
     const onHistory = () => {
-      save();
+      // A destination waiting for fonts has no settled position to restore yet.
+      if (!aligningSection.current) save();
       const id = history.state?.oeNavigation;
       if (typeof id === 'number') {
         restoring.current = positions.get(`${id}:${location.hash.slice(1)}`) || null;
@@ -121,10 +127,12 @@ export function useRoute() {
       // Measure to start font layout, then align focus and scroll to its final position.
       target.getBoundingClientRect();
       let cancelled = false;
+      aligningSection.current = true;
       const alignTarget = () => {
         if (cancelled) return;
         target.focus({ preventScroll: true });
         target.scrollIntoView({ block: returnLink ? 'center' : 'start' });
+        aligningSection.current = false;
       };
       if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);
       else alignTarget();
@@ -132,6 +140,7 @@ export function useRoute() {
       restoring.current = null;
       return () => {
         cancelled = true;
+        aligningSection.current = false;
       };
     }
     if (first.current) {
