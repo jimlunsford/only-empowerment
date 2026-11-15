@@ -192,11 +192,7 @@ export const rebuildTrees = {
             },
             {
               tag: 'a',
-              attrs: {
-                class: 'plate-link',
-                href: '#/rebuild/complete',
-                'data-rebuild-target': 'order-links',
-              },
+              attrs: { class: 'plate-link', href: '#/rebuild/complete?section=order-links' },
               children: ['How the parts connect'],
             },
           ],
@@ -499,7 +495,7 @@ export const rebuildTrees = {
             { tag: 'p', attrs: {}, children: ['Raise the standard.'] },
             {
               tag: 'a',
-              attrs: { href: '#/rebuild/index', 'data-rebuild-target': 'order' },
+              attrs: { href: '#/rebuild/index?section=order' },
               children: ['See the whole order'],
             },
           ],
@@ -842,11 +838,7 @@ export const rebuildTrees = {
         },
         {
           tag: 'a',
-          attrs: {
-            class: 'reader-link',
-            href: '#/rebuild/complete',
-            'data-rebuild-target': 'line-example',
-          },
+          attrs: { class: 'reader-link', href: '#/rebuild/complete?section=line-example' },
           children: ['See every alternative together'],
         },
       ],
@@ -984,7 +976,7 @@ export const rebuildTrees = {
             { tag: 'p', attrs: {}, children: ['Build the structure. Repeat the action.'] },
             {
               tag: 'a',
-              attrs: { href: '#/rebuild/index', 'data-rebuild-target': 'order' },
+              attrs: { href: '#/rebuild/index?section=order' },
               children: ['See the whole order'],
             },
           ],
@@ -1447,11 +1439,7 @@ export const rebuildTrees = {
         },
         {
           tag: 'a',
-          attrs: {
-            class: 'reader-link',
-            href: '#/rebuild/complete',
-            'data-rebuild-target': 'structure-example',
-          },
+          attrs: { class: 'reader-link', href: '#/rebuild/complete?section=structure-example' },
           children: ['See every alternative together'],
         },
       ],
@@ -1583,7 +1571,7 @@ export const rebuildTrees = {
             { tag: 'p', attrs: {}, children: ['Produce the proof.'] },
             {
               tag: 'a',
-              attrs: { href: '#/rebuild/index', 'data-rebuild-target': 'order' },
+              attrs: { href: '#/rebuild/index?section=order' },
               children: ['See the whole order'],
             },
           ],
@@ -1849,11 +1837,7 @@ export const rebuildTrees = {
         },
         {
           tag: 'a',
-          attrs: {
-            class: 'reader-link',
-            href: '#/rebuild/complete',
-            'data-rebuild-target': 'return-example',
-          },
+          attrs: { class: 'reader-link', href: '#/rebuild/complete?section=return-example' },
           children: ['See every alternative together'],
         },
       ],
@@ -1984,7 +1968,7 @@ export const rebuildTrees = {
             { tag: 'p', attrs: {}, children: ['Rebuild self-trust. Stabilize identity.'] },
             {
               tag: 'a',
-              attrs: { href: '#/rebuild/index', 'data-rebuild-target': 'order' },
+              attrs: { href: '#/rebuild/index?section=order' },
               children: ['See the whole order'],
             },
           ],
@@ -2314,11 +2298,7 @@ export const rebuildTrees = {
         },
         {
           tag: 'a',
-          attrs: {
-            class: 'reader-link',
-            href: '#/rebuild/complete',
-            'data-rebuild-target': 'trust-example',
-          },
+          attrs: { class: 'reader-link', href: '#/rebuild/complete?section=trust-example' },
           children: ['See every alternative together'],
         },
       ],
@@ -2449,7 +2429,7 @@ export const rebuildTrees = {
             { tag: 'p', attrs: {}, children: ['Reduce negotiation.'] },
             {
               tag: 'a',
-              attrs: { href: '#/rebuild/index', 'data-rebuild-target': 'order' },
+              attrs: { href: '#/rebuild/index?section=order' },
               children: ['See the whole order'],
             },
           ],
@@ -2908,11 +2888,7 @@ export const rebuildTrees = {
         },
         {
           tag: 'a',
-          attrs: {
-            class: 'reader-link',
-            href: '#/rebuild/complete',
-            'data-rebuild-target': 'negotiation-example',
-          },
+          attrs: { class: 'reader-link', href: '#/rebuild/complete?section=negotiation-example' },
           children: ['See every alternative together'],
         },
       ],
@@ -3044,7 +3020,7 @@ export const rebuildTrees = {
             { tag: 'p', attrs: {}, children: ['Own the life.'] },
             {
               tag: 'a',
-              attrs: { href: '#/rebuild/index', 'data-rebuild-target': 'order' },
+              attrs: { href: '#/rebuild/index?section=order' },
               children: ['See the whole order'],
             },
           ],
@@ -3447,11 +3423,7 @@ export const rebuildTrees = {
         },
         {
           tag: 'a',
-          attrs: {
-            class: 'reader-link',
-            href: '#/rebuild/complete',
-            'data-rebuild-target': 'help-example',
-          },
+          attrs: { class: 'reader-link', href: '#/rebuild/complete?section=help-example' },
           children: ['See every alternative together'],
         },
       ],
@@ -3681,7 +3653,7 @@ export const rebuildTrees = {
         },
         {
           tag: 'a',
-          attrs: { class: 'next', href: '#/rebuild/index', 'data-rebuild-target': 'destinations' },
+          attrs: { class: 'next', href: '#/rebuild/index?section=destinations' },
           children: [
             { tag: 'span', attrs: { class: 'cue' }, children: ['Return'] },
             'Choose a teaching question',
@@ -4023,7 +3995,7 @@ export const rebuildTrees = {
               children: [
                 {
                   tag: 'a',
-                  attrs: { href: '#/rebuild/line', 'data-rebuild-target': 'example' },
+                  attrs: { href: '#/rebuild/line?section=example' },
                   children: ['Return to the example'],
                 },
               ],
@@ -4228,7 +4200,7 @@ export const rebuildTrees = {
               children: [
                 {
                   tag: 'a',
-                  attrs: { href: '#/rebuild/structure', 'data-rebuild-target': 'example' },
+                  attrs: { href: '#/rebuild/structure?section=example' },
                   children: ['Return to the example'],
                 },
               ],
@@ -4406,7 +4378,7 @@ export const rebuildTrees = {
               children: [
                 {
                   tag: 'a',
-                  attrs: { href: '#/rebuild/return', 'data-rebuild-target': 'example' },
+                  attrs: { href: '#/rebuild/return?section=example' },
                   children: ['Return to the example'],
                 },
               ],
@@ -4576,7 +4548,7 @@ export const rebuildTrees = {
               children: [
                 {
                   tag: 'a',
-                  attrs: { href: '#/rebuild/trust', 'data-rebuild-target': 'example' },
+                  attrs: { href: '#/rebuild/trust?section=example' },
                   children: ['Return to the example'],
                 },
               ],
@@ -4783,7 +4755,7 @@ export const rebuildTrees = {
               children: [
                 {
                   tag: 'a',
-                  attrs: { href: '#/rebuild/negotiation', 'data-rebuild-target': 'example' },
+                  attrs: { href: '#/rebuild/negotiation?section=example' },
                   children: ['Return to the example'],
                 },
               ],
@@ -4984,7 +4956,7 @@ export const rebuildTrees = {
               children: [
                 {
                   tag: 'a',
-                  attrs: { href: '#/rebuild/help', 'data-rebuild-target': 'example' },
+                  attrs: { href: '#/rebuild/help?section=example' },
                   children: ['Return to the example'],
                 },
               ],

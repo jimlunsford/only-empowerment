@@ -183,7 +183,7 @@ export function PeriodOwnership() {
               <a class="button primary" href="#/period/practice">
                 Practice Ownership
               </a>
-              <a href="#/">Return to Why PERIOD?</a>
+              <a href="#/period/why">Return to Why PERIOD?</a>
             </div>
             <p class="small">No written answer or Standard Card is required.</p>
           </section>
@@ -201,7 +201,7 @@ export function PeriodUnavailable() {
         <p>{empowermentAvailability}</p>
       </PageIntro>
       <PeriodSequence />
-      <a href="#/">Return to Why PERIOD?</a>
+      <a href="#/period/why">Return to Why PERIOD?</a>
     </div>
   );
 }

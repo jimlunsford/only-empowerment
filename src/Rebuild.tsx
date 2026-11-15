@@ -15,9 +15,24 @@ type TeachingNode =
 
 // Only validated build-generated elements and attributes reach Preact.
 // This deliberately does not parse or inject HTML at runtime.
-function renderTeachingNode(node: TeachingNode): ComponentChild {
+function renderTeachingNode(node: TeachingNode, selectedNote: string): ComponentChild {
   if (typeof node === 'string') return node;
-  return h(node.tag, { ...node.attrs }, node.children.map(renderTeachingNode));
+  const attrs = { ...node.attrs };
+  // Work 53's linkedset uses native :target. The enhanced selector uses one in-memory choice.
+  if (attrs.class === 'linkedset') attrs.class = 'phrase-selector';
+  if (
+    typeof attrs.href === 'string' &&
+    attrs.href.startsWith('#note-') &&
+    attrs.href.slice(1) === selectedNote
+  )
+    attrs['aria-current'] = 'true';
+  if (typeof attrs.id === 'string' && attrs.id.startsWith('note-'))
+    attrs.hidden = attrs.id !== selectedNote;
+  return h(
+    node.tag,
+    attrs,
+    node.children.map((child) => renderTeachingNode(child, selectedNote)),
+  );
 }
 
 export const rebuildSections: { id: RebuildSection; title: string }[] = [
@@ -98,12 +113,12 @@ export function RebuildGuide({ section }: { section: RebuildSection }) {
   }
 
   return (
-    <section class="rebuild-guide" data-note={note} onClick={onGuideClick}>
+    <section class="rebuild-guide" onClick={onGuideClick}>
       <div class="rebuild-approval">
         <span>Development concept, not a published book edition</span>
         <a href="#/rebuild">How to Rebuild Yourself</a>
       </div>
-      <div class="wrap">{rebuildTrees[section].map(renderTeachingNode)}</div>
+      <div class="wrap">{rebuildTrees[section].map((node) => renderTeachingNode(node, note))}</div>
       <nav class="rebuild-footlinks" aria-label="Rebuilding framework navigation">
         <a href="#/rebuild">Explore the full rebuilding path</a>
         <a href="#/rebuild/complete">Read or print all teaching</a>

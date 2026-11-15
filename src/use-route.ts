@@ -12,14 +12,22 @@ const readingRoutes: Record<string, string> = {
   'reading-purpose': '/period/values/purpose',
   'reading-standard-card': '/period/standard',
 };
+// One URL fragment holds both the hash route and the optional authored section ID.
+const rebuildSection = /^(\/rebuild\/[a-z]+)\?section=([a-z][a-z0-9-]*)$/;
 const anchorRoute = (fragment: string) =>
   Object.hasOwn(readingRoutes, fragment)
     ? readingRoutes[fragment]
     : Object.hasOwn(homepageAnchors, fragment) ||
         Object.values(homepageAnchors).some((native) => native === fragment)
       ? '/period'
-      : disciplineAnchorRoute(fragment);
+      : rebuildSection.exec(fragment)?.[1] || disciplineAnchorRoute(fragment);
 const anchorTarget = (fragment: string) => {
+  const section = rebuildSection.exec(fragment)?.[2];
+  if (section) {
+    const target = document.querySelector<HTMLElement>('#app .rebuild-guide #' + section);
+    if (target) target.tabIndex = -1;
+    return target;
+  }
   const appAnchor = Object.entries(homepageAnchors).find(([, native]) => native === fragment)?.[0];
   return document.getElementById(appAnchor || fragment);
 };
@@ -30,16 +38,18 @@ export function useRoute() {
   const first = useRef(true);
   const restoring = useRef<{ y: number; focus: HTMLElement | null } | null>(null);
   useLayoutEffect(() => {
-    let counter = 0;
-    let entry = 0;
+    let entry = Number.isSafeInteger(history.state?.oeNavigation)
+      ? Number(history.state.oeNavigation)
+      : 0;
+    let counter = entry;
     const positions = new Map<number, { y: number; focus: HTMLElement | null }>();
     const previousRestoration = history.scrollRestoration;
     history.scrollRestoration = 'manual';
     history.replaceState({ oeNavigation: entry }, '', location.href);
     // Scroll events may arrive after popstate in WebKit. Snapshot the current viewport
     // before changing the rendered route, rather than using a deferred event's value.
-    const save = () =>
-      positions.set(entry, { y: scrollY, focus: document.activeElement as HTMLElement | null });
+    const save = (focus = document.activeElement as HTMLElement | null) =>
+      positions.set(entry, { y: scrollY, focus });
     const onClick = (event: MouseEvent) => {
       if (
         event.defaultPrevented ||
@@ -61,7 +71,7 @@ export function useRoute() {
         return;
       }
       event.preventDefault();
-      save();
+      save(link);
       entry = ++counter;
       restoring.current = null;
       history.pushState({ oeNavigation: entry }, '', '#' + fragment);
@@ -72,7 +82,7 @@ export function useRoute() {
       const id = history.state?.oeNavigation;
       if (typeof id === 'number') {
         entry = id;
-        restoring.current = positions.get(id) || { y: 0, focus: null };
+        restoring.current = positions.get(id) || null;
       } else {
         entry = ++counter;
         history.replaceState({ oeNavigation: entry }, '', location.href);
@@ -120,7 +130,17 @@ export function useRoute() {
     }
     const restore = restoring.current;
     if (restore) {
-      (restore.focus?.isConnected ? restore.focus : heading)?.focus({ preventScroll: true });
+      // A cross-route link can be unmounted. Recover its public destination on the restored page.
+      const oldLink = restore.focus;
+      const replacement =
+        oldLink instanceof HTMLAnchorElement && rebuildSection.test(oldLink.hash.slice(1))
+          ? Array.from(document.querySelectorAll<HTMLAnchorElement>('.rebuild-guide a[href]')).find(
+              (link) => link.href === oldLink.href,
+            )
+          : null;
+      (oldLink?.isConnected ? oldLink : replacement || target || heading)?.focus({
+        preventScroll: true,
+      });
       window.scrollTo(0, restore.y);
       restoring.current = null;
     } else {
