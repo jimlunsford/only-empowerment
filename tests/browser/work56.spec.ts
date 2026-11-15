@@ -210,15 +210,17 @@ test('Standard Card separates the next teaching heading at wide and narrow width
   for (const width of [1440, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/#/period/standard');
-    const disclosure = page.locator('.mobile-teaching');
+    await expect(page.locator('#period-standard')).toBeVisible();
+    const disclosure = page.locator('.mobile-teaching:not([open])');
     if (await disclosure.isVisible()) await disclosure.locator('summary').click();
     const heading = page.getByRole('heading', { name: 'One behavior. The whole Code.' });
     expect(
-      await heading.evaluate(
-        (e) =>
+      await heading.evaluate((e) =>
+        Math.round(
           e.getBoundingClientRect().top - e.previousElementSibling!.getBoundingClientRect().bottom,
+        ),
       ),
-    ).toBeGreaterThanOrEqual(12);
+    ).toBe(width >= 768 ? 16 : 12);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
       true,
     );
