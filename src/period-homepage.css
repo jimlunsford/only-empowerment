@@ -2,6 +2,10 @@
 .period-shell .homepage {
   overflow-wrap: anywhere;
 }
+/* Keep a reader's chosen position when the enhanced homepage's web fonts replace fallback fonts. */
+#app .homepage {
+  overflow-anchor: none;
+}
 .period-shell .homepage h1 {
   font-size: 4.5rem;
   line-height: 1.06;
