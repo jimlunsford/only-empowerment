@@ -123,7 +123,8 @@ export function PeriodHomepage({ sequence }: { sequence: ComponentChildren }) {
       </section>
       <aside class="home-access home-ruled" aria-label="Reading and privacy">
         <p>
-          {c.access} <a href="#/privacy">{c.privacy}</a>
+          {c.access} <a href="/read/index.html">Open complete text-only readings</a>.{' '}
+          <a href="#/privacy">{c.privacy}</a>
           {c.privacyExplanation}
         </p>
       </aside>

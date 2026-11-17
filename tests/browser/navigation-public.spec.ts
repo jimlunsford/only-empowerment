@@ -89,11 +89,12 @@ test('all public and retired hash routes retain educational navigation without l
     );
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
-    ).toHaveText(
-      periodRoute
-        ? ['About the book', 'Privacy & source']
-        : ['The PERIOD Code', 'How to Rebuild Yourself', 'About the book', 'Privacy & source'],
-    );
+    ).toHaveText([
+      'The PERIOD Code',
+      'How to Rebuild Yourself',
+      'About the book',
+      'Privacy & source',
+    ]);
     await expect(footer(page).getByRole('navigation', { name: 'Existing work' })).toHaveCount(0);
     await expect(
       page.locator('a[href^="#/tools"], a[href="#/saved"], a[href="#/approach"]'),

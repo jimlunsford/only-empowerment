@@ -108,10 +108,12 @@ test('Draw the line presents exactly one visually and programmatically current p
             .filter((a) => getComputedStyle(a).boxShadow !== 'none')
             .map((a) => a.getAttribute('href')),
         ),
-    ).toEqual(['#note-' + n]);
-    await expect(page).toHaveURL((x) => x.hash === url);
+    ).toEqual(['#/rebuild/line?section=note-' + n]);
+    await expect(page).toHaveURL((x) => x.hash === '#/rebuild/line?section=note-' + n);
   }
-  await selection(1);
+  await expect(page).toHaveURL((x) => x.hash === url);
+  await expect(page.locator('.quotesheet [aria-current="true"]')).toHaveCount(1);
+  await expect(page.locator('#note-1')).toBeVisible();
   for (const method of ['click', 'keyboard'])
     for (const n of [1, 2, 3, 4]) {
       const choice = page.locator('.quotesheet .q' + n);

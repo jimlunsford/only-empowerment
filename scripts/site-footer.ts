@@ -30,8 +30,8 @@ export function siteNotices(build?: FooterBuild, source: EducationSource = 'peri
 export function staticFooter(build?: FooterBuild, source: EducationSource = 'period') {
   return `<footer class="site-footer notice-footer">
 <div class="footer-intro"><p>Only Empowerment</p><span>Free learning. Practical application.</span></div>
-<nav class="footer-group" aria-label="About this site"><h2>About this site</h2>${link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>
-<nav class="footer-group" aria-label="Your practice"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/#reading-standard-card', 'Use the standard on paper')}</nav>
+<nav class="footer-group" aria-label="About this site"><h2>About this site</h2>${link('/read/index.html', 'All complete readings') + link('/read/rebuild.html', 'How to Rebuild Yourself') + link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>
+<nav class="footer-group" aria-label="Your practice"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/read/standard.html', 'Use the standard on paper')}</nav>
 <p class="footer-app-note">About the book and Optional Standard Card require JavaScript. Privacy &amp; source and these readings do not.</p>
 ${siteNotices(build, source)}</footer>`;
 }

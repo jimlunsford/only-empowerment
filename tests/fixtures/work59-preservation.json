@@ -1,0 +1,32 @@
+{
+  "src/PeriodLearning.tsx": {
+    "beforeSha256": "59134d02ead2fe96800b6d1405faa6ed97c367674e6be864a0015cafbdf17f7a",
+    "afterSha256": "707b30c0337b3aefd913fc72e98080c2c6c0ef16cbc09887e39cb98c6b19faea",
+    "edits": [
+      {
+        "before": "",
+        "after": "          <p class=\"small\">\n            <a href=\"/read/ownership.html\">Read complete text-only lesson and practice (new tab)</a>\n          </p>\n"
+      }
+    ]
+  },
+  "src/Purpose.tsx": {
+    "beforeSha256": "a8728f85fad55da21f3ec4862224d1909408b1d528b24818f64af79209864f5c",
+    "afterSha256": "26b11b561e35127ddbf23575b3a5b06532be5be0b260943e251c380fd78a8f49",
+    "edits": [
+      {
+        "before": "",
+        "after": "        <p class=\"small\">\n          <a href=\"/read/purpose.html\">Read complete text-only lesson and example (new tab)</a>\n        </p>\n"
+      }
+    ]
+  },
+  "scripts/site-footer.ts": {
+    "beforeSha256": "505ec32ff5162192f2bee17d03ffef6be559740e7ad9d05884231448c97b0081",
+    "afterSha256": "71aa0c6aaffd8e1837433ea4de527ea9461aaa3ab3a12a3d5671457676f6cbe0",
+    "edits": [
+      {
+        "before": "<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n<nav class=\"footer-group\" aria-label=\"Your practice\"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/#reading-standard-card', 'Use the standard on paper')}</nav>\n",
+        "after": "<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/read/index.html', 'All complete readings') + link('/read/rebuild.html', 'How to Rebuild Yourself') + link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n<nav class=\"footer-group\" aria-label=\"Your practice\"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/read/standard.html', 'Use the standard on paper')}</nav>\n"
+      }
+    ]
+  }
+}

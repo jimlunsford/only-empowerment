@@ -41,10 +41,11 @@ function Privacy() {
     <div class="narrow legacy-info">
       <PageIntro title="Your answers are not ours to collect.">
         <p>
-          You can read the six lessons and explore their examples without an account or submitting
-          personal answers. The optional Standard Card stays in the open tab. The earlier tools and
-          Saved work are retired from this application. Records saved with an older version may
-          still remain in this browser profile on this site.
+          You can read The PERIOD Code's six lessons and How to Rebuild Yourself's complete teaching
+          and alternatives without an account or submitting personal answers. The optional Standard
+          Card stays in the open tab. The earlier tools and Saved work are retired from this
+          application. Records saved with an older version may still remain in this browser profile
+          on this site.
         </p>
       </PageIntro>
       <LegacyDataRemoval />
@@ -145,17 +146,43 @@ function Privacy() {
     </div>
   );
 }
-function NotFound() {
+function NotFound({ path }: { path: string }) {
+  const retired = new Set([
+    '/tools',
+    '/saved',
+    '/approach',
+    '/saved-work',
+    '/decision-room',
+    '/next-move',
+    '/build-a-standard',
+    '/reset',
+    '/rebuild-map',
+    '/do-it-now',
+    ...['decision-room', 'next-move', 'build-a-standard', 'reset', 'rebuild-map', 'do-it-now'].map(
+      (name) => '/tools/' + name,
+    ),
+  ]).has(path);
+  const rebuilding = path.startsWith('/rebuild/');
   return (
     <div class="narrow legacy-info">
       <PageIntro title="That page is not here.">
-        <p>
-          The earlier tools, Saved work, and Approach page have been retired. Retiring these pages
-          does not remove existing browser data.{' '}
-          <a href="#/period/teaching-order">Explore the values</a>, return to{' '}
-          <a href="#/period/why">Why PERIOD?</a>, or read{' '}
-          <a href="#/privacy">Privacy &amp; source</a>.
-        </p>
+        {retired ? (
+          <p>
+            The earlier tools, Saved work, and Approach page have been retired. Retiring these pages
+            does not remove existing browser data.{' '}
+            <a href="#/period/teaching-order">Explore the values</a>, return to{' '}
+            <a href="#/period/why">Why PERIOD?</a>, or read{' '}
+            <a href="#/privacy">Privacy &amp; source</a>.
+          </p>
+        ) : (
+          <p>
+            This address does not match a lesson.{' '}
+            {rebuilding && <a href="#/rebuild">Return to How to Rebuild Yourself</a>}
+            {rebuilding && '. '}
+            <a href="#/">Choose a framework</a>, <a href="#/period">explore The PERIOD Code</a>, or{' '}
+            <a href="#/rebuild">open How to Rebuild Yourself</a>.
+          </p>
+        )}
       </PageIntro>
     </div>
   );
@@ -195,7 +222,7 @@ function App() {
     content = Object.hasOwn(rebuildTrees, section) ? (
       <RebuildGuide section={section as RebuildSection} key={section} />
     ) : (
-      <NotFound />
+      <NotFound path={path} />
     );
   } else if (path === '/period/values/ownership' || path === '/period/values')
     content = <PeriodOwnership />;
@@ -229,7 +256,7 @@ function App() {
     content = <PeriodStandard session={periodSession} setSession={setPeriodSession} />;
   else if (path === '/period/book') content = <PeriodBook standalone />;
   else if (path === '/privacy') content = <Privacy />;
-  else content = <NotFound />;
+  else content = <NotFound path={path} />;
   return (
     <div class={`site-shell ${editorial ? 'period-shell' : ''}`}>
       <a
@@ -253,7 +280,16 @@ function App() {
             </span>
           </span>
         </a>
-        <nav aria-label="Main navigation">
+        {editorial && (
+          <nav class="framework-switch" aria-label="Framework navigation">
+            <a href="#/">Frameworks</a>
+            <a href="#/period" aria-current="location">
+              The PERIOD Code
+            </a>
+            <a href="#/rebuild">How to Rebuild Yourself</a>
+          </nav>
+        )}
+        <nav aria-label="Main navigation" class={editorial ? 'period-local-navigation' : undefined}>
           {editorial ? (
             <>
               <a
@@ -332,8 +368,8 @@ function App() {
         </div>
         <nav class="footer-group" aria-label="About this site">
           <h2>About this site</h2>
-          {!editorial && <a href="#/period">The PERIOD Code</a>}
-          {!editorial && <a href="#/rebuild">How to Rebuild Yourself</a>}
+          <a href="#/period">The PERIOD Code</a>
+          <a href="#/rebuild">How to Rebuild Yourself</a>
           <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
             About the book
           </a>
