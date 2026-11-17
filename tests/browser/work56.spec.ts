@@ -95,7 +95,7 @@ test('Draw the line presents exactly one visually and programmatically current p
 }) => {
   const url = '#/rebuild/line';
   await page.goto('/' + url);
-  async function selection(n: number) {
+  async function selection(n: number, initial = false) {
     await expect(page.locator('.quotesheet [aria-current="true"]')).toHaveCount(1);
     await expect(page.locator('.quotesheet .q' + n)).toHaveAttribute('aria-current', 'true');
     await expect(page.locator('.linkedpanel:visible')).toHaveCount(1);
@@ -109,11 +109,11 @@ test('Draw the line presents exactly one visually and programmatically current p
             .map((a) => a.getAttribute('href')),
         ),
     ).toEqual(['#/rebuild/line?section=note-' + n]);
-    await expect(page).toHaveURL((x) => x.hash === '#/rebuild/line?section=note-' + n);
+    await expect(page).toHaveURL(
+      (x) => x.hash === (initial ? url : '#/rebuild/line?section=note-' + n),
+    );
   }
-  await expect(page).toHaveURL((x) => x.hash === url);
-  await expect(page.locator('.quotesheet [aria-current="true"]')).toHaveCount(1);
-  await expect(page.locator('#note-1')).toBeVisible();
+  await selection(1, true);
   for (const method of ['click', 'keyboard'])
     for (const n of [1, 2, 3, 4]) {
       const choice = page.locator('.quotesheet .q' + n);

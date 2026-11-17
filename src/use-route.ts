@@ -85,9 +85,13 @@ export function useRoute() {
       }
       event.preventDefault();
       save(link);
+      // Native history can preserve a fractional reading position that numeric
+      // scroll APIs round. Set restoration on the entry we are leaving.
+      history.scrollRestoration = Number.isInteger(scrollY) ? 'manual' : 'auto';
       entry = ++counter;
       restoring.current = null;
       history.pushState({ oeNavigation: entry }, '', '#' + fragment);
+      history.scrollRestoration = 'manual';
       currentFragment = fragment;
       setFragment(fragment);
     };
@@ -156,7 +160,8 @@ export function useRoute() {
       (oldLink?.isConnected ? oldLink : replacement || target || heading)?.focus({
         preventScroll: true,
       });
-      window.scrollTo(0, restore.y);
+      if (history.scrollRestoration !== 'auto' || Number.isInteger(restore.y))
+        window.scrollTo(0, restore.y);
       restoring.current = null;
     } else {
       heading?.focus({ preventScroll: true });

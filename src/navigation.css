@@ -309,3 +309,9 @@
     padding-top: 0;
   }
 }
+
+/* Leave the focused lesson title and its outline inside the viewport when the
+   browser rounds the scroll offset to a device pixel. */
+.value-lesson > .lesson-heading h1 {
+  scroll-margin-block-start: 8px;
+}

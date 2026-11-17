@@ -177,10 +177,12 @@ function NotFound({ path }: { path: string }) {
         ) : (
           <p>
             This address does not match a lesson.{' '}
-            {rebuilding && <a href="#/rebuild">Return to How to Rebuild Yourself</a>}
-            {rebuilding && '. '}
-            <a href="#/">Choose a framework</a>, <a href="#/period">explore The PERIOD Code</a>, or{' '}
-            <a href="#/rebuild">open How to Rebuild Yourself</a>.
+            {rebuilding && (
+              <>
+                <a href="#/rebuild">Return to How to Rebuild Yourself</a> or{' '}
+              </>
+            )}
+            <a href="#/">Choose a framework</a>.
           </p>
         )}
       </PageIntro>

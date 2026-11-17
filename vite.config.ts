@@ -109,11 +109,11 @@ export default defineConfig({
         server.middlewares.use((request, response, next) => {
           const path = request.url?.split('?')[0];
           const standalone = new Map([
-            ['/read/index.html', () => readingIndex(metadata)],
-            ['/read/ownership.html', () => ownershipReading(metadata)],
-            ['/read/purpose.html', () => purposeReading(metadata)],
-            ['/read/standard.html', () => standardOnPaper(metadata)],
-            ['/read/rebuild.html', () => rebuildReading(metadata)],
+            ['/read/index.html', () => readingIndex(metadata, staging)],
+            ['/read/ownership.html', () => ownershipReading(metadata, staging)],
+            ['/read/purpose.html', () => purposeReading(metadata, staging)],
+            ['/read/standard.html', () => standardOnPaper(metadata, staging)],
+            ['/read/rebuild.html', () => rebuildReading(metadata, staging)],
             ['/read/rebuild.css', () => rebuildStyles()],
           ]);
           const standaloneResponse = path ? standalone.get(path) : undefined;
@@ -177,11 +177,11 @@ export default defineConfig({
       },
       generateBundle(_options, bundle) {
         for (const [fileName, source] of [
-          ['read/index.html', readingIndex(metadata)],
-          ['read/ownership.html', ownershipReading(metadata)],
-          ['read/purpose.html', purposeReading(metadata)],
-          ['read/standard.html', standardOnPaper(metadata)],
-          ['read/rebuild.html', rebuildReading(metadata)],
+          ['read/index.html', readingIndex(metadata, staging)],
+          ['read/ownership.html', ownershipReading(metadata, staging)],
+          ['read/purpose.html', purposeReading(metadata, staging)],
+          ['read/standard.html', standardOnPaper(metadata, staging)],
+          ['read/rebuild.html', rebuildReading(metadata, staging)],
           ['read/rebuild.css', rebuildStyles()],
         ])
           this.emitFile({ type: 'asset', fileName, source });

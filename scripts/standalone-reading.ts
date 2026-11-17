@@ -12,11 +12,12 @@ const shell = (
   style: string,
   build?: FooterBuild,
   framework: 'period' | 'rebuild' | 'combined' = 'period',
+  staging = true,
 ) =>
   [
     '<!doctype html><html lang="en"><head><meta charset="UTF-8">',
     '<meta name="viewport" content="width=device-width, initial-scale=1">',
-    '<meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer">',
+    `<meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">`,
     "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\">",
     '<link rel="stylesheet" href="',
     style,
@@ -42,7 +43,21 @@ const markerAt = (text: string, marker: string) => {
   return i;
 };
 
-export function ownershipReading(build?: FooterBuild) {
+// The combined document nests the lesson under an H2. Its practice starts
+// at a second H2. Promote only the extracted lesson's topic hierarchy.
+function standaloneLesson(html: string) {
+  const practice = html.indexOf('<h2', html.indexOf('</h1>') + '</h1>'.length);
+  if (practice < 0) throw new Error('Missing standalone practice heading.');
+  const lesson = html
+    .slice(0, practice)
+    .replace(
+      /<(\/?)h([34])(?=[\s>])/g,
+      (_, closing: string, level: string) => '<' + closing + 'h' + (Number(level) - 1),
+    );
+  return lesson + html.slice(practice);
+}
+
+export function ownershipReading(build?: FooterBuild, staging = true) {
   const full = periodFallback();
   const start = markerAt(full, '<h2 id="reading-ownership">Ownership</h2>');
   const end = markerAt(full, '<section aria-label="Purpose linear reading" id="reading-purpose">');
@@ -52,26 +67,33 @@ export function ownershipReading(build?: FooterBuild) {
       '<h2 id="reading-ownership">Ownership</h2>',
       '<h1 id="reading-ownership">Ownership.</h1>',
     )
-    .replaceAll('href="#reading-purpose"', 'href="/read/purpose.html"');
+    .replaceAll('href="#reading-purpose"', 'href="/read/purpose.html"')
+    .replaceAll('href="#why-period"', 'href="/#why-period"');
   return shell(
     'Ownership, complete text-only lesson and practice',
-    '<div class="period-learning period-reading">' + reading + '</div>',
+    '<div class="period-learning period-reading">' + standaloneLesson(reading) + '</div>',
     '/read/resilience.css',
     build,
+    'period',
+    staging,
   );
 }
 
-export function purposeReading(build?: FooterBuild) {
-  const reading = purposeFallback().replace('<h2>Purpose.</h2>', '<h1>Purpose.</h1>');
+export function purposeReading(build?: FooterBuild, staging = true) {
+  const reading = purposeFallback()
+    .replace('<h2>Purpose.</h2>', '<h1>Purpose.</h1>')
+    .replaceAll('href="#reading-ownership"', 'href="/read/ownership.html"');
   return shell(
     'Purpose, complete text-only lesson and evening comparison',
-    '<div class="period-learning period-reading">' + reading + '</div>',
+    '<div class="period-learning period-reading">' + standaloneLesson(reading) + '</div>',
     '/read/resilience.css',
     build,
+    'period',
+    staging,
   );
 }
 
-export function standardOnPaper(build?: FooterBuild) {
+export function standardOnPaper(build?: FooterBuild, staging = true) {
   const full = periodFallback();
   const start = markerAt(full, '<section class="standard-paper-reading">');
   const end = markerAt(full, '<section class="no-print">');
@@ -82,10 +104,12 @@ export function standardOnPaper(build?: FooterBuild) {
       '</div>',
     '/read/resilience.css',
     build,
+    'period',
+    staging,
   );
 }
 
-export function rebuildReading(build?: FooterBuild) {
+export function rebuildReading(build?: FooterBuild, staging = true) {
   return shell(
     'How to Rebuild Yourself, complete text-only reading',
     '<h1 class="standalone-reading-heading">How to Rebuild Yourself: Complete reading</h1>' +
@@ -93,10 +117,11 @@ export function rebuildReading(build?: FooterBuild) {
     '/read/rebuild.css',
     build,
     'rebuild',
+    staging,
   );
 }
 
-export function readingIndex(build?: FooterBuild) {
+export function readingIndex(build?: FooterBuild, staging = true) {
   const body = [
     '<div class="period-learning period-reading"><h1>Complete text-only readings</h1>',
     '<p>Read or print the complete educational lessons without JavaScript or an account.</p>',
@@ -112,5 +137,12 @@ export function readingIndex(build?: FooterBuild) {
     '<h2>Practice on paper</h2><p><a href="/read/standard.html">Use the standard on paper</a>.</p>',
     '</nav></div>',
   ].join('');
-  return shell('Complete text-only readings', body, '/read/resilience.css', build, 'combined');
+  return shell(
+    'Complete text-only readings',
+    body,
+    '/read/resilience.css',
+    build,
+    'combined',
+    staging,
+  );
 }

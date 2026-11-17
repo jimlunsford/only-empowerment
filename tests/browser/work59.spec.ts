@@ -32,6 +32,11 @@ test('Line choices have portable URLs that restore one exact selected note', asy
   }
   await page.goBack();
   await expect(page.locator('.quotesheet [aria-current="true"]')).toHaveCount(1);
+  await expect(page.locator('.q4')).toHaveAttribute('aria-current', 'true');
+  await expect(page.locator('#note-4')).toBeVisible();
+  await page.goForward();
+  await expect(page.locator('.q1')).toHaveAttribute('aria-current', 'true');
+  await expect(page.locator('#note-1')).toBeVisible();
 });
 
 test('all six Rebuild stations expose portable in-page example and application anchors', async ({
@@ -128,10 +133,9 @@ test('static reading index, both first lessons, Rebuild and paper aid exist with
       'href',
       '/read/index.html',
     );
-    await expect(p.getByRole('link', { name: 'Use the standard on paper' })).toHaveAttribute(
-      'href',
-      '/read/standard.html',
-    );
+    await expect(
+      p.getByRole('link', { name: 'Read or print the paper Standard Card instructions' }),
+    ).toHaveAttribute('href', '/read/standard.html');
   } finally {
     await context.close();
   }
@@ -194,4 +198,90 @@ test('standalone no-JavaScript rebuilding PDF prints only the intended framework
   } finally {
     await ctx.close();
   }
+});
+
+for (const mode of ['disabled', 'blocked'] as const) {
+  test(`copied Rebuild sections reach the intended native content with scripts ${mode}`, async ({
+    browser,
+    baseURL,
+  }) => {
+    const context = await browser.newContext({
+      javaScriptEnabled: mode !== 'disabled',
+      viewport: { width: 390, height: 844 },
+    });
+    if (mode === 'blocked') await context.route('**/*.js', (route) => route.abort());
+    try {
+      const page = await context.newPage();
+      const cases = [
+        ['line?section=note-2', 'The line'],
+        ['index?section=order', 'The rebuilding order'],
+        ['index?section=destinations', 'Find your starting point'],
+        ['complete?section=structure-example', ''],
+        ['end', 'Build a Life You Do Not Want to Escape'],
+      ];
+      for (const lesson of stations) {
+        cases.push([lesson + '?section=example', ''], [lesson + '?section=apply', '']);
+      }
+      for (const [section, text] of cases) {
+        await page.goto(baseURL + '/#/rebuild/' + section);
+        const target = page.locator(':target');
+        await expect(target).toHaveAttribute('id', '/rebuild/' + section);
+        await expect(target).toBeInViewport();
+        if (text) await expect(target).toContainText(text);
+        if (section.endsWith('?section=apply')) await expect(target).toHaveClass('take');
+        if (section.endsWith('?section=example'))
+          await expect(target).toHaveText(
+            await page.locator('#' + section.split('?')[0] + '-example').innerText(),
+          );
+      }
+      await page.reload();
+      await expect(page.locator(':target')).toBeInViewport();
+    } finally {
+      await context.close();
+    }
+  });
+}
+
+test('the legacy paper address leads with instructions and offers a printable guide, with the editor available', async ({
+  page,
+}) => {
+  await page.goto('/read/integrity.html');
+  const legacy = page.getByRole('link', { name: 'Use the standard on paper', exact: true });
+  await legacy.press('Enter');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Use the standard on paper');
+  await expect(page.locator('main')).toContainText('choose a value, write one standard');
+  await expect(page.locator('#period-valueId')).toBeVisible();
+  const opened = page.waitForEvent('popup');
+  await page.getByRole('link', { name: 'Read or print the paper guide (new tab)' }).press('Enter');
+  const guide = await opened;
+  await expect(guide).toHaveURL(/\/read\/standard\.html$/);
+  await guide.emulateMedia({ media: 'print' });
+  await expect(guide.getByText('Example standard card', { exact: true })).toBeVisible();
+  await guide.close();
+  await expect(page).toHaveURL(/#reading-standard-card$/);
+});
+
+test('the three new reading links open separate tabs and preserve the active Card draft', async ({
+  page,
+}) => {
+  await page.goto('/#/period/standard');
+  await page.locator('#period-standard').fill('Fictional reading navigation check');
+  for (const [route, file] of [
+    ['/period', 'index'],
+    ['/period/values/ownership', 'ownership'],
+    ['/period/values/purpose', 'purpose'],
+  ]) {
+    await page.goto('/#' + route);
+    const link = page.locator('#app main a[href="/read/' + file + '.html"]');
+    await expect(link).toContainText('(new tab)');
+    const opened = page.waitForEvent('popup');
+    await link.press('Enter');
+    const reading = await opened;
+    await expect(reading.locator('main h1')).toBeVisible();
+    expect(await reading.evaluate(() => opener)).toBeNull();
+    await reading.close();
+    await expect(page).toHaveURL((url) => url.hash === '#' + route);
+  }
+  await page.getByRole('contentinfo').getByRole('link', { name: 'Optional Standard Card' }).click();
+  await expect(page.locator('#period-standard')).toHaveValue('Fictional reading navigation check');
 });

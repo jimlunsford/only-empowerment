@@ -45,7 +45,9 @@ export function PurposeLesson({ openCard }: { openCard: () => void }) {
         </h1>
         <p class="lead">Give responsibility a direction.</p>
         <p class="small">
-          <a href="/read/purpose.html">Read complete text-only lesson and example (new tab)</a>
+          <a href="/read/purpose.html" target="_blank" rel="noopener noreferrer">
+            Read complete text-only lesson and example (new tab)
+          </a>
         </p>
       </header>
       <PeriodSequence active="purpose" lesson />

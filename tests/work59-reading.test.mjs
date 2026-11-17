@@ -72,7 +72,13 @@ test('Work59 paper aid works independently of the Standard Card editor', () => {
 });
 
 test('Work59 source-reversal contract retains byte-exact founder-approved historical source', () => {
-  for (const path of ['src/Purpose.tsx', 'src/PeriodLearning.tsx', 'scripts/site-footer.ts']) {
+  for (const path of [
+    'src/Purpose.tsx',
+    'src/PeriodLearning.tsx',
+    'scripts/site-footer.ts',
+    'src/PeriodStandard.tsx',
+    'src/use-route.ts',
+  ]) {
     const source = readFileSync(path, 'utf8');
     const original = beforeWork59Source(source, path);
     assert.notEqual(sha(original), sha(source));
@@ -80,4 +86,49 @@ test('Work59 source-reversal contract retains byte-exact founder-approved histor
   const restored = beforeWork59RootReading(periodFallback());
   assert.match(restored, /href="#reading-ownership"/);
   assert.match(restored, /href="#reading-purpose"/);
+});
+
+test('every published Rebuild section address names one native destination', () => {
+  const html = rebuildReading();
+  const sections = [
+    'end',
+    'end?section=paper',
+    'index?section=destinations',
+    'index?section=order',
+    'complete?section=order-links',
+    'complete?section=paper',
+    ...[1, 2, 3, 4].map((n) => 'line?section=note-' + n),
+  ];
+  for (const lesson of ['line', 'structure', 'return', 'trust', 'negotiation', 'help'])
+    sections.push(
+      lesson,
+      lesson + '?section=example',
+      lesson + '?section=apply',
+      'complete?section=' + lesson,
+      'complete?section=' + lesson + '-example',
+    );
+  for (const section of sections)
+    assert.equal(html.split('id="/rebuild/' + section + '"').length, 2, section);
+  for (const anchor of ['paper', 'order-links']) assert.ok(html.includes('id="' + anchor + '"'));
+});
+
+test('standalone lessons retain working local links, heading order and presentation policy', () => {
+  for (const render of [
+    ownershipReading,
+    purposeReading,
+    readingIndex,
+    rebuildReading,
+    standardOnPaper,
+  ]) {
+    const html = render();
+    assert.match(html, /content="noindex, nofollow"/);
+    assert.match(render(undefined, false), /content="index, follow"/);
+    for (const [, fragment] of html.matchAll(/href="#([^"]+)"/g))
+      assert.ok(html.includes('id="' + fragment + '"'), fragment);
+    let previous = 0;
+    for (const [, depth] of html.match(/<main\b[\s\S]*?<\/main>/)[0].matchAll(/<h([1-6])\b/g)) {
+      assert.ok(Number(depth) <= previous + 1, 'Skipped heading level in ' + render.name);
+      previous = Number(depth);
+    }
+  }
 });

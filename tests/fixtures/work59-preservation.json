@@ -1,31 +1,71 @@
 {
   "src/PeriodLearning.tsx": {
     "beforeSha256": "59134d02ead2fe96800b6d1405faa6ed97c367674e6be864a0015cafbdf17f7a",
-    "afterSha256": "707b30c0337b3aefd913fc72e98080c2c6c0ef16cbc09887e39cb98c6b19faea",
+    "afterSha256": "3494755bed23bc96f62685891fd0ed715902cd147e6c399f10bdec2921ec893e",
     "edits": [
       {
-        "before": "",
-        "after": "          <p class=\"small\">\n            <a href=\"/read/ownership.html\">Read complete text-only lesson and practice (new tab)</a>\n          </p>\n"
+        "before": "          <p class=\"lead\">{value.role}</p>\n        </header>\n",
+        "after": "          <p class=\"lead\">{value.role}</p>\n          <p class=\"small\">\n            <a href=\"/read/ownership.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n              Read complete text-only lesson and practice (new tab)\n            </a>\n          </p>\n        </header>\n"
       }
     ]
   },
   "src/Purpose.tsx": {
     "beforeSha256": "a8728f85fad55da21f3ec4862224d1909408b1d528b24818f64af79209864f5c",
-    "afterSha256": "26b11b561e35127ddbf23575b3a5b06532be5be0b260943e251c380fd78a8f49",
+    "afterSha256": "48d4ef5f3d319d4c81a0854078867ef907abe008fe49e8daa3f1a49237d74291",
     "edits": [
       {
-        "before": "",
-        "after": "        <p class=\"small\">\n          <a href=\"/read/purpose.html\">Read complete text-only lesson and example (new tab)</a>\n        </p>\n"
+        "before": "        <p class=\"lead\">Give responsibility a direction.</p>\n      </header>\n",
+        "after": "        <p class=\"lead\">Give responsibility a direction.</p>\n        <p class=\"small\">\n          <a href=\"/read/purpose.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n            Read complete text-only lesson and example (new tab)\n          </a>\n        </p>\n      </header>\n"
       }
     ]
   },
   "scripts/site-footer.ts": {
     "beforeSha256": "505ec32ff5162192f2bee17d03ffef6be559740e7ad9d05884231448c97b0081",
-    "afterSha256": "71aa0c6aaffd8e1837433ea4de527ea9461aaa3ab3a12a3d5671457676f6cbe0",
+    "afterSha256": "d7463de3386283f5b515c183ed5296c83454d9c6d7acf51c6eb74d6ed164fa8d",
     "edits": [
       {
-        "before": "<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n<nav class=\"footer-group\" aria-label=\"Your practice\"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/#reading-standard-card', 'Use the standard on paper')}</nav>\n",
-        "after": "<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/read/index.html', 'All complete readings') + link('/read/rebuild.html', 'How to Rebuild Yourself') + link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n<nav class=\"footer-group\" aria-label=\"Your practice\"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/read/standard.html', 'Use the standard on paper')}</nav>\n"
+        "before": "<div class=\"footer-intro\"><p>Only Empowerment</p><span>Free learning. Practical application.</span></div>\n<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n<nav class=\"footer-group\" aria-label=\"Your practice\"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/#reading-standard-card', 'Use the standard on paper')}</nav>\n",
+        "after": "<div class=\"footer-intro\"><p>Only Empowerment</p><span>Free learning. Practical application.</span></div>\n<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/read/index.html', 'All complete readings') + link('/read/rebuild.html', 'How to Rebuild Yourself') + link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n<nav class=\"footer-group\" aria-label=\"Your practice\"><h2>Your practice</h2><p>${escape(periodCardContext.footer)}</p>${link('/#/period/standard', 'Optional Standard Card')}${link('/#reading-standard-card', 'Use the standard on paper')}</nav>\n"
+      }
+    ]
+  },
+  "src/PeriodStandard.tsx": {
+    "beforeSha256": "974f776beefe4c32c10a1dd288a3e1c53327d6c45175bf47811d9755d648b1ad",
+    "afterSha256": "1f6a8495eaf6f492cc5a2758fe328c57b2efea42c97093f7b12487d5ab639274",
+    "edits": [
+      {
+        "before": "  const { draft, view, notice } = session;\n  const [errors, setErrors] = useState<Record<string, string>>({});\n",
+        "after": "  const { draft, view, notice } = session;\n  const paperEntry = location.hash === '#reading-standard-card';\n  const [errors, setErrors] = useState<Record<string, string>>({});\n"
+      },
+      {
+        "before": "  );\n  return (\n",
+        "after": "  );\n  const paperInstructions = (\n    <>\n      {context.paperParagraphs.map((paragraph) => (\n        <p key={paragraph}>{paragraph}</p>\n      ))}\n      <a href=\"/read/standard.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n        Read or print the paper guide (new tab)\n      </a>\n    </>\n  );\n  return (\n"
+      },
+      {
+        "before": "\n      {view === 'edit' ? (\n",
+        "after": "\n      {paperEntry && view === 'card' && (\n        <section class=\"no-print\">\n          <h2 id=\"reading-standard-card\" tabIndex={-1}>\n            Use the standard on paper\n          </h2>\n          {paperInstructions}\n        </section>\n      )}\n      {view === 'edit' ? (\n"
+      },
+      {
+        "before": "            <h1 id=\"reading-standard-card\" tabIndex={-1}>\n              Turn a Value <br />\n              into a <em>Standard.</em>\n            </h1>\n            <p class=\"lead\">{copy.lead}</p>\n          </div>\n",
+        "after": "            <h1 id=\"reading-standard-card\" tabIndex={-1}>\n              {paperEntry ? (\n                'Use the standard on paper'\n              ) : (\n                <>\n                  Turn a Value <br />\n                  into a <em>Standard.</em>\n                </>\n              )}\n            </h1>\n            {paperEntry ? paperInstructions : <p class=\"lead\">{copy.lead}</p>}\n          </div>\n"
+      }
+    ]
+  },
+  "src/use-route.ts": {
+    "beforeSha256": "80a173ecc9bf33cfce2d16f9a35d70389fd939126ee32569fb6a553cec3f4cdb",
+    "afterSha256": "2551c9018d99055a5843f6a3d9efbf1611c9be3e28818c60347e4ba4e860f92d",
+    "edits": [
+      {
+        "before": "      save(link);\n      entry = ++counter;\n",
+        "after": "      save(link);\n      // Native history can preserve a fractional reading position that numeric\n      // scroll APIs round. Set restoration on the entry we are leaving.\n      history.scrollRestoration = Number.isInteger(scrollY) ? 'manual' : 'auto';\n      entry = ++counter;\n"
+      },
+      {
+        "before": "      history.pushState({ oeNavigation: entry }, '', '#' + fragment);\n      currentFragment = fragment;\n",
+        "after": "      history.pushState({ oeNavigation: entry }, '', '#' + fragment);\n      history.scrollRestoration = 'manual';\n      currentFragment = fragment;\n"
+      },
+      {
+        "before": "      });\n      window.scrollTo(0, restore.y);\n      restoring.current = null;\n",
+        "after": "      });\n      if (history.scrollRestoration !== 'auto' || Number.isInteger(restore.y))\n        window.scrollTo(0, restore.y);\n      restoring.current = null;\n"
       }
     ]
   }
