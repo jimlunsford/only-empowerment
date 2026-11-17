@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Compile Work 53 source main sections to safe Preact node data.
+"""Compile the authored Rebuild main sections to safe Preact node data.
 
-Original guide HTML stays byte-identical in src/rebuild-source.
+The authored inputs and their historical checksums are verified in the integration tests.
 No runtime HTML evaluation or arbitrary third-party markup is permitted.
 """
 import json
@@ -95,7 +95,7 @@ for file in PAGES:
     name = ALIASES.get(file,file)
     all_nodes[name] = parser.nodes
     checks[name] = {'rootNodes':len(parser.nodes),'controls':parser.controls}
-out = "/* Generated from exact founder-supplied Work 53 HTML. Do not hand-edit. */\n"
+out = "/* Generated from docs/work53-source by scripts/compile-rebuild-source.py. Do not hand-edit. */\n"
 out += 'export const rebuildTrees = ' + json.dumps(all_nodes,ensure_ascii=False,separators=(',',':')) + ' as const;\n'
 Path('src/rebuild-content.ts').write_text(out)
 print('Compiled Work 53 native content:', json.dumps(checks))

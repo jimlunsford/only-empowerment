@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 
-// These are fixed, source-verified Work 53 documents. Keep their teaching and
+// These are checksum-verified authored documents. Keep their teaching and
 // native alternatives intact, including when the application module is blocked.
 function sourceMain(file: 'all' | 'index') {
   const source = readFileSync('docs/work53-source/' + file + '.html', 'utf8');
@@ -13,17 +13,28 @@ function sourceMain(file: 'all' | 'index') {
 const target = (route: string) => `id="/rebuild/${route}" tabindex="-1"`;
 const lessons = ['line', 'structure', 'return', 'trust', 'negotiation', 'help'];
 
-function lessonAnchors(article: string, lesson: string) {
+export function lessonAnchors(article: string, lesson: string) {
   // The complete edition and the individual lesson share the same teaching.
   // Both addresses must land on it in a browser using only the native DOM.
+  const name = lesson + '-example';
+  const exampleId = `id="${name}"`;
+  const example = article.match(
+    new RegExp(`<h3 ${exampleId}>([^<>]+)</h3>(?=\\s*<p class="case-intro">)`),
+  );
+  const ids = article.match(
+    new RegExp(`\\sid\\s*=\\s*(?:"${name}"|'${name}'|${name}(?=[\\s>]))`, 'gi'),
+  );
+  if (ids?.length !== 1 || !example?.[1].trim())
+    throw new Error('Expected one named example heading followed by its introduction: ' + lesson);
+
   let numberedNote = 0;
   const body = article
     .replace('<h2>', `<h2 ${target('complete?section=' + lesson)}>`)
     .replace(
-      `<h3 id="${lesson}-example">`,
-      `<div ${target('complete?section=' + lesson + '-example')}><h3 id="${lesson}-example"><span ${target(lesson + '?section=example')}>`,
+      example[0],
+      () =>
+        `<div ${target('complete?section=' + lesson + '-example')}><h3 ${exampleId}><span ${target(lesson + '?section=example')}>${example[1]}</span></h3></div>`,
     )
-    .replace('</h3>', '</span></h3></div>')
     .replace('<div class="take">', `<div class="take" ${target(lesson + '?section=apply')}>`);
   const notes =
     lesson === 'line'

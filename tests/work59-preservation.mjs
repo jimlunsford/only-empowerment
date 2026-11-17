@@ -1,12 +1,14 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/work59-preservation.json' with { type: 'json' };
+import { beforeWork62PeriodSource, beforeWork62RootReading } from './work62-preservation.mjs';
 
 const sha = (text) => createHash('sha256').update(text).digest('hex');
 
 // Exact Work 59 deltas are removed before older acceptance tests reconstruct
 // the founder-approved Work 35, Work 39, Work 42 and Work 56 baselines.
 export function beforeWork59Source(source, path) {
+  source = beforeWork62PeriodSource(source, path);
   const change = changes[path];
   if (!change) return source;
   assert.equal(sha(source), change.afterSha256, path + ' Work59 source differs');
@@ -20,6 +22,7 @@ export function beforeWork59Source(source, path) {
 }
 
 export function beforeWork59RootReading(html) {
+  html = beforeWork62RootReading(html);
   assert.equal(sha(html), '2608481f3eb0a09d82872950ff8d9490dfc3373718598897aa29ff8513b57900');
   for (const value of [
     'ownership',

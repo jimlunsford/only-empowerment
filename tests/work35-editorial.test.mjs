@@ -7,6 +7,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { format, resolveConfig } from 'prettier';
 import fixture from './fixtures/work35-editorial.json' with { type: 'json' };
+import work62 from './fixtures/work62-approved.json' with { type: 'json' };
 import { parseCopy, fieldNode, headingNodes, patchLocations } from './editorial-copy-helpers.mjs';
 import { beforeWork37Source } from './work37-copy-helpers.mjs';
 import { periodFallback } from '../scripts/period-fallback.ts';
@@ -107,9 +108,9 @@ const pairEquivalents = {
 test('all 177 records have complete static reading coverage or their approved all-pattern equivalent', () => {
   for (const record of records) {
     const equivalent = pairEquivalents[record.id];
-    const approved = equivalent
-      ? records.find((r) => r.id === equivalent).approved
-      : (supersessions[record.id]?.proposed ?? record.approved);
+    const id = equivalent ?? record.id;
+    const approved =
+      work62.period[id] ?? supersessions[id]?.proposed ?? records.find((r) => r.id === id).approved;
     assert.ok(
       reading[record.id[0]].includes(escape(approved)),
       `${record.id}: ${equivalent ?? 'exact static copy'}`,
