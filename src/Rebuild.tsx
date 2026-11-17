@@ -1,6 +1,5 @@
 import { h } from 'preact';
 import type { ComponentChild } from 'preact';
-import { useState } from 'preact/hooks';
 import { rebuildTrees } from './rebuild-content';
 
 export type RebuildSection = keyof typeof rebuildTrees;
@@ -15,7 +14,11 @@ type TeachingNode =
 
 // Only validated build-generated elements and attributes reach Preact.
 // This deliberately does not parse or inject HTML at runtime.
-function renderTeachingNode(node: TeachingNode, selectedNote: string): ComponentChild {
+function renderTeachingNode(
+  node: TeachingNode,
+  selectedNote: string,
+  section: RebuildSection,
+): ComponentChild {
   if (typeof node === 'string') return node;
   const attrs = { ...node.attrs };
   // Work 53's linkedset uses native :target. The enhanced selector uses one in-memory choice.
@@ -28,10 +31,14 @@ function renderTeachingNode(node: TeachingNode, selectedNote: string): Component
     attrs['aria-current'] = 'true';
   if (typeof attrs.id === 'string' && attrs.id.startsWith('note-'))
     attrs.hidden = attrs.id !== selectedNote;
+  // A copied or modified-clicked link must identify its framework and lesson.
+  // The same public URL also identifies a selected Line note on reload/history.
+  if (typeof attrs.href === 'string' && /^#[a-z][a-z0-9-]*$/.test(attrs.href))
+    attrs.href = '#/rebuild/' + section + '?section=' + attrs.href.slice(1);
   return h(
     node.tag,
     attrs,
-    node.children.map((child) => renderTeachingNode(child, selectedNote)),
+    node.children.map((child) => renderTeachingNode(child, selectedNote, section)),
   );
 }
 
@@ -84,41 +91,21 @@ export function FrameworkHome() {
 }
 
 export function RebuildGuide({ section }: { section: RebuildSection }) {
-  const [note, setNote] = useState('note-1');
-
-  function onGuideClick(event: MouseEvent) {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
-      return;
-    const anchor = (event.target as Element).closest<HTMLAnchorElement>('a[href]');
-    if (!anchor) return;
-    const href = anchor.getAttribute('href') || '';
-    if (href.startsWith('#note-')) {
-      event.preventDefault();
-      const selected = href.slice(1);
-      setNote(selected);
-      // Keep the selected note in focus without changing the application route.
-      requestAnimationFrame(() => {
-        document.getElementById(selected)?.focus({ preventScroll: true });
-        document.getElementById(selected)?.scrollIntoView({ block: 'nearest' });
-      });
-    } else if (href.startsWith('#') && !href.startsWith('#/')) {
-      event.preventDefault();
-      const target = document.getElementById(href.slice(1));
-      target?.scrollIntoView({ block: 'start', behavior: 'auto' });
-      if (target instanceof HTMLElement) {
-        target.setAttribute('tabindex', '-1');
-        target.focus({ preventScroll: true });
-      }
-    }
-  }
+  const directNote =
+    section === 'line'
+      ? /^#\/rebuild\/line\?section=(note-[1-4])$/.exec(location.hash)?.[1]
+      : undefined;
+  const selectedNote = directNote || 'note-1';
 
   return (
-    <section class="rebuild-guide" onClick={onGuideClick}>
+    <section class="rebuild-guide">
       <div class="rebuild-approval">
         <span>Development concept, not a published book edition</span>
         <a href="#/rebuild">How to Rebuild Yourself</a>
       </div>
-      <div class="wrap">{rebuildTrees[section].map((node) => renderTeachingNode(node, note))}</div>
+      <div class="wrap">
+        {rebuildTrees[section].map((node) => renderTeachingNode(node, selectedNote, section))}
+      </div>
       <nav class="rebuild-footlinks" aria-label="Rebuilding framework navigation">
         <a href="#/rebuild">Explore the full rebuilding path</a>
         <a href="#/rebuild/complete">Read or print all teaching</a>

@@ -144,3 +144,16 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* A shared Rebuild address can open inside the combined native document.
+   Print the selected framework there, retaining the common legal and source notices. */
+@media print {
+  #educational-fallback:has(#rebuild-reading:target, #rebuild-reading :target)
+    :is(.site-main > :not(#rebuild-reading), .combined-print-credit) {
+    display: none !important;
+  }
+  #educational-fallback:has(#rebuild-reading:target, #rebuild-reading :target)
+    .rebuild-print-credit {
+    display: block;
+  }
+}

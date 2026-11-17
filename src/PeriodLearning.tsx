@@ -109,6 +109,11 @@ export function PeriodOwnership() {
             </span>
           </h1>
           <p class="lead">{value.role}</p>
+          <p class="small">
+            <a href="/read/ownership.html" target="_blank" rel="noopener noreferrer">
+              Read complete text-only lesson and practice (new tab)
+            </a>
+          </p>
         </header>
         <PeriodSequence active lesson />
         <article class="period-lesson lesson-copy" aria-label="Ownership lesson">

@@ -75,6 +75,7 @@ export function PeriodStandard({
   setSession: Dispatch<StateUpdater<PeriodSession>>;
 }) {
   const { draft, view, notice } = session;
+  const paperEntry = location.hash === '#reading-standard-card';
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState('');
   const [fallback, setFallback] = useState(false);
@@ -196,6 +197,16 @@ export function PeriodStandard({
       )}
     </>
   );
+  const paperInstructions = (
+    <>
+      {context.paperParagraphs.map((paragraph) => (
+        <p key={paragraph}>{paragraph}</p>
+      ))}
+      <a href="/read/standard.html" target="_blank" rel="noopener noreferrer">
+        Read or print the paper guide (new tab)
+      </a>
+    </>
+  );
   return (
     <div class={`period-standard ${view === 'card' ? 'period-result' : 'editor'}`}>
       {notice && (
@@ -209,14 +220,28 @@ export function PeriodStandard({
         </p>
       )}
 
+      {paperEntry && view === 'card' && (
+        <section class="no-print">
+          <h2 id="reading-standard-card" tabIndex={-1}>
+            Use the standard on paper
+          </h2>
+          {paperInstructions}
+        </section>
+      )}
       {view === 'edit' ? (
         <>
           <div class="editor-heading">
             <h1 id="reading-standard-card" tabIndex={-1}>
-              Turn a Value <br />
-              into a <em>Standard.</em>
+              {paperEntry ? (
+                'Use the standard on paper'
+              ) : (
+                <>
+                  Turn a Value <br />
+                  into a <em>Standard.</em>
+                </>
+              )}
             </h1>
-            <p class="lead">{copy.lead}</p>
+            {paperEntry ? paperInstructions : <p class="lead">{copy.lead}</p>}
           </div>
           <p class="mobile-privacy">{copy.privacy}</p>
           <div class="period-editor-layout editor-layout">

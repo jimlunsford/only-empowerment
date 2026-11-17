@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { beforeWork59Source } from './work59-preservation.mjs';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/work56-preservation.json' with { type: 'json' };
 
@@ -6,6 +7,7 @@ const sha = (text) => createHash('sha256').update(text).digest('hex');
 
 // Feed the earlier whole-file checks their original input only after proving every new byte.
 export function beforeWork56Source(source, path) {
+  source = beforeWork59Source(source, path);
   const change = changes[path];
   if (!change) return source;
   assert.equal(sha(source), change.afterSha256, path);

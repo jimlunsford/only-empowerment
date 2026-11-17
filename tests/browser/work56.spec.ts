@@ -95,7 +95,7 @@ test('Draw the line presents exactly one visually and programmatically current p
 }) => {
   const url = '#/rebuild/line';
   await page.goto('/' + url);
-  async function selection(n: number) {
+  async function selection(n: number, initial = false) {
     await expect(page.locator('.quotesheet [aria-current="true"]')).toHaveCount(1);
     await expect(page.locator('.quotesheet .q' + n)).toHaveAttribute('aria-current', 'true');
     await expect(page.locator('.linkedpanel:visible')).toHaveCount(1);
@@ -108,10 +108,12 @@ test('Draw the line presents exactly one visually and programmatically current p
             .filter((a) => getComputedStyle(a).boxShadow !== 'none')
             .map((a) => a.getAttribute('href')),
         ),
-    ).toEqual(['#note-' + n]);
-    await expect(page).toHaveURL((x) => x.hash === url);
+    ).toEqual(['#/rebuild/line?section=note-' + n]);
+    await expect(page).toHaveURL(
+      (x) => x.hash === (initial ? url : '#/rebuild/line?section=note-' + n),
+    );
   }
-  await selection(1);
+  await selection(1, true);
   for (const method of ['click', 'keyboard'])
     for (const n of [1, 2, 3, 4]) {
       const choice = page.locator('.quotesheet .q' + n);
@@ -204,7 +206,12 @@ test('print credits follow the reading, including script loss and the optional c
     await p.goto(baseURL + '/#line');
     await p.emulateMedia({ media: 'print' });
     await expect(p.locator('#rebuild-reading #line .flatstate:visible')).toHaveCount(4);
-    await expect(p.locator('.footer-print-urls').first()).toContainText(combined);
+    await expect(p.locator('.footer-print-urls p:visible').first()).toHaveText(rebuild);
+    await expect(p.locator('.homepage')).toBeHidden();
+    await p.goto(baseURL + '/');
+    await expect(p.locator('.homepage')).toBeVisible();
+    await expect(p.locator('#rebuild-reading #line .flatstate:visible')).toHaveCount(4);
+    await expect(p.locator('.footer-print-urls p:visible').first()).toHaveText(combined);
     await ctx.close();
   }
 });
