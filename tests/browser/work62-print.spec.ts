@@ -69,6 +69,12 @@ for (const reading of readings) {
       await expect(page.locator(reading.native ? 'main' : '#app main')).toBeVisible();
       await page.emulateMedia({ media: 'print' });
       const scope = page.locator(reading.native ? 'main' : '#app main');
+      if (reading.name === 'combined-native') {
+        const target = page.locator(':target');
+        await target.focus();
+        await expect(target).toBeFocused();
+        await expect(target).toHaveCSS('outline-style', 'none');
+      }
       for (const word of reading.words) {
         const printed = scope.getByText(word, { exact: true }).filter({ visible: true });
         await expect(printed).toHaveCount(1);

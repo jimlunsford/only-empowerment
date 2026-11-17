@@ -102,6 +102,11 @@
   }
 }
 @media print {
+  /* A focused native route can span many printed pages. Its screen outline
+     otherwise crosses the first and last lines of each page fragment. */
+  .rebuild-guide [tabindex='-1']:focus-visible {
+    outline: none;
+  }
   .rebuild-guide .rebuild-approval,
   .rebuild-guide .rebuild-footlinks,
   .framework-hub {
