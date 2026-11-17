@@ -36,6 +36,10 @@ test.describe('JavaScript-independent teaching', () => {
       }) => {
         const direct = '#/rebuild/' + lesson + '?section=example';
         const complete = '#/rebuild/complete?section=' + lesson + '-example';
+        const fonts = new Set<string>();
+        page.on('request', (request) => {
+          if (request.resourceType() === 'font') fonts.add(request.url());
+        });
         await page.goto(path + direct);
         const article = page.locator('article#' + lesson);
         const wrapper = article.locator(':scope > [id="' + complete.slice(1) + '"]');
@@ -53,8 +57,14 @@ test.describe('JavaScript-independent teaching', () => {
         await expect(wrapper).toHaveId(complete.slice(1));
         await expect(page.locator(':target')).toHaveText(title);
         await expect(heading).toBeInViewport();
-        await page.reload();
-        await expect(heading).toBeInViewport();
+        for (let refresh = 0; refresh < 3; refresh++) {
+          await page.reload();
+          await expect(page).toHaveURL(new URL(path + complete, page.url()).href);
+          await expect(heading).toBeInViewport();
+          await expect.poll(() => page.evaluate(() => document.fonts.status)).toBe('loaded');
+          await expect(heading).toBeInViewport();
+        }
+        if (path === '/read/rebuild.html') expect([...fonts]).toEqual([]);
         const backToCase = article.getByRole('link', { name: 'Return to the example' });
         await expect(backToCase).toHaveAttribute('href', '#' + lesson + '-example');
         await backToCase.press('Enter');
