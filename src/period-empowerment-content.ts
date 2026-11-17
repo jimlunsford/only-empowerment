@@ -242,7 +242,7 @@ export const empowermentContent = {
         interpretation:
           "Mara's offer was reasonable. Dev's refusal still matters. Respecting it keeps a free offer from turning into pressure. Mara does not need evidence of a successful alternative before honoring this boundary.",
         uncertainty:
-          "Dev's next step and the meeting's outcome remain unknown. Mara can respect the refusal without making Dev prove that another plan will succeed.",
+          'Nobody knows yet whether Jordan can help or how the meeting will go. Even if Jordan is unavailable, Dev still decides whom to ask next. Mara needs a new invitation before stepping in.',
         status: 'Showing Dev declining the offer. The original offer and limits are unchanged.',
       },
     ],
@@ -291,7 +291,7 @@ export const empowermentNavigation = {
     'Empowerment is next in the teaching order. Explore how developed strength can help others become more capable while respecting their choices and need for support.',
   disciplineCTA: 'Continue to Empowerment',
   connectedCodeAvailability:
-    'All six values now have full lessons. The PERIOD Code remains a connected standard for living, not a sequence of achievements.',
+    'The PERIOD Code remains a connected standard for living, not a sequence of achievements.',
   cardHint: 'Read about Empowerment',
   returnTitle: 'The six values remain in practice',
   returnNote:

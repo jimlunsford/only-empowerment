@@ -109,6 +109,11 @@ export function PeriodOwnership() {
             </span>
           </h1>
           <p class="lead">{value.role}</p>
+          <p class="small">
+            <a href="/read/ownership.html" target="_blank" rel="noopener noreferrer">
+              Read complete text-only lesson and practice (new tab)
+            </a>
+          </p>
         </header>
         <PeriodSequence active lesson />
         <article class="period-lesson lesson-copy" aria-label="Ownership lesson">
@@ -183,7 +188,7 @@ export function PeriodOwnership() {
               <a class="button primary" href="#/period/practice">
                 Practice Ownership
               </a>
-              <a href="#/">Return to Why PERIOD?</a>
+              <a href="#/period/why">Return to Why PERIOD?</a>
             </div>
             <p class="small">No written answer or Standard Card is required.</p>
           </section>
@@ -201,7 +206,7 @@ export function PeriodUnavailable() {
         <p>{empowermentAvailability}</p>
       </PageIntro>
       <PeriodSequence />
-      <a href="#/">Return to Why PERIOD?</a>
+      <a href="#/period/why">Return to Why PERIOD?</a>
     </div>
   );
 }

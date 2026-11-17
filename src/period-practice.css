@@ -352,3 +352,9 @@
     border: 3px double ButtonText;
   }
 }
+@media print {
+  .period-shell .practice-responses > details::details-content {
+    display: contents;
+    content-visibility: visible;
+  }
+}

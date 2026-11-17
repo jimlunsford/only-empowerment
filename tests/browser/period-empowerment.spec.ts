@@ -367,7 +367,7 @@ test('six-lesson surfaces and revisit links reach real lessons, with normal Back
     await page.getByRole('link', { name: `Read ${value}`, exact: true }).click();
     await expect(page.locator('h1')).toContainText(value);
   }
-  await page.goto('/');
+  await page.goto('/#/period');
   await expect(page.getByText(homepage.lead, { exact: true })).toBeVisible();
   await page.goto('/#/period/practice/connected-code');
   await expect(

@@ -105,7 +105,7 @@ test('startup and normal navigation never even access local storage; cancellatio
       },
     });
   });
-  await page.goto('/');
+  await page.goto('/#/period');
   for (const link of [
     'Optional Standard Card',
     'Privacy & source',

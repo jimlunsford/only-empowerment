@@ -13,8 +13,17 @@ export const softwareNotice = {
   permissions:
     '. You may use, modify, and redistribute it under that license. No warranty. The founder copyright statement does not limit these software permissions.',
 };
-export function footerEducation() {
-  return { text: periodExercise.source, url: periodBook.url };
+export type EducationSource = 'period' | 'rebuild' | 'combined';
+export function footerEducation(source: EducationSource) {
+  if (source === 'period') return { text: periodExercise.source, url: periodBook.url };
+  const titles =
+    source === 'rebuild'
+      ? 'How to Rebuild Yourself'
+      : 'The PERIOD Code and How to Rebuild Yourself';
+  return {
+    text: `Based on ${titles} by Jim Lunsford. Educational adaptation by Only Empowerment.`,
+    url: null,
+  };
 }
 export function footerBuildNotice(build?: FooterBuild) {
   if (!build)

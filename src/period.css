@@ -578,6 +578,9 @@
   border-left: 3px solid var(--accent);
   padding-left: 26px;
 }
+.period-shell .editor-guide .teaching p + h3 {
+  margin-block-start: 1rem;
+}
 .period-shell .editor-guide p {
   font-size: 1.1875rem;
 }

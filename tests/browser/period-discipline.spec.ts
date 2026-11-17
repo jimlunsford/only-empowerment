@@ -173,7 +173,7 @@ test('ordinary native wayfinding focuses stable headings without changing the co
 test('six-value navigation preserves Integrity teaching and both onward destinations', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/#/period');
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
   await expect(
     page
@@ -197,7 +197,7 @@ test('direct reading and blocked application scripts retain every occasion and e
     const context = await browser.newContext({ javaScriptEnabled: mode !== 'disabled' });
     const page = await context.newPage();
     if (mode === 'blocked') await page.route('**/assets/*.js', (r) => r.abort());
-    await page.goto('/');
+    await page.goto('/#/period');
     await page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', {

@@ -239,7 +239,7 @@ test('direct entry, deliberate route focus, Back restoration and unknown routes 
 test('bounded navigation keeps Ownership first and connects both Resilience endings to Integrity', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/#/period');
   await expect(page.getByText(homepage.lead, { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Start with Ownership', exact: true })).toHaveClass(
     /primary/,
