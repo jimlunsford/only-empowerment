@@ -160,9 +160,23 @@ export function useRoute() {
       (oldLink?.isConnected ? oldLink : replacement || target || heading)?.focus({
         preventScroll: true,
       });
-      if (history.scrollRestoration !== 'auto' || Number.isInteger(restore.y))
-        window.scrollTo(0, restore.y);
       restoring.current = null;
+      if (history.scrollRestoration === 'auto' && !Number.isInteger(restore.y)) {
+        // The outgoing position is already saved. Clear its compositor offset
+        // after remounting, before Firefox restores the incoming viewport.
+        if (scrollY !== 0) window.scrollTo(0, 0);
+        // Native history retains subpixels. If remounting a taller header has
+        // displaced the reader beyond numeric scrolling's half-pixel precision,
+        // restore from a clean origin before paint. A new route cancels the frame.
+        const frame = requestAnimationFrame(() => {
+          if (Math.abs(scrollY - restore.y) > 0.5) {
+            window.scrollTo(0, 0);
+            window.scrollTo(0, restore.y);
+          }
+        });
+        return () => cancelAnimationFrame(frame);
+      }
+      window.scrollTo(0, restore.y);
     } else {
       heading?.focus({ preventScroll: true });
       if (

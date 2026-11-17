@@ -2,6 +2,28 @@ import { test, expect } from '@playwright/test';
 
 const stations = ['line', 'structure', 'return', 'trust', 'negotiation', 'help'];
 
+test('Back restores both reading viewports after scrolling a lesson activity', async ({ page }) => {
+  await page.goto('/#/period/values/resilience');
+  const invitation = page.locator('.resilience-invitation a');
+  await invitation.scrollIntoViewIfNeeded();
+  await invitation.focus();
+  const position = () => page.evaluate(() => [scrollY, visualViewport!.pageTop]);
+  const lessonPosition = await position();
+  await invitation.press('Enter');
+  const choice = page.getByRole('combobox');
+  await choice.selectOption('harm');
+  await page.evaluate(() => scrollTo(0, 700));
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(700);
+  const activityPosition = await position();
+
+  await page.goBack();
+  await expect(page.locator('#app h1')).toBeFocused();
+  await expect.poll(position).toEqual(lessonPosition);
+  await page.goForward();
+  await expect(choice).toHaveValue('slow');
+  await expect.poll(position).toEqual(activityPosition);
+});
+
 test('Line choices have portable URLs that restore one exact selected note', async ({
   page,
   context,

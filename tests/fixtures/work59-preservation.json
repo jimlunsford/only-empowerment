@@ -57,7 +57,7 @@
   },
   "src/use-route.ts": {
     "beforeSha256": "80a173ecc9bf33cfce2d16f9a35d70389fd939126ee32569fb6a553cec3f4cdb",
-    "afterSha256": "2551c9018d99055a5843f6a3d9efbf1611c9be3e28818c60347e4ba4e860f92d",
+    "afterSha256": "b52511450bdf9137e95879262bd7286d44dff077511d965f0751e2af8b729a99",
     "edits": [
       {
         "before": "      save(link);\n      entry = ++counter;\n",
@@ -68,8 +68,8 @@
         "after": "      history.pushState({ oeNavigation: entry }, '', '#' + fragment);\n      history.scrollRestoration = 'manual';\n      currentFragment = fragment;\n"
       },
       {
-        "before": "      });\n      window.scrollTo(0, restore.y);\n      restoring.current = null;\n",
-        "after": "      });\n      if (history.scrollRestoration !== 'auto' || Number.isInteger(restore.y))\n        window.scrollTo(0, restore.y);\n      restoring.current = null;\n"
+        "before": "      });\n      window.scrollTo(0, restore.y);\n      restoring.current = null;\n    } else {\n",
+        "after": "      });\n      restoring.current = null;\n      if (history.scrollRestoration === 'auto' && !Number.isInteger(restore.y)) {\n        // The outgoing position is already saved. Clear its compositor offset\n        // after remounting, before Firefox restores the incoming viewport.\n        if (scrollY !== 0) window.scrollTo(0, 0);\n        // Native history retains subpixels. If remounting a taller header has\n        // displaced the reader beyond numeric scrolling's half-pixel precision,\n        // restore from a clean origin before paint. A new route cancels the frame.\n        const frame = requestAnimationFrame(() => {\n          if (Math.abs(scrollY - restore.y) > 0.5) {\n            window.scrollTo(0, 0);\n            window.scrollTo(0, restore.y);\n          }\n        });\n        return () => cancelAnimationFrame(frame);\n      }\n      window.scrollTo(0, restore.y);\n    } else {\n"
       }
     ]
   }
