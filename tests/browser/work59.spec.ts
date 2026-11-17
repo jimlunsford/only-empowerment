@@ -188,12 +188,22 @@ test('standalone no-JavaScript rebuilding PDF prints only the intended framework
     await expect(page.locator('#rebuild-reading .flatstate:visible')).toHaveCount(22);
     await expect(page.locator('.homepage')).toHaveCount(0);
     await expect(page.locator('.period-learning')).toHaveCount(0);
-    for (const format of ['A4', 'Letter'] as const) {
-      await page.pdf({
-        path: info.outputPath('work59-rebuild-only-' + format + '.pdf'),
-        format,
-        printBackground: true,
-      });
+    for (const [edition, path] of [
+      ['standalone', '/read/rebuild.html'],
+      ['native-target', '/#/rebuild/trust?section=example'],
+    ]) {
+      await page.goto(path);
+      await expect(page.locator('#rebuild-reading .flatstate:visible')).toHaveCount(22);
+      await expect(page.locator('.period-learning:visible')).toHaveCount(0);
+      await expect(
+        page.getByText('Based on How to Rebuild Yourself by Jim Lunsford.', { exact: false }),
+      ).toBeVisible();
+      for (const format of ['A4', 'Letter'] as const)
+        await page.pdf({
+          path: info.outputPath('work59-rebuild-only-' + edition + '-' + format + '.pdf'),
+          format,
+          printBackground: true,
+        });
     }
   } finally {
     await ctx.close();
@@ -236,6 +246,29 @@ for (const mode of ['disabled', 'blocked'] as const) {
       }
       await page.reload();
       await expect(page.locator(':target')).toBeInViewport();
+      await page.emulateMedia({ media: 'print' });
+      for (const fragment of [
+        '#/rebuild/trust?section=example',
+        '#rebuild-reading',
+        '#line-example',
+      ]) {
+        await page.goto(baseURL + '/' + fragment);
+        await expect(page.locator('.homepage')).toBeHidden();
+        await expect(page.locator('.standard-paper-reading')).toBeHidden();
+        await expect(page.locator('.rebuild-print-credit')).toBeVisible();
+        await expect(page.locator('.combined-print-credit')).toBeHidden();
+        await expect(page.locator('#rebuild-reading .flatstate:visible')).toHaveCount(22);
+      }
+      await page.goto(baseURL + '/');
+      await expect(page.locator('.homepage')).toBeVisible();
+      await expect(page.locator('.combined-print-credit')).toBeVisible();
+      await expect(page.locator('.rebuild-print-credit')).toBeHidden();
+      await page.emulateMedia({ media: 'screen' });
+      const headerLink = page
+        .getByRole('banner')
+        .getByRole('link', { name: 'How to Rebuild Yourself' });
+      await headerLink.press('Enter');
+      await expect(page).toHaveURL(/\/read\/rebuild\.html$/);
     } finally {
       await context.close();
     }

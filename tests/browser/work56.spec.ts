@@ -206,7 +206,12 @@ test('print credits follow the reading, including script loss and the optional c
     await p.goto(baseURL + '/#line');
     await p.emulateMedia({ media: 'print' });
     await expect(p.locator('#rebuild-reading #line .flatstate:visible')).toHaveCount(4);
-    await expect(p.locator('.footer-print-urls').first()).toContainText(combined);
+    await expect(p.locator('.footer-print-urls p:visible').first()).toHaveText(rebuild);
+    await expect(p.locator('.homepage')).toBeHidden();
+    await p.goto(baseURL + '/');
+    await expect(p.locator('.homepage')).toBeVisible();
+    await expect(p.locator('#rebuild-reading #line .flatstate:visible')).toHaveCount(4);
+    await expect(p.locator('.footer-print-urls p:visible').first()).toHaveText(combined);
     await ctx.close();
   }
 });
