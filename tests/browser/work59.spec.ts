@@ -147,14 +147,26 @@ test('script-disabled deep links reach their native lesson position', async ({
   });
   try {
     const page = await context.newPage();
-    for (const [route, id] of [
-      ['#/rebuild/trust', '/rebuild/trust'],
-      ['#/rebuild/line', '/rebuild/line'],
-      ['#/period/values/integrity', '/period/values/integrity'],
+    for (const [route, lesson] of [
+      ['#/rebuild/trust', 'trust'],
+      ['#/rebuild/line', 'line'],
     ]) {
       await page.goto(baseURL + '/' + route);
-      await expect(page.locator('[id="' + id + '"]')).toBeInViewport();
+      // The route alias has no dimensions. Verify the actual teaching, not the
+      // zero-height anchor, is aligned and legible in the reader's viewport.
+      const article = page.locator('#rebuild-reading article#' + lesson);
+      await expect(article).toBeInViewport();
+      const top = await article.evaluate((el) => el.getBoundingClientRect().top);
+      expect(top).toBeGreaterThanOrEqual(-1);
+      expect(top).toBeLessThan(50);
     }
+    await page.goto(baseURL + '/#/period/values/integrity');
+    const integrity = page
+      .locator('.period-sequence li')
+      .filter({ has: page.locator('[id="/period/values/integrity"]') })
+      .getByRole('link', { name: 'Integrity' });
+    await expect(integrity).toBeInViewport();
+    await expect(integrity).toHaveAttribute('href', '/read/integrity.html');
   } finally {
     await context.close();
   }
