@@ -97,7 +97,10 @@ test('pending font alignment cannot steal focus after leaving the anchor route',
   });
   try {
     await page.goto('/#/period/first-moment', { waitUntil: 'domcontentloaded' });
-    await page.locator('#app .home-access a').click();
+    await page
+      .locator('#app .home-access')
+      .getByRole('link', { name: 'Privacy & source' })
+      .click();
     const heading = page.getByRole('heading', { name: 'Your answers are not ours to collect.' });
     await expect(heading).toBeFocused();
     releaseFonts();
