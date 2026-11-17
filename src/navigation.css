@@ -283,6 +283,22 @@
   gap: 0 24px;
 }
 @media (max-width: 600px) {
+  /* Keep the first practical lesson visible without shrinking the 44px
+     keyboard and touch targets when the two navigation tiers wrap. */
+  .site-shell.period-shell .site-header {
+    padding-block: 12px;
+  }
+  .site-shell.period-shell .site-header .framework-switch,
+  .site-shell.period-shell .site-header .period-local-navigation {
+    margin-top: 6px;
+  }
+  .site-shell.period-shell .site-header :is(.framework-switch, .period-local-navigation) a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 5px;
+    line-height: 1.25;
+  }
   .site-shell.period-shell .site-header .framework-switch {
     width: 100%;
     margin-left: 0;
