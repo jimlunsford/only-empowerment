@@ -24,7 +24,7 @@ const shell = (
     '"><title>',
     title,
     ' | Only Empowerment</title></head>',
-    '<body class="site-shell period-shell"><a class="skip-link" href="#main">Skip to content</a>',
+    `<body class="site-shell period-shell${framework === 'rebuild' ? ' native-rebuild' : ''}"><a class="skip-link" href="#main">Skip to content</a>`,
     '<header class="site-header"><a class="wordmark" href="/read/index.html">Only Empowerment</a>',
     '<nav aria-label="Static reading navigation"><a href="/read/index.html">All readings</a>',
     '<a href="/read/rebuild.html">How to Rebuild Yourself</a>',

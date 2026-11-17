@@ -118,7 +118,7 @@ export const practiceCopy = {
     title: 'Promise a late finish',
     message: 'I’m sorry. I’ll finish the whole thing tonight, whatever it takes.',
     explanation:
-      'You still cannot open the file. Promising the whole task tonight uses a bigger promise to cover the missed one. Own the delay without committing yourself to work you cannot deliver.',
+      'If you could send the 3 p.m. update and waited, say so. If messaging was down until four, say when you could first reach your colleague. With the file still blocked, you can’t promise to finish the whole job tonight. Send the section you have and give a time you can keep for the next update.',
   },
   help: {
     title: 'See a correction that asks for help',

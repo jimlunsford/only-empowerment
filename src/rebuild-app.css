@@ -3,6 +3,17 @@
   min-width: 0;
   padding: 1.35rem 0 2rem;
 }
+/* The standalone reader has no script to restore an anchor after a font swap.
+   Give its surrounding screen layout stable metrics from the first paint. */
+@media screen {
+  body.native-rebuild,
+  body.native-rebuild :is(.site-header, .site-footer, .site-footer .footer-group h2) {
+    font-family: Arial, sans-serif;
+  }
+  body.native-rebuild .standalone-reading-heading {
+    font-family: Georgia, serif;
+  }
+}
 .rebuild-guide .rebuild-approval,
 .rebuild-guide .rebuild-footlinks {
   width: min(calc(100% - 5rem), 74rem);
@@ -102,6 +113,11 @@
   }
 }
 @media print {
+  /* A focused native route can span many printed pages. Its screen outline
+     otherwise crosses the first and last lines of each page fragment. */
+  .rebuild-guide [tabindex='-1']:focus-visible {
+    outline: none;
+  }
   .rebuild-guide .rebuild-approval,
   .rebuild-guide .rebuild-footlinks,
   .framework-hub {

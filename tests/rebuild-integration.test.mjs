@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import { work62Base } from './work62-preservation.mjs';
 import { rebuildTrees } from '../src/rebuild-content.ts';
 import { rebuildFallback } from '../scripts/rebuild-fallback.ts';
 
@@ -41,10 +43,21 @@ function strings(nodes) {
   return nodes.map((n) => (typeof n === 'string' ? n : strings(n.children))).join('');
 }
 
-test('each exact Work 53 authored source matches its independent pinned checksum', () => {
+// Only these seven inputs were approved for editorial changes.
+const work62Hashes = {
+  'all.html': 'da4f9eb42f15841b70bbf6b385154d0b3315b41acc047d3952543826ed330cf9',
+  'end.html': '2617b876b96f5dcedb1c9c9dc83deffd0f2d483382f5fbb77259079a144fc31f',
+  'help.html': 'b3478f16bdbe27f744baa2837160b0c1c53af720caa07b3f8e52449f7ff35831',
+  'line.html': '8942d10e3478d96df3b90d1d8d66cfafac22968822acb96ff68028e5940db8b3',
+  'return.html': '6e6861c04d0f12d917149ab90ae00241ad0ec15572a9e06267bc5eda144fb0aa',
+  'structure.html': '45cdc73548d133a120cbd985319cd8f993cb6517b314301e7840533e35944e71',
+  'trust.html': 'cc5ffeadd2d8d6485cd6a2b19b671e9cec11d6d3592876377f1bd131a09f1da8',
+};
+test('all original Work 53 inputs and current approved authored bytes match their pinned checksums', () => {
   for (const [file, digest] of Object.entries(sourceHashes)) {
-    const bytes = readFileSync('docs/work53-source/' + file);
-    assert.equal(sha(bytes), digest, file);
+    const path = 'docs/work53-source/' + file;
+    assert.equal(sha(execFileSync('git', ['show', work62Base + ':' + path])), digest, file);
+    assert.equal(sha(readFileSync(path)), work62Hashes[file] ?? digest, file);
   }
 });
 

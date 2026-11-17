@@ -214,14 +214,14 @@ export const disciplineContent = {
         'rigid-effort':
           'Noor makes no arrangement and sends no update. Eli makes an unplanned alternative meal.',
         interpretation:
-          'Noor misses the same responsibility in all three versions, and Eli carries the work without an agreement. Earlier follow-through still counts. It does not cancel this miss.',
+          'Every meal Noor arranged still counts. Tonight Eli had to make a meal they never agreed to handle. The miss is the same in every account. Look at what follows. Which response actually addresses the work left to Eli?',
         correction:
           'Name the actual miss and its effect. Do not turn the entire person into a failure or treat the lost evening as a debt to be repaid through suffering.',
         interpretations: {
           'strong-start':
-            'Noor misses the same responsibility in both versions, and Eli carries the work without an agreement. Earlier follow-through still counts. It does not cancel this miss.',
+            'Every meal Noor arranged still counts. Tonight Eli had to make a meal they never agreed to handle. The miss is the same on both sides. What can Noor still put right tonight that a promise about next week would leave untouched?',
           'rigid-effort':
-            'Noor misses the same responsibility in both versions, and Eli carries the work without an agreement. Earlier follow-through still counts. It does not cancel this miss.',
+            'Every meal Noor arranged still counts. Tonight Eli had to make a meal they never agreed to handle. The miss is the same on both sides. Would more cooking help Eli now? What repair could Noor and Eli agree on?',
         },
       },
       {

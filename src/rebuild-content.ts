@@ -1,4 +1,4 @@
-/* Generated from exact founder-supplied Work 53 HTML. Do not hand-edit. */
+/* Generated from docs/work53-source by scripts/compile-rebuild-source.py. Do not hand-edit. */
 export const rebuildTrees = {
   index: [
     {
@@ -517,6 +517,13 @@ export const rebuildTrees = {
                 'A life can look fine from the street while something important slips a little further away every night. The first honest move is to name what your conduct keeps allowing. You can do that before anybody leaves, before something breaks, before the cost gets big enough for somebody else to notice.',
               ],
             },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'Knowledge has work to do. If you lack the skill, information or care to take a sound next step, getting it can be your first act. If you already know what you keep doing, ask what another round of thinking would change about tonight. Give the answer a shape somebody could recognize if they were standing there.',
+              ],
+            },
           ],
         },
         {
@@ -863,13 +870,6 @@ export const rebuildTrees = {
               tag: 'p',
               attrs: {},
               children: [
-                'Knowledge has work to do. If you lack the skill, information or care to take a sound next step, getting it can be your first act. If you already know what you keep doing, ask what another round of thinking would change about tonight. Give the answer a shape somebody could recognize if they were standing there.',
-              ],
-            },
-            {
-              tag: 'p',
-              attrs: {},
-              children: [
                 'A standard puts a line through the part that belongs to you. It gives you a way to tell when you crossed it and somewhere to return. You can set your phone down. You cannot set a standard that makes somebody else want to talk to you.',
               ],
             },
@@ -991,11 +991,20 @@ export const rebuildTrees = {
           tag: 'div',
           attrs: { class: 'prose' },
           children: [
+            { tag: 'h2', attrs: {}, children: ['Build the structure'] },
             {
               tag: 'p',
               attrs: {},
               children: [
-                'A serious promise can still have nowhere to go. Look at the hour you were counting on. Who needs you then? What has to be within reach? What happens when work runs late? Discipline starts taking shape when the answers change the way you arrange an ordinary day.',
+                'A serious promise can still have nowhere to go. Look at the hour you were counting on. Who needs you then? What has to be within reach? What happens when work runs late? Discipline starts taking shape when the answers change the way you arrange an ordinary day. Get the materials ready and ask for the help you need. If that hour is gone, arrange the next one you can use, even if you can’t set it today.',
+              ],
+            },
+            { tag: 'h2', attrs: {}, children: ['Repeat the action'] },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'Setting aside the time still leaves the work to do. When the opening comes, do what you said you would. That’s one kept promise. Doing it again the next time you can is how a pattern starts. What you keep doing after the urgency wears off tells you whether the standard has a place in your life.',
               ],
             },
           ],
@@ -1586,6 +1595,14 @@ export const rebuildTrees = {
           tag: 'div',
           attrs: { class: 'prose' },
           children: [
+            { tag: 'h2', attrs: {}, children: ['What a kept promise proves'] },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'You said you would do something, and you did it. On a day when nobody has to chase you and nothing has gone wrong, that still counts. One kept promise gives you one fact. Keep the same promise across ordinary days and you have a reason to expect you can keep it the next time.',
+              ],
+            },
             {
               tag: 'p',
               attrs: {},
@@ -1990,6 +2007,22 @@ export const rebuildTrees = {
                 'When you have made the same promise and disappeared, you have a reason to doubt yourself. A strong feeling on Sunday does little to answer what happened all the other Sundays. Give yourself a promise small enough to live, then pay attention to what happens more than once.',
               ],
             },
+            { tag: 'h2', attrs: {}, children: ['What you can trust yourself to do'] },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'A promise you keep today gives you one reason to take your word seriously. Keep it on more ordinary days and you have something to go on the next time you make that promise. Be precise about what you have earned. You can rely a little more on your word in this part of your life. If you’ve faced a miss and made a correction, you have reason to trust yourself to come back, too.',
+              ],
+            },
+            { tag: 'h2', attrs: {}, children: ['When the standard starts to feel like yours'] },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'The old way can still feel natural. You practiced it longer. At first you may have to think through every part of doing what you said. As you keep doing it, you begin to see yourself as someone who follows through. The next time nobody reminds you, that changes the question. You already know how you mean to act. What you do then gives you another reason to believe it, or a miss to put right.',
+              ],
+            },
           ],
         },
         {
@@ -2312,13 +2345,6 @@ export const rebuildTrees = {
           attrs: { class: 'prose' },
           children: [
             { tag: 'h2', attrs: {}, children: ['What carries into your day'] },
-            {
-              tag: 'p',
-              attrs: {},
-              children: [
-                'A more reliable record lets you make a narrower, honest claim about yourself. You begin to expect that you can keep a line or come back to it. With time that changes who you understand yourself to be. Your next private decision can draw on that identity, and what you do next keeps it grounded.',
-              ],
-            },
             {
               tag: 'p',
               attrs: {},
@@ -3042,6 +3068,13 @@ export const rebuildTrees = {
                 'Help can hold a part of life that you cannot hold alone. Treatment, medication, counseling, a group, a ride or long-term assistance may belong in the structure. A person can need those things for years and still take responsibility for how they live.',
               ],
             },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'Keep the help you need. With it in place, what can you decide or start today? If you can make the call you agreed to make, make it. If you need help, ask in a way that works for you. Someone else can make the call if that’s what you both agree to. If even asking is out of reach today, you don’t have to find another task to earn care.',
+              ],
+            },
           ],
         },
         {
@@ -3582,7 +3615,14 @@ export const rebuildTrees = {
           tag: 'p',
           attrs: {},
           children: [
-            'Either person can prepare a line on paper. Only the next conversation or lunch can give that line a record. Repeated conduct can earn trust in your word, and trust can guide the choice you make when nobody asks. That is how these parts belong to one life.',
+            'Either person can prepare a line on paper. Decide what you’ll do differently and give that higher standard a place in the day. The page holds the promise. Only the next conversation or lunch can give that line a record. An honest answer about the job search or a phone put away at the table is one promise kept.',
+          ],
+        },
+        {
+          tag: 'p',
+          attrs: {},
+          children: [
+            'Keep that promise on ordinary days and you have a reason to trust your own word the next time. As that trust grows, you begin to see following through as part of who you are. When nobody reminds you, you can leave the phone in your bag without deciding all over again whether that promise matters. How you keep your word today is yours to decide, with whatever help you need. Each time you face a hard conversation or give your attention to the friend across the table, you’re building a life you want to be present for.',
           ],
         },
       ],
@@ -4017,11 +4057,20 @@ export const rebuildTrees = {
               tag: 'div',
               attrs: { class: 'prose' },
               children: [
+                { tag: 'h3', attrs: {}, children: ['Build the structure'] },
                 {
                   tag: 'p',
                   attrs: {},
                   children: [
-                    'A serious promise can still have nowhere to go. Look at the hour you were counting on. Who needs you then? What has to be within reach? What happens when work runs late? Discipline starts taking shape when the answers change the way you arrange an ordinary day.',
+                    'A serious promise can still have nowhere to go. Look at the hour you were counting on. Who needs you then? What has to be within reach? What happens when work runs late? Discipline starts taking shape when the answers change the way you arrange an ordinary day. Get the materials ready and ask for the help you need. If that hour is gone, arrange the next one you can use, even if you can’t set it today.',
+                  ],
+                },
+                { tag: 'h3', attrs: {}, children: ['Repeat the action'] },
+                {
+                  tag: 'p',
+                  attrs: {},
+                  children: [
+                    'Setting aside the time still leaves the work to do. When the opening comes, do what you said you would. That’s one kept promise. Doing it again the next time you can is how a pattern starts. What you keep doing after the urgency wears off tells you whether the standard has a place in your life.',
                   ],
                 },
                 {
@@ -4222,6 +4271,14 @@ export const rebuildTrees = {
               tag: 'div',
               attrs: { class: 'prose' },
               children: [
+                { tag: 'h3', attrs: {}, children: ['What a kept promise proves'] },
+                {
+                  tag: 'p',
+                  attrs: {},
+                  children: [
+                    'You said you would do something, and you did it. On a day when nobody has to chase you and nothing has gone wrong, that still counts. One kept promise gives you one fact. Keep the same promise across ordinary days and you have a reason to expect you can keep it the next time.',
+                  ],
+                },
                 {
                   tag: 'p',
                   attrs: {},
@@ -4407,11 +4464,20 @@ export const rebuildTrees = {
                     'When you have made the same promise and disappeared, you have a reason to doubt yourself. A strong feeling on Sunday does little to answer what happened all the other Sundays. Give yourself a promise small enough to live, then pay attention to what happens more than once.',
                   ],
                 },
+                { tag: 'h3', attrs: {}, children: ['What you can trust yourself to do'] },
                 {
                   tag: 'p',
                   attrs: {},
                   children: [
-                    'A more reliable record lets you make a narrower, honest claim about yourself. You begin to expect that you can keep a line or come back to it. With time that changes who you understand yourself to be. Your next private decision can draw on that identity, and what you do next keeps it grounded.',
+                    'A promise you keep today gives you one reason to take your word seriously. Keep it on more ordinary days and you have something to go on the next time you make that promise. Be precise about what you have earned. You can rely a little more on your word in this part of your life. If you’ve faced a miss and made a correction, you have reason to trust yourself to come back, too.',
+                  ],
+                },
+                { tag: 'h3', attrs: {}, children: ['When the standard starts to feel like yours'] },
+                {
+                  tag: 'p',
+                  attrs: {},
+                  children: [
+                    'The old way can still feel natural. You practiced it longer. At first you may have to think through every part of doing what you said. As you keep doing it, you begin to see yourself as someone who follows through. The next time nobody reminds you, that changes the question. You already know how you mean to act. What you do then gives you another reason to believe it, or a miss to put right.',
                   ],
                 },
                 {
@@ -4788,6 +4854,13 @@ export const rebuildTrees = {
                   tag: 'p',
                   attrs: {},
                   children: [
+                    'Keep the help you need. With it in place, what can you decide or start today? If you can make the call you agreed to make, make it. If you need help, ask in a way that works for you. Someone else can make the call if that’s what you both agree to. If even asking is out of reach today, you don’t have to find another task to earn care.',
+                  ],
+                },
+                {
+                  tag: 'p',
+                  attrs: {},
+                  children: [
                     'Ownership becomes visible in the part a person can carry with support available. That might mean choosing among accessible options, speaking honestly about what they need, accepting an offer, or following an agreed plan between appointments. Other people can supply the ride, skill or treatment. Their help never tells the whole story of what the person did.',
                   ],
                 },
@@ -5009,7 +5082,14 @@ export const rebuildTrees = {
                   tag: 'p',
                   attrs: {},
                   children: [
-                    'Either person can prepare a line on paper. Only the next conversation or lunch can give that line a record. Repeated conduct can earn trust in your word, and trust can guide the choice you make when nobody asks. That is how these parts belong to one life.',
+                    'Either person can prepare a line on paper. Decide what you’ll do differently and give that higher standard a place in the day. The page holds the promise. Only the next conversation or lunch can give that line a record. An honest answer about the job search or a phone put away at the table is one promise kept.',
+                  ],
+                },
+                {
+                  tag: 'p',
+                  attrs: {},
+                  children: [
+                    'Keep that promise on ordinary days and you have a reason to trust your own word the next time. As that trust grows, you begin to see following through as part of who you are. When nobody reminds you, you can leave the phone in your bag without deciding all over again whether that promise matters. How you keep your word today is yours to decide, with whatever help you need. Each time you face a hard conversation or give your attention to the friend across the table, you’re building a life you want to be present for.',
                   ],
                 },
               ],
