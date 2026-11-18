@@ -217,7 +217,7 @@ test('desktop and mobile openings, full pages, text enlargement and reflow remai
       if (javaScriptEnabled) {
         expect(moment!.y).toBeLessThan(width === 1440 ? 600 : 740);
       } else {
-        // The two-framework no-script index intentionally precedes PERIOD teaching.
+        // The three-framework no-script index intentionally precedes PERIOD teaching.
         await expect(page.locator('.framework-hub')).toBeVisible();
         await page.getByRole('link', { name: c.start, exact: true }).click();
         await expect(page.locator('#first-moment')).toBeInViewport();
