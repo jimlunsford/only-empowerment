@@ -173,7 +173,8 @@ test('fixed scenario has zero storage access, requests or private location state
   const count = requests.length;
   for (const id of Object.keys(loopScenario.states)) await state(page, id as LoopStateId);
   expect(requests.length).toBe(count);
-  expect(requests.every((url) => url.startsWith('http://127.0.0.1:4173/'))).toBe(true);
+  const origin = new URL(page.url()).origin;
+  expect(requests.every((url) => url.startsWith(origin + '/'))).toBe(true);
   expect(await page.evaluate(() => (window as any).__loopPrivacy)).toEqual([]);
   expect(await context.cookies()).toEqual([]);
   expect(await page.evaluate(() => Object.keys(history.state))).toEqual(['oeNavigation']);
