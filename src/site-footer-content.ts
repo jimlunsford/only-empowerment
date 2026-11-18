@@ -13,13 +13,18 @@ export const softwareNotice = {
   permissions:
     '. You may use, modify, and redistribute it under that license. No warranty. The founder copyright statement does not limit these software permissions.',
 };
-export type EducationSource = 'period' | 'rebuild' | 'combined';
+export type EducationSource = 'period' | 'rebuild' | 'loop' | 'combined';
 export function footerEducation(source: EducationSource) {
   if (source === 'period') return { text: periodExercise.source, url: periodBook.url };
+  if (source === 'loop')
+    return {
+      text: 'Based on The Discipline Loop by Jim Lunsford. Educational adaptation by Only Empowerment.',
+      url: 'https://jimlunsford.com/discipline-loop/',
+    };
   const titles =
     source === 'rebuild'
       ? 'How to Rebuild Yourself'
-      : 'The PERIOD Code and How to Rebuild Yourself';
+      : 'The PERIOD Code, How to Rebuild Yourself and The Discipline Loop';
   return {
     text: `Based on ${titles} by Jim Lunsford. Educational adaptation by Only Empowerment.`,
     url: null,

@@ -1,0 +1,30 @@
+{
+  "beforeSha256": "b52511450bdf9137e95879262bd7286d44dff077511d965f0751e2af8b729a99",
+  "afterSha256": "230d0e50cc22d91edf19e096da117a3744ef406e970d4b5381786cfc6ef183a0",
+  "edits": [
+    {
+      "start": 196,
+      "end": 238,
+      "after": "';\nimport { loopRoute } from './loop-state",
+      "before": ""
+    },
+    {
+      "start": 1248,
+      "end": 1274,
+      "after": "loopRoute(fragment) ||\n  (",
+      "before": ""
+    },
+    {
+      "start": 1565,
+      "end": 1566,
+      "after": ")",
+      "before": ""
+    },
+    {
+      "start": 1612,
+      "end": 1790,
+      "after": "\n  if (fragment.startsWith('/loop?') && loopRoute(fragment) === '/loop') {\n    return document.querySelector<HTMLElement>('#app .loop-experience #' + fragment.split('=')[1]);\n  }",
+      "before": ""
+    }
+  ]
+}
