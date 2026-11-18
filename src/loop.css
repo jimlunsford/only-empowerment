@@ -290,6 +290,28 @@
     padding-block: 0.7rem;
     break-inside: auto;
   }
+  .loop-transcript-state > ul,
+  .loop-section:last-child,
+  .loop-transcript-state:last-child {
+    break-inside: avoid;
+  }
+  /* Give the reflection and final return room to stay with their source notice. */
+  .loop-section:last-child,
+  .loop-transcript-state:last-child {
+    break-before: page;
+  }
+  .loop-transcript-state > p:has(+ ul),
+  .loop-section:last-child,
+  .loop-transcript-state:last-child,
+  .native-loop main,
+  #app main:has(> .loop-experience) {
+    break-after: avoid;
+  }
+  .native-loop > .site-footer,
+  #app main:has(> .loop-experience) + .site-footer {
+    break-before: avoid;
+    margin-top: 12pt;
+  }
   .loop-comparison-row,
   .loop-comparison-pair > div {
     break-inside: avoid;
@@ -315,8 +337,5 @@
   }
   .loop-experience [tabindex='-1']:focus {
     outline: none;
-  }
-  .native-loop .site-footer {
-    break-before: auto;
   }
 }

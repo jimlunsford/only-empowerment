@@ -241,3 +241,47 @@ test('WCAG scans cover full teaching, each scenario state and both native reader
     ).toEqual([]);
   }
 });
+
+for (const reading of [
+  { route: '/#/loop', native: false, teaching: true, transcript: false },
+  { route: '/#/loop/practice', native: false, teaching: false, transcript: true },
+  { route: '/read/loop.html', native: true, teaching: true, transcript: true },
+  { route: '/read/loop-practice.html', native: true, teaching: false, transcript: true },
+]) {
+  test(`complete print content: ${reading.route}`, async ({ browser }, info) => {
+    const context = await browser.newContext({ javaScriptEnabled: !reading.native });
+    const page = await context.newPage();
+    await page.goto(new URL(reading.route, info.project.use.baseURL).href);
+    const scope = page.locator(reading.native ? 'main' : '#app main');
+    await expect(scope).toBeVisible();
+    await page.emulateMedia({ media: 'print' });
+    if (reading.teaching)
+      for (const section of loopSections)
+        for (const block of section.blocks) {
+          const texts = block.kind === 'comparison' ? block.rows.flat() : [block.text];
+          for (const text of texts)
+            await expect(
+              scope.getByText(text, { exact: true }).filter({ visible: true }).first(),
+            ).toBeVisible();
+        }
+    if (reading.transcript) {
+      await expect(scope.locator('.loop-transcript-state:visible')).toHaveCount(13);
+      await expect(scope.locator('.loop-transcript-state a:visible')).toHaveCount(35);
+      for (const state of Object.values(loopScenario.states))
+        for (const text of [...state.body, ...state.options.map((o) => o.label)])
+          await expect(
+            scope.getByText(text, { exact: true }).filter({ visible: true }).first(),
+          ).toBeVisible();
+    }
+    await expect(page.locator('.footer-print-urls')).toBeVisible();
+    await expect(page.locator('.footer-print-urls')).toContainText('The Discipline Loop');
+    if (info.project.name === 'chromium')
+      for (const format of ['A4', 'Letter'] as const)
+        await page.pdf({
+          path: info.outputPath('loop-' + format + '.pdf'),
+          format,
+          printBackground: true,
+        });
+    await context.close();
+  });
+}
