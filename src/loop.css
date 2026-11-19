@@ -1,0 +1,344 @@
+.loop-experience {
+  --loop-ink: #173c34;
+  --loop-rule: #c9cec4;
+  color: var(--loop-ink);
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow-wrap: anywhere;
+}
+.loop-experience p,
+.loop-experience li {
+  line-height: 1.65;
+}
+.loop-experience h1 {
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 1.06;
+  max-width: 14ch;
+}
+.loop-experience h2 {
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  line-height: 1.2;
+}
+.loop-experience h3 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-top: 2rem;
+}
+.loop-experience h4 {
+  font-size: 1.1rem;
+}
+.loop-experience :is(h2, h3, h4) {
+  scroll-margin-top: 1rem;
+}
+.loop-experience :is(a, button):focus-visible,
+.loop-experience [tabindex='-1']:focus {
+  outline: 3px solid #98422e;
+  outline-offset: 5px;
+}
+.loop-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding: 2rem 0 3rem;
+}
+.loop-hero .loop-kicker + h1 {
+  margin-block-start: 1rem;
+}
+.loop-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.loop-deck {
+  font-size: 1.5rem;
+}
+.loop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.2rem;
+  margin: 1.5rem 0;
+}
+.loop-experience :is(.loop-actions a, .loop-actions button, .loop-section-nav a, .loop-cycle a) {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.3rem;
+}
+.loop-actions a:first-child {
+  background: #173c34;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border: 1px solid;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.loop-cycle {
+  background: #e5ebe2;
+  padding: 1.5rem;
+  border: 1px solid var(--loop-rule);
+}
+.loop-cycle ol {
+  list-style: decimal-leading-zero;
+  padding-left: 2.1rem;
+  margin: 1rem 0;
+}
+.loop-cycle li {
+  border-bottom: 1px solid var(--loop-rule);
+  padding: 0.2rem 0;
+}
+.loop-cycle a {
+  color: inherit;
+  font-weight: 650;
+}
+.loop-cycle-return {
+  border-left: 3px solid #98422e;
+  padding-left: 1rem;
+}
+.loop-cycle-return strong {
+  display: block;
+}
+.loop-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.25rem;
+  border-block: 1px solid var(--loop-rule);
+  padding: 0.75rem 0;
+}
+.loop-section {
+  max-width: 78ch;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--loop-rule);
+}
+.loop-section > p,
+.loop-scenario > p {
+  margin: 1.1rem 0;
+}
+.loop-comparison-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.loop-comparison-pair > div {
+  border: 1px solid var(--loop-rule);
+  padding: 1rem;
+}
+.loop-comparison-pair > div:last-child {
+  background: #e5ebe2;
+}
+.loop-practice-header {
+  max-width: 75ch;
+  padding: 2rem 0;
+}
+.loop-practice-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+.loop-scenario {
+  border: 1px solid var(--loop-rule);
+  padding: 2rem;
+  background: #fffdf8;
+}
+.loop-scenario h2 {
+  margin-top: 0;
+}
+.loop-choices {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.loop-choices button,
+.loop-reset button {
+  min-height: 44px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  white-space: normal;
+  background: #173c34;
+  color: white;
+  border: 2px solid #173c34;
+  border-radius: 3px;
+  font: inherit;
+  line-height: 1.45;
+  cursor: pointer;
+}
+.loop-choices button:hover,
+.loop-reset button:hover {
+  background: #28574b;
+}
+.loop-trace {
+  border-left: 3px solid #98422e;
+  padding-left: 1.2rem;
+  margin: 2rem 0;
+}
+.loop-trace ol {
+  padding-left: 1.3rem;
+}
+.loop-trace li {
+  margin: 0.8rem 0;
+}
+.loop-trace strong {
+  display: block;
+}
+.loop-transcript {
+  max-width: 80ch;
+  margin: 3rem 0;
+}
+.loop-transcript-state {
+  border-top: 1px solid var(--loop-rule);
+  padding: 1.5rem 0;
+  scroll-margin-top: 1rem;
+}
+.loop-transcript-state a {
+  display: inline-block;
+  padding: 0.6rem 0;
+  min-height: 44px;
+}
+.loop-print-transcript {
+  display: none;
+}
+.loop-practice .loop-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.native-loop {
+  font-family: system-ui, sans-serif;
+}
+.native-loop :is(h1, h2, h3, h4) {
+  font-family: Georgia, serif;
+}
+.native-loop .loop-reading-note {
+  max-width: 75ch;
+}
+@media (max-width: 760px) {
+  .loop-hero,
+  .loop-practice-layout,
+  .loop-comparison-pair {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  .loop-scenario,
+  .loop-cycle {
+    padding: 1.2rem;
+  }
+  .loop-section {
+    padding-block: 1.75rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loop-experience * {
+    scroll-behavior: auto;
+    animation: none;
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  .loop-experience :is(a, button):focus-visible,
+  .loop-experience [tabindex='-1']:focus {
+    outline-color: Highlight;
+  }
+  .loop-experience :is(.loop-cycle, .loop-scenario, .loop-comparison-pair > div, button) {
+    border-color: CanvasText;
+  }
+}
+@media print {
+  .loop-experience {
+    max-width: none;
+    color: #000;
+    font-size: 10pt;
+  }
+  .loop-experience :is(h1, h2, h3, h4) {
+    break-after: avoid;
+    color: #000;
+  }
+  .loop-experience h1 {
+    font-size: 28pt;
+    max-width: none;
+  }
+  .loop-experience h2 {
+    font-size: 19pt;
+  }
+  .loop-experience h3 {
+    font-size: 14pt;
+  }
+  .loop-experience p,
+  .loop-experience li {
+    orphans: 3;
+    widows: 3;
+  }
+  .loop-experience :is(.loop-section-nav, .loop-actions, .loop-hero > .loop-cycle),
+  .loop-reading-note {
+    display: none;
+  }
+  .loop-hero,
+  .loop-practice-layout,
+  .loop-comparison-pair {
+    display: block;
+  }
+  .loop-hero,
+  .loop-practice-header {
+    padding: 0;
+  }
+  .loop-section,
+  .loop-transcript-state {
+    padding-block: 0.7rem;
+    break-inside: auto;
+  }
+  .loop-transcript-state > ul,
+  .loop-section:last-child,
+  .loop-transcript-state:last-child {
+    break-inside: avoid;
+  }
+  /* Give the reflection and final return room to stay with their source notice. */
+  .loop-section:last-child,
+  .loop-transcript-state:last-child {
+    break-before: page;
+  }
+  .loop-transcript-state > p:has(+ ul),
+  .loop-section:last-child,
+  .loop-transcript-state:last-child,
+  .native-loop main,
+  #app main:has(> .loop-experience) {
+    break-after: avoid;
+  }
+  .native-loop > .site-footer,
+  #app main:has(> .loop-experience) + .site-footer {
+    break-before: avoid;
+    margin-top: 12pt;
+  }
+  .loop-comparison-row,
+  .loop-comparison-pair > div {
+    break-inside: avoid;
+  }
+  .loop-comparison-pair > div {
+    background: transparent;
+    margin-bottom: 0.4rem;
+  }
+  .loop-trace {
+    break-inside: auto;
+  }
+  .loop-practice .loop-practice-layout,
+  .loop-practice > [role='status'] {
+    display: none;
+  }
+  .loop-print-transcript {
+    display: block;
+  }
+  .loop-transcript-state a {
+    min-height: 0;
+    padding: 0;
+    color: #000;
+  }
+  .loop-experience [tabindex='-1']:focus {
+    outline: none;
+  }
+}
