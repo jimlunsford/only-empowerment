@@ -97,9 +97,15 @@ test('Work72 valid section deep links still align, focus, refresh and traverse h
     await page.reload();
     await expect(page.locator(selector)).toBeFocused();
     await expect(page.locator(selector)).toBeInViewport();
-    await page.locator('.site-header a[href="#/"]').first().click();
+    const home = page.locator('.site-header a[href="#/"]').first();
+    await home.scrollIntoViewIfNeeded();
+    const departureScroll = await page.evaluate(() => scrollY);
+    await home.click();
     await page.goBack();
-    await expect(page.locator(selector)).toBeInViewport();
+    await expect.poll(() => new URL(page.url()).hash).toBe('#' + route);
+    await expect
+      .poll(() => page.evaluate((y) => Math.abs(scrollY - y), departureScroll))
+      .toBeLessThan(1);
     await page.goForward();
     await expect(page.locator('.framework-hub')).toBeVisible();
   }
@@ -316,14 +322,14 @@ test('Work72 no-script root introduces all frameworks and retains real native re
   ]);
   await nav.getByRole('link', { name: 'The PERIOD Code', exact: true }).click();
   await expect(page.locator('#why-period')).toBeInViewport();
-  for (const [name, path] of [
-    ['How to Rebuild Yourself', '/read/rebuild.html'],
-    ['The Discipline Loop', '/read/loop.html'],
+  for (const [name, path, title] of [
+    ['How to Rebuild Yourself', '/read/rebuild.html', 'How to Rebuild Yourself: Complete reading'],
+    ['The Discipline Loop', '/read/loop.html', 'The Discipline Loop'],
   ]) {
     await page.goto(baseURL! + '/');
     await nav.getByRole('link', { name, exact: true }).click();
     expect(new URL(page.url()).pathname).toBe(path);
-    await expect(page.locator('h1')).toHaveText(name);
+    await expect(page.locator('h1')).toHaveText(title);
   }
   for (const id of [
     '/rebuild',
