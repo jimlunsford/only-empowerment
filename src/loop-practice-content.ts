@@ -295,9 +295,9 @@ export const loopScenario: LoopScenario = {
     restart: {
       heading: 'Find the break without attacking yourself',
       body: [
-        'Name the fact: the agreed space was not cleared. In this illustration, you opened your phone before deciding how to respond to irritation, then kept postponing the task.',
+        'Name the fact: the agreed space was not cleared. Find the break in the path you followed. Did you avoid the task, expand it beyond what you could sustain, hide the miss, or use it to condemn the whole effort?',
         'Name the consequence: the space is still unusable, and somebody may have worked around it. Calling yourself useless does not correct that. Neither does pretending it did not matter.',
-        'A next move is available: acknowledge the miss where necessary, clear the space when safe to do so, and put the phone aside before the next planned reset.',
+        'A next move is available: acknowledge the miss where necessary, clear the space when safe to do so, and correct the pattern that blocked the agreed minimum. Put the phone aside if it was the escape. Cut the plan back if you made it too large. Correct what actually happened.',
       ],
       options: [
         {

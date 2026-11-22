@@ -1,0 +1,302 @@
+{
+  "index.html": {
+    "beforeSha256": "91f57fe2852c344966b3c15aeb22fb61094cff288fe2496d93f5e128d79a019f",
+    "afterSha256": "91f687e125ca582876f4ff96150e766ed0dea2d7e979b82d7cea2bf02f5ec4ea",
+    "edits": [
+      {
+        "start": 193,
+        "end": 194,
+        "before": " and",
+        "after": ","
+      },
+      {
+        "start": 218,
+        "end": 242,
+        "before": "",
+        "after": " and The Discipline Loop"
+      },
+      {
+        "start": 1177,
+        "end": 1189,
+        "before": "#w",
+        "after": "/read/index."
+      },
+      {
+        "start": 1190,
+        "end": 1193,
+        "before": "y-period",
+        "after": "tml"
+      },
+      {
+        "start": 1195,
+        "end": 1205,
+        "before": "Why PERIOD?",
+        "after": "Frameworks"
+      },
+      {
+        "start": 1219,
+        "end": 1220,
+        "before": "teac",
+        "after": "w"
+      },
+      {
+        "start": 1221,
+        "end": 1222,
+        "before": "ing",
+        "after": "y"
+      },
+      {
+        "start": 1223,
+        "end": 1224,
+        "before": "ord",
+        "after": "p"
+      },
+      {
+        "start": 1226,
+        "end": 1229,
+        "before": "",
+        "after": "iod"
+      },
+      {
+        "start": 1231,
+        "end": 1232,
+        "before": "Explore t",
+        "after": "T"
+      },
+      {
+        "start": 1235,
+        "end": 1245,
+        "before": "valu",
+        "after": "PERIOD Cod"
+      },
+      {
+        "start": 1246,
+        "end": 1246,
+        "before": "s",
+        "after": ""
+      },
+      {
+        "start": 1302,
+        "end": 1351,
+        "before": "",
+        "after": "</a><a href=\"/read/loop.html\">The Discipline Loop"
+      }
+    ]
+  },
+  "src/LoopPractice.tsx": {
+    "beforeSha256": "74386414125c8fc2872caa29d48c1757ba631ebfcf6a2b7f9365b46e4ca592ee",
+    "afterSha256": "7551b6046ec1fb842d66f7784cf702facd2ae80d40887b07617dbc6d8b8f912e",
+    "edits": [
+      {
+        "start": 674,
+        "end": 1007,
+        "before": "",
+        "after": ";\n  const reset = () => {\n    if (location.hash === '#/loop/practice?state=miss') {\n      // Replace the public entry address, not the private choice history.\n      // Native navigation lets the router remount at its ordinary initial state.\n      location.replace('#/loop/practice');\n    } else choose(loopScenario.initialState);\n  }"
+      },
+      {
+        "start": 2573,
+        "end": 2575,
+        "before": "() => choo",
+        "after": "re"
+      },
+      {
+        "start": 2577,
+        "end": 2577,
+        "before": "(loopScenario.ini",
+        "after": ""
+      },
+      {
+        "start": 2578,
+        "end": 2578,
+        "before": "ialState)",
+        "after": ""
+      }
+    ]
+  },
+  "src/loop-practice-content.ts": {
+    "beforeSha256": "ca3bf2bf9d9805c08f99c5b4395e8e54de4971771d5c4549d3dfc6538b7358b8",
+    "afterSha256": "931adc60443f4bf4d883dab043769267c73c94d572ea3d9d0adeefe2589cbd94",
+    "edits": [
+      {
+        "start": 11643,
+        "end": 11659,
+        "before": "I",
+        "after": "Find the break i"
+      },
+      {
+        "start": 11663,
+        "end": 11664,
+        "before": "is",
+        "after": "e"
+      },
+      {
+        "start": 11665,
+        "end": 11666,
+        "before": "illustr",
+        "after": "p"
+      },
+      {
+        "start": 11668,
+        "end": 11669,
+        "before": "ion,",
+        "after": "h"
+      },
+      {
+        "start": 11674,
+        "end": 11675,
+        "before": "",
+        "after": "f"
+      },
+      {
+        "start": 11676,
+        "end": 11680,
+        "before": "p",
+        "after": "llow"
+      },
+      {
+        "start": 11681,
+        "end": 11686,
+        "before": "ne",
+        "after": "d. Di"
+      },
+      {
+        "start": 11691,
+        "end": 11691,
+        "before": "r",
+        "after": ""
+      },
+      {
+        "start": 11692,
+        "end": 11694,
+        "before": "ph",
+        "after": "av"
+      },
+      {
+        "start": 11695,
+        "end": 11695,
+        "before": "ne before dec",
+        "after": ""
+      },
+      {
+        "start": 11697,
+        "end": 11697,
+        "before": "ing how to respond to irritation, then kept postponing",
+        "after": ""
+      },
+      {
+        "start": 11706,
+        "end": 11802,
+        "before": ".",
+        "after": ", expand it beyond what you could sustain, hide the miss, or use it to condemn the whole effort?"
+      },
+      {
+        "start": 12111,
+        "end": 12123,
+        "before": "",
+        "after": "correct the "
+      },
+      {
+        "start": 12124,
+        "end": 12165,
+        "before": "",
+        "after": "attern that blocked the agreed minimum. P"
+      },
+      {
+        "start": 12184,
+        "end": 12185,
+        "before": "be",
+        "after": "i"
+      },
+      {
+        "start": 12186,
+        "end": 12193,
+        "before": "ore",
+        "after": " it was"
+      },
+      {
+        "start": 12198,
+        "end": 12198,
+        "before": "n",
+        "after": ""
+      },
+      {
+        "start": 12199,
+        "end": 12208,
+        "before": "x",
+        "after": "scape. Cu"
+      },
+      {
+        "start": 12209,
+        "end": 12213,
+        "before": "",
+        "after": " the"
+      },
+      {
+        "start": 12218,
+        "end": 12277,
+        "before": "",
+        "after": " back if you made it too large. Correct what actually happe"
+      },
+      {
+        "start": 12280,
+        "end": 12280,
+        "before": " reset",
+        "after": ""
+      }
+    ]
+  },
+  "src/loop.css": {
+    "beforeSha256": "4e83747e7d0f71854656c7ce8f92a434d695c3f3305a6a991f9e96b18ff9ce63",
+    "afterSha256": "332730964ab19d9ae6d5af14de671fa2dd351bee6ba07ee4cb534b23884f771a",
+    "edits": [
+      {
+        "start": 906,
+        "end": 947,
+        "before": "",
+        "after": ",\n.loop-practice-header .loop-kicker + h1"
+      },
+      {
+        "start": 964,
+        "end": 964,
+        "before": "-start",
+        "after": ""
+      }
+    ]
+  },
+  "src/rebuild-app.css": {
+    "beforeSha256": "d956c7a3a8445a8a2e6879ddc84df56a9876ab656665067f60e2608e68c13065",
+    "afterSha256": "0bf7823491b969e3d0cfd39d8853f637dd9cbc0e53d2b384bc4c531cf0b14021",
+    "edits": [
+      {
+        "start": 1284,
+        "end": 1443,
+        "before": "",
+        "after": ";\n}\n/* Leave room for the full 3px outline and 3px offset after section navigation. */\n.rebuild-guide .phrase-selector .linkedpanel {\n  scroll-margin-top: 1rem"
+      }
+    ]
+  },
+  "src/use-route.ts": {
+    "beforeSha256": "230d0e50cc22d91edf19e096da117a3744ef406e970d4b5381786cfc6ef183a0",
+    "afterSha256": "66874b80b74c56cbf07b0139f34b3d42c58123ec23324d0463a6b7a4cd55c40e",
+    "edits": [
+      {
+        "start": 1267,
+        "end": 1392,
+        "before": "",
+        "after": " ||\n  /^\\/period\\/values\\/(ownership|purpose|resilience|integrity|discipline|empowerment)(?=\\?)/.exec(\n    fragment,\n  )?.[0]"
+      },
+      {
+        "start": 7453,
+        "end": 7768,
+        "before": "",
+        "after": "// Native route aliases can scroll the complete fallback before pageshow.\n      // Align once after mount removes that much taller document. Section links\n      // use the target branch above; keep the initial native keyboard tab order.\n      const frame = requestAnimationFrame(() => window.scrollTo(0, 0));\n      "
+      },
+      {
+        "start": 7774,
+        "end": 7808,
+        "before": "",
+        "after": " () => cancelAnimationFrame(frame)"
+      }
+    ]
+  }
+}

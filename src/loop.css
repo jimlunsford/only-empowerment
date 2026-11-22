@@ -42,8 +42,9 @@
   align-items: start;
   padding: 2rem 0 3rem;
 }
-.loop-hero .loop-kicker + h1 {
-  margin-block-start: 1rem;
+.loop-hero .loop-kicker + h1,
+.loop-practice-header .loop-kicker + h1 {
+  margin-block: 1rem;
 }
 .loop-kicker {
   text-transform: uppercase;

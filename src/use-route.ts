@@ -21,6 +21,9 @@ const contextualLink = (fragment: string) =>
     : null;
 const anchorRoute = (fragment: string) =>
   loopRoute(fragment) ||
+  /^\/period\/values\/(ownership|purpose|resilience|integrity|discipline|empowerment)(?=\?)/.exec(
+    fragment,
+  )?.[0] ||
   (Object.hasOwn(readingRoutes, fragment)
     ? readingRoutes[fragment]
     : Object.hasOwn(homepageAnchors, fragment) ||
@@ -154,7 +157,11 @@ export function useRoute() {
     }
     if (first.current) {
       first.current = false;
-      return;
+      // Native route aliases can scroll the complete fallback before pageshow.
+      // Align once after mount removes that much taller document. Section links
+      // use the target branch above; keep the initial native keyboard tab order.
+      const frame = requestAnimationFrame(() => window.scrollTo(0, 0));
+      return () => cancelAnimationFrame(frame);
     }
     const restore = restoring.current;
     if (restore) {

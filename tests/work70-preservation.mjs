@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { beforeWork72Source } from './work72-preservation.mjs';
 import { createHash } from 'node:crypto';
 import router from './fixtures/work70-router.json' with { type: 'json' };
 const sha = (text) => createHash('sha256').update(text).digest('hex');
@@ -7,6 +8,7 @@ const sha = (text) => createHash('sha256').update(text).digest('hex');
 // Current routing and cross-framework behavior are independently exercised in loop.spec.ts.
 export function beforeWork70Source(source, path) {
   if (path !== 'src/use-route.ts') return source;
+  source = beforeWork72Source(source, path);
   assert.equal(sha(source), router.afterSha256, 'Unexpected Work70 router bytes');
   for (const edit of [...router.edits].reverse()) {
     assert.equal(source.slice(edit.start, edit.end), edit.after);

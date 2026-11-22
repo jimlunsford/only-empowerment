@@ -10,6 +10,13 @@ export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
   const state = loopScenario.states[selection.state];
   const choose = (id: LoopStateId) =>
     setSelection((old) => ({ state: id, revision: old.revision + 1 }));
+  const reset = () => {
+    if (location.hash === '#/loop/practice?state=miss') {
+      // Replace the public entry address, not the private choice history.
+      // Native navigation lets the router remount at its ordinary initial state.
+      location.replace('#/loop/practice');
+    } else choose(loopScenario.initialState);
+  };
   useLayoutEffect(() => {
     if (!selection.revision) return;
     heading.current?.focus({ preventScroll: true });
@@ -48,7 +55,7 @@ export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
             {selection.revision ? 'Example: ' + state.heading : ''}
           </p>
           <div class="loop-actions loop-reset">
-            <button type="button" onClick={() => choose(loopScenario.initialState)}>
+            <button type="button" onClick={reset}>
               Reset example
             </button>
             <a href="/read/loop-practice.html">Read or print every outcome</a>
