@@ -134,8 +134,7 @@ test('disabled and failed JavaScript retain the teaching, native anchors and com
     ).toBeVisible();
     for (const [id, label] of [
       ['first-moment', c.start],
-      ['why-period', c.whyHeading],
-      ['teaching-order', 'Explore the values'],
+      ['why-period', 'The PERIOD Code'],
     ]) {
       await page.getByRole('link', { name: label, exact: true }).focus();
       await page.keyboard.press('Enter');
@@ -145,6 +144,12 @@ test('disabled and failed JavaScript retain the teaching, native anchors and com
       await page.getByRole('link', { name: label, exact: true }).click();
       await visibleTarget(page, id);
     }
+    // The native header now identifies all three frameworks. The teaching-order
+    // anchor remains portable even though it is no longer a header link.
+    await page.goto(baseURL! + '/#teaching-order');
+    await expect(target(page, 'teaching-order')).toBeInViewport();
+    await page.reload();
+    await expect(target(page, 'teaching-order')).toBeInViewport();
     await page.goBack();
     await expect(page).toHaveURL(/#why-period$/);
     await page.goForward();
