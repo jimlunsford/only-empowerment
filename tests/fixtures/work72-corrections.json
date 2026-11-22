@@ -277,7 +277,7 @@
   },
   "src/use-route.ts": {
     "beforeSha256": "230d0e50cc22d91edf19e096da117a3744ef406e970d4b5381786cfc6ef183a0",
-    "afterSha256": "66874b80b74c56cbf07b0139f34b3d42c58123ec23324d0463a6b7a4cd55c40e",
+    "afterSha256": "16a92411544ac3be07b88928cf7c79a2d59415689dd3d4d0b4b7c2df204797f0",
     "edits": [
       {
         "start": 1267,
@@ -287,15 +287,9 @@
       },
       {
         "start": 7453,
-        "end": 7768,
+        "end": 7734,
         "before": "",
-        "after": "// Native route aliases can scroll the complete fallback before pageshow.\n      // Align once after mount removes that much taller document. Section links\n      // use the target branch above; keep the initial native keyboard tab order.\n      const frame = requestAnimationFrame(() => window.scrollTo(0, 0));\n      "
-      },
-      {
-        "start": 7774,
-        "end": 7808,
-        "before": "",
-        "after": " () => cancelAnimationFrame(frame)"
+        "after": "// Native route aliases can scroll the complete fallback before pageshow.\n      // Reset during mount, before the reader can choose a new position. A deferred\n      // reset could overwrite that choice. Section links use the target branch above.\n      window.scrollTo(0, 0);\n      "
       }
     ]
   }

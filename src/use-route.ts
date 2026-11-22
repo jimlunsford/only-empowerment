@@ -158,10 +158,10 @@ export function useRoute() {
     if (first.current) {
       first.current = false;
       // Native route aliases can scroll the complete fallback before pageshow.
-      // Align once after mount removes that much taller document. Section links
-      // use the target branch above; keep the initial native keyboard tab order.
-      const frame = requestAnimationFrame(() => window.scrollTo(0, 0));
-      return () => cancelAnimationFrame(frame);
+      // Reset during mount, before the reader can choose a new position. A deferred
+      // reset could overwrite that choice. Section links use the target branch above.
+      window.scrollTo(0, 0);
+      return;
     }
     const restore = restoring.current;
     if (restore) {

@@ -47,6 +47,33 @@ for (const route of entries)
     await expect(page).toHaveURL(/\/read\/index\.html$/);
   });
 
+test('Work72 a reading position chosen immediately after enhancement survives the first frame', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const observer = new MutationObserver(() => {
+      if (
+        document.querySelector('#app .homepage') &&
+        !document.getElementById('educational-fallback')
+      ) {
+        scrollTo(0, 500);
+        document.documentElement.dataset.work72ChosenPosition = String(scrollY);
+        observer.disconnect();
+      }
+    });
+    observer.observe(document, { childList: true, subtree: true });
+  });
+  await page.goto('/#/period');
+  await expect(page.locator('html')).toHaveAttribute('data-work72-chosen-position', '500');
+  const position = await page.evaluate(async () => {
+    await document.fonts.ready;
+    await new Promise(requestAnimationFrame);
+    await new Promise(requestAnimationFrame);
+    return scrollY;
+  });
+  expect(position).toBe(500);
+});
+
 test('Work72 internal framework and Rebuild lesson navigation retains heading focus and history', async ({
   page,
 }) => {
