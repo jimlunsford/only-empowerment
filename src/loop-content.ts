@@ -408,5 +408,16 @@ export const loopStages = [
   'Stable identity reduces negotiation',
 ] as const;
 export const loopBookUrl = 'https://jimlunsford.com/discipline-loop/';
+
+// Exact D72-05 copy. Separate from the accepted teaching and scenario graph.
+export const loopTransfer = {
+  heading: 'Apply the Loop somewhere else',
+  optional:
+    'Optional reflection. This is a fictional situation. Think it through or use your own paper privately. There is no answer to submit.',
+  scenario:
+    'A coworker is waiting for an update you promised. The task is unfinished. You can send an honest update now, or wait until the result looks better.',
+  reflection:
+    'Identify the pressure, the standard and the action that would create real evidence. Then consider what changes if communication is unavailable.',
+} as const;
 export const loopHomeCopy =
   'Wanting change can start the work. Repeated action gives you a reason to trust yourself. Learn how pressure becomes a choice, action becomes evidence, and correction keeps one miss from becoming the next pattern.';

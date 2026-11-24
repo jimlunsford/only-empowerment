@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { beforeWork73Reading } from './work73-preservation.mjs';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/work59-preservation.json' with { type: 'json' };
 import { beforeWork62PeriodSource, beforeWork62RootReading } from './work62-preservation.mjs';
@@ -24,6 +25,7 @@ export function beforeWork59Source(source, path) {
 }
 
 export function beforeWork59RootReading(html) {
+  html = beforeWork73Reading(html);
   html = beforeWork62RootReading(html);
   assert.equal(sha(html), '2608481f3eb0a09d82872950ff8d9490dfc3373718598897aa29ff8513b57900');
   for (const value of [

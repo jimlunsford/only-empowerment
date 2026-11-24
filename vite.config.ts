@@ -10,6 +10,8 @@ import { resilienceReading } from './scripts/resilience-reading.ts';
 import { periodFallback } from './scripts/period-fallback.ts';
 import { rebuildFallback } from './scripts/rebuild-fallback.ts';
 import { loopFallback, loopReading } from './scripts/loop-reading.ts';
+import { frameworkOrientation } from './src/framework-home-content.ts';
+import { escapeLoop } from './scripts/loop-reading.ts';
 import {
   ownershipReading,
   purposeReading,
@@ -97,6 +99,13 @@ export default defineConfig({
             '<section class="framework-hub" aria-label="Framework introduction">' +
               '<h1>Only Empowerment</h1>' +
               '<p>Explore complete educational experiences from The PERIOD Code, How to Rebuild Yourself and The Discipline Loop.</p>' +
+              '<section aria-labelledby="framework-orientation-title"><h2 id="framework-orientation-title">' +
+              escapeLoop(frameworkOrientation.heading) +
+              '</h2><p>' +
+              escapeLoop(frameworkOrientation.relationship) +
+              '</p><p>' +
+              escapeLoop(frameworkOrientation.choice) +
+              '</p></section>' +
               '<p><a href="#teaching-order">Explore The PERIOD Code</a> or ' +
               '<a href="/read/rebuild.html">read How to Rebuild Yourself</a> or <a href="/read/loop.html">read The Discipline Loop</a>.</p></section>' +
               periodFallback()

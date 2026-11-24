@@ -1,4 +1,5 @@
 import { beforeWork56Source, beforeWork56Reading } from './work56-preservation.mjs';
+import { work73Editorial } from './work73-preservation.mjs';
 import { beforeWork42Source } from './work42-copy-helpers.mjs';
 import { beforeWork39Source, supersessions } from './work39-copy-helpers.mjs';
 import test from 'node:test';
@@ -110,7 +111,10 @@ test('all 177 records have complete static reading coverage or their approved al
     const equivalent = pairEquivalents[record.id];
     const id = equivalent ?? record.id;
     const approved =
-      work62.period[id] ?? supersessions[id]?.proposed ?? records.find((r) => r.id === id).approved;
+      work73Editorial[id] ??
+      work62.period[id] ??
+      supersessions[id]?.proposed ??
+      records.find((r) => r.id === id).approved;
     assert.ok(
       reading[record.id[0]].includes(escape(approved)),
       `${record.id}: ${equivalent ?? 'exact static copy'}`,

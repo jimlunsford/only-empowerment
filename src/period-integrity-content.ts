@@ -89,7 +89,7 @@ export const integrityContent = {
       id: 'L09',
       heading: 'One connected standard, six values at work',
       paragraphs: [
-        'The PERIOD Code is a connected standard for living. Integrity keeps the whole Code honest. Reaching this lesson does not leave Ownership, Purpose or Resilience behind, and the work will still need Discipline and Empowerment.',
+        'Integrity keeps the whole Code honest.',
         'Ownership puts your part of the correction back in your hands. Purpose asks what kind of life the work serves. Resilience helps you face the discomfort and consequences without abandoning the standard. Integrity keeps both the direction and the method truthful. Discipline gives that alignment repeated behavior. Empowerment uses developed strength to help others become capable without controlling their choices.',
         'These relationships matter together. A good purpose cannot excuse a dishonest method. Endurance cannot turn a false statement into truth. Admitting responsibility cannot replace repair. Helping someone cannot justify taking over their decision about whether to trust you.',
         'You do not have to perform six separate actions in every situation. You do have to stop treating one strength as permission to ignore the rest of the Code.',
