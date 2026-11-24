@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { beforeWork75Source } from './work75-preservation.mjs';
 import { beforeWork73Reading } from './work73-preservation.mjs';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/work59-preservation.json' with { type: 'json' };
@@ -10,6 +11,7 @@ const sha = (text) => createHash('sha256').update(text).digest('hex');
 // Exact Work 59 deltas are removed before older acceptance tests reconstruct
 // the founder-approved Work 35, Work 39, Work 42 and Work 56 baselines.
 export function beforeWork59Source(source, path) {
+  source = beforeWork75Source(source, path);
   source = beforeWork70Source(source, path);
   source = beforeWork62PeriodSource(source, path);
   const change = changes[path];

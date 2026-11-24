@@ -3,10 +3,10 @@ import { ConfirmDialog } from './components/work';
 import { removeConfirmedBrowserLegacyData } from './legacy-data-removal';
 
 export function LegacyDataRemoval() {
-  const [confirm, setConfirm] = useState(false);
+  const [confirm, setConfirm] = useState<HTMLButtonElement | null>(null);
   const [status, setStatus] = useState('');
   function remove() {
-    setConfirm(false);
+    setConfirm(null);
     try {
       removeConfirmedBrowserLegacyData();
       setStatus(
@@ -35,15 +35,16 @@ export function LegacyDataRemoval() {
         extension data, hosting logs, or other external copies. You can also remove this site’s
         stored data through your browser’s site settings, including when JavaScript is unavailable.
       </p>
-      <button class="button" onClick={() => setConfirm(true)}>
+      <button class="button" onClick={(event) => setConfirm(event.currentTarget)}>
         Delete legacy tool data
       </button>
       <p role="status">{status}</p>
       {confirm && (
         <ConfirmDialog
+          returnFocus={confirm}
           title="Delete legacy tool data?"
           confirm="Delete legacy tool data"
-          onCancel={() => setConfirm(false)}
+          onCancel={() => setConfirm(null)}
           onConfirm={remove}
         >
           <p>
