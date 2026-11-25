@@ -670,5 +670,29 @@
         "after": "execution.html', executionReading(metadata, staging)],\n          ['read/execution.css', executionStyles()],\n          ['read/"
       }
     ]
+  },
+  "src/navigation.css": {
+    "beforeSha256": "970055532296018e342c5431ce71c59d7c0cdd62a17d4d7bf69678933a1ffa73",
+    "afterSha256": "cee2cd6479b8b158e65cc4ac5dcef13e65387c453b55216aab2d89ae8ef7d958",
+    "edits": [
+      {
+        "start": 6249,
+        "end": 6348,
+        "before": "    padding-block: 12px;\n",
+        "after": "    /* Accommodate the fourth framework without shrinking link targets. */\n    padding-block: 8px;\n"
+      },
+      {
+        "start": 6478,
+        "end": 6499,
+        "before": "    margin-top: 6px;\n",
+        "after": "    margin-top: 2px;\n"
+      },
+      {
+        "start": 7035,
+        "end": 7186,
+        "before": "",
+        "after": "  /* Recover the added navigation row from outer opening whitespace only. */\n  #app .site-shell.period-shell .home-hero {\n    padding-block: 12px;\n  }\n"
+      }
+    ]
   }
 }

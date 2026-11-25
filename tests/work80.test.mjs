@@ -247,6 +247,7 @@ test('bounded integration edits reverse exactly, reject mutation, and retain old
       'src/loop-content.ts',
       'src/loop-view.ts',
       'src/main.tsx',
+      'src/navigation.css',
       'src/site-footer-content.ts',
       'src/use-route.ts',
       'vite.config.ts',

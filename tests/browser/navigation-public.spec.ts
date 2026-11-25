@@ -63,13 +63,15 @@ test('all public and retired hash routes retain educational navigation without l
   test.setTimeout(120000);
   for (const route of routes) {
     await page.goto('/#' + route);
-    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     if (
       route !== '/missing' &&
       !['/tools', '/saved', '/approach'].includes(route) &&
       !route.startsWith('/tools/')
     )
-      await expect(page.locator('h1')).not.toHaveText('That page is not here.');
+      await expect(page.getByRole('heading', { level: 1 })).not.toHaveText(
+        'That page is not here.',
+      );
     const periodRoute = route === '/period' || route.startsWith('/period/');
     if (periodRoute) {
       await expect(mainNav(page).getByRole('link')).toHaveText([

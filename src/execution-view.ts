@@ -187,7 +187,6 @@ export function executionTeaching(surface: ExecutionSurface = 'app'): ExecutionN
               n(
                 'p',
                 { class: 'execution-source' },
-                'Based on Pure Execution Mode by Jim Lunsford. Educational adaptation by Only Empowerment. ',
                 a(executionBookUrl, "Visit Jim Lunsford's book page"),
               ),
               n(

@@ -286,11 +286,12 @@
   /* Keep the first practical lesson visible without shrinking the 44px
      keyboard and touch targets when the two navigation tiers wrap. */
   .site-shell.period-shell .site-header {
-    padding-block: 12px;
+    /* Accommodate the fourth framework without shrinking link targets. */
+    padding-block: 8px;
   }
   .site-shell.period-shell .site-header .framework-switch,
   .site-shell.period-shell .site-header .period-local-navigation {
-    margin-top: 6px;
+    margin-top: 2px;
   }
   .site-shell.period-shell .site-header :is(.framework-switch, .period-local-navigation) a {
     display: inline-flex;
@@ -309,6 +310,10 @@
   }
   .site-shell.period-shell .site-header .period-local-navigation {
     padding-top: 0;
+  }
+  /* Recover the added navigation row from outer opening whitespace only. */
+  #app .site-shell.period-shell .home-hero {
+    padding-block: 12px;
   }
 }
 
