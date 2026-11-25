@@ -5,6 +5,9 @@ import { render } from 'preact';
 import { useState } from 'preact/hooks';
 import { useRoute } from './use-route';
 import { RebuildGuide, FrameworkHome } from './Rebuild';
+import { Loop } from './Loop';
+import { LoopPractice } from './LoopPractice';
+import './loop.css';
 import { rebuildTrees } from './rebuild-content';
 import type { RebuildSection } from './Rebuild';
 import { PeriodIntro, PeriodOwnership, PeriodUnavailable, PeriodBook } from './PeriodLearning';
@@ -41,15 +44,23 @@ function Privacy() {
     <div class="narrow legacy-info">
       <PageIntro title="Your answers are not ours to collect.">
         <p>
-          You can read The PERIOD Code's six lessons and How to Rebuild Yourself's complete teaching
-          and alternatives without an account or submitting personal answers. The optional Standard
-          Card stays in the open tab. The earlier tools and Saved work are retired from this
-          application. Records saved with an older version may still remain in this browser profile
-          on this site.
+          You can read The PERIOD Code's six lessons, The Discipline Loop, and How to Rebuild
+          Yourself's complete teaching and alternatives without an account or submitting personal
+          answers. The optional Standard Card stays in the open tab. The earlier tools and Saved
+          work are retired from this application. Records saved with an older version may still
+          remain in this browser profile on this site.
         </p>
       </PageIntro>
       <LegacyDataRemoval />
       <div class="privacy-facts">
+        <section>
+          <h2>The Discipline Loop example</h2>
+          <p>
+            The example has fixed choices and no personal entry fields. Its current choice stays
+            only in page memory. Resetting, leaving the example or reloading discards that choice.
+            Choices do not enter the URL, browser storage or a submission.
+          </p>
+        </section>
         <section>
           <h2>What stays in the page</h2>
           <p>
@@ -213,9 +224,12 @@ function App() {
   const openPurposeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'purpose'));
   const openResilienceCard = () =>
     setPeriodSession((old) => enterPeriodExercise(old, 'resilience'));
-  const [bookExit, setBookExit] = useState(false);
+  const [bookExit, setBookExit] = useState<HTMLAnchorElement | null>(null);
   let content;
   if (path === '/') content = <FrameworkHome />;
+  else if (path === '/loop') content = <Loop />;
+  else if (path === '/loop/practice' || path === '/loop/practice?state=miss')
+    content = <LoopPractice key={path} entry={path.endsWith('state=miss') ? 'miss' : 'pressure'} />;
   else if (path === '/period' || path === '/period/why' || path === '/period/teaching-order')
     content = <PeriodIntro />;
   else if (path === '/rebuild') content = <RebuildGuide section="index" />;
@@ -289,6 +303,7 @@ function App() {
               The PERIOD Code
             </a>
             <a href="#/rebuild">How to Rebuild Yourself</a>
+            <a href="#/loop">The Discipline Loop</a>
           </nav>
         )}
         <nav aria-label="Main navigation" class={editorial ? 'period-local-navigation' : undefined}>
@@ -332,6 +347,9 @@ function App() {
               >
                 How to Rebuild Yourself
               </a>
+              <a href="#/loop" aria-current={path.startsWith('/loop') ? 'location' : undefined}>
+                The Discipline Loop
+              </a>
             </>
           )}
         </nav>
@@ -344,17 +362,18 @@ function App() {
           const link = (e.target as Element).closest('a');
           if (link?.href === periodBook.url && hasPeriodDraft(periodSession.draft)) {
             e.preventDefault();
-            setBookExit(true);
+            setBookExit(link);
           }
         }}
       >
         {content}
         {bookExit && (
           <ConfirmDialog
+            returnFocus={bookExit}
             title="Before you leave"
             cancel="Stay here"
             confirm="Continue to the book page"
-            onCancel={() => setBookExit(false)}
+            onCancel={() => setBookExit(null)}
             onConfirm={() => {
               window.location.assign(periodBook.url);
             }}
@@ -372,6 +391,7 @@ function App() {
           <h2>About this site</h2>
           <a href="#/period">The PERIOD Code</a>
           <a href="#/rebuild">How to Rebuild Yourself</a>
+          <a href="#/loop">The Discipline Loop</a>
           <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
             About the book
           </a>
@@ -417,7 +437,15 @@ function App() {
         </nav>
         <SiteNotices
           build={__BUILD__}
-          source={path.startsWith('/rebuild') ? 'rebuild' : path === '/' ? 'combined' : 'period'}
+          source={
+            path.startsWith('/rebuild')
+              ? 'rebuild'
+              : path.startsWith('/loop')
+                ? 'loop'
+                : path === '/'
+                  ? 'combined'
+                  : 'period'
+          }
         />
       </footer>
     </div>

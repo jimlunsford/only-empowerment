@@ -15,6 +15,8 @@ const tools = [
 ];
 const routes = [
   '/',
+  '/loop',
+  '/loop/practice',
   '/period',
   '/period/teaching-order',
   '/period/values',
@@ -78,6 +80,7 @@ test('all public and retired hash routes retain educational navigation without l
         'Frameworks',
         'The PERIOD Code',
         'How to Rebuild Yourself',
+        'The Discipline Loop',
       ]);
     }
     expect(
@@ -85,13 +88,16 @@ test('all public and retired hash routes retain educational navigation without l
         .getByRole('link')
         .evaluateAll((links) => links.map((l) => l.getAttribute('href'))),
     ).toEqual(
-      periodRoute ? ['#/period/why', '#/period/teaching-order'] : ['#/', '#/period', '#/rebuild'],
+      periodRoute
+        ? ['#/period/why', '#/period/teaching-order']
+        : ['#/', '#/period', '#/rebuild', '#/loop'],
     );
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
     ).toHaveText([
       'The PERIOD Code',
       'How to Rebuild Yourself',
+      'The Discipline Loop',
       'About the book',
       'Privacy & source',
     ]);

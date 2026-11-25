@@ -104,7 +104,7 @@ export const purposeRelationships = [
 ] as const;
 
 export const purposeConnected =
-  'The PERIOD Code is a connected standard for living. Purpose gives direction to responsibility, but it still needs resilience, honesty, repeated action and a willingness to help others stand. Keep returning to the whole Code. One decision can call on several values without requiring six separate acts.' as const;
+  'Purpose gives direction to responsibility. It still needs resilience, honesty, repeated action and a willingness to help others stand. One decision can call on several values without requiring six separate acts.' as const;
 
 export const purposeBridge = [
   'The direction will be tested. A shift changes. Energy drops. Progress slows. The plan that worked yesterday may not work today. Purpose gives you a reason to continue; you still have to decide how.',

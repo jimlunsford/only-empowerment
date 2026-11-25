@@ -79,7 +79,7 @@ export function PeriodStandard({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState('');
   const [fallback, setFallback] = useState(false);
-  const [clearing, setClearing] = useState(false);
+  const [clearing, setClearing] = useState<HTMLButtonElement | null>(null);
   const [supportOpen, setSupportOpen] = useState(!!draft.returnPlan);
   const example = useRef<HTMLDetailsElement>(null);
   const fallbackArea = useRef<HTMLTextAreaElement>(null);
@@ -164,8 +164,8 @@ export function PeriodStandard({
         <button
           id="period-clear"
           class="button"
-          onClick={() => {
-            if (hasPeriodDraft(draft)) setClearing(true);
+          onClick={(event) => {
+            if (hasPeriodDraft(draft)) setClearing(event.currentTarget);
             else {
               setSession(newPeriodSession());
               setStatus('Draft cleared.');
@@ -178,17 +178,18 @@ export function PeriodStandard({
       <p class="small export-note no-print">{copy.exportNote}</p>
       {clearing && (
         <ConfirmDialog
+          returnFocus={clearing}
           title="Clear this draft?"
           cancel="Keep writing"
           confirm="Clear draft"
-          onCancel={() => setClearing(false)}
+          onCancel={() => setClearing(null)}
           onConfirm={() => {
             setSession(newPeriodSession());
             setErrors({});
             setStatus('Draft cleared.');
             setFallback(false);
             setSupportOpen(false);
-            setClearing(false);
+            setClearing(null);
             focus('period-clear');
           }}
         >

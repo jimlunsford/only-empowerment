@@ -1,0 +1,344 @@
+{
+  "src/LoopPractice.tsx": {
+    "beforeSha256": "7551b6046ec1fb842d66f7784cf702facd2ae80d40887b07617dbc6d8b8f912e",
+    "afterSha256": "f6cb0acbc085c72609a6ffe51c79f3532a89f08f5fb7942c3b1a941641d6b35b",
+    "edits": [
+      {
+        "start": 265,
+        "end": 285,
+        "before": "",
+        "after": "chooseLoopOutcome, i"
+      },
+      {
+        "start": 286,
+        "end": 287,
+        "before": "ex",
+        "after": "i"
+      },
+      {
+        "start": 288,
+        "end": 291,
+        "before": "",
+        "after": "ial"
+      },
+      {
+        "start": 296,
+        "end": 300,
+        "before": "",
+        "after": "elec"
+      },
+      {
+        "start": 301,
+        "end": 323,
+        "before": "at",
+        "after": "ion, previousLoopChoic"
+      },
+      {
+        "start": 474,
+        "end": 476,
+        "before": "{",
+        "after": "()"
+      },
+      {
+        "start": 477,
+        "end": 483,
+        "before": "s",
+        "after": "=> ini"
+      },
+      {
+        "start": 484,
+        "end": 485,
+        "before": "",
+        "after": "i"
+      },
+      {
+        "start": 486,
+        "end": 496,
+        "before": "",
+        "after": "lLoopSelec"
+      },
+      {
+        "start": 497,
+        "end": 501,
+        "before": "e: ",
+        "after": "ion("
+      },
+      {
+        "start": 506,
+        "end": 507,
+        "before": ", revision: 0 }",
+        "after": ")"
+      },
+      {
+        "start": 634,
+        "end": 637,
+        "before": "",
+        "after": "opt"
+      },
+      {
+        "start": 638,
+        "end": 640,
+        "before": "d",
+        "after": "on"
+      },
+      {
+        "start": 642,
+        "end": 646,
+        "before": "LoopStat",
+        "after": "numb"
+      },
+      {
+        "start": 647,
+        "end": 648,
+        "before": "Id",
+        "after": "r"
+      },
+      {
+        "start": 652,
+        "end": 652,
+        "before": "\n   ",
+        "after": ""
+      },
+      {
+        "start": 675,
+        "end": 692,
+        "before": "",
+        "after": "chooseLoopOutcome"
+      },
+      {
+        "start": 693,
+        "end": 695,
+        "before": "{ state: i",
+        "after": "ol"
+      },
+      {
+        "start": 698,
+        "end": 701,
+        "before": "revis",
+        "after": "opt"
+      },
+      {
+        "start": 704,
+        "end": 704,
+        "before": ": old.revision + 1 }",
+        "after": ""
+      },
+      {
+        "start": 1000,
+        "end": 1001,
+        "before": "",
+        "after": "\n"
+      },
+      {
+        "start": 1002,
+        "end": 1014,
+        "before": "",
+        "after": "     setSele"
+      },
+      {
+        "start": 1015,
+        "end": 1051,
+        "before": "h",
+        "after": "tion((old) => ({\n        ...initialL"
+      },
+      {
+        "start": 1053,
+        "end": 1055,
+        "before": "s",
+        "after": "pS"
+      },
+      {
+        "start": 1056,
+        "end": 1063,
+        "before": "",
+        "after": "lection"
+      },
+      {
+        "start": 1090,
+        "end": 1137,
+        "before": "",
+        "after": ",\n        revision: old.revision + 1,\n      }))"
+      },
+      {
+        "start": 1142,
+        "end": 1447,
+        "before": "",
+        "after": ";\n  useLayoutEffect(() => {\n    // Also discard choices when a whole document leaves via the back/forward cache.\n    const leave = () => setSelection(initialLoopSelection(entry));\n    window.addEventListener('pagehide', leave);\n    return () => window.removeEventListener('pagehide', leave);\n  }, [entry])"
+      },
+      {
+        "start": 2546,
+        "end": 2546,
+        "before": "nextLoopState(select",
+        "after": ""
+      },
+      {
+        "start": 2547,
+        "end": 2547,
+        "before": "on.state, i)",
+        "after": ""
+      },
+      {
+        "start": 2957,
+        "end": 3185,
+        "before": "",
+        "after": "\n              type=\"button\"\n              disabled={!selection.history.length}\n              onClick={() => setSelection(previousLoopChoice)}\n            >\n              Previous choice\n            </button>\n            <button"
+      },
+      {
+        "start": 3427,
+        "end": 3596,
+        "before": "",
+        "after": "  <p>\n            Choices stay in this tab. Leaving or reloading clears them. Use the complete reading to\n            link to a specific outcome.\n          </p>\n        "
+      }
+    ]
+  },
+  "src/Rebuild.tsx": {
+    "beforeSha256": "185925c5ea7fc1d281fb50dca3d11a2c00a4253ed6a9a0431583f60bbdde4fb1",
+    "afterSha256": "790a09342f28216fa906c6eff0f6c0dd2abf9625d423048787704efc7a8ad94c",
+    "edits": [
+      {
+        "start": 160,
+        "end": 225,
+        "before": "",
+        "after": "-content';\nimport { frameworkOrientation } from './framework-home"
+      },
+      {
+        "start": 2599,
+        "end": 2885,
+        "before": "",
+        "after": "section class=\"framework-orientation\" aria-labelledby=\"framework-orientation-title\">\n        <h2 id=\"framework-orientation-title\">{frameworkOrientation.heading}</h2>\n        <p>{frameworkOrientation.relationship}</p>\n        <p>{frameworkOrientation.choice}</p>\n      </section>\n      <"
+      }
+    ]
+  },
+  "src/loop-content.ts": {
+    "beforeSha256": "839ad9cb78f3857b5656de8e9c552d240fdc083bb7d32319ebb479a9a020ca01",
+    "afterSha256": "9302a5321e84576034288f336ae750af25a89abf5b9025b14192c5f39ade6d5f",
+    "edits": [
+      {
+        "start": 20913,
+        "end": 21561,
+        "before": "",
+        "after": "\n// Exact D72-05 copy. Separate from the accepted teaching and scenario graph.\nexport const loopTransfer = {\n  heading: 'Apply the Loop somewhere else',\n  optional:\n    'Optional reflection. This is a fictional situation. Think it through or use your own paper privately. There is no answer to submit.',\n  scenario:\n    'A coworker is waiting for an update you promised. The task is unfinished. You can send an honest update now, or wait until the result looks better.',\n  reflection:\n    'Identify the pressure, the standard and the action that would create real evidence. Then consider what changes if communication is unavailable.',\n} as const;\n"
+      }
+    ]
+  },
+  "src/loop-state.ts": {
+    "beforeSha256": "45d757ea15eebc530a73908e147b982314ab69c733c0c3d463805892b1efa07d",
+    "afterSha256": "acd718ed0ac73413ed4d2c0208ce87999d7ed2716ae185a4fead41e9ace1f5d3",
+    "edits": [
+      {
+        "start": 726,
+        "end": 1581,
+        "before": "",
+        "after": "\nexport type LoopSelection = { state: LoopStateId; history: LoopStateId[]; revision: number };\nexport const initialLoopSelection = (state: LoopStateId): LoopSelection => ({\n  state,\n  history: [],\n  revision: 0,\n});\nexport function chooseLoopOutcome(selection: LoopSelection, option: number): LoopSelection {\n  if (!loopScenario.states[selection.state].options[option]) return selection;\n  return {\n    state: nextLoopState(selection.state, option),\n    history: [...selection.history, selection.state],\n    revision: selection.revision + 1,\n  };\n}\nexport function previousLoopChoice(selection: LoopSelection): LoopSelection {\n  const previous = selection.history.at(-1);\n  return previous === undefined\n    ? selection\n    : {\n        state: previous,\n        history: selection.history.slice(0, -1),\n        revision: selection.revision + 1,\n      };\n}\n"
+      }
+    ]
+  },
+  "src/loop-view.ts": {
+    "beforeSha256": "c8432c734b4225cccff22263fe15bd21d62665bf61c4b169679191dcc2ad55db",
+    "afterSha256": "13122abee166a75d30b7a60deb6df95c2bdea7108f19ab67e7c1dcac3a1712e0",
+    "edits": [
+      {
+        "start": 46,
+        "end": 60,
+        "before": "",
+        "after": ", loopTransfer"
+      },
+      {
+        "start": 5894,
+        "end": 6208,
+        "before": "",
+        "after": "  node(\n      'section',\n      { class: 'loop-section loop-transfer', 'aria-labelledby': 'loop-transfer-title' },\n      node(h2, { id: 'loop-transfer-title' }, loopTransfer.heading),\n      paragraph(loopTransfer.optional),\n      paragraph(loopTransfer.scenario),\n      paragraph(loopTransfer.reflection),\n    ),\n  "
+      }
+    ]
+  },
+  "src/loop.css": {
+    "beforeSha256": "332730964ab19d9ae6d5af14de671fa2dd351bee6ba07ee4cb534b23884f771a",
+    "afterSha256": "7d70066b9f0f945257019727e3641789970dea2e0d7a9582230233cfad27a402",
+    "edits": [
+      {
+        "start": 3374,
+        "end": 3491,
+        "before": "",
+        "after": ";\n}\n.loop-reset button:disabled {\n  background: #e5ebe2;\n  color: #173c34;\n  border-color: #c9cec4;\n  cursor: default"
+      }
+    ]
+  },
+  "src/period-integrity-content.ts": {
+    "beforeSha256": "9b45de37cd7fb910e2f9572be2484e6bde5b0f19521cbfb14892eb2e79907442",
+    "afterSha256": "37bef93437565e39eb3aa775da32aca6ebb5400d90de91a8731b980b12d30e7b",
+    "edits": [
+      {
+        "start": 10229,
+        "end": 10229,
+        "before": "The PERIOD Code is a connected standard for living. ",
+        "after": ""
+      },
+      {
+        "start": 10265,
+        "end": 10265,
+        "before": "t. Reaching this lesson does not leave Ownership, Purpose or Resilience behind, and the work will still need Discipline and Empowermen",
+        "after": ""
+      }
+    ]
+  },
+  "src/period-purpose-content.ts": {
+    "beforeSha256": "131beec9e6cfc030290354e49a94462081878e1600d7f2b256141465416711b1",
+    "afterSha256": "57dbc2d973d1f748a5aaaa99f783b2c5802fbf6418f59ee7deb79b8c459d355a",
+    "edits": [
+      {
+        "start": 7007,
+        "end": 7007,
+        "before": "The PERIOD Code is a connected standard for living. ",
+        "after": ""
+      },
+      {
+        "start": 7048,
+        "end": 7049,
+        "before": ",",
+        "after": "."
+      },
+      {
+        "start": 7050,
+        "end": 7051,
+        "before": "but i",
+        "after": "I"
+      },
+      {
+        "start": 7140,
+        "end": 7140,
+        "before": ". Keep returning to the whole Code",
+        "after": ""
+      }
+    ]
+  },
+  "src/rebuild-app.css": {
+    "beforeSha256": "0bf7823491b969e3d0cfd39d8853f637dd9cbc0e53d2b384bc4c531cf0b14021",
+    "afterSha256": "f16ff748409a8315112bbec799a7125dc405d0643009eba5df16629e13529bb7",
+    "edits": [
+      {
+        "start": 1905,
+        "end": 2023,
+        "before": "",
+        "after": ";\n}\n.framework-orientation {\n  max-width: 78ch;\n  margin-block: 2rem;\n}\n.framework-orientation p {\n  line-height: 1.65"
+      }
+    ]
+  },
+  "vite.config.ts": {
+    "beforeSha256": "9a97df1e5751d15e84c3b004d24b62b806e01b38bb2e8f02d2b8128caec260ea",
+    "afterSha256": "c3bf7a02d9086a534e05429325388248e2c009159c810e48afae10c9d0043010",
+    "edits": [
+      {
+        "start": 703,
+        "end": 831,
+        "before": "",
+        "after": " } from './scripts/loop-reading.ts';\nimport { frameworkOrientation } from './src/framework-home-content.ts';\nimport { escapeLoop"
+      },
+      {
+        "start": 3555,
+        "end": 3927,
+        "before": "",
+        "after": ">' +\n              '<section aria-labelledby=\"framework-orientation-title\"><h2 id=\"framework-orientation-title\">' +\n              escapeLoop(frameworkOrientation.heading) +\n              '</h2><p>' +\n              escapeLoop(frameworkOrientation.relationship) +\n              '</p><p>' +\n              escapeLoop(frameworkOrientation.choice) +\n              '</p></section"
+      }
+    ]
+  }
+}

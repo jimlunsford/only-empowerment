@@ -9,6 +9,9 @@ import { integrityReading } from './scripts/integrity-reading.ts';
 import { resilienceReading } from './scripts/resilience-reading.ts';
 import { periodFallback } from './scripts/period-fallback.ts';
 import { rebuildFallback } from './scripts/rebuild-fallback.ts';
+import { loopFallback, loopReading } from './scripts/loop-reading.ts';
+import { frameworkOrientation } from './src/framework-home-content.ts';
+import { escapeLoop } from './scripts/loop-reading.ts';
 import {
   ownershipReading,
   purposeReading,
@@ -38,6 +41,10 @@ const rebuildStyles = () =>
     'src/rebuild-app.css',
     'src/site-footer.css',
   ]
+    .map((path) => readFileSync(path, 'utf8'))
+    .join('\n');
+const loopStyles = () =>
+  ['src/style.css', 'src/navigation.css', 'src/site-footer.css', 'src/loop.css']
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const resilienceStyles = () =>
@@ -91,13 +98,21 @@ export default defineConfig({
             '<!-- period-fallback -->',
             '<section class="framework-hub" aria-label="Framework introduction">' +
               '<h1>Only Empowerment</h1>' +
-              '<p>Explore complete educational experiences from The PERIOD Code and How to Rebuild Yourself.</p>' +
+              '<p>Explore complete educational experiences from The PERIOD Code, How to Rebuild Yourself and The Discipline Loop.</p>' +
+              '<section aria-labelledby="framework-orientation-title"><h2 id="framework-orientation-title">' +
+              escapeLoop(frameworkOrientation.heading) +
+              '</h2><p>' +
+              escapeLoop(frameworkOrientation.relationship) +
+              '</p><p>' +
+              escapeLoop(frameworkOrientation.choice) +
+              '</p></section>' +
               '<p><a href="#teaching-order">Explore The PERIOD Code</a> or ' +
-              '<a href="/read/rebuild.html">read How to Rebuild Yourself</a>.</p></section>' +
+              '<a href="/read/rebuild.html">read How to Rebuild Yourself</a> or <a href="/read/loop.html">read The Discipline Loop</a>.</p></section>' +
               periodFallback()
                 .replace('<h1 id="home-title"', '<h2 id="home-title"')
                 .replace('</h1>', '</h2>') +
-              rebuildFallback(),
+              rebuildFallback() +
+              loopFallback(),
           )
           .replace('<!-- site-footer -->', staticFooter(metadata, 'combined'))
           .replace(
@@ -109,6 +124,9 @@ export default defineConfig({
         server.middlewares.use((request, response, next) => {
           const path = request.url?.split('?')[0];
           const standalone = new Map([
+            ['/read/loop.html', () => loopReading(metadata, staging)],
+            ['/read/loop-practice.html', () => loopReading(metadata, staging, true)],
+            ['/read/loop.css', () => loopStyles()],
             ['/read/index.html', () => readingIndex(metadata, staging)],
             ['/read/ownership.html', () => ownershipReading(metadata, staging)],
             ['/read/purpose.html', () => purposeReading(metadata, staging)],
@@ -177,6 +195,9 @@ export default defineConfig({
       },
       generateBundle(_options, bundle) {
         for (const [fileName, source] of [
+          ['read/loop.html', loopReading(metadata, staging)],
+          ['read/loop-practice.html', loopReading(metadata, staging, true)],
+          ['read/loop.css', loopStyles()],
           ['read/index.html', readingIndex(metadata, staging)],
           ['read/ownership.html', ownershipReading(metadata, staging)],
           ['read/purpose.html', purposeReading(metadata, staging)],

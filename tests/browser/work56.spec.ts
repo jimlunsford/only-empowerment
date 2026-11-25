@@ -181,7 +181,7 @@ test('print credits follow the reading, including script loss and the optional c
   const rebuild =
     'Based on How to Rebuild Yourself by Jim Lunsford. Educational adaptation by Only Empowerment.';
   const combined =
-    'Based on The PERIOD Code and How to Rebuild Yourself by Jim Lunsford. Educational adaptation by Only Empowerment.';
+    'Based on The PERIOD Code, How to Rebuild Yourself and The Discipline Loop by Jim Lunsford. Educational adaptation by Only Empowerment.';
   await page.emulateMedia({ media: 'print' });
   for (const [route, credit] of [
     ['/period/values/ownership', period],

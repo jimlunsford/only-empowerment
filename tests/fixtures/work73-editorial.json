@@ -1,0 +1,14 @@
+[
+  {
+    "id": "I05",
+    "path": "src/period-integrity-content.ts",
+    "before": "The PERIOD Code is a connected standard for living. Integrity keeps the whole Code honest. Reaching this lesson does not leave Ownership, Purpose or Resilience behind, and the work will still need Discipline and Empowerment.",
+    "after": "Integrity keeps the whole Code honest."
+  },
+  {
+    "id": "P11",
+    "path": "src/period-purpose-content.ts",
+    "before": "The PERIOD Code is a connected standard for living. Purpose gives direction to responsibility, but it still needs resilience, honesty, repeated action and a willingness to help others stand. Keep returning to the whole Code. One decision can call on several values without requiring six separate acts.",
+    "after": "Purpose gives direction to responsibility. It still needs resilience, honesty, repeated action and a willingness to help others stand. One decision can call on several values without requiring six separate acts."
+  }
+]

@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { homepageAnchors } from './period-homepage-content';
 import { disciplineAnchorRoute } from './period-discipline-navigation';
+import { loopRoute } from './loop-state';
 // The root fallback contains these reading anchors when scripts are unavailable.
 // With scripts running, the same ordinary links open their complete app lessons.
 const readingRoutes: Record<string, string> = {
@@ -19,13 +20,20 @@ const contextualLink = (fragment: string) =>
     ? document.querySelector<HTMLAnchorElement>(`#app .rebuild-guide a[href="#${fragment}"]`)
     : null;
 const anchorRoute = (fragment: string) =>
-  Object.hasOwn(readingRoutes, fragment)
+  loopRoute(fragment) ||
+  /^\/period\/values\/(ownership|purpose|resilience|integrity|discipline|empowerment)(?=\?)/.exec(
+    fragment,
+  )?.[0] ||
+  (Object.hasOwn(readingRoutes, fragment)
     ? readingRoutes[fragment]
     : Object.hasOwn(homepageAnchors, fragment) ||
         Object.values(homepageAnchors).some((native) => native === fragment)
       ? '/period'
-      : rebuildSection.exec(fragment)?.[1] || disciplineAnchorRoute(fragment);
+      : rebuildSection.exec(fragment)?.[1] || disciplineAnchorRoute(fragment));
 const anchorTarget = (fragment: string) => {
+  if (fragment.startsWith('/loop?') && loopRoute(fragment) === '/loop') {
+    return document.querySelector<HTMLElement>('#app .loop-experience #' + fragment.split('=')[1]);
+  }
   const section = rebuildSection.exec(fragment)?.[2];
   if (section) {
     const target = document.querySelector<HTMLElement>('#app .rebuild-guide #' + section);
@@ -149,6 +157,10 @@ export function useRoute() {
     }
     if (first.current) {
       first.current = false;
+      // Native route aliases can scroll the complete fallback before pageshow.
+      // Reset during mount, before the reader can choose a new position. A deferred
+      // reset could overwrite that choice. Section links use the target branch above.
+      window.scrollTo(0, 0);
       return;
     }
     const restore = restoring.current;

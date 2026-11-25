@@ -135,6 +135,7 @@ export function readingIndex(build?: FooterBuild, staging = true) {
     '<h2>How to Rebuild Yourself</h2>',
     '<p><a href="/read/rebuild.html">Read or print the complete guide and all alternatives</a>.</p>',
     '<h2>Practice on paper</h2><p><a href="/read/standard.html">Use the standard on paper</a>.</p>',
+    '<h2>The Discipline Loop</h2><p><a href="/read/loop.html">Complete teaching and every outcome</a>.</p><p><a href="/read/loop-practice.html">The complete pressure-point example</a>.</p>',
     '</nav></div>',
   ].join('');
   return shell(
