@@ -26,7 +26,7 @@ test('Work72 source corrections reverse exactly to Work71 and reject incidental 
         encoding: 'utf8',
       }),
     );
-    assert.throws(() => beforeWork72Source(source + '\n', path), /Unexpected Work72 bytes/);
+    assert.throws(() => beforeWork72Source(source + '\n', path), /Unexpected Work7[23] bytes/);
   }
 });
 

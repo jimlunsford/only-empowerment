@@ -2,6 +2,7 @@ import { h } from 'preact';
 import type { ComponentChild } from 'preact';
 import { rebuildTrees } from './rebuild-content';
 import { loopHomeCopy } from './loop-content';
+import { frameworkOrientation } from './framework-home-content';
 
 export type RebuildSection = keyof typeof rebuildTrees;
 
@@ -63,6 +64,11 @@ export function FrameworkHome() {
           useful into your own life. The work belongs to you.
         </p>
       </header>
+      <section class="framework-orientation" aria-labelledby="framework-orientation-title">
+        <h2 id="framework-orientation-title">{frameworkOrientation.heading}</h2>
+        <p>{frameworkOrientation.relationship}</p>
+        <p>{frameworkOrientation.choice}</p>
+      </section>
       <div class="framework-options">
         <article>
           <p class="framework-kicker">Values and standards</p>

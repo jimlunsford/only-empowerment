@@ -170,6 +170,12 @@
 .loop-reset button:hover {
   background: #28574b;
 }
+.loop-reset button:disabled {
+  background: #e5ebe2;
+  color: #173c34;
+  border-color: #c9cec4;
+  cursor: default;
+}
 .loop-trace {
   border-left: 3px solid #98422e;
   padding-left: 1.2rem;
