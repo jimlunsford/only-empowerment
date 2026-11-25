@@ -44,12 +44,10 @@ export function Execution() {
   );
   const position = stageScreens.findIndex((entry) => entry.id === id) + 1;
   const next = option?.next || screen.next;
-  const back =
-    id === 'arrange' &&
-    workshopById('take-over').options!.find((entry) => entry.id === choices['take-over'])?.next ===
-      'recover'
-      ? 'recover'
-      : screen.back;
+  const takeoverChoice = workshopById('take-over').options!.find(
+    (entry) => entry.id === choices['take-over'],
+  );
+  const back = id === 'arrange' && takeoverChoice?.next === 'recover' ? 'recover' : screen.back;
   const clear = () => {
     setChoices({});
     setDemonstrations({});
@@ -136,15 +134,8 @@ export function Execution() {
               <p>{screen.facts}</p>
             </section>
             {id === 'event-wait' && <p class="workshop-carry">{eventCarry(choices)}</p>}
-            {id === 'recover' && choices['take-over'] && (
-              <p class="workshop-carry">
-                Your earlier move:{' '}
-                {
-                  workshopById('take-over').options!.find(
-                    (entry) => entry.id === choices['take-over'],
-                  )?.label
-                }
-              </p>
+            {id === 'recover' && takeoverChoice?.next === 'recover' && (
+              <p class="workshop-carry">Your earlier move: {takeoverChoice.label}</p>
             )}
             {screen.teaching.map((paragraph) => (
               <p>{paragraph}</p>

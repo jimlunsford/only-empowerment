@@ -256,6 +256,17 @@ test('visible Back follows the chosen recovery branch', async ({ page }) => {
     .click();
   await expect(screen(page)).toHaveAttribute('data-workshop', 'recover');
   await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(1);
+  await go(page, 'take-over');
+  await screen(page)
+    .getByRole('button', { name: workshopById('take-over').options![1].label, exact: true })
+    .click();
+  await next(page).click();
+  await expect(screen(page).getByRole('link', { name: /^Back:/ })).toHaveAttribute(
+    'href',
+    workshopHref('take-over'),
+  );
+  await go(page, 'recover');
+  await expect(screen(page).locator('.workshop-carry')).toHaveCount(0);
 });
 
 test('Back, Forward, skip, route exit, refresh, restart and modified links respect the session', async ({
