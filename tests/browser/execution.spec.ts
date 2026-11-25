@@ -74,6 +74,11 @@ test('every screen supports direct entry, title, refresh and unforced Continue',
       await expect(heading(page)).toBeFocused();
     }
   }
+  await page.goto('/#/execution/welcome');
+  await expect(heading(page)).toHaveAttribute('id', '/execution/welcome');
+  await expect(heading(page)).toBeFocused();
+  await page.reload();
+  await expect(heading(page)).toBeFocused();
   await page.goto('/#/execution/unknown');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('That page is not here.');
 });

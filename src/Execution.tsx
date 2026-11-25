@@ -119,11 +119,7 @@ export function Execution() {
             )}
             <a href="/read/execution.html">Complete reading and print edition</a>
           </div>
-          <h1
-            id={legacy || (id === 'welcome' ? '/execution' : '/execution/' + id)}
-            tabIndex={-1}
-            ref={title}
-          >
+          <h1 id={legacy || location.hash.slice(1)} tabIndex={-1} ref={title}>
             {screen.title}
           </h1>
           <p class="workshop-purpose">{screen.purpose}</p>
