@@ -108,6 +108,7 @@ test('all framework links remain available inside PERIOD while the local teachin
       'The PERIOD Code',
       'How to Rebuild Yourself',
       'The Discipline Loop',
+      'Pure Execution Mode',
     ]);
     const local = page.getByRole('navigation', { name: 'Main navigation' });
     await expect(local.getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
