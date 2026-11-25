@@ -542,7 +542,7 @@ test('disposable legacy records stay unread and unchanged, without results, cook
 for (const s of workshopScreens.filter((s) => s.options && !s.deferred))
   test('reselection clears stale status: ' + s.id, async ({ page }) => {
     await go(page, s.id);
-    const status = screen(page).getByRole('status');
+    const status = screen(page).getByRole('status', { includeHidden: true });
     for (const index of [0, 0, 1, 1]) {
       const option = s.options![index];
       const button = screen(page).getByRole('button', { name: option.label, exact: true });

@@ -74,10 +74,7 @@ export function Execution() {
       setAnnouncement(
         'Choice kept for comparison. Continue when you are ready. Changing this choice clears later decisions in this sequence.',
       );
-    else {
-      setAnnouncement('');
-      feedbackRequested.current = true;
-    }
+    else feedbackRequested.current = true;
   };
   const reconsider = () => {
     setChoices((old) => {
