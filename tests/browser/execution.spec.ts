@@ -538,3 +538,94 @@ test('disposable legacy records stay unread and unchanged, without results, cook
   expect(await page.evaluate(() => Object.keys(history.state))).toEqual(['oeNavigation']);
   await expect(screen(page).locator('form, input, textarea, [contenteditable]')).toHaveCount(0);
 });
+
+for (const s of workshopScreens.filter((s) => s.options && !s.deferred))
+  test('reselection clears stale status: ' + s.id, async ({ page }) => {
+    await go(page, s.id);
+    const status = screen(page).getByRole('status');
+    for (const index of [0, 0, 1, 1]) {
+      const option = s.options![index];
+      const button = screen(page).getByRole('button', { name: option.label, exact: true });
+      await button.press('Enter');
+      await expect(button).toHaveAttribute('aria-pressed', 'true');
+      await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(1);
+      await expect(screen(page).locator('.workshop-feedback')).toContainText(option.consequence);
+      await expect(
+        screen(page).getByRole('heading', { name: 'What this choice does' }),
+      ).toBeFocused();
+      await expect(status).toBeEmpty();
+      await expect(
+        screen(page).getByText(
+          'Choice cleared. You can choose again or continue without choosing.',
+          { exact: true },
+        ),
+      ).toHaveCount(0);
+      await screen(page)
+        .getByRole('button', { name: 'Reconsider this decision', exact: true })
+        .click();
+      await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
+      await expect(screen(page).locator('.workshop-feedback')).toHaveCount(0);
+      await expect(status).toHaveText(
+        'Choice cleared. You can choose again or continue without choosing.',
+      );
+      await expect(screen(page).locator('#workshop-question')).toBeFocused();
+    }
+  });
+
+test('deferred reselection retains status and dependent-choice rules', async ({ page }) => {
+  const ids = ['event', 'event-wait', 'event-close'];
+  const select = async (id: string, index: number) => {
+    await screen(page)
+      .getByRole('button', { name: workshopById(id).options![index].label, exact: true })
+      .click();
+    await expect(screen(page).getByRole('status')).toHaveText(
+      'Choice kept for comparison. Continue when you are ready. Changing this choice clears later decisions in this sequence.',
+    );
+    await expect(screen(page).locator('.workshop-feedback')).toHaveCount(0);
+  };
+  await go(page, 'event');
+  for (const id of ids) {
+    await select(id, 0);
+    await next(page).click();
+  }
+  const revisit = (index: number) =>
+    screen(page)
+      .locator('.workshop-review')
+      .nth(index)
+      .getByRole('link', { name: 'Revisit this decision' })
+      .click();
+  const compare = () =>
+    screen(page).getByRole('link', { name: 'Skip practice and compare the reasoning now' }).click();
+  await revisit(0);
+  await select('event', 0);
+  await compare();
+  await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+    0,
+  );
+  await revisit(1);
+  await select('event-wait', 1);
+  await compare();
+  await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+    1,
+  );
+  await revisit(2);
+  await select('event-close', 0);
+  await compare();
+  await revisit(0);
+  await select('event', 1);
+  await compare();
+  await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+    2,
+  );
+  await revisit(0);
+  await screen(page).getByRole('button', { name: 'Reconsider this decision', exact: true }).click();
+  await expect(screen(page).getByRole('status')).toHaveText(
+    'Choice cleared. You can choose again or continue without choosing.',
+  );
+  await expect(screen(page).locator('#workshop-question')).toBeFocused();
+  await select('event', 1);
+  await compare();
+  await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+    2,
+  );
+});
