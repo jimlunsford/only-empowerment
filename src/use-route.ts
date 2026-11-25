@@ -21,6 +21,9 @@ const contextualLink = (fragment: string) =>
     : null;
 const anchorRoute = (fragment: string) =>
   loopRoute(fragment) ||
+  /^\/period\/values\/(ownership|purpose|resilience|integrity|discipline|empowerment)(?=\?)/.exec(
+    fragment,
+  )?.[0] ||
   (Object.hasOwn(readingRoutes, fragment)
     ? readingRoutes[fragment]
     : Object.hasOwn(homepageAnchors, fragment) ||
@@ -154,6 +157,10 @@ export function useRoute() {
     }
     if (first.current) {
       first.current = false;
+      // Native route aliases can scroll the complete fallback before pageshow.
+      // Reset during mount, before the reader can choose a new position. A deferred
+      // reset could overwrite that choice. Section links use the target branch above.
+      window.scrollTo(0, 0);
       return;
     }
     const restore = restoring.current;

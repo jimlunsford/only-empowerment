@@ -65,7 +65,7 @@ test('miss entry, reset, reload and leaving the example discard transient choice
   await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'pressure');
   await page.getByRole('link', { name: 'Return to the teaching', exact: true }).click();
   await page.goBack();
-  await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'miss');
+  await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'pressure');
   await page.goto('/#/loop/practice?state=proof');
   await expect(page.locator('h1')).toHaveText('That page is not here.');
 });

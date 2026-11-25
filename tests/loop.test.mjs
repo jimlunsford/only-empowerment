@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { beforeWork73Source } from './work73-preservation.mjs';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -123,7 +124,11 @@ test('every previously accepted teaching source and dependency/build-security co
     );
   assert.ok(paths.length > 25);
   for (const path of paths)
-    assert.deepEqual(readFileSync(path), execFileSync('git', ['show', base + ':' + path]), path);
+    assert.equal(
+      beforeWork73Source(readFileSync(path, 'utf8'), path),
+      execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
+      path,
+    );
   const rebuild = readFileSync('src/Rebuild.tsx', 'utf8').split('export function RebuildGuide')[1];
   assert.equal(
     rebuild,

@@ -224,7 +224,7 @@ function App() {
   const openPurposeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'purpose'));
   const openResilienceCard = () =>
     setPeriodSession((old) => enterPeriodExercise(old, 'resilience'));
-  const [bookExit, setBookExit] = useState(false);
+  const [bookExit, setBookExit] = useState<HTMLAnchorElement | null>(null);
   let content;
   if (path === '/') content = <FrameworkHome />;
   else if (path === '/loop') content = <Loop />;
@@ -362,17 +362,18 @@ function App() {
           const link = (e.target as Element).closest('a');
           if (link?.href === periodBook.url && hasPeriodDraft(periodSession.draft)) {
             e.preventDefault();
-            setBookExit(true);
+            setBookExit(link);
           }
         }}
       >
         {content}
         {bookExit && (
           <ConfirmDialog
+            returnFocus={bookExit}
             title="Before you leave"
             cancel="Stay here"
             confirm="Continue to the book page"
-            onCancel={() => setBookExit(false)}
+            onCancel={() => setBookExit(null)}
             onConfirm={() => {
               window.location.assign(periodBook.url);
             }}

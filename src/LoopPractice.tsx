@@ -2,14 +2,30 @@ import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { loopScenario, type LoopStateId } from './loop-practice-content';
 import { loopCycle, loopStateContent, loopTranscript } from './loop-view';
 import { renderLoopNode } from './Loop';
-import { nextLoopState } from './loop-state';
+import { chooseLoopOutcome, initialLoopSelection, previousLoopChoice } from './loop-state';
 
 export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
-  const [selection, setSelection] = useState({ state: entry, revision: 0 });
+  const [selection, setSelection] = useState(() => initialLoopSelection(entry));
   const heading = useRef<HTMLHeadingElement>(null);
   const state = loopScenario.states[selection.state];
-  const choose = (id: LoopStateId) =>
-    setSelection((old) => ({ state: id, revision: old.revision + 1 }));
+  const choose = (option: number) => setSelection((old) => chooseLoopOutcome(old, option));
+  const reset = () => {
+    if (location.hash === '#/loop/practice?state=miss') {
+      // Replace the public entry address, not the private choice history.
+      // Native navigation lets the router remount at its ordinary initial state.
+      location.replace('#/loop/practice');
+    } else
+      setSelection((old) => ({
+        ...initialLoopSelection(loopScenario.initialState),
+        revision: old.revision + 1,
+      }));
+  };
+  useLayoutEffect(() => {
+    // Also discard choices when a whole document leaves via the back/forward cache.
+    const leave = () => setSelection(initialLoopSelection(entry));
+    window.addEventListener('pagehide', leave);
+    return () => window.removeEventListener('pagehide', leave);
+  }, [entry]);
   useLayoutEffect(() => {
     if (!selection.revision) return;
     heading.current?.focus({ preventScroll: true });
@@ -37,7 +53,7 @@ export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
             {loopStateContent(selection.state).map(renderLoopNode)}
             <div class="loop-choices" role="group" aria-label="Choose a response">
               {state.options.map((option, i) => (
-                <button type="button" onClick={() => choose(nextLoopState(selection.state, i))}>
+                <button type="button" onClick={() => choose(i)}>
                   {option.label}
                   <span aria-hidden="true"> →</span>
                 </button>
@@ -48,12 +64,23 @@ export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
             {selection.revision ? 'Example: ' + state.heading : ''}
           </p>
           <div class="loop-actions loop-reset">
-            <button type="button" onClick={() => choose(loopScenario.initialState)}>
+            <button
+              type="button"
+              disabled={!selection.history.length}
+              onClick={() => setSelection(previousLoopChoice)}
+            >
+              Previous choice
+            </button>
+            <button type="button" onClick={reset}>
               Reset example
             </button>
             <a href="/read/loop-practice.html">Read or print every outcome</a>
             <a href="#/loop">Return to the teaching</a>
           </div>
+          <p>
+            Choices stay in this tab. Leaving or reloading clears them. Use the complete reading to
+            link to a specific outcome.
+          </p>
         </div>
         {renderLoopNode(loopCycle('app'))}
       </div>

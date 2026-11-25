@@ -1,4 +1,4 @@
-import { loopBookUrl, loopSections, loopStages } from './loop-content.ts';
+import { loopBookUrl, loopSections, loopStages, loopTransfer } from './loop-content.ts';
 import { loopScenario, type LoopStateId, type LoopState } from './loop-practice-content.ts';
 
 // Small fixed semantic nodes, shared by Preact and the build-time native reader.
@@ -169,6 +169,14 @@ export function loopTeaching(surface: LoopSurface = 'app'): LoopNode {
           ? [paragraphLink(loopBookUrl, "Visit Jim Lunsford's book page")]
           : []),
       ),
+    ),
+    node(
+      'section',
+      { class: 'loop-section loop-transfer', 'aria-labelledby': 'loop-transfer-title' },
+      node(h2, { id: 'loop-transfer-title' }, loopTransfer.heading),
+      paragraph(loopTransfer.optional),
+      paragraph(loopTransfer.scenario),
+      paragraph(loopTransfer.reflection),
     ),
   );
 }
