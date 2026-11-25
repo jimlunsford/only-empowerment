@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
+import { beforeWork80Source } from './work80-preservation.mjs';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/work75-dialog-focus.json' with { type: 'json' };
 
 const sha = (text) => createHash('sha256').update(text).digest('hex');
 // Preserve every older whole-file guard by reversing only the pinned opener fix.
 export function beforeWork75Source(source, path) {
+  source = beforeWork80Source(source, path);
   const change = changes[path];
   if (!change) return source;
   assert.equal(sha(source), change.afterSha256, 'Unexpected Work75 bytes: ' + path);

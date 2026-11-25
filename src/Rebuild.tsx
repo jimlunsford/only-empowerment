@@ -3,6 +3,7 @@ import type { ComponentChild } from 'preact';
 import { rebuildTrees } from './rebuild-content';
 import { loopHomeCopy } from './loop-content';
 import { frameworkOrientation } from './framework-home-content';
+import { executionHomeCopy } from './execution-content';
 
 export type RebuildSection = keyof typeof rebuildTrees;
 
@@ -93,6 +94,12 @@ export function FrameworkHome() {
           <h2>The Discipline Loop</h2>
           <p>{loopHomeCopy}</p>
           <a href="#/loop">Explore The Discipline Loop</a>
+        </article>
+        <article>
+          <p class="framework-kicker">From decision to action</p>
+          <h2>Pure Execution Mode</h2>
+          <p>{executionHomeCopy}</p>
+          <a href="#/execution">Explore Pure Execution Mode</a>
         </article>
       </div>
       <p class="framework-stage">

@@ -1,0 +1,226 @@
+.execution-experience {
+  color: #173c34;
+  max-width: 1000px;
+  margin: 0 auto;
+  font:
+    1.125rem/1.65 'Source Sans',
+    Arial,
+    sans-serif;
+  overflow-wrap: anywhere;
+}
+.execution-experience :is(h1, h2, h3, h4, h5) {
+  font-family: 'Source Serif', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  scroll-margin-block-start: 18px;
+}
+.execution-intro {
+  padding: 3.5rem 0 1.5rem;
+}
+.execution-intro h1,
+.execution-intro h2 {
+  font-size: clamp(2.5rem, 6vw, 4.6rem);
+  max-width: 16ch;
+}
+.execution-author {
+  margin-top: 1rem;
+}
+.execution-entry-links,
+.execution-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  margin-top: 1.5rem;
+}
+.execution-experience :is(.execution-entry-links, .execution-contents, .execution-related) a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.4rem 0;
+}
+.execution-experience a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.execution-contents {
+  border-block: 1px solid #c9cec4;
+  padding: 1.2rem 0;
+}
+.execution-contents > p {
+  font-weight: 650;
+}
+.execution-contents ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 1.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.execution-section {
+  max-width: 74ch;
+  padding: 2.75rem 0;
+  border-bottom: 1px solid #c9cec4;
+}
+.execution-section > [data-section-heading] {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin: 0 0 1.4rem;
+}
+.execution-section > :is(h3, h4):not([data-section-heading]) {
+  font-size: 1.6rem;
+  margin: 2rem 0 1rem;
+}
+.execution-section > h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+.execution-section p {
+  margin: 1.1rem 0;
+}
+.execution-section blockquote {
+  margin: 1.8rem 0;
+  padding: 0.1rem 0 0.1rem 1.25rem;
+  border-left: 3px solid #98422e;
+  font-family: 'Source Serif', Georgia, serif;
+  font-size: 1.3rem;
+}
+.execution-practice {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #b4c1b8;
+  background: #fffdf8;
+}
+.execution-practice > :is(h3, h4) {
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+}
+.execution-question {
+  font-weight: 650;
+}
+.execution-disclosure {
+  border-top: 1px solid #c9cec4;
+  margin-top: 1rem;
+}
+.execution-disclosure summary {
+  min-height: 48px;
+  padding: 0.75rem 0.2rem;
+  cursor: pointer;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.execution-disclosure[open] summary {
+  margin-bottom: 0.3rem;
+}
+.execution-reasoning > :is(h4, h5) {
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0;
+}
+.execution-reading-link,
+.execution-source {
+  font-size: 1rem;
+}
+.execution-reading-note {
+  max-width: 74ch;
+  margin: 2rem auto 0;
+}
+.execution-experience :is(a, summary):focus-visible,
+.execution-experience [tabindex='-1']:focus {
+  outline: 3px solid #98422e;
+  outline-offset: 5px;
+}
+.execution-print {
+  display: none;
+}
+@media (max-width: 760px) {
+  .execution-contents ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .execution-intro {
+    padding-top: 2rem;
+  }
+  .execution-section {
+    padding-block: 2rem;
+  }
+  .execution-practice {
+    padding: 1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .execution-experience * {
+    scroll-behavior: auto;
+    animation: none;
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  .execution-experience :is(a, summary):focus-visible,
+  .execution-experience [tabindex='-1']:focus {
+    outline-color: Highlight;
+  }
+  .execution-practice,
+  .execution-disclosure,
+  .execution-section,
+  .execution-contents {
+    border-color: CanvasText;
+  }
+}
+@media print {
+  .execution-screen {
+    display: none !important;
+  }
+  .execution-print {
+    display: block;
+  }
+  .execution-experience {
+    max-width: none;
+    font-size: 11pt;
+    color: #000;
+    line-height: 1.45;
+  }
+  .execution-experience :is(h1, h2, h3, h4, h5) {
+    color: #000;
+    break-after: avoid;
+  }
+  .execution-intro {
+    padding: 0;
+  }
+  .execution-intro h1,
+  .execution-intro h2 {
+    font-size: 28pt;
+    max-width: none;
+  }
+  .execution-section {
+    max-width: none;
+    padding: 0.8rem 0;
+    border: 0;
+  }
+  .execution-section > h2 {
+    font-size: 19pt;
+  }
+  .execution-section > :is(h3, h4) {
+    font-size: 15pt;
+  }
+  .execution-section p {
+    orphans: 3;
+    widows: 3;
+  }
+  .execution-practice {
+    background: transparent;
+    border: 0;
+    border-left: 1pt solid #999;
+    padding: 0 0 0 12pt;
+    break-inside: auto;
+  }
+  .execution-experience
+    :is(.execution-entry-links, .execution-contents, .execution-related, .execution-reading-link),
+  .execution-reading-note {
+    display: none;
+  }
+  .execution-experience [tabindex='-1']:focus {
+    outline: none;
+  }
+  .native-execution .site-header {
+    display: none;
+  }
+}

@@ -1,7 +1,7 @@
 // Fixed educational adaptation from the authenticated Work 69 package.
 // Editorial provenance and exact changes: docs/work70/editorial-ledger.json.
 export type LoopBlock =
-  | { kind: 'paragraph'; text: string }
+  | { kind: 'paragraph'; text: string; executionLink?: true }
   | { kind: 'heading'; text: string; id?: string }
   | { kind: 'comparison'; rows: string[][] };
 export type LoopSection = { id: string; title: string; blocks: LoopBlock[] };
@@ -329,7 +329,8 @@ export const loopSections: LoopSection[] = [
       },
       {
         kind: 'paragraph',
-        text: 'Pure Execution Mode remains a future separate framework in Only Empowerment. Its focus on beginning and carrying out an actionable next move is related. It is not an available experience here.',
+        text: 'Pure Execution Mode teaches how to carry an appropriate next move into action. It uses a five-step method for choosing, beginning, following through and returning when the next responsibility calls for it. Explore Pure Execution Mode for that teaching.',
+        executionLink: true,
       },
     ],
   },

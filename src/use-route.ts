@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { homepageAnchors } from './period-homepage-content';
 import { disciplineAnchorRoute } from './period-discipline-navigation';
 import { loopRoute } from './loop-state';
+import { executionRoute } from './execution-content';
 // The root fallback contains these reading anchors when scripts are unavailable.
 // With scripts running, the same ordinary links open their complete app lessons.
 const readingRoutes: Record<string, string> = {
@@ -20,6 +21,7 @@ const contextualLink = (fragment: string) =>
     ? document.querySelector<HTMLAnchorElement>(`#app .rebuild-guide a[href="#${fragment}"]`)
     : null;
 const anchorRoute = (fragment: string) =>
+  executionRoute(fragment) ||
   loopRoute(fragment) ||
   /^\/period\/values\/(ownership|purpose|resilience|integrity|discipline|empowerment)(?=\?)/.exec(
     fragment,
@@ -31,6 +33,9 @@ const anchorRoute = (fragment: string) =>
       ? '/period'
       : rebuildSection.exec(fragment)?.[1] || disciplineAnchorRoute(fragment));
 const anchorTarget = (fragment: string) => {
+  if (fragment.startsWith('/execution?') && executionRoute(fragment) === '/execution') {
+    return document.querySelector<HTMLElement>('#app .execution-screen #' + fragment.split('=')[1]);
+  }
   if (fragment.startsWith('/loop?') && loopRoute(fragment) === '/loop') {
     return document.querySelector<HTMLElement>('#app .loop-experience #' + fragment.split('=')[1]);
   }
@@ -157,6 +162,7 @@ export function useRoute() {
     }
     if (first.current) {
       first.current = false;
+      if (path === '/execution') heading?.focus({ preventScroll: true });
       // Native route aliases can scroll the complete fallback before pageshow.
       // Reset during mount, before the reader can choose a new position. A deferred
       // reset could overwrite that choice. Section links use the target branch above.

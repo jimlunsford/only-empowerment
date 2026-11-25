@@ -10,6 +10,7 @@ import { resilienceReading } from './scripts/resilience-reading.ts';
 import { periodFallback } from './scripts/period-fallback.ts';
 import { rebuildFallback } from './scripts/rebuild-fallback.ts';
 import { loopFallback, loopReading } from './scripts/loop-reading.ts';
+import { executionFallback, executionReading } from './scripts/execution-reading.ts';
 import { frameworkOrientation } from './src/framework-home-content.ts';
 import { escapeLoop } from './scripts/loop-reading.ts';
 import {
@@ -45,6 +46,16 @@ const rebuildStyles = () =>
     .join('\n');
 const loopStyles = () =>
   ['src/style.css', 'src/navigation.css', 'src/site-footer.css', 'src/loop.css']
+    .map((path) => readFileSync(path, 'utf8'))
+    .join('\n');
+const executionStyles = () =>
+  [
+    'src/style.css',
+    'src/period.css',
+    'src/navigation.css',
+    'src/site-footer.css',
+    'src/execution.css',
+  ]
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const resilienceStyles = () =>
@@ -98,7 +109,7 @@ export default defineConfig({
             '<!-- period-fallback -->',
             '<section class="framework-hub" aria-label="Framework introduction">' +
               '<h1>Only Empowerment</h1>' +
-              '<p>Explore complete educational experiences from The PERIOD Code, How to Rebuild Yourself and The Discipline Loop.</p>' +
+              '<p>Explore complete educational experiences from The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode.</p>' +
               '<section aria-labelledby="framework-orientation-title"><h2 id="framework-orientation-title">' +
               escapeLoop(frameworkOrientation.heading) +
               '</h2><p>' +
@@ -107,12 +118,13 @@ export default defineConfig({
               escapeLoop(frameworkOrientation.choice) +
               '</p></section>' +
               '<p><a href="#teaching-order">Explore The PERIOD Code</a> or ' +
-              '<a href="/read/rebuild.html">read How to Rebuild Yourself</a> or <a href="/read/loop.html">read The Discipline Loop</a>.</p></section>' +
+              '<a href="/read/rebuild.html">read How to Rebuild Yourself</a> or <a href="/read/loop.html">read The Discipline Loop</a> or <a href="/read/execution.html">read Pure Execution Mode</a>.</p></section>' +
               periodFallback()
                 .replace('<h1 id="home-title"', '<h2 id="home-title"')
                 .replace('</h1>', '</h2>') +
               rebuildFallback() +
-              loopFallback(),
+              loopFallback() +
+              executionFallback(),
           )
           .replace('<!-- site-footer -->', staticFooter(metadata, 'combined'))
           .replace(
@@ -124,6 +136,8 @@ export default defineConfig({
         server.middlewares.use((request, response, next) => {
           const path = request.url?.split('?')[0];
           const standalone = new Map([
+            ['/read/execution.html', () => executionReading(metadata, staging)],
+            ['/read/execution.css', () => executionStyles()],
             ['/read/loop.html', () => loopReading(metadata, staging)],
             ['/read/loop-practice.html', () => loopReading(metadata, staging, true)],
             ['/read/loop.css', () => loopStyles()],
@@ -195,6 +209,8 @@ export default defineConfig({
       },
       generateBundle(_options, bundle) {
         for (const [fileName, source] of [
+          ['read/execution.html', executionReading(metadata, staging)],
+          ['read/execution.css', executionStyles()],
           ['read/loop.html', loopReading(metadata, staging)],
           ['read/loop-practice.html', loopReading(metadata, staging, true)],
           ['read/loop.css', loopStyles()],

@@ -17,6 +17,7 @@ const routes = [
   '/',
   '/loop',
   '/loop/practice',
+  '/execution',
   '/period',
   '/period/teaching-order',
   '/period/values',
@@ -81,6 +82,7 @@ test('all public and retired hash routes retain educational navigation without l
         'The PERIOD Code',
         'How to Rebuild Yourself',
         'The Discipline Loop',
+        'Pure Execution Mode',
       ]);
     }
     expect(
@@ -90,7 +92,7 @@ test('all public and retired hash routes retain educational navigation without l
     ).toEqual(
       periodRoute
         ? ['#/period/why', '#/period/teaching-order']
-        : ['#/', '#/period', '#/rebuild', '#/loop'],
+        : ['#/', '#/period', '#/rebuild', '#/loop', '#/execution'],
     );
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
@@ -98,6 +100,7 @@ test('all public and retired hash routes retain educational navigation without l
       'The PERIOD Code',
       'How to Rebuild Yourself',
       'The Discipline Loop',
+      'Pure Execution Mode',
       'About the book',
       'Privacy & source',
     ]);

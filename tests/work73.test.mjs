@@ -21,7 +21,7 @@ test('Work73 changes reverse byte-for-byte to Work72 and reject incidental mutat
   for (const path of Object.keys(changes)) {
     const source = readFileSync(path, 'utf8');
     assert.equal(beforeWork73Source(source, path), original(path), path);
-    assert.throws(() => beforeWork73Source(source + '\n', path), /Unexpected Work73 bytes/);
+    assert.throws(() => beforeWork73Source(source + '\n', path), /Unexpected Work(?:73|80) bytes/);
   }
 });
 test('only the two exact editorial replacements change accepted PERIOD content', () => {
@@ -104,7 +104,7 @@ test('exact combined orientation carries the founder-approved optional order', (
   assert.equal(frameworkOrientation.heading, 'Where to start');
   assert.equal(
     frameworkOrientation.relationship,
-    'The PERIOD Code establishes the values and standards you choose to live by. How to Rebuild Yourself teaches how to turn those standards into structure and action. The Discipline Loop explains how repeated action creates proof, builds self-trust, and keeps the work going through setbacks and correction.',
+    'The PERIOD Code establishes the values and standards you choose to live by. How to Rebuild Yourself teaches how to turn those standards into structure and action. The Discipline Loop explains how repeated action creates proof, builds self-trust, and keeps the work going through setbacks and correction. Pure Execution Mode teaches how to carry a sound responsibility through hesitation into appropriate action, adjust when the facts change, and follow through honestly.',
   );
   assert.equal(
     frameworkOrientation.choice,
