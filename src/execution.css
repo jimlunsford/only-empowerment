@@ -452,7 +452,13 @@
   outline-offset: 4px;
   scroll-margin-block: 20px;
 }
+.workshop h1[tabindex='-1']:focus {
+  scroll-margin-block-start: 9rem;
+}
 @media (max-width: 800px) {
+  .workshop h1[tabindex='-1']:focus {
+    scroll-margin-block-start: 12rem;
+  }
   .workshop-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;

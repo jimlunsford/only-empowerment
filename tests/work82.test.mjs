@@ -11,6 +11,8 @@ import {
   workshopById,
   chooseWorkshop,
   eventCarry,
+  workshopOrigin,
+  workshopBridges,
 } from '../src/execution-workshop-content.ts';
 import { executionRoute, executionTexts, executionSteps } from '../src/execution-content.ts';
 import { executionReading, executionFallback } from '../scripts/execution-reading.ts';
@@ -106,6 +108,8 @@ test('Work82 every option, demonstration and continuation is available without J
       ].filter(Boolean))
         assert.ok(text.includes(value), s.id + ': ' + value);
     }
+    for (const value of [workshopOrigin, ...Object.values(workshopBridges)])
+      assert.ok(text.includes(value));
     assert.doesNotMatch(html, /<script|<input|<textarea|<form|<details/);
   }
   for (const [legacy, id] of Object.entries(legacyWorkshopMap)) {

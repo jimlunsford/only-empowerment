@@ -10,6 +10,8 @@ import {
   workshopScreens,
   workshopSessionCopy,
   workshopStages,
+  workshopOrigin,
+  workshopBridges,
   type WorkshopChoices,
   type WorkshopOption,
 } from './execution-workshop-content';
@@ -42,6 +44,12 @@ export function Execution() {
   );
   const position = stageScreens.findIndex((entry) => entry.id === id) + 1;
   const next = option?.next || screen.next;
+  const back =
+    id === 'arrange' &&
+    workshopById('take-over').options!.find((entry) => entry.id === choices['take-over'])?.next ===
+      'recover'
+      ? 'recover'
+      : screen.back;
   const clear = () => {
     setChoices({});
     setDemonstrations({});
@@ -111,7 +119,11 @@ export function Execution() {
             )}
             <a href="/read/execution.html">Complete reading and print edition</a>
           </div>
-          <h1 id={legacy || 'workshop-title'} tabIndex={-1} ref={title}>
+          <h1
+            id={legacy || (id === 'welcome' ? '/execution' : '/execution/' + id)}
+            tabIndex={-1}
+            ref={title}
+          >
             {screen.title}
           </h1>
           <p class="workshop-purpose">{screen.purpose}</p>
@@ -143,9 +155,7 @@ export function Execution() {
             ))}
             {id === 'welcome' && (
               <p class="workshop-origin">
-                Jim developed this teaching through rebuilding ordinary life after addiction and
-                leading recovery groups. These situations are illustrations, not accounts of his
-                life. <a href="/read/execution.html#why">Read the foundation</a>.
+                {workshopOrigin} <a href="/read/execution.html#why">Read the foundation</a>.
               </p>
             )}
             {screen.action && (
@@ -296,12 +306,9 @@ export function Execution() {
               {announcement}
             </p>
             <nav class="workshop-navigation" aria-label="Workshop screen navigation">
-              {screen.back ? (
-                <a
-                  href={workshopHref(screen.back)}
-                  aria-label={'Back: ' + workshopById(screen.back).title}
-                >
-                  Back<span>{workshopById(screen.back).title}</span>
+              {back ? (
+                <a href={workshopHref(back)} aria-label={'Back: ' + workshopById(back).title}>
+                  Back<span>{workshopById(back).title}</span>
                 </a>
               ) : (
                 <a href="#/">All frameworks</a>
@@ -326,26 +333,7 @@ export function Execution() {
                 </a>
               </p>
             )}
-            {id === 'recover' && (
-              <p class="workshop-bridge">
-                Continue rejoins the example after the set is checked and any unsupported claim is
-                corrected. This is an authored continuation, not a claim that your earlier choice
-                did that work.
-              </p>
-            )}
-            {id === 'access' && (
-              <p class="workshop-bridge">
-                The next scene follows an agreed alternative reached through the permitted message
-                route. If your choice left that unresolved, this is where the illustration
-                reconnects after that work is done.
-              </p>
-            )}
-            {id === 'arrange' && (
-              <p class="workshop-bridge">
-                The next scene assumes the owner replies and agrees to four, then changes that
-                arrangement. Every choice can continue.
-              </p>
-            )}
+            {workshopBridges[id] && <p class="workshop-bridge">{workshopBridges[id]}</p>}
           </div>
           <aside class="workshop-guide">
             <nav aria-label="Workshop stages">

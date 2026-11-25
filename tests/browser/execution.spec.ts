@@ -56,7 +56,14 @@ test('every screen supports direct entry, title, refresh and unforced Continue',
   for (const s of workshopScreens) {
     await go(page, s.id);
     await expect(heading(page)).toHaveText(s.title);
+    await expect(heading(page)).toHaveAttribute(
+      'id',
+      s.id === 'welcome' ? '/execution' : '/execution/' + s.id,
+    );
     await expect(heading(page)).toBeFocused();
+    expect(
+      (await screen(page).locator('.workshop-position').boundingBox())!.y,
+    ).toBeGreaterThanOrEqual(0);
     await expect(page).toHaveTitle(s.title + ' | Only Empowerment');
     await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
     await page.reload();
@@ -205,6 +212,47 @@ test('independent sequence carries all initial choices, defers feedback, and com
   }
 });
 
+for (const decision of workshopScreens.filter((s) => s.deferred))
+  test('independent selection and comparison: ' + decision.id, async ({ page }) => {
+    for (const option of decision.options!) {
+      await go(page, decision.id);
+      await screen(page).getByRole('button', { name: option.label, exact: true }).click();
+      await expect(
+        screen(page).getByRole('button', { name: option.label, exact: true }),
+      ).toHaveAttribute('aria-pressed', 'true');
+      await expect(screen(page).locator('.workshop-feedback')).toHaveCount(0);
+      await screen(page)
+        .getByRole('link', { name: 'Skip practice and compare the reasoning now' })
+        .click();
+      const review = screen(page).getByRole('region', { name: decision.title });
+      await expect(review).toContainText('Your choice: ' + option.label);
+      await expect(review).toContainText(option.consequence);
+      await expect(review).toContainText(option.reasoning);
+    }
+  });
+
+test('visible Back follows the chosen recovery branch', async ({ page }) => {
+  await go(page, 'take-over');
+  await screen(page)
+    .getByRole('button', { name: workshopById('take-over').options![0].label, exact: true })
+    .click();
+  await next(page).click();
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'recover');
+  await screen(page)
+    .getByRole('button', { name: workshopById('recover').options![1].label, exact: true })
+    .click();
+  await next(page).click();
+  await expect(screen(page).getByRole('link', { name: /^Back:/ })).toHaveAttribute(
+    'href',
+    workshopHref('recover'),
+  );
+  await screen(page)
+    .getByRole('link', { name: /^Back:/ })
+    .click();
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'recover');
+  await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(1);
+});
+
 test('Back, Forward, skip, route exit, refresh, restart and modified links respect the session', async ({
   page,
   context,
@@ -251,7 +299,7 @@ test('Back, Forward, skip, route exit, refresh, restart and modified links respe
 });
 
 for (const width of [320, 390, 1366])
-  test(`all screens reflow at ${width}px and 200 percent text`, async ({ page }) => {
+  test(`all screens reflow at ${width}px and 200 percent text`, async ({ page }, info) => {
     test.setTimeout(120000);
     await page.setViewportSize({ width, height: 900 });
     for (const s of workshopScreens) {
@@ -270,12 +318,18 @@ for (const width of [320, 390, 1366])
       if (s.action)
         await screen(page).getByRole('button', { name: s.action.label, exact: true }).click();
       await fits(page);
+      if (['welcome', 'take-over', 'access', 'event', 'compare'].includes(s.id))
+        await page.screenshot({
+          path: info.outputPath('workshop-' + s.id + '-' + width + '.png'),
+          fullPage: true,
+        });
       for (const button of await screen(page).locator('button').all())
         expect((await button.boundingBox())!.height).toBeGreaterThanOrEqual(44);
       await page.evaluate(() =>
         document.styleSheets[0].insertRule('html { font-size: 200% !important; }', 0),
       );
       await fits(page);
+      await page.evaluate(() => document.styleSheets[0].deleteRule(0));
     }
   });
 
@@ -358,6 +412,9 @@ test('rendered reading and print preserve every paragraph once and unique IDs', 
         els.map((el) => [el.getAttribute('data-execution-copy'), el.textContent]),
       );
     expect(visible).toEqual(expectedCopy);
+    await expect(page.locator('[data-workshop-option]:visible')).toHaveCount(
+      workshopScreens.reduce((count, s) => count + (s.options?.length || 0), 0),
+    );
     await expect(page.locator('details:visible')).toHaveCount(0);
     if (info.project.name === 'chromium')
       for (const format of ['A4', 'Letter'] as const)

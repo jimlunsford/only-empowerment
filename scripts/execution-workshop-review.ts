@@ -6,6 +6,8 @@ import {
   legacyWorkshopMap,
   workshopSessionCopy,
   eventCarry,
+  workshopOrigin,
+  workshopBridges,
 } from '../src/execution-workshop-content.ts';
 import { executionHomeCopy, executionPrivacyCopy } from '../src/execution-content.ts';
 const folder = 'docs/work82';
@@ -16,10 +18,17 @@ let copy =
   workshopSessionCopy +
   '\n';
 let map =
-  '# Screen and decision map\n\nAll addresses are public navigation only. No choice enters a URL.\n\n| Screen | Stage | Purpose | Decisions / continuation |\n| --- | --- | --- | --- |\n';
-let csv = 'screen,field,authorship,work80_source_rows,work80_block_ids,implementation\n';
+  '# Screen and decision map\n\nAll addresses are public navigation only. No choice enters a URL.\n\n| Screen | Address | Stage | Purpose | Decisions / continuation |\n| --- | --- | --- | --- | --- |\n';
+const ranges = new Map(
+  [
+    ...readFileSync('docs/work80/source-map.csv', 'utf8').matchAll(/^(M\d+),([^,]+),([^,]+),/gm),
+  ].map((match) => [match[1], match[2] + ' ' + match[3]]),
+);
+if (ranges.size !== 43) throw new Error('The accepted manuscript range map changed.');
+let csv =
+  'screen,field,authorship,work80_source_rows,work80_block_ids,implementation,manuscript_locators\n';
 for (const screen of workshopScreens) {
-  map += `| [${screen.title}](${workshopHref(screen.id)}) | ${screen.stage || 'Entry/reference'} | ${screen.purpose} | ${screen.options ? screen.options.map((o) => o.id + (o.next ? ' → ' + o.next : '')).join('; ') : screen.action ? 'Reveal action and remaining responsibility' : 'Read / compare'}; Continue: ${screen.next || 'all frameworks'} |\n`;
+  map += `| ${screen.title} | \`${workshopHref(screen.id)}\` | ${screen.stage || 'Entry/reference'} | ${screen.purpose} | ${screen.options ? screen.options.map((o) => o.id + (o.next ? ' → ' + o.next : '')).join('; ') : screen.action ? 'Reveal action and remaining responsibility' : 'Read / compare'}; Continue: ${screen.next || 'all frameworks'} |\n`;
   copy += `\n## ${screen.title}\n\nAddress: \`${workshopHref(screen.id)}\`\n\n${screen.purpose}\n\n${screen.facts}\n\n${screen.teaching.join('\n\n')}\n`;
   const fields = ['purpose', 'facts', ...screen.teaching.map((_, i) => 'teaching.' + i)];
   if (screen.action) {
@@ -46,6 +55,14 @@ for (const screen of workshopScreens) {
     copy += '\n### Complete explanation\n\n' + screen.explanation + '\n';
     fields.push('question', 'explanation');
   }
+  if (screen.id === 'welcome') {
+    copy += '\n' + workshopOrigin + '\n';
+    fields.push('workshopOrigin');
+  }
+  if (workshopBridges[screen.id]) {
+    copy += '\n' + workshopBridges[screen.id] + '\n';
+    fields.push('workshopBridges');
+  }
   for (const field of fields)
     csv +=
       [
@@ -55,12 +72,17 @@ for (const screen of workshopScreens) {
         screen.sources.join(' '),
         screen.baseline.join(' '),
         'src/execution-workshop-content.ts#' + screen.id,
+        screen.sources
+          .map((key) => {
+            const range = ranges.get(key);
+            if (!range) throw new Error('Unknown source row ' + key);
+            return range;
+          })
+          .join('; '),
       ]
         .map(escape)
         .join(',') + '\n';
 }
-copy +=
-  '\n## Additional interface teaching\n\nJim developed this teaching through rebuilding ordinary life after addiction and leading recovery groups. These situations are illustrations, not accounts of his life.\n\nContinue rejoins the example after the set is checked and any unsupported claim is corrected. This is an authored continuation, not a claim that your earlier choice did that work.\n\nThe next scene assumes the owner replies and agrees to four, then changes that arrangement. Every choice can continue.\n\nThe next scene follows an agreed alternative reached through the permitted message route. If your choice left that unresolved, this is where the illustration reconnects after that work is done.\n';
 writeFileSync(folder + '/complete-workshop.md', copy);
 writeFileSync(folder + '/screen-map.md', map);
 writeFileSync(folder + '/source-map.csv', csv);
@@ -87,4 +109,3 @@ shared +=
   '\nThe old URL is preserved in the address bar, and the screen explicitly explains its mapping with a link to the full original section. New screens use `#/execution/ID`; `#/execution/welcome` also resolves to entry. Unknown or malformed destinations use the existing not-found page. No server paths, Nginx allowances or TLS changes are required. Native workshop transcript anchors use `/read/execution.html#workshop-ID`; root no-script aliases use `#/execution/ID`.\n';
 writeFileSync(folder + '/shared-copy-and-routes.md', shared);
 // This script writes review documents only; production generation is separate.
-void readFileSync;

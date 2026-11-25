@@ -1,4 +1,10 @@
-import { workshopScreens, workshopSessionCopy, eventCarry } from './execution-workshop-content.ts';
+import {
+  workshopScreens,
+  workshopSessionCopy,
+  eventCarry,
+  workshopOrigin,
+  workshopBridges,
+} from './execution-workshop-content.ts';
 import {
   executionBookUrl,
   executionSections,
@@ -184,24 +190,8 @@ export function workshopTranscript(surface: ExecutionSurface): ExecutionNode {
               n('p', {}, screen.explanation!),
             ]
           : []),
-        ...(screen.id === 'recover'
-          ? [
-              n(
-                'p',
-                {},
-                'The next scene resumes after the set is checked and any unsupported claim is corrected. This authored continuation does not claim the earlier choice did that work.',
-              ),
-            ]
-          : []),
-        ...(screen.id === 'arrange'
-          ? [
-              n(
-                'p',
-                {},
-                'The next scene assumes the owner replies and agrees to four, then changes that arrangement.',
-              ),
-            ]
-          : []),
+        ...(screen.id === 'welcome' ? [n('p', {}, workshopOrigin)] : []),
+        ...(workshopBridges[screen.id] ? [n('p', {}, workshopBridges[screen.id])] : []),
       ),
     ),
   );

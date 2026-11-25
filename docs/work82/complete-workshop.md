@@ -18,6 +18,8 @@ First, watch the five steps carry this responsibility through. Then take over un
 
 The method does not require a special feeling. It requires judgment and appropriate action. Missing permission, unsafe conditions and changed capacity still matter. Help, rest or a stop can be the action the standard requires.
 
+Jim developed this teaching through rebuilding ordinary life after addiction and leading recovery groups. These situations are illustrations, not accounts of his life.
+
 ## Identify the Next Move
 
 Address: `#/execution/identify`
@@ -172,6 +174,8 @@ Reasoning: The truth and the practical action belong together. Admitting what re
 
 Gathering and checking remain available. Do that work, communicate accurately and arrange the handoff. The next scene resumes with the complete set checked, after any unsupported claim has been corrected.
 
+Continue rejoins the example after the set is checked and any unsupported claim is corrected. This is an authored continuation, not a claim that your earlier choice did that work.
+
 ## A request is not an agreement
 
 Address: `#/execution/arrange`
@@ -206,6 +210,8 @@ Reasoning: Waiting on a real answer is different from avoiding an available acti
 
 The request advanced the responsibility. It did not obtain consent or return the tools. For the next scene, the owner replies and agrees to four, then sends a relevant change before the handoff.
 
+The next scene assumes the owner replies and agrees to four, then changes that arrangement. Every choice can continue.
+
 ## The agreed handoff changes
 
 Address: `#/execution/access`
@@ -239,6 +245,8 @@ Reasoning: The failed arrangement does not cancel the return. Explain the limit 
 ### Complete explanation
 
 Eliminate Negotiation protects a sound decision. It does not protect an outdated plan from relevant facts. Use the permitted message route, agree a feasible handoff and carry it out. If no arrangement can meet the original deadline, make that limit explicit.
+
+The next scene follows an agreed alternative reached through the permitted message route. If your choice left that unresolved, this is where the illustration reconnects after that work is done.
 
 ## Safe access is missing
 
@@ -429,13 +437,3 @@ Flip the Switch. Begin the action and carry it into the work. Preparation, progr
 Stack the Wins. Continue with connected, useful action. Tell the truth about what is done, what is waiting and where to stop.
 
 Repeat Daily. Return when the next responsibility calls for it. Every task does not become daily. Rest does not need to be earned through extra output.
-
-## Additional interface teaching
-
-Jim developed this teaching through rebuilding ordinary life after addiction and leading recovery groups. These situations are illustrations, not accounts of his life.
-
-Continue rejoins the example after the set is checked and any unsupported claim is corrected. This is an authored continuation, not a claim that your earlier choice did that work.
-
-The next scene assumes the owner replies and agrees to four, then changes that arrangement. Every choice can continue.
-
-The next scene follows an agreed alternative reached through the permitted message route. If your choice left that unresolved, this is where the illustration reconnects after that work is done.

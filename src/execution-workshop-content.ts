@@ -30,6 +30,16 @@ export const workshopStages = [
   { title: 'Handle changed facts', entry: 'access' },
   { title: 'Work independently', entry: 'event' },
 ] as const;
+export const workshopOrigin =
+  'Jim developed this teaching through rebuilding ordinary life after addiction and leading recovery groups. These situations are illustrations, not accounts of his life.';
+export const workshopBridges: Record<string, string> = {
+  recover:
+    'Continue rejoins the example after the set is checked and any unsupported claim is corrected. This is an authored continuation, not a claim that your earlier choice did that work.',
+  arrange:
+    'The next scene assumes the owner replies and agrees to four, then changes that arrangement. Every choice can continue.',
+  access:
+    'The next scene follows an agreed alternative reached through the permitted message route. If your choice left that unresolved, this is where the illustration reconnects after that work is done.',
+};
 export const workshopSessionCopy =
   'Choices stay in memory while you move within this workshop. Refreshing, restarting or leaving it clears them. The screen address stays shareable; your choices never enter it. Nothing is submitted.';
 export const workshopScreens: WorkshopScreen[] = [
@@ -45,8 +55,8 @@ export const workshopScreens: WorkshopScreen[] = [
       'First, watch the five steps carry this responsibility through. Then take over unfinished decisions, respond when the facts change, and try a different situation with less guidance. You can compare explanations, skip practice or leave at any point.',
       'The method does not require a special feeling. It requires judgment and appropriate action. Missing permission, unsafe conditions and changed capacity still matter. Help, rest or a stop can be the action the standard requires.',
     ],
-    sources: ['M02', 'M04', 'M05', 'M06', 'M24', 'M43'],
-    baseline: ['why-gap', 'why-standard', 'why-judgment', 'method-tools'],
+    sources: ['M02', 'M03', 'M04', 'M05', 'M06', 'M24', 'M43'],
+    baseline: ['why-gap', 'why-origin', 'why-standard', 'why-judgment', 'method-tools'],
     next: 'identify',
   },
   {
