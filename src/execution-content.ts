@@ -1,3 +1,4 @@
+import { workshopScreenIds } from './execution-workshop-content.ts';
 // Work 80: educational adaptation of the checksum-verified Pure Execution Mode.
 // Source-row identifiers support editorial review; they are never interface labels.
 export type ExecutionText = {
@@ -38,11 +39,11 @@ const heading = (text: string, target?: string): ExecutionBlock => ({
 export const executionTitle = 'Pure Execution Mode';
 export const executionBookUrl = 'https://jimlunsford.com/pure-execution-mode/';
 export const executionHomeCopy =
-  'Learn the five steps through a complete example, then work out how unfinished situations should continue. Keep the action connected to the responsibility, including when the facts call for help, rest, or a change of plan.';
+  'Follow one responsibility through the five steps, take over the decisions, then work through a new situation with less guidance. Compare consequences and adjust when the facts call for help, rest or a change of plan.';
 export const executionOrientationAddition =
   'Pure Execution Mode teaches how to carry a sound responsibility through hesitation into appropriate action, adjust when the facts change, and follow through honestly.';
 export const executionPrivacyCopy =
-  'Pure Execution Mode offers fixed examples and optional explanations. It has no personal answer fields and records no practice results.';
+  'Pure Execution Mode uses fixed illustrative choices kept only in memory while its workshop is open. Refreshing, restarting or leaving clears them. Screen addresses contain no choices. There are no personal answer fields, submissions or stored practice results.';
 export const executionSteps = [
   { id: 'identify', title: 'Identify the Next Move' },
   { id: 'negotiation', title: 'Eliminate Negotiation' },
@@ -614,6 +615,8 @@ export const executionTargetIds = [
 ];
 export function executionRoute(fragment: string): string | null {
   if (fragment === '/execution') return fragment;
+  const screen = /^\/execution\/([a-z][a-z-]*)$/.exec(fragment)?.[1];
+  if (screen && workshopScreenIds.includes(screen)) return '/execution';
   const id = /^\/execution\?section=([a-z][a-z0-9-]*)$/.exec(fragment)?.[1];
   return id && executionTargetIds.includes(id) ? '/execution' : null;
 }

@@ -109,7 +109,7 @@ test('every source-map teaching row is represented and the new text is bounded a
   }
 });
 
-test('enhanced, native, root and print carry every paragraph exactly once in reading order', () => {
+test('complete semantic editions carry every accepted paragraph exactly once in reading order', () => {
   const expected = executionTexts().map((p) => [p.id, p.text]);
   for (const surface of ['app', 'reading', 'root', 'print']) {
     const tree = executionTeaching(surface);
@@ -196,11 +196,11 @@ test('approved shared wording is exact and the Loop availability paragraph links
   );
   assert.equal(
     executionHomeCopy,
-    'Learn the five steps through a complete example, then work out how unfinished situations should continue. Keep the action connected to the responsibility, including when the facts call for help, rest, or a change of plan.',
+    'Follow one responsibility through the five steps, take over the decisions, then work through a new situation with less guidance. Compare consequences and adjust when the facts call for help, rest or a change of plan.',
   );
   assert.equal(
     executionPrivacyCopy,
-    'Pure Execution Mode offers fixed examples and optional explanations. It has no personal answer fields and records no practice results.',
+    'Pure Execution Mode uses fixed illustrative choices kept only in memory while its workshop is open. Refreshing, restarting or leaving clears them. Screen addresses contain no choices. There are no personal answer fields, submissions or stored practice results.',
   );
   const replacement =
     'Pure Execution Mode teaches how to carry an appropriate next move into action. It uses a five-step method for choosing, beginning, following through and returning when the next responsibility calls for it. Explore Pure Execution Mode for that teaching.';
