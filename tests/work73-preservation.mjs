@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
+import { beforeWork75Source } from './work75-preservation.mjs';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/work73-changes.json' with { type: 'json' };
 import editorial from './fixtures/work73-editorial.json' with { type: 'json' };
 
 const sha = (text) => createHash('sha256').update(text).digest('hex');
 export function beforeWork73Source(source, path) {
+  source = beforeWork75Source(source, path);
   const change = changes[path];
   if (!change) return source;
   assert.equal(sha(source), change.afterSha256, 'Unexpected Work73 bytes: ' + path);
