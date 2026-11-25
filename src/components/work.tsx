@@ -58,6 +58,7 @@ export function ConfirmDialog({
   title,
   children,
   confirm,
+  returnFocus,
   onConfirm,
   onCancel,
   cancel = 'Cancel',
@@ -65,6 +66,7 @@ export function ConfirmDialog({
   title: string;
   children: ComponentChildren;
   confirm: string;
+  returnFocus: HTMLElement;
   onConfirm: () => void;
   onCancel: () => void;
   cancel?: string;
@@ -76,9 +78,12 @@ export function ConfirmDialog({
     dialog.showModal();
     return () => {
       dialog.close();
-      if (previous?.isConnected) previous.focus();
+      // Pointer activation does not focus its control in every browser.
+      // Restore the actual opener, not an unrelated previously focused element.
+      const target = returnFocus.isConnected ? returnFocus : previous;
+      if (target?.isConnected) target.focus();
     };
-  }, []);
+  }, [returnFocus]);
   return (
     <dialog
       ref={ref}

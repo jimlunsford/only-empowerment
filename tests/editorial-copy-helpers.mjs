@@ -1,7 +1,9 @@
 import { beforeWork39 } from './work39-copy-helpers.mjs';
+import { work73Editorial } from './work73-preservation.mjs';
 import assert from 'node:assert/strict';
 import { parsers } from 'prettier/plugins/typescript';
 import fixture from './fixtures/work35-editorial.json' with { type: 'json' };
+import work62 from './fixtures/work62-approved.json' with { type: 'json' };
 
 // Preserve earlier independent content digests while allowing only the exact
 // founder-approved replacements. Every restored value is checked first.
@@ -12,7 +14,11 @@ export function beforeWork35(value, prefix) {
     let owner = copy;
     for (const key of keys.slice(0, -1)) owner = owner[key];
     const key = keys.at(-1);
-    assert.equal(owner[key], record.approved, record.id);
+    assert.equal(
+      owner[key],
+      work73Editorial[record.id] ?? work62.period[record.id] ?? record.approved,
+      record.id,
+    );
     owner[key] = record.original;
   }
   return copy;

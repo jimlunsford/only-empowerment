@@ -1,0 +1,40 @@
+{
+  "rebuild": {
+    "line": "Knowledge has work to do. If you lack the skill, information or care to take a sound next step, getting it can be your first act. If you already know what you keep doing, ask what another round of thinking would change about tonight. Give the answer a shape somebody could recognize if they were standing there.",
+    "structure": [
+      "Build the structure",
+      "A serious promise can still have nowhere to go. Look at the hour you were counting on. Who needs you then? What has to be within reach? What happens when work runs late? Discipline starts taking shape when the answers change the way you arrange an ordinary day. Get the materials ready and ask for the help you need. If that hour is gone, arrange the next one you can use, even if you can’t set it today.",
+      "Repeat the action",
+      "Setting aside the time still leaves the work to do. When the opening comes, do what you said you would. That’s one kept promise. Doing it again the next time you can is how a pattern starts. What you keep doing after the urgency wears off tells you whether the standard has a place in your life."
+    ],
+    "return": [
+      "What a kept promise proves",
+      "You said you would do something, and you did it. On a day when nobody has to chase you and nothing has gone wrong, that still counts. One kept promise gives you one fact. Keep the same promise across ordinary days and you have a reason to expect you can keep it the next time.",
+      "A miss tells you something the plan could not. The structure broke, the decision went the wrong way, or somebody is still carrying the cost. Say precisely what happened. Then look at what is still wrong in the world and what you can do about it."
+    ],
+    "trust": [
+      "What you can trust yourself to do",
+      "A promise you keep today gives you one reason to take your word seriously. Keep it on more ordinary days and you have something to go on the next time you make that promise. Be precise about what you have earned. You can rely a little more on your word in this part of your life. If you’ve faced a miss and made a correction, you have reason to trust yourself to come back, too.",
+      "When the standard starts to feel like yours",
+      "The old way can still feel natural. You practiced it longer. At first you may have to think through every part of doing what you said. As you keep doing it, you begin to see yourself as someone who follows through. The next time nobody reminds you, that changes the question. You already know how you mean to act. What you do then gives you another reason to believe it, or a miss to put right."
+    ],
+    "help": [
+      "Help can hold a part of life that you cannot hold alone. Treatment, medication, counseling, a group, a ride or long-term assistance may belong in the structure. A person can need those things for years and still take responsibility for how they live.",
+      "Keep the help you need. With it in place, what can you decide or start today? If you can make the call you agreed to make, make it. If you need help, ask in a way that works for you. Someone else can make the call if that’s what you both agree to. If even asking is out of reach today, you don’t have to find another task to earn care."
+    ],
+    "end": [
+      "Either person can prepare a line on paper. Decide what you’ll do differently and give that higher standard a place in the day. The page holds the promise. Only the next conversation or lunch can give that line a record. An honest answer about the job search or a phone put away at the table is one promise kept.",
+      "Keep that promise on ordinary days and you have a reason to trust your own word the next time. As that trust grows, you begin to see following through as part of who you are. When nobody reminds you, you can leave the phone in your bag without deciding all over again whether that promise matters. How you keep your word today is yours to decide, with whatever help you need. Each time you face a hard conversation or give your attention to the friend across the table, you’re building a life you want to be present for."
+    ],
+    "fourthQuestion": "What actually happened? If all you have is an intention, leave the record there. If you carried it out or made a correction, name precisely that. What could you reasonably trust yourself to do next?",
+    "firstPerson": "When I started rebuilding, my line was “never go back.” I still had damage to face. That first decision gave me somewhere to start while the rest of my life needed work."
+  },
+  "period": {
+    "O15": "If you could send the 3 p.m. update and waited, say so. If messaging was down until four, say when you could first reach your colleague. With the file still blocked, you can’t promise to finish the whole job tonight. Send the section you have and give a time you can keep for the next update.",
+    "R08": "In recovery, pressure can make an old escape look like relief. When that happens, leave the environment, contact someone who can help or seek the treatment you need. You can protect the life you are building while the urge is still there.",
+    "D21": "Every meal Noor arranged still counts. Tonight Eli had to make a meal they never agreed to handle. The miss is the same in every account. Look at what follows. Which response actually addresses the work left to Eli?",
+    "D22": "Every meal Noor arranged still counts. Tonight Eli had to make a meal they never agreed to handle. The miss is the same on both sides. What can Noor still put right tonight that a promise about next week would leave untouched?",
+    "D23": "Every meal Noor arranged still counts. Tonight Eli had to make a meal they never agreed to handle. The miss is the same on both sides. Would more cooking help Eli now? What repair could Noor and Eli agree on?",
+    "E24": "Nobody knows yet whether Jordan can help or how the meeting will go. Even if Jordan is unavailable, Dev still decides whom to ask next. Mara needs a new invitation before stepping in."
+  }
+}

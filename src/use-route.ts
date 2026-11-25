@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { homepageAnchors } from './period-homepage-content';
 import { disciplineAnchorRoute } from './period-discipline-navigation';
+import { loopRoute } from './loop-state';
 // The root fallback contains these reading anchors when scripts are unavailable.
 // With scripts running, the same ordinary links open their complete app lessons.
 const readingRoutes: Record<string, string> = {
@@ -12,14 +13,33 @@ const readingRoutes: Record<string, string> = {
   'reading-purpose': '/period/values/purpose',
   'reading-standard-card': '/period/standard',
 };
+// One URL fragment holds both the hash route and the optional authored section ID.
+const rebuildSection = /^(\/rebuild\/[a-z]+)\?section=([a-z][a-z0-9-]*)$/;
+const contextualLink = (fragment: string) =>
+  rebuildSection.test(fragment)
+    ? document.querySelector<HTMLAnchorElement>(`#app .rebuild-guide a[href="#${fragment}"]`)
+    : null;
 const anchorRoute = (fragment: string) =>
-  Object.hasOwn(readingRoutes, fragment)
+  loopRoute(fragment) ||
+  /^\/period\/values\/(ownership|purpose|resilience|integrity|discipline|empowerment)(?=\?)/.exec(
+    fragment,
+  )?.[0] ||
+  (Object.hasOwn(readingRoutes, fragment)
     ? readingRoutes[fragment]
     : Object.hasOwn(homepageAnchors, fragment) ||
         Object.values(homepageAnchors).some((native) => native === fragment)
-      ? '/'
-      : disciplineAnchorRoute(fragment);
+      ? '/period'
+      : rebuildSection.exec(fragment)?.[1] || disciplineAnchorRoute(fragment));
 const anchorTarget = (fragment: string) => {
+  if (fragment.startsWith('/loop?') && loopRoute(fragment) === '/loop') {
+    return document.querySelector<HTMLElement>('#app .loop-experience #' + fragment.split('=')[1]);
+  }
+  const section = rebuildSection.exec(fragment)?.[2];
+  if (section) {
+    const target = document.querySelector<HTMLElement>('#app .rebuild-guide #' + section);
+    if (target) target.tabIndex = -1;
+    return target;
+  }
   const appAnchor = Object.entries(homepageAnchors).find(([, native]) => native === fragment)?.[0];
   return document.getElementById(appAnchor || fragment);
 };
@@ -28,18 +48,29 @@ export function useRoute() {
   const [fragment, setFragment] = useState(() => location.hash.slice(1));
   const path = anchorRoute(fragment) || '/';
   const first = useRef(true);
+  const aligningSection = useRef(false);
+  const returnFrom = useRef<string | null>(null);
   const restoring = useRef<{ y: number; focus: HTMLElement | null } | null>(null);
   useLayoutEffect(() => {
-    let counter = 0;
-    let entry = 0;
-    const positions = new Map<number, { y: number; focus: HTMLElement | null }>();
+    let entry = Number.isSafeInteger(history.state?.oeNavigation)
+      ? Number(history.state.oeNavigation)
+      : 0;
+    let counter = entry;
+    let currentFragment = location.hash.slice(1);
+    // A native visit before enhancement can inherit the same numeric index as
+    // a previous document. Only restore a snapshot for the requested fragment.
+    const positions = new Map<string, { y: number; focus: HTMLElement | null }>();
     const previousRestoration = history.scrollRestoration;
     history.scrollRestoration = 'manual';
     history.replaceState({ oeNavigation: entry }, '', location.href);
     // Scroll events may arrive after popstate in WebKit. Snapshot the current viewport
     // before changing the rendered route, rather than using a deferred event's value.
-    const save = () =>
-      positions.set(entry, { y: scrollY, focus: document.activeElement as HTMLElement | null });
+    const save = (focus = document.activeElement as HTMLElement | null) =>
+      positions.set(`${entry}:${currentFragment}`, {
+        y: scrollY,
+        // Firefox can clear focus to the body before it delivers popstate.
+        focus: focus === document.body ? null : focus,
+      });
     const onClick = (event: MouseEvent) => {
       if (
         event.defaultPrevented ||
@@ -61,24 +92,33 @@ export function useRoute() {
         return;
       }
       event.preventDefault();
-      save();
+      save(link);
+      // Native history can preserve a fractional reading position that numeric
+      // scroll APIs round. Set restoration on the entry we are leaving.
+      history.scrollRestoration = Number.isInteger(scrollY) ? 'manual' : 'auto';
       entry = ++counter;
       restoring.current = null;
       history.pushState({ oeNavigation: entry }, '', '#' + fragment);
+      history.scrollRestoration = 'manual';
+      currentFragment = fragment;
       setFragment(fragment);
     };
     const onHistory = () => {
-      save();
+      // A destination waiting for fonts has no settled position to restore yet.
+      if (!aligningSection.current) save();
       const id = history.state?.oeNavigation;
       if (typeof id === 'number') {
+        restoring.current = positions.get(`${id}:${location.hash.slice(1)}`) || null;
+        // Reload clears the viewport map. The public section URL still identifies its issuing link.
+        returnFrom.current = id < entry && !restoring.current ? currentFragment : null;
         entry = id;
-        restoring.current = positions.get(id) || { y: 0, focus: null };
       } else {
         entry = ++counter;
         history.replaceState({ oeNavigation: entry }, '', location.href);
         restoring.current = null;
       }
-      setFragment(location.hash.slice(1));
+      currentFragment = location.hash.slice(1);
+      setFragment(currentFragment);
     };
     document.addEventListener('click', onClick);
     window.addEventListener('popstate', onHistory);
@@ -91,20 +131,20 @@ export function useRoute() {
   useLayoutEffect(() => {
     const heading = document.querySelector<HTMLElement>('h1');
     document.title = `${heading?.textContent || 'Page'} | Only Empowerment`;
-    const target = anchorTarget(location.hash.slice(1));
-    if (
-      !restoring.current &&
-      target &&
-      anchorRoute(location.hash.slice(1)) !== location.hash.slice(1)
-    ) {
+    const returnLink = returnFrom.current ? contextualLink(returnFrom.current) : null;
+    returnFrom.current = null;
+    const target = returnLink || anchorTarget(fragment);
+    if (!restoring.current && target && (returnLink || anchorRoute(fragment) !== fragment)) {
       // Font loading can change the target's position after the initial render.
       // Measure to start font layout, then align focus and scroll to its final position.
       target.getBoundingClientRect();
       let cancelled = false;
+      aligningSection.current = true;
       const alignTarget = () => {
         if (cancelled) return;
         target.focus({ preventScroll: true });
-        target.scrollIntoView({ block: 'start' });
+        target.scrollIntoView({ block: returnLink ? 'center' : 'start' });
+        aligningSection.current = false;
       };
       if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);
       else alignTarget();
@@ -112,17 +152,43 @@ export function useRoute() {
       restoring.current = null;
       return () => {
         cancelled = true;
+        aligningSection.current = false;
       };
     }
     if (first.current) {
       first.current = false;
+      // Native route aliases can scroll the complete fallback before pageshow.
+      // Reset during mount, before the reader can choose a new position. A deferred
+      // reset could overwrite that choice. Section links use the target branch above.
+      window.scrollTo(0, 0);
       return;
     }
     const restore = restoring.current;
     if (restore) {
-      (restore.focus?.isConnected ? restore.focus : heading)?.focus({ preventScroll: true });
-      window.scrollTo(0, restore.y);
+      // A cross-route link can be unmounted. Recover its public destination on the restored page.
+      const oldLink = restore.focus;
+      const replacement =
+        oldLink instanceof HTMLAnchorElement ? contextualLink(oldLink.hash.slice(1)) : null;
+      (oldLink?.isConnected ? oldLink : replacement || target || heading)?.focus({
+        preventScroll: true,
+      });
       restoring.current = null;
+      if (history.scrollRestoration === 'auto' && !Number.isInteger(restore.y)) {
+        // The outgoing position is already saved. Clear its compositor offset
+        // after remounting, before Firefox restores the incoming viewport.
+        if (scrollY !== 0) window.scrollTo(0, 0);
+        // Native history retains subpixels. If remounting a taller header has
+        // displaced the reader beyond numeric scrolling's half-pixel precision,
+        // restore from a clean origin before paint. A new route cancels the frame.
+        const frame = requestAnimationFrame(() => {
+          if (Math.abs(scrollY - restore.y) > 0.5) {
+            window.scrollTo(0, 0);
+            window.scrollTo(0, restore.y);
+          }
+        });
+        return () => cancelAnimationFrame(frame);
+      }
+      window.scrollTo(0, restore.y);
     } else {
       heading?.focus({ preventScroll: true });
       if (

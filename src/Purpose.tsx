@@ -44,6 +44,11 @@ export function PurposeLesson({ openCard }: { openCard: () => void }) {
           <LessonTitle text="Purpose." />
         </h1>
         <p class="lead">Give responsibility a direction.</p>
+        <p class="small">
+          <a href="/read/purpose.html" target="_blank" rel="noopener noreferrer">
+            Read complete text-only lesson and example (new tab)
+          </a>
+        </p>
       </header>
       <PeriodSequence active="purpose" lesson />
       <div class="lesson-local">

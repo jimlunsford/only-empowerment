@@ -24,7 +24,7 @@ async function axe(page: Page) {
 test('teaching journey, available links, keyboard focus and example require no answers', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/#/period');
   await expect(page.getByRole('heading', { name: 'Why PERIOD?', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'The negotiation', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'The standard', exact: true })).toBeVisible();
@@ -136,7 +136,7 @@ test('draft and card survive in-site history, lesson entry, and guarded book exi
   await expect(page.locator('#period-standard')).toHaveValue('');
 });
 test('Back and Forward restore distinct reading positions', async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/#/period');
   await page.evaluate(() => scrollTo(0, 500));
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(500);
   await page
@@ -234,7 +234,7 @@ test('authored content never enters traffic, logs, storage or history and legacy
       completion: 'Check',
     },
   });
-  await page.goto('/');
+  await page.goto('/#/period');
   await page.evaluate(({ key, record }) => localStorage.setItem(key, record), { key, record });
   await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
   await page.locator('#period-valueId').selectOption('resilience');
@@ -312,7 +312,7 @@ test('responsive teaching, editor and maximum card reflow, accessibility and rev
     width: info.project.name === 'mobile-chromium' ? 390 : 1440,
     height: 900,
   });
-  await page.goto('/');
+  await page.goto('/#/period');
   if (['chromium', 'mobile-chromium'].includes(info.project.name))
     await page.screenshot({ path: info.outputPath('period-introduction.png'), fullPage: true });
   await page.goto('/#/period/values/ownership');

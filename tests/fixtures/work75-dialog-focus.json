@@ -1,0 +1,290 @@
+{
+  "src/PeriodStandard.tsx": {
+    "beforeSha256": "1f6a8495eaf6f492cc5a2758fe328c57b2efea42c97093f7b12487d5ab639274",
+    "afterSha256": "424ff693091d62ec97aa2574dc132c99cc56ae90265bc51d0386a1236dfc6799",
+    "edits": [
+      {
+        "start": 2675,
+        "end": 2701,
+        "before": "",
+        "after": "<HTMLButtonElement | null>"
+      },
+      {
+        "start": 2702,
+        "end": 2704,
+        "before": "fa",
+        "after": "nu"
+      },
+      {
+        "start": 2705,
+        "end": 2706,
+        "before": "se",
+        "after": "l"
+      },
+      {
+        "start": 5479,
+        "end": 5484,
+        "before": "",
+        "after": "event"
+      },
+      {
+        "start": 5542,
+        "end": 5546,
+        "before": "",
+        "after": "even"
+      },
+      {
+        "start": 5547,
+        "end": 5550,
+        "before": "",
+        "after": ".cu"
+      },
+      {
+        "start": 5551,
+        "end": 5552,
+        "before": "u",
+        "after": "r"
+      },
+      {
+        "start": 5553,
+        "end": 5561,
+        "before": "",
+        "after": "ntTarget"
+      },
+      {
+        "start": 5887,
+        "end": 5920,
+        "before": "",
+        "after": "returnFocus={clearing}\n          "
+      },
+      {
+        "start": 6048,
+        "end": 6050,
+        "before": "fa",
+        "after": "nu"
+      },
+      {
+        "start": 6051,
+        "end": 6052,
+        "before": "se",
+        "after": "l"
+      },
+      {
+        "start": 6287,
+        "end": 6289,
+        "before": "fa",
+        "after": "nu"
+      },
+      {
+        "start": 6290,
+        "end": 6291,
+        "before": "se",
+        "after": "l"
+      }
+    ]
+  },
+  "src/LegacyDataRemoval.tsx": {
+    "beforeSha256": "38f4d7336d2aaf510986850116cbab6d8864bb81c7b0cea13e459e2f20dea85d",
+    "afterSha256": "a2d59a07c186f4e160886b9082348ebc714a49ab679f7cc8336ee447a1898ad8",
+    "edits": [
+      {
+        "start": 245,
+        "end": 271,
+        "before": "",
+        "after": "<HTMLButtonElement | null>"
+      },
+      {
+        "start": 272,
+        "end": 274,
+        "before": "fa",
+        "after": "nu"
+      },
+      {
+        "start": 275,
+        "end": 276,
+        "before": "se",
+        "after": "l"
+      },
+      {
+        "start": 360,
+        "end": 362,
+        "before": "fa",
+        "after": "nu"
+      },
+      {
+        "start": 363,
+        "end": 364,
+        "before": "se",
+        "after": "l"
+      },
+      {
+        "start": 1809,
+        "end": 1814,
+        "before": "",
+        "after": "event"
+      },
+      {
+        "start": 1830,
+        "end": 1834,
+        "before": "",
+        "after": "even"
+      },
+      {
+        "start": 1835,
+        "end": 1838,
+        "before": "",
+        "after": ".cu"
+      },
+      {
+        "start": 1839,
+        "end": 1840,
+        "before": "u",
+        "after": "r"
+      },
+      {
+        "start": 1841,
+        "end": 1849,
+        "before": "",
+        "after": "ntTarget"
+      },
+      {
+        "start": 1990,
+        "end": 2022,
+        "before": "",
+        "after": "returnFocus={confirm}\n          "
+      },
+      {
+        "start": 2136,
+        "end": 2138,
+        "before": "fa",
+        "after": "nu"
+      },
+      {
+        "start": 2139,
+        "end": 2140,
+        "before": "se",
+        "after": "l"
+      }
+    ]
+  },
+  "src/main.tsx": {
+    "beforeSha256": "c785ff12c3c09af8f3644d01888fd6e3aed9216f0993e4ecb82887bfaec6c161",
+    "afterSha256": "4fbdf5127d3e739f9f78e03ac8616a4c8fc26104b5ba1ee17bf9380e3fd65099",
+    "edits": [
+      {
+        "start": 10727,
+        "end": 10753,
+        "before": "",
+        "after": "<HTMLAnchorElement | null>"
+      },
+      {
+        "start": 10754,
+        "end": 10756,
+        "before": "fa",
+        "after": "nu"
+      },
+      {
+        "start": 10757,
+        "end": 10758,
+        "before": "se",
+        "after": "l"
+      },
+      {
+        "start": 16231,
+        "end": 16235,
+        "before": "true",
+        "after": "link"
+      },
+      {
+        "start": 16334,
+        "end": 16369,
+        "before": "",
+        "after": "\n            returnFocus={bookExit}"
+      },
+      {
+        "start": 16526,
+        "end": 16528,
+        "before": "fa",
+        "after": "nu"
+      },
+      {
+        "start": 16529,
+        "end": 16530,
+        "before": "se",
+        "after": "l"
+      }
+    ]
+  },
+  "src/components/work.tsx": {
+    "beforeSha256": "8e658992faba4540b2c9413c1810dc4a0ac85e7450a62b7678f84606111378f5",
+    "afterSha256": "2d0e3f8dd74fbfea6fa1ee265630e8acc928f6f20c4e27e8bf636906d63d85bb",
+    "edits": [
+      {
+        "start": 1407,
+        "end": 1422,
+        "before": "",
+        "after": "returnFocus,\n  "
+      },
+      {
+        "start": 1536,
+        "end": 1564,
+        "before": "",
+        "after": ";\n  returnFocus: HTMLElement"
+      },
+      {
+        "start": 1877,
+        "end": 1882,
+        "before": "",
+        "after": "// Po"
+      },
+      {
+        "start": 1883,
+        "end": 1908,
+        "before": "",
+        "after": "nter activation does not "
+      },
+      {
+        "start": 1909,
+        "end": 1913,
+        "before": "",
+        "after": "ocus"
+      },
+      {
+        "start": 1914,
+        "end": 1997,
+        "before": "(",
+        "after": "its control in every browser.\n      // Restore the actual opener, not an unrelated "
+      },
+      {
+        "start": 2005,
+        "end": 2112,
+        "before": "",
+        "after": "ly focused element.\n      const target = returnFocus.isConnected ? returnFocus : previous;\n      if (target"
+      },
+      {
+        "start": 2127,
+        "end": 2129,
+        "before": "p",
+        "after": "ta"
+      },
+      {
+        "start": 2130,
+        "end": 2131,
+        "before": "",
+        "after": "g"
+      },
+      {
+        "start": 2132,
+        "end": 2133,
+        "before": "vious",
+        "after": "t"
+      },
+      {
+        "start": 2156,
+        "end": 2167,
+        "before": "",
+        "after": "returnFocus"
+      }
+    ]
+  }
+}

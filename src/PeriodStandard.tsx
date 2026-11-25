@@ -75,10 +75,11 @@ export function PeriodStandard({
   setSession: Dispatch<StateUpdater<PeriodSession>>;
 }) {
   const { draft, view, notice } = session;
+  const paperEntry = location.hash === '#reading-standard-card';
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState('');
   const [fallback, setFallback] = useState(false);
-  const [clearing, setClearing] = useState(false);
+  const [clearing, setClearing] = useState<HTMLButtonElement | null>(null);
   const [supportOpen, setSupportOpen] = useState(!!draft.returnPlan);
   const example = useRef<HTMLDetailsElement>(null);
   const fallbackArea = useRef<HTMLTextAreaElement>(null);
@@ -163,8 +164,8 @@ export function PeriodStandard({
         <button
           id="period-clear"
           class="button"
-          onClick={() => {
-            if (hasPeriodDraft(draft)) setClearing(true);
+          onClick={(event) => {
+            if (hasPeriodDraft(draft)) setClearing(event.currentTarget);
             else {
               setSession(newPeriodSession());
               setStatus('Draft cleared.');
@@ -177,23 +178,34 @@ export function PeriodStandard({
       <p class="small export-note no-print">{copy.exportNote}</p>
       {clearing && (
         <ConfirmDialog
+          returnFocus={clearing}
           title="Clear this draft?"
           cancel="Keep writing"
           confirm="Clear draft"
-          onCancel={() => setClearing(false)}
+          onCancel={() => setClearing(null)}
           onConfirm={() => {
             setSession(newPeriodSession());
             setErrors({});
             setStatus('Draft cleared.');
             setFallback(false);
             setSupportOpen(false);
-            setClearing(false);
+            setClearing(null);
             focus('period-clear');
           }}
         >
           <p>This removes the words in this tab. Copies and printouts are not affected.</p>
         </ConfirmDialog>
       )}
+    </>
+  );
+  const paperInstructions = (
+    <>
+      {context.paperParagraphs.map((paragraph) => (
+        <p key={paragraph}>{paragraph}</p>
+      ))}
+      <a href="/read/standard.html" target="_blank" rel="noopener noreferrer">
+        Read or print the paper guide (new tab)
+      </a>
     </>
   );
   return (
@@ -209,14 +221,28 @@ export function PeriodStandard({
         </p>
       )}
 
+      {paperEntry && view === 'card' && (
+        <section class="no-print">
+          <h2 id="reading-standard-card" tabIndex={-1}>
+            Use the standard on paper
+          </h2>
+          {paperInstructions}
+        </section>
+      )}
       {view === 'edit' ? (
         <>
           <div class="editor-heading">
             <h1 id="reading-standard-card" tabIndex={-1}>
-              Turn a Value <br />
-              into a <em>Standard.</em>
+              {paperEntry ? (
+                'Use the standard on paper'
+              ) : (
+                <>
+                  Turn a Value <br />
+                  into a <em>Standard.</em>
+                </>
+              )}
             </h1>
-            <p class="lead">{copy.lead}</p>
+            {paperEntry ? paperInstructions : <p class="lead">{copy.lead}</p>}
           </div>
           <p class="mobile-privacy">{copy.privacy}</p>
           <div class="period-editor-layout editor-layout">

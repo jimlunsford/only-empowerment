@@ -39,7 +39,10 @@ test('approved refinements separate the plan from purpose and respect survival s
     /staying alive, staying sober, receiving care or keeping one stable day intact/,
   );
   assert.match(seasons.paragraphs.at(-1), /before every detail is clear/);
-  assert.match(purposeConnected, /connected standard for living/);
+  assert.equal(
+    purposeConnected,
+    'Purpose gives direction to responsibility. It still needs resilience, honesty, repeated action and a willingness to help others stand. One decision can call on several values without requiring six separate acts.',
+  );
   assert.equal(purposeRelationships.length, 6);
   assert.equal(purposeBridge.at(-1), 'Resilience is next in the teaching order.');
 });

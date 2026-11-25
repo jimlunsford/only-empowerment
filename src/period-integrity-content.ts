@@ -89,7 +89,7 @@ export const integrityContent = {
       id: 'L09',
       heading: 'One connected standard, six values at work',
       paragraphs: [
-        'The PERIOD Code is a connected standard for living. Integrity keeps the whole Code honest. Reaching this lesson does not leave Ownership, Purpose or Resilience behind, and the work will still need Discipline and Empowerment.',
+        'Integrity keeps the whole Code honest.',
         'Ownership puts your part of the correction back in your hands. Purpose asks what kind of life the work serves. Resilience helps you face the discomfort and consequences without abandoning the standard. Integrity keeps both the direction and the method truthful. Discipline gives that alignment repeated behavior. Empowerment uses developed strength to help others become capable without controlling their choices.',
         'These relationships matter together. A good purpose cannot excuse a dishonest method. Endurance cannot turn a false statement into truth. Admitting responsibility cannot replace repair. Helping someone cannot justify taking over their decision about whether to trust you.',
         'You do not have to perform six separate actions in every situation. You do have to stop treating one strength as permission to ignore the rest of the Code.',
@@ -111,7 +111,7 @@ export const integrityContent = {
     label: 'Examine a fictional record',
     hint: 'See where a message protects an image and what a real correction requires. No personal answer needed.',
   },
-  availability: 'Discipline is next in the teaching order. Its full lesson is now available.',
+  availability: 'Discipline is next in the teaching order.',
   card: 'If you want a reminder, name one honest behavior on an optional Standard Card and copy or print it. Keep it where you can return to it before a promise or a correction. The card cannot make your conduct truthful. What you do next can.',
   book: 'The book develops the origins of The PERIOD Code, its six values and their deliberate order. This free lesson offers a practical way to understand Integrity. You can use it without buying anything.',
   attribution:
@@ -210,7 +210,7 @@ export const integrityContent = {
     closure:
       'The useful question is what changes beyond the message. Correct the relevant account, address the affected work, protect legitimate privacy and keep the next action honest. Their response remains theirs.',
     bridge:
-      'Integrity requires truthful correction. Discipline gives that alignment repeated form. Its full lesson is now available.',
+      'Integrity requires truthful correction. Discipline gives that alignment repeated form.',
     comparison_intro:
       'Compare three responses to the same mistake. What would each one leave for Maya and the team to deal with? These are alternatives, not later events in the story.',
     limits:

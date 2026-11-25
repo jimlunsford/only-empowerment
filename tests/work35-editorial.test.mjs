@@ -1,3 +1,5 @@
+import { beforeWork56Source, beforeWork56Reading } from './work56-preservation.mjs';
+import { work73Editorial } from './work73-preservation.mjs';
 import { beforeWork42Source } from './work42-copy-helpers.mjs';
 import { beforeWork39Source, supersessions } from './work39-copy-helpers.mjs';
 import test from 'node:test';
@@ -6,6 +8,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { format, resolveConfig } from 'prettier';
 import fixture from './fixtures/work35-editorial.json' with { type: 'json' };
+import work62 from './fixtures/work62-approved.json' with { type: 'json' };
 import { parseCopy, fieldNode, headingNodes, patchLocations } from './editorial-copy-helpers.mjs';
 import { beforeWork37Source } from './work37-copy-helpers.mjs';
 import { periodFallback } from '../scripts/period-fallback.ts';
@@ -37,7 +40,10 @@ test('Work 35 has exactly the 177 approved records, the founder O01 override and
 for (const [path, baselineDigest] of Object.entries(fixture.baselineFiles)) {
   test(`Work 35 exact approved fields and all unlisted source preserved: ${path}`, async () => {
     let source = beforeWork37Source(
-      beforeWork39Source(beforeWork42Source(readFileSync(path, 'utf8'), path), path),
+      beforeWork39Source(
+        beforeWork42Source(beforeWork56Source(readFileSync(path, 'utf8'), path), path),
+        path,
+      ),
       path,
     );
     if (path === 'scripts/purpose-fallback.ts') {
@@ -79,7 +85,7 @@ const escape = (text) =>
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;');
 const reading = {
-  O: periodFallback(),
+  O: beforeWork56Reading(periodFallback()),
   P: periodFallback(),
   R: resilienceReading(),
   I: integrityReading(),
@@ -103,9 +109,12 @@ const pairEquivalents = {
 test('all 177 records have complete static reading coverage or their approved all-pattern equivalent', () => {
   for (const record of records) {
     const equivalent = pairEquivalents[record.id];
-    const approved = equivalent
-      ? records.find((r) => r.id === equivalent).approved
-      : (supersessions[record.id]?.proposed ?? record.approved);
+    const id = equivalent ?? record.id;
+    const approved =
+      work73Editorial[id] ??
+      work62.period[id] ??
+      supersessions[id]?.proposed ??
+      records.find((r) => r.id === id).approved;
     assert.ok(
       reading[record.id[0]].includes(escape(approved)),
       `${record.id}: ${equivalent ?? 'exact static copy'}`,

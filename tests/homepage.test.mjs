@@ -1,3 +1,5 @@
+import { beforeWork56Reading } from './work56-preservation.mjs';
+import { beforeWork59RootReading } from './work59-preservation.mjs';
 import { beforeWork42RootReading } from './work42-copy-helpers.mjs';
 import { beforeWork39RootReading } from './work39-copy-helpers.mjs';
 import test from 'node:test';
@@ -33,13 +35,15 @@ test('approved Work 32 copy, comparison and reflection are complete in the root 
   for (const id of ['first-moment', 'why-period', 'teaching-order']) {
     assert.match(html, new RegExp(`id="${id}"[^>]+tabindex="-1"[^>]+aria-labelledby=`));
   }
-  for (const id of ['ownership', 'purpose']) assert.ok(html.includes(`href="#reading-${id}"`));
+  for (const id of ['ownership', 'purpose']) assert.ok(html.includes(`href="/read/${id}.html"`));
   for (const id of ['resilience', 'integrity', 'discipline', 'empowerment'])
     assert.ok(html.includes(`href="/read/${id}.html"`));
 });
 
 test('root readings after the unchanged homepage match Work 37 foundation and retained Work 35 teaching', () => {
-  const full = beforeWork39RootReading(beforeWork42RootReading(periodFallback()));
+  const full = beforeWork39RootReading(
+    beforeWork42RootReading(beforeWork56Reading(beforeWork59RootReading(periodFallback()))),
+  );
   const readings = full.slice(full.indexOf('<h2 id="reading-ownership"'));
   assert.equal(
     createHash('sha256').update(readings).digest('hex'),

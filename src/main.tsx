@@ -4,6 +4,12 @@ import { SourceNotice } from './SourceNotice';
 import { render } from 'preact';
 import { useState } from 'preact/hooks';
 import { useRoute } from './use-route';
+import { RebuildGuide, FrameworkHome } from './Rebuild';
+import { Loop } from './Loop';
+import { LoopPractice } from './LoopPractice';
+import './loop.css';
+import { rebuildTrees } from './rebuild-content';
+import type { RebuildSection } from './Rebuild';
 import { PeriodIntro, PeriodOwnership, PeriodUnavailable, PeriodBook } from './PeriodLearning';
 import { PeriodStandard } from './PeriodStandard';
 import { PracticeOwnership } from './PracticeOwnership';
@@ -27,6 +33,8 @@ import './period-homepage.css';
 import './period-lessons.css';
 import './lesson-transitions.css';
 import './site-footer.css';
+import './rebuild-source-scoped.css';
+import './rebuild-app.css';
 import { EmpowermentLesson, EmpowermentConversation } from './Empowerment';
 import { DisciplineLesson, DisciplinePattern } from './Discipline';
 import { IntegrityLesson, IntegrityRecord } from './Integrity';
@@ -36,14 +44,23 @@ function Privacy() {
     <div class="narrow legacy-info">
       <PageIntro title="Your answers are not ours to collect.">
         <p>
-          You can read the six lessons and explore their examples without an account or submitting
-          personal answers. The optional Standard Card stays in the open tab. The earlier tools and
-          Saved work are retired from this application. Records saved with an older version may
-          still remain in this browser profile on this site.
+          You can read The PERIOD Code's six lessons, The Discipline Loop, and How to Rebuild
+          Yourself's complete teaching and alternatives without an account or submitting personal
+          answers. The optional Standard Card stays in the open tab. The earlier tools and Saved
+          work are retired from this application. Records saved with an older version may still
+          remain in this browser profile on this site.
         </p>
       </PageIntro>
       <LegacyDataRemoval />
       <div class="privacy-facts">
+        <section>
+          <h2>The Discipline Loop example</h2>
+          <p>
+            The example has fixed choices and no personal entry fields. Its current choice stays
+            only in page memory. Resetting, leaving the example or reloading discards that choice.
+            Choices do not enter the URL, browser storage or a submission.
+          </p>
+        </section>
         <section>
           <h2>What stays in the page</h2>
           <p>
@@ -140,24 +157,52 @@ function Privacy() {
     </div>
   );
 }
-function NotFound() {
+function NotFound({ path }: { path: string }) {
+  const retired = new Set([
+    '/tools',
+    '/saved',
+    '/approach',
+    '/saved-work',
+    '/decision-room',
+    '/next-move',
+    '/build-a-standard',
+    '/reset',
+    '/rebuild-map',
+    '/do-it-now',
+    ...['decision-room', 'next-move', 'build-a-standard', 'reset', 'rebuild-map', 'do-it-now'].map(
+      (name) => '/tools/' + name,
+    ),
+  ]).has(path);
+  const rebuilding = path.startsWith('/rebuild/');
   return (
     <div class="narrow legacy-info">
       <PageIntro title="That page is not here.">
-        <p>
-          The earlier tools, Saved work, and Approach page have been retired. Retiring these pages
-          does not remove existing browser data.{' '}
-          <a href="#/period/teaching-order">Explore the values</a>, return to{' '}
-          <a href="#/period/why">Why PERIOD?</a>, or read{' '}
-          <a href="#/privacy">Privacy &amp; source</a>.
-        </p>
+        {retired ? (
+          <p>
+            The earlier tools, Saved work, and Approach page have been retired. Retiring these pages
+            does not remove existing browser data.{' '}
+            <a href="#/period/teaching-order">Explore the values</a>, return to{' '}
+            <a href="#/period/why">Why PERIOD?</a>, or read{' '}
+            <a href="#/privacy">Privacy &amp; source</a>.
+          </p>
+        ) : (
+          <p>
+            This address does not match a lesson.{' '}
+            {rebuilding && (
+              <>
+                <a href="#/rebuild">Return to How to Rebuild Yourself</a> or{' '}
+              </>
+            )}
+            <a href="#/">Choose a framework</a>.
+          </p>
+        )}
       </PageIntro>
     </div>
   );
 }
 function App() {
   const path = useRoute();
-  const editorial = path === '/' || path.startsWith('/period/');
+  const editorial = path === '/period' || path.startsWith('/period/');
   const [periodSession, setPeriodSession] = useState(newPeriodSession);
   const [practiceSession, setPracticeSession] = useState(newPracticeSession);
   const [purposeSession, setPurposeSession] = useState(newPurposeSession);
@@ -179,10 +224,23 @@ function App() {
   const openPurposeCard = () => setPeriodSession((old) => enterPeriodExercise(old, 'purpose'));
   const openResilienceCard = () =>
     setPeriodSession((old) => enterPeriodExercise(old, 'resilience'));
-  const [bookExit, setBookExit] = useState(false);
+  const [bookExit, setBookExit] = useState<HTMLAnchorElement | null>(null);
   let content;
-  if (path === '/') content = <PeriodIntro />;
-  else if (path === '/period/values/ownership' || path === '/period/values')
+  if (path === '/') content = <FrameworkHome />;
+  else if (path === '/loop') content = <Loop />;
+  else if (path === '/loop/practice' || path === '/loop/practice?state=miss')
+    content = <LoopPractice key={path} entry={path.endsWith('state=miss') ? 'miss' : 'pressure'} />;
+  else if (path === '/period' || path === '/period/why' || path === '/period/teaching-order')
+    content = <PeriodIntro />;
+  else if (path === '/rebuild') content = <RebuildGuide section="index" />;
+  else if (path.startsWith('/rebuild/')) {
+    const section = path.slice('/rebuild/'.length);
+    content = Object.hasOwn(rebuildTrees, section) ? (
+      <RebuildGuide section={section as RebuildSection} key={section} />
+    ) : (
+      <NotFound path={path} />
+    );
+  } else if (path === '/period/values/ownership' || path === '/period/values')
     content = <PeriodOwnership />;
   else if (path === '/period/values/purpose')
     content = <PurposeLesson openCard={openPurposeCard} />;
@@ -214,7 +272,7 @@ function App() {
     content = <PeriodStandard session={periodSession} setSession={setPeriodSession} />;
   else if (path === '/period/book') content = <PeriodBook standalone />;
   else if (path === '/privacy') content = <Privacy />;
-  else content = <NotFound />;
+  else content = <NotFound path={path} />;
   return (
     <div class={`site-shell ${editorial ? 'period-shell' : ''}`}>
       <a
@@ -229,7 +287,7 @@ function App() {
       </a>
       <header class="site-header">
         <a class="wordmark" href="#/" aria-label="Only Empowerment home">
-          only
+          {'only '}
           <wbr />
           <span>
             {'empower\u00adment'}
@@ -238,31 +296,62 @@ function App() {
             </span>
           </span>
         </a>
-        <nav aria-label="Main navigation">
-          <a
-            href="#/period/why"
-            aria-current={
-              location.hash === '#/period/why' || location.hash === '#why-period'
-                ? 'location'
-                : undefined
-            }
-          >
-            Why PERIOD?
-          </a>
-          <a
-            href="#/period/teaching-order"
-            aria-current={
-              location.hash === '#/period/teaching-order'
-                ? 'location'
-                : path.startsWith('/period/') &&
-                    path !== '/period/standard' &&
-                    path !== '/period/book'
-                  ? 'location'
-                  : undefined
-            }
-          >
-            Explore the values
-          </a>
+        {editorial && (
+          <nav class="framework-switch" aria-label="Framework navigation">
+            <a href="#/">Frameworks</a>
+            <a href="#/period" aria-current="location">
+              The PERIOD Code
+            </a>
+            <a href="#/rebuild">How to Rebuild Yourself</a>
+            <a href="#/loop">The Discipline Loop</a>
+          </nav>
+        )}
+        <nav aria-label="Main navigation" class={editorial ? 'period-local-navigation' : undefined}>
+          {editorial ? (
+            <>
+              <a
+                href="#/period/why"
+                aria-current={
+                  path === '/period/why' ||
+                  location.hash === '#/period/why' ||
+                  location.hash === '#why-period'
+                    ? 'location'
+                    : undefined
+                }
+              >
+                Why PERIOD?
+              </a>
+              <a
+                href="#/period/teaching-order"
+                aria-current={
+                  (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&
+                  path !== '/period/standard' &&
+                  path !== '/period/book' &&
+                  path !== '/period/why'
+                    ? 'location'
+                    : undefined
+                }
+              >
+                Explore the values
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
+                Frameworks
+              </a>
+              <a href="#/period">The PERIOD Code</a>
+              <a
+                href="#/rebuild"
+                aria-current={path.startsWith('/rebuild') ? 'location' : undefined}
+              >
+                How to Rebuild Yourself
+              </a>
+              <a href="#/loop" aria-current={path.startsWith('/loop') ? 'location' : undefined}>
+                The Discipline Loop
+              </a>
+            </>
+          )}
         </nav>
       </header>
       <main
@@ -273,17 +362,18 @@ function App() {
           const link = (e.target as Element).closest('a');
           if (link?.href === periodBook.url && hasPeriodDraft(periodSession.draft)) {
             e.preventDefault();
-            setBookExit(true);
+            setBookExit(link);
           }
         }}
       >
         {content}
         {bookExit && (
           <ConfirmDialog
+            returnFocus={bookExit}
             title="Before you leave"
             cancel="Stay here"
             confirm="Continue to the book page"
-            onCancel={() => setBookExit(false)}
+            onCancel={() => setBookExit(null)}
             onConfirm={() => {
               window.location.assign(periodBook.url);
             }}
@@ -299,6 +389,9 @@ function App() {
         </div>
         <nav class="footer-group" aria-label="About this site">
           <h2>About this site</h2>
+          <a href="#/period">The PERIOD Code</a>
+          <a href="#/rebuild">How to Rebuild Yourself</a>
+          <a href="#/loop">The Discipline Loop</a>
           <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
             About the book
           </a>
@@ -342,12 +435,29 @@ function App() {
             Optional Standard Card
           </a>
         </nav>
-        <SiteNotices build={__BUILD__} />
+        <SiteNotices
+          build={__BUILD__}
+          source={
+            path.startsWith('/rebuild')
+              ? 'rebuild'
+              : path.startsWith('/loop')
+                ? 'loop'
+                : path === '/'
+                  ? 'combined'
+                  : 'period'
+          }
+        />
       </footer>
     </div>
   );
 }
-render(<App />, document.getElementById('app')!);
-// Static teaching remains available if JavaScript is disabled or the app cannot load.
-// Remove it only after a successful mount, so enhancement is never a reading gate.
-document.getElementById('educational-fallback')?.remove();
+function mount() {
+  render(<App />, document.getElementById('app')!);
+  // Remove the complete native reading only after enhancement succeeds.
+  document.getElementById('educational-fallback')?.remove();
+}
+
+// On reload WebKit can run the module before linked styles are available.
+// Keep native links active through initial presentation, then read the current hash.
+if (document.readyState === 'complete') mount();
+else window.addEventListener('pageshow', mount, { once: true });

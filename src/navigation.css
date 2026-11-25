@@ -269,3 +269,51 @@
     padding: 0;
   }
 }
+
+/* Work 59: always provide a named framework switch, while retaining the
+   accepted PERIOD-local value navigation as a second tier. */
+.site-shell.period-shell .site-header .framework-switch {
+  margin-left: auto;
+  gap: 0 22px;
+}
+.site-shell.period-shell .site-header .period-local-navigation {
+  flex-basis: 100%;
+  border-top: 1px solid #c9cec4;
+  padding-top: 3px;
+  gap: 0 24px;
+}
+@media (max-width: 600px) {
+  /* Keep the first practical lesson visible without shrinking the 44px
+     keyboard and touch targets when the two navigation tiers wrap. */
+  .site-shell.period-shell .site-header {
+    padding-block: 12px;
+  }
+  .site-shell.period-shell .site-header .framework-switch,
+  .site-shell.period-shell .site-header .period-local-navigation {
+    margin-top: 6px;
+  }
+  .site-shell.period-shell .site-header :is(.framework-switch, .period-local-navigation) a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 5px;
+    line-height: 1.25;
+  }
+  .site-shell.period-shell .site-header .framework-switch {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-start;
+    gap: 0 18px;
+  }
+  .site-shell.period-shell .site-header .period-local-navigation {
+    padding-top: 0;
+  }
+}
+
+/* Leave the focused lesson title and its outline inside the viewport when the
+   browser rounds the scroll offset to a device pixel. */
+.value-lesson > .lesson-heading h1 {
+  scroll-margin-block-start: 8px;
+}

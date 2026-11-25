@@ -9,7 +9,7 @@ test('presentation mode keeps six lessons available without a review banner, pre
   const mode = (await (await request.get('/build.json')).json()).presentation;
   expect(mode).toBe(process.env.OE_PRESENTATION ?? 'staging');
   const staging = mode === 'staging';
-  await page.goto('/');
+  await page.goto('/#/period');
   await expect(page.locator('.staging-banner, .period-review-notice')).toHaveCount(0);
   await expect(page.locator('body')).not.toContainText('Not a production release');
   await expect(page.getByRole('heading', { name: 'Your values have to show up.' })).toBeVisible();
@@ -71,7 +71,7 @@ test('no-JavaScript presentation describes six lessons without review-status mes
   const context = await browser.newContext({ javaScriptEnabled: false });
   try {
     const page = await context.newPage();
-    await page.goto(baseURL!);
+    await page.goto(baseURL! + '/#/period');
     await expect(
       page.getByRole('heading', { name: 'Your values have to show up.', exact: true }),
     ).toBeVisible();

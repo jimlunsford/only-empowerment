@@ -67,7 +67,7 @@ export const resilienceContent = {
       id: 'L07',
       heading: 'Protect the rebuild without performing strength',
       paragraphs: [
-        'An old escape can look useful when pressure gets heavy. Recognize where it leads and take the next step that protects your recovery: leave the environment, contact support or seek treatment when needed. You are protecting the life you are building.',
+        'In recovery, pressure can make an old escape look like relief. When that happens, leave the environment, contact someone who can help or seek the treatment you need. You can protect the life you are building while the urge is still there.',
         'Get appropriate help when you need it. Relapse is not a requirement of recovery, and willpower is not a guarantee against every setback. If you fall short, face what happened and respond. Do not turn it into a permanent sentence against yourself.',
         'The same distinction matters when progress feels slow or unremarkable. Keeping a useful routine, waiting patiently while trust is rebuilt, admitting a limit and making a quiet correction can all carry more weight than a public display of toughness.',
       ],

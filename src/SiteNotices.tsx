@@ -3,11 +3,12 @@ import {
   footerEducation,
   footerBuildNotice,
   type FooterBuild,
+  type EducationSource,
 } from './site-footer-content';
 
-export function SiteNotices({ build }: { build: FooterBuild }) {
+export function SiteNotices({ build, source }: { build: FooterBuild; source: EducationSource }) {
   const state = footerBuildNotice(build),
-    education = footerEducation();
+    education = footerEducation(source);
   return (
     <div class="footer-provenance footer-notices">
       <p class="founder-copyright">
@@ -16,7 +17,13 @@ export function SiteNotices({ build }: { build: FooterBuild }) {
       </p>
       <div class="footer-print-urls">
         <p>
-          {education.text} <a href={education.url}>{education.url}</a>
+          {education.text}
+          {education.url && (
+            <>
+              {' '}
+              <a href={education.url}>{education.url}</a>
+            </>
+          )}
         </p>
         <p>
           Software: <a href="https://www.gnu.org/licenses/agpl-3.0.html">AGPL-3.0-or-later</a>. No
