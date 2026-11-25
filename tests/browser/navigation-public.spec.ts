@@ -17,6 +17,7 @@ const routes = [
   '/',
   '/loop',
   '/loop/practice',
+  '/execution',
   '/period',
   '/period/teaching-order',
   '/period/values',
@@ -62,13 +63,15 @@ test('all public and retired hash routes retain educational navigation without l
   test.setTimeout(120000);
   for (const route of routes) {
     await page.goto('/#' + route);
-    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     if (
       route !== '/missing' &&
       !['/tools', '/saved', '/approach'].includes(route) &&
       !route.startsWith('/tools/')
     )
-      await expect(page.locator('h1')).not.toHaveText('That page is not here.');
+      await expect(page.getByRole('heading', { level: 1 })).not.toHaveText(
+        'That page is not here.',
+      );
     const periodRoute = route === '/period' || route.startsWith('/period/');
     if (periodRoute) {
       await expect(mainNav(page).getByRole('link')).toHaveText([
@@ -81,6 +84,7 @@ test('all public and retired hash routes retain educational navigation without l
         'The PERIOD Code',
         'How to Rebuild Yourself',
         'The Discipline Loop',
+        'Pure Execution Mode',
       ]);
     }
     expect(
@@ -90,7 +94,7 @@ test('all public and retired hash routes retain educational navigation without l
     ).toEqual(
       periodRoute
         ? ['#/period/why', '#/period/teaching-order']
-        : ['#/', '#/period', '#/rebuild', '#/loop'],
+        : ['#/', '#/period', '#/rebuild', '#/loop', '#/execution'],
     );
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
@@ -98,6 +102,7 @@ test('all public and retired hash routes retain educational navigation without l
       'The PERIOD Code',
       'How to Rebuild Yourself',
       'The Discipline Loop',
+      'Pure Execution Mode',
       'About the book',
       'Privacy & source',
     ]);

@@ -13,9 +13,14 @@ export const softwareNotice = {
   permissions:
     '. You may use, modify, and redistribute it under that license. No warranty. The founder copyright statement does not limit these software permissions.',
 };
-export type EducationSource = 'period' | 'rebuild' | 'loop' | 'combined';
+export type EducationSource = 'period' | 'rebuild' | 'loop' | 'execution' | 'combined';
 export function footerEducation(source: EducationSource) {
   if (source === 'period') return { text: periodExercise.source, url: periodBook.url };
+  if (source === 'execution')
+    return {
+      text: 'Based on Pure Execution Mode by Jim Lunsford. Educational adaptation by Only Empowerment.',
+      url: 'https://jimlunsford.com/pure-execution-mode/',
+    };
   if (source === 'loop')
     return {
       text: 'Based on The Discipline Loop by Jim Lunsford. Educational adaptation by Only Empowerment.',
@@ -24,7 +29,7 @@ export function footerEducation(source: EducationSource) {
   const titles =
     source === 'rebuild'
       ? 'How to Rebuild Yourself'
-      : 'The PERIOD Code, How to Rebuild Yourself and The Discipline Loop';
+      : 'The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode';
   return {
     text: `Based on ${titles} by Jim Lunsford. Educational adaptation by Only Empowerment.`,
     url: null,

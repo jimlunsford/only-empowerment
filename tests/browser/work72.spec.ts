@@ -346,12 +346,14 @@ test('Work72 no-script root introduces all frameworks and retains real native re
     'The PERIOD Code',
     'How to Rebuild Yourself',
     'The Discipline Loop',
+    'Pure Execution Mode',
   ]);
   await nav.getByRole('link', { name: 'The PERIOD Code', exact: true }).click();
   await expect(page.locator('#why-period')).toBeInViewport();
   for (const [name, path, title] of [
     ['How to Rebuild Yourself', '/read/rebuild.html', 'How to Rebuild Yourself: Complete reading'],
     ['The Discipline Loop', '/read/loop.html', 'The Discipline Loop'],
+    ['Pure Execution Mode', '/read/execution.html', 'Pure Execution Mode'],
   ]) {
     await page.goto(baseURL! + '/');
     await nav.getByRole('link', { name, exact: true }).click();

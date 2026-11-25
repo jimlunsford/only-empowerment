@@ -64,8 +64,10 @@ for (const presentation of ['staging', 'production']) {
         'Rebuild Map',
         'Do It Now',
       ]) {
-        assert.ok(!fallback.includes(name));
-        assert.ok(!js.includes(name));
+        // The approved PEM step contains the retired tool's two-word name.
+        // Exempt only that exact step title, while rejecting standalone tool copy.
+        assert.ok(!fallback.replaceAll('Identify the Next Move', '').includes(name));
+        assert.ok(!js.replaceAll('Identify the Next Move', '').includes(name));
       }
       assert.doesNotMatch(
         html + js,

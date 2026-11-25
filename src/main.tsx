@@ -6,6 +6,9 @@ import { useState } from 'preact/hooks';
 import { useRoute } from './use-route';
 import { RebuildGuide, FrameworkHome } from './Rebuild';
 import { Loop } from './Loop';
+import { Execution } from './Execution';
+import { executionPrivacyCopy } from './execution-content';
+import './execution.css';
 import { LoopPractice } from './LoopPractice';
 import './loop.css';
 import { rebuildTrees } from './rebuild-content';
@@ -44,15 +47,19 @@ function Privacy() {
     <div class="narrow legacy-info">
       <PageIntro title="Your answers are not ours to collect.">
         <p>
-          You can read The PERIOD Code's six lessons, The Discipline Loop, and How to Rebuild
-          Yourself's complete teaching and alternatives without an account or submitting personal
-          answers. The optional Standard Card stays in the open tab. The earlier tools and Saved
-          work are retired from this application. Records saved with an older version may still
-          remain in this browser profile on this site.
+          You can read The PERIOD Code's six lessons, How to Rebuild Yourself's complete teaching
+          and alternatives, The Discipline Loop, and Pure Execution Mode without an account or
+          submitting personal answers. The optional Standard Card stays in the open tab. The earlier
+          tools and Saved work are retired from this application. Records saved with an older
+          version may still remain in this browser profile on this site.
         </p>
       </PageIntro>
       <LegacyDataRemoval />
       <div class="privacy-facts">
+        <section>
+          <h2>Pure Execution Mode</h2>
+          <p>{executionPrivacyCopy}</p>
+        </section>
         <section>
           <h2>The Discipline Loop example</h2>
           <p>
@@ -227,6 +234,7 @@ function App() {
   const [bookExit, setBookExit] = useState<HTMLAnchorElement | null>(null);
   let content;
   if (path === '/') content = <FrameworkHome />;
+  else if (path === '/execution') content = <Execution />;
   else if (path === '/loop') content = <Loop />;
   else if (path === '/loop/practice' || path === '/loop/practice?state=miss')
     content = <LoopPractice key={path} entry={path.endsWith('state=miss') ? 'miss' : 'pressure'} />;
@@ -304,6 +312,7 @@ function App() {
             </a>
             <a href="#/rebuild">How to Rebuild Yourself</a>
             <a href="#/loop">The Discipline Loop</a>
+            <a href="#/execution">Pure Execution Mode</a>
           </nav>
         )}
         <nav aria-label="Main navigation" class={editorial ? 'period-local-navigation' : undefined}>
@@ -350,6 +359,9 @@ function App() {
               <a href="#/loop" aria-current={path.startsWith('/loop') ? 'location' : undefined}>
                 The Discipline Loop
               </a>
+              <a href="#/execution" aria-current={path === '/execution' ? 'location' : undefined}>
+                Pure Execution Mode
+              </a>
             </>
           )}
         </nav>
@@ -392,6 +404,7 @@ function App() {
           <a href="#/period">The PERIOD Code</a>
           <a href="#/rebuild">How to Rebuild Yourself</a>
           <a href="#/loop">The Discipline Loop</a>
+          <a href="#/execution">Pure Execution Mode</a>
           <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
             About the book
           </a>
@@ -440,11 +453,13 @@ function App() {
           source={
             path.startsWith('/rebuild')
               ? 'rebuild'
-              : path.startsWith('/loop')
-                ? 'loop'
-                : path === '/'
-                  ? 'combined'
-                  : 'period'
+              : path === '/execution'
+                ? 'execution'
+                : path.startsWith('/loop')
+                  ? 'loop'
+                  : path === '/'
+                    ? 'combined'
+                    : 'period'
           }
         />
       </footer>

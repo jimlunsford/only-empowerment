@@ -1,0 +1,698 @@
+{
+  "index.html": {
+    "beforeSha256": "91f687e125ca582876f4ff96150e766ed0dea2d7e979b82d7cea2bf02f5ec4ea",
+    "afterSha256": "4abfdaaf56a28738c1c93c34225dd73bfaddd79e48d10aad0a287a963f973ee8",
+    "edits": [
+      {
+        "start": 218,
+        "end": 219,
+        "before": " and",
+        "after": ","
+      },
+      {
+        "start": 239,
+        "end": 263,
+        "before": "",
+        "after": " and Pure Execution Mode"
+      },
+      {
+        "start": 1377,
+        "end": 1431,
+        "before": "",
+        "after": "a href=\"/read/execution.html\">Pure Execution Mode</a><"
+      }
+    ]
+  },
+  "scripts/privacy-reading.ts": {
+    "beforeSha256": "eec58df512063daf91686165885988a7288f3dada72c71589a6900e69767584d",
+    "afterSha256": "0dc3a9c6f996fc2f609f4f809e4250a98a9c73bc128b03648bce206f1a4d3214",
+    "edits": [
+      {
+        "start": 43,
+        "end": 111,
+        "before": "",
+        "after": ".ts';\nimport { executionPrivacyCopy } from '../src/execution-content"
+      },
+      {
+        "start": 1600,
+        "end": 1603,
+        "before": "all six",
+        "after": "The"
+      },
+      {
+        "start": 1611,
+        "end": 1622,
+        "before": "va",
+        "after": "Code's six "
+      },
+      {
+        "start": 1623,
+        "end": 1623,
+        "before": "u",
+        "after": ""
+      },
+      {
+        "start": 1625,
+        "end": 1627,
+        "before": " a",
+        "after": "so"
+      },
+      {
+        "start": 1628,
+        "end": 1630,
+        "before": "d the complete",
+        "after": "s,"
+      },
+      {
+        "start": 1654,
+        "end": 1665,
+        "before": "",
+        "after": "'s complete"
+      },
+      {
+        "start": 1691,
+        "end": 1737,
+        "before": "",
+        "after": ", The Discipline Loop, and Pure Execution Mode"
+      },
+      {
+        "start": 2131,
+        "end": 2170,
+        "before": "",
+        "after": "</p>\n<p>${escape(executionPrivacyCopy)}"
+      }
+    ]
+  },
+  "scripts/site-footer.ts": {
+    "beforeSha256": "dcb1d83c3fdd96d7f5b6b4dbf422d64bd25d444ddc617869ed17240fbc6d9e77",
+    "afterSha256": "0e46ee9bd7c4002e6ed5518187013c97548e754af45719cb0d18c2244fa35fe7",
+    "edits": [
+      {
+        "start": 2043,
+        "end": 2097,
+        "before": "",
+        "after": "read/execution.html', 'Pure Execution Mode') + link('/"
+      }
+    ]
+  },
+  "scripts/standalone-reading.ts": {
+    "beforeSha256": "b1f4ef7430fcd6f01fd1ac071842a8e43002875d4918cd6fc0a9dd6512decfae",
+    "afterSha256": "55b9c25b9f3c53c17ad5a16cb1672296d1e5808cc22be591cb6b0287027d0edf",
+    "edits": [
+      {
+        "start": 6133,
+        "end": 6263,
+        "before": "",
+        "after": "h2>Pure Execution Mode</h2><p><a href=\"/read/execution.html\">Complete teaching, worked examples and explanations</a>.</p>',\n    '<"
+      }
+    ]
+  },
+  "src/Rebuild.tsx": {
+    "beforeSha256": "790a09342f28216fa906c6eff0f6c0dd2abf9625d423048787704efc7a8ad94c",
+    "afterSha256": "4d3c13e11d1c0f280d3ca6d4c52d4a09b40e780457337bbc342f09a491082925",
+    "edits": [
+      {
+        "start": 225,
+        "end": 282,
+        "before": "",
+        "after": "-content';\nimport { executionHomeCopy } from './execution"
+      },
+      {
+        "start": 4031,
+        "end": 4274,
+        "before": "",
+        "after": "  <article>\n          <p class=\"framework-kicker\">From decision to action</p>\n          <h2>Pure Execution Mode</h2>\n          <p>{executionHomeCopy}</p>\n          <a href=\"#/execution\">Explore Pure Execution Mode</a>\n        </article>\n      "
+      }
+    ]
+  },
+  "src/framework-home-content.ts": {
+    "beforeSha256": "9e91b05af13b303e4573cff555d840db4dc74005412385d2576701a746939b9d",
+    "afterSha256": "4f47a90f42dee2325c90b1591fdc1395ad08face954ef5acc362dc4e321f139f",
+    "edits": [
+      {
+        "start": 0,
+        "end": 71,
+        "before": "",
+        "after": "import { executionOrientationAddition } from './execution-content.ts';\n"
+      },
+      {
+        "start": 74,
+        "end": 75,
+        "before": "Exa",
+        "after": "A"
+      },
+      {
+        "start": 76,
+        "end": 79,
+        "before": "",
+        "after": "cep"
+      },
+      {
+        "start": 80,
+        "end": 80,
+        "before": " combin",
+        "after": ""
+      },
+      {
+        "start": 97,
+        "end": 98,
+        "before": "c",
+        "after": "w"
+      },
+      {
+        "start": 99,
+        "end": 99,
+        "before": "py app",
+        "after": ""
+      },
+      {
+        "start": 100,
+        "end": 100,
+        "before": "ove",
+        "after": ""
+      },
+      {
+        "start": 101,
+        "end": 101,
+        "before": " ",
+        "after": ""
+      },
+      {
+        "start": 103,
+        "end": 104,
+        "before": "",
+        "after": "g"
+      },
+      {
+        "start": 105,
+        "end": 107,
+        "before": "Prod",
+        "after": "pl"
+      },
+      {
+        "start": 108,
+        "end": 117,
+        "before": "",
+        "after": "s the exa"
+      },
+      {
+        "start": 120,
+        "end": 135,
+        "before": "V",
+        "after": "Work 80 S01 add"
+      },
+      {
+        "start": 136,
+        "end": 137,
+        "before": "s",
+        "after": "t"
+      },
+      {
+        "start": 140,
+        "end": 140,
+        "before": " v1.46",
+        "after": ""
+      },
+      {
+        "start": 533,
+        "end": 534,
+        "before": "",
+        "after": " "
+      },
+      {
+        "start": 535,
+        "end": 570,
+        "before": "",
+        "after": " +\n    executionOrientationAddition"
+      }
+    ]
+  },
+  "src/loop-content.ts": {
+    "beforeSha256": "9302a5321e84576034288f336ae750af25a89abf5b9025b14192c5f39ade6d5f",
+    "afterSha256": "1d489e97205576de4210448e45203bf45ab45bbfca1e6d49c055e94cc30193fd",
+    "edits": [
+      {
+        "start": 211,
+        "end": 233,
+        "before": "",
+        "after": "; executionLink?: true"
+      },
+      {
+        "start": 18270,
+        "end": 18271,
+        "before": "r",
+        "after": "t"
+      },
+      {
+        "start": 18272,
+        "end": 18272,
+        "before": "m",
+        "after": ""
+      },
+      {
+        "start": 18273,
+        "end": 18276,
+        "before": "in",
+        "after": "che"
+      },
+      {
+        "start": 18278,
+        "end": 18279,
+        "before": "a future separate framework in Only Emp",
+        "after": "h"
+      },
+      {
+        "start": 18281,
+        "end": 18282,
+        "before": "ermen",
+        "after": " "
+      },
+      {
+        "start": 18283,
+        "end": 18283,
+        "before": ". Its f",
+        "after": ""
+      },
+      {
+        "start": 18284,
+        "end": 18284,
+        "before": "cus on beginning and",
+        "after": ""
+      },
+      {
+        "start": 18290,
+        "end": 18290,
+        "before": "ing out",
+        "after": ""
+      },
+      {
+        "start": 18295,
+        "end": 18303,
+        "before": "c",
+        "after": "ppropria"
+      },
+      {
+        "start": 18304,
+        "end": 18304,
+        "before": "ionabl",
+        "after": ""
+      },
+      {
+        "start": 18317,
+        "end": 18320,
+        "before": "s",
+        "after": "nto"
+      },
+      {
+        "start": 18321,
+        "end": 18321,
+        "before": "rel",
+        "after": ""
+      },
+      {
+        "start": 18322,
+        "end": 18323,
+        "before": "",
+        "after": "c"
+      },
+      {
+        "start": 18324,
+        "end": 18327,
+        "before": "ed",
+        "after": "ion"
+      },
+      {
+        "start": 18332,
+        "end": 18335,
+        "before": "i",
+        "after": "use"
+      },
+      {
+        "start": 18337,
+        "end": 18366,
+        "before": "",
+        "after": "a five-step method for choosi"
+      },
+      {
+        "start": 18367,
+        "end": 18382,
+        "before": "",
+        "after": "g, beginning, f"
+      },
+      {
+        "start": 18383,
+        "end": 18391,
+        "before": "",
+        "after": "llowing "
+      },
+      {
+        "start": 18392,
+        "end": 18398,
+        "before": "",
+        "after": "hrough"
+      },
+      {
+        "start": 18401,
+        "end": 18402,
+        "before": "",
+        "after": "d"
+      },
+      {
+        "start": 18403,
+        "end": 18436,
+        "before": "ava",
+        "after": "returning when the next responsib"
+      },
+      {
+        "start": 18438,
+        "end": 18443,
+        "before": "",
+        "after": "ity c"
+      },
+      {
+        "start": 18444,
+        "end": 18444,
+        "before": "b",
+        "after": ""
+      },
+      {
+        "start": 18445,
+        "end": 18462,
+        "before": "",
+        "after": "ls for it. Explor"
+      },
+      {
+        "start": 18463,
+        "end": 18512,
+        "before": "",
+        "after": " Pure Execution Mode for that teaching.',\n       "
+      },
+      {
+        "start": 18515,
+        "end": 18515,
+        "before": "p",
+        "after": ""
+      },
+      {
+        "start": 18516,
+        "end": 18529,
+        "before": "",
+        "after": "cutionLink: t"
+      },
+      {
+        "start": 18530,
+        "end": 18531,
+        "before": "i",
+        "after": "u"
+      },
+      {
+        "start": 18532,
+        "end": 18532,
+        "before": "nce here.'",
+        "after": ""
+      }
+    ]
+  },
+  "src/loop-view.ts": {
+    "beforeSha256": "13122abee166a75d30b7a60deb6df95c2bdea7108f19ab67e7c1dcac3a1712e0",
+    "afterSha256": "2137bfc209548eb464c05456aa58fb8874a9cc62b2e89b87cf6def8e7d1adf96",
+    "edits": [
+      {
+        "start": 4996,
+        "end": 5413,
+        "before": "",
+        "after": "if (block.executionLink) {\n            const label = 'Pure Execution Mode';\n            const index = block.text.lastIndexOf(label);\n            return node(\n              'p',\n              {},\n              block.text.slice(0, index),\n              anchor(surface === 'app' ? '#/execution' : '/read/execution.html', label),\n              block.text.slice(index + label.length),\n            );\n          }\n          "
+      }
+    ]
+  },
+  "src/main.tsx": {
+    "beforeSha256": "4fbdf5127d3e739f9f78e03ac8616a4c8fc26104b5ba1ee17bf9380e3fd65099",
+    "afterSha256": "5ca6688e69182ac34a1f73db612452db68126a25acd230040427059fdb6995fb",
+    "edits": [
+      {
+        "start": 348,
+        "end": 475,
+        "before": "",
+        "after": "';\nimport { Execution } from './Execution';\nimport { executionPrivacyCopy } from './execution-content';\nimport './execution.css"
+      },
+      {
+        "start": 2251,
+        "end": 2251,
+        "before": "The Discipline Loop, and ",
+        "after": ""
+      },
+      {
+        "start": 2265,
+        "end": 2265,
+        "before": "\n         ",
+        "after": ""
+      },
+      {
+        "start": 2294,
+        "end": 2304,
+        "before": "",
+        "after": "\n         "
+      },
+      {
+        "start": 2321,
+        "end": 2367,
+        "before": "",
+        "after": ", The Discipline Loop, and Pure Execution Mode"
+      },
+      {
+        "start": 2389,
+        "end": 2399,
+        "before": "",
+        "after": "\n         "
+      },
+      {
+        "start": 2419,
+        "end": 2419,
+        "before": "\n         ",
+        "after": ""
+      },
+      {
+        "start": 2490,
+        "end": 2500,
+        "before": "",
+        "after": "\n         "
+      },
+      {
+        "start": 2516,
+        "end": 2516,
+        "before": "\n         ",
+        "after": ""
+      },
+      {
+        "start": 2584,
+        "end": 2594,
+        "before": "",
+        "after": "\n         "
+      },
+      {
+        "start": 2612,
+        "end": 2612,
+        "before": "\n         ",
+        "after": ""
+      },
+      {
+        "start": 2750,
+        "end": 2866,
+        "before": "",
+        "after": ">\n        <section>\n          <h2>Pure Execution Mode</h2>\n          <p>{executionPrivacyCopy}</p>\n        </section"
+      },
+      {
+        "start": 11111,
+        "end": 11170,
+        "before": "",
+        "after": "execution') content = <Execution />;\n  else if (path === '/"
+      },
+      {
+        "start": 14587,
+        "end": 14645,
+        "before": "",
+        "after": "  <a href=\"#/execution\">Pure Execution Mode</a>\n          "
+      },
+      {
+        "start": 16259,
+        "end": 16413,
+        "before": "",
+        "after": "  <a href=\"#/execution\" aria-current={path === '/execution' ? 'location' : undefined}>\n                Pure Execution Mode\n              </a>\n            "
+      },
+      {
+        "start": 17775,
+        "end": 17831,
+        "before": "",
+        "after": "</a>\n          <a href=\"#/execution\">Pure Execution Mode"
+      },
+      {
+        "start": 19535,
+        "end": 19605,
+        "before": "",
+        "after": " === '/execution'\n                ? 'execution'\n                : path"
+      },
+      {
+        "start": 19642,
+        "end": 19644,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 19653,
+        "end": 19655,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 19704,
+        "end": 19706,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 19719,
+        "end": 19721,
+        "before": "",
+        "after": "  "
+      }
+    ]
+  },
+  "src/site-footer-content.ts": {
+    "beforeSha256": "1551fccc4069fe2c681c921596269bc38e43682e447aca65bb02c52ab270b04e",
+    "afterSha256": "ace7fe87734dcaa7b5b6e4311dbb33151d002879dc5ff9168643d620d5536e6b",
+    "edits": [
+      {
+        "start": 773,
+        "end": 787,
+        "before": "",
+        "after": "execution' | '"
+      },
+      {
+        "start": 941,
+        "end": 1155,
+        "before": "",
+        "after": " };\n  if (source === 'execution')\n    return {\n      text: 'Based on Pure Execution Mode by Jim Lunsford. Educational adaptation by Only Empowerment.',\n      url: 'https://jimlunsford.com/pure-execution-mode/',\n   "
+      },
+      {
+        "start": 1489,
+        "end": 1490,
+        "before": " and",
+        "after": ","
+      },
+      {
+        "start": 1510,
+        "end": 1534,
+        "before": "",
+        "after": " and Pure Execution Mode"
+      }
+    ]
+  },
+  "src/use-route.ts": {
+    "beforeSha256": "16a92411544ac3be07b88928cf7c79a2d59415689dd3d4d0b4b7c2df204797f0",
+    "afterSha256": "306dcd60d345c885b604ca5b6cee0e251bf0db17b2511fb87206c30807c262f2",
+    "edits": [
+      {
+        "start": 238,
+        "end": 292,
+        "before": "",
+        "after": "';\nimport { executionRoute } from './execution-content"
+      },
+      {
+        "start": 1302,
+        "end": 1332,
+        "before": "",
+        "after": "executionRoute(fragment) ||\n  "
+      },
+      {
+        "start": 1821,
+        "end": 2015,
+        "before": "",
+        "after": "\n  if (fragment.startsWith('/execution?') && executionRoute(fragment) === '/execution') {\n    return document.querySelector<HTMLElement>('#app .execution-screen #' + fragment.split('=')[1]);\n  }"
+      },
+      {
+        "start": 7731,
+        "end": 7805,
+        "before": "",
+        "after": "if (path === '/execution') heading?.focus({ preventScroll: true });\n      "
+      }
+    ]
+  },
+  "vite.config.ts": {
+    "beforeSha256": "c3bf7a02d9086a534e05429325388248e2c009159c810e48afae10c9d0043010",
+    "afterSha256": "56bc0f6e9bf49757cbfe25aa2ab4f8bb24a82c0868d69709207ed30eba71f7ba",
+    "edits": [
+      {
+        "start": 726,
+        "end": 812,
+        "before": "",
+        "after": "-reading.ts';\nimport { executionFallback, executionReading } from './scripts/execution"
+      },
+      {
+        "start": 2073,
+        "end": 2296,
+        "before": "",
+        "after": "]\n    .map((path) => readFileSync(path, 'utf8'))\n    .join('\\n');\nconst executionStyles = () =>\n  [\n    'src/style.css',\n    'src/period.css',\n    'src/navigation.css',\n    'src/site-footer.css',\n    'src/execution.css',\n  "
+      },
+      {
+        "start": 3836,
+        "end": 3837,
+        "before": " and",
+        "after": ","
+      },
+      {
+        "start": 3857,
+        "end": 3881,
+        "before": "",
+        "after": " and Pure Execution Mode"
+      },
+      {
+        "start": 4475,
+        "end": 4538,
+        "before": "",
+        "after": " or <a href=\"/read/execution.html\">read Pure Execution Mode</a>"
+      },
+      {
+        "start": 4756,
+        "end": 4792,
+        "before": "",
+        "after": "Fallback() +\n              execution"
+      },
+      {
+        "start": 5244,
+        "end": 5387,
+        "before": "",
+        "after": "\n            ['/read/execution.html', () => executionReading(metadata, staging)],\n            ['/read/execution.css', () => executionStyles()],"
+      },
+      {
+        "start": 8642,
+        "end": 8767,
+        "before": "",
+        "after": "execution.html', executionReading(metadata, staging)],\n          ['read/execution.css', executionStyles()],\n          ['read/"
+      }
+    ]
+  },
+  "src/navigation.css": {
+    "beforeSha256": "970055532296018e342c5431ce71c59d7c0cdd62a17d4d7bf69678933a1ffa73",
+    "afterSha256": "cee2cd6479b8b158e65cc4ac5dcef13e65387c453b55216aab2d89ae8ef7d958",
+    "edits": [
+      {
+        "start": 6249,
+        "end": 6348,
+        "before": "    padding-block: 12px;\n",
+        "after": "    /* Accommodate the fourth framework without shrinking link targets. */\n    padding-block: 8px;\n"
+      },
+      {
+        "start": 6478,
+        "end": 6499,
+        "before": "    margin-top: 6px;\n",
+        "after": "    margin-top: 2px;\n"
+      },
+      {
+        "start": 7035,
+        "end": 7186,
+        "before": "",
+        "after": "  /* Recover the added navigation row from outer opening whitespace only. */\n  #app .site-shell.period-shell .home-hero {\n    padding-block: 12px;\n  }\n"
+      }
+    ]
+  }
+}

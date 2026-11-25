@@ -56,8 +56,9 @@ test('complete teaching, all five links, care, breaks and every scenario field r
     for (const block of section.blocks) {
       const strings = block.kind === 'comparison' ? block.rows.flat() : [block.text];
       for (const text of strings) {
-        assert.ok(native.includes(escapeLoop(text)));
-        assert.ok(root.includes(escapeLoop(text)));
+        // S03 adds an inline framework link; preserve the complete visible wording.
+        assert.ok(native.replace(/<\/?a\b[^>]*>/g, '').includes(escapeLoop(text)));
+        assert.ok(root.replace(/<\/?a\b[^>]*>/g, '').includes(escapeLoop(text)));
       }
     }
   for (const state of Object.values(loopScenario.states))

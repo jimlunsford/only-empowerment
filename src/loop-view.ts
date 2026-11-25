@@ -143,6 +143,17 @@ export function loopTeaching(surface: LoopSurface = 'app'): LoopNode {
                 ),
               ),
             );
+          if (block.executionLink) {
+            const label = 'Pure Execution Mode';
+            const index = block.text.lastIndexOf(label);
+            return node(
+              'p',
+              {},
+              block.text.slice(0, index),
+              anchor(surface === 'app' ? '#/execution' : '/read/execution.html', label),
+              block.text.slice(index + label.length),
+            );
+          }
           return paragraph(block.text);
         }),
         ...(section.id === 'restart'

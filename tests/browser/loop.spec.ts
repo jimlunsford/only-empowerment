@@ -18,7 +18,7 @@ const noOverflow = async (page) =>
 
 test('third framework and existing Discipline and Rebuild remain distinct', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('.framework-options article')).toHaveCount(3);
+  await expect(page.locator('.framework-options article')).toHaveCount(4);
   await page.getByRole('link', { name: 'Explore The Discipline Loop', exact: true }).click();
   await expect(page.locator('.loop-experience h1')).toHaveText('The Discipline Loop');
   await page
