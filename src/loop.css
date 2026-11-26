@@ -10,6 +10,9 @@
 .loop-experience li {
   line-height: 1.65;
 }
+.loop-experience :is(h1, h2, h3, h4) {
+  font-family: var(--font-display);
+}
 .loop-experience h1 {
   font-size: clamp(2.4rem, 5vw, 4.6rem);
   line-height: 1.06;
@@ -31,7 +34,7 @@
   scroll-margin-top: 1rem;
 }
 .loop-experience :is(a, button):focus-visible,
-.loop-experience [tabindex='-1']:focus {
+.loop-experience [tabindex='-1']:focus-visible {
   outline: 3px solid #98422e;
   outline-offset: 5px;
 }
@@ -250,7 +253,7 @@
 }
 @media (forced-colors: active) {
   .loop-experience :is(a, button):focus-visible,
-  .loop-experience [tabindex='-1']:focus {
+  .loop-experience [tabindex='-1']:focus-visible {
     outline-color: Highlight;
   }
   .loop-experience :is(.loop-cycle, .loop-scenario, .loop-comparison-pair > div, button) {
@@ -345,7 +348,7 @@
     padding: 0;
     color: #000;
   }
-  .loop-experience [tabindex='-1']:focus {
+  .loop-experience [tabindex='-1']:focus-visible {
     outline: none;
   }
 }

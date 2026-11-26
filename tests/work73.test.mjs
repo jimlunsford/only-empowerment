@@ -21,7 +21,10 @@ test('Work73 changes reverse byte-for-byte to Work72 and reject incidental mutat
   for (const path of Object.keys(changes)) {
     const source = readFileSync(path, 'utf8');
     assert.equal(beforeWork73Source(source, path), original(path), path);
-    assert.throws(() => beforeWork73Source(source + '\n', path), /Unexpected Work(?:73|80) bytes/);
+    assert.throws(
+      () => beforeWork73Source(source + '\n', path),
+      /Unexpected (?:Work(?:73|80)|Batch1) bytes/,
+    );
   }
 });
 test('only the two exact editorial replacements change accepted PERIOD content', () => {

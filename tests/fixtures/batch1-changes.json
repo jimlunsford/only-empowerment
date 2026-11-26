@@ -1,0 +1,650 @@
+{
+  "THIRD_PARTY_NOTICES.md": {
+    "beforeSha256": "b63687658a83af6e18dba1e0d3cc4a713c1d877fe990cf5488587ce0212140b5",
+    "afterSha256": "e826ac9a1db5e4d2e4a8029dc827138be8993c122906da59399a5b73fc079b5a",
+    "edits": [
+      {
+        "start": 1905,
+        "end": 1906,
+        "before": "‘",
+        "after": "'"
+      },
+      {
+        "start": 1912,
+        "end": 1913,
+        "before": "’",
+        "after": "'"
+      }
+    ]
+  },
+  "src/Execution.tsx": {
+    "beforeSha256": "3663242c05054c651c042030f4a013f15c3a0ca93b8fd82807c57f96f9bab2ff",
+    "afterSha256": "51a858562a6c00efd0e3a9f7abb42490dc46b7d52a578813c68df9872fbf03e6",
+    "edits": [
+      {
+        "start": 4363,
+        "end": 4405,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "start": 4406,
+        "end": 4421,
+        "before": "",
+        "after": "\n              "
+      },
+      {
+        "start": 4455,
+        "end": 4478,
+        "before": "",
+        "after": " (new tab)\n            "
+      },
+      {
+        "start": 4884,
+        "end": 4926,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "start": 4927,
+        "end": 4944,
+        "before": "",
+        "after": "\n                "
+      },
+      {
+        "start": 4977,
+        "end": 5002,
+        "before": "",
+        "after": " (new tab)\n              "
+      },
+      {
+        "start": 5006,
+        "end": 5021,
+        "before": "",
+        "after": "\n              "
+      },
+      {
+        "start": 5749,
+        "end": 5770,
+        "before": "",
+        "after": "{' '}\n               "
+      },
+      {
+        "start": 5805,
+        "end": 5847,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "start": 5848,
+        "end": 5867,
+        "before": "",
+        "after": "\n                  "
+      },
+      {
+        "start": 5886,
+        "end": 5913,
+        "before": "",
+        "after": " (new tab)\n                "
+      },
+      {
+        "start": 5917,
+        "end": 5934,
+        "before": "",
+        "after": "\n                "
+      },
+      {
+        "start": 11532,
+        "end": 11574,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "start": 11646,
+        "end": 11656,
+        "before": "",
+        "after": " (new tab)"
+      },
+      {
+        "start": 11753,
+        "end": 11795,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "start": 11869,
+        "end": 11879,
+        "before": "",
+        "after": " (new tab)"
+      },
+      {
+        "start": 12061,
+        "end": 12103,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "start": 12104,
+        "end": 12123,
+        "before": "",
+        "after": "\n                  "
+      },
+      {
+        "start": 12136,
+        "end": 12163,
+        "before": "",
+        "after": " (new tab)\n                "
+      },
+      {
+        "start": 12167,
+        "end": 12188,
+        "before": "",
+        "after": "{' '}\n               "
+      },
+      {
+        "start": 12247,
+        "end": 12289,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "start": 12290,
+        "end": 12309,
+        "before": "",
+        "after": "\n                  "
+      },
+      {
+        "start": 12327,
+        "end": 12354,
+        "before": "",
+        "after": " (new tab)\n                "
+      },
+      {
+        "start": 12358,
+        "end": 12379,
+        "before": "",
+        "after": "{' '}\n               "
+      },
+      {
+        "start": 12439,
+        "end": 12481,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      },
+      {
+        "start": 12482,
+        "end": 12501,
+        "before": "",
+        "after": "\n                  "
+      },
+      {
+        "start": 12522,
+        "end": 12549,
+        "before": "",
+        "after": " (new tab)\n                "
+      }
+    ]
+  },
+  "src/execution.css": {
+    "beforeSha256": "9baa69c8845f9dc7da8a6c83745b14a333c0debd981b9a08fcbb335b106911dc",
+    "afterSha256": "d8da331b11a00e31f46f8c0f815765bc0ff007fc9dcf8f2b8209813246c2eb61",
+    "edits": [
+      {
+        "start": 2776,
+        "end": 2784,
+        "before": "",
+        "after": "-visible"
+      },
+      {
+        "start": 3410,
+        "end": 3418,
+        "before": "",
+        "after": "-visible"
+      },
+      {
+        "start": 4676,
+        "end": 4684,
+        "before": "",
+        "after": "-visible"
+      },
+      {
+        "start": 9062,
+        "end": 9070,
+        "before": "",
+        "after": "-visible"
+      },
+      {
+        "start": 9980,
+        "end": 9988,
+        "before": "",
+        "after": "-visible"
+      }
+    ]
+  },
+  "src/loop-practice-content.ts": {
+    "beforeSha256": "931adc60443f4bf4d883dab043769267c73c94d572ea3d9d0adeefe2589cbd94",
+    "afterSha256": "bd631004d16bfca138f1a3525194368fe78b7cf4d07633e07409bee890acd329",
+    "edits": [
+      {
+        "start": 5010,
+        "end": 5013,
+        "before": "Continu",
+        "after": "Tak"
+      },
+      {
+        "start": 5017,
+        "end": 5019,
+        "before": "a",
+        "after": "on"
+      },
+      {
+        "start": 5020,
+        "end": 5021,
+        "before": "h",
+        "after": "m"
+      },
+      {
+        "start": 5022,
+        "end": 5023,
+        "before": "us",
+        "after": "r"
+      },
+      {
+        "start": 5025,
+        "end": 5027,
+        "before": "",
+        "after": "wo"
+      },
+      {
+        "start": 5028,
+        "end": 5029,
+        "before": "eset",
+        "after": "k"
+      },
+      {
+        "start": 5815,
+        "end": 5815,
+        "before": "stop adding work, ",
+        "after": ""
+      },
+      {
+        "start": 5827,
+        "end": 5830,
+        "before": "changed s",
+        "after": "lim"
+      },
+      {
+        "start": 5832,
+        "end": 5832,
+        "before": "uation",
+        "after": ""
+      },
+      {
+        "start": 5873,
+        "end": 5873,
+        "before": ",",
+        "after": ""
+      },
+      {
+        "start": 5913,
+        "end": 5915,
+        "before": "",
+        "after": "th"
+      },
+      {
+        "start": 5916,
+        "end": 5918,
+        "before": "",
+        "after": "t "
+      },
+      {
+        "start": 5919,
+        "end": 5920,
+        "before": "",
+        "after": "i"
+      },
+      {
+        "start": 5921,
+        "end": 5921,
+        "before": "er ",
+        "after": ""
+      },
+      {
+        "start": 5922,
+        "end": 5922,
+        "before": "leep. Then",
+        "after": ""
+      },
+      {
+        "start": 5926,
+        "end": 5941,
+        "before": "",
+        "after": "r capacity. You"
+      },
+      {
+        "start": 5943,
+        "end": 5948,
+        "before": "u",
+        "after": "rotec"
+      },
+      {
+        "start": 5954,
+        "end": 5957,
+        "before": "ph",
+        "after": "rec"
+      },
+      {
+        "start": 5958,
+        "end": 5967,
+        "before": "",
+        "after": "very you "
+      },
+      {
+        "start": 5969,
+        "end": 5982,
+        "before": "",
+        "after": "ed instead of"
+      },
+      {
+        "start": 5984,
+        "end": 5993,
+        "before": "w",
+        "after": "dding str"
+      },
+      {
+        "start": 5994,
+        "end": 5995,
+        "before": "y a",
+        "after": "i"
+      },
+      {
+        "start": 5996,
+        "end": 5996,
+        "before": "d go to bed",
+        "after": ""
+      },
+      {
+        "start": 6036,
+        "end": 6040,
+        "before": ",",
+        "after": " and"
+      },
+      {
+        "start": 6050,
+        "end": 6050,
+        "before": "t and res",
+        "after": ""
+      },
+      {
+        "start": 6500,
+        "end": 6500,
+        "before": ":",
+        "after": ""
+      },
+      {
+        "start": 6501,
+        "end": 6514,
+        "before": "",
+        "after": "on your capac"
+      },
+      {
+        "start": 6515,
+        "end": 6515,
+        "before": "nadequa",
+        "after": ""
+      },
+      {
+        "start": 6516,
+        "end": 6517,
+        "before": "e sleep",
+        "after": "y"
+      },
+      {
+        "start": 6652,
+        "end": 6669,
+        "before": "",
+        "after": "the recovery you "
+      },
+      {
+        "start": 6673,
+        "end": 6673,
+        "before": "ed rest",
+        "after": ""
+      },
+      {
+        "start": 6765,
+        "end": 6777,
+        "before": "",
+        "after": "responsible "
+      },
+      {
+        "start": 6788,
+        "end": 6788,
+        "before": "and rest ",
+        "after": ""
+      },
+      {
+        "start": 6793,
+        "end": 6794,
+        "before": "",
+        "after": "s"
+      },
+      {
+        "start": 6804,
+        "end": 6805,
+        "before": "",
+        "after": "i"
+      },
+      {
+        "start": 6806,
+        "end": 6806,
+        "before": "hey",
+        "after": ""
+      },
+      {
+        "start": 6807,
+        "end": 6809,
+        "before": "are",
+        "after": "is"
+      },
+      {
+        "start": 12904,
+        "end": 12911,
+        "before": "put",
+        "after": "address"
+      },
+      {
+        "start": 12916,
+        "end": 12923,
+        "before": "ph",
+        "after": "break y"
+      },
+      {
+        "start": 12924,
+        "end": 12929,
+        "before": "",
+        "after": "u ide"
+      },
+      {
+        "start": 12930,
+        "end": 12934,
+        "before": "",
+        "after": "tifi"
+      },
+      {
+        "start": 12935,
+        "end": 12936,
+        "before": " away",
+        "after": "d"
+      }
+    ]
+  },
+  "src/loop.css": {
+    "beforeSha256": "7d70066b9f0f945257019727e3641789970dea2e0d7a9582230233cfad27a402",
+    "afterSha256": "e8cfcba6f6c53bc827841f956e5caf4ee327496362d25b073e3e14f37945b7ba",
+    "edits": [
+      {
+        "start": 221,
+        "end": 298,
+        "before": "",
+        "after": ";\n}\n.loop-experience :is(h1, h2, h3, h4) {\n  font-family: var(--font-display)"
+      },
+      {
+        "start": 772,
+        "end": 780,
+        "before": "",
+        "after": "-visible"
+      },
+      {
+        "start": 4999,
+        "end": 5007,
+        "before": "",
+        "after": "-visible"
+      },
+      {
+        "start": 7111,
+        "end": 7119,
+        "before": "",
+        "after": "-visible"
+      }
+    ]
+  },
+  "src/rebuild-app.css": {
+    "beforeSha256": "f16ff748409a8315112bbec799a7125dc405d0643009eba5df16629e13529bb7",
+    "afterSha256": "3c414167f21567a31fc4cc3c675f212bac87820c1138f2c71204355b20905bbb",
+    "edits": [
+      {
+        "start": 1603,
+        "end": 1670,
+        "before": "",
+        "after": ";\n}\n.framework-hub :is(h1, h2) {\n  font-family: var(--font-display)"
+      }
+    ]
+  },
+  "src/rebuild-source-scoped.css": {
+    "beforeSha256": "16a3b1b08b89bf60cf2763551a072a0bb949b3f93aa22ad99fc6cd39452a8009",
+    "afterSha256": "655edbfe0eff6defd315ad8c2ec9d8145347cf79ed03593642e49db55525b902",
+    "edits": [
+      {
+        "start": 287,
+        "end": 287,
+        "before": "\n",
+        "after": ""
+      },
+      {
+        "start": 288,
+        "end": 295,
+        "before": "   'I",
+        "after": "var(--f"
+      },
+      {
+        "start": 296,
+        "end": 296,
+        "before": "wa",
+        "after": ""
+      },
+      {
+        "start": 297,
+        "end": 299,
+        "before": " Ol",
+        "after": "t-"
+      },
+      {
+        "start": 300,
+        "end": 303,
+        "before": " Style', 'Pa",
+        "after": "isp"
+      },
+      {
+        "start": 305,
+        "end": 305,
+        "before": "tino Linot",
+        "after": ""
+      },
+      {
+        "start": 306,
+        "end": 307,
+        "before": "pe', 'Book Antiqua', Georgia, 'Times New Roman', serif",
+        "after": ")"
+      },
+      {
+        "start": 319,
+        "end": 328,
+        "before": "'Ap",
+        "after": "var(--fon"
+      },
+      {
+        "start": 329,
+        "end": 331,
+        "before": "",
+        "after": "-b"
+      },
+      {
+        "start": 332,
+        "end": 335,
+        "before": "s', 'Segoe UI', Arial, sans-serif",
+        "after": "dy)"
+      }
+    ]
+  },
+  "src/style.css": {
+    "beforeSha256": "676a21e5e56cdda0e26464993c68dcd221297fa666872fd7a5fc46e539779694",
+    "afterSha256": "4cdfec19db0b44081c3913db54f0bcb9d95005e2b2b4a929af3745bbf0ee135a",
+    "edits": [
+      {
+        "start": 7,
+        "end": 106,
+        "before": "",
+        "after": "\n  --font-display: 'Source Serif', Georgia, serif;\n  --font-body: 'Source Sans', Arial, sans-serif;"
+      },
+      {
+        "start": 121,
+        "end": 121,
+        "before": "\n",
+        "after": ""
+      },
+      {
+        "start": 122,
+        "end": 124,
+        "before": "   Inte",
+        "after": "va"
+      },
+      {
+        "start": 125,
+        "end": 126,
+        "before": ",\n    ui",
+        "after": "("
+      },
+      {
+        "start": 127,
+        "end": 127,
+        "before": "sans",
+        "after": ""
+      },
+      {
+        "start": 128,
+        "end": 128,
+        "before": "seri",
+        "after": ""
+      },
+      {
+        "start": 129,
+        "end": 129,
+        "before": ",\n    system-ui,\n    -apple-system,\n    BlinkMacSystemF",
+        "after": ""
+      },
+      {
+        "start": 132,
+        "end": 134,
+        "before": ",\n    'Seg",
+        "after": "-b"
+      },
+      {
+        "start": 135,
+        "end": 138,
+        "before": "e UI',\n    sans-serif",
+        "after": "dy)"
+      }
+    ]
+  }
+}

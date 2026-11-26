@@ -12,9 +12,8 @@
   --ochre: #e6c779;
   --tint: #e9eddf;
   --warm: #f0e4cf;
-  --serif:
-    'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, 'Times New Roman', serif;
-  --sans: 'Aptos', 'Segoe UI', Arial, sans-serif;
+  --serif: var(--font-display);
+  --sans: var(--font-body);
   font-family: var(--sans);
   color: var(--ink);
   background: var(--paper);

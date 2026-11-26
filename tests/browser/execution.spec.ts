@@ -40,12 +40,16 @@ test('workshop is primary from home, both headers, footer and native reading', a
   await page.locator('.site-header a[href="#/period"]').click();
   await page.locator('.framework-switch a[href="#/execution"]').click();
   await expect(screen(page)).toHaveAttribute('data-workshop', 'welcome');
+  const readingTab = page.waitForEvent('popup');
   await screen(page)
-    .getByRole('link', { name: 'Complete reading and print edition', exact: true })
+    .getByRole('link', { name: 'Complete reading and print edition (new tab)', exact: true })
     .click();
-  await expect(page.locator('[data-execution-section]')).toHaveCount(9);
-  await expect(page.locator('[data-workshop-transcript]')).toHaveCount(workshopScreens.length);
-  await page.getByRole('link', { name: 'Open the guided workshop', exact: true }).click();
+  const reading = await readingTab;
+  await expect(reading.locator('[data-execution-section]')).toHaveCount(9);
+  await expect(reading.locator('[data-workshop-transcript]')).toHaveCount(workshopScreens.length);
+  await reading.getByRole('link', { name: 'Open the guided workshop', exact: true }).click();
+  await expect(screen(reading)).toHaveAttribute('data-workshop', 'welcome');
+  await reading.close();
   await expect(screen(page)).toHaveAttribute('data-workshop', 'welcome');
 });
 
@@ -306,9 +310,9 @@ test('Back, Forward, skip, route exit, refresh, restart and modified links respe
   await page.goBack();
   await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
   await screen(page).getByRole('button', { name: option.label, exact: true }).click();
-  await screen(page)
-    .getByRole('link', { name: 'Complete reading and print edition', exact: true })
-    .click();
+  // Reading links now preserve the workshop in another tab. A whole-document
+  // departure must still clear the session, including a return through Back.
+  await page.goto('/read/execution.html');
   await page.goBack();
   await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
   expect(await page.evaluate(() => Object.keys(history.state))).toEqual(['oeNavigation']);

@@ -1,3 +1,4 @@
+import { beforeBatch1Source } from './batch1-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -283,7 +284,7 @@ test('bounded integration edits reverse exactly, reject mutation, and retain old
   assert.ok(paths.length > 40);
   for (const path of paths)
     assert.equal(
-      readFileSync(path, 'utf8'),
+      beforeBatch1Source(readFileSync(path, 'utf8'), path),
       execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
       path,
     );
