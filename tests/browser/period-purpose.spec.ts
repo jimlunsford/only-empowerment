@@ -1,3 +1,4 @@
+import { periodLinkName, lessonLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { integrityContent } from '../../src/period-integrity-content';
 import { test, expect, type Page } from '@playwright/test';
@@ -101,7 +102,7 @@ test('complete Purpose teaching, connected values and both editorial refinements
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', { name: 'Empowerment', exact: true }),
+      .getByRole('link', { name: periodLinkName('Empowerment') }),
   ).toHaveCount(1);
   {
     await openSiteMenu(page);
@@ -229,7 +230,7 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Purpose', exact: true })
+    .getByRole('link', { name: periodLinkName('Purpose') })
     .click();
   await expect(page.locator('h1')).toBeFocused();
   const path = page.getByRole('navigation', { name: 'PERIOD teaching order' });
@@ -246,13 +247,15 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   await expect(valueLinks.locator('.path-name')).toHaveText(valueNames);
   await expect(valueLinks).toHaveCount(valueNames.length);
   for (const [index, name] of valueNames.entries()) {
-    await expect(valueLinks.nth(index)).toHaveAccessibleName(name);
+    await expect(valueLinks.nth(index)).toHaveAccessibleName(
+      lessonLinkName(name, await valueLinks.nth(index).locator('.path-role').isVisible()),
+    );
     await expect(valueLinks.nth(index)).toHaveAttribute(
       'href',
       '#/period/values/' + name.toLowerCase(),
     );
   }
-  await expect(path.getByRole('link', { name: 'Purpose', exact: true })).toHaveAttribute(
+  await expect(path.getByRole('link', { name: periodLinkName('Purpose') })).toHaveAttribute(
     'aria-current',
     'page',
   );
@@ -266,7 +269,7 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   await page.getByRole('link', { name: 'Continue to Purpose', exact: true }).first().click();
   await expect(page.locator('h1')).toHaveText('Purpose.');
   await page.goto('/#/period/values/discipline');
-  await expect(page.locator('h1')).toHaveText('Discipline');
+  await expect(page.locator('h1')).toHaveText('Discipline.');
   await page.goto('/#/period/values/empowerment');
   await expect(page.locator('h1')).toHaveText('Empowerment.');
   await expect(page.getByRole('main')).toContainText('All six values have full lessons.');
@@ -321,7 +324,7 @@ test('Purpose card entry preselects only a completely blank draft and preserves 
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Purpose', exact: true })
+    .getByRole('link', { name: periodLinkName('Purpose') })
     .click();
   await page.getByRole('link', { name: 'Write an optional Standard Card', exact: true }).click();
   await expect(page.locator('#period-valueId')).toHaveValue('integrity');
@@ -336,7 +339,7 @@ test('Purpose card entry preselects only a completely blank draft and preserves 
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Purpose', exact: true })
+    .getByRole('link', { name: periodLinkName('Purpose') })
     .click();
   await page
     .getByRole('navigation', { name: 'Purpose learning' })
@@ -386,7 +389,7 @@ test('full private card retains exact Unicode, edit, copy, manual fallback, prin
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Purpose', exact: true })
+    .getByRole('link', { name: periodLinkName('Purpose') })
     .click();
   await expect(page.getByRole('main')).not.toContainText('PRIVATE-WORK09');
   await page
@@ -478,7 +481,7 @@ test('fictional exploration leaves private drafts, existing storage and all netw
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Purpose', exact: true })
+    .getByRole('link', { name: periodLinkName('Purpose') })
     .click();
   await page
     .getByRole('navigation', { name: 'Purpose learning' })

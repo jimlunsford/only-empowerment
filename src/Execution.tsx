@@ -314,19 +314,15 @@ export function Execution() {
             </p>
             <nav class="workshop-navigation" aria-label="Workshop screen navigation">
               {back ? (
-                <a href={workshopHref(back)} aria-label={'Back: ' + workshopById(back).title}>
-                  Back<span>{workshopById(back).title}</span>
+                <a href={workshopHref(back)}>
+                  Back <span>{workshopById(back).title}</span>
                 </a>
               ) : (
                 <a href="#/">All frameworks</a>
               )}
               {next ? (
-                <a
-                  class="workshop-continue"
-                  href={workshopHref(next)}
-                  aria-label={'Continue: ' + workshopById(next).title}
-                >
-                  Continue<span>{workshopById(next).title}</span>
+                <a class="workshop-continue" href={workshopHref(next)}>
+                  Continue <span>{workshopById(next).title}</span>
                 </a>
               ) : (
                 <a href="#/">Choose another framework</a>

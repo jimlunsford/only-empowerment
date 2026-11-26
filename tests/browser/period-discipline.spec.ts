@@ -1,3 +1,4 @@
+import { periodLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -63,7 +64,7 @@ test('the complete approved lesson stands alone and the header offers six full l
   page,
 }) => {
   await page.goto(lessonPath);
-  await expect(page.locator('h1')).toHaveText('Discipline');
+  await expect(page.locator('h1')).toHaveText('Discipline.');
   await checkLesson(page);
   await expect(page.locator('.discipline-lesson > section h2')).toHaveCount(11);
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
@@ -76,7 +77,7 @@ test('the complete approved lesson stands alone and the header offers six full l
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', { name: 'Discipline', exact: true }),
+      .getByRole('link', { name: periodLinkName('Discipline') }),
   ).toHaveAttribute('aria-current', 'page');
   await page
     .locator('.discipline-lesson')
@@ -182,12 +183,12 @@ test('six-value navigation preserves Integrity teaching and both onward destinat
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', { name: 'Discipline', exact: true }),
+      .getByRole('link', { name: periodLinkName('Discipline') }),
   ).toHaveAttribute('href', '#/period/values/discipline');
   for (const from of ['/#/period/values/integrity', '/#/period/integrity/record']) {
     await page.goto(from);
     await page.getByRole('link', { name: 'Continue to Discipline', exact: true }).first().click();
-    await expect(page.locator('h1')).toHaveText('Discipline');
+    await expect(page.locator('h1')).toHaveText('Discipline.');
   }
   await page.goto('/read/integrity.html');
   await page.getByRole('link', { name: 'Continue to Discipline', exact: true }).first().click();
@@ -204,10 +205,7 @@ test('direct reading and blocked application scripts retain every occasion and e
     await page.goto('/#/period');
     await page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', {
-        name: 'Discipline',
-        exact: true,
-      })
+      .getByRole('link', { name: periodLinkName('Discipline') })
       .click();
     await checkLesson(page);
     await expect(page.locator('script,input,button')).toHaveCount(0);
@@ -372,7 +370,7 @@ test('Discipline can preselect only a blank card, with existing text, print, cop
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Discipline', exact: true })
+    .getByRole('link', { name: periodLinkName('Discipline') })
     .click();
   await page.getByRole('link', { name: content.lesson.cardLink, exact: true }).click();
   await expect(page.locator('#period-standard')).toHaveValue('SYNTHETIC: I give accurate updates.');
@@ -386,7 +384,7 @@ test('Discipline can preselect only a blank card, with existing text, print, cop
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Discipline', exact: true })
+    .getByRole('link', { name: periodLinkName('Discipline') })
     .click();
   await page.getByRole('link', { name: content.lesson.cardLink, exact: true }).click();
   await expect(page.locator('#period-valueId')).toHaveValue('purpose');

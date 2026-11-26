@@ -256,12 +256,12 @@ test('visible Back follows the chosen recovery branch', async ({ page }) => {
     .getByRole('button', { name: workshopById('recover').options![1].label, exact: true })
     .click();
   await next(page).click();
-  await expect(screen(page).getByRole('link', { name: /^Back:/ })).toHaveAttribute(
+  await expect(screen(page).getByRole('link', { name: /^Back / })).toHaveAttribute(
     'href',
     workshopHref('recover'),
   );
   await screen(page)
-    .getByRole('link', { name: /^Back:/ })
+    .getByRole('link', { name: /^Back / })
     .click();
   await expect(screen(page)).toHaveAttribute('data-workshop', 'recover');
   await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(1);
@@ -270,7 +270,7 @@ test('visible Back follows the chosen recovery branch', async ({ page }) => {
     .getByRole('button', { name: workshopById('take-over').options![1].label, exact: true })
     .click();
   await next(page).click();
-  await expect(screen(page).getByRole('link', { name: /^Back:/ })).toHaveAttribute(
+  await expect(screen(page).getByRole('link', { name: /^Back / })).toHaveAttribute(
     'href',
     workshopHref('take-over'),
   );

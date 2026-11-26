@@ -222,7 +222,7 @@ test('fictional legacy bytes survive navigation; confirmed deletion is scoped an
   await dataButton(page).click();
   await page
     .getByRole('dialog')
-    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .getByRole('button', { name: 'Confirm deletion of legacy data', exact: true })
     .click();
   await expect(page.locator('.local-delete [role="status"]')).toContainText('removal was verified');
   await expect(page.locator('.local-delete [role="status"]')).toContainText(
@@ -261,7 +261,7 @@ test('denied storage deletion reports failure accurately and preserves the separ
   await dataButton(page).click();
   await page
     .getByRole('dialog')
-    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .getByRole('button', { name: 'Confirm deletion of legacy data', exact: true })
     .click();
   await expect(page.locator('.local-delete [role="status"]')).toContainText(
     'could not be verified',

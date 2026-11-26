@@ -43,7 +43,7 @@ export function LegacyDataRemoval() {
         <ConfirmDialog
           returnFocus={confirm}
           title="Delete legacy tool data?"
-          confirm="Delete legacy tool data"
+          confirm="Confirm deletion of legacy data"
           onCancel={() => setConfirm(null)}
           onConfirm={remove}
         >

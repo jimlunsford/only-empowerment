@@ -1,3 +1,4 @@
+import { periodLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -162,7 +163,7 @@ test('a Standard Card draft survives the full transition path and retains its ex
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Ownership', exact: true })
+    .getByRole('link', { name: periodLinkName('Ownership') })
     .click();
   for (const value of lessonOrder.slice(1)) {
     await page

@@ -1,3 +1,4 @@
+import { periodLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -272,7 +273,7 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Ownership', exact: true })
+    .getByRole('link', { name: periodLinkName('Ownership') })
     .click();
   await page
     .getByRole('main')
@@ -289,7 +290,7 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Ownership', exact: true })
+    .getByRole('link', { name: periodLinkName('Ownership') })
     .click();
   await page
     .getByRole('main')
@@ -312,7 +313,7 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Ownership', exact: true })
+    .getByRole('link', { name: periodLinkName('Ownership') })
     .click();
   await page
     .getByRole('main')
@@ -387,7 +388,7 @@ test('fictional exploration and private card produce no requests, logs, URLs or 
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Ownership', exact: true })
+    .getByRole('link', { name: periodLinkName('Ownership') })
     .click();
   await page
     .getByRole('main')

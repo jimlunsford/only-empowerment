@@ -1,0 +1,14 @@
+{
+  "discipline": {
+    "beforeSha256": "47f48a10cf12d5586c1ff3dee86849aee82cc9cebd52f90aa16057cfd0a16f23",
+    "afterSha256": "6daefda271b3e4d1e45bd620822322c5d886ea5cd66251db14c45fa35d08f15a",
+    "edits": [
+      {
+        "start": 971,
+        "end": 1022,
+        "before": "</h1><p class=\"lead\">Put your values into the day. Keep practicing them",
+        "after": ".</h1><p class=\"lead\">Put your values into practice"
+      }
+    ]
+  }
+}

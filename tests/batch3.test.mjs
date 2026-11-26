@@ -1,3 +1,4 @@
+import { beforeBatch4Source } from './batch4-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -24,7 +25,7 @@ const text = (s) =>
 
 test('Batch 3 exact source edits reverse to the requested main and reject undeclared changes', () => {
   for (const [path, change] of Object.entries(changes)) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeBatch4Source(readFileSync(path, 'utf8'), path);
     assert.equal(sha(source), change.afterSha256, path);
     assert.equal(
       beforeBatch3Source(source, path),

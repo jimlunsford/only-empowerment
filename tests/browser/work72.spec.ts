@@ -1,3 +1,4 @@
+import { loopRestartPaths } from '../../src/loop-practice-content';
 import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page, type Locator } from '@playwright/test';
 
@@ -208,20 +209,18 @@ test('Work72 every restart entrance and exit remains causal and matches both sta
     [2, 2, 0], // Miss -> hide -> restart.
     [3, 2, 1], // Changed capacity -> rest escape -> restart.
   ];
-  let paragraphs: string[] = [];
-  for (const path of paths)
+  const expectedPaths = Object.values(loopRestartPaths);
+  const keys = ['overbuilt', 'spiral', 'miss', 'hide', 'rest_escape'] as const;
+  for (const [index, path] of paths.entries())
     for (const [exit, next] of ['correction', 'rest', 'spiral'].entries()) {
       await page.goto('/#/loop/practice');
       await page.getByRole('button', { name: 'Reset example', exact: true }).click();
       for (const choice of path) await page.locator('.loop-choices button').nth(choice).click();
       await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'restart');
       const actual = await page.locator('.loop-scenario > p').allTextContents();
-      if (paragraphs.length) expect(actual).toEqual(paragraphs);
-      paragraphs = actual;
-      expect(actual.join(' ')).not.toContain('you opened your phone');
-      expect(actual.join(' ')).toContain('Find the break in the path you followed.');
-      expect(actual.join(' ')).toContain('Put the phone aside if it was the escape.');
-      expect(actual.join(' ')).toContain('Cut the plan back if you made it too large.');
+      const expected = loopRestartPaths[keys[index]];
+      expect(actual[0]).toBe(expected.fact);
+      expect(actual[2]).toBe(expected.action);
       expect(actual.join(' ')).toContain('Neither does pretending it did not matter.');
       await page.locator('.loop-choices button').nth(exit).click();
       await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', next);
@@ -229,9 +228,12 @@ test('Work72 every restart entrance and exit remains causal and matches both sta
     }
   for (const route of ['/read/loop.html', '/read/loop-practice.html']) {
     await page.goto(route + '#loop-state-restart');
-    expect((await page.locator('#loop-state-restart > p').allTextContents()).slice(0, 3)).toEqual(
-      paragraphs,
-    );
+    const paragraphs = await page.locator('#loop-state-restart > p').allTextContents();
+    for (const expected of expectedPaths) {
+      expect(paragraphs).toContain(expected.fact);
+      expect(paragraphs).toContain(expected.action);
+    }
+    expect(paragraphs[0]).toContain('Find the break in the path you followed.');
   }
 });
 

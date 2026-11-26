@@ -50,7 +50,7 @@ test('Work75 legacy-data dialog returns to its pointer opener without touching u
     else
       await page
         .getByRole('dialog')
-        .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+        .getByRole('button', { name: 'Confirm deletion of legacy data', exact: true })
         .click();
     await expect(page.getByRole('dialog')).toHaveCount(0);
     await expect(opener).toBeFocused();
