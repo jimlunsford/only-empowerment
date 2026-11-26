@@ -30,7 +30,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 50
     env:
       OE_RELEASE_TAG: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
     steps:
