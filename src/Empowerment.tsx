@@ -157,8 +157,7 @@ function CompletePrintReading() {
       <p class="lead">{copy.deck}</p>
       <p>{copy.intro}</p>
       <p>
-        All three fictional replies follow. They are alternatives to the same offer, not a sequence
-        of events.
+        All three replies follow. They are alternatives to the same offer, not a sequence of events.
       </p>
       <ConversationSetup />
       <p class="empowerment-reflection">{copy.reflection}</p>

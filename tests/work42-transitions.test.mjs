@@ -9,8 +9,18 @@ import { beforeWork43Source } from './work43-correction-helpers.mjs';
 
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
 test('Work 42 preserves approved teaching, drafts and verification inputs outside exact Work 43 corrections', () => {
-  for (const [path, digest] of Object.entries(delta.protectedFiles))
-    assert.equal(hash(beforeWork43Source(historicalPeriodSource(path), path)), digest, path);
+  for (const [path, digest] of Object.entries(delta.protectedFiles)) {
+    // Pin the complete workflow with the approved 50-minute timeout; other digests stay fixed.
+    const expectedDigest =
+      path === '.github/workflows/ci.yml'
+        ? '733d388221da9a6e10b12aebebe34b4836b365a4e9870145ba310078c8982460'
+        : digest;
+    assert.equal(
+      hash(beforeWork43Source(historicalPeriodSource(path), path)),
+      expectedDigest,
+      path,
+    );
+  }
 });
 test('only the recorded navigation refactor separates touched source from the approved Work 39 candidate', () => {
   for (const [path, change] of Object.entries(delta.files))

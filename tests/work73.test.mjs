@@ -1,3 +1,4 @@
+import { beforeBatch3Source } from './batch3-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -19,17 +20,17 @@ const original = (path) =>
 
 test('Work73 changes reverse byte-for-byte to Work72 and reject incidental mutations', () => {
   for (const path of Object.keys(changes)) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeBatch3Source(readFileSync(path, 'utf8'), path);
     assert.equal(beforeWork73Source(source, path), original(path), path);
     assert.throws(
       () => beforeWork73Source(source + '\n', path),
-      /Unexpected (?:Work(?:73|80)|Batch[12]) bytes/,
+      /Unexpected (?:Work(?:73|80)|Batch[123]) bytes/,
     );
   }
 });
 test('only the two exact editorial replacements change accepted PERIOD content', () => {
   for (const edit of editorial) {
-    const source = readFileSync(edit.path, 'utf8');
+    const source = beforeBatch3Source(readFileSync(edit.path, 'utf8'), edit.path);
     assert.equal(source.split(edit.after).length, 2);
     assert.equal(source.replace(edit.after, edit.before), original(edit.path));
   }

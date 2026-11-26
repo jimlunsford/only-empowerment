@@ -39,10 +39,10 @@ ${lesson.sections.map((section) => `<section id="discipline-${section.id}">${h(s
 ${readingTransition('discipline')}
 <section>${p(lesson.bookDescription)}${link(periodBook.url, lesson.bookLink)}</section>
 <p class="no-print">${link('#top', 'Back to top')}</p></article>
-<article class="discipline-comparison" aria-label="Noor and Eli's fictional patterns">
+<article class="discipline-comparison" aria-label="Noor and Eli's patterns">
 <h2 id="comparison" tabindex="-1">${escape(copy.readingTitle)}</h2><p class="lead">${escape(copy.deck)}</p>${p(copy.readingIntro)}${copy.intro.map(p).join('')}<p class="discipline-prompt">${escape(copy.readerPrompt)}</p>
 <nav class="discipline-wayfinding no-print" aria-label="Within the comparison">${disciplineWayfinding.map((item) => link('#occasion-' + item.id, item.label)).join('')}</nav>
-<h3 class="discipline-print-only">All three fictional patterns</h3>
+<h3 class="discipline-print-only">All three patterns</h3>
 ${copy.moments
   .map(
     (

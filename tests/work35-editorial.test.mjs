@@ -1,3 +1,4 @@
+import { beforeBatch3Reading } from './batch3-preservation.mjs';
 import { beforeWork56Source, beforeWork56Reading } from './work56-preservation.mjs';
 import { work73Editorial } from './work73-preservation.mjs';
 import { beforeWork42Source } from './work42-copy-helpers.mjs';
@@ -85,12 +86,12 @@ const escape = (text) =>
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;');
 const reading = {
-  O: beforeWork56Reading(periodFallback()),
-  P: periodFallback(),
-  R: resilienceReading(),
-  I: integrityReading(),
-  D: disciplineReading(),
-  E: empowermentReading(),
+  O: beforeWork56Reading(beforeBatch3Reading(periodFallback())),
+  P: beforeBatch3Reading(periodFallback()),
+  R: beforeBatch3Reading(resilienceReading()),
+  I: beforeBatch3Reading(integrityReading()),
+  D: beforeBatch3Reading(disciplineReading()),
+  E: beforeBatch3Reading(empowermentReading()),
 };
 // Pair-specific explanations belong to the two interactive selections. The
 // complete static reading uses each approved three-pattern interpretation.

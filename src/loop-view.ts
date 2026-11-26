@@ -144,6 +144,17 @@ export function loopTeaching(surface: LoopSurface = 'app'): LoopNode {
                 ),
               ),
             );
+          if (block.related) {
+            return node(
+              'p',
+              {},
+              block.text + ' ',
+              anchor(
+                surface === 'app' ? block.related.app : block.related.reading,
+                block.related.label,
+              ),
+            );
+          }
           if (block.executionLink) {
             const label = 'Pure Execution Mode';
             const index = block.text.lastIndexOf(label);

@@ -46,7 +46,7 @@ ${readingTransition('empowerment')}
 <section>${h(lesson.bookTitle)}${p(lesson.bookNote)}<p class="no-print">${link(periodBook.url, lesson.bookLink)}</p></section></article>
 <article class="empowerment-conversation" aria-label="Mara and Dev's fictional conversation">
 <h2 id="conversation">${escape(c.title)}</h2><p class="lead">${escape(c.deck)}</p>${p(c.intro)}
-<p>All three fictional replies follow. They are alternatives to the same offer, not a sequence of events.</p>
+<p>All three replies follow. They are alternatives to the same offer, not a sequence of events.</p>
 <section class="empowerment-setup"><h3 id="offer">${escape(c.setupTitle)}</h3>${c.setup.map(p).join('')}
 <div class="empowerment-exchange empowerment-offer">${speaker(c.request.speaker, c.request.text)}${speaker(c.offer.speaker, c.offer.text)}</div>${p(c.offerNote)}</section>
 <p class="empowerment-reflection">${escape(c.reflection)}</p>

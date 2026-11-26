@@ -260,7 +260,14 @@ for (const reading of [
     if (reading.teaching)
       for (const section of loopSections)
         for (const block of section.blocks) {
-          const texts = block.kind === 'comparison' ? block.rows.flat() : [block.text];
+          const texts =
+            block.kind === 'comparison'
+              ? block.rows.flat()
+              : [
+                  block.kind === 'paragraph' && block.related
+                    ? block.text + ' ' + block.related.label
+                    : block.text,
+                ];
           for (const text of texts)
             await expect(
               scope.getByText(text, { exact: true }).filter({ visible: true }).first(),

@@ -502,3 +502,17 @@
     display: none !important;
   }
 }
+@media print {
+  /* The closing reminder travels with its attribution instead of stranding credits. */
+  .execution-workshop-transcript > [data-workshop-transcript='reference'] {
+    padding-bottom: 0;
+    break-inside: avoid;
+    break-after: avoid;
+  }
+}
+
+@media print {
+  .execution-workshop-transcript > [data-workshop-transcript='reference'] p {
+    margin-block: 0.6rem;
+  }
+}

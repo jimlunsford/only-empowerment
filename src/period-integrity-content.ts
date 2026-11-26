@@ -19,7 +19,7 @@ export const integrityContent = {
       heading: 'Look at the conduct behind the claim',
       paragraphs: [
         'Saying that honesty matters tells people what you want to stand for. What you do when honesty becomes inconvenient shows whether that value is directing your life.',
-        "Consider a fictional volunteer who says shared credit matters, then accepts praise for another person's work. Staying late to finish the layout does not make the original work theirs. A worthy project does not make the false impression harmless. The contradiction is specific: the claimed value and the behavior point in different directions.",
+        "Consider a volunteer who says shared credit matters, then accepts praise for another person's work. Staying late to finish the layout does not make the original work theirs. A worthy project does not make the false impression harmless. The contradiction is specific: the claimed value and the behavior point in different directions.",
         'The same test reaches ordinary life. If you call reliability a priority but keep making commitments you know you cannot meet, the promise needs to change. If you expect respectful speech from your family but use contempt when you are frustrated, the standard needs to reach your own tone. These are places to correct behavior, not reasons to declare your entire life worthless.',
         'Look for facts you can name. What was said? What happened? Who is still working from an inaccurate account? An uncomfortable feeling can tell you to look closer, but it is not evidence by itself. Neither confidence nor shame settles what is true.',
       ],
@@ -108,7 +108,7 @@ export const integrityContent = {
   ],
   activity_invitation: {
     after: 'L06',
-    label: 'Examine a fictional record',
+    label: 'Examine the record',
     hint: 'See where a message protects an image and what a real correction requires. No personal answer needed.',
   },
   availability: 'Discipline is next in the teaching order.',
@@ -119,8 +119,7 @@ export const integrityContent = {
   case: {
     title: "When the record doesn't match.",
     lead: 'Read the claim. Examine the facts. Follow the correction into action.',
-    intro:
-      'Riley and Maya are fictional volunteers. Read three parts of the same message against the facts. Your own history can stay private; there is no answer to submit.',
+    intro: 'Riley and Maya are fictional volunteers; compare their message with the facts.',
     setup:
       'Riley coordinates a community workshop guide and says the team should share credit and give people information they can rely on. Maya writes the session descriptions. Riley finishes the layout during a demanding evening, then sends the team the message below before the workshop takes place.',
     original:
@@ -228,7 +227,7 @@ export const integrityContent = {
       'Discipline',
       'Empowerment',
     ],
-    local: ['Read Integrity', 'Examine a fictional record'],
+    local: ['Read Integrity', 'Examine the record'],
     static_link: 'Read the complete text (new tab)',
     resilience_bridge: 'Integrity is next in the teaching order.',
     resilience_cta: 'Continue to Integrity',

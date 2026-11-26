@@ -92,7 +92,7 @@ export const practiceCopy = {
   purposeBridge:
     'The update is one response. Becoming dependable gives that response a direction beyond this delay.',
 
-  fictional: 'This is a fictional example. No answer about you is collected.',
+  fictional: 'A fictional example for private reflection.',
   situationHeading: 'The update that did not arrive',
   conditionLabel: 'Change one fact in this example',
   limit:
@@ -149,7 +149,7 @@ export const practiceCopy = {
     },
   ],
   evidenceLabel: 'Inspect what happened',
-  evidenceContext: 'These are fictional records, not reports about you.',
+  evidenceContext: 'Compare a promise, completed action and a correction in the same example.',
   repair:
     'Acknowledge the missed check-in and send the facts you have now. Address what failed: set a reminder, make a smaller promise or ask for specific help. Keep completion off the promise while access is blocked. Your colleague does not owe you reassurance. Carry out the correction.',
   evidenceReflection: 'What has actually happened? What still needs to happen?',
@@ -215,7 +215,7 @@ export const practiceCopy = {
   connectedReturn:
     'You keep returning to all six values. One correction can call on several of them, and learning the next value does not leave the earlier ones behind. Help others when there is a useful place to do it; every situation does not need an act of service.',
   empowermentLimit:
-    'If the shared file is offline, you can ask your colleague for an exported copy. They can say no. You still owe the update. Empowerment asks what your own strength can offer someone else. Share what you know honestly, respect their choices and leave them room to act.',
+    'Asking a colleague for an exported copy is Ownership: you seek what you need to carry your responsibility, and they can decline. Empowerment is the contribution you offer them: with their agreement, show them a reliable way to keep their own usable copy. Share what you know honestly, respect their choices and leave them room to act.',
   availability:
     'The PERIOD Code remains a connected standard for living, not a sequence of achievements.',
   takeActionHeading: 'Take it into your day',

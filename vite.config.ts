@@ -43,6 +43,7 @@ const rebuildStyles = () =>
     'src/rebuild-app.css',
     'src/site-footer.css',
   ]
+    .concat('src/reading.css')
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n')
     // This script-free reader cannot realign a fragment after a late font swap.
@@ -51,6 +52,7 @@ const rebuildStyles = () =>
     .replaceAll('font-display: swap;', 'font-display: optional;');
 const loopStyles = () =>
   ['src/style.css', 'src/navigation.css', 'src/site-footer.css', 'src/loop.css']
+    .concat('src/reading.css')
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const executionStyles = () =>
@@ -61,6 +63,7 @@ const executionStyles = () =>
     'src/site-footer.css',
     'src/execution.css',
   ]
+    .concat('src/reading.css')
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const resilienceStyles = () =>
@@ -72,6 +75,7 @@ const resilienceStyles = () =>
     'src/site-footer.css',
     'src/lesson-transitions.css',
   ]
+    .concat('src/reading.css')
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const integrityStyles = () =>
@@ -82,6 +86,7 @@ const integrityStyles = () =>
     'src/site-footer.css',
     'src/lesson-transitions.css',
   ]
+    .concat('src/reading.css')
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const empowermentStyles = () =>
@@ -92,6 +97,7 @@ const empowermentStyles = () =>
     'src/site-footer.css',
     'src/lesson-transitions.css',
   ]
+    .concat('src/reading.css')
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 const disciplineStyles = () =>
@@ -102,6 +108,7 @@ const disciplineStyles = () =>
     'src/site-footer.css',
     'src/lesson-transitions.css',
   ]
+    .concat('src/reading.css')
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');
 export default defineConfig({

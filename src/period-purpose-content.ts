@@ -23,7 +23,7 @@ export const purposeLesson = [
     heading: 'A full day can still leave what matters untouched',
     paragraphs: [
       'Activity fills time. Purpose asks what that time is building. A longer list of finished tasks cannot answer that question for you.',
-      'Consider a fictional example. Lee wants a more dependable home life. An evening spent comparing organizing apps may feel productive. Checking tomorrow’s arrangements with the other person and preparing what they agreed can serve that direction more directly.',
+      'Consider Lee’s example. Lee wants a more dependable home life. An evening spent comparing organizing apps may feel productive. Checking tomorrow’s arrangements with the other person and preparing what they agreed can serve that direction more directly.',
       'Planning, messages and routine chores can be necessary. Their value depends on what they serve. The question is whether the activity helps build the life you are responsible for, or keeps postponing the work that matters.',
     ],
   },
@@ -54,7 +54,7 @@ export const purposeLesson = [
     heading: 'A direction becomes visible in a choice',
     paragraphs: [
       'A purpose has to change a decision. What will you protect? What will you turn down? What will you leave undone so the work that matters gets a place in the day?',
-      'In the fictional evening explored here, Sam could use an hour to prepare a training application that might lead to steadier work. Sam could instead protect basic stability by sorting the coming week and leaving more room to rest. Each direction has a real benefit and a real cost.',
+      'In the evening explored here, Sam could use an hour to prepare a training application that might lead to steadier work. Sam could instead protect basic stability by sorting the coming week and leaving more room to rest. Each direction has a real benefit and a real cost.',
       'Neither a future opportunity nor a busy schedule cancels existing responsibilities. Other people’s needs, shared agreements and your actual capacity still matter. A purpose does not give you permission to leave someone else carrying your commitments.',
       'Rest can serve your purpose. So can work you would rather avoid. Look at the need you are answering: are you restoring the capacity to live your life, or using the word rest to protect an avoidable pattern? The busiest-looking choice is not automatically the right one.',
     ],
@@ -119,14 +119,14 @@ export const purposeCopy = {
   title: 'A purpose changes the plan.',
   lead: 'The same evening. Two worthwhile directions. Real limits.',
   intro:
-    'Sam has one evening and two worthwhile directions. Look at what each direction protects and what has to wait. There is no answer to submit.',
+    'Sam has one evening and two worthwhile directions. Look at what each direction protects and what has to wait. ',
   situation_heading: 'Two hours, with choices still to make',
   situation:
     'It is Wednesday. Sam has 7–9 p.m. available after essential work and care responsibilities are covered. The evening stops at 9; these examples do not borrow from sleep. Routine messages can wait until tomorrow.',
   facts:
     'A training application closes on Friday. Sam estimates about an hour to prepare a usable draft; acceptance and steadier hours are not guaranteed. Tomorrow needs 20 minutes of preparation. Nonurgent bill dates and the coming week’s arrangements also need attention.',
   assumptions:
-    "This is a fictional evening, not a routine to copy. Sam's essential care responsibilities are covered, and no bill is urgent tonight. If those facts change, the decision changes.",
+    "This evening is an example, not a routine to copy. Sam's essential care responsibilities are covered, and no bill is urgent tonight. If those facts change, the decision changes.",
   direction_label: 'Which direction are you examining for Sam?',
   capacity_label: 'Change Sam’s capacity tonight',
   reflection:
@@ -148,7 +148,7 @@ export const purposeCopy = {
   readingLead:
     "Read all four versions of Sam's evening below. Each is a possible plan; Sam still has to carry it out.",
   readingLabel: 'Read every example as text',
-  reassurance: 'Explore freely. Nothing to submit or save.',
+  reassurance: 'Explore both directions and what each leaves waiting.',
 } as const;
 
 export const purposeDirections = {

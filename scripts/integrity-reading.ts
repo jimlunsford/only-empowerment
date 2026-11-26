@@ -27,7 +27,7 @@ export function integrityReading(staging = true, metadata?: FooterBuild) {
 <main id="main" class="site-main integrity-static" tabindex="-1" aria-label="Complete Integrity reading">
 <nav id="top" aria-label="Integrity reading links">${link('/', 'Only Empowerment overview')}${link('/read/resilience.html', 'Read Resilience')}</nav>
 <header class="integrity-heading"><p class="position">4 of 6 in the teaching order</p>${h(content.title, 1)}<p class="lead">${escape(content.lead)}</p></header>
-<nav aria-label="Contents">${link('#lesson', 'Read Integrity')}${link('#record', 'Read the fictional record')}${link('#annotations', 'Read all three annotations')}${link('#comparison', 'Compare responses')}${link('#correction', 'Read the correction')}${link('#continuation', 'Read what actually happens')}</nav>
+<nav aria-label="Contents">${link('#lesson', 'Read Integrity')}${link('#record', 'Read the record')}${link('#annotations', 'Read all three annotations')}${link('#comparison', 'Compare responses')}${link('#correction', 'Read the correction')}${link('#continuation', 'Read what actually happens')}</nav>
 ${p(content.navigation.availability)}
 <article id="lesson" class="integrity-lesson" aria-label="Integrity lesson">
 ${content.lesson

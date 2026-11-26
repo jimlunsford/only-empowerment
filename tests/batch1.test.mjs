@@ -29,7 +29,7 @@ test('Batch 1 reverses exactly to current main and rejects incidental edits insi
     });
     assert.equal(sha(current), change.afterSha256, path);
     assert.equal(beforeBatch1Source(current, path), base, path);
-    assert.throws(() => beforeBatch1Source(current + '\n', path), /Unexpected Batch[12] bytes/);
+    assert.throws(() => beforeBatch1Source(current + '\n', path), /Unexpected Batch[123] bytes/);
     const edit = change.edits[0];
     assert.throws(
       () =>
@@ -37,7 +37,7 @@ test('Batch 1 reverses exactly to current main and rejects incidental edits insi
           current.slice(0, edit.start) + 'x' + current.slice(edit.start + 1),
           path,
         ),
-      /Unexpected Batch[12] bytes/,
+      /Unexpected Batch[123] bytes/,
     );
   }
 });

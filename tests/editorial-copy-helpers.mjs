@@ -1,3 +1,4 @@
+import { beforeBatch3Copy } from './batch3-preservation.mjs';
 import { beforeWork39 } from './work39-copy-helpers.mjs';
 import { work73Editorial } from './work73-preservation.mjs';
 import assert from 'node:assert/strict';
@@ -8,7 +9,7 @@ import work62 from './fixtures/work62-approved.json' with { type: 'json' };
 // Preserve earlier independent content digests while allowing only the exact
 // founder-approved replacements. Every restored value is checked first.
 export function beforeWork35(value, prefix) {
-  const copy = beforeWork39(value, prefix);
+  const copy = beforeWork39(beforeBatch3Copy(value), prefix);
   for (const record of fixture.records.filter((record) => record.field.startsWith(prefix + '.'))) {
     const keys = record.field.slice(prefix.length + 1).match(/[^.[\]]+/g);
     let owner = copy;

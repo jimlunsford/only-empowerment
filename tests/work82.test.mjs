@@ -153,11 +153,13 @@ test('Work82 preserves all accepted teaching and limits shared wording to the de
     '.github/workflows/ci.yml',
     'scripts/public-boundary.ts',
   ]) {
-    assert.equal(
-      beforeBatch2Source(readFileSync(path, 'utf8'), path),
-      execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
-      path,
-    );
+    const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
+    // Accept only the approved CI timeout change; preserve every other workflow byte.
+    const expected =
+      path === '.github/workflows/ci.yml'
+        ? original.replace('\n    timeout-minutes: 35\n', '\n    timeout-minutes: 50\n')
+        : original;
+    assert.equal(beforeBatch2Source(readFileSync(path, 'utf8'), path), expected, path);
   }
 });
 

@@ -127,7 +127,10 @@ export function rebuildReading(build?: FooterBuild, staging = true) {
   return shell(
     'How to Rebuild Yourself, complete text-only reading',
     '<h1 class="standalone-reading-heading">How to Rebuild Yourself: Complete reading</h1>' +
-      rebuildFallback(),
+      rebuildFallback()
+        .replaceAll('href="#/loop?section=', 'href="/read/loop.html#')
+        .replaceAll('href="#/execution/negotiation"', 'href="/read/execution.html#negotiation"')
+        .replaceAll('href="#/execution/your-responsibility"', 'href="/read/execution.html#miss"'),
     '/read/rebuild.css',
     build,
     'rebuild',

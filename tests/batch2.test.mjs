@@ -1,3 +1,4 @@
+import { beforeBatch3Source } from './batch3-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -40,18 +41,18 @@ test('Batch 2 reverses exactly to Batch 1 and rejects edits inside and outside t
     ].sort(),
   );
   for (const [path, change] of Object.entries(changes)) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeBatch3Source(readFileSync(path, 'utf8'), path);
     assert.equal(sha(source), change.afterSha256, path);
     assert.equal(
       beforeBatch2Source(source, path),
       execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
       path,
     );
-    assert.throws(() => beforeBatch2Source(source + '\n', path), /Unexpected Batch2 bytes/);
+    assert.throws(() => beforeBatch2Source(source + '\n', path), /Unexpected Batch[23] bytes/);
     const start = change.edits[0].start;
     assert.throws(
       () => beforeBatch2Source(source.slice(0, start) + 'x' + source.slice(start + 1), path),
-      /Unexpected Batch2 bytes/,
+      /Unexpected Batch[23] bytes/,
     );
   }
 });

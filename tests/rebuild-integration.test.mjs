@@ -1,3 +1,4 @@
+import { beforeBatch3Source } from './batch3-preservation.mjs';
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
@@ -57,7 +58,11 @@ test('all original Work 53 inputs and current approved authored bytes match thei
   for (const [file, digest] of Object.entries(sourceHashes)) {
     const path = 'docs/work53-source/' + file;
     assert.equal(sha(execFileSync('git', ['show', work62Base + ':' + path])), digest, file);
-    assert.equal(sha(readFileSync(path)), work62Hashes[file] ?? digest, file);
+    assert.equal(
+      sha(beforeBatch3Source(readFileSync(path, 'utf8'), path)),
+      work62Hashes[file] ?? digest,
+      file,
+    );
   }
 });
 
@@ -111,7 +116,10 @@ test('rendered source has no unapproved links or runtime HTML injection', () => 
       return false;
     });
     for (const href of links)
-      assert.match(href, /^#(\/rebuild(?:\/[a-z]+(?:\?section=[a-z][a-z0-9-]*)?)?|[a-z0-9-]+)$/);
+      assert.match(
+        href,
+        /^#(\/rebuild(?:\/[a-z]+(?:\?section=[a-z][a-z0-9-]*)?)?|\/loop\?section=(?:part-[2-5]|restart)|\/execution\/(?:negotiation|your-responsibility)|[a-z0-9-]+)$/,
+      );
   }
   assert.doesNotMatch(
     readFileSync('src/Rebuild.tsx', 'utf8'),
