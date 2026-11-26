@@ -2,7 +2,8 @@ import { LegacyDataRemoval } from './LegacyDataRemoval';
 import { SiteNotices } from './SiteNotices';
 import { SourceNotice } from './SourceNotice';
 import { render } from 'preact';
-import { useState } from 'preact/hooks';
+import { useLayoutEffect, useState } from 'preact/hooks';
+import { trackFocusModality } from './focus-modality';
 import { useRoute } from './use-route';
 import { RebuildGuide, FrameworkHome } from './Rebuild';
 import { Loop } from './Loop';
@@ -38,6 +39,7 @@ import './lesson-transitions.css';
 import './site-footer.css';
 import './rebuild-source-scoped.css';
 import './rebuild-app.css';
+import './focus-modality.css';
 import { EmpowermentLesson, EmpowermentConversation } from './Empowerment';
 import { DisciplineLesson, DisciplinePattern } from './Discipline';
 import { IntegrityLesson, IntegrityRecord } from './Integrity';
@@ -208,6 +210,7 @@ function NotFound({ path }: { path: string }) {
   );
 }
 function App() {
+  useLayoutEffect(trackFocusModality, []);
   const path = useRoute();
   const editorial = path === '/period' || path.startsWith('/period/');
   const [periodSession, setPeriodSession] = useState(newPeriodSession);

@@ -139,7 +139,10 @@ async function focusOutline(heading: Locator, visible: boolean) {
   await expect(heading).toBeFocused();
   await expect(heading).toHaveAttribute('tabindex', '-1');
   await expect(heading).toHaveCSS('outline-style', visible ? 'solid' : 'none');
-  if (visible) await expect(heading).toHaveCSS('outline-width', '3px');
+  if (visible) {
+    await expect(heading).toHaveCSS('outline-width', '3px');
+    await expect(heading).toHaveCSS('outline-offset', '5px');
+  }
 }
 for (const forcedColors of ['none', 'active'] as const)
   test(`Batch 1.4: route headings retain focus with keyboard-only outlines (${forcedColors})`, async ({
@@ -173,6 +176,16 @@ for (const forcedColors of ['none', 'active'] as const)
       await keyboardEntry.focus();
       await page.keyboard.press('Enter');
       await focusOutline(page.locator('#app main').getByRole('heading', { level: 1 }), true);
+      const heading = page.locator('#app main').getByRole('heading', { level: 1 });
+      // Switching input method must update an already focused heading too.
+      if (isMobile) await heading.tap();
+      else await heading.click();
+      await focusOutline(heading, false);
+      await page.keyboard.press('ArrowRight');
+      await focusOutline(heading, true);
+      await page.emulateMedia({ media: 'print' });
+      await expect(heading).toHaveCSS('outline-style', 'none');
+      await page.emulateMedia({ media: 'screen' });
     }
   });
 

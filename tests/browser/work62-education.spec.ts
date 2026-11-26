@@ -29,6 +29,25 @@ const examples = [
 
 test.describe('JavaScript-independent teaching', () => {
   test.use({ javaScriptEnabled: false });
+  test('Rebuild trust fragment survives cold fonts and repeated native reloads', async ({
+    page,
+  }) => {
+    // Routing disables the HTTP cache, exposing late font delivery on every reload.
+    await page.route('**/fonts/*.woff2', async (route) => {
+      await new Promise((resolve) => setTimeout(resolve, 250));
+      await route.continue();
+    });
+    await page.goto('/read/rebuild.html#/rebuild/complete?section=trust-example');
+    const heading = page.locator('#trust-example');
+    for (let refresh = 0; refresh < 3; refresh++) {
+      await expect(heading).toBeInViewport();
+      await expect.poll(() => page.evaluate(() => document.fonts.status)).toBe('loaded');
+      await expect(heading).toBeInViewport();
+      await page.reload();
+    }
+    await expect(heading).toBeInViewport();
+    await expect(page.locator('script')).toHaveCount(0);
+  });
   for (const path of ['/', '/read/rebuild.html']) {
     for (const { lesson, headings, title, person, alternatives } of examples) {
       test(`${path} ${lesson} links reach the actual example and leave teaching and alternatives as siblings`, async ({
