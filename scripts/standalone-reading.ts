@@ -1,3 +1,4 @@
+import { withDesktopNavigation } from './site-menu.ts';
 import { periodFallback } from './period-fallback.ts';
 import { purposeFallback } from './purpose-fallback.ts';
 import { rebuildFallback } from './rebuild-fallback.ts';
@@ -14,27 +15,40 @@ const shell = (
   framework: 'period' | 'rebuild' | 'combined' = 'period',
   staging = true,
 ) =>
-  [
-    '<!doctype html><html lang="en"><head><meta charset="UTF-8">',
-    '<meta name="viewport" content="width=device-width, initial-scale=1">',
-    `<meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">`,
-    "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\">",
-    '<link rel="stylesheet" href="',
-    style,
-    '"><title>',
-    title,
-    ' | Only Empowerment</title></head>',
-    `<body class="site-shell period-shell${framework === 'rebuild' ? ' native-rebuild' : ''}"><a class="skip-link" href="#main">Skip to content</a>`,
-    '<header class="site-header"><a class="wordmark" href="/read/index.html">Only Empowerment</a>',
-    '<nav aria-label="Static reading navigation"><a href="/read/index.html">All readings</a>',
-    '<a href="/read/rebuild.html">How to Rebuild Yourself</a>',
-    '<a href="/read/privacy.html">Privacy &amp; source</a></nav></header>',
-    '<main id="main" class="site-main" tabindex="-1">',
-    body,
-    '</main>',
-    staticFooter(build, framework),
-    '</body></html>',
-  ].join('');
+  withDesktopNavigation(
+    [
+      '<!doctype html><html lang="en"><head><meta charset="UTF-8">',
+      '<meta name="viewport" content="width=device-width, initial-scale=1">',
+      `<meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">`,
+      "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\">",
+      // Discover the reading fonts before CSS parsing and native fragment restoration.
+      // The reader's optional faces still keep a stable fallback on a slow connection.
+      ...(framework === 'rebuild'
+        ? ['SourceSerif4-Regular.otf.woff2', 'SourceSans3-Regular.otf.woff2'].map(
+            (font) =>
+              `<link rel="preload" href="/fonts/${font}" as="font" type="font/woff2" crossorigin>`,
+          )
+        : []),
+      '<link rel="stylesheet" href="',
+      style,
+      '"><title>',
+      title,
+      ' | Only Empowerment</title></head>',
+      `<body class="site-shell period-shell${framework === 'rebuild' ? ' native-rebuild' : ''}"><a class="skip-link" href="#main">Skip to content</a>`,
+      '<header class="site-header"><a class="wordmark" href="/read/index.html">Only Empowerment</a>',
+      '<details class="site-menu"><summary>Menu</summary><nav aria-label="Static reading navigation"><a href="/read/index.html">All readings</a>',
+      '<a href="/#teaching-order">The PERIOD Code</a>',
+      '<a href="/read/rebuild.html">How to Rebuild Yourself</a>',
+      '<a href="/read/loop.html">The Discipline Loop</a>',
+      '<a href="/read/execution.html">Pure Execution Mode</a>',
+      '<a href="/read/privacy.html">Privacy &amp; source</a></nav></details></header>',
+      '<main id="main" class="site-main" tabindex="-1">',
+      body,
+      '</main>',
+      staticFooter(build, framework),
+      '</body></html>',
+    ].join(''),
+  );
 
 const markerAt = (text: string, marker: string) => {
   const i = text.indexOf(marker);

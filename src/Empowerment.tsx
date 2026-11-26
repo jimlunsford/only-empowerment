@@ -1,3 +1,4 @@
+import { FrameworkLinks } from './FrameworkLinks';
 import { LessonTransition } from './LessonTransition';
 import { lessonBridges } from './period-lesson-transitions';
 import { LessonTitle } from './LessonTitle';
@@ -229,6 +230,7 @@ export function EmpowermentLesson({ openCard }: { openCard: () => void }) {
               {lesson.bookLink}
             </a>
           </section>
+          <FrameworkLinks current="period" />
           <p class="source-note">{empowermentAttribution}</p>
         </article>
       </div>

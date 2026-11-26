@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { beforeBatch1Source } from './batch1-preservation.mjs';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/work80-integration.json' with { type: 'json' };
 
@@ -7,6 +8,7 @@ const sha = (text) => createHash('sha256').update(text).digest('hex');
 // Some historical adapters compose; the exact accepted base is idempotent.
 // work80.test.mjs separately requires every current file to match its new hash.
 export function beforeWork80Source(source, path) {
+  source = beforeBatch1Source(source, path);
   const change = changes[path];
   if (!change || sha(source) === change.beforeSha256) return source;
   assert.equal(sha(source), change.afterSha256, 'Unexpected Work80 bytes: ' + path);

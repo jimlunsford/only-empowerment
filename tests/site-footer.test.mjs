@@ -21,7 +21,7 @@ test('footer keeps exact founder links and separates app links from script-free 
   assert.match(html, /href="\/read\/privacy.html">Privacy &amp; source/);
   assert.match(html, /aria-label="Your practice"/);
   assert.match(html, /href="\/#\/period\/standard">Optional Standard Card/);
-  assert.match(html, /About the book and Optional Standard Card require JavaScript/);
+  assert.match(html, /About The PERIOD Code book and Optional Standard Card require JavaScript/);
   assert.doesNotMatch(
     html,
     /footer-meta|footer-software|footer-education|Application software:|Existing work|#\/tools|#\/saved|#\/approach/,

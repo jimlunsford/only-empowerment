@@ -1,3 +1,4 @@
+import { beforeBatch2Source } from './batch2-preservation.mjs';
 import assert from 'node:assert/strict';
 import { beforeWork73Source } from './work73-preservation.mjs';
 import test from 'node:test';
@@ -130,7 +131,10 @@ test('every previously accepted teaching source and dependency/build-security co
       execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
       path,
     );
-  const rebuild = readFileSync('src/Rebuild.tsx', 'utf8').split('export function RebuildGuide')[1];
+  const rebuild = beforeBatch2Source(
+    readFileSync('src/Rebuild.tsx', 'utf8'),
+    'src/Rebuild.tsx',
+  ).split('export function RebuildGuide')[1];
   assert.equal(
     rebuild,
     execFileSync('git', ['show', base + ':src/Rebuild.tsx'], { encoding: 'utf8' }).split(

@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect } from '@playwright/test';
 
 const stations = ['line', 'structure', 'return', 'trust', 'negotiation', 'help'];
@@ -103,19 +104,28 @@ test('all framework links remain available inside PERIOD while the local teachin
   for (const route of ['/period', '/period/values/ownership', '/period/discipline/pattern']) {
     await page.goto('/#' + route);
     const global = page.getByRole('navigation', { name: 'Framework navigation' });
-    await expect(global.getByRole('link')).toHaveText([
-      'Frameworks',
-      'The PERIOD Code',
-      'How to Rebuild Yourself',
-      'The Discipline Loop',
-      'Pure Execution Mode',
-    ]);
+    {
+      await openSiteMenu(page);
+      await expect(global.getByRole('link')).toHaveText([
+        'Frameworks',
+        'The PERIOD Code',
+        'How to Rebuild Yourself',
+        'The Discipline Loop',
+        'Pure Execution Mode',
+      ]);
+    }
     const local = page.getByRole('navigation', { name: 'Main navigation' });
-    await expect(local.getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
+    {
+      await openSiteMenu(page);
+      await expect(local.getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
+    }
     await expect(
       page.getByRole('contentinfo').getByRole('navigation', { name: 'About this site' }),
     ).toContainText('How to Rebuild Yourself');
-    await global.getByRole('link', { name: 'How to Rebuild Yourself' }).click();
+    {
+      await openSiteMenu(page);
+      await global.getByRole('link', { name: 'How to Rebuild Yourself' }).click();
+    }
     await expect(page).toHaveURL((url) => url.hash === '#/rebuild');
   }
 });
@@ -288,6 +298,7 @@ for (const mode of ['disabled', 'blocked'] as const) {
       await expect(page.locator('.combined-print-credit')).toBeVisible();
       await expect(page.locator('.rebuild-print-credit')).toBeHidden();
       await page.emulateMedia({ media: 'screen' });
+      await openSiteMenu(page);
       const headerLink = page
         .getByRole('banner')
         .getByRole('link', { name: 'How to Rebuild Yourself' });

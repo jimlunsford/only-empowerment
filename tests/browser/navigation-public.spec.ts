@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { founderCopyright } from '../../src/site-footer-content';
 import { test, expect, type Page } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
@@ -74,28 +75,37 @@ test('all public and retired hash routes retain educational navigation without l
       );
     const periodRoute = route === '/period' || route.startsWith('/period/');
     if (periodRoute) {
-      await expect(mainNav(page).getByRole('link')).toHaveText([
-        'Why PERIOD?',
-        'Explore the values',
-      ]);
+      {
+        await openSiteMenu(page);
+        await expect(mainNav(page).getByRole('link')).toHaveText([
+          'Why PERIOD?',
+          'Explore the values',
+        ]);
+      }
     } else {
-      await expect(mainNav(page).getByRole('link')).toHaveText([
-        'Frameworks',
-        'The PERIOD Code',
-        'How to Rebuild Yourself',
-        'The Discipline Loop',
-        'Pure Execution Mode',
-      ]);
+      {
+        await openSiteMenu(page);
+        await expect(mainNav(page).getByRole('link')).toHaveText([
+          'Frameworks',
+          'The PERIOD Code',
+          'How to Rebuild Yourself',
+          'The Discipline Loop',
+          'Pure Execution Mode',
+        ]);
+      }
     }
-    expect(
-      await mainNav(page)
-        .getByRole('link')
-        .evaluateAll((links) => links.map((l) => l.getAttribute('href'))),
-    ).toEqual(
-      periodRoute
-        ? ['#/period/why', '#/period/teaching-order']
-        : ['#/', '#/period', '#/rebuild', '#/loop', '#/execution'],
-    );
+    {
+      await openSiteMenu(page);
+      expect(
+        await mainNav(page)
+          .getByRole('link')
+          .evaluateAll((links) => links.map((l) => l.getAttribute('href'))),
+      ).toEqual(
+        periodRoute
+          ? ['#/period/why', '#/period/teaching-order']
+          : ['#/', '#/period', '#/rebuild', '#/loop', '#/execution'],
+      );
+    }
     await expect(
       footer(page).getByRole('navigation', { name: 'About this site' }).getByRole('link'),
     ).toHaveText([
@@ -103,7 +113,8 @@ test('all public and retired hash routes retain educational navigation without l
       'How to Rebuild Yourself',
       'The Discipline Loop',
       'Pure Execution Mode',
-      'About the book',
+      'All reading editions (new tab)',
+      'About The PERIOD Code book',
       'Privacy & source',
     ]);
     await expect(footer(page).getByRole('navigation', { name: 'Existing work' })).toHaveCount(0);
@@ -130,16 +141,25 @@ test('all public and retired hash routes retain educational navigation without l
       'href',
       'https://phoenix233.com/',
     );
-    if (!periodRoute) await mainNav(page).getByRole('link', { name: 'The PERIOD Code' }).click();
-    await mainNav(page).getByRole('link', { name: 'Explore the values' }).click();
+    if (!periodRoute) {
+      await openSiteMenu(page);
+      await mainNav(page).getByRole('link', { name: 'The PERIOD Code' }).click();
+    }
+    {
+      await openSiteMenu(page);
+      await mainNav(page).getByRole('link', { name: 'Explore the values' }).click();
+    }
     await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
     await expect(
       page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
     ).toHaveCount(6);
-    await expect(mainNav(page).getByRole('link', { name: 'Explore the values' })).toHaveAttribute(
-      'aria-current',
-      'location',
-    );
+    {
+      await openSiteMenu(page);
+      await expect(mainNav(page).getByRole('link', { name: 'Explore the values' })).toHaveAttribute(
+        'aria-current',
+        'location',
+      );
+    }
   }
 });
 
@@ -148,6 +168,7 @@ test('same-page teaching order, repeat activation, Back and Forward retain locat
 }) => {
   await page.goto('/#/period');
   const explore = mainNav(page).getByRole('link', { name: 'Explore the values' });
+  await openSiteMenu(page);
   await explore.focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
@@ -162,16 +183,24 @@ test('same-page teaching order, repeat activation, Back and Forward retain locat
   await page.goForward();
   await expect(page.locator('h1')).toHaveText('Your answers are not ours to collect.');
   await page.goBack();
+  await openSiteMenu(page);
   await explore.click();
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await page.evaluate(() => scrollTo(0, 0));
+  await openSiteMenu(page);
   await explore.click();
   await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
-  await mainNav(page).getByRole('link', { name: 'Why PERIOD?', exact: true }).click();
+  {
+    await openSiteMenu(page);
+    await mainNav(page).getByRole('link', { name: 'Why PERIOD?', exact: true }).click();
+  }
   await expect(page.locator('[id="/period/why"]')).toBeFocused();
-  await expect(
-    mainNav(page).getByRole('link', { name: 'Why PERIOD?', exact: true }),
-  ).toHaveAttribute('aria-current', 'location');
+  {
+    await openSiteMenu(page);
+    await expect(
+      mainNav(page).getByRole('link', { name: 'Why PERIOD?', exact: true }),
+    ).toHaveAttribute('aria-current', 'location');
+  }
 });
 
 test('fictional legacy bytes survive navigation; confirmed deletion is scoped and keeps the Standard Card', async ({

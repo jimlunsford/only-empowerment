@@ -134,7 +134,7 @@ export const loopScenario: LoopScenario = {
     fatigue: {
       heading: 'The conditions have changed',
       body: [
-        'On another evening, you have had too little sleep and are struggling to stay awake. Continuing a house reset would take away sleep you need. Treat that limit honestly.',
+        'On another evening, you have had too little sleep and are struggling to stay awake. Taking on more work would take away sleep you need. Treat that limit honestly.',
         'The same task does not have to happen in the same form tonight. Needed rest, assistance or a clear change of arrangement can be the aligned response.',
       ],
       options: [
@@ -156,22 +156,22 @@ export const loopScenario: LoopScenario = {
     rest: {
       heading: 'Rest protects the ability to return',
       body: [
-        'In this illustration, you stop adding work, explain the changed situation to the person sharing the responsibility, and arrange help or a realistic return after sleep. Then you put the phone away and go to bed.',
-        'The completed communication, adjustment and rest are evidence of that response. A future promise alone does not prove the original task is complete. When the return becomes possible, follow through or revise the arrangement honestly.',
+        'In this illustration, you explain the limit to the person sharing the responsibility and arrange help or a realistic return that fits your capacity. You protect the recovery you need instead of adding strain.',
+        'The completed communication and adjustment are evidence of that response. A future promise alone does not prove the original task is complete. When the return becomes possible, follow through or revise the arrangement honestly.',
         'Rest is not a consolation prize for failing at discipline. Here it protects health and sustainable responsibility.',
       ],
       loop: [
         {
           stage: 'Pressure creates the choice',
-          text: 'The pressure includes a genuine limit: inadequate sleep.',
+          text: 'The pressure includes a genuine limit on your capacity.',
         },
         {
           stage: 'Action creates proof',
-          text: 'You communicate, adjust the arrangement and protect needed rest.',
+          text: 'You communicate, adjust the arrangement and protect the recovery you need.',
         },
         {
           stage: 'Proof rebuilds self-trust',
-          text: 'The adjustment and rest count for what they are. The deferred task remains open until addressed.',
+          text: 'The responsible adjustment counts for what it is. The deferred task remains open until addressed.',
         },
         {
           stage: 'Self-trust stabilizes identity',
@@ -318,7 +318,7 @@ export const loopScenario: LoopScenario = {
     correction: {
       heading: 'Correction is evidence of a return',
       body: [
-        'In this illustration, you acknowledge the missed agreement without excuses, address the immediate task and restore the small minimum. You put the phone away before the next reset.',
+        'In this illustration, you acknowledge the missed agreement without excuses, address the immediate task and restore the small minimum. You address the break you identified before the next reset.',
         'The kitchen is usable again. The miss remains part of the record. Someone else may still be frustrated, and trust may need time. What you have proved now is that you can return and begin repair.',
         'Repeated honest correction, alongside repeated follow-through, gives the next pressure point a different record to draw on.',
       ],

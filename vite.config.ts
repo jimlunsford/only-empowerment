@@ -11,6 +11,7 @@ import { periodFallback } from './scripts/period-fallback.ts';
 import { rebuildFallback } from './scripts/rebuild-fallback.ts';
 import { loopFallback, loopReading } from './scripts/loop-reading.ts';
 import { executionFallback, executionReading } from './scripts/execution-reading.ts';
+import { frameworkChooser } from './scripts/framework-links.ts';
 import { frameworkOrientation } from './src/framework-home-content.ts';
 import { escapeLoop } from './scripts/loop-reading.ts';
 import {
@@ -43,7 +44,11 @@ const rebuildStyles = () =>
     'src/site-footer.css',
   ]
     .map((path) => readFileSync(path, 'utf8'))
-    .join('\n');
+    .join('\n')
+    // This script-free reader cannot realign a fragment after a late font swap.
+    // Use the same Source files when ready for initial layout; otherwise keep
+    // the fallback for this document. The interactive app retains font swapping.
+    .replaceAll('font-display: swap;', 'font-display: optional;');
 const loopStyles = () =>
   ['src/style.css', 'src/navigation.css', 'src/site-footer.css', 'src/loop.css']
     .map((path) => readFileSync(path, 'utf8'))
@@ -62,6 +67,7 @@ const resilienceStyles = () =>
   [
     'src/style.css',
     'src/period.css',
+    'src/navigation.css',
     'src/period-resilience.css',
     'src/site-footer.css',
     'src/lesson-transitions.css',
@@ -110,6 +116,7 @@ export default defineConfig({
             '<section class="framework-hub" aria-label="Framework introduction">' +
               '<h1>Only Empowerment</h1>' +
               '<p>Explore complete educational experiences from The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode.</p>' +
+              frameworkChooser() +
               '<section aria-labelledby="framework-orientation-title"><h2 id="framework-orientation-title">' +
               escapeLoop(frameworkOrientation.heading) +
               '</h2><p>' +

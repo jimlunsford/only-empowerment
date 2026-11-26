@@ -194,7 +194,7 @@ test('Work73 native homepage and complete Loop reading preserve exact copy witho
     orientation.choice,
   ]);
   for (const href of ['#teaching-order', '/read/rebuild.html', '/read/loop.html'])
-    await expect(page.locator('.framework-hub a[href="' + href + '"]')).toBeVisible();
+    await expect(page.locator('.framework-hub > p a[href="' + href + '"]')).toBeVisible();
   await page.goto('/read/loop.html');
   const reflection = page.getByRole('region', { name: loopTransfer.heading });
   await expect(reflection.locator('p')).toHaveText([

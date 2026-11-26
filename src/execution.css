@@ -125,7 +125,7 @@
   margin: 2rem auto 0;
 }
 .execution-experience :is(a, summary):focus-visible,
-.execution-experience [tabindex='-1']:focus {
+.execution-experience [tabindex='-1']:focus-visible {
   outline: 3px solid #98422e;
   outline-offset: 5px;
 }
@@ -155,7 +155,7 @@
 }
 @media (forced-colors: active) {
   .execution-experience :is(a, summary):focus-visible,
-  .execution-experience [tabindex='-1']:focus {
+  .execution-experience [tabindex='-1']:focus-visible {
     outline-color: Highlight;
   }
   .execution-practice,
@@ -217,7 +217,7 @@
   .execution-reading-note {
     display: none;
   }
-  .execution-experience [tabindex='-1']:focus {
+  .execution-experience [tabindex='-1']:focus-visible {
     outline: none;
   }
   .native-execution .site-header {
@@ -447,7 +447,7 @@
   display: none;
 }
 .workshop :is(a, button, summary):focus-visible,
-.workshop [tabindex='-1']:focus {
+.workshop [tabindex='-1']:focus-visible {
   outline: 3px solid #98422e;
   outline-offset: 4px;
   scroll-margin-block: 20px;
@@ -490,7 +490,7 @@
 }
 @media (forced-colors: active) {
   .workshop :is(a, button, summary):focus-visible,
-  .workshop [tabindex='-1']:focus {
+  .workshop [tabindex='-1']:focus-visible {
     outline-color: Highlight;
   }
   .workshop button[aria-pressed='true'] {

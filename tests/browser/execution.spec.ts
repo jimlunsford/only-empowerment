@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { executionTargetIds, executionTexts } from '../../src/execution-content';
@@ -32,20 +33,28 @@ test('workshop is primary from home, both headers, footer and native reading', a
   await page.getByRole('link', { name: 'Explore Pure Execution Mode', exact: true }).click();
   await expect(heading(page)).toHaveText('Pure Execution Mode');
   await expect(heading(page)).toBeFocused();
-  await expect(page.locator('.site-header a[href="#/execution"]')).toHaveAttribute(
+  await openSiteMenu(page);
+  await expect(page.locator('.site-header a[href="#/execution"]:visible')).toHaveAttribute(
     'aria-current',
     'location',
   );
   await expect(page.locator('.site-footer a[href="#/execution"]')).toHaveCount(1);
-  await page.locator('.site-header a[href="#/period"]').click();
-  await page.locator('.framework-switch a[href="#/execution"]').click();
+  await openSiteMenu(page);
+  await page.locator('.site-header a[href="#/period"]:visible').click();
+  await openSiteMenu(page);
+  await page.locator('.framework-switch a[href="#/execution"]:visible').click();
   await expect(screen(page)).toHaveAttribute('data-workshop', 'welcome');
+  const readingTab = page.waitForEvent('popup');
   await screen(page)
-    .getByRole('link', { name: 'Complete reading and print edition', exact: true })
+    .getByRole('link', { name: 'Complete reading and print edition (new tab)', exact: true })
     .click();
-  await expect(page.locator('[data-execution-section]')).toHaveCount(9);
-  await expect(page.locator('[data-workshop-transcript]')).toHaveCount(workshopScreens.length);
-  await page.getByRole('link', { name: 'Open the guided workshop', exact: true }).click();
+  const reading = await readingTab;
+  await expect(reading.locator('[data-execution-section]')).toHaveCount(9);
+  await expect(reading.locator('[data-workshop-transcript]')).toHaveCount(workshopScreens.length);
+  await openSiteMenu(reading);
+  await reading.getByRole('link', { name: 'Open the guided workshop', exact: true }).click();
+  await expect(screen(reading)).toHaveAttribute('data-workshop', 'welcome');
+  await reading.close();
   await expect(screen(page)).toHaveAttribute('data-workshop', 'welcome');
 });
 
@@ -302,13 +311,14 @@ test('Back, Forward, skip, route exit, refresh, restart and modified links respe
   await page.reload();
   await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
   await screen(page).getByRole('button', { name: option.label, exact: true }).click();
-  await page.locator('.site-header a[href="#/loop"]').click();
+  await openSiteMenu(page);
+  await page.locator('.site-header a[href="#/loop"]:visible').click();
   await page.goBack();
   await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
   await screen(page).getByRole('button', { name: option.label, exact: true }).click();
-  await screen(page)
-    .getByRole('link', { name: 'Complete reading and print edition', exact: true })
-    .click();
+  // Reading links now preserve the workshop in another tab. A whole-document
+  // departure must still clear the session, including a return through Back.
+  await page.goto('/read/execution.html');
   await page.goBack();
   await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
   expect(await page.evaluate(() => Object.keys(history.state))).toEqual(['oeNavigation']);
@@ -391,12 +401,13 @@ test('visiting execution preserves Standard Card draft and the accepted book-exi
 }) => {
   await page.goto('/#/period/standard');
   await page.locator('#period-standard').fill('Synthetic Work 82 draft.');
-  await page.locator('.site-header a[href="#/execution"]').click();
+  await openSiteMenu(page);
+  await page.locator('.site-header a[href="#/execution"]:visible').click();
   await expect(screen(page).locator('h1')).toBeFocused();
   await screen(page).locator('summary').first().click();
   await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
   await expect(page.locator('#period-standard')).toHaveValue('Synthetic Work 82 draft.');
-  await page.getByRole('link', { name: 'About the book', exact: true }).click();
+  await page.getByRole('link', { name: 'About The PERIOD Code book', exact: true }).click();
   const opener = page.getByRole('link', { name: 'Explore the book and read a sample' });
   await page.locator('#main').focus();
   await opener.evaluate((el) =>

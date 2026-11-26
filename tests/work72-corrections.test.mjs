@@ -28,7 +28,7 @@ test('Work72 source corrections reverse exactly to Work71 and reject incidental 
     );
     assert.throws(
       () => beforeWork72Source(source + '\n', path),
-      /Unexpected Work(?:72|73|80) bytes/,
+      /Unexpected (?:Work(?:72|73|80)|Batch[12]) bytes/,
     );
   }
 });

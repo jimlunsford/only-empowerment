@@ -62,7 +62,10 @@ test('a native reading link chosen during reload survives enhancement and histor
   try {
     await page.reload({ waitUntil: 'commit' });
     await requested;
-    const link = page.locator('#educational-fallback a[href="#why-period"]').first();
+    // Keep the early native navigation test independent of header disclosure layout.
+    const link = page
+      .locator('#educational-fallback .lesson-practice a[href="#why-period"]')
+      .first();
     await link.focus();
     await page.keyboard.press('Enter');
     await page.waitForURL((url) => url.hash === '#why-period', { waitUntil: 'commit' });
@@ -111,7 +114,14 @@ test('Forward into a section before its fonts settle keeps its intended focus an
   try {
     await page.reload({ waitUntil: 'commit' });
     await requested;
-    const link = page.locator(`#app a[href="${why}"]`).first();
+    // Fonts are deliberately held here, so use native keyboard activation without
+    // a pointer action that waits for layout to settle.
+    const summary = page.locator('#app .site-menu summary');
+    if (await summary.isVisible()) {
+      await summary.focus();
+      await page.keyboard.press('Enter');
+    }
+    const link = page.locator(`#app a[href="${why}"]:visible`).first();
     await link.focus();
     await page.keyboard.press('Enter');
     await page.waitForURL((url) => url.hash === why, { waitUntil: 'commit' });

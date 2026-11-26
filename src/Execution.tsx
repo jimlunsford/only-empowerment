@@ -118,7 +118,9 @@ export function Execution() {
             ) : (
               <span>{id === 'welcome' ? 'Start here or choose a stage' : 'Field reference'}</span>
             )}
-            <a href="/read/execution.html">Complete reading and print edition</a>
+            <a href="/read/execution.html" target="_blank" rel="noopener noreferrer">
+              Complete reading and print edition (new tab)
+            </a>
           </div>
           <h1 id={legacy || location.hash.slice(1)} tabIndex={-1} ref={title}>
             {screen.title}
@@ -127,7 +129,10 @@ export function Execution() {
           {legacy && (
             <p class="workshop-legacy">
               This earlier section link now opens the related workshop screen.{' '}
-              <a href={'/read/execution.html#' + legacy}>Read the original section in full</a>.
+              <a href={'/read/execution.html#' + legacy} target="_blank" rel="noopener noreferrer">
+                Read the original section in full (new tab)
+              </a>
+              .
             </p>
           )}
         </header>
@@ -145,7 +150,11 @@ export function Execution() {
             ))}
             {id === 'welcome' && (
               <p class="workshop-origin">
-                {workshopOrigin} <a href="/read/execution.html#why">Read the foundation</a>.
+                {workshopOrigin}{' '}
+                <a href="/read/execution.html#why" target="_blank" rel="noopener noreferrer">
+                  Read the foundation (new tab)
+                </a>
+                .
               </p>
             )}
             {screen.action && (
@@ -275,21 +284,29 @@ export function Execution() {
               })}
             {id === 'your-responsibility' && (
               <p>
-                <a href="/read/execution.html#miss">
-                  Read the complete explanation of repair after a miss
+                <a href="/read/execution.html#miss" target="_blank" rel="noopener noreferrer">
+                  Read the complete explanation of repair after a miss (new tab)
                 </a>
                 .{' '}
-                <a href="/read/execution.html#daily">
-                  Read about ordinary responsibilities, support and rest
+                <a href="/read/execution.html#daily" target="_blank" rel="noopener noreferrer">
+                  Read about ordinary responsibilities, support and rest (new tab)
                 </a>
                 .
               </p>
             )}
             {id === 'reference' && (
               <p>
-                <a href="/read/execution.html#change">Changed plans</a> ·{' '}
-                <a href="/read/execution.html#miss">Missed commitments</a> ·{' '}
-                <a href="/read/execution.html#daily">Support and daily use</a>
+                <a href="/read/execution.html#change" target="_blank" rel="noopener noreferrer">
+                  Changed plans (new tab)
+                </a>{' '}
+                ·{' '}
+                <a href="/read/execution.html#miss" target="_blank" rel="noopener noreferrer">
+                  Missed commitments (new tab)
+                </a>{' '}
+                ·{' '}
+                <a href="/read/execution.html#daily" target="_blank" rel="noopener noreferrer">
+                  Support and daily use (new tab)
+                </a>
               </p>
             )}
             <p class="workshop-status" role="status" aria-live="polite" aria-atomic="true">

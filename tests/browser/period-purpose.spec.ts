@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { integrityContent } from '../../src/period-integrity-content';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -102,9 +103,12 @@ test('complete Purpose teaching, connected values and both editorial refinements
       .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', { name: 'Empowerment', exact: true }),
   ).toHaveCount(1);
-  await expect(
-    mainNav(page).getByRole('link', { name: 'Explore the values', exact: true }),
-  ).toHaveAttribute('aria-current', 'location');
+  {
+    await openSiteMenu(page);
+    await expect(
+      mainNav(page).getByRole('link', { name: 'Explore the values', exact: true }),
+    ).toHaveAttribute('aria-current', 'location');
+  }
   await axe(page);
   await page.locator('.purpose-invitation a').focus();
   await page.keyboard.press('Enter');
@@ -124,9 +128,12 @@ test('complete Purpose teaching, connected values and both editorial refinements
   await expect(page.getByText(copy.same_evening, { exact: true })).toBeVisible();
   await expect(page.getByText(copy.same_evening_end, { exact: true })).toBeVisible();
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
-  await expect(
-    mainNav(page).getByRole('link', { name: 'Explore the values', exact: true }),
-  ).toHaveAttribute('aria-current', 'location');
+  {
+    await openSiteMenu(page);
+    await expect(
+      mainNav(page).getByRole('link', { name: 'Explore the values', exact: true }),
+    ).toHaveAttribute('aria-current', 'location');
+  }
 });
 
 test('independent conditions expose all four exact tradeoffs, keep keyboard focus and announce only changes', async ({
@@ -208,12 +215,18 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   page,
 }) => {
   await page.goto('/#/period');
-  await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
+  {
+    await openSiteMenu(page);
+    await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
+  }
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values', exact: true })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values', exact: true })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Purpose', exact: true })
@@ -299,10 +312,13 @@ test('Purpose card entry preselects only a completely blank draft and preserves 
     await expect(page.locator('#period-standard')).toHaveValue('');
   }
   await page.locator('#period-valueId').selectOption('integrity');
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Purpose', exact: true })
@@ -311,10 +327,13 @@ test('Purpose card entry preselects only a completely blank draft and preserves 
   await expect(page.locator('#period-valueId')).toHaveValue('integrity');
   await page.reload();
   await page.locator('#period-standard').fill('  \n ');
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Purpose', exact: true })
@@ -358,10 +377,13 @@ test('full private card retains exact Unicode, edit, copy, manual fallback, prin
   await page.locator('.support summary').click();
   await page.locator('#period-returnPlan').fill(correction);
   await page.getByRole('button', { name: 'Make my standard card' }).click();
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Purpose', exact: true })
@@ -447,10 +469,13 @@ test('fictional exploration leaves private drafts, existing storage and all netw
     JSON.stringify(sessionStorage),
   ]);
   await page.locator('#period-standard').fill(marker);
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Purpose', exact: true })

@@ -55,6 +55,9 @@
 .framework-hub-intro {
   max-width: 51rem;
 }
+.framework-hub :is(h1, h2) {
+  font-family: var(--font-display);
+}
 .framework-hub-intro h1 {
   margin: 0.8rem 0 1.15rem;
   font-size: clamp(2.65rem, 5.1vw, 5rem);
@@ -182,5 +185,52 @@
   #educational-fallback:has(#rebuild-reading:target, #rebuild-reading :target)
     .rebuild-print-credit {
     display: block;
+  }
+}
+
+/* Immediate situation-based routes precede the longer framework explanation. */
+.framework-author {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-block: 1rem;
+}
+.framework-chooser ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem 1rem;
+  list-style: none;
+  padding: 0;
+}
+.framework-chooser a {
+  display: block;
+  min-height: 44px;
+  padding: 0.65rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.framework-chooser a span {
+  display: block;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .framework-hub {
+    padding: 1rem 0;
+  }
+  .framework-hub-intro h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+    margin-block: 0.5rem;
+  }
+  .framework-hub-intro p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .framework-chooser h2 {
+    font-size: 1.4rem;
+    margin-block: 1rem 0.25rem;
+  }
+  .framework-chooser ul {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }

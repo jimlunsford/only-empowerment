@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { lessonOrder, lessonBridges } from '../../src/period-lesson-transitions';
@@ -152,10 +153,13 @@ test('a Standard Card draft survives the full transition path and retains its ex
   await page.locator('#period-valueId').selectOption('integrity');
   await page.locator('#period-standard').fill('SYNTHETIC WORK42: Tell the truth about my part.');
   await page.locator('#period-nextApplication').fill('SYNTHETIC: Correct the next update.');
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Ownership', exact: true })
@@ -187,7 +191,10 @@ test('a Standard Card draft survives the full transition path and retains its ex
   await expect(page.locator('#period-nextApplication')).toHaveValue(
     'SYNTHETIC: Correct the next update.',
   );
-  await page.getByRole('contentinfo').getByRole('link', { name: 'About the book' }).click();
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'About The PERIOD Code book' })
+    .click();
   await page.locator('main a[href="https://jimlunsford.com/period-code/"]').click();
   await expect(page.getByRole('dialog')).toContainText('Your card is only in this tab');
   await page.getByRole('button', { name: 'Stay here' }).click();

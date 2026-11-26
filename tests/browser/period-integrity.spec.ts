@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { homepage } from '../../src/period-homepage-content';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -56,10 +57,16 @@ test('ten complete sections, truthful availability and the connected Code are re
   await expect(page.locator('h1')).toHaveText(content.title);
   await checkLesson(page);
   await expect(page.locator('main input, main textarea, main select, main button')).toHaveCount(0);
-  await expect(nav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
-  await expect(
-    nav(page).getByRole('link', { name: 'Explore the values', exact: true }),
-  ).toHaveAttribute('aria-current', 'location');
+  {
+    await openSiteMenu(page);
+    await expect(nav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
+  }
+  {
+    await openSiteMenu(page);
+    await expect(
+      nav(page).getByRole('link', { name: 'Explore the values', exact: true }),
+    ).toHaveAttribute('aria-current', 'location');
+  }
   const valueLinks = page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link');
@@ -161,7 +168,7 @@ test('disclosure accessible names and expanded state are exposed natively', asyn
   const nativeStates = async () => {
     const tree = await cdp!.send('Accessibility.getFullAXTree');
     return tree.nodes
-      .filter((node) => node.role?.value === 'DisclosureTriangle')
+      .filter((node) => node.role?.value === 'DisclosureTriangle' && node.name?.value !== 'Menu')
       .map((node) => ({
         name: node.name?.value,
         expanded: node.properties?.find((property) => property.name === 'expanded')?.value.value,
@@ -186,9 +193,12 @@ test('disclosure accessible names and expanded state are exposed natively', asyn
     info.outputPath('integrity-accessibility-tree.txt'),
     `COLLAPSED\n${collapsed}\nCREDIT OPEN\n${expanded}`,
   );
-  await expect(
-    nav(page).getByRole('link', { name: 'Explore the values', exact: true }),
-  ).toHaveAttribute('aria-current', 'location');
+  {
+    await openSiteMenu(page);
+    await expect(
+      nav(page).getByRole('link', { name: 'Explore the values', exact: true }),
+    ).toHaveAttribute('aria-current', 'location');
+  }
   await expect(
     page
       .getByRole('navigation', { name: 'Integrity learning' })
@@ -276,10 +286,13 @@ test('Integrity entry preselects only a blank card and preserves existing privat
   const marker = 'PRIVATE-WORK13 <b>unchanged</b> 👩🏽‍💻\n  exact';
   await page.locator('#period-valueId').selectOption('purpose');
   await page.locator('#period-standard').fill(marker);
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Integrity', exact: true })

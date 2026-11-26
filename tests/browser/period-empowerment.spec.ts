@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { homepage } from '../../src/period-homepage-content';
 import { test, expect, type Page, type Locator } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -65,9 +66,12 @@ test('seven complete sections, founder refinement, all six relationships and opt
   await checkLesson(screen(page));
   await expect(screen(page).locator('[data-lesson-section]')).toHaveCount(7);
   await expect(page.locator('main input,main textarea,main select')).toHaveCount(0);
-  await expect(
-    page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
-  ).toHaveText(['Why PERIOD?', 'Explore the values']);
+  {
+    await openSiteMenu(page);
+    await expect(
+      page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
+    ).toHaveText(['Why PERIOD?', 'Explore the values']);
+  }
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
@@ -420,10 +424,13 @@ test('partially authored Standard Cards survive lesson, conversation, return and
   );
   await expect(page.locator('#period-nextApplication')).toHaveValue('');
   await page.locator('#period-valueId').selectOption('integrity');
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Empowerment', exact: true })

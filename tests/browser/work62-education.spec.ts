@@ -29,10 +29,32 @@ const examples = [
 
 test.describe('JavaScript-independent teaching', () => {
   test.use({ javaScriptEnabled: false });
+  for (const lesson of ['structure', 'return', 'trust']) {
+    test(`Rebuild ${lesson} fragment survives cold fonts and repeated native reloads`, async ({
+      page,
+    }) => {
+      // Routing disables the HTTP cache, exposing late font delivery on every reload.
+      await page.route('**/fonts/*.woff2', async (route) => {
+        await new Promise((resolve) => setTimeout(resolve, 250));
+        await route.continue();
+      });
+      await page.goto(`/read/rebuild.html#/rebuild/complete?section=${lesson}-example`);
+      const heading = page.locator(`#${lesson}-example`);
+      for (let refresh = 0; refresh < 3; refresh++) {
+        await expect(heading).toBeInViewport();
+        await expect.poll(() => page.evaluate(() => document.fonts.status)).toBe('loaded');
+        await expect(heading).toBeInViewport();
+        await page.reload();
+      }
+      await expect(heading).toBeInViewport();
+      await expect(page.locator('script')).toHaveCount(0);
+    });
+  }
   for (const path of ['/', '/read/rebuild.html']) {
     for (const { lesson, headings, title, person, alternatives } of examples) {
       test(`${path} ${lesson} links reach the actual example and leave teaching and alternatives as siblings`, async ({
         page,
+        baseURL,
       }) => {
         const direct = '#/rebuild/' + lesson + '?section=example';
         const complete = '#/rebuild/complete?section=' + lesson + '-example';
@@ -64,7 +86,6 @@ test.describe('JavaScript-independent teaching', () => {
           await expect.poll(() => page.evaluate(() => document.fonts.status)).toBe('loaded');
           await expect(heading).toBeInViewport();
         }
-        if (path === '/read/rebuild.html') expect([...fonts]).toEqual([]);
         const backToCase = article.getByRole('link', { name: 'Return to the example' });
         await expect(backToCase).toHaveAttribute('href', '#' + lesson + '-example');
         await backToCase.press('Enter');
@@ -74,6 +95,28 @@ test.describe('JavaScript-independent teaching', () => {
         await expect(page.locator(':target')).toHaveAttribute('id', complete.slice(1));
         await page.goForward();
         await expect(page.locator('h3:target')).toHaveText(title);
+        if (path === '/read/rebuild.html') {
+          await expect.poll(() => page.evaluate(() => document.fonts.status)).toBe('loaded');
+          const origin = new URL(baseURL!).origin;
+          const allowedFonts = [
+            'SourceSerif4-Regular.otf.woff2',
+            'SourceSerif4-Semibold.otf.woff2',
+            'SourceSerif4-It.otf.woff2',
+            'SourceSans3-Regular.otf.woff2',
+            'SourceSans3-Semibold.otf.woff2',
+            'SourceSans3-Bold.otf.woff2',
+          ].map((file) => new URL('/fonts/' + file, baseURL!).href);
+          for (const font of fonts) {
+            expect(new URL(font).origin, 'Font requests must stay on the test site').toBe(origin);
+            expect(allowedFonts, `Unexpected font request: ${font}`).toContain(font);
+          }
+          expect([...fonts]).toEqual(
+            expect.arrayContaining([
+              new URL('/fonts/SourceSerif4-Regular.otf.woff2', baseURL!).href,
+              new URL('/fonts/SourceSans3-Regular.otf.woff2', baseURL!).href,
+            ]),
+          );
+        }
       });
     }
     test(`${path} restores each Line note and both paper links`, async ({ page }) => {
