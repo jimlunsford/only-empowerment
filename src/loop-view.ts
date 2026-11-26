@@ -1,3 +1,4 @@
+import { loopRestartPaths, type LoopBreak } from './loop-practice-content.ts';
 import { frameworkChoices } from './framework-navigation.ts';
 import { loopBookUrl, loopSections, loopStages, loopTransfer } from './loop-content.ts';
 import { loopScenario, type LoopStateId, type LoopState } from './loop-practice-content.ts';
@@ -280,6 +281,13 @@ export function loopTranscript(surface: LoopSurface = 'reading'): LoopNode {
           state.heading,
         ),
         ...state.body.map(paragraph),
+        ...(id === 'restart'
+          ? Object.values(loopRestartPaths).flatMap((path) => [
+              node('h4', {}, path.label),
+              paragraph(path.fact),
+              paragraph(path.action),
+            ])
+          : []),
         ...loopTrace(state, 'h4'),
         paragraph('Possible next choices'),
         node(
@@ -299,7 +307,9 @@ export function loopTranscript(surface: LoopSurface = 'reading'): LoopNode {
   );
 }
 
-export function loopStateContent(id: LoopStateId): LoopNode[] {
+export function loopStateContent(id: LoopStateId, path?: LoopBreak): LoopNode[] {
   const state = loopScenario.states[id];
-  return [...state.body.map(paragraph), ...loopTrace(state)];
+  const context = id === 'restart' && path ? loopRestartPaths[path] : undefined;
+  const body = context ? [context.fact, state.body[1], context.action] : state.body;
+  return [...body.map(paragraph), ...loopTrace(state)];
 }

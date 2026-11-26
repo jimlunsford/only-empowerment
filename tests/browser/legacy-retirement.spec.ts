@@ -166,7 +166,7 @@ test('ineffective confirmed deletion reports failure without modifying unrelated
   await page.getByRole('button', { name: 'Delete legacy tool data', exact: true }).click();
   await page
     .getByRole('dialog')
-    .getByRole('button', { name: 'Delete legacy tool data', exact: true })
+    .getByRole('button', { name: 'Confirm deletion of legacy data', exact: true })
     .click();
   await expect(page.locator('.local-delete [role="status"]')).toContainText(
     'could not be verified',

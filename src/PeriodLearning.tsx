@@ -35,18 +35,15 @@ export function PeriodSequence({
             {lesson ? (
               <a
                 class="lesson-value-link"
-                aria-labelledby={`lesson-value-name-${v.id}`}
                 aria-describedby={`lesson-value-role-${v.id}`}
                 href={`#/period/values/${v.id}`}
                 aria-current={focus === v.id ? 'page' : undefined}
               >
-                <span class="num" aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
+                <span class="num">{String(index + 1).padStart(2, '0')}</span>{' '}
                 <span>
                   <span class="path-name" id={`lesson-value-name-${v.id}`}>
                     <LessonTitle text={v.name} />
-                  </span>
+                  </span>{' '}
                   <span class="path-role" id={`lesson-value-role-${v.id}`}>
                     {v.role}
                   </span>

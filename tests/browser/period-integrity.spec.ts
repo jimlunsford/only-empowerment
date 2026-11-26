@@ -1,3 +1,4 @@
+import { periodLinkName, lessonLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { homepage } from '../../src/period-homepage-content';
 import { test, expect, type Page } from '@playwright/test';
@@ -81,7 +82,9 @@ test('ten complete sections, truthful availability and the connected Code are re
   await expect(valueLinks.locator('.path-name')).toHaveText(valueNames);
   await expect(valueLinks).toHaveCount(valueNames.length);
   for (const [index, name] of valueNames.entries()) {
-    await expect(valueLinks.nth(index)).toHaveAccessibleName(name);
+    await expect(valueLinks.nth(index)).toHaveAccessibleName(
+      lessonLinkName(name, await valueLinks.nth(index).locator('.path-role').isVisible()),
+    );
     await expect(valueLinks.nth(index)).toHaveAttribute(
       'href',
       '#/period/values/' + name.toLowerCase(),
@@ -90,7 +93,7 @@ test('ten complete sections, truthful availability and the connected Code are re
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', { name: 'Empowerment', exact: true }),
+      .getByRole('link', { name: periodLinkName('Empowerment') }),
   ).toHaveCount(1);
   await axe(page);
 });
@@ -295,7 +298,7 @@ test('Integrity entry preselects only a blank card and preserves existing privat
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Integrity', exact: true })
+    .getByRole('link', { name: periodLinkName('Integrity') })
     .click();
   await page.getByRole('link', { name: "Explore the book on Jim's website", exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
@@ -380,10 +383,7 @@ test('direct static reading survives disabled, blocked and failing application s
     await page
       .locator('#educational-fallback')
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', {
-        name: 'Integrity',
-        exact: true,
-      })
+      .getByRole('link', { name: periodLinkName('Integrity') })
       .click();
     await expect(page).toHaveURL(baseURL! + '/read/integrity.html');
     await checkLesson(page);

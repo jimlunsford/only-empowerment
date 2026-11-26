@@ -49,14 +49,11 @@ function Privacy() {
     <div class="narrow legacy-info">
       <PageIntro title="Your answers are not ours to collect.">
         <p>
-          You can read The PERIOD Code's six lessons, How to Rebuild Yourself's complete teaching
-          and alternatives, The Discipline Loop, and Pure Execution Mode without an account or
-          submitting personal answers. The optional Standard Card stays in the open tab. The earlier
-          tools and Saved work are retired from this application. Records saved with an older
-          version may still remain in this browser profile on this site.
+          No accounts. No tracking is enabled in this build. You can read and practice without
+          submitting personal answers. Interactive choices and the optional Standard Card draft stay
+          only in this tab’s memory, not in browser storage. Reloading or closing clears them.
         </p>
       </PageIntro>
-      <LegacyDataRemoval />
       <div class="privacy-facts">
         <section>
           <h2>Pure Execution Mode</h2>
@@ -76,24 +73,6 @@ function Privacy() {
             The optional PERIOD Standard Card keeps its draft only in application session memory in
             this open tab during in-site navigation. It never enters Saved work or browser storage.
             Reloading or closing can discard it; copy or print anything you want to keep.
-          </p>
-        </section>
-        <section>
-          <h2>Records from the retired tools</h2>
-          <p>
-            This application does not open, read, list, change, or automatically delete old saved
-            records. Visiting a lesson, navigating the site, or reloading leaves them alone. The
-            deletion control above accesses only the old storage keys after you confirm.
-          </p>
-          <p>
-            Old records are not encrypted by this application. Someone using this browser profile,
-            an extension, or an older copy of the application may still be able to access them.
-            There is no server recovery, cross-device sync, or transfer between sites.
-          </p>
-          <p>
-            Browser data belongs to its original site origin (scheme, host, and port). A future
-            private or offline copy on another origin would not automatically recover records saved
-            here. Retiring public access does not make previously published GitHub history private.
           </p>
         </section>
         <section>
@@ -161,6 +140,29 @@ function Privacy() {
             No website can prove privacy simply by publishing its source.
           </p>
         </section>
+        <section>
+          <h2>Records from the retired tools</h2>
+          <p>
+            The earlier tools and Saved work are retired. Records saved with an older version may
+            still remain in this browser profile on this site.
+          </p>
+          <p>
+            This application does not open, read, list, change, or automatically delete old saved
+            records. Visiting a lesson, navigating the site, or reloading leaves them alone. The
+            deletion control below accesses only the old storage keys after you confirm.
+          </p>
+          <p>
+            Old records are not encrypted by this application. Someone using this browser profile,
+            an extension, or an older copy of the application may still be able to access them.
+            There is no server recovery, cross-device sync, or transfer between sites.
+          </p>
+          <p>
+            Browser data belongs to its original site origin (scheme, host, and port). A future
+            private or offline copy on another origin would not automatically recover records saved
+            here. Retiring public access does not make previously published GitHub history private.
+          </p>
+        </section>
+        <LegacyDataRemoval />
         <SourceNotice build={__BUILD__} />
       </div>
     </div>
@@ -363,7 +365,9 @@ function App() {
           {'only '}
           <wbr />
           <span>
-            {'empower\u00adment'}
+            empower
+            <wbr />
+            ment
             <span class="brand-dot" aria-hidden="true">
               .
             </span>

@@ -3,8 +3,8 @@ import { empowermentNavigation, empowermentAvailability } from './period-empower
 // Educational adaptations and fictional examples, not manuscript quotations.
 export const disciplineContent = {
   lesson: {
-    title: 'Discipline',
-    deck: 'Put your values into the day. Keep practicing them when the feeling fades.',
+    title: 'Discipline.',
+    deck: 'Put your values into practice when the feeling fades.',
     intro: [
       'You can know what matters and still leave it undone. You can make a sincere promise and still wait for the right mood to keep it. Discipline closes that distance through action you are willing to return to.',
       'Discipline is self-leadership. Keep an honest standard when your mood wants something else. Respond to real limits and correct the miss. The work must serve the life you are building; effort alone cannot tell you what is right.',

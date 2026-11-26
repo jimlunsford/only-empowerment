@@ -1,3 +1,4 @@
+import { periodLinkName } from './helpers/period-link-name';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const standard = '  When <b>pressure</b> arrives, I pause.\n👩🏽‍💻 é العربية  ';
@@ -140,7 +141,7 @@ test('Back and Forward restore distinct reading positions', async ({ page }) => 
   await page.evaluate(() => scrollTo(0, 500));
   await expect.poll(() => page.evaluate(() => scrollY)).toBe(500);
   await page
-    .getByRole('link', { name: 'Ownership', exact: true })
+    .getByRole('link', { name: periodLinkName('Ownership') })
     .first()
     .evaluate((el: HTMLElement) => el.click());
   await expect(page.getByRole('heading', { name: 'Ownership', exact: true })).toBeVisible();

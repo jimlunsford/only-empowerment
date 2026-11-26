@@ -381,3 +381,38 @@ export const loopScenario: LoopScenario = {
     },
   },
 };
+
+// Shared by the live return and both complete readings. No personal input is stored.
+export const loopRestartPaths = {
+  miss: {
+    label: 'After avoiding the task',
+    fact: 'The break on this path was avoidance: you stayed on your phone instead of clearing the agreed space, even though capacity was available.',
+    action:
+      'Put the phone aside, acknowledge the missed agreement where necessary, and clear the usable space when safe to do so. Correct the opening that let scrolling replace the task.',
+  },
+  overbuilt: {
+    label: 'After expanding the task and condemning the effort',
+    fact: 'The break began when you expanded one usable space into a whole-house reset. When that plan became too large, you called the effort ruined and avoided it.',
+    action:
+      'Cut the plan back to the agreed usable-space minimum. Acknowledge the miss where necessary and return when safe. An overbuilt plan is something to change, not a verdict on your ability to follow through.',
+  },
+  hide: {
+    label: 'After hiding the miss',
+    fact: 'The break on this path was hiding the missed agreement behind a bigger promise. Announcing tomorrow’s reset left today’s responsibility and its effect unaddressed.',
+    action:
+      'Give an honest account of the miss to the person affected, then address the usable-space minimum when safe. Replace the performance with a specific correction; the other person still decides how to respond.',
+  },
+  spiral: {
+    label: 'After turning the miss into an identity verdict',
+    fact: 'The break on this path was turning a missed action into a claim that the whole effort was fake. That verdict became permission to leave more responsibilities untouched.',
+    action:
+      'Name the missed action without condemning your whole identity. Acknowledge its effect where necessary and correct the agreed minimum when safe. A return adds evidence without erasing the miss.',
+  },
+  rest_escape: {
+    label: 'After avoiding both rest and responsibility',
+    fact: 'The break on this path was staying on the phone instead of deciding how to protect needed sleep and address the shared responsibility. Scrolling gave relief while postponing both.',
+    action:
+      'Stop the scrolling and protect the rest you need. When able, explain the limit and arrange help or a realistic return. Needed care comes first; the original task remains open until it is addressed.',
+  },
+} as const;
+export type LoopBreak = keyof typeof loopRestartPaths;

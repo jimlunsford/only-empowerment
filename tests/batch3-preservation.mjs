@@ -1,3 +1,8 @@
+import {
+  beforeBatch4Source,
+  beforeBatch4Reading,
+  beforeBatch4Copy,
+} from './batch4-preservation.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/batch3-changes.json' with { type: 'json' };
@@ -15,15 +20,18 @@ function reverse(source, change, name) {
 }
 // The older checks retain their original assertions after exactly pinned edits reverse.
 export function beforeBatch3Source(source, path) {
+  source = beforeBatch4Source(source, path);
   const change = changes[path];
   if (!change || change.historicalSha256.includes(sha(source))) return source;
   return reverse(source, change, path);
 }
 export function beforeBatch3Reading(html) {
+  html = beforeBatch4Reading(html);
   const entry = Object.entries(readings).find(([, change]) => sha(html) === change.afterSha256);
   return entry ? reverse(html, entry[1], entry[0]) : html;
 }
 export function beforeBatch3Copy(value) {
+  value = beforeBatch4Copy(value);
   if (typeof value === 'string') return copy.find((edit) => edit.after === value)?.before ?? value;
   if (Array.isArray(value)) return value.map(beforeBatch3Copy);
   if (value && typeof value === 'object')

@@ -1,3 +1,4 @@
+import { periodLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { homepage } from '../../src/period-homepage-content';
 import { integrityContent } from '../../src/period-integrity-content';
@@ -82,7 +83,7 @@ test('twelve complete sections, six connected values and an honest Integrity tra
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', { name: 'Empowerment', exact: true }),
+      .getByRole('link', { name: periodLinkName('Empowerment') }),
   ).toHaveCount(1);
   {
     await openSiteMenu(page);
@@ -266,7 +267,7 @@ test('homepage stays oriented to Ownership and the same-page five-lesson path re
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Purpose', exact: true })
+    .getByRole('link', { name: periodLinkName('Purpose') })
     .click();
   await page
     .getByRole('link', { name: 'Continue to Resilience', exact: true })
@@ -309,7 +310,7 @@ test('Resilience entry preselects only a genuinely blank Standard Card through b
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Resilience', exact: true })
+    .getByRole('link', { name: periodLinkName('Resilience') })
     .click();
   await page.getByRole('link', { name: 'Write an optional Standard Card', exact: true }).click();
   await expect(page.locator('#period-valueId')).toHaveValue('integrity');
@@ -324,7 +325,7 @@ test('Resilience entry preselects only a genuinely blank Standard Card through b
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Resilience', exact: true })
+    .getByRole('link', { name: periodLinkName('Resilience') })
     .click();
   await page
     .getByRole('navigation', { name: 'Resilience learning' })
@@ -374,7 +375,7 @@ test('a private completed card survives all conditions, the new-tab reading link
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Resilience', exact: true })
+    .getByRole('link', { name: periodLinkName('Resilience') })
     .click();
   await expect(page.getByRole('main')).not.toContainText('PRIVATE-WORK11');
   await page
@@ -474,7 +475,7 @@ test('fictional conditions create no storage, history payload, submission, accou
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Resilience', exact: true })
+    .getByRole('link', { name: periodLinkName('Resilience') })
     .click();
   await page
     .getByRole('navigation', { name: 'Resilience learning' })
@@ -532,7 +533,7 @@ test('direct static reading and the root fallback work with JavaScript disabled,
     const link = page
       .locator('#educational-fallback')
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', { name: 'Resilience', exact: true });
+      .getByRole('link', { name: periodLinkName('Resilience') });
     await expect(link).toBeVisible();
     await link.click();
     await expect(page).toHaveURL(baseURL! + '/read/resilience.html');

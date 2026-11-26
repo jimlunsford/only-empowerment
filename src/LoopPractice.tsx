@@ -2,7 +2,12 @@ import { useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { loopScenario, type LoopStateId } from './loop-practice-content';
 import { loopCycle, loopStateContent, loopTranscript } from './loop-view';
 import { renderLoopNode } from './Loop';
-import { chooseLoopOutcome, initialLoopSelection, previousLoopChoice } from './loop-state';
+import {
+  chooseLoopOutcome,
+  initialLoopSelection,
+  previousLoopChoice,
+  loopBreakFor,
+} from './loop-state';
 
 export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
   const [selection, setSelection] = useState(() => initialLoopSelection(entry));
@@ -50,7 +55,7 @@ export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
             <h2 id="loop-scenario-heading" tabIndex={-1} ref={heading}>
               {state.heading}
             </h2>
-            {loopStateContent(selection.state).map(renderLoopNode)}
+            {loopStateContent(selection.state, loopBreakFor(selection)).map(renderLoopNode)}
             <div class="loop-choices" role="group" aria-label="Choose a response">
               {state.options.map((option, i) => (
                 <button type="button" onClick={() => choose(i)}>

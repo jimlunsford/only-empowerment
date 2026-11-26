@@ -40,3 +40,16 @@ export function previousLoopChoice(selection: LoopSelection): LoopSelection {
         revision: selection.revision + 1,
       };
 }
+
+// Reuse the memory-only navigation history. A public miss entry has no chosen path.
+export function loopBreakFor(
+  selection: LoopSelection,
+): import('./loop-practice-content.ts').LoopBreak | undefined {
+  if (selection.state !== 'restart') return undefined;
+  const previous = selection.history.at(-1);
+  if (previous === 'miss') return selection.history.length > 1 ? 'miss' : undefined;
+  if (previous === 'spiral')
+    return selection.history.at(-2) === 'overbuilt' ? 'overbuilt' : 'spiral';
+  if (previous === 'hide' || previous === 'rest_escape') return previous;
+  return undefined;
+}

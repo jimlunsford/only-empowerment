@@ -1,3 +1,4 @@
+import { periodLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { homepage } from '../../src/period-homepage-content';
 import { test, expect, type Page, type Locator } from '@playwright/test';
@@ -75,7 +76,7 @@ test('seven complete sections, founder refinement, all six relationships and opt
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', { name: 'Empowerment', exact: true }),
+      .getByRole('link', { name: periodLinkName('Empowerment') }),
   ).toHaveAttribute('aria-current', 'page');
   await expect(screen(page).locator('.path-note')).toHaveText(empowermentAvailability);
   await axe(page);
@@ -199,10 +200,7 @@ test('complete reading is independently served with scripts disabled or blocked 
     await page.goto(lessonPath);
     await page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
-      .getByRole('link', {
-        name: 'Empowerment',
-        exact: true,
-      })
+      .getByRole('link', { name: periodLinkName('Empowerment') })
       .click();
     await expect(page).toHaveURL(/\/read\/empowerment.html$/);
     await expect(page.locator('script,input,button,details,[hidden]')).toHaveCount(0);
@@ -433,7 +431,7 @@ test('partially authored Standard Cards survive lesson, conversation, return and
   }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
-    .getByRole('link', { name: 'Empowerment', exact: true })
+    .getByRole('link', { name: periodLinkName('Empowerment') })
     .click();
   await screen(page).getByRole('link', { name: content.lesson.cardLink, exact: true }).click();
   await expect(page.locator('#period-valueId')).toHaveValue('integrity');
