@@ -35,6 +35,7 @@ test('Batch 2 reverses exactly to Batch 1 and rejects edits inside and outside t
       'src/navigation.css',
       'src/period-homepage-content.ts',
       'src/rebuild-app.css',
+      'src/use-route.ts',
       'vite.config.ts',
     ].sort(),
   );

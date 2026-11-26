@@ -301,7 +301,7 @@
   },
   "src/main.tsx": {
     "beforeSha256": "5ca6688e69182ac34a1f73db612452db68126a25acd230040427059fdb6995fb",
-    "afterSha256": "2386f827ec7848e8551f1ff83fb3eb5fcfa761d689f79eb7d1553d62f7aa042c",
+    "afterSha256": "2418714c763cd26e5a459f321fd75ae5771ad7fac1d253cfcb84b620f96dd355",
     "historicalSha256": [
       "04219f1ce794a15638c862be1f4239f7b96c9729bf8381bfb988e53484f8828c",
       "0f5f362edc496d2a1045e8406243e825963645d3eb9bee076c714ae3e9f431c3",
@@ -389,6 +389,12 @@
         "end": 18985,
         "before": "            About the book\n",
         "after": "            About The PERIOD Code book\n"
+      },
+      {
+        "start": 21042,
+        "end": 21804,
+        "before": "// On reload WebKit can run the module before linked styles are available.\n// Keep native links active through initial presentation, then read the current hash.\nif (document.readyState === 'complete') mount();\nelse window.addEventListener('pageshow', mount, { once: true });\n",
+        "after": "// WebKit can run the module before linked styles are available. Wait for the\n// document and styles, but not pageshow: slow fonts can hold that event and\n// prevent enhancement even though the page is already readable and styled.\n// Native links remain active until mounting, which reads their current hash.\nfunction mountAfterStyles() {\n  const pending = Array.from(\n    document.querySelectorAll<HTMLLinkElement>('link[rel=\"stylesheet\"]'),\n  ).filter((sheet) => !sheet.sheet);\n  if (!pending.length) mount();\n  else pending.forEach((sheet) => sheet.addEventListener('load', mountAfterStyles, { once: true }));\n}\nif (document.readyState === 'loading')\n  document.addEventListener('DOMContentLoaded', mountAfterStyles, { once: true });\nelse mountAfterStyles();\n"
       }
     ]
   },
@@ -509,6 +515,52 @@
         "end": 4324,
         "before": "",
         "after": "              frameworkChooser() +\n"
+      }
+    ]
+  },
+  "src/use-route.ts": {
+    "beforeSha256": "306dcd60d345c885b604ca5b6cee0e251bf0db17b2511fb87206c30807c262f2",
+    "afterSha256": "6c696c1cb3c6fbfbbd16bcfc158e06c2752af195a353b68fd1f618710382ac34",
+    "historicalSha256": [
+      "09321873dbabaae71ec58fd34bc11b83f1654104dd48d8737d1cfd0a99b717e4",
+      "0f368d990ffa4b89466b311ec077afc13114ebd6f96e2903d325261722950e91",
+      "15d0e8ed7fdd49d229d1e21b1b96a0d547f3a68bb8edcae667fee5a536500fc9",
+      "16a92411544ac3be07b88928cf7c79a2d59415689dd3d4d0b4b7c2df204797f0",
+      "1cb37a06444985f5d7a359e7fe87ced0f6b742f28ef01b197745a6953f137f77",
+      "1d6f13a5b857bdb1ad518c6f37f51865e851c299ad9b198683fecd39ce88ed2a",
+      "230d0e50cc22d91edf19e096da117a3744ef406e970d4b5381786cfc6ef183a0",
+      "2551c9018d99055a5843f6a3d9efbf1611c9be3e28818c60347e4ba4e860f92d",
+      "26a5179c12a7d31a5c2efed3620c703a0f819839f7e06d980416d5f1c1ca6390",
+      "306dcd60d345c885b604ca5b6cee0e251bf0db17b2511fb87206c30807c262f2",
+      "55dec32ab1c787b9d8f642a4e2b06f60f6d0db5a68fe6f792eaa977920b5c379",
+      "64e6a61f2619d1df36b35b15ce7ecf4f9123c3607c95ef7272bccd1b95c936c0",
+      "66874b80b74c56cbf07b0139f34b3d42c58123ec23324d0463a6b7a4cd55c40e",
+      "7de01c177b90b553a50342f2e83e984b94c2ef2f3842533dd7e374c32448773f",
+      "7f26c692e8254c10ac22dba650483126b545c82482f8e106bada82e5eb41b3aa",
+      "80a173ecc9bf33cfce2d16f9a35d70389fd939126ee32569fb6a553cec3f4cdb",
+      "894abdd97c264897360f2c1b8d86a1262229711f73ddff96ddc20917e0cd5ce1",
+      "9207e865242d4bf06ac4376f47eaa09a0857857daff9009832cbb6f20769b49c",
+      "9b8038b78f03d2b3f03dbdf051d26edee482c534bd53ddbabb6997067eaf55dd",
+      "b52511450bdf9137e95879262bd7286d44dff077511d965f0751e2af8b729a99",
+      "bdcbfa0a556ebfd1488f284baba6f4a5258a2a72aed578be11eccc7665fe0319",
+      "c18605493ebe59f9f16c83ea0f50322f5710a3ce73c7ced86946ca1a4eef69ff",
+      "c2ca320913f3f128c71f9b790c5c826e84377af7698924e81d3135963aa20db6",
+      "dcba3ab90fdd219684c86d8b8ee6a45132399c51374ae19bd195e60be4a2c058",
+      "eb5ff2cce8c75c7dbb82808e73f06556e3b33ec59ab10e60fab22d962c127c66",
+      "f55d37d19fd72ca1efd57379e8c6e6c809c2b05020855fe39c6570ef74cd71fa"
+    ],
+    "edits": [
+      {
+        "start": 2697,
+        "end": 3233,
+        "before": "",
+        "after": "  // Firefox can restore the original fragment's focus after pageshow, even if\n  // a native link selected another section while the stylesheet was loading.\n  // Enhance immediately, but finish section alignment after that restoration.\n  const [presentationReady] = useState(() =>\n    document.readyState === 'complete'\n      ? Promise.resolve()\n      : new Promise<void>((resolve) => {\n          window.addEventListener('pageshow', () => requestAnimationFrame(() => resolve()), {\n            once: true,\n          });\n        }),\n  );\n"
+      },
+      {
+        "start": 7925,
+        "end": 8010,
+        "before": "      if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);\n      else alignTarget();\n",
+        "after": "      void Promise.all([presentationReady, document.fonts.ready]).then(alignTarget);\n"
       }
     ]
   }

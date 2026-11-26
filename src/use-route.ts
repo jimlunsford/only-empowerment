@@ -50,6 +50,18 @@ const anchorTarget = (fragment: string) => {
 };
 // Only a public navigation index enters history. Positions and focus stay in page memory.
 export function useRoute() {
+  // Firefox can restore the original fragment's focus after pageshow, even if
+  // a native link selected another section while the stylesheet was loading.
+  // Enhance immediately, but finish section alignment after that restoration.
+  const [presentationReady] = useState(() =>
+    document.readyState === 'complete'
+      ? Promise.resolve()
+      : new Promise<void>((resolve) => {
+          window.addEventListener('pageshow', () => requestAnimationFrame(() => resolve()), {
+            once: true,
+          });
+        }),
+  );
   const [fragment, setFragment] = useState(() => location.hash.slice(1));
   const path = anchorRoute(fragment) || '/';
   const first = useRef(true);
@@ -151,8 +163,7 @@ export function useRoute() {
         target.scrollIntoView({ block: returnLink ? 'center' : 'start' });
         aligningSection.current = false;
       };
-      if (document.fonts.status === 'loading') void document.fonts.ready.then(alignTarget);
-      else alignTarget();
+      void Promise.all([presentationReady, document.fonts.ready]).then(alignTarget);
       first.current = false;
       restoring.current = null;
       return () => {

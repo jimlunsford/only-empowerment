@@ -505,7 +505,17 @@ function mount() {
   document.getElementById('educational-fallback')?.remove();
 }
 
-// On reload WebKit can run the module before linked styles are available.
-// Keep native links active through initial presentation, then read the current hash.
-if (document.readyState === 'complete') mount();
-else window.addEventListener('pageshow', mount, { once: true });
+// WebKit can run the module before linked styles are available. Wait for the
+// document and styles, but not pageshow: slow fonts can hold that event and
+// prevent enhancement even though the page is already readable and styled.
+// Native links remain active until mounting, which reads their current hash.
+function mountAfterStyles() {
+  const pending = Array.from(
+    document.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]'),
+  ).filter((sheet) => !sheet.sheet);
+  if (!pending.length) mount();
+  else pending.forEach((sheet) => sheet.addEventListener('load', mountAfterStyles, { once: true }));
+}
+if (document.readyState === 'loading')
+  document.addEventListener('DOMContentLoaded', mountAfterStyles, { once: true });
+else mountAfterStyles();
