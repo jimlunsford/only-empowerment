@@ -21,6 +21,14 @@ const shell = (
       '<meta name="viewport" content="width=device-width, initial-scale=1">',
       `<meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">`,
       "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\">",
+      // Discover the reading fonts before CSS parsing and native fragment restoration.
+      // The reader's optional faces still keep a stable fallback on a slow connection.
+      ...(framework === 'rebuild'
+        ? ['SourceSerif4-Regular.otf.woff2', 'SourceSans3-Regular.otf.woff2'].map(
+            (font) =>
+              `<link rel="preload" href="/fonts/${font}" as="font" type="font/woff2" crossorigin>`,
+          )
+        : []),
       '<link rel="stylesheet" href="',
       style,
       '"><title>',
