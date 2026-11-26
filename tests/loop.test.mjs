@@ -125,12 +125,15 @@ test('every previously accepted teaching source and dependency/build-security co
         ].includes(p),
     );
   assert.ok(paths.length > 25);
-  for (const path of paths)
-    assert.equal(
-      beforeWork73Source(readFileSync(path, 'utf8'), path),
-      execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
-      path,
-    );
+  for (const path of paths) {
+    const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
+    // Accept only the approved CI timeout change; preserve every other workflow byte.
+    const expected =
+      path === '.github/workflows/ci.yml'
+        ? original.replace('\n    timeout-minutes: 35\n', '\n    timeout-minutes: 50\n')
+        : original;
+    assert.equal(beforeWork73Source(readFileSync(path, 'utf8'), path), expected, path);
+  }
   const rebuild = beforeBatch2Source(
     readFileSync('src/Rebuild.tsx', 'utf8'),
     'src/Rebuild.tsx',

@@ -290,10 +290,17 @@ test('bounded integration edits reverse exactly, reject mutation, and retain old
         ].includes(p),
     );
   assert.ok(paths.length > 40);
-  for (const path of paths)
+  for (const path of paths) {
+    const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
+    // Accept only the approved CI timeout change; preserve every other workflow byte.
+    const expected =
+      path === '.github/workflows/ci.yml'
+        ? original.replace('\n    timeout-minutes: 35\n', '\n    timeout-minutes: 50\n')
+        : original;
     assert.equal(
       beforeBatch1Source(beforeBatch2Source(readFileSync(path, 'utf8'), path), path),
-      execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
+      expected,
       path,
     );
+  }
 });
