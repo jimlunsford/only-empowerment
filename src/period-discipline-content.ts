@@ -90,7 +90,7 @@ export const disciplineContent = {
     ],
     interactionLink: 'Compare what repeated conduct shows',
     interactionDescription:
-      'Examine three fictional patterns across the same ordinary occasions. The complete example is also available as a reading page.',
+      'Examine three patterns across the same ordinary occasions. The complete example is also available as a reading page.',
     readingLink: 'Read the complete example',
     cardTitle: 'Name one intended behavior',
     cardDescription:
@@ -108,9 +108,9 @@ export const disciplineContent = {
     title: 'What the pattern shows',
     deck: 'Look beyond the promise. Follow the conduct, the correction and the changed circumstances.',
     intro: [
-      'Noor and Eli are fictional adults who share a home. They have agreed that Noor will arrange their evening meal on certain evenings. Eli handles other agreed household responsibilities. Neither person has agreed to absorb the other’s work without discussion.',
+      'Noor and Eli share a home. They have agreed that Noor will arrange their evening meal on certain evenings. Eli handles other agreed household responsibilities. Neither person has agreed to absorb the other’s work without discussion.',
       'Their governing standard is to make reliable meal arrangements, communicate changes honestly and protect the people doing the work. Cooking from scratch is one possible method. It is not the standard itself.',
-      'These are three fictional versions of the same occasions, not a daily schedule. Follow the actions described. They show a pattern of conduct, not the whole person.',
+      'These fictional alternatives show patterns of conduct, not the whole person or a daily schedule to copy.',
     ],
     readerPrompt:
       'As you read, identify where the promise becomes action, where action repeats and what changes after the miss. At the later limit, ask what serves the same standard now.',
@@ -298,7 +298,7 @@ export const disciplineContent = {
       "Noor's actions give us a record to examine, not a verdict on a whole life or a guarantee of Eli's trust. Bring the question back to your own day: what responsibility will you meet, and how will you return when you miss? The evidence comes from living that answer.",
     ],
     transferPrompt:
-      'Consider a different situation: a colleague has promised an accurate handover. What repeated conduct would support that standard, what would change if the colleague were genuinely unable to work, and what would an honest correction require after an avoidable miss? No answer is collected.',
+      'Consider a different situation: a colleague has promised an accurate handover. What repeated conduct would support that standard, what would change if the colleague were genuinely unable to work, and what would an honest correction require after an avoidable miss?',
     backLink: 'Return to the Discipline lesson',
   },
 } as const;

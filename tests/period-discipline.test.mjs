@@ -105,7 +105,7 @@ test('the direct reading export includes the complete lesson, all three patterns
     html,
     /<script|<details|<input|<button|aria-live|localStorage|sessionStorage/,
   );
-  assert.match(html, /All three fictional patterns/);
+  assert.match(html, /All three patterns/);
   assert.match(html, /content="noindex, nofollow"/);
   assert.match(disciplineReading(false), /content="index, follow"/);
   assert.doesNotMatch(disciplineReading(false), /Development staging/);

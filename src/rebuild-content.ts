@@ -104,7 +104,7 @@ export const rebuildTrees = {
                   children: [
                     {
                       tag: 'a',
-                      attrs: { href: '#/rebuild/return' },
+                      attrs: { href: '#/loop?section=part-2' },
                       children: [
                         { tag: 'span', attrs: {}, children: ['Produce the proof.'] },
                         {
@@ -122,7 +122,7 @@ export const rebuildTrees = {
                   children: [
                     {
                       tag: 'a',
-                      attrs: { href: '#/rebuild/trust' },
+                      attrs: { href: '#/loop?section=part-3' },
                       children: [
                         { tag: 'span', attrs: {}, children: ['Rebuild self-trust.'] },
                         {
@@ -140,7 +140,7 @@ export const rebuildTrees = {
                   children: [
                     {
                       tag: 'a',
-                      attrs: { href: '#/rebuild/trust' },
+                      attrs: { href: '#/loop?section=part-4' },
                       children: [
                         { tag: 'span', attrs: {}, children: ['Stabilize identity.'] },
                         {
@@ -158,7 +158,7 @@ export const rebuildTrees = {
                   children: [
                     {
                       tag: 'a',
-                      attrs: { href: '#/rebuild/negotiation' },
+                      attrs: { href: '#/loop?section=part-5' },
                       children: [
                         { tag: 'span', attrs: {}, children: ['Reduce negotiation.'] },
                         {
@@ -188,6 +188,13 @@ export const rebuildTrees = {
                     },
                   ],
                 },
+              ],
+            },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'Steps 4 to 7 are the Discipline Loop at work: action creates proof, proof rebuilds self-trust, self-trust stabilizes identity, and stable identity reduces negotiation. Each link opens that part of the Loop.',
               ],
             },
             {
@@ -1610,6 +1617,25 @@ export const rebuildTrees = {
                 'A miss tells you something the plan could not. The structure broke, the decision went the wrong way, or somebody is still carrying the cost. Say precisely what happened. Then look at what is still wrong in the world and what you can do about it.',
               ],
             },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'Rebuild puts the missed responsibility right; ',
+                {
+                  tag: 'a',
+                  attrs: { href: '#/loop?section=restart' },
+                  children: ['the Loop uses that return to restart reinforcement'],
+                },
+                ', and ',
+                {
+                  tag: 'a',
+                  attrs: { href: '#/execution/your-responsibility' },
+                  children: ['Execution carries the repair into action'],
+                },
+                '.',
+              ],
+            },
           ],
         },
         {
@@ -2946,6 +2972,25 @@ export const rebuildTrees = {
               tag: 'p',
               attrs: {},
               children: [
+                'Here, negotiation means reopening a settled boundary; ',
+                {
+                  tag: 'a',
+                  attrs: { href: '#/loop?section=part-5' },
+                  children: ['the Loop explains why repetition reduces that argument'],
+                },
+                ', while ',
+                {
+                  tag: 'a',
+                  attrs: { href: '#/execution/negotiation' },
+                  children: ['Execution stops the argument from delaying a sound next move'],
+                },
+                '.',
+              ],
+            },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
                 {
                   tag: 'strong',
                   attrs: {},
@@ -3212,7 +3257,7 @@ export const rebuildTrees = {
                               tag: 'p',
                               attrs: { class: 'state-copy' },
                               children: [
-                                'The ride and counseling have done their part. With a workable next action already agreed, Rae leaves starting it to outside pressure. The silence cannot tell us her clinical condition. In this fictional evening it is the decision to wait, while able, that leaves the agreed action undone.',
+                                'The ride and counseling have done their part. With a workable next action already agreed, Rae leaves starting it to outside pressure. The silence cannot tell us her clinical condition. Here it is the decision to wait, while able, that leaves the agreed action undone.',
                               ],
                             },
                             {
@@ -3299,7 +3344,7 @@ export const rebuildTrees = {
                               tag: 'p',
                               attrs: { class: 'artifact' },
                               children: [
-                                'Sister: contacts the office with Rae’s permission.\nOffice: arranges the accessible contact they offer.\nRae: indicates her preference in the way available to her.',
+                                'Sister: contacts the trusted friend with Rae’s permission.\nFriend: agrees with Rae on an accessible way to stay in contact.\nRae: indicates her preference in the way available to her.',
                               ],
                             },
                           ],
@@ -3382,7 +3427,7 @@ export const rebuildTrees = {
                   tag: 'p',
                   attrs: { class: 'state-copy' },
                   children: [
-                    'The ride and counseling have done their part. With a workable next action already agreed, Rae leaves starting it to outside pressure. The silence cannot tell us her clinical condition. In this fictional evening it is the decision to wait, while able, that leaves the agreed action undone.',
+                    'The ride and counseling have done their part. With a workable next action already agreed, Rae leaves starting it to outside pressure. The silence cannot tell us her clinical condition. Here it is the decision to wait, while able, that leaves the agreed action undone.',
                   ],
                 },
                 {
@@ -3435,7 +3480,7 @@ export const rebuildTrees = {
                   tag: 'p',
                   attrs: { class: 'artifact' },
                   children: [
-                    'Sister: contacts the office with Rae’s permission.\nOffice: arranges the accessible contact they offer.\nRae: indicates her preference in the way available to her.',
+                    'Sister: contacts the trusted friend with Rae’s permission.\nFriend: agrees with Rae on an accessible way to stay in contact.\nRae: indicates her preference in the way available to her.',
                   ],
                 },
                 {
@@ -3608,7 +3653,7 @@ export const rebuildTrees = {
           tag: 'p',
           attrs: {},
           children: [
-            'Fictional paper note for Thursday lunch. “When we sit down, I’ll put my phone in my bag. If I pull it out without thinking, I’ll put it back. After lunch I can say whether I did that. My friend gets to decide what she wants to talk about.” That note is usable even if nobody ever sees it.',
+            'Example paper note for Thursday lunch. “When we sit down, I’ll put my phone in my bag. If I pull it out without thinking, I’ll put it back. After lunch I can say whether I did that. My friend gets to decide what she wants to talk about.” That note is usable even if nobody ever sees it.',
           ],
         },
         {
@@ -3716,6 +3761,13 @@ export const rebuildTrees = {
             { tag: 'p', attrs: { class: 'byline' }, children: ['By Jim Lunsford'] },
             {
               tag: 'p',
+              attrs: {},
+              children: [
+                'The examples are fictional; use them to examine actions and consequences.',
+              ],
+            },
+            {
+              tag: 'p',
               attrs: { class: 'lead' },
               children: ['Start with what your days keep making room for.'],
             },
@@ -3792,7 +3844,11 @@ export const rebuildTrees = {
                   tag: 'li',
                   attrs: {},
                   children: [
-                    { tag: 'a', attrs: { href: '#return' }, children: ['Produce the proof.'] },
+                    {
+                      tag: 'a',
+                      attrs: { href: '#/loop?section=part-2' },
+                      children: ['Produce the proof.'],
+                    },
                     ' Kept promises and corrections you carry out change the record.',
                   ],
                 },
@@ -3800,7 +3856,11 @@ export const rebuildTrees = {
                   tag: 'li',
                   attrs: {},
                   children: [
-                    { tag: 'a', attrs: { href: '#trust' }, children: ['Rebuild self-trust.'] },
+                    {
+                      tag: 'a',
+                      attrs: { href: '#/loop?section=part-3' },
+                      children: ['Rebuild self-trust.'],
+                    },
                     ' Let what you have done set the size of the next promise you can believe.',
                   ],
                 },
@@ -3808,7 +3868,11 @@ export const rebuildTrees = {
                   tag: 'li',
                   attrs: {},
                   children: [
-                    { tag: 'a', attrs: { href: '#trust' }, children: ['Stabilize identity.'] },
+                    {
+                      tag: 'a',
+                      attrs: { href: '#/loop?section=part-4' },
+                      children: ['Stabilize identity.'],
+                    },
                     ' A practiced pattern can change how you see yourself and guide your next private choice.',
                   ],
                 },
@@ -3818,7 +3882,7 @@ export const rebuildTrees = {
                   children: [
                     {
                       tag: 'a',
-                      attrs: { href: '#negotiation' },
+                      attrs: { href: '#/loop?section=part-5' },
                       children: ['Reduce negotiation.'],
                     },
                     ' A line you have lived can settle an old argument and leave room to change the method.',
@@ -3832,6 +3896,13 @@ export const rebuildTrees = {
                     ' Carry your part of the decision, including while you continue receiving help.',
                   ],
                 },
+              ],
+            },
+            {
+              tag: 'p',
+              attrs: {},
+              children: [
+                'Steps 4 to 7 are the Discipline Loop at work: action creates proof, proof rebuilds self-trust, self-trust stabilizes identity, and stable identity reduces negotiation. Each link opens that part of the Loop.',
               ],
             },
           ],
@@ -3890,7 +3961,7 @@ export const rebuildTrees = {
               tag: 'p',
               attrs: { class: 'case-intro' },
               children: [
-                'Fictional example. Jules comes home at six. When his daughter starts telling him about her day, he keeps reading work messages. He knows the cost. She has begun to stop mid-sentence.',
+                'Jules comes home at six. When his daughter starts telling him about her day, he keeps reading work messages. He knows the cost. She has begun to stop mid-sentence.',
               ],
             },
             {
@@ -4098,7 +4169,7 @@ export const rebuildTrees = {
               tag: 'p',
               attrs: { class: 'case-intro' },
               children: [
-                'Fictional example. Nia is finishing an apprenticeship while she works rotating shifts. Her line is to do the assigned practice at the next workable study period and arrange another when a shift takes it. Her workbook lives in her locker. Compare the openings in a working week, then look at what happened on later shifts.',
+                'Nia is finishing an apprenticeship while she works rotating shifts. Her line is to do the assigned practice at the next workable study period and arrange another when a shift takes it. Her workbook lives in her locker. Compare the openings in a working week, then look at what happened on later shifts.',
               ],
             },
             {
@@ -4290,6 +4361,25 @@ export const rebuildTrees = {
                   tag: 'p',
                   attrs: {},
                   children: [
+                    'Rebuild puts the missed responsibility right; ',
+                    {
+                      tag: 'a',
+                      attrs: { href: '#/loop?section=restart' },
+                      children: ['the Loop uses that return to restart reinforcement'],
+                    },
+                    ', and ',
+                    {
+                      tag: 'a',
+                      attrs: { href: '#/execution/your-responsibility' },
+                      children: ['Execution carries the repair into action'],
+                    },
+                    '.',
+                  ],
+                },
+                {
+                  tag: 'p',
+                  attrs: {},
+                  children: [
                     'An honest admission can change what somebody knows. A completed repair changes something else. An adjusted routine can help you avoid a repeat. Keep those facts separate or you can give yourself credit for work that is still somebody else’s problem.',
                   ],
                 },
@@ -4311,7 +4401,7 @@ export const rebuildTrees = {
               tag: 'p',
               attrs: { class: 'case-intro' },
               children: [
-                'Fictional example. Sima posts an old weekend shift schedule. Two coworkers plan around the wrong start times. She catches the error on Thursday. Follow what the team can actually rely on as the correction develops.',
+                'Sima posts an old weekend shift schedule. Two coworkers plan around the wrong start times. She catches the error on Thursday. Follow what the team can actually rely on as the correction develops.',
               ],
             },
             {
@@ -4498,7 +4588,7 @@ export const rebuildTrees = {
               tag: 'p',
               attrs: { class: 'case-intro' },
               children: [
-                'Fictional example. Inez has often promised to call her brother and then disappeared. They agree she will call on Sunday if he wants to talk, or tell him if she cannot. For six weeks she calls four times, gives advance notice once and misses once. The day after the miss she contacts him, owns it and offers another time. He has said nothing about trust.',
+                'Inez has often promised to call her brother and then disappeared. They agree she will call on Sunday if he wants to talk, or tell him if she cannot. For six weeks she calls four times, gives advance notice once and misses once. The day after the miss she contacts him, owns it and offers another time. He has said nothing about trust.',
               ],
             },
             {
@@ -4657,6 +4747,25 @@ export const rebuildTrees = {
                     'Use pressure to ask two different questions. Which decision have you already made about your conduct? What has genuinely changed about your means, safety or capacity? Your answer to the second question can protect the first.',
                   ],
                 },
+                {
+                  tag: 'p',
+                  attrs: {},
+                  children: [
+                    'Here, negotiation means reopening a settled boundary; ',
+                    {
+                      tag: 'a',
+                      attrs: { href: '#/loop?section=part-5' },
+                      children: ['the Loop explains why repetition reduces that argument'],
+                    },
+                    ', while ',
+                    {
+                      tag: 'a',
+                      attrs: { href: '#/execution/negotiation' },
+                      children: ['Execution stops the argument from delaying a sound next move'],
+                    },
+                    '.',
+                  ],
+                },
               ],
             },
             {
@@ -4668,7 +4777,7 @@ export const rebuildTrees = {
               tag: 'p',
               attrs: { class: 'case-intro' },
               children: [
-                'Fictional example. Ben has a history of hiding sports bets. He has kept a no-bet line during months of watching games with a friend at home. A late invitation, then an offer of help, tests what he treats as open to discussion.',
+                'Ben has a history of hiding sports bets. He has kept a no-bet line during months of watching games with a friend at home. A late invitation, then an offer of help, tests what he treats as open to discussion.',
               ],
             },
             {
@@ -4878,7 +4987,7 @@ export const rebuildTrees = {
               tag: 'p',
               attrs: { class: 'case-intro' },
               children: [
-                'Fictional example. Rae attends ongoing recovery counseling. Her sister provides a ride. Rae and her counselor agreed she would contact a trusted friend when she notices herself withdrawing in the evenings. The friend has agreed to take the call. Keep that help in place and look at what Rae can do with it under different conditions.',
+                'Rae attends ongoing recovery counseling. Her sister provides a ride. Rae and her counselor agreed she would contact a trusted friend when she notices herself withdrawing in the evenings. The friend has agreed to take the call. Keep that help in place and look at what Rae can do with it under different conditions.',
               ],
             },
             {
@@ -4927,7 +5036,7 @@ export const rebuildTrees = {
                   tag: 'p',
                   attrs: { class: 'state-copy' },
                   children: [
-                    'The ride and counseling have done their part. With a workable next action already agreed, Rae leaves starting it to outside pressure. The silence cannot tell us her clinical condition. In this fictional evening it is the decision to wait, while able, that leaves the agreed action undone.',
+                    'The ride and counseling have done their part. With a workable next action already agreed, Rae leaves starting it to outside pressure. The silence cannot tell us her clinical condition. Here it is the decision to wait, while able, that leaves the agreed action undone.',
                   ],
                 },
                 {
@@ -4980,7 +5089,7 @@ export const rebuildTrees = {
                   tag: 'p',
                   attrs: { class: 'artifact' },
                   children: [
-                    'Sister: contacts the office with Rae’s permission.\nOffice: arranges the accessible contact they offer.\nRae: indicates her preference in the way available to her.',
+                    'Sister: contacts the trusted friend with Rae’s permission.\nFriend: agrees with Rae on an accessible way to stay in contact.\nRae: indicates her preference in the way available to her.',
                   ],
                 },
                 {
@@ -5068,14 +5177,14 @@ export const rebuildTrees = {
                   tag: 'p',
                   attrs: {},
                   children: [
-                    'Think about two fictional people. One loses a job when the shop closes. The closure was outside his control. A line he can draw is to answer honestly when his partner asks how the job search went. Another has had the same job for years and realizes she scrolls through every lunch she spends with a friend. Her first line might be to put the phone away during the meal. A crisis and a quiet loss of attention are both places to start.',
+                    'Think about two people. One loses a job when the shop closes. The closure was outside his control. A line he can draw is to answer honestly when his partner asks how the job search went. Another has had the same job for years and realizes she scrolls through every lunch she spends with a friend. Her first line might be to put the phone away during the meal. A crisis and a quiet loss of attention are both places to start.',
                   ],
                 },
                 {
                   tag: 'p',
                   attrs: {},
                   children: [
-                    'Fictional paper note for Thursday lunch. “When we sit down, I’ll put my phone in my bag. If I pull it out without thinking, I’ll put it back. After lunch I can say whether I did that. My friend gets to decide what she wants to talk about.” That note is usable even if nobody ever sees it.',
+                    'Example paper note for Thursday lunch. “When we sit down, I’ll put my phone in my bag. If I pull it out without thinking, I’ll put it back. After lunch I can say whether I did that. My friend gets to decide what she wants to talk about.” That note is usable even if nobody ever sees it.',
                   ],
                 },
                 {

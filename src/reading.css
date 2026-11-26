@@ -1,0 +1,6 @@
+/* Shared by generated /read/ editions only. Keep headings clear of adjacent text. */
+@media screen {
+  body #main :is(h1, h2) {
+    margin-block: 0.75em 0.45em;
+  }
+}

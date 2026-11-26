@@ -126,7 +126,7 @@ export function DisciplinePattern() {
         <p class="discipline-prompt">{copy.readerPrompt}</p>
       </header>
       <PeriodSequence active="discipline" focusOnly />
-      <article class="discipline-comparison" aria-label="Noor and Eli's fictional patterns">
+      <article class="discipline-comparison" aria-label="Noor and Eli's patterns">
         <a
           class="discipline-reading-link no-print"
           href="/read/discipline.html#comparison"
@@ -165,7 +165,7 @@ export function DisciplinePattern() {
           {status}
         </p>
         <div class="discipline-print-only">
-          <h2>All three fictional patterns</h2>
+          <h2>All three patterns</h2>
           <p>{copy.readingIntro}</p>
         </div>
         {copy.moments.map((moment) => (

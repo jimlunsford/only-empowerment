@@ -72,7 +72,7 @@ test.describe('JavaScript-independent teaching', () => {
         await expect(heading.locator(':scope > span:target')).toHaveText(title);
         await expect(heading).toBeInViewport();
         await expect(wrapper.locator('xpath=following-sibling::*[1]')).toHaveText(
-          new RegExp('^Fictional example\\. ' + person),
+          new RegExp('^' + person),
         );
         await expect(article.locator(':scope > .flatstate')).toHaveCount(alternatives);
         await page.goto(path + complete);

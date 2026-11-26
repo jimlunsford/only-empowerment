@@ -73,7 +73,7 @@ test('all approved sections and exact step names exist, with progressively reduc
   assert.ok(practice[0].hint && practice[1].hint);
   assert.equal(practice[2].id, 'event');
   assert.equal(practice[2].hint, undefined);
-  assert.ok(practice.every((p) => p.facts[0].text.startsWith('Illustration:')));
+  assert.ok(practice.every((p) => p.facts[0].authorship === 'illustration'));
   const quote = executionTexts().filter((p) => p.authorship === 'quotation');
   assert.deepEqual(
     quote.map((p) => p.text),
@@ -267,7 +267,7 @@ test('bounded integration edits reverse exactly, reject mutation, and retain old
     assert.equal(beforeWork80Source(original, path), original, path);
     assert.throws(
       () => beforeWork80Source(current + '\n', path),
-      /Unexpected (?:Work80|Batch2) bytes/,
+      /Unexpected (?:Work80|Batch[23]) bytes/,
     );
   }
   const paths = execFileSync('git', ['ls-tree', '-r', '--name-only', base], { encoding: 'utf8' })

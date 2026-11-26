@@ -202,7 +202,7 @@ test('disclosure accessible names and expanded state are exposed natively', asyn
   await expect(
     page
       .getByRole('navigation', { name: 'Integrity learning' })
-      .getByRole('link', { name: 'Examine a fictional record' }),
+      .getByRole('link', { name: 'Examine the record' }),
   ).toHaveAttribute('aria-current', 'page');
   await expect(
     page
@@ -232,7 +232,7 @@ test('direct entry, deliberate route focus, Back restoration and unknown routes 
   await expect(page.locator('h1')).toBeFocused();
   await page
     .getByRole('navigation', { name: 'Integrity learning' })
-    .getByRole('link', { name: 'Examine a fictional record' })
+    .getByRole('link', { name: 'Examine the record' })
     .click();
   await expect(page.locator('.integrity-annotations details[open]')).toHaveCount(0);
   for (const path of ['/#/period/values/unknown']) {

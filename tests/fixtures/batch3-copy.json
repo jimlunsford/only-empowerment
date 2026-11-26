@@ -1,0 +1,137 @@
+[
+  {
+    "field": "content.purpose.purposeCopy.intro",
+    "before": "Sam has one evening and two worthwhile directions. Look at what each direction protects and what has to wait. There is no answer to submit.",
+    "after": "Sam has one evening and two worthwhile directions. Look at what each direction protects and what has to wait. "
+  },
+  {
+    "field": "content.purpose.purposeCopy.reassurance",
+    "before": "Explore freely. Nothing to submit or save.",
+    "after": "Explore both directions and what each leaves waiting."
+  },
+  {
+    "field": "content.purpose.purposeCopy.assumptions",
+    "before": "This is a fictional evening, not a routine to copy. Sam's essential care responsibilities are covered, and no bill is urgent tonight. If those facts change, the decision changes.",
+    "after": "This evening is an example, not a routine to copy. Sam's essential care responsibilities are covered, and no bill is urgent tonight. If those facts change, the decision changes."
+  },
+  {
+    "field": "content.purpose.purposeLesson[2].paragraphs[1]",
+    "before": "Consider a fictional example. Lee wants a more dependable home life. An evening spent comparing organizing apps may feel productive. Checking tomorrow’s arrangements with the other person and preparing what they agreed can serve that direction more directly.",
+    "after": "Consider Lee’s example. Lee wants a more dependable home life. An evening spent comparing organizing apps may feel productive. Checking tomorrow’s arrangements with the other person and preparing what they agreed can serve that direction more directly."
+  },
+  {
+    "field": "content.purpose.purposeLesson[5].paragraphs[1]",
+    "before": "In the fictional evening explored here, Sam could use an hour to prepare a training application that might lead to steadier work. Sam could instead protect basic stability by sorting the coming week and leaving more room to rest. Each direction has a real benefit and a real cost.",
+    "after": "In the evening explored here, Sam could use an hour to prepare a training application that might lead to steadier work. Sam could instead protect basic stability by sorting the coming week and leaving more room to rest. Each direction has a real benefit and a real cost."
+  },
+  {
+    "field": "content.resilience.resilienceContent.lesson[1].paragraphs[1]",
+    "before": "Consider Alex, a fictional learner working toward dependable employment. Learning honestly and protecting health and safety belong to the standard. Attending one particular practice group is a method. If the room closes, Alex can look for another way to practice. If the group becomes harmful, leaving it can protect the same direction.",
+    "after": "Consider Alex, a learner working toward dependable employment. Learning honestly and protecting health and safety belong to the standard. Attending one particular practice group is a method. If the room closes, Alex can look for another way to practice. If the group becomes harmful, leaving it can protect the same direction."
+  },
+  {
+    "field": "content.resilience.resilienceContent.lesson[5].paragraphs[1]",
+    "before": "In a fictional example, Alex avoids asking about a confusing task and misses an agreed draft. A fresh promise to try harder leaves the same barrier in place. A responsible return names the miss, gives the other person accurate information, addresses the confusion and offers a next step Alex can actually carry out.",
+    "after": "In another example, Alex avoids asking about a confusing task and misses an agreed draft. A fresh promise to try harder leaves the same barrier in place. A responsible return names the miss, gives the other person accurate information, addresses the confusion and offers a next step Alex can actually carry out."
+  },
+  {
+    "field": "content.resilience.resilienceContent.lesson[7].hint",
+    "before": "A fictional case. Change the facts and examine the response. Nothing to submit.",
+    "after": "Change the facts and examine the response."
+  },
+  {
+    "field": "content.resilience.resilienceContent.activity.returnStory",
+    "before": "In this fictional continuation, Alex sends the unfinished draft and identifies the missing section. Morgan agrees to a Friday check-in. Alex asks the specific question, uses the answer to revise the section and sends it on time. That is a real correction within this story. The earlier miss still happened, and Morgan decides what to trust.",
+    "after": "In this continuation, Alex sends the unfinished draft and identifies the missing section. Morgan agrees to a Friday check-in. Alex asks the specific question, uses the answer to revise the section and sends it on time. That is a real correction within this story. The earlier miss still happened, and Morgan decides what to trust."
+  },
+  {
+    "field": "content.resilience.resilienceContent.activity.intro",
+    "before": "Alex is fictional. Compare five different pressures and the responses they call for. You are examining the situation, not answering questions about yourself. There is nothing to submit or score.",
+    "after": "Alex is fictional; compare the pressures and responses privately."
+  },
+  {
+    "field": "content.integrity.integrityContent.navigation.local[1]",
+    "before": "Examine a fictional record",
+    "after": "Examine the record"
+  },
+  {
+    "field": "content.integrity.integrityContent.activity_invitation.label",
+    "before": "Examine a fictional record",
+    "after": "Examine the record"
+  },
+  {
+    "field": "content.integrity.integrityContent.lesson[1].paragraphs[1]",
+    "before": "Consider a fictional volunteer who says shared credit matters, then accepts praise for another person's work. Staying late to finish the layout does not make the original work theirs. A worthy project does not make the false impression harmless. The contradiction is specific: the claimed value and the behavior point in different directions.",
+    "after": "Consider a volunteer who says shared credit matters, then accepts praise for another person's work. Staying late to finish the layout does not make the original work theirs. A worthy project does not make the false impression harmless. The contradiction is specific: the claimed value and the behavior point in different directions."
+  },
+  {
+    "field": "content.integrity.integrityContent.case.intro",
+    "before": "Riley and Maya are fictional volunteers. Read three parts of the same message against the facts. Your own history can stay private; there is no answer to submit.",
+    "after": "Riley and Maya are fictional volunteers; compare their message with the facts."
+  },
+  {
+    "field": "content.practice.practiceCopy.evidenceContext",
+    "before": "These are fictional records, not reports about you.",
+    "after": "Compare a promise, completed action and a correction in the same example."
+  },
+  {
+    "field": "content.practice.practiceCopy.fictional",
+    "before": "This is a fictional example. No answer about you is collected.",
+    "after": "A fictional example for private reflection."
+  },
+  {
+    "field": "content.practice.practiceCopy.empowermentLimit",
+    "before": "If the shared file is offline, you can ask your colleague for an exported copy. They can say no. You still owe the update. Empowerment asks what your own strength can offer someone else. Share what you know honestly, respect their choices and leave them room to act.",
+    "after": "Asking a colleague for an exported copy is Ownership: you seek what you need to carry your responsibility, and they can decline. Empowerment is the contribution you offer them: with their agreement, show them a reliable way to keep their own usable copy. Share what you know honestly, respect their choices and leave them room to act."
+  },
+  {
+    "field": "content.empowerment.empowermentContent.conversation.intro",
+    "before": "Mara and Dev are fictional coworkers. The same offer receives three possible replies. Follow what each reply changes in the agreement; real people still choose for themselves.",
+    "after": "Mara and Dev are fictional coworkers; compare the agreements while respecting each person’s choices."
+  },
+  {
+    "field": "content.empowerment.empowermentContent.conversation.states[0].actionTitle",
+    "before": "What happens in this fictional continuation",
+    "after": "What happens next"
+  },
+  {
+    "field": "content.empowerment.empowermentContent.conversation.states[1].actionTitle",
+    "before": "What happens in this fictional continuation",
+    "after": "What happens next"
+  },
+  {
+    "field": "content.empowerment.empowermentContent.conversation.states[2].actionTitle",
+    "before": "What happens in this fictional continuation",
+    "after": "What happens next"
+  },
+  {
+    "field": "content.empowerment.empowermentContent.conversation.controlHint",
+    "before": "Change the fictional reply, not an answer about yourself. Each alternative begins from the same offer.",
+    "after": "Each alternative begins from the same offer. Compare what the reply changes."
+  },
+  {
+    "field": "content.empowerment.empowermentContent.lesson.practiceDescription",
+    "before": "Examine one fictional offer of help, three possible replies and the different agreements that follow. There is no answer about you to submit.",
+    "after": "Examine one offer of help, three possible replies and the different agreements that follow."
+  },
+  {
+    "field": "content.discipline.disciplineContent.lesson.interactionDescription",
+    "before": "Examine three fictional patterns across the same ordinary occasions. The complete example is also available as a reading page.",
+    "after": "Examine three patterns across the same ordinary occasions. The complete example is also available as a reading page."
+  },
+  {
+    "field": "content.discipline.disciplineContent.interaction.transferPrompt",
+    "before": "Consider a different situation: a colleague has promised an accurate handover. What repeated conduct would support that standard, what would change if the colleague were genuinely unable to work, and what would an honest correction require after an avoidable miss? No answer is collected.",
+    "after": "Consider a different situation: a colleague has promised an accurate handover. What repeated conduct would support that standard, what would change if the colleague were genuinely unable to work, and what would an honest correction require after an avoidable miss?"
+  },
+  {
+    "field": "content.discipline.disciplineContent.interaction.intro[0]",
+    "before": "Noor and Eli are fictional adults who share a home. They have agreed that Noor will arrange their evening meal on certain evenings. Eli handles other agreed household responsibilities. Neither person has agreed to absorb the other’s work without discussion.",
+    "after": "Noor and Eli share a home. They have agreed that Noor will arrange their evening meal on certain evenings. Eli handles other agreed household responsibilities. Neither person has agreed to absorb the other’s work without discussion."
+  },
+  {
+    "field": "content.discipline.disciplineContent.interaction.intro[2]",
+    "before": "These are three fictional versions of the same occasions, not a daily schedule. Follow the actions described. They show a pattern of conduct, not the whole person.",
+    "after": "These fictional alternatives show patterns of conduct, not the whole person or a daily schedule to copy."
+  }
+]

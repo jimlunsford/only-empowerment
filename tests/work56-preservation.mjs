@@ -1,3 +1,4 @@
+import { beforeBatch3Reading } from './batch3-preservation.mjs';
 import assert from 'node:assert/strict';
 import { beforeWork73Source } from './work73-preservation.mjs';
 import { beforeWork59Source } from './work59-preservation.mjs';
@@ -25,6 +26,7 @@ export function beforeWork56Source(source, path) {
 }
 
 export function beforeWork56Reading(html) {
+  html = beforeBatch3Reading(html);
   // These two exact phrases also appear in the script-independent root reading.
   for (const [candidate, original] of [
     [

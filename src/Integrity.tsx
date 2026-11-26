@@ -15,7 +15,7 @@ function IntegrityNavigation({ record = false }: { record?: boolean }) {
           Read Integrity
         </a>
         <a href="#/period/integrity/record" aria-current={record ? 'page' : undefined}>
-          Examine a fictional record
+          Examine the record
         </a>
       </nav>
       <a

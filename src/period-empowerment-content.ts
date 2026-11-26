@@ -112,7 +112,7 @@ export const empowermentContent = {
     ],
     practiceTitle: 'See what changes when the other person answers',
     practiceDescription:
-      'Examine one fictional offer of help, three possible replies and the different agreements that follow. There is no answer about you to submit.',
+      'Examine one offer of help, three possible replies and the different agreements that follow.',
     practiceLink: 'Explore the conversation',
     readingLink: 'Read the complete lesson and example',
     returnLink: 'Revisit the six values',
@@ -129,7 +129,7 @@ export const empowermentContent = {
     title: 'Leave room for a reply.',
     deck: 'A useful offer still belongs to two people.',
     intro:
-      'Mara and Dev are fictional coworkers. The same offer receives three possible replies. Follow what each reply changes in the agreement; real people still choose for themselves.',
+      'Mara and Dev are fictional coworkers; compare the agreements while respecting each person’s choices.',
     readingLink: 'Read all three replies together',
     lessonLink: 'Return to Empowerment',
     setupTitle: 'Dev wants help preparing an agenda',
@@ -149,8 +149,7 @@ export const empowermentContent = {
     offerNote:
       'Mara has offered real help and named when it ends. Now Dev gets to answer. Until they agree, Mara has no permission to choose or send the agenda or arrange another helper.',
     controlLegend: "Explore Dev's possible reply",
-    controlHint:
-      'Change the fictional reply, not an answer about yourself. Each alternative begins from the same offer.',
+    controlHint: 'Each alternative begins from the same offer. Compare what the reply changes.',
     reflection:
       'As you read, identify what was actually agreed. What stays with Dev? What must Mara stop assuming?',
     defaultReply: 'accept',
@@ -171,7 +170,7 @@ export const empowermentContent = {
             'Any further assistance after 3:20. Nobody has agreed to finish or send the agenda for Dev.',
           ],
         ],
-        actionTitle: 'What happens in this fictional continuation',
+        actionTitle: 'What happens next',
         action:
           'Mara demonstrates one sample item. Dev then creates and checks two real agenda items using their usual input support, asks a question and receives an explanation. At 3:20 they identify the unfinished items, and Mara leaves as agreed. The agenda has not been sent.',
         interpretation:
@@ -204,7 +203,7 @@ export const empowermentContent = {
             "Any unfinished items and future input assistance. The need for ongoing help is legitimate; Mara's availability is limited.",
           ],
         ],
-        actionTitle: 'What happens in this fictional continuation',
+        actionTitle: 'What happens next',
         action:
           'Dev dictates and reviews two items while Mara types. A third is unfinished at 3:20. They name what remains, and Mara stops as agreed. Dev plans to ask Jordan for help. That conversation and agreement have not happened yet.',
         interpretation:
@@ -236,7 +235,7 @@ export const empowermentContent = {
             "Whether Jordan is available and how the agenda will be prepared. Dev's meeting responsibility remains, within the actual circumstances.",
           ],
         ],
-        actionTitle: 'What happens in this fictional continuation',
+        actionTitle: 'What happens next',
         action:
           'Mara leaves the agenda alone and does not contact Jordan. What Dev does next is not shown.',
         interpretation:

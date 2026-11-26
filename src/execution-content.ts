@@ -83,7 +83,7 @@ export const executionSections: readonly ExecutionSection[] = [
       },
       p(
         'why-origin',
-        "Jim connects this method to rebuilding ordinary life after addiction and to teaching recovery groups. An explanation had to become usable when the person left the room and the pressure returned. You don't need the same history to face the gap between what you intend and what you actually do.",
+        "I developed this method while rebuilding ordinary life after addiction and teaching recovery groups. An explanation had to become usable when the person left the room and the pressure returned. You don't need the same history to face the gap between what you intend and what you actually do.",
         'M03',
       ),
       p(
@@ -98,7 +98,7 @@ export const executionSections: readonly ExecutionSection[] = [
       ),
       p(
         'why-reading',
-        "Read the explanation, follow the example, then try continuing an unfinished situation. You can skip the practice and read every explanation immediately. There is nothing to submit, and you don't have to complete one section to visit another.",
+        "Read the explanation, follow the example, then try continuing an unfinished situation. You can skip the practice and read every explanation immediately. You don't have to complete one section to visit another.",
         'M06 M43',
       ),
     ],
@@ -109,7 +109,7 @@ export const executionSections: readonly ExecutionSection[] = [
     blocks: [
       p(
         'hesitation-bin',
-        'Illustration: the bin needs to go out for the collection you know is due. You have time, access, and the capacity to take it out. You pass it, think about doing it, and decide to wait until the next break. At the next break, you reopen the same question.',
+        'The bin needs to go out for the collection you know is due. You have time, access, and the capacity to take it out. You pass it, think about doing it, and decide to wait until the next break. At the next break, you reopen the same question.',
         'M07',
         'illustration',
       ),
@@ -142,7 +142,7 @@ export const executionSections: readonly ExecutionSection[] = [
     blocks: [
       p(
         'method-tools',
-        "Illustration: you borrowed a set of tools and promised to return the complete set before the owner needs it Sunday evening. It is Saturday. You can safely gather the tools now, but you haven't arranged the return. You keep finding other things to straighten in the garage.",
+        "You borrowed a set of tools and promised to return the complete set before the owner needs it Sunday evening. It is Saturday. You can safely gather the tools now, but you haven't arranged the return. You keep finding other things to straighten in the garage.",
         'M24',
         'illustration',
       ),
@@ -227,7 +227,7 @@ export const executionSections: readonly ExecutionSection[] = [
       heading('When several responsibilities are real'),
       p(
         'method-obligations',
-        'Illustration: a coworker needs an accurate update before you leave, you have to collect your child later, and clean laundry is waiting. You have enough time to send the update and leave for pickup. Folding a few shirts gives you an easy finish while your coworker still has no answer. Send the accurate update, then leave in time to keep the pickup commitment.',
+        'A coworker needs an accurate update before you leave, you have to collect your child later, and clean laundry is waiting. You have enough time to send the update and leave for pickup. Folding a few shirts gives you an easy finish while your coworker still has no answer. Send the accurate update, then leave in time to keep the pickup commitment.',
         'M11',
         'illustration',
       ),
@@ -254,7 +254,7 @@ export const executionSections: readonly ExecutionSection[] = [
         facts: [
           p(
             'paragraph-facts',
-            'Illustration: the assignment is to write one accurate paragraph about a delivery. The notes establish what arrived, which item was missing, and that nobody has contacted the sender. You have suitable time and capacity. You write the first sentence, then go back to arranging the desk and checking whether you feel ready.',
+            'The assignment is to write one accurate paragraph about a delivery. The notes establish what arrived, which item was missing, and that nobody has contacted the sender. You have suitable time and capacity. You write the first sentence, then go back to arranging the desk and checking whether you feel ready.',
             'M16 M20 M21',
             'illustration',
           ),
@@ -294,7 +294,7 @@ export const executionSections: readonly ExecutionSection[] = [
         facts: [
           p(
             'permission-facts',
-            "Illustration: you have been asked to send figures outside your team. You discover that you don't know which version is approved for that recipient. You ask the responsible person. They haven't answered. The planned sending time is getting close.",
+            "You have been asked to send figures outside your team. You discover that you don't know which version is approved for that recipient. You ask the responsible person. They haven't answered. The planned sending time is getting close.",
             'M13 M18 M38',
             'illustration',
           ),
@@ -332,7 +332,7 @@ export const executionSections: readonly ExecutionSection[] = [
       heading('A different kind of stop'),
       p(
         'change-training',
-        'Illustration: a planned run was suitable, and at first you simply feel reluctant. On an unchanged day, that reluctance alone would not cancel the session. Then a new injury concern appears before you begin. Stop the planned effort and seek appropriate assessment or guidance. Follow any appropriate care instructions that already apply.',
+        'A planned run was suitable, and at first you simply feel reluctant. On an unchanged day, that reluctance alone would not cancel the session. Then a new injury concern appears before you begin. Stop the planned effort and seek appropriate assessment or guidance. Follow any appropriate care instructions that already apply.',
         'M23 M30 M41',
         'illustration',
       ),
@@ -349,7 +349,7 @@ export const executionSections: readonly ExecutionSection[] = [
       heading('Missing access changes the action'),
       p(
         'change-room',
-        'Illustration: you arrive to prepare a room for an agreed meeting and find that it is unavailable. Ask the person responsible whether another suitable room is authorized. You can prepare materials that do not depend on that answer. You cannot declare a replacement room available because moving into it would look decisive.',
+        'You arrive to prepare a room for an agreed meeting and find that it is unavailable. Ask the person responsible whether another suitable room is authorized. You can prepare materials that do not depend on that answer. You cannot declare a replacement room available because moving into it would look decisive.',
         'M31',
         'illustration',
       ),
@@ -361,7 +361,7 @@ export const executionSections: readonly ExecutionSection[] = [
       heading('A responsibility does not grant consent'),
       p(
         'change-consent',
-        'Illustration: you owe a household conversation about groceries you repeatedly left to somebody else. They decline an in-person discussion and ask for the practical proposal in a message. Respect that limit. Acknowledge the missed agreement, apologize for shifting the work, and propose a realistic time to finish what remains through the agreed channel.',
+        'You owe a household conversation about groceries you repeatedly left to somebody else. They decline an in-person discussion and ask for the practical proposal in a message. Respect that limit. Acknowledge the missed agreement, apologize for shifting the work, and propose a realistic time to finish what remains through the agreed channel.',
         'M32 M39',
         'illustration',
       ),
@@ -383,7 +383,7 @@ export const executionSections: readonly ExecutionSection[] = [
     blocks: [
       p(
         'miss-facts',
-        'Illustration: you promised a volunteer organizer an answer by Tuesday. You knew your availability and could reply, but kept your options open instead. By Wednesday, the organizer has found somebody else and rearranged the crew.',
+        'You promised a volunteer organizer an answer by Tuesday. You knew your availability and could reply, but kept your options open instead. By Wednesday, the organizer has found somebody else and rearranged the crew.',
         'M34',
         'illustration',
       ),
@@ -438,7 +438,7 @@ export const executionSections: readonly ExecutionSection[] = [
       heading('The course still needs your attention'),
       p(
         'daily-course',
-        'Illustration: you are taking an evening course. Tonight, the household responsibilities are settled, the materials are available, and you have time and capacity for the next assigned lesson and its exercise. You would rather keep scrolling. Nothing about the work or the available evening has changed.',
+        'You are taking an evening course. Tonight, the household responsibilities are settled, the materials are available, and you have time and capacity for the next assigned lesson and its exercise. You would rather keep scrolling. Nothing about the work or the available evening has changed.',
         'M27',
         'illustration',
       ),
@@ -471,7 +471,7 @@ export const executionSections: readonly ExecutionSection[] = [
       heading('Support is something you carry out'),
       p(
         'daily-support',
-        'Illustration: you are in recovery and have a chosen support plan. It names a person to contact when cravings and shame rise, an alternative if they are unavailable, and an ordinary evening routine. Tonight you want to isolate. You keep turning the phone over, telling yourself you will reach out when you can sound more together.',
+        'You are in recovery and have a chosen support plan. It names a person to contact when cravings and shame rise, an alternative if they are unavailable, and an ordinary evening routine. Tonight you want to isolate. You keep turning the phone over, telling yourself you will reach out when you can sound more together.',
         'M40',
         'illustration',
       ),
@@ -531,7 +531,7 @@ export const executionSections: readonly ExecutionSection[] = [
         facts: [
           p(
             'event-facts',
-            "Illustration: you agreed to correct a community group's event page, which still shows last month's start time. You have the confirmed time and an accurate replacement ready, but your permission to publish has been removed. You can contact the site owner and the organizer, who can send notices to attendees. The event is tomorrow.",
+            "You agreed to correct a community group's event page, which still shows last month's start time. You have the confirmed time and an accurate replacement ready, but your permission to publish has been removed. You can contact the site owner and the organizer, who can send notices to attendees. The event is tomorrow.",
             'M13 M21 M31 M33 M38 M42',
             'illustration',
           ),

@@ -31,7 +31,7 @@ export const workshopStages = [
   { title: 'Work independently', entry: 'event' },
 ] as const;
 export const workshopOrigin =
-  'Jim developed this teaching through rebuilding ordinary life after addiction and leading recovery groups. These situations are illustrations, not accounts of his life.';
+  'Jim developed this teaching through rebuilding ordinary life after addiction and leading recovery groups. These are fictional examples for private practice.';
 export const workshopBridges: Record<string, string> = {
   recover:
     'Continue rejoins the example after the set is checked and any unsupported claim is corrected. This is an authored continuation, not a claim that your earlier choice did that work.',
@@ -49,7 +49,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'Pure Execution Mode',
     purpose: 'Carry a sound decision into the work.',
     facts:
-      'Illustration: you borrowed a set of tools and promised to return the complete set before the owner needs it Sunday evening. It is Saturday. You have time and can safely gather the tools, but the handoff is not arranged. You keep finding other things to straighten in the garage.',
+      'You borrowed a set of tools and promised to return the complete set before the owner needs it Sunday evening. It is Saturday. You have time and can safely gather the tools, but the handoff is not arranged. You keep finding other things to straighten in the garage.',
     teaching: [
       'Knowing what you owe does not return it. A standard is the responsibility or value your action serves. Here, it is keeping your agreement and respecting the owner’s time and property.',
       'First, watch the five steps carry this responsibility through. Then take over unfinished decisions, respond when the facts change, and try a different situation with less guidance. You can compare explanations, skip practice or leave at any point.',
@@ -65,7 +65,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'Identify the Next Move',
     purpose: 'Give the next action a job.',
     facts:
-      'Illustration, Saturday: the borrowed tools are scattered around your garage. The complete set is due back before Sunday evening. You can reach it safely and have time to act. No handoff is arranged.',
+      'Saturday: the borrowed tools are scattered around your garage. The complete set is due back before Sunday evening. You can reach it safely and have time to act. No handoff is arranged.',
     teaching: [
       'Choose the action that advances the return: gather the tools and check the set. “Sort out the garage” is larger than this responsibility requires. An easy drawer can absorb an afternoon while the owner’s tools stay scattered.',
     ],
@@ -86,7 +86,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'Eliminate Negotiation',
     purpose: 'Stop giving the same objection another vote.',
     facts:
-      'Illustration, same garage: you have chosen to gather and check the tools. Time, access and capacity are available. You would rather finish arranging a shelf first. No new fact has changed the return.',
+      'In the garage: you have chosen to gather and check the tools. Time, access and capacity are available. You would rather finish arranging a shelf first. No new fact has changed the return.',
     teaching: [
       'Put down the unrelated shelf job. The wish to finish something easier does not change what you owe. You can dislike the interruption while the decision stands.',
       'This is not an instruction to silence every concern. A blocked route, missing information or a real limit would need a response. Here, the repeated objection adds none of those facts.',
@@ -108,9 +108,9 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'Flip the Switch',
     purpose: 'Carry the start through the selected work.',
     facts:
-      'Illustration, Saturday: the unrelated tidying is set aside. You can safely gather the borrowed tools. The selected unit is to gather and check the complete set, not merely open the garage.',
+      'Saturday: the unrelated tidying is set aside. You can safely gather the borrowed tools. The selected unit is to gather and check the complete set, not merely open the garage.',
     teaching: [
-      'Pick up the tools. Bring the set together and check every item. In this example, everything is present. Starting matters because it puts you into work that can continue. Stopping at the open garage door would leave that work waiting.',
+      'Pick up the tools. Bring the set together and check every item. Everything is present. Starting matters because it puts you into work that can continue. Stopping at the open garage door would leave that work waiting.',
     ],
     action: {
       label: 'See the action and its result',
@@ -129,15 +129,14 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'Stack the Wins',
     purpose: 'Keep each action attached to the same responsibility.',
     facts:
-      'Illustration, Saturday: the complete borrowed set is ready. The owner needs it before Sunday evening. You can return it at four on Sunday, but that time has not been agreed.',
+      'Saturday: the complete borrowed set is ready. The owner needs it before Sunday evening. You can return it at four on Sunday, but that time has not been agreed.',
     teaching: [
       'Send a specific request through your agreed contact channel: “The complete set is ready. Can I bring it back at four tomorrow?” The sent request is real. Permission to arrive at four is still missing.',
       'While the answer is pending, attend to other appropriate responsibilities. Reopening the message does not create agreement. Follow up if the approaching deadline requires it.',
     ],
     action: {
       label: 'See the owner’s answer',
-      result:
-        'In this illustration, the owner replies and agrees to four on Sunday. The handoff is now arranged.',
+      result: 'The owner replies and agrees to four on Sunday. The handoff is now arranged.',
       remains:
         'Tonight’s gathering and arrangement are done. Tomorrow’s return remains owed. You can stop for tonight without calling the whole job complete.',
     },
@@ -152,7 +151,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'Repeat Daily',
     purpose: 'Return when the responsibility calls for it.',
     facts:
-      'Illustration, Sunday: the owner agreed to receive the complete set at four. The arrangement still holds, and you can safely make the return. Leaving now is inconvenient, but no relevant fact has changed.',
+      'Sunday: the owner agreed to receive the complete set at four. The arrangement still holds, and you can safely make the return. Leaving now is inconvenient, but no relevant fact has changed.',
     teaching: [
       'Carry the agreement into today. Stop postponing the departure and return the complete set at the agreed time. Yesterday’s preparation made this possible. It did not perform today’s return.',
       'The five steps are a connected response, not five rigid gates. Each new action still needs judgment. Repeated follow-through gives your word evidence even when doubt remains.',
@@ -175,7 +174,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'The tools are still scattered',
     purpose: 'You choose what happens next.',
     facts:
-      'Illustration: rewind to Saturday before the tools were gathered. The full set is due back before Sunday evening. You have safe access, suitable time and capacity. You are halfway through organizing a shelf when you remember the return.',
+      'Rewind to Saturday before the tools were gathered. The full set is due back before Sunday evening. You have safe access, suitable time and capacity. You are halfway through organizing a shelf when you remember the return.',
     teaching: [
       'Choose an action and examine what it changes. You can reconsider or compare every option. No answer is required to continue.',
     ],
@@ -221,7 +220,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'The return is still waiting',
     purpose: 'Continue from what your action actually did.',
     facts:
-      'Illustration: the tools are still unchecked. The owner asks whether the complete set will be back before Sunday evening. There is still time to gather it safely and arrange the return.',
+      'The tools are still unchecked. The owner asks whether the complete set will be back before Sunday evening. There is still time to gather it safely and arrange the return.',
     teaching: [
       'An unrelated job or a reminder did not remove the promise. You do not need a new declaration. You need to return to the useful work and give an accurate answer.',
     ],
@@ -257,7 +256,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'A request is not an agreement',
     purpose: 'Keep progress and completion separate.',
     facts:
-      'Illustration: the complete set has now been gathered and checked. You send a proposal to return it at four on Sunday. The owner has not replied. There is still time to arrange the handoff.',
+      'The complete set has now been gathered and checked. You send a proposal to return it at four on Sunday. The owner has not replied. There is still time to arrange the handoff.',
     teaching: ['The message has been sent. Decide what that allows you to claim or do.'],
     question: 'What follows from the unanswered request?',
     options: [
@@ -298,7 +297,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'The agreed handoff changes',
     purpose: 'Revise the move when the facts require it.',
     facts:
-      'Illustration, Sunday: the owner had agreed to four, but now says they cannot receive the tools then. They ask you not to leave anything outside and to arrange another handoff by message. They still need the set this evening.',
+      'Sunday: the owner had agreed to four, but now says they cannot receive the tools then. Their front door opens onto a shared pavement, and they offer to arrange a new handoff by message. They still need the set this evening.',
     teaching: [
       'The original arrangement no longer holds. Compare this with Saturday’s wish to keep tidying. This time, a fact changes what you are allowed to do.',
     ],
@@ -308,15 +307,15 @@ export const workshopScreens: WorkshopScreen[] = [
         id: 'old-plan',
         label: 'Keep the original time and leave the tools outside.',
         consequence:
-          'The tools would be left in a place the owner explicitly rejected. Arrival at four would not fulfill the revised agreement.',
+          'The tools would sit unattended on a shared pavement without an agreed recipient. Arriving at four does not complete the handoff.',
         reasoning:
-          'Persistence cannot restore withdrawn permission. The responsibility includes respecting the owner’s boundary.',
+          'Agreement to receive the tools in person did not authorize an unattended drop-off. Confirm a new arrangement with the owner.',
       },
       {
         id: 'revise',
         label: 'Message a workable alternative and ask for agreement.',
         consequence:
-          'The owner receives a specific proposal that respects the no-drop-off boundary. A new arrangement is still pending.',
+          'The owner receives a specific proposal for receiving the tools. A new arrangement is still pending.',
         reasoning:
           'You changed the method while keeping the responsibility. State the deadline and what you can actually do. Your proposal still needs an answer.',
       },
@@ -339,12 +338,12 @@ export const workshopScreens: WorkshopScreen[] = [
   {
     id: 'capacity',
     stage: 3,
-    title: 'Safe access is missing',
+    title: 'The case is blocked',
     purpose: 'Make the pause do useful work.',
     facts:
-      'Illustration: you used the permitted message route and agreed on a later handoff. Before leaving, you find a heavy object blocking the stored tool case. Moving it alone would be unsafe. You can contact someone for appropriate help and message the owner.',
+      'You used the permitted message route and agreed on a later handoff. Before leaving, you find a heavy object blocking the stored tool case. It is wedged above shoulder height, and shifting one end makes the other tilt toward you. You can contact someone for appropriate help and message the owner.',
     teaching: [
-      'The return remains owed. That does not make unsafe effort responsible. A needed stop or request for help must become something you actually carry out.',
+      'Consider what the obstacle changes about the agreed return and what you can still do now.',
     ],
     question: 'What fits these facts?',
     options: [
@@ -352,7 +351,7 @@ export const workshopScreens: WorkshopScreen[] = [
         id: 'force',
         label: 'Move the obstruction alone to keep the promised time.',
         consequence:
-          'You attempt effort the situation has established as unsafe. The promise has not supplied safe access.',
+          'You try to shift an unstable load above shoulder height without assistance. Keeping the time does not remove the risk of it falling toward you.',
         reasoning:
           'Keeping the time does not justify ignoring the obstacle. Stop that effort and seek appropriate assistance.',
       },
@@ -386,13 +385,21 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'The event is tomorrow',
     purpose: 'Make three connected decisions, then compare your reasoning.',
     facts:
-      'Illustration: you agreed to correct a community event page that still shows last month’s start time. You have the confirmed time and an accurate replacement, but your publishing access has been removed. The site owner can change the page. The organizer can send attendee notices.',
+      'You agreed to correct a community event page that still shows last month’s start time. You have the confirmed time and an accurate replacement, but your publishing access has been removed. The site owner can change the page. The organizer can send attendee notices.',
     teaching: [
       'There are no step labels or hints in this sequence. Your choices shape the situation you see next. Explanations wait until the comparison, which you can open at any time. Think through your reasons privately.',
     ],
     question: 'What will you do first?',
     deferred: true,
     options: [
+      {
+        id: 'polish',
+        label: 'Prepare matching page and notice text, then send both together.',
+        consequence:
+          'You spend the remaining time matching both versions. The page still shows the old time, and neither person has received the correction.',
+        reasoning:
+          'Consistent wording is useful, but the correction is already accurate. Send the essential facts now so the people with authority can act before the event; polish can follow.',
+      },
       {
         id: 'request',
         label: 'Send the correction and deadline to the owner and organizer.',
@@ -402,20 +409,12 @@ export const workshopScreens: WorkshopScreen[] = [
           'You used available routes without claiming permission you lack. The sent requests are progress, not proof that the page or notices changed.',
       },
       {
-        id: 'polish',
-        label: 'Improve the replacement wording before contacting anyone.',
-        consequence:
-          'The wording is polished, but the page still shows the old time. Neither person knows what needs action.',
-        reasoning:
-          'The replacement was already accurate. Additional polish postponed the people who can act while the approaching event made delay consequential.',
-      },
-      {
         id: 'announce',
-        label: 'Tell the organizer the correction is handled because the draft is ready.',
+        label: 'Ask the owner to restore your access so you can publish the correction yourself.',
         consequence:
-          'The organizer has reassurance the public page does not support. No publishing route has been established.',
+          'The owner receives an access request. The organizer has no notice request, and the owner does not yet have the replacement to publish.',
         reasoning:
-          'A prepared correction cannot fix the public information. Correct the misleading update and make the actual requests.',
+          'Restoring access could work, but it adds a dependency when the owner can already publish. Send the correction and deadline as well, and use the organizer’s notice route while access is unresolved.',
       },
     ],
     explanation:
@@ -431,19 +430,11 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'The page still shows the old time',
     purpose: 'Decide from the situation your first move leaves.',
     facts:
-      'Illustration: the event is approaching, the public page still has the old time and your access remains unavailable. The organizer’s notice channel is still available. No correction has been confirmed.',
+      'The event is approaching, the public page still has the old time and your access remains unavailable. The organizer’s notice channel is still available. No correction has been confirmed.',
     teaching: [],
     question: 'What needs to happen now?',
     deferred: true,
     options: [
-      {
-        id: 'follow-up',
-        label: 'State what remains wrong, request the notice and follow up on access.',
-        consequence:
-          'The owner and organizer receive an accurate account of the remaining problem and the approaching deadline.',
-        reasoning:
-          'If your first request was sent, this is a timely follow-up. If it was not, make the missing request now. If you said it was handled, correct that claim. Continue only through a permitted route.',
-      },
       {
         id: 'wait-only',
         label: 'Wait for access before involving the organizer.',
@@ -454,11 +445,20 @@ export const workshopScreens: WorkshopScreen[] = [
       },
       {
         id: 'close',
-        label: 'Leave the prepared draft and consider your part finished.',
+        label:
+          'Send the correction to the owner again and give them time to publish before requesting a notice.',
         consequence:
-          'The draft exists, but the public correction and attendee notice remain unconfirmed.',
+          'The owner has the correction again. Attendee notices still wait on a separate page update that has not been confirmed.',
         reasoning:
-          'Your agreement concerned the event information people would see. A draft is useful preparation, not evidence that the responsibility has been met.',
+          'Letting one person finish can avoid duplicate work, but the page and attendee notice are different tasks. With the event approaching, making one depend on the other risks leaving attendees uninformed.',
+      },
+      {
+        id: 'follow-up',
+        label: 'State what remains wrong, request the notice and follow up on access.',
+        consequence:
+          'The owner and organizer receive an accurate account of the remaining problem and the approaching deadline.',
+        reasoning:
+          'If your first request was sent, this is a timely follow-up. If it was not, make the missing request now. If you only requested access, send the correction itself as well. Continue only through a permitted route.',
       },
     ],
     explanation:
@@ -474,7 +474,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'One correction is confirmed',
     purpose: 'Name what is complete and what remains.',
     facts:
-      'Illustration: for this final decision, the routes reconnect. The organizer has now sent the accurate attendee notice and confirmed it. The site owner says they will update the page, but the page still shows the old time. Your publishing access remains unavailable.',
+      'For this final decision, the routes reconnect: assume the organizer was contacted and asked to send the notice, even if you chose “Wait for access before involving the organizer” or otherwise left that request undone. That contact is assumed here, not work performed by your earlier choice. The organizer has now sent the accurate attendee notice and confirmed it. The site owner says they will update the page, but the page still shows the old time. Your publishing access remains unavailable.',
     teaching: [],
     question: 'What is your next response?',
     deferred: true,
@@ -489,18 +489,21 @@ export const workshopScreens: WorkshopScreen[] = [
       },
       {
         id: 'finished',
-        label: 'Report the whole correction complete because the owner promised.',
-        consequence: 'The report says finished while the public page still shows the wrong time.',
+        label:
+          'Hand the page follow-up to the owner and close your task now that attendees have the notice.',
+        consequence:
+          'Attendees have the notice, but your task is closed while the public page remains wrong and no one has agreed to take over verification.',
         reasoning:
-          'An agreed intention cannot substitute for the changed page. The notice is complete; the page is not.',
+          'Delegating follow-up can be sound when someone accepts that responsibility. The owner promised an edit, not a verified handoff of your remaining commitment. Confirm who will check the result before closing it.',
       },
       {
         id: 'resend',
-        label: 'Keep asking the organizer to resend the notice instead.',
+        label:
+          'Ask for a second attendee notice as a safeguard while leaving the page with the owner.',
         consequence:
-          'Attention returns to the part already completed while the public page remains wrong.',
+          'Another notice is requested, but nobody has checked that the page correction happened.',
         reasoning:
-          'Repeating a completed action does not perform the unfinished one. Return to the page dependency; another notice needs its own factual reason.',
+          'A reminder may help if new facts justify it. Here the notice is confirmed and the page is still wrong. Verify that dependency rather than treating another notice as its completion.',
       },
     ],
     explanation:
@@ -516,7 +519,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'Compare the whole continuation',
     purpose: 'Look at the responsibility across all three decisions.',
     facts:
-      'Illustration: the event page needed a confirmed correction through an authorized route. Your draft alone could not change it. The organizer could reach attendees while the page remained unresolved.',
+      'The event page needed a confirmed correction through an authorized route. Your draft alone could not change it. The organizer could reach attendees while the page remained unresolved.',
     teaching: [
       'Read your chosen path beside the explanations. An unchosen decision stays unchosen; you can still read every outcome.',
       'If your earlier action left something undone, the next useful move starts there. Correct an unsupported claim, make a missing request, follow up on a real dependency, or verify the change. A later good decision does not make an earlier consequence disappear.',
@@ -532,16 +535,20 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'Bring it back to your day',
     purpose: 'Choose a responsibility, privately.',
     facts:
-      'No example to finish here. Think of a responsibility that already belongs in your life. You can use your own paper. There is nothing to enter or submit.',
+      'No example to finish here. Think of a responsibility that already belongs in your life. You can use your own paper.',
     teaching: [
       'Name what the responsibility requires, the action that would serve it and what must be known before that action is sound. If the facts are settled and discomfort keeps reopening the decision, carry it into the work. If information, help, consent or rest is needed, make that response real.',
       'Be precise about what the action completes and what remains. Return when the next real responsibility calls for it. Kept commitments give your word evidence; they do not guarantee confidence or another person’s response.',
+      'Take an evening course: you have agreed on a manageable study period and have the material, but keep rewriting the plan instead of working through the first exercise. Do the exercise, check what you understand and ask a specific question where you are stuck. One completed exercise is progress, not a completed course. If illness or access changes the situation, arrange a workable return with the support you need.',
       'If you actually missed a commitment, acknowledge the miss and its consequence. Ask what repair is still useful, agree only to what you can meet, then carry it out. An apology is not the practical repair, and repair cannot command forgiveness.',
     ],
     sources: ['M05', 'M14', 'M15', 'M26', 'M27', 'M29', 'M34', 'M35', 'M36', 'M37', 'M42', 'M43'],
     baseline: [
       'transfer-your-day',
       'transfer-private',
+      'daily-course',
+      'daily-study',
+      'daily-change',
       'miss-reenter',
       'miss-repair',
       'miss-refusal',
@@ -624,9 +631,9 @@ export function eventCarry(choices: WorkshopChoices): string {
     case 'request':
       return 'From your first move: the owner and organizer received your requests. Neither has confirmed a correction.';
     case 'polish':
-      return 'From your first move: you polished an already accurate draft. The owner and organizer have not received the requests.';
+      return 'From your first move: you prepared matching page and notice text. The owner and organizer have not received the requests.';
     case 'announce':
-      return 'From your first move: the organizer was told the correction was handled. The organizer expects accurate public information, but the page still shows the old time.';
+      return 'From your first move: the owner received an access request, but not the replacement text. The organizer has not received a notice request.';
     default:
       return 'No earlier choice is available in this session. Start from these stated facts, or go Back to choose the first move.';
   }

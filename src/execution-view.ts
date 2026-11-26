@@ -129,7 +129,7 @@ export function workshopTranscript(surface: ExecutionSurface): ExecutionNode {
     n(
       'p',
       {},
-      'These situations are illustrations, not events from Jim’s biography. Read in sequence or compare any option. The enhanced workshop presents one screen at a time. This edition includes every branch and explanation.',
+      'Read in sequence or compare any option. The enhanced workshop presents one screen at a time; every branch and explanation follows here.',
     ),
     n('p', {}, workshopSessionCopy),
     n(

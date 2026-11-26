@@ -112,9 +112,10 @@
     display: block !important;
     position: static;
     max-width: none;
-    margin: 24pt 0 0;
-    padding: 12pt 0 0;
+    margin: 6pt 0 0;
+    padding: 4pt 0 0;
     border-top: 1px solid #000;
+    break-before: avoid;
     break-inside: avoid;
     color: #000;
     background: #fff;
@@ -123,11 +124,14 @@
     display: none !important;
   }
   .site-footer.notice-footer .footer-notices {
+    display: inline-block;
+    width: 100%;
+    break-inside: avoid;
     border: 0;
     padding: 0;
   }
   .site-footer.notice-footer .footer-notices p {
-    margin: 0 0 7pt;
+    margin: 0 0 3pt;
     max-width: none;
     color: #000;
   }
@@ -159,6 +163,19 @@
   .integrity-static nav,
   .discipline-static nav {
     display: none !important;
+  }
+  .framework-bridges {
+    margin: 8pt 0 0;
+    padding: 6pt 0 0;
+    max-width: none;
+  }
+  .framework-bridges li {
+    margin-block: 4pt;
+  }
+  /* Remove screen-only closing space before the document credit. */
+  body > main,
+  #app > main {
+    padding-bottom: 0;
   }
   main :is(h1, h2, h3, h4) {
     break-after: avoid;

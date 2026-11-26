@@ -19,7 +19,7 @@ export const resilienceContent = {
       heading: 'Keep the standard. Reconsider the method.',
       paragraphs: [
         'The standard tells you what you are protecting. The method is how you are trying to protect it. When the method stops working, do not sacrifice the life you are building just to defend the plan.',
-        'Consider Alex, a fictional learner working toward dependable employment. Learning honestly and protecting health and safety belong to the standard. Attending one particular practice group is a method. If the room closes, Alex can look for another way to practice. If the group becomes harmful, leaving it can protect the same direction.',
+        'Consider Alex, a learner working toward dependable employment. Learning honestly and protecting health and safety belong to the standard. Attending one particular practice group is a method. If the room closes, Alex can look for another way to practice. If the group becomes harmful, leaving it can protect the same direction.',
         'Another method may cost more, take longer or be unavailable. Face that cost. Resilience asks for the next response you can actually make, not a promise that every obstacle has an easy way around it.',
       ],
     },
@@ -58,7 +58,7 @@ export const resilienceContent = {
       heading: 'A return has to change what happens next',
       paragraphs: [
         'A missed commitment is an event to face, not a permanent description of who you are. It may have caused damage. Calling it a learning experience does not erase that damage, and punishing yourself does not repair it.',
-        'In a fictional example, Alex avoids asking about a confusing task and misses an agreed draft. A fresh promise to try harder leaves the same barrier in place. A responsible return names the miss, gives the other person accurate information, addresses the confusion and offers a next step Alex can actually carry out.',
+        'In another example, Alex avoids asking about a confusing task and misses an agreed draft. A fresh promise to try harder leaves the same barrier in place. A responsible return names the miss, gives the other person accurate information, addresses the confusion and offers a next step Alex can actually carry out.',
         'Send the usable work. Ask the question you avoided. Keep the next agreement. That is what turns the return into action. The other person may still need time or choose a different arrangement.',
         'If another limit interrupts the repair, tell the truth and adjust again. You can correct what comes next without pretending the earlier miss disappeared.',
       ],
@@ -81,7 +81,7 @@ export const resilienceContent = {
         'Make the next response concrete enough to carry out, including what must be communicated and when the situation needs another look. Then act when it is safe and workable. You can do this privately without writing anything here.',
       ],
       cta: 'Explore a plan under pressure',
-      hint: 'A fictional case. Change the facts and examine the response. Nothing to submit.',
+      hint: 'Change the facts and examine the response.',
     },
     {
       id: 'L09',
@@ -146,8 +146,7 @@ export const resilienceContent = {
   activity: {
     title: 'When the plan meets pressure.',
     lead: 'Keep the aim in view. Examine what needs to change.',
-    intro:
-      'Alex is fictional. Compare five different pressures and the responses they call for. You are examining the situation, not answering questions about yourself. There is nothing to submit or score.',
+    intro: 'Alex is fictional; compare the pressures and responses privately.',
     setup:
       'Alex is taking a practical skills course toward more dependable work. The current method is a weekly practice group and an agreed draft shared with a study partner, Morgan. This is one route toward that life, not the whole purpose. Each pressure note below is a separate version of the case, not a sequence of events.',
     standard: 'Learn honestly, make workable agreements and protect health, safety and dignity.',
@@ -161,7 +160,7 @@ export const resilienceContent = {
     returnCopy:
       'Alex can describe a good repair and still leave the draft unsent. In the missed-commitment version, follow what happens after the promise.',
     returnStory:
-      'In this fictional continuation, Alex sends the unfinished draft and identifies the missing section. Morgan agrees to a Friday check-in. Alex asks the specific question, uses the answer to revise the section and sends it on time. That is a real correction within this story. The earlier miss still happened, and Morgan decides what to trust.',
+      'In this continuation, Alex sends the unfinished draft and identifies the missing section. Morgan agrees to a Friday check-in. Alex asks the specific question, uses the answer to revise the section and sends it on time. That is a real correction within this story. The earlier miss still happened, and Morgan decides what to trust.',
     closing:
       'Take that judgment into your day. Protect what matters, change what the facts require and carry out the next honest response. The card and the remaining examples are optional.',
   },

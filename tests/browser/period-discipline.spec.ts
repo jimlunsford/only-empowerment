@@ -317,7 +317,7 @@ test('printing either selection includes all three patterns and full interpretat
     await radio(page, index).check();
     await page.emulateMedia({ media: 'print' });
     await expect(
-      page.getByRole('heading', { name: 'All three fictional patterns', exact: true }),
+      page.getByRole('heading', { name: 'All three patterns', exact: true }),
     ).toBeVisible();
     await expect(page.locator('.discipline-controls')).not.toBeVisible();
     for (const m of copy.moments) {

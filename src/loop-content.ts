@@ -1,7 +1,12 @@
 // Fixed educational adaptation from the authenticated Work 69 package.
 // Editorial provenance and exact changes: docs/work70/editorial-ledger.json.
 export type LoopBlock =
-  | { kind: 'paragraph'; text: string; executionLink?: true }
+  | {
+      kind: 'paragraph';
+      text: string;
+      executionLink?: true;
+      related?: { label: string; app: string; reading: string };
+    }
   | { kind: 'heading'; text: string; id?: string }
   | { kind: 'comparison'; rows: string[][] };
 export type LoopSection = { id: string; title: string; blocks: LoopBlock[] };
@@ -134,6 +139,15 @@ export const loopSections: LoopSection[] = [
       {
         kind: 'paragraph',
         text: 'Reduced negotiation is not blind rigidity. Sleep, illness, changing responsibilities and real emergencies require judgment. Keep asking how to protect the standard under the conditions you actually have. Do not confuse an honest adjustment with an excuse that keeps postponing responsibility.',
+      },
+      {
+        kind: 'paragraph',
+        text: 'In Rebuild, negotiation concerns a settled boundary; here it is the argument that repeated proof reduces. Execution applies that steadiness to the next move.',
+        related: {
+          label: 'Rebuild’s settled boundary',
+          app: '#/rebuild/negotiation',
+          reading: '/read/rebuild.html#negotiation',
+        },
       },
       {
         kind: 'paragraph',
@@ -293,6 +307,15 @@ export const loopSections: LoopSection[] = [
       },
       {
         kind: 'paragraph',
+        text: 'Rebuild teaches repair of the missed responsibility; here, returning also restarts the reinforcing cycle.',
+        related: {
+          label: 'Rebuild’s repair teaching',
+          app: '#/rebuild/return',
+          reading: '/read/rebuild.html#return',
+        },
+      },
+      {
+        kind: 'paragraph',
         text: 'Correction creates evidence of a return. It does not erase damage, demand forgiveness or make a serious problem small. You can take responsibility for the next action while accepting that trust and consequences may take longer to resolve.',
       },
     ],
@@ -325,7 +348,7 @@ export const loopSections: LoopSection[] = [
       },
       {
         kind: 'paragraph',
-        text: 'How to Rebuild Yourself explains the work of rebuilding a life. This experience focuses on the reinforcement that makes repeated responses more believable within that work. It is not a second rebuilding sequence.',
+        text: 'How to Rebuild Yourself explains the work of rebuilding a life. This experience focuses on the reinforcement that makes repeated responses more believable within that work. Rebuild’s steps 4 to 7 use this same Loop: proof, self-trust, identity and reduced negotiation.',
       },
       {
         kind: 'paragraph',

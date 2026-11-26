@@ -67,7 +67,7 @@ export function PurposeLesson({ openCard }: { openCard: () => void }) {
                 <a class="button primary" href="#/period/purpose/evening">
                   Explore one evening
                 </a>
-                <p class="small">A fictional comparison. No written answer required.</p>
+                <p class="small">Compare what each direction protects.</p>
               </div>
             )}
           </section>
