@@ -168,7 +168,7 @@
   },
   "scripts/standalone-reading.ts": {
     "beforeSha256": "55b9c25b9f3c53c17ad5a16cb1672296d1e5808cc22be591cb6b0287027d0edf",
-    "afterSha256": "1dc67b5cdc821dd8451daffa32805576645e8f747d101d3b0383f9a10c7e605d",
+    "afterSha256": "2b8355b1cc5242966981afd739dfdda83d9e145f8e293799c68c5fa7e23de18e",
     "historicalSha256": [
       "0a1fca8c42491b0c9a99c6934a4a0aaab7ec81d73a175dcf8372f9e48a4615b7",
       "29b6ace3b3a083fe66c97ed3e3998a4c7e9f703c17266c684c90d0c8e7c6d29e",
@@ -185,9 +185,9 @@
       },
       {
         "start": 662,
-        "end": 2906,
+        "end": 2220,
         "before": "  [\n    '<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\">',\n    '<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">',\n    `<meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\">`,\n    \"<meta http-equiv=\\\"Content-Security-Policy\\\" content=\\\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\\\">\",\n    '<link rel=\"stylesheet\" href=\"',\n    style,\n    '\"><title>',\n    title,\n    ' | Only Empowerment</title></head>',\n    `<body class=\"site-shell period-shell${framework === 'rebuild' ? ' native-rebuild' : ''}\"><a class=\"skip-link\" href=\"#main\">Skip to content</a>`,\n    '<header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a>',\n    '<nav aria-label=\"Static reading navigation\"><a href=\"/read/index.html\">All readings</a>',\n    '<a href=\"/read/rebuild.html\">How to Rebuild Yourself</a>',\n    '<a href=\"/read/privacy.html\">Privacy &amp; source</a></nav></header>',\n    '<main id=\"main\" class=\"site-main\" tabindex=\"-1\">',\n    body,\n    '</main>',\n    staticFooter(build, framework),\n    '</body></html>',\n  ].join('');\n",
-        "after": "  withDesktopNavigation(\n    [\n      '<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\">',\n      '<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">',\n      `<meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\">`,\n      \"<meta http-equiv=\\\"Content-Security-Policy\\\" content=\\\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\\\">\",\n      // Native fragment restoration has no script to realign it after font loading.\n      // Preloads let WebKit finish the reading fonts before the document load event.\n      framework === 'rebuild'\n        ? [\n            'SourceSerif4-Regular.otf.woff2',\n            'SourceSerif4-Semibold.otf.woff2',\n            'SourceSerif4-It.otf.woff2',\n            'SourceSans3-Regular.otf.woff2',\n            'SourceSans3-Semibold.otf.woff2',\n            'SourceSans3-Bold.otf.woff2',\n          ]\n            .map(\n              (file) =>\n                `<link rel=\"preload\" href=\"/fonts/${file}\" as=\"font\" type=\"font/woff2\" crossorigin>`,\n            )\n            .join('')\n        : '',\n      '<link rel=\"stylesheet\" href=\"',\n      style,\n      '\"><title>',\n      title,\n      ' | Only Empowerment</title></head>',\n      `<body class=\"site-shell period-shell${framework === 'rebuild' ? ' native-rebuild' : ''}\"><a class=\"skip-link\" href=\"#main\">Skip to content</a>`,\n      '<header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a>',\n      '<details class=\"site-menu\"><summary>Menu</summary><nav aria-label=\"Static reading navigation\"><a href=\"/read/index.html\">All readings</a>',\n      '<a href=\"/#teaching-order\">The PERIOD Code</a>',\n      '<a href=\"/read/rebuild.html\">How to Rebuild Yourself</a>',\n      '<a href=\"/read/loop.html\">The Discipline Loop</a>',\n      '<a href=\"/read/execution.html\">Pure Execution Mode</a>',\n      '<a href=\"/read/privacy.html\">Privacy &amp; source</a></nav></details></header>',\n      '<main id=\"main\" class=\"site-main\" tabindex=\"-1\">',\n      body,\n      '</main>',\n      staticFooter(build, framework),\n      '</body></html>',\n    ].join(''),\n  );\n"
+        "after": "  withDesktopNavigation(\n    [\n      '<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\">',\n      '<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">',\n      `<meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\">`,\n      \"<meta http-equiv=\\\"Content-Security-Policy\\\" content=\\\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\\\">\",\n      '<link rel=\"stylesheet\" href=\"',\n      style,\n      '\"><title>',\n      title,\n      ' | Only Empowerment</title></head>',\n      `<body class=\"site-shell period-shell${framework === 'rebuild' ? ' native-rebuild' : ''}\"><a class=\"skip-link\" href=\"#main\">Skip to content</a>`,\n      '<header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a>',\n      '<details class=\"site-menu\"><summary>Menu</summary><nav aria-label=\"Static reading navigation\"><a href=\"/read/index.html\">All readings</a>',\n      '<a href=\"/#teaching-order\">The PERIOD Code</a>',\n      '<a href=\"/read/rebuild.html\">How to Rebuild Yourself</a>',\n      '<a href=\"/read/loop.html\">The Discipline Loop</a>',\n      '<a href=\"/read/execution.html\">Pure Execution Mode</a>',\n      '<a href=\"/read/privacy.html\">Privacy &amp; source</a></nav></details></header>',\n      '<main id=\"main\" class=\"site-main\" tabindex=\"-1\">',\n      body,\n      '</main>',\n      staticFooter(build, framework),\n      '</body></html>',\n    ].join(''),\n  );\n"
       }
     ]
   },
@@ -461,7 +461,7 @@
   },
   "vite.config.ts": {
     "beforeSha256": "56bc0f6e9bf49757cbfe25aa2ab4f8bb24a82c0868d69709207ed30eba71f7ba",
-    "afterSha256": "b2a68c647c0428f3ca55ca3c05a31cb6fc3a7b5987734cbbb17a4e27e0d7da41",
+    "afterSha256": "c385b8e5f4302ab131f44920a8224b7b2b27897f34aa244b659615e615bbc69f",
     "historicalSha256": [
       "0b50659ead57089c1cc6d6254332d1f1b7847868fabc33aafb5af911652366e3",
       "32d56b9b24be0b50a23a82925f3610d16a7d3a42b3c5701224a71a78dd80c30b",
@@ -493,14 +493,20 @@
         "after": "import { frameworkChooser } from './scripts/framework-links.ts';\n"
       },
       {
-        "start": 2505,
-        "end": 2531,
+        "start": 2017,
+        "end": 2342,
+        "before": "    .join('\\n');\n",
+        "after": "    .join('\\n')\n    // This script-free reader cannot realign a fragment after a late font swap.\n    // Use the same Source files when ready for initial layout; otherwise keep\n    // the fallback for this document. The interactive app retains font swapping.\n    .replaceAll('font-display: swap;', 'font-display: optional;');\n"
+      },
+      {
+        "start": 2813,
+        "end": 2839,
         "before": "",
         "after": "    'src/navigation.css',\n"
       },
       {
-        "start": 3981,
-        "end": 4016,
+        "start": 4289,
+        "end": 4324,
         "before": "",
         "after": "              frameworkChooser() +\n"
       }

@@ -21,23 +21,6 @@ const shell = (
       '<meta name="viewport" content="width=device-width, initial-scale=1">',
       `<meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">`,
       "<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\">",
-      // Native fragment restoration has no script to realign it after font loading.
-      // Preloads let WebKit finish the reading fonts before the document load event.
-      framework === 'rebuild'
-        ? [
-            'SourceSerif4-Regular.otf.woff2',
-            'SourceSerif4-Semibold.otf.woff2',
-            'SourceSerif4-It.otf.woff2',
-            'SourceSans3-Regular.otf.woff2',
-            'SourceSans3-Semibold.otf.woff2',
-            'SourceSans3-Bold.otf.woff2',
-          ]
-            .map(
-              (file) =>
-                `<link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin>`,
-            )
-            .join('')
-        : '',
       '<link rel="stylesheet" href="',
       style,
       '"><title>',

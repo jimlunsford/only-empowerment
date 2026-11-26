@@ -44,7 +44,11 @@ const rebuildStyles = () =>
     'src/site-footer.css',
   ]
     .map((path) => readFileSync(path, 'utf8'))
-    .join('\n');
+    .join('\n')
+    // This script-free reader cannot realign a fragment after a late font swap.
+    // Use the same Source files when ready for initial layout; otherwise keep
+    // the fallback for this document. The interactive app retains font swapping.
+    .replaceAll('font-display: swap;', 'font-display: optional;');
 const loopStyles = () =>
   ['src/style.css', 'src/navigation.css', 'src/site-footer.css', 'src/loop.css']
     .map((path) => readFileSync(path, 'utf8'))
