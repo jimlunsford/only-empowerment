@@ -1,4 +1,11 @@
 import {
+  workshopScreens,
+  workshopSessionCopy,
+  eventCarry,
+  workshopOrigin,
+  workshopBridges,
+} from './execution-workshop-content.ts';
+import {
   executionBookUrl,
   executionSections,
   executionTitle,
@@ -108,6 +115,88 @@ function blockNode(block: ExecutionBlock, surface: ExecutionSurface): ExecutionN
     );
   return textNode(block);
 }
+export function workshopTranscript(surface: ExecutionSurface): ExecutionNode {
+  const h2 = surface === 'root' ? 'h3' : 'h2';
+  const h3 = surface === 'root' ? 'h4' : 'h3';
+  const id = (key: string) =>
+    surface === 'root'
+      ? '/execution/' + key
+      : (surface === 'print' ? 'execution-print-workshop-' : 'workshop-') + key;
+  return n(
+    'section',
+    { class: 'execution-workshop-transcript' },
+    n(h2, {}, 'Guided workshop: every decision and consequence'),
+    n(
+      'p',
+      {},
+      'These situations are illustrations, not events from Jim’s biography. Read in sequence or compare any option. The enhanced workshop presents one screen at a time. This edition includes every branch and explanation.',
+    ),
+    n('p', {}, workshopSessionCopy),
+    n(
+      'nav',
+      { class: 'execution-contents', 'aria-label': 'Workshop transcript' },
+      n(
+        'ul',
+        {},
+        ...workshopScreens.map((screen) => n('li', {}, a('#' + id(screen.id), screen.title))),
+      ),
+    ),
+    ...workshopScreens.map((screen) =>
+      n(
+        'section',
+        { class: 'execution-section', 'data-workshop-transcript': screen.id },
+        n(h2, { id: id(screen.id), tabIndex: -1 }, screen.title),
+        n('p', {}, screen.purpose),
+        n('p', {}, screen.facts),
+        ...screen.teaching.map((paragraph) => n('p', {}, paragraph)),
+        ...(screen.id === 'event-wait'
+          ? ['request', 'polish', 'announce', ''].map((choice) =>
+              n('p', {}, eventCarry({ event: choice })),
+            )
+          : []),
+        ...(screen.action
+          ? [
+              n(h3, {}, 'Demonstrated action'),
+              n('p', {}, screen.action.result),
+              n('p', {}, screen.action.remains),
+            ]
+          : []),
+        ...(screen.options
+          ? [
+              n(h3, {}, screen.question!),
+              ...screen.options.map((option) =>
+                n(
+                  'section',
+                  {
+                    class: 'execution-practice',
+                    'data-workshop-option': screen.id + ':' + option.id,
+                  },
+                  n(h3, {}, option.label),
+                  n('p', {}, option.consequence),
+                  n('p', {}, option.reasoning),
+                  ...(option.next
+                    ? [
+                        n(
+                          'p',
+                          {},
+                          'Continue to: ' +
+                            workshopScreens.find((next) => next.id === option.next)!.title +
+                            '.',
+                        ),
+                      ]
+                    : []),
+                ),
+              ),
+              n('p', {}, screen.explanation!),
+            ]
+          : []),
+        ...(screen.id === 'welcome' ? [n('p', {}, workshopOrigin)] : []),
+        ...(workshopBridges[screen.id] ? [n('p', {}, workshopBridges[screen.id])] : []),
+      ),
+    ),
+  );
+}
+
 export function executionTeaching(surface: ExecutionSurface = 'app'): ExecutionNode {
   const h2 = surface === 'root' ? 'h3' : 'h2';
   return n(
@@ -198,5 +287,6 @@ export function executionTeaching(surface: ExecutionSurface = 'app'): ExecutionN
           : []),
       ),
     ),
+    ...(surface !== 'app' ? [workshopTranscript(surface)] : []),
   );
 }

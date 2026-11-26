@@ -1,9 +1,16 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { executionSections, executionTargetIds, executionTexts } from '../../src/execution-content';
+import { executionTargetIds, executionTexts } from '../../src/execution-content';
+import {
+  workshopScreens,
+  workshopById,
+  workshopHref,
+  legacyWorkshopMap,
+  eventCarry,
+} from '../../src/execution-workshop-content';
 import { records } from './helpers/legacy-records';
-
 const screen = (page: Page) => page.locator('.execution-screen');
+const heading = (page: Page) => screen(page).locator('h1');
 const expectedCopy = executionTexts().map((p) => [p.id, p.text]);
 const copies = async (page: Page, scope: string) =>
   page
@@ -13,15 +20,18 @@ const copies = async (page: Page, scope: string) =>
     );
 const fits = async (page: Page) =>
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+const go = async (page: Page, id: string) => {
+  await page.goto('/' + workshopHref(id));
+  await expect(screen(page)).toHaveAttribute('data-workshop', id);
+};
+const next = (page: Page) => screen(page).getByRole('link', { name: /^Continue/ });
 
-test('fourth framework is reachable from home, both headers, footer and native index', async ({
-  page,
-}) => {
+test('workshop is primary from home, both headers, footer and native reading', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('.framework-options article')).toHaveCount(4);
   await page.getByRole('link', { name: 'Explore Pure Execution Mode', exact: true }).click();
-  await expect(screen(page).locator('h1')).toBeFocused();
-  await expect(screen(page).locator('h1')).toHaveText('Pure Execution Mode');
+  await expect(heading(page)).toHaveText('Pure Execution Mode');
+  await expect(heading(page)).toBeFocused();
   await expect(page.locator('.site-header a[href="#/execution"]')).toHaveAttribute(
     'aria-current',
     'location',
@@ -29,137 +39,363 @@ test('fourth framework is reachable from home, both headers, footer and native i
   await expect(page.locator('.site-footer a[href="#/execution"]')).toHaveCount(1);
   await page.locator('.site-header a[href="#/period"]').click();
   await page.locator('.framework-switch a[href="#/execution"]').click();
-  await expect(screen(page).locator('h1')).toBeFocused();
-  await page.goto('/read/index.html');
-  await page
-    .getByRole('link', { name: 'Complete teaching, worked examples and explanations', exact: true })
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'welcome');
+  await screen(page)
+    .getByRole('link', { name: 'Complete reading and print edition', exact: true })
     .click();
-  await expect(page.locator('h1')).toHaveText('Pure Execution Mode');
   await expect(page.locator('[data-execution-section]')).toHaveCount(9);
+  await expect(page.locator('[data-workshop-transcript]')).toHaveCount(workshopScreens.length);
+  await page.getByRole('link', { name: 'Open the guided workshop', exact: true }).click();
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'welcome');
 });
 
-test('all section and step addresses focus visible headings on direct load and reload', async ({
+test('every screen supports direct entry, title, refresh and unforced Continue', async ({
+  page,
+}) => {
+  test.setTimeout(120000);
+  for (const s of workshopScreens) {
+    await go(page, s.id);
+    await expect(heading(page)).toHaveText(s.title);
+    await expect(heading(page)).toHaveAttribute(
+      'id',
+      s.id === 'welcome' ? '/execution' : '/execution/' + s.id,
+    );
+    await expect(heading(page)).toBeFocused();
+    expect(
+      (await screen(page).locator('.workshop-position').boundingBox())!.y,
+    ).toBeGreaterThanOrEqual(0);
+    await expect(page).toHaveTitle(s.title + ' | Only Empowerment');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
+    await page.reload();
+    await expect(heading(page)).toBeFocused();
+    if (s.next) {
+      await next(page).click();
+      await expect(screen(page)).toHaveAttribute('data-workshop', s.next);
+      await expect(heading(page)).toBeFocused();
+    }
+  }
+  await page.goto('/#/execution/welcome');
+  await expect(heading(page)).toHaveAttribute('id', '/execution/welcome');
+  await expect(heading(page)).toBeFocused();
+  await page.reload();
+  await expect(heading(page)).toBeFocused();
+  await page.goto('/#/execution/unknown');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('That page is not here.');
+});
+
+test('all old section and step URLs map intentionally and retain original native destinations', async ({
   page,
 }) => {
   test.setTimeout(90000);
-  await page.goto('/#/execution');
-  await expect(screen(page).locator('h1')).toBeFocused();
-  for (const id of executionTargetIds) {
-    await page.goto('/#/execution?section=' + id);
-    const target = screen(page).locator('#' + id);
-    await expect(target).toBeFocused();
-    await expect
-      .poll(() => target.evaluate((el) => el.getBoundingClientRect().top))
-      .toBeGreaterThanOrEqual(0);
-    await expect
-      .poll(() => target.evaluate((el) => el.getBoundingClientRect().top))
-      .toBeLessThan(100);
+  for (const [legacy, id] of Object.entries(legacyWorkshopMap)) {
+    await page.goto('/#/execution?section=' + legacy);
+    await expect(screen(page)).toHaveAttribute('data-workshop', id);
+    await expect(heading(page)).toBeFocused();
+    await expect(
+      screen(page).getByRole('link', { name: 'Read the original section in full' }),
+    ).toHaveAttribute('href', '/read/execution.html#' + legacy);
     await page.reload();
-    await expect(target).toBeFocused();
+    await expect(heading(page)).toBeFocused();
   }
-  await page.goto('/#/execution?section=unknown');
-  await expect(page.locator('h1')).toHaveText('That page is not here.');
 });
 
-test('disclosures use keyboard semantics without history and remain open during section reading', async ({
-  page,
-}) => {
-  await page.goto('/#/execution?section=continue');
-  const hint = screen(page).locator('[data-explanation="paragraph-hint"]');
-  const summary = hint.locator('summary');
-  await expect(screen(page).locator('details')).toHaveCount(5);
-  await expect(screen(page).locator('details[open]')).toHaveCount(0);
-  const entry = await page.evaluate(() => ({
-    length: history.length,
-    state: history.state,
-    hash: location.hash,
-  }));
-  await summary.focus();
-  await page.keyboard.press('Enter');
-  await expect(hint).toHaveAttribute('open', '');
-  await expect(summary).toBeFocused();
-  expect(await summary.evaluate((el) => getComputedStyle(el).outlineStyle)).not.toBe('none');
-  await page.keyboard.press('Space');
-  await expect(hint).not.toHaveAttribute('open');
-  await page.keyboard.press('Enter');
-  await screen(page).locator('[data-explanation="paragraph-reasoning"] summary').click();
-  await expect(screen(page).locator('details[open]')).toHaveCount(2);
-  expect(
-    await page.evaluate(() => ({
+for (const s of workshopScreens.filter((s) => s.action))
+  test('demonstration: ' + s.id, async ({ page }) => {
+    await go(page, s.id);
+    const entry = await page.evaluate(() => ({
+      hash: location.hash,
       length: history.length,
       state: history.state,
-      hash: location.hash,
-    })),
-  ).toEqual(entry);
-  await screen(page).getByRole('link', { name: 'Continue to changed plans', exact: true }).click();
-  await expect(screen(page).locator('#change')).toBeFocused();
-  await expect(screen(page).locator('details[open]')).toHaveCount(2);
-  await page.goBack();
-  await expect(
-    screen(page).getByRole('link', { name: 'Continue to changed plans', exact: true }),
-  ).toBeFocused();
-  await expect(screen(page).locator('details[open]')).toHaveCount(2);
-  await page.reload();
-  await expect(screen(page).locator('#continue')).toBeFocused();
-  await expect(screen(page).locator('details[open]')).toHaveCount(0);
-  await summary.click();
-  await page.locator('.site-header a[href="#/loop"]').click();
-  await page.locator('.site-header a[href="#/execution"]').click();
-  await expect(screen(page).locator('details[open]')).toHaveCount(0);
-});
+    }));
+    const reveal = screen(page).getByRole('button', { name: s.action!.label, exact: true });
+    await reveal.press('Enter');
+    await expect(
+      screen(page).getByRole('heading', { name: 'What changed', exact: true }),
+    ).toBeFocused();
+    await expect(screen(page).getByText(s.action!.result, { exact: true })).toBeVisible();
+    await expect(screen(page).getByText(s.action!.remains, { exact: true })).toBeVisible();
+    expect(
+      await page.evaluate(() => ({
+        hash: location.hash,
+        length: history.length,
+        state: history.state,
+      })),
+    ).toEqual(entry);
+    await next(page).click();
+    await page.goBack();
+    await expect(screen(page).getByText(s.action!.result, { exact: true })).toBeVisible();
+    await page.reload();
+    await expect(screen(page).getByText(s.action!.result, { exact: true })).toHaveCount(0);
+  });
 
-test('section Back and Forward restore the issuing link and settled reading position', async ({
+for (const s of workshopScreens.filter((s) => s.options && !s.deferred))
+  test('every authored consequence and branch: ' + s.id, async ({ page }) => {
+    await go(page, s.id);
+    for (const option of s.options!) {
+      const entry = await page.evaluate(() => ({
+        hash: location.hash,
+        length: history.length,
+        state: history.state,
+      }));
+      await screen(page).getByRole('button', { name: option.label, exact: true }).press('Enter');
+      await expect(
+        screen(page).getByRole('heading', { name: 'What this choice does' }),
+      ).toBeFocused();
+      await expect(screen(page).locator('.workshop-feedback')).toContainText(option.consequence);
+      await expect(screen(page).locator('.workshop-feedback')).toContainText(option.reasoning);
+      expect(
+        await page.evaluate(() => ({
+          hash: location.hash,
+          length: history.length,
+          state: history.state,
+        })),
+      ).toEqual(entry);
+      await expect(next(page)).toHaveAttribute('href', workshopHref(option.next || s.next!));
+      await next(page).click();
+      await expect(screen(page)).toHaveAttribute('data-workshop', option.next || s.next!);
+      await page.goBack();
+      await expect(
+        screen(page).getByRole('button', { name: option.label, exact: true }),
+      ).toHaveAttribute('aria-pressed', 'true');
+      await screen(page)
+        .getByRole('button', { name: 'Reconsider this decision', exact: true })
+        .click();
+      await expect(screen(page).locator('#workshop-question')).toBeFocused();
+      await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
+    }
+    await screen(page)
+      .getByRole('button', { name: 'Compare every option and read the explanation', exact: true })
+      .click();
+    for (const option of s.options!) {
+      await expect(screen(page).locator('#workshop-comparison')).toContainText(option.consequence);
+      await expect(screen(page).locator('#workshop-comparison')).toContainText(option.reasoning);
+    }
+  });
+
+test('independent sequence carries all initial choices, defers feedback, and compares every outcome', async ({
   page,
 }) => {
-  await page.goto('/#/execution');
-  await page.evaluate(() => document.fonts.ready);
-  const opener = screen(page).getByRole('link', { name: 'Read from the beginning', exact: true });
-  await opener.scrollIntoViewIfNeeded();
-  await opener.focus();
-  const y = await page.evaluate(() => scrollY);
-  await opener.press('Enter');
-  await expect(screen(page).locator('#why')).toBeFocused();
-  await page.goBack();
-  await expect(opener).toBeFocused();
-  await expect.poll(() => page.evaluate(() => scrollY)).toBeCloseTo(y, 0);
-  await page.goForward();
-  await expect(screen(page).locator('#why')).toBeFocused();
-  expect(await page.evaluate(() => Object.keys(history.state))).toEqual(['oeNavigation']);
-  await screen(page).getByRole('link', { name: 'Why this method exists', exact: true }).click();
-  await expect(screen(page).locator('#why')).toBeFocused();
+  for (const first of workshopById('event').options!) {
+    await go(page, 'event');
+    await screen(page).getByRole('button', { name: first.label, exact: true }).click();
+    await expect(screen(page).locator('.workshop-feedback')).toHaveCount(0);
+    await next(page).click();
+    await expect(screen(page).locator('.workshop-carry')).toHaveText(
+      eventCarry({ event: first.id }),
+    );
+    await screen(page)
+      .getByRole('button', { name: workshopById('event-wait').options![0].label, exact: true })
+      .click();
+    await next(page).click();
+    await screen(page)
+      .getByRole('button', { name: workshopById('event-close').options![0].label, exact: true })
+      .click();
+    await next(page).click();
+    await expect(screen(page)).toHaveAttribute('data-workshop', 'compare');
+    await expect(screen(page)).toContainText(first.consequence);
+    for (const summary of await screen(page).locator('.workshop-review summary').all())
+      await summary.click();
+    for (const id of ['event', 'event-wait', 'event-close'])
+      for (const option of workshopById(id).options!) {
+        await expect(screen(page)).toContainText(option.consequence);
+        await expect(screen(page)).toContainText(option.reasoning);
+      }
+    await screen(page)
+      .locator('.workshop-review')
+      .first()
+      .getByRole('link', { name: 'Revisit this decision' })
+      .click();
+    await screen(page)
+      .getByRole('button', { name: 'Reconsider this decision', exact: true })
+      .click();
+    await screen(page)
+      .getByRole('link', { name: 'Skip practice and compare the reasoning now' })
+      .click();
+    await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+      3,
+    );
+  }
 });
 
-test('modified native links open the requested destination without changing the opener', async ({
+for (const decision of workshopScreens.filter((s) => s.deferred))
+  test('independent selection and comparison: ' + decision.id, async ({ page }) => {
+    for (const option of decision.options!) {
+      await go(page, decision.id);
+      await screen(page).getByRole('button', { name: option.label, exact: true }).click();
+      await expect(
+        screen(page).getByRole('button', { name: option.label, exact: true }),
+      ).toHaveAttribute('aria-pressed', 'true');
+      await expect(screen(page).locator('.workshop-feedback')).toHaveCount(0);
+      await screen(page)
+        .getByRole('link', { name: 'Skip practice and compare the reasoning now' })
+        .click();
+      const review = screen(page).getByRole('region', { name: decision.title });
+      await expect(review).toContainText('Your choice: ' + option.label);
+      await expect(review).toContainText(option.consequence);
+      await expect(review).toContainText(option.reasoning);
+    }
+  });
+
+test('visible Back follows the chosen recovery branch', async ({ page }) => {
+  await go(page, 'take-over');
+  await screen(page)
+    .getByRole('button', { name: workshopById('take-over').options![0].label, exact: true })
+    .click();
+  await next(page).click();
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'recover');
+  await screen(page)
+    .getByRole('button', { name: workshopById('recover').options![1].label, exact: true })
+    .click();
+  await next(page).click();
+  await expect(screen(page).getByRole('link', { name: /^Back:/ })).toHaveAttribute(
+    'href',
+    workshopHref('recover'),
+  );
+  await screen(page)
+    .getByRole('link', { name: /^Back:/ })
+    .click();
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'recover');
+  await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(1);
+  await go(page, 'take-over');
+  await screen(page)
+    .getByRole('button', { name: workshopById('take-over').options![1].label, exact: true })
+    .click();
+  await next(page).click();
+  await expect(screen(page).getByRole('link', { name: /^Back:/ })).toHaveAttribute(
+    'href',
+    workshopHref('take-over'),
+  );
+  await go(page, 'recover');
+  await expect(screen(page).locator('.workshop-carry')).toHaveCount(0);
+});
+
+test('Back, Forward, skip, route exit, refresh, restart and modified links respect the session', async ({
   page,
   context,
 }) => {
-  await page.goto('/#/execution?section=continue');
-  await screen(page).locator('summary').first().click();
-  const hash = new URL(page.url()).hash;
-  const state = await page.evaluate(() => history.state);
+  await go(page, 'take-over');
+  const option = workshopById('take-over').options![1];
+  await screen(page).getByRole('button', { name: option.label, exact: true }).click();
+  await next(page).click();
+  await page.goBack();
+  await expect(screen(page).locator('[aria-pressed="true"]')).toContainText(option.label);
+  await page.goForward();
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'arrange');
+  await screen(page)
+    .getByRole('link', { name: 'Skip this practice and continue to changed facts' })
+    .click();
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'access');
   const fresh = context.waitForEvent('page');
   await screen(page)
-    .getByRole('link', { name: 'Revisit Flip the Switch', exact: true })
+    .getByRole('link', { name: 'Work independently', exact: true })
     .click({ modifiers: ['ControlOrMeta'] });
   const child = await fresh;
   await child.waitForLoadState();
-  await expect(child.locator('.execution-screen #start')).toBeFocused();
-  expect(new URL(page.url()).hash).toBe(hash);
-  expect(await page.evaluate(() => history.state)).toEqual(state);
-  await expect(screen(page).locator('details[open]')).toHaveCount(1);
+  await expect(child.locator('.execution-screen')).toHaveAttribute('data-workshop', 'event');
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'access');
   await child.close();
+  await screen(page).getByRole('button', { name: 'Restart workshop', exact: true }).click();
+  await expect(screen(page)).toHaveAttribute('data-workshop', 'welcome');
+  await screen(page).getByRole('link', { name: 'Take over', exact: true }).click();
+  await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
+  await screen(page).getByRole('button', { name: option.label, exact: true }).click();
+  await page.reload();
+  await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
+  await screen(page).getByRole('button', { name: option.label, exact: true }).click();
+  await page.locator('.site-header a[href="#/loop"]').click();
+  await page.goBack();
+  await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
+  await screen(page).getByRole('button', { name: option.label, exact: true }).click();
+  await screen(page)
+    .getByRole('link', { name: 'Complete reading and print edition', exact: true })
+    .click();
+  await page.goBack();
+  await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
+  expect(await page.evaluate(() => Object.keys(history.state))).toEqual(['oeNavigation']);
 });
 
+for (const width of [320, 390, 1366])
+  test(`all screens reflow at ${width}px and 200 percent text`, async ({ page }, info) => {
+    test.setTimeout(120000);
+    await page.setViewportSize({ width, height: 900 });
+    for (const s of workshopScreens) {
+      await go(page, s.id);
+      await page.evaluate(() => document.fonts.ready);
+      await fits(page);
+      if (s.options && !s.deferred) {
+        await screen(page).getByRole('button', { name: s.options[0].label, exact: true }).click();
+        await screen(page)
+          .getByRole('button', {
+            name: 'Compare every option and read the explanation',
+            exact: true,
+          })
+          .click();
+      }
+      if (s.action)
+        await screen(page).getByRole('button', { name: s.action.label, exact: true }).click();
+      await fits(page);
+      if (['welcome', 'take-over', 'access', 'event', 'compare'].includes(s.id))
+        await page.screenshot({
+          path: info.outputPath('workshop-' + s.id + '-' + width + '.png'),
+          fullPage: true,
+        });
+      for (const button of await screen(page).locator('button').all())
+        expect((await button.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+      await page.evaluate(() =>
+        document.styleSheets[0].insertRule('html { font-size: 200% !important; }', 0),
+      );
+      await fits(page);
+      await page.evaluate(() => document.styleSheets[0].deleteRule(0));
+    }
+  });
+
+test('keyboard, reduced motion, forced colors, understandable feedback and axe coverage', async ({
+  page,
+}, info) => {
+  test.setTimeout(120000);
+  await page.emulateMedia({ reducedMotion: 'reduce', forcedColors: 'active' });
+  await go(page, 'take-over');
+  await heading(page).press('Tab');
+  const first = screen(page).locator('.workshop-options button').first();
+  await expect(first).toBeFocused();
+  await page.keyboard.press('Space');
+  await expect(screen(page).getByRole('heading', { name: 'What this choice does' })).toBeFocused();
+  expect(
+    await screen(page)
+      .getByRole('heading', { name: 'What this choice does' })
+      .evaluate((el) => getComputedStyle(el).outlineStyle),
+  ).not.toBe('none');
+  await page.emulateMedia({ forcedColors: 'none' });
+  for (const id of ['welcome', 'switch', 'take-over', 'access', 'event', 'compare', 'reference']) {
+    await go(page, id);
+    const s = workshopById(id);
+    if (s.options && !s.deferred)
+      await screen(page).getByRole('button', { name: s.options[0].label, exact: true }).click();
+    expect(
+      (await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
+        .violations,
+    ).toEqual([]);
+  }
+  await page.goto('/read/execution.html');
+  expect(
+    (await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
+      .violations,
+  ).toEqual([]);
+  await info.attach('workshop-accessibility-tree', {
+    body: await page.locator('main').ariaSnapshot(),
+    contentType: 'text/plain',
+  });
+});
 test('visiting execution preserves Standard Card draft and the accepted book-exit cancellation', async ({
   page,
 }) => {
   await page.goto('/#/period/standard');
-  await page.locator('#period-standard').fill('Synthetic Work 80 draft.');
+  await page.locator('#period-standard').fill('Synthetic Work 82 draft.');
   await page.locator('.site-header a[href="#/execution"]').click();
   await expect(screen(page).locator('h1')).toBeFocused();
   await screen(page).locator('summary').first().click();
   await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
-  await expect(page.locator('#period-standard')).toHaveValue('Synthetic Work 80 draft.');
+  await expect(page.locator('#period-standard')).toHaveValue('Synthetic Work 82 draft.');
   await page.getByRole('link', { name: 'About the book', exact: true }).click();
   const opener = page.getByRole('link', { name: 'Explore the book and read a sample' });
   await page.locator('#main').focus();
@@ -171,7 +407,7 @@ test('visiting execution preserves Standard Card draft and the accepted book-exi
   await page.keyboard.press('Escape');
   await expect(opener).toBeFocused();
   await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
-  await expect(page.locator('#period-standard')).toHaveValue('Synthetic Work 80 draft.');
+  await expect(page.locator('#period-standard')).toHaveValue('Synthetic Work 82 draft.');
 });
 
 test('rendered reading and print preserve every paragraph once and unique IDs', async ({
@@ -181,7 +417,7 @@ test('rendered reading and print preserve every paragraph once and unique IDs', 
     await page.goto(path);
     const scope = path.includes('/read/')
       ? '[data-execution-surface="reading"]'
-      : '.execution-screen';
+      : '.execution-print';
     expect(await copies(page, scope)).toEqual(expectedCopy);
     const ids = await page.locator('[id]').evaluateAll((els) => els.map((el) => el.id));
     expect(new Set(ids).size).toBe(ids.length);
@@ -192,6 +428,9 @@ test('rendered reading and print preserve every paragraph once and unique IDs', 
         els.map((el) => [el.getAttribute('data-execution-copy'), el.textContent]),
       );
     expect(visible).toEqual(expectedCopy);
+    await expect(page.locator('[data-workshop-option]:visible')).toHaveCount(
+      workshopScreens.reduce((count, s) => count + (s.options?.length || 0), 0),
+    );
     await expect(page.locator('details:visible')).toHaveCount(0);
     if (info.project.name === 'chromium')
       for (const format of ['A4', 'Letter'] as const)
@@ -247,79 +486,6 @@ for (const mode of ['no-js', 'blocked-script'])
     await context.close();
   });
 
-for (const width of [320, 390, 1366])
-  test(`workshop fits ${width}px, including open explanations and enlarged text`, async ({
-    page,
-  }, info) => {
-    await page.setViewportSize({ width, height: 900 });
-    await page.goto('/#/execution');
-    await page.evaluate(() => document.fonts.ready);
-    await fits(page);
-    await page.screenshot({ path: info.outputPath('execution-' + width + '.png') });
-    await page.goto('/#/execution?section=continue');
-    for (const summary of await screen(page).locator('summary').all()) {
-      await summary.click();
-      const box = await summary.boundingBox();
-      expect(box!.height).toBeGreaterThanOrEqual(44);
-    }
-    await fits(page);
-    await screen(page).locator('#continue').scrollIntoViewIfNeeded();
-    await page.screenshot({ path: info.outputPath('execution-expanded-' + width + '.png') });
-    // CSSOM mutation models a user text-size override without bypassing the CSP.
-    await page.evaluate(() =>
-      document.styleSheets[0].insertRule('html { font-size: 200% !important; }', 0),
-    );
-    await fits(page);
-    await expect(screen(page).locator('details[open]')).toHaveCount(5);
-  });
-
-test('reduced motion, forced colors, headings and disclosure accessibility remain usable', async ({
-  page,
-}, info) => {
-  await page.emulateMedia({ reducedMotion: 'reduce', forcedColors: 'active' });
-  await page.goto('/#/execution?section=continue');
-  const summary = screen(page).locator('summary').first();
-  await summary.focus();
-  await page.keyboard.press('Space');
-  await expect(summary).toBeFocused();
-  expect(await summary.evaluate((el) => getComputedStyle(el).outlineStyle)).not.toBe('none');
-  await fits(page);
-  await page.emulateMedia({ forcedColors: 'none' });
-  for (const path of ['/#/execution', '/read/execution.html']) {
-    await page.goto(path);
-    expect(
-      (await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
-        .violations,
-    ).toEqual([]);
-    if (path === '/#/execution') {
-      for (const s of await screen(page).locator('summary').all())
-        if (!(await s.locator('..').evaluate((el) => (el as HTMLDetailsElement).open)))
-          await s.click();
-      expect(
-        (
-          await new AxeBuilder({ page })
-            .include('.execution-screen')
-            .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
-            .analyze()
-        ).violations,
-      ).toEqual([]);
-      const snapshot = await screen(page).ariaSnapshot();
-      expect(snapshot).toContain('Read a hint');
-      expect(snapshot).toContain('Read the discussion');
-      for (const summary of await screen(page).locator('summary').all()) {
-        await expect(summary).toHaveAccessibleName(
-          /Read (a hint|the reasoning|the discussion): .+/,
-        );
-        await expect(summary.locator('..')).toHaveAttribute('open', '');
-      }
-      await info.attach('execution-accessibility-tree', {
-        body: snapshot,
-        contentType: 'text/plain',
-      });
-    }
-  }
-});
-
 test('disposable legacy records stay unread and unchanged, without results, cookies or network activity', async ({
   page,
   context,
@@ -356,12 +522,13 @@ test('disposable legacy records stay unread and unchanged, without results, cook
   await expect(screen(page)).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
   const count = requests.length;
-  for (const summary of await screen(page).locator('summary').all()) await summary.click();
-  for (const section of executionSections)
-    await screen(page)
-      .locator('.execution-contents')
-      .getByRole('link', { name: section.title, exact: true })
-      .click();
+  await screen(page).getByRole('link', { name: 'Take over', exact: true }).click();
+  await screen(page).getByRole('button', { name: 'Set the shelf aside.', exact: false }).click();
+  await screen(page)
+    .getByRole('link', { name: /^Continue/ })
+    .click();
+  await screen(page).getByRole('button', { name: 'Keep the return open.', exact: false }).click();
+  await screen(page).getByRole('button', { name: 'Restart workshop', exact: true }).click();
   expect(requests.length).toBe(count);
   const origin = new URL(page.url()).origin;
   expect(requests.every((r) => r.method === 'GET' && r.url.startsWith(origin + '/'))).toBe(true);
@@ -369,7 +536,96 @@ test('disposable legacy records stay unread and unchanged, without results, cook
   expect(await page.evaluate(() => (window as any).__work80.fixture())).toEqual(records);
   expect(await context.cookies()).toEqual([]);
   expect(await page.evaluate(() => Object.keys(history.state))).toEqual(['oeNavigation']);
-  await expect(
-    screen(page).locator('form, input, textarea, button, [contenteditable]'),
-  ).toHaveCount(0);
+  await expect(screen(page).locator('form, input, textarea, [contenteditable]')).toHaveCount(0);
+});
+
+for (const s of workshopScreens.filter((s) => s.options && !s.deferred))
+  test('reselection clears stale status: ' + s.id, async ({ page }) => {
+    await go(page, s.id);
+    const status = screen(page).getByRole('status', { includeHidden: true });
+    for (const index of [0, 0, 1, 1]) {
+      const option = s.options![index];
+      const button = screen(page).getByRole('button', { name: option.label, exact: true });
+      await button.press('Enter');
+      await expect(button).toHaveAttribute('aria-pressed', 'true');
+      await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(1);
+      await expect(screen(page).locator('.workshop-feedback')).toContainText(option.consequence);
+      await expect(
+        screen(page).getByRole('heading', { name: 'What this choice does' }),
+      ).toBeFocused();
+      await expect(status).toBeEmpty();
+      await expect(
+        screen(page).getByText(
+          'Choice cleared. You can choose again or continue without choosing.',
+          { exact: true },
+        ),
+      ).toHaveCount(0);
+      await screen(page)
+        .getByRole('button', { name: 'Reconsider this decision', exact: true })
+        .click();
+      await expect(screen(page).locator('[aria-pressed="true"]')).toHaveCount(0);
+      await expect(screen(page).locator('.workshop-feedback')).toHaveCount(0);
+      await expect(status).toHaveText(
+        'Choice cleared. You can choose again or continue without choosing.',
+      );
+      await expect(screen(page).locator('#workshop-question')).toBeFocused();
+    }
+  });
+
+test('deferred reselection retains status and dependent-choice rules', async ({ page }) => {
+  const ids = ['event', 'event-wait', 'event-close'];
+  const select = async (id: string, index: number) => {
+    await screen(page)
+      .getByRole('button', { name: workshopById(id).options![index].label, exact: true })
+      .click();
+    await expect(screen(page).getByRole('status')).toHaveText(
+      'Choice kept for comparison. Continue when you are ready. Changing this choice clears later decisions in this sequence.',
+    );
+    await expect(screen(page).locator('.workshop-feedback')).toHaveCount(0);
+  };
+  await go(page, 'event');
+  for (const id of ids) {
+    await select(id, 0);
+    await next(page).click();
+  }
+  const revisit = (index: number) =>
+    screen(page)
+      .locator('.workshop-review')
+      .nth(index)
+      .getByRole('link', { name: 'Revisit this decision' })
+      .click();
+  const compare = () =>
+    screen(page).getByRole('link', { name: 'Skip practice and compare the reasoning now' }).click();
+  await revisit(0);
+  await select('event', 0);
+  await compare();
+  await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+    0,
+  );
+  await revisit(1);
+  await select('event-wait', 1);
+  await compare();
+  await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+    1,
+  );
+  await revisit(2);
+  await select('event-close', 0);
+  await compare();
+  await revisit(0);
+  await select('event', 1);
+  await compare();
+  await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+    2,
+  );
+  await revisit(0);
+  await screen(page).getByRole('button', { name: 'Reconsider this decision', exact: true }).click();
+  await expect(screen(page).getByRole('status')).toHaveText(
+    'Choice cleared. You can choose again or continue without choosing.',
+  );
+  await expect(screen(page).locator('#workshop-question')).toBeFocused();
+  await select('event', 1);
+  await compare();
+  await expect(screen(page).getByText('No choice in this session.', { exact: true })).toHaveCount(
+    2,
+  );
 });
