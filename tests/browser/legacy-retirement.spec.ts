@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
@@ -109,9 +110,10 @@ test('startup and normal navigation never even access local storage; cancellatio
   for (const link of [
     'Optional Standard Card',
     'Privacy & source',
-    'About the book',
+    'About The PERIOD Code book',
     'Why PERIOD?',
   ]) {
+    if (link === 'Why PERIOD?') await openSiteMenu(page);
     await page.getByRole('link', { name: link, exact: true }).first().click();
     await expect(page.locator('h1')).toBeVisible();
     expect(await page.evaluate(() => (window as any).legacyAccesses)).toBe(0);

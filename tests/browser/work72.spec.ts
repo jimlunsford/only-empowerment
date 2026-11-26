@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page, type Locator } from '@playwright/test';
 
 const lessons = ['ownership', 'purpose', 'resilience', 'integrity', 'discipline', 'empowerment'];
@@ -341,14 +342,20 @@ test('Work72 no-script root introduces all frameworks and retains real native re
   const page = await context.newPage();
   await page.goto(baseURL! + '/');
   const nav = page.getByRole('navigation', { name: 'Main navigation' });
-  await expect(nav.getByRole('link')).toHaveText([
-    'Frameworks',
-    'The PERIOD Code',
-    'How to Rebuild Yourself',
-    'The Discipline Loop',
-    'Pure Execution Mode',
-  ]);
-  await nav.getByRole('link', { name: 'The PERIOD Code', exact: true }).click();
+  {
+    await openSiteMenu(page);
+    await expect(nav.getByRole('link')).toHaveText([
+      'Frameworks',
+      'The PERIOD Code',
+      'How to Rebuild Yourself',
+      'The Discipline Loop',
+      'Pure Execution Mode',
+    ]);
+  }
+  {
+    await openSiteMenu(page);
+    await nav.getByRole('link', { name: 'The PERIOD Code', exact: true }).click();
+  }
   await expect(page.locator('#why-period')).toBeInViewport();
   for (const [name, path, title] of [
     ['How to Rebuild Yourself', '/read/rebuild.html', 'How to Rebuild Yourself: Complete reading'],
@@ -356,7 +363,10 @@ test('Work72 no-script root introduces all frameworks and retains real native re
     ['Pure Execution Mode', '/read/execution.html', 'Pure Execution Mode'],
   ]) {
     await page.goto(baseURL! + '/');
-    await nav.getByRole('link', { name, exact: true }).click();
+    {
+      await openSiteMenu(page);
+      await nav.getByRole('link', { name, exact: true }).click();
+    }
     expect(new URL(page.url()).pathname).toBe(path);
     await expect(page.locator('h1')).toHaveText(title);
   }

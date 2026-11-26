@@ -7,7 +7,7 @@ export const homepage = {
   title: 'Your values have to show up.',
   titleStart: 'Your values have to ',
   titleEmphasis: 'show up.',
-  lead: 'Only Empowerment is the free educational companion to The PERIOD Code by Jim Lunsford. Learn its six connected values through full lessons and practical examples.',
+  lead: 'The PERIOD Code is one of four free learning frameworks on Only Empowerment, all by Jim Lunsford. Learn its six connected values through full lessons and practical examples.',
   opening: 'Knowing what matters is a start. The work is putting it into action.',
   start: 'Start with an ordinary moment',
   moment: 'You owe someone an update.',
@@ -34,6 +34,8 @@ export const homepage = {
   valuesHeading: 'Start with Ownership. Keep the whole Code.',
   values:
     'Ownership gives you responsibility. Purpose gives it direction. Resilience protects that direction under pressure. Integrity keeps it honest. Discipline turns it into repeated action. Empowerment uses that strength to help others stand.',
+  acronym:
+    'P = Purpose. E = Empowerment. R = Resilience. I = Integrity. O = Ownership. D = Discipline.',
   order:
     'The teaching order follows the work of rebuilding, rather than the letters in PERIOD. You can open any lesson and return to it as life requires.',
   continue: 'Start with Ownership',

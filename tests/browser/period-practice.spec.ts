@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import {
@@ -262,10 +263,13 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
   await expect(page.locator('#period-valueId')).toHaveValue('ownership');
   await page.reload();
   await page.locator('#period-valueId').selectOption('purpose');
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Ownership', exact: true })
@@ -276,10 +280,13 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
     .click();
   await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
   await expect(page.locator('#period-valueId')).toHaveValue('purpose');
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Ownership', exact: true })
@@ -296,10 +303,13 @@ test('practice leaves selected-only drafts and complete cards untouched, includi
   await page.locator('.support summary').click();
   await page.locator('#period-returnPlan').fill(correction);
   await page.getByRole('button', { name: 'Make my standard card' }).click();
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Ownership', exact: true })
@@ -368,10 +378,13 @@ test('fictional exploration and private card produce no requests, logs, URLs or 
   page.on('pageerror', (e) => logs.push(e.message));
   await page.goto('/#/period/standard');
   await page.locator('#period-standard').fill(marker);
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Ownership', exact: true })

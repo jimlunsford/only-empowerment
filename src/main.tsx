@@ -281,6 +281,68 @@ function App() {
   else if (path === '/period/book') content = <PeriodBook standalone />;
   else if (path === '/privacy') content = <Privacy />;
   else content = <NotFound path={path} />;
+  const headerLinks = (
+    <>
+      {editorial && (
+        <nav class="framework-switch" aria-label="Framework navigation">
+          <a href="#/">Frameworks</a>
+          <a href="#/period" aria-current="location">
+            The PERIOD Code
+          </a>
+          <a href="#/rebuild">How to Rebuild Yourself</a>
+          <a href="#/loop">The Discipline Loop</a>
+          <a href="#/execution">Pure Execution Mode</a>
+        </nav>
+      )}
+      <nav aria-label="Main navigation" class={editorial ? 'period-local-navigation' : undefined}>
+        {editorial ? (
+          <>
+            <a
+              href="#/period/why"
+              aria-current={
+                path === '/period/why' ||
+                location.hash === '#/period/why' ||
+                location.hash === '#why-period'
+                  ? 'location'
+                  : undefined
+              }
+            >
+              Why PERIOD?
+            </a>
+            <a
+              href="#/period/teaching-order"
+              aria-current={
+                (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&
+                path !== '/period/standard' &&
+                path !== '/period/book' &&
+                path !== '/period/why'
+                  ? 'location'
+                  : undefined
+              }
+            >
+              Explore the values
+            </a>
+          </>
+        ) : (
+          <>
+            <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
+              Frameworks
+            </a>
+            <a href="#/period">The PERIOD Code</a>
+            <a href="#/rebuild" aria-current={path.startsWith('/rebuild') ? 'location' : undefined}>
+              How to Rebuild Yourself
+            </a>
+            <a href="#/loop" aria-current={path.startsWith('/loop') ? 'location' : undefined}>
+              The Discipline Loop
+            </a>
+            <a href="#/execution" aria-current={path === '/execution' ? 'location' : undefined}>
+              Pure Execution Mode
+            </a>
+          </>
+        )}
+      </nav>
+    </>
+  );
   return (
     <div class={`site-shell ${editorial ? 'period-shell' : ''}`}>
       <a
@@ -304,67 +366,32 @@ function App() {
             </span>
           </span>
         </a>
-        {editorial && (
-          <nav class="framework-switch" aria-label="Framework navigation">
-            <a href="#/">Frameworks</a>
-            <a href="#/period" aria-current="location">
-              The PERIOD Code
-            </a>
-            <a href="#/rebuild">How to Rebuild Yourself</a>
-            <a href="#/loop">The Discipline Loop</a>
-            <a href="#/execution">Pure Execution Mode</a>
-          </nav>
-        )}
-        <nav aria-label="Main navigation" class={editorial ? 'period-local-navigation' : undefined}>
-          {editorial ? (
-            <>
-              <a
-                href="#/period/why"
-                aria-current={
-                  path === '/period/why' ||
-                  location.hash === '#/period/why' ||
-                  location.hash === '#why-period'
-                    ? 'location'
-                    : undefined
-                }
-              >
-                Why PERIOD?
-              </a>
-              <a
-                href="#/period/teaching-order"
-                aria-current={
-                  (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&
-                  path !== '/period/standard' &&
-                  path !== '/period/book' &&
-                  path !== '/period/why'
-                    ? 'location'
-                    : undefined
-                }
-              >
-                Explore the values
-              </a>
-            </>
-          ) : (
-            <>
-              <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
-                Frameworks
-              </a>
-              <a href="#/period">The PERIOD Code</a>
-              <a
-                href="#/rebuild"
-                aria-current={path.startsWith('/rebuild') ? 'location' : undefined}
-              >
-                How to Rebuild Yourself
-              </a>
-              <a href="#/loop" aria-current={path.startsWith('/loop') ? 'location' : undefined}>
-                The Discipline Loop
-              </a>
-              <a href="#/execution" aria-current={path === '/execution' ? 'location' : undefined}>
-                Pure Execution Mode
-              </a>
-            </>
-          )}
-        </nav>
+        <details
+          class="site-menu"
+          onKeyDown={(event) => {
+            if (event.key === 'Escape' && event.currentTarget.open) {
+              event.preventDefault();
+              event.currentTarget.open = false;
+              event.currentTarget.querySelector('summary')?.focus();
+            }
+          }}
+          onClick={(event) => {
+            const link = (event.target as Element).closest('a');
+            if (
+              link &&
+              event.button === 0 &&
+              !event.metaKey &&
+              !event.ctrlKey &&
+              !event.shiftKey &&
+              !event.altKey
+            )
+              event.currentTarget.open = false;
+          }}
+        >
+          <summary>Menu</summary>
+          {headerLinks}
+        </details>
+        <div class="desktop-navigation">{headerLinks}</div>
       </header>
       <main
         id="main"
@@ -405,8 +432,11 @@ function App() {
           <a href="#/rebuild">How to Rebuild Yourself</a>
           <a href="#/loop">The Discipline Loop</a>
           <a href="#/execution">Pure Execution Mode</a>
+          <a href="/read/index.html" target="_blank" rel="noopener noreferrer">
+            All reading editions (new tab)
+          </a>
           <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
-            About the book
+            About The PERIOD Code book
           </a>
           <a href="#/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>
             Privacy &amp; source

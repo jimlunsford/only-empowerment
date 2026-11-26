@@ -1,3 +1,4 @@
+import { frameworkChoices } from './framework-navigation.ts';
 import { loopBookUrl, loopSections, loopStages, loopTransfer } from './loop-content.ts';
 import { loopScenario, type LoopStateId, type LoopState } from './loop-practice-content.ts';
 
@@ -154,6 +155,21 @@ export function loopTeaching(surface: LoopSurface = 'app'): LoopNode {
               block.text.slice(index + label.length),
             );
           }
+          if (section.id === 'frameworks') {
+            const sibling = frameworkChoices.find(
+              (item) => item.id !== 'loop' && block.text.includes(item.title),
+            );
+            if (sibling) {
+              const index = block.text.indexOf(sibling.title);
+              return node(
+                'p',
+                {},
+                block.text.slice(0, index),
+                anchor(surface === 'app' ? '#/' + sibling.id : sibling.reading, sibling.title),
+                block.text.slice(index + sibling.title.length),
+              );
+            }
+          }
           return paragraph(block.text);
         }),
         ...(section.id === 'restart'
@@ -177,7 +193,29 @@ export function loopTeaching(surface: LoopSurface = 'app'): LoopNode {
             ]
           : []),
         ...(section.id === 'source'
-          ? [paragraphLink(loopBookUrl, "Visit Jim Lunsford's book page")]
+          ? [
+              paragraphLink(loopBookUrl, "Visit Jim Lunsford's book page"),
+              node(
+                'section',
+                { class: 'framework-bridges', 'aria-label': 'Where to go next' },
+                node(h2, {}, 'Where to go next'),
+                node(
+                  'ul',
+                  {},
+                  ...frameworkChoices
+                    .filter((item) => item.id !== 'loop')
+                    .map((item) =>
+                      node(
+                        'li',
+                        {},
+                        anchor(surface === 'app' ? '#/' + item.id : item.reading, item.title),
+                        ': ' + item.situation,
+                      ),
+                    ),
+                ),
+                anchor(surface === 'app' ? '#/' : '/read/index.html', 'Choose another framework'),
+              ),
+            ]
           : []),
       ),
     ),

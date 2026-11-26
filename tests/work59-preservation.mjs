@@ -1,3 +1,4 @@
+import { beforeBatch2Reading } from './batch2-preservation.mjs';
 import assert from 'node:assert/strict';
 import { beforeWork75Source } from './work75-preservation.mjs';
 import { beforeWork73Reading } from './work73-preservation.mjs';
@@ -27,6 +28,7 @@ export function beforeWork59Source(source, path) {
 }
 
 export function beforeWork59RootReading(html) {
+  html = beforeBatch2Reading(html);
   html = beforeWork73Reading(html);
   html = beforeWork62RootReading(html);
   assert.equal(sha(html), '2608481f3eb0a09d82872950ff8d9490dfc3373718598897aa29ff8513b57900');

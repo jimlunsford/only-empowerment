@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { writeFile } from 'node:fs/promises';
@@ -66,9 +67,12 @@ test('the complete approved lesson stands alone and the header offers six full l
   await checkLesson(page);
   await expect(page.locator('.discipline-lesson > section h2')).toHaveCount(11);
   await expect(page.locator('main input, main textarea, main select')).toHaveCount(0);
-  await expect(
-    page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
-  ).toHaveText(['Why PERIOD?', 'Explore the values']);
+  {
+    await openSiteMenu(page);
+    await expect(
+      page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
+    ).toHaveText(['Why PERIOD?', 'Explore the values']);
+  }
   await expect(
     page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
@@ -359,10 +363,13 @@ test('Discipline can preselect only a blank card, with existing text, print, cop
   expect(first!.y + first!.height).toBeLessThan(900);
   await page.locator('#period-standard').fill('SYNTHETIC: I give accurate updates.');
   await page.locator('#period-nextApplication').fill('SYNTHETIC: Correct the handover.');
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Discipline', exact: true })
@@ -370,10 +377,13 @@ test('Discipline can preselect only a blank card, with existing text, print, cop
   await page.getByRole('link', { name: content.lesson.cardLink, exact: true }).click();
   await expect(page.locator('#period-standard')).toHaveValue('SYNTHETIC: I give accurate updates.');
   await page.locator('#period-valueId').selectOption('purpose');
-  await page
-    .getByRole('navigation', { name: 'Main navigation' })
-    .getByRole('link', { name: 'Explore the values' })
-    .click();
+  {
+    await openSiteMenu(page);
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Explore the values' })
+      .click();
+  }
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: 'Discipline', exact: true })

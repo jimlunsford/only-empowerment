@@ -1,3 +1,4 @@
+import { beforeBatch2Source } from './batch2-preservation.mjs';
 import { beforeBatch1Source } from './batch1-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -170,7 +171,11 @@ test('public route allowlist and native aliases cover every target and reject ma
 
 test('static editions are script independent, escaped, and have complete explanations', () => {
   for (const html of [executionReading(), executionFallback()]) {
-    assert.doesNotMatch(html, /<script|<form|<textarea|<input|<details|\sonclick=/i);
+    assert.doesNotMatch(html, /<script|<form|<textarea|<input|\sonclick=/i);
+    assert.doesNotMatch(
+      html.replace(/<header class="site-header">[\s\S]*?<\/header>/, ''),
+      /<details/,
+    );
     assert.equal((html.match(/data-execution-section=/g) || []).length, 9);
     assert.doesNotMatch(html, /M0[1-9]|P0\d{3}/);
   }
@@ -255,12 +260,15 @@ test('bounded integration edits reverse exactly, reject mutation, and retain old
     ].sort(),
   );
   for (const [path, change] of Object.entries(changes)) {
-    const current = readFileSync(path, 'utf8');
+    const current = beforeBatch2Source(readFileSync(path, 'utf8'), path);
     const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
     assert.equal(sha(current), change.afterSha256, path);
     assert.equal(beforeWork80Source(current, path), original, path);
     assert.equal(beforeWork80Source(original, path), original, path);
-    assert.throws(() => beforeWork80Source(current + '\n', path), /Unexpected Work80 bytes/);
+    assert.throws(
+      () => beforeWork80Source(current + '\n', path),
+      /Unexpected (?:Work80|Batch2) bytes/,
+    );
   }
   const paths = execFileSync('git', ['ls-tree', '-r', '--name-only', base], { encoding: 'utf8' })
     .trim()
@@ -284,7 +292,7 @@ test('bounded integration edits reverse exactly, reject mutation, and retain old
   assert.ok(paths.length > 40);
   for (const path of paths)
     assert.equal(
-      beforeBatch1Source(readFileSync(path, 'utf8'), path),
+      beforeBatch1Source(beforeBatch2Source(readFileSync(path, 'utf8'), path), path),
       execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
       path,
     );

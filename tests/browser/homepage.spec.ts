@@ -1,7 +1,11 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import approved from '../fixtures/work32-homepage-copy.json' with { type: 'json' };
+import historicalCopy from '../fixtures/work32-homepage-copy.json' with { type: 'json' };
 import { homepage as c } from '../../src/period-homepage-content';
+const approved = historicalCopy.map((line) =>
+  line.startsWith('Only Empowerment is the free educational companion') ? c.lead : line,
+);
 const target = (page: Page, id: string) => page.locator(`[id="${id}"]`);
 const fits = (page: Page) =>
   page.evaluate(() => document.documentElement.scrollWidth <= innerWidth);
@@ -61,10 +65,12 @@ test('first moment and Why PERIOD support direct entry, keyboard, repetition, re
     await visibleTarget(page, id);
     await page.reload();
     await visibleTarget(page, id);
+    if (label !== c.start) await openSiteMenu(page);
     await page.getByRole('link', { name: label, exact: true }).focus();
     await page.keyboard.press('Enter');
     await visibleTarget(page, id);
     await page.evaluate(() => scrollTo(0, 0));
+    if (label !== c.start) await openSiteMenu(page);
     await page.getByRole('link', { name: label, exact: true }).click();
     await visibleTarget(page, id);
     await page.evaluate(() => scrollTo(0, 650));
@@ -99,6 +105,7 @@ test('modified anchor clicks retain native new-tab semantics without moving the 
     const page = await context.newPage();
     await page.goto(baseURL! + '/#/period');
     await page.bringToFront();
+    if (label !== c.start) await openSiteMenu(page);
     const link = page.getByRole('link', { name: label, exact: true });
     const before = page.url();
     const popup = context.waitForEvent('page');
@@ -136,12 +143,20 @@ test('disabled and failed JavaScript retain the teaching, native anchors and com
       ['first-moment', c.start],
       ['why-period', 'The PERIOD Code'],
     ]) {
-      await page.getByRole('link', { name: label, exact: true }).focus();
+      if (id === 'why-period') await openSiteMenu(page);
+      const link =
+        id === 'why-period'
+          ? page
+              .getByRole('navigation', { name: 'Main navigation' })
+              .getByRole('link', { name: label, exact: true })
+          : page.getByRole('link', { name: label, exact: true });
+      await link.focus();
       await page.keyboard.press('Enter');
       await visibleTarget(page, id);
       await page.reload();
       await expect(target(page, id)).toBeInViewport();
-      await page.getByRole('link', { name: label, exact: true }).click();
+      if (id === 'why-period') await openSiteMenu(page);
+      await link.click();
       await visibleTarget(page, id);
     }
     // The native header now identifies all three frameworks. The teaching-order
@@ -191,11 +206,13 @@ test('homepage navigation neither reads storage nor loses an existing Standard C
   await page.goto('/#/period/standard');
   const marker = '  SYNTHETIC Work 33\nMy words remain mine.  ';
   await page.locator('#period-standard').fill(marker);
-  for (const label of ['Why PERIOD?', 'Explore the values'])
+  for (const label of ['Why PERIOD?', 'Explore the values']) {
+    await openSiteMenu(page);
     await page
       .getByRole('navigation', { name: 'Main navigation' })
       .getByRole('link', { name: label, exact: true })
       .click();
+  }
   await page.getByRole('link', { name: c.start, exact: true }).click();
   await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
   await expect(page.locator('#period-standard')).toHaveValue(marker);

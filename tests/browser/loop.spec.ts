@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { loopScenario, type LoopStateId } from '../../src/loop-practice-content';
@@ -21,6 +22,7 @@ test('third framework and existing Discipline and Rebuild remain distinct', asyn
   await expect(page.locator('.framework-options article')).toHaveCount(4);
   await page.getByRole('link', { name: 'Explore The Discipline Loop', exact: true }).click();
   await expect(page.locator('.loop-experience h1')).toHaveText('The Discipline Loop');
+  await openSiteMenu(page);
   await page
     .locator('.site-header')
     .getByRole('link', { name: 'The PERIOD Code', exact: true })

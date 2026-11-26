@@ -1,4 +1,6 @@
 import { h } from 'preact';
+import { frameworkAuthor, frameworkChoices } from './framework-navigation';
+import { FrameworkLinks } from './FrameworkLinks';
 import type { ComponentChild } from 'preact';
 import { rebuildTrees } from './rebuild-content';
 import { loopHomeCopy } from './loop-content';
@@ -65,6 +67,23 @@ export function FrameworkHome() {
           useful into your own life. The work belongs to you.
         </p>
       </header>
+      <p class="framework-author">
+        {frameworkAuthor[0]}
+        <br />
+        {frameworkAuthor[1]}
+      </p>
+      <nav class="framework-chooser" aria-label="Start here if">
+        <h2>Start here if...</h2>
+        <ul>
+          {frameworkChoices.map((item) => (
+            <li key={item.id}>
+              <a href={'#/' + item.id}>
+                {item.situation} <span>{item.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <section class="framework-orientation" aria-labelledby="framework-orientation-title">
         <h2 id="framework-orientation-title">{frameworkOrientation.heading}</h2>
         <p>{frameworkOrientation.relationship}</p>
@@ -126,9 +145,13 @@ export function RebuildGuide({ section }: { section: RebuildSection }) {
       <div class="wrap">
         {rebuildTrees[section].map((node) => renderTeachingNode(node, selectedNote, section))}
       </div>
+      {section === 'end' && <FrameworkLinks current="rebuild" />}
       <nav class="rebuild-footlinks" aria-label="Rebuilding framework navigation">
         <a href="#/rebuild">Explore the full rebuilding path</a>
         <a href="#/rebuild/complete">Read or print all teaching</a>
+        <a href="/read/rebuild.html" target="_blank" rel="noopener noreferrer">
+          Open the complete reading edition (new tab)
+        </a>
       </nav>
     </section>
   );

@@ -1,3 +1,4 @@
+import { beforeBatch2Source } from './batch2-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -22,13 +23,13 @@ test('Batch 1 reverses exactly to current main and rejects incidental edits insi
     ].sort(),
   );
   for (const [path, change] of Object.entries(changes)) {
-    const current = readFileSync(path, 'utf8');
+    const current = beforeBatch2Source(readFileSync(path, 'utf8'), path);
     const base = execFileSync('git', ['show', 'f1290043500c64c86e26f308ba198a880d7d9bba:' + path], {
       encoding: 'utf8',
     });
     assert.equal(sha(current), change.afterSha256, path);
     assert.equal(beforeBatch1Source(current, path), base, path);
-    assert.throws(() => beforeBatch1Source(current + '\n', path), /Unexpected Batch1 bytes/);
+    assert.throws(() => beforeBatch1Source(current + '\n', path), /Unexpected Batch[12] bytes/);
     const edit = change.edits[0];
     assert.throws(
       () =>
@@ -36,7 +37,7 @@ test('Batch 1 reverses exactly to current main and rejects incidental edits insi
           current.slice(0, edit.start) + 'x' + current.slice(edit.start + 1),
           path,
         ),
-      /Unexpected Batch1 bytes/,
+      /Unexpected Batch[12] bytes/,
     );
   }
 });

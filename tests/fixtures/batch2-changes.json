@@ -1,0 +1,491 @@
+{
+  "index.html": {
+    "beforeSha256": "4abfdaaf56a28738c1c93c34225dd73bfaddd79e48d10aad0a287a963f973ee8",
+    "afterSha256": "aead53e24bbd700e792970ece7b4e6f0b5f3f05d0ebfcec9ffc1985abf39480e",
+    "historicalSha256": [
+      "0216a8794480bfbe8a254b2e152514f717057474426f7d88ed61fa1392d6872b",
+      "133b7739b6882cf05a1371e6b2a1c90628e88ee949554428483eda041420ee77",
+      "26929992d06f0b3d81bdd93762aaceebaaf076b226d889b6e8fab36bce252e2b",
+      "2ddde83b834b050e947ee34c9992b228b3cc91f6ca1eaff3c343999ebc4e6164",
+      "3632bae5fdfa16c8c6b46d37655e2b1f9c717940504cd6b57ca926a8ddabeea4",
+      "4abfdaaf56a28738c1c93c34225dd73bfaddd79e48d10aad0a287a963f973ee8",
+      "554b41ac4f542665a7e438a161ea3f6d655458d16573e586a850d96f6faded40",
+      "5e3e206aa6bb04e506b0bce69be58a7cd7f284fae952bfdf2883b2d69a7f899b",
+      "91f57fe2852c344966b3c15aeb22fb61094cff288fe2496d93f5e128d79a019f",
+      "91f687e125ca582876f4ff96150e766ed0dea2d7e979b82d7cea2bf02f5ec4ea",
+      "97f126df7ae1bf96e86510a05d5b8dc78be8f77f08e4334c949c858d25de43dd",
+      "a75c8db380a6474946a468e2fc19c8956aba3f3a6fd279f1cbff6dd762fc7fee",
+      "bb8b3af284119a407ed2cb54d356f759d3ff170650bcb35c0e872ce1dfc46c67",
+      "ce19cb41c13739dcbf9e0a6237fea0cb6c832e1cc8c8ed416c55334a04d0df03",
+      "d5440397d5fcdd8d8f0aba2c558de5c9412c6fcd6bd02fff9292da8aca7c98c8",
+      "dea187af83c9a700725c892737b25d6fc702aa91e0939a6bcd89fb035126641f",
+      "e914c6635ffb2fa4292521a0c7b7a3d554949c0c45cfc10f62f69ece169f4591",
+      "fea499191377808f911da6abd0ea3912c83dc82ec62f091eb932c22a333c1834"
+    ],
+    "edits": [
+      {
+        "start": 970,
+        "end": 1825,
+        "before": "<header class=\"site-header\"><a class=\"wordmark\" href=\"/\" aria-label=\"Only Empowerment home\">only<wbr><span>empower&shy;ment<span class=\"brand-dot\" aria-hidden=\"true\">.</span></span></a><nav aria-label=\"Main navigation\"><a href=\"/read/index.html\">Frameworks</a><a href=\"#why-period\">The PERIOD Code</a><a href=\"/read/rebuild.html\">How to Rebuild Yourself</a><a href=\"/read/loop.html\">The Discipline Loop</a><a href=\"/read/execution.html\">Pure Execution Mode</a></nav></header>\n",
+        "after": "<header class=\"site-header\"><a class=\"wordmark\" href=\"/\" aria-label=\"Only Empowerment home\">only<wbr><span>empower&shy;ment<span class=\"brand-dot\" aria-hidden=\"true\">.</span></span></a><details class=\"site-menu\"><summary>Menu</summary><nav aria-label=\"Main navigation\"><a href=\"/read/index.html\">Frameworks</a><a href=\"#why-period\">The PERIOD Code</a><a href=\"/read/rebuild.html\">How to Rebuild Yourself</a><a href=\"/read/loop.html\">The Discipline Loop</a><a href=\"/read/execution.html\">Pure Execution Mode</a></nav></details><div class=\"desktop-navigation\"><nav aria-label=\"Main navigation\"><a href=\"/read/index.html\">Frameworks</a><a href=\"#why-period\">The PERIOD Code</a><a href=\"/read/rebuild.html\">How to Rebuild Yourself</a><a href=\"/read/loop.html\">The Discipline Loop</a><a href=\"/read/execution.html\">Pure Execution Mode</a></nav></div></header>\n"
+      }
+    ]
+  },
+  "scripts/empowerment-reading.ts": {
+    "beforeSha256": "d20626eb3f977a71e83ea58a08e5ed0b6457133b7847eb28486467f2fdb872bb",
+    "afterSha256": "88c2db4727a079feb3d56db5e8ecee7fcebc37acaf0e01d626ae49b2b39f5ebf",
+    "historicalSha256": [
+      "07a2076f9c4c232101ca402f636749f5f7a6830e9bcd9fbd0a0fee4ab8e344de",
+      "ca2e7efea23ad46c51928fdc1233019eff2b534aff8f61e773bbf9c4629dc79f",
+      "d20626eb3f977a71e83ea58a08e5ed0b6457133b7847eb28486467f2fdb872bb",
+      "f893dbcc47cac0a05fe6a0ab3cab7e8c9f5c8dfe2e1e90c9c16a3704d1d79a45"
+    ],
+    "edits": [
+      {
+        "start": 0,
+        "end": 57,
+        "before": "",
+        "after": "import { frameworkBridges } from './framework-links.ts';\n"
+      },
+      {
+        "start": 5753,
+        "end": 5901,
+        "before": "</article><p class=\"source-note\">${escape(empowermentAttribution)}</p></main>${staticFooter(metadata)}</body></html>`;\n",
+        "after": "</article>${frameworkBridges('period')}<p class=\"source-note\">${escape(empowermentAttribution)}</p></main>${staticFooter(metadata)}</body></html>`;\n"
+      }
+    ]
+  },
+  "scripts/execution-reading.ts": {
+    "beforeSha256": "3a15758de224c61314187ea8d75b4b0cf4288668d823d58df0026c81d48483a5",
+    "afterSha256": "9a1f723a1f00284c8b75bee43fc9b5738f894228421d4b39c9f02b6fb13cdd60",
+    "historicalSha256": [
+      "3a15758de224c61314187ea8d75b4b0cf4288668d823d58df0026c81d48483a5",
+      "4e264d3473d849b023fed127fa96e547156a8985d3ba8ea1ce888ed22678c3a9"
+    ],
+    "edits": [
+      {
+        "start": 0,
+        "end": 56,
+        "before": "",
+        "after": "import { withDesktopNavigation } from './site-menu.ts';\n"
+      },
+      {
+        "start": 1002,
+        "end": 2450,
+        "before": "  return `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\"><title>Pure Execution Mode | Only Empowerment</title><link rel=\"stylesheet\" href=\"/read/execution.css\"></head><body class=\"site-shell native-execution\"><a class=\"skip-link\" href=\"#main\">Skip to content</a><header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a><nav aria-label=\"Reading navigation\"><a href=\"/read/index.html\">All readings</a><a href=\"/#/execution\">Open the guided workshop</a><a href=\"/read/privacy.html\">Privacy &amp; source</a></nav></header><main id=\"main\" class=\"site-main\" tabindex=\"-1\"><p class=\"execution-reading-note\">Complete reading edition. The accepted teaching and every workshop choice, consequence and explanation are visible. Use your browser's Print command for paper or PDF. No scripts or answers are required.</p>${renderExecutionHtml(executionTeaching('reading'))}</main>${staticFooter(build, 'execution')}</body></html>`;\n",
+        "after": "  return withDesktopNavigation(\n    `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\"><title>Pure Execution Mode | Only Empowerment</title><link rel=\"stylesheet\" href=\"/read/execution.css\"></head><body class=\"site-shell native-execution\"><a class=\"skip-link\" href=\"#main\">Skip to content</a><header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a><details class=\"site-menu\"><summary>Menu</summary><nav aria-label=\"Reading navigation\"><a href=\"/read/index.html\">All readings</a><a href=\"/#/execution\">Open the guided workshop</a><a href=\"/read/privacy.html\">Privacy &amp; source</a></nav></details></header><main id=\"main\" class=\"site-main\" tabindex=\"-1\"><p class=\"execution-reading-note\">Complete reading edition. The accepted teaching and every workshop choice, consequence and explanation are visible. Use your browser's Print command for paper or PDF. No scripts or answers are required.</p>${renderExecutionHtml(executionTeaching('reading'))}</main>${staticFooter(build, 'execution')}</body></html>`,\n  );\n"
+      }
+    ]
+  },
+  "scripts/homepage-fallback.ts": {
+    "beforeSha256": "f57c06aa1dc495a99d68f3b8ab13e6410a354c0bb73f89730d45c6e15ac48b4d",
+    "afterSha256": "c19d0ef3f9e8e079db845a4581e2d2bba518ad36d6ff65202c9f96248a332279",
+    "historicalSha256": [
+      "85e86342095bec9472dc36c425c677c4668b6081c36cf80fdf158553f423107e",
+      "f57c06aa1dc495a99d68f3b8ab13e6410a354c0bb73f89730d45c6e15ac48b4d"
+    ],
+    "edits": [
+      {
+        "start": 2379,
+        "end": 3228,
+        "before": "<section id=\"teaching-order\" class=\"home-values home-ruled\" tabindex=\"-1\" aria-labelledby=\"home-values-title\"><div class=\"home-columns\"><h2 id=\"home-values-title\">${escape(c.valuesHeading)}</h2><div>${p(c.values)}${p(c.order)}</div></div><nav class=\"period-sequence\" aria-label=\"PERIOD teaching order\"><ol class=\"path\" role=\"list\">${periodValues.map((v, i) => `<li><span class=\"native-route-alias\" id=\"/period/values/${v.id}\" aria-hidden=\"true\"></span><span class=\"num\" aria-hidden=\"true\">${String(i + 1).padStart(2, '0')}</span><div><span class=\"path-name\"><a href=\"${reading(v.id)}\">${escape(v.name)}</a></span>${p(v.role)}</div></li>`).join('')}</ol></nav><div class=\"home-continue\"><a class=\"button primary\" href=\"#reading-ownership\">${escape(c.continue)} <span aria-hidden=\"true\">→</span></a>${p(c.availability)}</div></section>\n",
+        "after": "<section id=\"teaching-order\" class=\"home-values home-ruled\" tabindex=\"-1\" aria-labelledby=\"home-values-title\"><div class=\"home-columns\"><h2 id=\"home-values-title\">${escape(c.valuesHeading)}</h2><div>${p(c.values)}${p(c.acronym)}${p(c.order)}</div></div><nav class=\"period-sequence\" aria-label=\"PERIOD teaching order\"><ol class=\"path\" role=\"list\">${periodValues.map((v, i) => `<li><span class=\"native-route-alias\" id=\"/period/values/${v.id}\" aria-hidden=\"true\"></span><span class=\"num\" aria-hidden=\"true\">${String(i + 1).padStart(2, '0')}</span><div><span class=\"path-name\"><a href=\"${reading(v.id)}\">${escape(v.name)}</a></span>${p(v.role)}</div></li>`).join('')}</ol></nav><div class=\"home-continue\"><a class=\"button primary\" href=\"#reading-ownership\">${escape(c.continue)} <span aria-hidden=\"true\">→</span></a>${p(c.availability)}</div></section>\n"
+      }
+    ]
+  },
+  "scripts/loop-reading.ts": {
+    "beforeSha256": "787ddfba1dd576bf4d23200ab942b5ca9688edf16cd950d5a9ac473e29326c48",
+    "afterSha256": "f4633a19d72e6ac51c64a9b9fea2a55390fc14872dd05811eea06a45141b35fa",
+    "historicalSha256": ["787ddfba1dd576bf4d23200ab942b5ca9688edf16cd950d5a9ac473e29326c48"],
+    "edits": [
+      {
+        "start": 0,
+        "end": 56,
+        "before": "",
+        "after": "import { withDesktopNavigation } from './site-menu.ts';\n"
+      },
+      {
+        "start": 1541,
+        "end": 2874,
+        "before": "  return `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\"><title>${escapeLoop(title)} | Only Empowerment</title><link rel=\"stylesheet\" href=\"/read/loop.css\"></head><body class=\"site-shell native-loop\"><a class=\"skip-link\" href=\"#main\">Skip to content</a><header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a><nav aria-label=\"Reading navigation\"><a href=\"/read/index.html\">All readings</a><a href=\"/read/loop.html\">Complete teaching</a><a href=\"/read/loop-practice.html\">Every outcome</a><a href=\"/#/loop\">Interactive experience</a></nav></header><main id=\"main\" class=\"site-main\" tabindex=\"-1\"><p class=\"loop-reading-note\">Complete reading edition. Use your browser's Print command for paper or PDF. No scripts or answers are required.</p>${body}</main>${staticFooter(build, 'loop')}</body></html>`;\n",
+        "after": "  return withDesktopNavigation(\n    `<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\"><title>${escapeLoop(title)} | Only Empowerment</title><link rel=\"stylesheet\" href=\"/read/loop.css\"></head><body class=\"site-shell native-loop\"><a class=\"skip-link\" href=\"#main\">Skip to content</a><header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a><details class=\"site-menu\"><summary>Menu</summary><nav aria-label=\"Reading navigation\"><a href=\"/read/index.html\">All readings</a><a href=\"/read/loop.html\">Complete teaching</a><a href=\"/read/loop-practice.html\">Every outcome</a><a href=\"/#/loop\">Interactive experience</a></nav></details></header><main id=\"main\" class=\"site-main\" tabindex=\"-1\"><p class=\"loop-reading-note\">Complete reading edition. Use your browser's Print command for paper or PDF. No scripts or answers are required.</p>${body}</main>${staticFooter(build, 'loop')}</body></html>`,\n  );\n"
+      }
+    ]
+  },
+  "scripts/rebuild-fallback.ts": {
+    "beforeSha256": "908b77cbaec650d59daf4526b6f10350034afe3ad656f74cf74c20d9af96e7c6",
+    "afterSha256": "9c8bd6661729dc29a8072413e8c354932a064f2700e2a4efeffa8f31364d6a8b",
+    "historicalSha256": [
+      "38880097fb4f54a7774f106522b20ab4d2834b7082eb22c89a8296d7387f122e",
+      "908b77cbaec650d59daf4526b6f10350034afe3ad656f74cf74c20d9af96e7c6",
+      "92413547fbf4f00a6d446f3fc45ad82eb214e8852bb601b30f0e2a1dbc8c1d3e",
+      "e630d576b0b1628233524b08282b3acf3b307b44c03c00d651fbba66d120dfd7",
+      "fa2279c1f16952d342294adfc9c0d0a22c985e10ec642f2aa9ddbc8faa597a30"
+    ],
+    "edits": [
+      {
+        "start": 0,
+        "end": 57,
+        "before": "",
+        "after": "import { frameworkBridges } from './framework-links.ts';\n"
+      },
+      {
+        "start": 3946,
+        "end": 4241,
+        "before": "  return `<section class=\"rebuild-guide\" id=\"rebuild-reading\" aria-label=\"How to Rebuild Yourself, complete teaching\"><div id=\"/rebuild\" tabindex=\"-1\"><div class=\"wrap all-reading\" ${target('index')}><div ${target('complete')}>${body}</div></div></div></section>`;\n",
+        "after": "  return `<section class=\"rebuild-guide\" id=\"rebuild-reading\" aria-label=\"How to Rebuild Yourself, complete teaching\"><div id=\"/rebuild\" tabindex=\"-1\"><div class=\"wrap all-reading\" ${target('index')}><div ${target('complete')}>${body}${frameworkBridges('rebuild')}</div></div></div></section>`;\n"
+      }
+    ]
+  },
+  "scripts/site-footer.ts": {
+    "beforeSha256": "0e46ee9bd7c4002e6ed5518187013c97548e754af45719cb0d18c2244fa35fe7",
+    "afterSha256": "32a68fd706f5a91578afb847a96cdd1d1e9861768a670ee2e05ffa8e460bbf19",
+    "historicalSha256": [
+      "0dc92a90fde4a0d55765246b38ab8dd16291a979307f14a61bb996624dc22648",
+      "0e46ee9bd7c4002e6ed5518187013c97548e754af45719cb0d18c2244fa35fe7",
+      "1a797cdb99bea4459041552f611a361649ded7a2fe2fee0c9e6101fd6688e9ac",
+      "36761058ffcb9176d9031663e34eeeb1f6adc53bfcbbd587f642157f3d0a0a0b",
+      "505ec32ff5162192f2bee17d03ffef6be559740e7ad9d05884231448c97b0081",
+      "71aa0c6aaffd8e1837433ea4de527ea9461aaa3ab3a12a3d5671457676f6cbe0",
+      "95651c7049f4a3331fd45fdac9b64083c76e9be64b2b5cc087e35b7bc289b663",
+      "d7463de3386283f5b515c183ed5296c83454d9c6d7acf51c6eb74d6ed164fa8d",
+      "dcb1d83c3fdd96d7f5b6b4dbf422d64bd25d444ddc617869ed17240fbc6d9e77"
+    ],
+    "edits": [
+      {
+        "start": 1847,
+        "end": 2293,
+        "before": "<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/read/index.html', 'All complete readings') + link('/read/rebuild.html', 'How to Rebuild Yourself') + link('/read/execution.html', 'Pure Execution Mode') + link('/#/period/book', 'About the book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n",
+        "after": "<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/read/index.html', 'All reading editions') + link('/#teaching-order', 'The PERIOD Code') + link('/read/rebuild.html', 'How to Rebuild Yourself') + link('/read/loop.html', 'The Discipline Loop') + link('/read/execution.html', 'Pure Execution Mode') + link('/#/period/book', 'About The PERIOD Code book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n"
+      },
+      {
+        "start": 2535,
+        "end": 2688,
+        "before": "<p class=\"footer-app-note\">About the book and Optional Standard Card require JavaScript. Privacy &amp; source and these readings do not.</p>\n",
+        "after": "<p class=\"footer-app-note\">About The PERIOD Code book and Optional Standard Card require JavaScript. Privacy &amp; source and these readings do not.</p>\n"
+      }
+    ]
+  },
+  "scripts/standalone-reading.ts": {
+    "beforeSha256": "55b9c25b9f3c53c17ad5a16cb1672296d1e5808cc22be591cb6b0287027d0edf",
+    "afterSha256": "2b8355b1cc5242966981afd739dfdda83d9e145f8e293799c68c5fa7e23de18e",
+    "historicalSha256": [
+      "0a1fca8c42491b0c9a99c6934a4a0aaab7ec81d73a175dcf8372f9e48a4615b7",
+      "29b6ace3b3a083fe66c97ed3e3998a4c7e9f703c17266c684c90d0c8e7c6d29e",
+      "55b9c25b9f3c53c17ad5a16cb1672296d1e5808cc22be591cb6b0287027d0edf",
+      "834a7c8bd042e105010a5a4799fd98a0ec7ae015dac46c59b269b603fc58a8a1",
+      "b1f4ef7430fcd6f01fd1ac071842a8e43002875d4918cd6fc0a9dd6512decfae"
+    ],
+    "edits": [
+      {
+        "start": 0,
+        "end": 56,
+        "before": "",
+        "after": "import { withDesktopNavigation } from './site-menu.ts';\n"
+      },
+      {
+        "start": 662,
+        "end": 2220,
+        "before": "  [\n    '<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\">',\n    '<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">',\n    `<meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\">`,\n    \"<meta http-equiv=\\\"Content-Security-Policy\\\" content=\\\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\\\">\",\n    '<link rel=\"stylesheet\" href=\"',\n    style,\n    '\"><title>',\n    title,\n    ' | Only Empowerment</title></head>',\n    `<body class=\"site-shell period-shell${framework === 'rebuild' ? ' native-rebuild' : ''}\"><a class=\"skip-link\" href=\"#main\">Skip to content</a>`,\n    '<header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a>',\n    '<nav aria-label=\"Static reading navigation\"><a href=\"/read/index.html\">All readings</a>',\n    '<a href=\"/read/rebuild.html\">How to Rebuild Yourself</a>',\n    '<a href=\"/read/privacy.html\">Privacy &amp; source</a></nav></header>',\n    '<main id=\"main\" class=\"site-main\" tabindex=\"-1\">',\n    body,\n    '</main>',\n    staticFooter(build, framework),\n    '</body></html>',\n  ].join('');\n",
+        "after": "  withDesktopNavigation(\n    [\n      '<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\">',\n      '<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">',\n      `<meta name=\"robots\" content=\"${staging ? 'noindex, nofollow' : 'index, follow'}\"><meta name=\"referrer\" content=\"no-referrer\">`,\n      \"<meta http-equiv=\\\"Content-Security-Policy\\\" content=\\\"default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'\\\">\",\n      '<link rel=\"stylesheet\" href=\"',\n      style,\n      '\"><title>',\n      title,\n      ' | Only Empowerment</title></head>',\n      `<body class=\"site-shell period-shell${framework === 'rebuild' ? ' native-rebuild' : ''}\"><a class=\"skip-link\" href=\"#main\">Skip to content</a>`,\n      '<header class=\"site-header\"><a class=\"wordmark\" href=\"/read/index.html\">Only Empowerment</a>',\n      '<details class=\"site-menu\"><summary>Menu</summary><nav aria-label=\"Static reading navigation\"><a href=\"/read/index.html\">All readings</a>',\n      '<a href=\"/#teaching-order\">The PERIOD Code</a>',\n      '<a href=\"/read/rebuild.html\">How to Rebuild Yourself</a>',\n      '<a href=\"/read/loop.html\">The Discipline Loop</a>',\n      '<a href=\"/read/execution.html\">Pure Execution Mode</a>',\n      '<a href=\"/read/privacy.html\">Privacy &amp; source</a></nav></details></header>',\n      '<main id=\"main\" class=\"site-main\" tabindex=\"-1\">',\n      body,\n      '</main>',\n      staticFooter(build, framework),\n      '</body></html>',\n    ].join(''),\n  );\n"
+      }
+    ]
+  },
+  "src/Empowerment.tsx": {
+    "beforeSha256": "8cc3268ff1dad877d91efea8e2ea48dd482150df861fd1c0005e3ddfc069b750",
+    "afterSha256": "8de4cea78196d1048127621f7c853308f88bdc69ed53bfccfdacae2b325eeb0a",
+    "historicalSha256": [
+      "3803d7199de9d6c504e8fb9c3d08b08f4126a16a611cc5d0a25bf9d969a6980c",
+      "8cc3268ff1dad877d91efea8e2ea48dd482150df861fd1c0005e3ddfc069b750",
+      "b0aa7834ac6e8a7e114e7274b183c5f7bcdfe76656cfaf699fdc5c858d9bf0c4",
+      "ea8835692ebf2e43e8264f130027d53dc05ee6c5bc91b2701d805da3ddf4ece1"
+    ],
+    "edits": [
+      {
+        "start": 0,
+        "end": 51,
+        "before": "",
+        "after": "import { FrameworkLinks } from './FrameworkLinks';\n"
+      },
+      {
+        "start": 7767,
+        "end": 7813,
+        "before": "",
+        "after": "          <FrameworkLinks current=\"period\" />\n"
+      }
+    ]
+  },
+  "src/PeriodHomepage.tsx": {
+    "beforeSha256": "11cb5fa2ef121317c52e4d2a9a2f6b6a1679a36d7ae64bd596789748520b53e1",
+    "afterSha256": "e340deda50152bec4213896f26115daf2a8ec6337d2159a1c73a8f1dc842fa15",
+    "historicalSha256": [
+      "11cb5fa2ef121317c52e4d2a9a2f6b6a1679a36d7ae64bd596789748520b53e1",
+      "157724fa5a5b3229da803234ac04b05783d6c2bf6408102f39f12863b4d23ce5",
+      "bed3b3a1e85de12ec6ceac784556280aa931544a4c89f45760fe02d86fdec6e8"
+    ],
+    "edits": [
+      {
+        "start": 3122,
+        "end": 3153,
+        "before": "",
+        "after": "            <p>{c.acronym}</p>\n"
+      }
+    ]
+  },
+  "src/Rebuild.tsx": {
+    "beforeSha256": "4d3c13e11d1c0f280d3ca6d4c52d4a09b40e780457337bbc342f09a491082925",
+    "afterSha256": "e4d7361098048e901f1bb6c2511502fbc88594148825b669b392ef67ae049448",
+    "historicalSha256": [
+      "185925c5ea7fc1d281fb50dca3d11a2c00a4253ed6a9a0431583f60bbdde4fb1",
+      "44d0135eab8aace3132f4ff5f20eb7422631b3da3606fc76b2cb7a443b44d4b8",
+      "4d3c13e11d1c0f280d3ca6d4c52d4a09b40e780457337bbc342f09a491082925",
+      "66ad6bd9bdf10c7d3f7fd3692f8f38e568fda47ab1be20818caffdc4cc30488d",
+      "790a09342f28216fa906c6eff0f6c0dd2abf9625d423048787704efc7a8ad94c",
+      "c3fe56b281a743498a8e13add758da6152288b0214774e0550e76a9240d4d6ea"
+    ],
+    "edits": [
+      {
+        "start": 28,
+        "end": 155,
+        "before": "",
+        "after": "import { frameworkAuthor, frameworkChoices } from './framework-navigation';\nimport { FrameworkLinks } from './FrameworkLinks';\n"
+      },
+      {
+        "start": 2776,
+        "end": 3259,
+        "before": "",
+        "after": "      <p class=\"framework-author\">\n        {frameworkAuthor[0]}\n        <br />\n        {frameworkAuthor[1]}\n      </p>\n      <nav class=\"framework-chooser\" aria-label=\"Start here if\">\n        <h2>Start here if...</h2>\n        <ul>\n          {frameworkChoices.map((item) => (\n            <li key={item.id}>\n              <a href={'#/' + item.id}>\n                {item.situation} <span>{item.title}</span>\n              </a>\n            </li>\n          ))}\n        </ul>\n      </nav>\n"
+      },
+      {
+        "start": 5735,
+        "end": 5801,
+        "before": "",
+        "after": "      {section === 'end' && <FrameworkLinks current=\"rebuild\" />}\n"
+      },
+      {
+        "start": 6017,
+        "end": 6164,
+        "before": "",
+        "after": "        <a href=\"/read/rebuild.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Open the complete reading edition (new tab)\n        </a>\n"
+      }
+    ]
+  },
+  "src/loop-view.ts": {
+    "beforeSha256": "2137bfc209548eb464c05456aa58fb8874a9cc62b2e89b87cf6def8e7d1adf96",
+    "afterSha256": "b0c015a5aeadf3fc259a1175a4650323bbc28571b78ef5ae2aad7e9fd9c6e57a",
+    "historicalSha256": [
+      "13122abee166a75d30b7a60deb6df95c2bdea7108f19ab67e7c1dcac3a1712e0",
+      "2137bfc209548eb464c05456aa58fb8874a9cc62b2e89b87cf6def8e7d1adf96",
+      "c8432c734b4225cccff22263fe15bd21d62665bf61c4b169679191dcc2ad55db"
+    ],
+    "edits": [
+      {
+        "start": 0,
+        "end": 62,
+        "before": "",
+        "after": "import { frameworkChoices } from './framework-navigation.ts';\n"
+      },
+      {
+        "start": 5465,
+        "end": 6060,
+        "before": "",
+        "after": "          if (section.id === 'frameworks') {\n            const sibling = frameworkChoices.find(\n              (item) => item.id !== 'loop' && block.text.includes(item.title),\n            );\n            if (sibling) {\n              const index = block.text.indexOf(sibling.title);\n              return node(\n                'p',\n                {},\n                block.text.slice(0, index),\n                anchor(surface === 'app' ? '#/' + sibling.id : sibling.reading, sibling.title),\n                block.text.slice(index + sibling.title.length),\n              );\n            }\n          }\n"
+      },
+      {
+        "start": 6858,
+        "end": 7751,
+        "before": "          ? [paragraphLink(loopBookUrl, \"Visit Jim Lunsford's book page\")]\n",
+        "after": "          ? [\n              paragraphLink(loopBookUrl, \"Visit Jim Lunsford's book page\"),\n              node(\n                'section',\n                { class: 'framework-bridges', 'aria-label': 'Where to go next' },\n                node(h2, {}, 'Where to go next'),\n                node(\n                  'ul',\n                  {},\n                  ...frameworkChoices\n                    .filter((item) => item.id !== 'loop')\n                    .map((item) =>\n                      node(\n                        'li',\n                        {},\n                        anchor(surface === 'app' ? '#/' + item.id : item.reading, item.title),\n                        ': ' + item.situation,\n                      ),\n                    ),\n                ),\n                anchor(surface === 'app' ? '#/' : '/read/index.html', 'Choose another framework'),\n              ),\n            ]\n"
+      }
+    ]
+  },
+  "src/main.tsx": {
+    "beforeSha256": "5ca6688e69182ac34a1f73db612452db68126a25acd230040427059fdb6995fb",
+    "afterSha256": "f7d12c14b7e9d6e90254a624ae392ec4a34ff8828e229a011208ab8404a0f243",
+    "historicalSha256": [
+      "04219f1ce794a15638c862be1f4239f7b96c9729bf8381bfb988e53484f8828c",
+      "0f5f362edc496d2a1045e8406243e825963645d3eb9bee076c714ae3e9f431c3",
+      "15e4ac7e00827fa6a2bf001f883b4c343654fc0b9cfdb00608b79c39fd908f2c",
+      "204746c35b58ae14c7694d7633bb565686db181a79e7258835bfa9b5e047b3ba",
+      "211189ba1c8b30f3f9b831c3ceb870636591b056abc46daea488aeadedcd80d0",
+      "2c3d102000be2dd7183938a496157126e11e5a643d89830170d01c6a733afab2",
+      "33339868b062c9cccc0720f307d54b014acd1560582980ee42d1cc5334f2438a",
+      "34021c8a871fcef94633f39679c0cdd9efd9ed32d4d11f8bd38bc1cfe7fd0ca6",
+      "3f6bc0f1e2339cd270e839f47e03d02bb61b8d58864f8c3d205e8292cf1c9a95",
+      "43b017694f1831376475d38c85c67eb53eea1afb318d2277e5eee4953551a857",
+      "45465781ea096423cf09a11389399952e74285c6cf8896d136a24325228ff1ff",
+      "4b897909329693b830b593e2949ec063260b309bc627c46092be352825f810a1",
+      "4c087d8574836ac4938821017e17b1b0cac5b8a4446ac44960c5259376c3d6ff",
+      "4e3e67aa5948730362a164298145ba96cc9a1e3e0c23e73c950fe1be0fd59a0f",
+      "4fbdf5127d3e739f9f78e03ac8616a4c8fc26104b5ba1ee17bf9380e3fd65099",
+      "51f6d24fe36eba680915a4c4cf6990a2116494b72f645211638ccfe3379aaea0",
+      "546bcf7d68aacdb184050f89f6e83118c2483151913397e591989403bff39685",
+      "548ceb116d20ccb854edcd3539bdb6456a07cdd20d5aafc82c1647c927537261",
+      "54ff85bb89c6732aaff26977d8b6c53ce3eca6a6589e44c7f0010e372cc13032",
+      "5ca6688e69182ac34a1f73db612452db68126a25acd230040427059fdb6995fb",
+      "60641a60c2d808f6d4aa2391b33e5fea66c4ca81875ff760b98b2d1408f1c1e6",
+      "64df2cce65e9464a7b8f3fef29e24683fe0bcfc76e7ea2df4d8b0fc009cd57fe",
+      "6ecba68ff43c1475c9e66f2b8fe09822c6b8b0deb1f793d1b428792f0a74551a",
+      "7248315cfe7e1676a66ae956efeb4c19eeedebfa3d7227095a56e4ae0214d415",
+      "784685c0f55c772897e8e9084c09872d707ff4ec4158294f1bdf16a089387e11",
+      "7d0d9161863aa44887712e1b365ea6fcaf19c2482a839ecd6ccf4cf08551110d",
+      "842b936a5526d187675c3546fe250026db439422743ea0ce6569f861477e8747",
+      "86ca11e7e8085e7f4e030ce4ea78be94d6cffe54561fe0ab413c45c4c916d7e3",
+      "973940c7a53459e14581f1a2ed2f37478f0fb77abcfbd26fd5cdecf3851515a8",
+      "9b06e0a60d13330c63e922771370e04a60c9f4dd92c10f625bd5411e2b80bb23",
+      "ba7f1650ccadd0a05e8bad6ec4f07e4b9d1d09ed49d107e5ed01795d976a14f6",
+      "bd118f816ce3561700803a19902b0be32ea0e38ff9d470e2da0abb21a527365c",
+      "c422a8bf1ac0ca5ee5099be72dead05606a508c1ed3d153830ff7ca49d964913",
+      "c785ff12c3c09af8f3644d01888fd6e3aed9216f0993e4ecb82887bfaec6c161",
+      "c8bdba77325ec066d1744e086f372426b92073090b533985690466cb68f4cf60",
+      "cc90f729f58d88182e1b7ae1a7422a168ec2c0654acf0474a662edb2b63cb69f",
+      "cd1cf265bfbdc795af3902006477197bb80ee9096af28747836239490b9284b8",
+      "d29a0d42ddd61db396cdf2be5cd3325b1eade54bc892daa785b81e0149f7d539",
+      "d4ae56878ac91c9962dc4a626470de1e3286f3ecf1c497f479c72f11c37c1fab",
+      "ea91f3c37669ce5481c02c7ffd7f1bce7a58f791a615b63876e02abf05e1bf52",
+      "ecd27fe4c5f8e67a5956f5fd40c34b22b10eae1138b1d64930028d2f84373007",
+      "f07a905a2fe4e3912dda1903b78c661dce3ab36360ea361c65dad01c35ad0dcc",
+      "fce0f7f37241d4eaed9b40fbf3e768733e4124b98ed3b703f5aaf7e048d3f437"
+    ],
+    "edits": [
+      {
+        "start": 13606,
+        "end": 15710,
+        "before": "",
+        "after": "  const headerLinks = (\n    <>\n      {editorial && (\n        <nav class=\"framework-switch\" aria-label=\"Framework navigation\">\n          <a href=\"#/\">Frameworks</a>\n          <a href=\"#/period\" aria-current=\"location\">\n            The PERIOD Code\n          </a>\n          <a href=\"#/rebuild\">How to Rebuild Yourself</a>\n          <a href=\"#/loop\">The Discipline Loop</a>\n          <a href=\"#/execution\">Pure Execution Mode</a>\n        </nav>\n      )}\n      <nav aria-label=\"Main navigation\" class={editorial ? 'period-local-navigation' : undefined}>\n        {editorial ? (\n          <>\n            <a\n              href=\"#/period/why\"\n              aria-current={\n                path === '/period/why' ||\n                location.hash === '#/period/why' ||\n                location.hash === '#why-period'\n                  ? 'location'\n                  : undefined\n              }\n            >\n              Why PERIOD?\n            </a>\n            <a\n              href=\"#/period/teaching-order\"\n              aria-current={\n                (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&\n                path !== '/period/standard' &&\n                path !== '/period/book' &&\n                path !== '/period/why'\n                  ? 'location'\n                  : undefined\n              }\n            >\n              Explore the values\n            </a>\n          </>\n        ) : (\n          <>\n            <a href=\"#/\" aria-current={path === '/' ? 'page' : undefined}>\n              Frameworks\n            </a>\n            <a href=\"#/period\">The PERIOD Code</a>\n            <a href=\"#/rebuild\" aria-current={path.startsWith('/rebuild') ? 'location' : undefined}>\n              How to Rebuild Yourself\n            </a>\n            <a href=\"#/loop\" aria-current={path.startsWith('/loop') ? 'location' : undefined}>\n              The Discipline Loop\n            </a>\n            <a href=\"#/execution\" aria-current={path === '/execution' ? 'location' : undefined}>\n              Pure Execution Mode\n            </a>\n          </>\n        )}\n      </nav>\n    </>\n  );\n"
+      },
+      {
+        "start": 16326,
+        "end": 17176,
+        "before": "        {editorial && (\n          <nav class=\"framework-switch\" aria-label=\"Framework navigation\">\n            <a href=\"#/\">Frameworks</a>\n            <a href=\"#/period\" aria-current=\"location\">\n              The PERIOD Code\n            </a>\n            <a href=\"#/rebuild\">How to Rebuild Yourself</a>\n            <a href=\"#/loop\">The Discipline Loop</a>\n            <a href=\"#/execution\">Pure Execution Mode</a>\n          </nav>\n        )}\n        <nav aria-label=\"Main navigation\" class={editorial ? 'period-local-navigation' : undefined}>\n          {editorial ? (\n            <>\n              <a\n                href=\"#/period/why\"\n                aria-current={\n                  path === '/period/why' ||\n                  location.hash === '#/period/why' ||\n                  location.hash === '#why-period'\n                    ? 'location'\n                    : undefined\n                }\n              >\n                Why PERIOD?\n              </a>\n              <a\n                href=\"#/period/teaching-order\"\n                aria-current={\n                  (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&\n                  path !== '/period/standard' &&\n                  path !== '/period/book' &&\n                  path !== '/period/why'\n                    ? 'location'\n                    : undefined\n                }\n              >\n                Explore the values\n              </a>\n            </>\n          ) : (\n            <>\n              <a href=\"#/\" aria-current={path === '/' ? 'page' : undefined}>\n                Frameworks\n              </a>\n              <a href=\"#/period\">The PERIOD Code</a>\n              <a\n                href=\"#/rebuild\"\n                aria-current={path.startsWith('/rebuild') ? 'location' : undefined}\n              >\n                How to Rebuild Yourself\n              </a>\n              <a href=\"#/loop\" aria-current={path.startsWith('/loop') ? 'location' : undefined}>\n                The Discipline Loop\n              </a>\n              <a href=\"#/execution\" aria-current={path === '/execution' ? 'location' : undefined}>\n                Pure Execution Mode\n              </a>\n            </>\n          )}\n        </nav>\n",
+        "after": "        <details\n          class=\"site-menu\"\n          onKeyDown={(event) => {\n            if (event.key === 'Escape' && event.currentTarget.open) {\n              event.preventDefault();\n              event.currentTarget.open = false;\n              event.currentTarget.querySelector('summary')?.focus();\n            }\n          }}\n          onClick={(event) => {\n            const link = (event.target as Element).closest('a');\n            if (\n              link &&\n              event.button === 0 &&\n              !event.metaKey &&\n              !event.ctrlKey &&\n              !event.shiftKey &&\n              !event.altKey\n            )\n              event.currentTarget.open = false;\n          }}\n        >\n          <summary>Menu</summary>\n          {headerLinks}\n        </details>\n        <div class=\"desktop-navigation\">{headerLinks}</div>\n"
+      },
+      {
+        "start": 18567,
+        "end": 18705,
+        "before": "",
+        "after": "          <a href=\"/read/index.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n            All reading editions (new tab)\n          </a>\n"
+      },
+      {
+        "start": 18800,
+        "end": 18839,
+        "before": "            About the book\n",
+        "after": "            About The PERIOD Code book\n"
+      }
+    ]
+  },
+  "src/navigation.css": {
+    "beforeSha256": "cee2cd6479b8b158e65cc4ac5dcef13e65387c453b55216aab2d89ae8ef7d958",
+    "afterSha256": "dba911c7c35fff0d9e2ef8660a95f378de3b2966367c36b974b4c56247fdaefb",
+    "historicalSha256": [
+      "097cc74aad4a80da28428a52c3bb553af775f7b9e387fb2596f57a99d6f7b8da",
+      "114540d26486c86373552df5c7bda047976a48477d99c55fb58b8f2635639577",
+      "15d88db708dbabce093384856ede07ddf1ac9f6efc3ba47bf94e61c4f71e3c8c",
+      "49e7a174e42f073ce3f1af24fa4e19c91215edcd50f2832bbc0a66c6fd53f267",
+      "970055532296018e342c5431ce71c59d7c0cdd62a17d4d7bf69678933a1ffa73",
+      "9cd9a8dee19c2c93efbe73ea77b898935225429a69945884cfd63acb9c0333a6",
+      "ac3d6ae2da85aaad7a4abf44461f63e37a6c3dd1410d8e5770e8bb481c819d3d",
+      "ada61eaa69c26c5107d9d0865edf9a33a0a18d1eeaa86fdfb2d574f1af77cfb7",
+      "cee2cd6479b8b158e65cc4ac5dcef13e65387c453b55216aab2d89ae8ef7d958",
+      "d35de6da0383852448a9eb23f8596506472e24d52b84ab8a50b2229ef2c5c609",
+      "fc617557e32e5b1788730e1b27d7c7343d0a64fd06c083f1efa7bb29a4f287b9"
+    ],
+    "edits": [
+      {
+        "start": 7399,
+        "end": 9278,
+        "before": "",
+        "after": "\n/* Batch 2: one native disclosure for global navigation, including script-free pages. */\n.site-shell .site-menu {\n  min-width: 0;\n  flex: 1 1 100%;\n}\n.site-shell .site-menu > summary {\n  min-height: 44px;\n  padding: 10px 12px;\n  cursor: pointer;\n  font-weight: 600;\n}\n.site-shell .site-menu > summary:focus-visible {\n  outline: 3px solid #98422e;\n  outline-offset: 3px;\n}\n/* Separate visible surfaces avoid forcing closed native details open with CSS,\n   which can hide desktop links from older browser accessibility trees. */\n.site-shell .desktop-navigation {\n  display: contents;\n}\n@media (min-width: 769px) {\n  .site-shell .site-menu {\n    display: none;\n  }\n}\n@media (max-width: 768px) {\n  .site-shell .desktop-navigation {\n    display: none;\n  }\n  .site-shell .site-header {\n    display: flex;\n    align-items: flex-start;\n    flex-direction: row;\n    padding: 12px 16px;\n    gap: 4px 12px;\n  }\n  .site-shell .site-header .wordmark {\n    font-size: 1.25rem;\n    line-height: 44px;\n    letter-spacing: -0.5px;\n  }\n  .site-shell .site-menu {\n    flex: 0 1 auto;\n    margin-left: auto;\n  }\n  .site-shell .site-menu[open] {\n    flex-basis: 100%;\n  }\n  .site-shell .site-menu > summary {\n    width: max-content;\n    margin-left: auto;\n  }\n  .site-shell .site-menu:not([open]) > nav {\n    display: none;\n  }\n  .site-shell .site-menu[open] > nav {\n    display: flex;\n    flex-direction: column;\n    align-items: stretch;\n    margin: 4px 0 0;\n    gap: 0;\n    width: 100%;\n  }\n  .site-shell .site-menu[open] > nav a {\n    padding: 10px 4px;\n    min-height: 44px;\n    overflow-wrap: anywhere;\n  }\n}\n.framework-bridges {\n  margin: 2rem auto;\n  max-width: 65ch;\n  padding: 1rem;\n  border-top: 1px solid #c9cec4;\n}\n.framework-bridges li {\n  margin-block: 0.75rem;\n}\n@media (forced-colors: active) {\n  .site-shell .site-menu > summary:focus-visible {\n    outline-color: Highlight;\n  }\n}\n"
+      }
+    ]
+  },
+  "src/period-homepage-content.ts": {
+    "beforeSha256": "406c1776d77426c04bc2db186dc6c69e8b6c01ff11640ed84bb6b2df0f172f36",
+    "afterSha256": "257d02de750137308399cfd24cbc8f40f32ff1da1297bc36e86ea647321247f8",
+    "historicalSha256": ["406c1776d77426c04bc2db186dc6c69e8b6c01ff11640ed84bb6b2df0f172f36"],
+    "edits": [
+      {
+        "start": 414,
+        "end": 599,
+        "before": "  lead: 'Only Empowerment is the free educational companion to The PERIOD Code by Jim Lunsford. Learn its six connected values through full lessons and practical examples.',\n",
+        "after": "  lead: 'The PERIOD Code is one of four free learning frameworks on Only Empowerment, all by Jim Lunsford. Learn its six connected values through full lessons and practical examples.',\n"
+      },
+      {
+        "start": 2633,
+        "end": 2743,
+        "before": "",
+        "after": "  acronym:\n    'P = Purpose. E = Empowerment. R = Resilience. I = Integrity. O = Ownership. D = Discipline.',\n"
+      }
+    ]
+  },
+  "src/rebuild-app.css": {
+    "beforeSha256": "3c414167f21567a31fc4cc3c675f212bac87820c1138f2c71204355b20905bbb",
+    "afterSha256": "be6e802d1b514567ee490a3cccdddaf277c9a105651a5351561c187f1dedfb54",
+    "historicalSha256": [
+      "0bf7823491b969e3d0cfd39d8853f637dd9cbc0e53d2b384bc4c531cf0b14021",
+      "3c414167f21567a31fc4cc3c675f212bac87820c1138f2c71204355b20905bbb",
+      "9f2d9571ab6021fc4b13954e3953225148ed712b9b38570ac4f589014c4793d8",
+      "ad93c3dabbdd3360d4986ce2f3f5422570861c47f6f484615223da87c7e34e31",
+      "d956c7a3a8445a8a2e6879ddc84df56a9876ab656665067f60e2608e68c13065",
+      "df16590d9726582c7d62545e508031dca46ecad612d4e84302e308e8581e1cb8",
+      "eb159634532736470d0a2ea65566f72236f3b892e46e5c1fa40af2eca81f1442",
+      "f16ff748409a8315112bbec799a7125dc405d0643009eba5df16629e13529bb7",
+      "f6f9fbd02676e2028bab81d18aec04a945ccdaf28eed77e919fc80005af71d4d"
+    ],
+    "edits": [
+      {
+        "start": 4801,
+        "end": 5716,
+        "before": "",
+        "after": "\n/* Immediate situation-based routes precede the longer framework explanation. */\n.framework-author {\n  font-size: 1rem;\n  line-height: 1.5;\n  margin-block: 1rem;\n}\n.framework-chooser ul {\n  display: grid;\n  grid-template-columns: repeat(2, minmax(0, 1fr));\n  gap: 0.5rem 1rem;\n  list-style: none;\n  padding: 0;\n}\n.framework-chooser a {\n  display: block;\n  min-height: 44px;\n  padding: 0.65rem 0;\n  font-size: 1rem;\n  line-height: 1.4;\n}\n.framework-chooser a span {\n  display: block;\n  font-weight: 700;\n}\n@media (max-width: 768px) {\n  .framework-hub {\n    padding: 1rem 0;\n  }\n  .framework-hub-intro h1 {\n    font-size: 2rem;\n    line-height: 1.15;\n    margin-block: 0.5rem;\n  }\n  .framework-hub-intro p {\n    font-size: 1rem;\n    line-height: 1.5;\n  }\n  .framework-chooser h2 {\n    font-size: 1.4rem;\n    margin-block: 1rem 0.25rem;\n  }\n  .framework-chooser ul {\n    grid-template-columns: 1fr;\n    gap: 0;\n  }\n}\n"
+      }
+    ]
+  },
+  "vite.config.ts": {
+    "beforeSha256": "56bc0f6e9bf49757cbfe25aa2ab4f8bb24a82c0868d69709207ed30eba71f7ba",
+    "afterSha256": "b2a68c647c0428f3ca55ca3c05a31cb6fc3a7b5987734cbbb17a4e27e0d7da41",
+    "historicalSha256": [
+      "0b50659ead57089c1cc6d6254332d1f1b7847868fabc33aafb5af911652366e3",
+      "32d56b9b24be0b50a23a82925f3610d16a7d3a42b3c5701224a71a78dd80c30b",
+      "4b36a95d1f8efd04aa8ebeb9d699c7f8ac4534aa0498eb3b0c325b271a3e3612",
+      "56bc0f6e9bf49757cbfe25aa2ab4f8bb24a82c0868d69709207ed30eba71f7ba",
+      "57d048286ef3f83f16acf33c0f131c467be1589f3ab69a4e3bb58a7965170c40",
+      "682e49b50d2e9aecc8c14983f78349731cad10d48e43f85934022fd85c0425db",
+      "7c9333638bfe2b729154b84611b7031aeda3da1eabeb916053d3e87edfb786a4",
+      "8043ff55f1a146aff8f3a61c6c3e201877a1414131adbf7363187da86d8f730e",
+      "854432b1c6d85598ca3c752530709b410bafea737fb5ae11b6653c4a71149932",
+      "86a3f6037caa33a064f9a3378ee18a74644d29fe35cf22a5fb6b21b0d6ca73a4",
+      "8cfcdb25542f1bdbe4279dcf28eb2075cc89e09d3dd22d5dbbb70607637d79e5",
+      "9a97df1e5751d15e84c3b004d24b62b806e01b38bb2e8f02d2b8128caec260ea",
+      "9cd0bcf1328fe613f723961779b0a5c983b80ee11c7759b8c92b6916051518ff",
+      "a322340c68b8af66d05c04443ab7fc257940ceba795119bd3bc462b9e603937b",
+      "afb9785bef26bfba245d23d20973f3283d14137c64c6368a6e5d2dae2393a1d3",
+      "b351bd0b7c71ca1404aef9569ee8e27669acd52582a61f2a4cdf16c82557b641",
+      "b3bdbef1a911ab56b0d6ea2d79661d90f573d6249847aa30b592e271faa4ceee",
+      "bff3b689c0bac693d562d46bf53c78757e8decae40bda2fe79fa897884661df9",
+      "c3bf7a02d9086a534e05429325388248e2c009159c810e48afae10c9d0043010",
+      "c6901dd2c7c2cfdc9d832c63d499b2f79ec670692085d9460fc00c04acef24c0",
+      "e38a7adcfa7f8bd33013bd8a6fcc60633b941e55fa597ac3bc80998bb0d67aa1"
+    ],
+    "edits": [
+      {
+        "start": 826,
+        "end": 891,
+        "before": "",
+        "after": "import { frameworkChooser } from './scripts/framework-links.ts';\n"
+      },
+      {
+        "start": 2505,
+        "end": 2531,
+        "before": "",
+        "after": "    'src/navigation.css',\n"
+      },
+      {
+        "start": 3981,
+        "end": 4016,
+        "before": "",
+        "after": "              frameworkChooser() +\n"
+      }
+    ]
+  }
+}

@@ -1,3 +1,4 @@
+import { openSiteMenu } from './helpers/site-menu';
 import { test, expect } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 import AxeBuilder from '@axe-core/playwright';
@@ -29,7 +30,7 @@ for (const [index, value] of values.entries()) {
       await navigation.evaluate((el) => {
         const section = el.closest('.lesson-transition')!;
         const sections = [...section.parentElement!.children].filter(
-          (child) => child.tagName === 'SECTION',
+          (child) => child.tagName === 'SECTION' && !child.classList.contains('framework-bridges'),
         );
         return sections.indexOf(section) >= sections.length - 2;
       }),
@@ -87,9 +88,12 @@ for (const width of [1440, 390, 320])
     for (const value of values) {
       await page.goto('/#/period/values/' + value);
       await page.evaluate(() => document.fonts.ready);
-      await expect(
-        page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
-      ).toHaveText(['Why PERIOD?', 'Explore the values']);
+      {
+        await openSiteMenu(page);
+        await expect(
+          page.getByRole('navigation', { name: 'Main navigation' }).getByRole('link'),
+        ).toHaveText(['Why PERIOD?', 'Explore the values']);
+      }
       await expect(
         page.getByRole('navigation', { name: 'Your practice' }).getByRole('link'),
       ).toHaveAttribute('href', '#/period/standard');
@@ -133,10 +137,13 @@ test('footer card entry preserves context, existing drafts and guarded book exit
   await page.locator('#period-valueId').selectOption('integrity');
   await page.locator('#period-standard').fill('SYNTHETIC WORK30: Preserve my exact draft.');
   for (const value of values) {
-    await page
-      .getByRole('navigation', { name: 'Main navigation' })
-      .getByRole('link', { name: 'Explore the values' })
-      .click();
+    {
+      await openSiteMenu(page);
+      await page
+        .getByRole('navigation', { name: 'Main navigation' })
+        .getByRole('link', { name: 'Explore the values' })
+        .click();
+    }
     await page
       .getByRole('navigation', { name: 'PERIOD teaching order' })
       .getByRole('link', { name: value[0].toUpperCase() + value.slice(1), exact: true })
@@ -147,7 +154,10 @@ test('footer card entry preserves context, existing drafts and guarded book exit
       'SYNTHETIC WORK30: Preserve my exact draft.',
     );
   }
-  await page.getByRole('contentinfo').getByRole('link', { name: 'About the book' }).click();
+  await page
+    .getByRole('contentinfo')
+    .getByRole('link', { name: 'About The PERIOD Code book' })
+    .click();
   await page.locator('main a[href="https://jimlunsford.com/period-code/"]').click();
   await expect(page.getByRole('dialog')).toContainText('Your card is only in this tab');
   await page.getByRole('button', { name: 'Stay here' }).click();

@@ -16,9 +16,15 @@ test('Work75 opener correction reverses exactly to Work73 and rejects unrelated 
       },
     );
     assert.equal(beforeWork75Source(source, path), original, path);
-    assert.throws(() => beforeWork75Source(source + '\n', path), /Unexpected Work(?:75|80) bytes/);
+    assert.throws(
+      () => beforeWork75Source(source + '\n', path),
+      /Unexpected (?:Work(?:75|80)|Batch2) bytes/,
+    );
     const edit = changes[path].edits.find((edit) => edit.after.length);
     const mutated = source.slice(0, edit.start) + 'x' + source.slice(edit.start + 1);
-    assert.throws(() => beforeWork75Source(mutated, path), /Unexpected Work(?:75|80) bytes/);
+    assert.throws(
+      () => beforeWork75Source(mutated, path),
+      /Unexpected (?:Work(?:75|80)|Batch2) bytes/,
+    );
   }
 });

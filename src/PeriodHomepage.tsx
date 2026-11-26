@@ -94,6 +94,7 @@ export function PeriodHomepage({ sequence }: { sequence: ComponentChildren }) {
           <h2 id="home-values-title">{c.valuesHeading}</h2>
           <div>
             <p>{c.values}</p>
+            <p>{c.acronym}</p>
             <p>{c.order}</p>
           </div>
         </div>
