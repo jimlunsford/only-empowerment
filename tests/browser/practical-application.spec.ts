@@ -236,7 +236,9 @@ for (const mode of ['normal', 'disabled', 'failed'] as const) {
           'href',
           '/#/period/standard',
         );
-        await expect(page.locator('.footer-app-note')).toContainText('require JavaScript');
+        await expect(page.locator('.footer-app-note')).toHaveText(
+          'Optional Standard Card requires JavaScript. Privacy & source and these readings do not.',
+        );
       } else {
         // Incoming native links use the alias; this does not add an application control.
         await page.evaluate(() => {

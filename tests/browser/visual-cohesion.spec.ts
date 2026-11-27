@@ -203,7 +203,9 @@ test('script-free readings and failed application mount retain one complete foot
   for (const path of ['/', ...values.slice(2).map((v) => '/read/' + v + '.html')]) {
     await page.goto(baseURL + path);
     await notices(page);
-    await expect(page.locator('.footer-app-note')).toContainText('require JavaScript');
+    await expect(page.locator('.footer-app-note')).toHaveText(
+      'Optional Standard Card requires JavaScript. Privacy & source and these readings do not.',
+    );
   }
   await context.close();
   const failed = await browser.newContext();
