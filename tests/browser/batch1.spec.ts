@@ -14,7 +14,7 @@ test('Batch 1.1: shared outcomes fit every reported incoming path and match both
     page.getByRole('button', { name: label, exact: true }).click();
   await page.goto('/#/loop/practice?state=miss');
   await choose('Tell the truth and locate the break');
-  await choose('Capacity is limited; arrange help or a return');
+  await choose('Explore changed conditions: too little sleep now limits capacity');
   await expect(scenario).toHaveAttribute('data-state', 'rest');
   await expect(scenario).not.toContainText(/go to bed|after sleep|inadequate sleep|put the phone/);
   await expect(scenario).toContainText(

@@ -1,3 +1,4 @@
+import { withReadingNavigation } from './site-menu.ts';
 import { staticFooter } from './site-footer.ts';
 import { executionPrivacyCopy } from '../src/execution-content.ts';
 import { footerBuildNotice, softwareNotice, type FooterBuild } from '../src/site-footer-content.ts';
@@ -11,7 +12,7 @@ const escape = (text: string) =>
 // Fixed public information only. This document has no script or access to browser records.
 export function privacyReading(staging = true, build?: FooterBuild) {
   const source = footerBuildNotice(build);
-  return `<!doctype html>
+  return withReadingNavigation(`<!doctype html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
@@ -40,5 +41,5 @@ ${staging ? '<p>The request-log policy rotates daily and retains up to 14 rotate
 ${source.source ? `<p><a href="${escape(source.source)}">Corresponding source for this build</a></p>` : `<p>${escape(source.text)}</p>`}
 <p>This page identifies this build’s corresponding source. Public source helps you inspect intended behavior; a commit label alone does not prove that the delivered files match it. <a href="/build.json">Build metadata</a> and <a href="/SHA256SUMS">file checksums</a> remain available for deployment verification.</p>
 <p><a href="/THIRD_PARTY_NOTICES.txt">Third-party notices</a>. The founder copyright statement does not limit the software permissions granted by AGPL-3.0-or-later.</p></section>
-</main>${staticFooter(build)}</body></html>`;
+</main>${staticFooter(build)}</body></html>`);
 }

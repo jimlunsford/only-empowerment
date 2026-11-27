@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import { beforeBatch6Source } from './batch6-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -100,5 +101,5 @@ test('Discipline and Privacy static editions retain the revised visible copy and
   assert.ok(privacy.includes('Confirm deletion of legacy data'));
   assert.ok(privacy.includes('Cancel is focused first'));
   assert.ok(privacy.includes('hosting logs'));
-  assert.ok(!privacy.includes('<script'));
+  assert.ok(!withoutReadingNavigation(privacy).includes('<script'));
 });

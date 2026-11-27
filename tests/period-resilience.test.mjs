@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import { periodFallback } from '../scripts/period-fallback.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -95,7 +96,7 @@ test('static export includes all lesson copy, every consequence, all fifteen exp
   ];
   for (const text of strings) assert.ok(html.includes(escape(text)), text);
   assert.doesNotMatch(
-    html,
+    withoutReadingNavigation(html),
     /<script|<input|<textarea|<select|<button|<details|localStorage|sessionStorage|aria-live/,
   );
   assert.match(html, /id="pressure-notes"/);

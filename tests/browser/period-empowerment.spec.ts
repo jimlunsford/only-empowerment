@@ -1,3 +1,4 @@
+import { expectReadingNavigation } from './helpers/reading-navigation';
 import { periodLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { homepage } from '../../src/period-homepage-content';
@@ -203,7 +204,10 @@ test('complete reading is independently served with scripts disabled or blocked 
       .getByRole('link', { name: periodLinkName('Empowerment') })
       .click();
     await expect(page).toHaveURL(/\/read\/empowerment.html$/);
-    await expect(page.locator('script,input,button,details,[hidden]')).toHaveCount(0);
+    await expectReadingNavigation(page);
+    await expect(
+      page.locator('script:not([src="/read/navigation.js"]),input,button,details,[hidden]'),
+    ).toHaveCount(0);
     await checkLesson(page.locator('main'));
     for (const state of copy.states)
       await checkReply(page.locator(`[data-reply="${state.id}"]`), state);

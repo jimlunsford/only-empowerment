@@ -1,3 +1,4 @@
+import { expectReadingNavigation } from './helpers/reading-navigation';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { frameworkOrientation as orientation } from '../../src/framework-home-content';
@@ -71,7 +72,7 @@ for (const miss of [false, true]) {
     const initial = miss ? 'miss' : 'pressure';
     await expect(previous(page)).toBeDisabled();
     const historyLength = await page.evaluate(() => history.length);
-    const url = page.url();
+    const url = page.url().replace('?state=miss', '');
     const path = [initial];
     for (const option of [0, 0, 0, 0]) {
       path.push(loopScenario.states[path.at(-1)!].options[option].next);
@@ -104,10 +105,7 @@ for (const miss of [false, true]) {
     await choose(page);
     await expect(previous(page)).toBeEnabled();
     await page.reload();
-    await expect(page.locator('.loop-scenario')).toHaveAttribute(
-      'data-state',
-      miss ? 'miss' : 'pressure',
-    );
+    await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'pressure');
     await expect(previous(page)).toBeDisabled();
     await choose(page);
     const historyLength = await page.evaluate(() => history.length);
@@ -202,7 +200,10 @@ test('Work73 native homepage and complete Loop reading preserve exact copy witho
     loopTransfer.scenario,
     loopTransfer.reflection,
   ]);
-  await expect(page.locator('script, input, textarea, form')).toHaveCount(0);
+  await expectReadingNavigation(page);
+  await expect(
+    page.locator('script:not([src="/read/navigation.js"]), input, textarea, form'),
+  ).toHaveCount(0);
   await noOverflow(page);
   await page.emulateMedia({ media: 'print' });
   await expect(reflection).toBeVisible();

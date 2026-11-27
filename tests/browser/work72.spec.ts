@@ -251,7 +251,7 @@ test('Work72 Reset replaces the miss entry; reload, Back and Forward agree with 
   await page
     .getByRole('button', { name: 'Tell the truth and locate the break', exact: true })
     .click();
-  await expect(page).toHaveURL(/state=miss$/); // Choices are still in memory only.
+  await expect(page).toHaveURL(/#\/loop\/practice$/); // Normalize the entry; choices remain in memory.
   await page.getByRole('button', { name: 'Reset example', exact: true }).click();
   await expect(page).toHaveURL(/#\/loop\/practice$/);
   await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'pressure');

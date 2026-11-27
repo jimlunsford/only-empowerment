@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import { periodFallback } from '../scripts/period-fallback.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -83,7 +84,7 @@ test('the static reading page contains every teaching paragraph, note, compariso
   ])
     assert.ok(html.includes(escape(text)), text);
   assert.doesNotMatch(
-    html,
+    withoutReadingNavigation(html),
     /<script|<details|<summary|<input|<textarea|<select|<button|aria-live|localStorage|sessionStorage/,
   );
   assert.match(html, /id="record"/);

@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import { beforeBatch2Source } from './batch2-preservation.mjs';
 import { beforeBatch1Source } from './batch1-preservation.mjs';
@@ -172,7 +173,10 @@ test('public route allowlist and native aliases cover every target and reject ma
 
 test('static editions are script independent, escaped, and have complete explanations', () => {
   for (const html of [executionReading(), executionFallback()]) {
-    assert.doesNotMatch(html, /<script|<form|<textarea|<input|\sonclick=/i);
+    assert.doesNotMatch(
+      withoutReadingNavigation(html),
+      /<script|<form|<textarea|<input|\sonclick=/i,
+    );
     assert.doesNotMatch(
       html.replace(/<header class="site-header">[\s\S]*?<\/header>/, ''),
       /<details/,

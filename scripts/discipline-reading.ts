@@ -1,3 +1,4 @@
+import { withReadingNavigation } from './site-menu.ts';
 import { readingTransition } from './lesson-transition.ts';
 import { staticFooter } from './site-footer.ts';
 import type { FooterBuild } from '../src/site-footer-content.ts';
@@ -18,11 +19,11 @@ const p = (text: string) => `<p>${escape(text)}</p>`;
 const h = (text: string, level = 2) => `<h${level}>${escape(text)}</h${level}>`;
 const link = (href: string, text: string) => `<a href="${href}">${escape(text)}</a>`;
 
-// Build-time export of the approved visitor copy. All three patterns, no scripts.
+// Build-time export of the approved visitor copy. All three patterns remain usable without scripts.
 export function disciplineReading(staging = true, metadata?: FooterBuild) {
   const lesson = content.lesson,
     copy = content.interaction;
-  return `<!doctype html>
+  return withReadingNavigation(`<!doctype html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
@@ -53,5 +54,5 @@ ${h('What the actions show', 4)}${p(moment.interpretation)}${h('A responsible re
   )
   .join('')}
 <section class="discipline-conclusion">${h(copy.conclusionTitle, 3)}${copy.conclusion.map(p).join('')}<p class="discipline-prompt">${escape(copy.transferPrompt)}</p>${link('#lesson', copy.backLink)}</section>
-</article><p class="source-note">${escape(periodExercise.source)}</p></main>${staticFooter(metadata)}</body></html>`;
+</article><p class="source-note">${escape(periodExercise.source)}</p></main>${staticFooter(metadata)}</body></html>`);
 }

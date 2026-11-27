@@ -62,7 +62,7 @@ test('miss entry, reset, reload and leaving the example discard transient choice
     .getByRole('button', { name: 'Tell the truth and locate the break', exact: true })
     .click();
   await page.reload();
-  await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'miss');
+  await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'pressure');
   await page.getByRole('button', { name: 'Reset example', exact: true }).click();
   await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'pressure');
   await page.getByRole('link', { name: 'Return to the teaching', exact: true }).click();

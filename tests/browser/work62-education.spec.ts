@@ -1,3 +1,4 @@
+import { expectReadingNavigation } from './helpers/reading-navigation';
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import approved from '../fixtures/work62-approved.json' with { type: 'json' };
@@ -47,7 +48,8 @@ test.describe('JavaScript-independent teaching', () => {
         await page.reload();
       }
       await expect(heading).toBeInViewport();
-      await expect(page.locator('script')).toHaveCount(0);
+      await expectReadingNavigation(page);
+      await expect(page.locator('script:not([src="/read/navigation.js"])')).toHaveCount(0);
     });
   }
   for (const path of ['/', '/read/rebuild.html']) {

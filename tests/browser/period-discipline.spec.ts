@@ -1,3 +1,4 @@
+import { expectReadingNavigation } from './helpers/reading-navigation';
 import { periodLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { test, expect, type Page } from '@playwright/test';
@@ -208,7 +209,10 @@ test('direct reading and blocked application scripts retain every occasion and e
       .getByRole('link', { name: periodLinkName('Discipline') })
       .click();
     await checkLesson(page);
-    await expect(page.locator('script,input,button')).toHaveCount(0);
+    await expectReadingNavigation(page);
+    await expect(page.locator('script:not([src="/read/navigation.js"]),input,button')).toHaveCount(
+      0,
+    );
     for (const m of copy.moments) {
       const section = page.locator(`[data-occasion="${m.id}"]`);
       for (const text of [

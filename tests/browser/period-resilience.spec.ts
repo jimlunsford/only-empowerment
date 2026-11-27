@@ -1,3 +1,4 @@
+import { expectReadingNavigation } from './helpers/reading-navigation';
 import { periodLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
 import { homepage } from '../../src/period-homepage-content';
@@ -551,7 +552,12 @@ test('direct static reading and the root fallback work with JavaScript disabled,
     await page.goto('about:blank');
     const navigation = await page.goto(baseURL! + '/read/resilience.html#pressure-notes');
     expect([200, 304]).toContain(navigation?.status());
-    await expect(page.locator('script, input, textarea, select, button, details')).toHaveCount(0);
+    await expectReadingNavigation(page);
+    await expect(
+      page.locator(
+        'script:not([src="/read/navigation.js"]), input, textarea, select, button, details',
+      ),
+    ).toHaveCount(0);
     const lesson = page.getByRole('article', { name: 'Resilience lesson', exact: true });
     for (const section of content.lesson) {
       await expect(
@@ -576,7 +582,11 @@ test('direct static reading and the root fallback work with JavaScript disabled,
     }
     if (mode === 'disabled') {
       // Axe needs JavaScript, so use the identical static document in a separate context below.
-      expect((await response.text()).includes('<script')).toBe(false);
+      expect(
+        (await response.text())
+          .replace('<script defer src="/read/navigation.js"></script>', '')
+          .includes('<script'),
+      ).toBe(false);
     }
     await context.close();
   }

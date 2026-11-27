@@ -1,3 +1,5 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
+import { beforeAuditBCopy } from './audit-b-preservation.mjs';
 import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import { beforeBatch2Source } from './batch2-preservation.mjs';
 import assert from 'node:assert/strict';
@@ -20,7 +22,9 @@ test('Work69 authored graph retains all 13 states, 35 labeled edges and full rea
     35,
   );
   assert.deepEqual(
-    Object.fromEntries(Object.entries(loopScenario.states).map(([k, v]) => [k, v.options])),
+    beforeAuditBCopy(
+      Object.fromEntries(Object.entries(loopScenario.states).map(([k, v]) => [k, v.options])),
+    ),
     preserved.scenario_graph,
   );
   while (queue.length) {
@@ -84,8 +88,11 @@ test('complete teaching, all five links, care, breaks and every scenario field r
   );
   assert.match(native, /Treatment, counseling, meetings, peers, family and medical help/);
   assert.match(native, /unsafe exhaustion/);
-  assert.doesNotMatch(native, /<script|<form|<input|<textarea|onclick=/i);
-  assert.doesNotMatch(practice, /<script|<form|<input|<textarea|onclick=/i);
+  assert.doesNotMatch(withoutReadingNavigation(native), /<script|<form|<input|<textarea|onclick=/i);
+  assert.doesNotMatch(
+    withoutReadingNavigation(practice),
+    /<script|<form|<input|<textarea|onclick=/i,
+  );
 });
 test('scoped Loop implementation adds no storage, request, visitor input or HTML injection API', () => {
   for (const path of [

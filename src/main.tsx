@@ -214,6 +214,18 @@ function NotFound({ path }: { path: string }) {
 }
 function App() {
   useLayoutEffect(trackFocusModality, []);
+  useLayoutEffect(() => {
+    const closeMenu = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape' || event.defaultPrevented) return;
+      const menu = document.querySelector<HTMLDetailsElement>('#app .site-menu[open]');
+      if (!menu) return;
+      event.preventDefault();
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    };
+    document.addEventListener('keydown', closeMenu);
+    return () => document.removeEventListener('keydown', closeMenu);
+  }, []);
   const path = useRoute();
   const editorial = path === '/period' || path.startsWith('/period/');
   const [periodSession, setPeriodSession] = useState(newPeriodSession);
