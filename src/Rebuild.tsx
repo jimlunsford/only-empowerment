@@ -169,6 +169,11 @@ export function RebuildGuide({ section }: { section: RebuildSection }) {
         <a href="/read/rebuild.html" target="_blank" rel="noopener noreferrer">
           Open the complete reading edition (new tab)
         </a>
+        {section === 'index' && (
+          <a href="https://www.amazon.com/dp/B0HQVNBCWP" target="_blank" rel="noopener noreferrer">
+            Paperback &amp; Kindle on Amazon (new tab)
+          </a>
+        )}
       </nav>
     </section>
   );

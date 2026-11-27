@@ -189,6 +189,8 @@ for (const javaScriptEnabled of [true, false]) {
           reading: '/read/' + value + '.html',
           id: 'B0HMM8MNQD',
         })),
+        { app: '/#/rebuild', reading: '/read/rebuild.html', id: 'B0HQVNBCWP' },
+        { app: '/#/execution', reading: '/read/execution.html', id: 'B0HR68MLGR' },
         { app: '/#/rebuild/end', reading: '/read/rebuild.html', id: 'B0HQVNBCWP' },
         { app: '/#/rebuild/complete', reading: '/read/rebuild.html', id: 'B0HQVNBCWP' },
         { app: '/#/loop?section=source', reading: '/read/loop.html#source', id: 'B0HQXLMHF5' },
@@ -222,5 +224,48 @@ for (const javaScriptEnabled of [true, false]) {
         }
       }
     });
+  });
+}
+
+for (const book of [
+  { route: 'period', id: 'B0HMM8MNQD', closing: '.home-book', hero: '.home-hero' },
+  { route: 'rebuild', id: 'B0HQVNBCWP', closing: '.rebuild-footlinks', hero: '.cover' },
+  { route: 'loop', id: 'B0HQXLMHF5', closing: '.loop-section:has(#source)', hero: '.loop-hero' },
+  {
+    route: 'execution',
+    id: 'B0HR68MLGR',
+    closing: '.workshop-main > p:last-child',
+    hero: '.workshop-hero',
+  },
+]) {
+  test(`${book.route} landing offers its book in the closing area without crowding the hero`, async ({
+    page,
+  }) => {
+    await page.goto('/#/' + book.route);
+    const link = page.locator(`main a[href="https://www.amazon.com/dp/${book.id}"]:visible`);
+    await expect(link).toHaveCount(1);
+    await expect(
+      page
+        .locator(book.closing)
+        .locator('a', { hasText: 'Paperback & Kindle on Amazon (new tab)' }),
+    ).toHaveCount(1);
+    await expect(link).toHaveText('Paperback & Kindle on Amazon (new tab)');
+    await expect(link).toHaveAttribute('target', '_blank');
+    await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    await expect(link).not.toHaveAttribute('class', /button|primary|continue/);
+    const hero = page.locator(book.hero);
+    await expect(hero).toHaveCount(1);
+    await expect(hero.locator('a[href*="amazon.com"]')).toHaveCount(0);
+    await expect(page.locator('.site-header a[href*="amazon.com"]')).toHaveCount(0);
+    const heroBox = await hero.boundingBox();
+    const linkBox = await link.boundingBox();
+    expect(linkBox!.y).toBeGreaterThanOrEqual(heroBox!.y + heroBox!.height);
+    await link.scrollIntoViewIfNeeded();
+    await expect(link).toBeInViewport();
+    await link.focus();
+    await expect(link).toBeFocused();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
   });
 }
