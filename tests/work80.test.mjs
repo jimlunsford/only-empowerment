@@ -1,3 +1,4 @@
+import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import { beforeBatch2Source } from './batch2-preservation.mjs';
 import { beforeBatch1Source } from './batch1-preservation.mjs';
 import test from 'node:test';
@@ -292,11 +293,11 @@ test('bounded integration edits reverse exactly, reject mutation, and retain old
   assert.ok(paths.length > 40);
   for (const path of paths) {
     const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
-    // Accept only the approved CI timeout change; preserve every other workflow byte.
-    const expected =
-      path === '.github/workflows/ci.yml'
-        ? original.replace('\n    timeout-minutes: 35\n', '\n    timeout-minutes: 50\n')
-        : original;
+    if (path === '.github/workflows/ci.yml') {
+      assertApprovedCiWorkflow(readFileSync(path, 'utf8'));
+      continue;
+    }
+    const expected = original;
     assert.equal(
       beforeBatch1Source(beforeBatch2Source(readFileSync(path, 'utf8'), path), path),
       expected,

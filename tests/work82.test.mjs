@@ -1,3 +1,4 @@
+import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import { beforeBatch2Source } from './batch2-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -154,11 +155,11 @@ test('Work82 preserves all accepted teaching and limits shared wording to the de
     'scripts/public-boundary.ts',
   ]) {
     const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
-    // Accept only the approved CI timeout change; preserve every other workflow byte.
-    const expected =
-      path === '.github/workflows/ci.yml'
-        ? original.replace('\n    timeout-minutes: 35\n', '\n    timeout-minutes: 50\n')
-        : original;
+    if (path === '.github/workflows/ci.yml') {
+      assertApprovedCiWorkflow(readFileSync(path, 'utf8'));
+      continue;
+    }
+    const expected = original;
     assert.equal(beforeBatch2Source(readFileSync(path, 'utf8'), path), expected, path);
   }
 });
