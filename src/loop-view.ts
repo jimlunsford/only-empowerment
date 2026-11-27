@@ -207,6 +207,19 @@ export function loopTeaching(surface: LoopSurface = 'app'): LoopNode {
           ? [
               paragraphLink(loopBookUrl, "Visit Jim Lunsford's book page"),
               node(
+                'p',
+                {},
+                node(
+                  'a',
+                  {
+                    href: 'https://www.amazon.com/dp/B0HQXLMHF5',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  },
+                  'Paperback & Kindle on Amazon (new tab)',
+                ),
+              ),
+              node(
                 'section',
                 { class: 'framework-bridges', 'aria-label': 'Where to go next' },
                 node(h2, {}, 'Where to go next'),

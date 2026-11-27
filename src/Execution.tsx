@@ -374,6 +374,14 @@ export function Execution() {
                   ·{' '}
                   <a href="/read/execution.html#daily" target="_blank" rel="noopener noreferrer">
                     Support and daily use (new tab)
+                  </a>{' '}
+                  ·{' '}
+                  <a
+                    href="https://www.amazon.com/dp/B0HR68MLGR"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Paperback &amp; Kindle on Amazon (new tab)
                   </a>
                 </p>
               )}

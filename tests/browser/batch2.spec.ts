@@ -108,9 +108,7 @@ for (const javaScriptEnabled of [true, false]) {
           page.getByRole('contentinfo').getByRole('link', { name: 'All reading editions' }),
         ).toHaveAttribute('href', '/read/index.html');
         await expect(
-          page
-            .getByRole('contentinfo')
-            .getByRole('link', { name: 'About The PERIOD Code book', exact: true }),
+          page.getByRole('contentinfo').getByRole('link', { name: 'Books (new tab)', exact: true }),
         ).toHaveCount(1);
       }
       await page.goto('/read/index.html');
@@ -176,3 +174,53 @@ test('menu route activation closes the disclosure and preserves heading focus', 
     ).violations,
   ).toEqual([]);
 });
+
+for (const javaScriptEnabled of [true, false]) {
+  test.describe(`canonical book links, JavaScript ${javaScriptEnabled}`, () => {
+    test.use({ javaScriptEnabled });
+    test('footer catalog and framework closing links preserve exact targets and new-tab safety', async ({
+      page,
+    }) => {
+      const books = [
+        { app: '/#/period', reading: '/#teaching-order', id: 'B0HMM8MNQD' },
+        { app: '/#/period/book', reading: '/read/ownership.html', id: 'B0HMM8MNQD' },
+        ...['purpose', 'resilience', 'integrity', 'discipline', 'empowerment'].map((value) => ({
+          app: '/#/period/values/' + value,
+          reading: '/read/' + value + '.html',
+          id: 'B0HMM8MNQD',
+        })),
+        { app: '/#/rebuild/end', reading: '/read/rebuild.html', id: 'B0HQVNBCWP' },
+        { app: '/#/rebuild/complete', reading: '/read/rebuild.html', id: 'B0HQVNBCWP' },
+        { app: '/#/loop?section=source', reading: '/read/loop.html#source', id: 'B0HQXLMHF5' },
+        {
+          app: '/#/execution/reference',
+          reading: '/read/execution.html#reference',
+          id: 'B0HR68MLGR',
+        },
+      ];
+      await page.route('https://www.amazon.com/**', (route) => route.abort());
+      for (const book of books) {
+        await page.goto(javaScriptEnabled ? book.app : book.reading);
+        const footer = page
+          .getByRole('contentinfo')
+          .getByRole('link', { name: 'Books (new tab)', exact: true });
+        await expect(footer).toHaveCount(1);
+        await expect(footer).toHaveAttribute('href', 'https://jimlunsford.com/books/');
+        await expect(footer).toHaveAttribute('target', '_blank');
+        await expect(footer).toHaveAttribute('rel', 'noopener noreferrer');
+        const links = page.locator(
+          'main a[href="https://www.amazon.com/dp/' + book.id + '"]:visible',
+        );
+        // The script-free combined PERIOD document contains multiple existing book sections.
+        if (book.reading === '/#teaching-order' && !javaScriptEnabled)
+          expect(await links.count()).toBeGreaterThan(0);
+        else await expect(links).toHaveCount(1);
+        for (const link of await links.all()) {
+          await expect(link).toHaveText('Paperback & Kindle on Amazon (new tab)');
+          await expect(link).toHaveAttribute('target', '_blank');
+          await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+        }
+      }
+    });
+  });
+}

@@ -37,7 +37,7 @@ ${lesson.sections.map((section) => `<section id="discipline-${section.id}">${h(s
 <section class="discipline-exit">${h('Examine the pattern')}${p(lesson.interactionDescription)}<div class="actions no-print">${link('/#/period/discipline/pattern', lesson.interactionLink + ' (requires JavaScript)')}${link('#comparison', lesson.readingLink)}</div></section>
 <section>${h(lesson.cardTitle)}${p(lesson.cardDescription)}<p class="no-print">${link('/#/period/standard', lesson.cardLink + ' (requires JavaScript)')}</p></section>
 ${readingTransition('discipline')}
-<section>${p(lesson.bookDescription)}${link(periodBook.url, lesson.bookLink)}</section>
+<section>${p(lesson.bookDescription)}${link(periodBook.url, lesson.bookLink)}<p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p></section>
 <p class="no-print">${link('#top', 'Back to top')}</p></article>
 <article class="discipline-comparison" aria-label="Noor and Eli's patterns">
 <h2 id="comparison" tabindex="-1">${escape(copy.readingTitle)}</h2><p class="lead">${escape(copy.deck)}</p>${p(copy.readingIntro)}${copy.intro.map(p).join('')}<p class="discipline-prompt">${escape(copy.readerPrompt)}</p>

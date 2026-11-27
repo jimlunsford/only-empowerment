@@ -30,7 +30,7 @@ export function purposeFallback() {
     <ol>${purposeRelationships.map((item) => `<li>${h(item.value, 4)}${p(item.connection)}</li>`).join('')}</ol>
     ${h('A reminder is optional')}${p(purposeCardNote)}
     ${readingTransition('purpose', 3)}
-    ${h(purposeBook.heading)}${p(purposeBook.description)}<a href="${periodBook.url}" rel="noreferrer">${escape(purposeBook.label)}</a>
+    ${h(purposeBook.heading)}${p(purposeBook.description)}<a href="${periodBook.url}" rel="noreferrer">${escape(purposeBook.label)}</a><p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p>
   </section>
   <section aria-label="Purpose evening linear reading" id="reading-purpose-evening">
     ${h(copy.title, 2)}${p(copy.lead)}${p(copy.intro)}

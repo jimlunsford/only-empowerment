@@ -108,6 +108,15 @@ export function IntegrityLesson({ openCard }: { openCard: () => void }) {
           <a href={periodBook.url} rel="noreferrer">
             Explore the book on Jim's website
           </a>
+          <p>
+            <a
+              href="https://www.amazon.com/dp/B0HMM8MNQD"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Paperback &amp; Kindle on Amazon (new tab)
+            </a>
+          </p>
         </section>
         <p class="source-note">{content.attribution}</p>
       </article>

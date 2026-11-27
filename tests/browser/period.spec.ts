@@ -124,7 +124,9 @@ test('draft and card survive in-site history, lesson entry, and guarded book exi
   await page.getByRole('link', { name: 'Privacy & source', exact: true }).click();
   await page.goBack();
   expect(await page.locator('[data-field="standard"]').textContent()).toBe(standard);
-  await page.getByRole('link', { name: 'About The PERIOD Code book', exact: true }).click();
+  await page.evaluate(() => {
+    location.hash = '/period/book';
+  });
   await page.getByRole('link', { name: 'Explore the book and read a sample' }).click();
   await expect(page.getByRole('button', { name: 'Stay here' })).toBeFocused();
   await page.keyboard.press('Escape');

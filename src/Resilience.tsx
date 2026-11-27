@@ -117,9 +117,20 @@ export function ResilienceLesson({ openCard }: { openCard: () => void }) {
                   </a>
                 )}
                 {section.id === 'L12' && (
-                  <a href={periodBook.url} rel="noreferrer">
-                    {section.cta}
-                  </a>
+                  <>
+                    <a href={periodBook.url} rel="noreferrer">
+                      {section.cta}
+                    </a>
+                    <p>
+                      <a
+                        href="https://www.amazon.com/dp/B0HMM8MNQD"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Paperback &amp; Kindle on Amazon (new tab)
+                      </a>
+                    </p>
+                  </>
                 )}
               </section>
             </Fragment>

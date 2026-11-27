@@ -5,6 +5,7 @@ export const founderCopyright =
   'Copyright © Jim Lunsford. All rights reserved. A Phoenix 2:33 LLC Project.';
 export const founderLinks = {
   author: 'https://jimlunsford.com/',
+  books: 'https://jimlunsford.com/books/',
   company: 'https://phoenix233.com/',
 };
 export const softwareNotice = {

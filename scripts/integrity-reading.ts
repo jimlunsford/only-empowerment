@@ -39,7 +39,7 @@ ${content.lesson
   .join('')}
 <section class="integrity-reminder">${h('A reminder is optional')}${p(content.card)}${link('/#/period/standard', 'Write an optional Standard Card (requires JavaScript)')}</section>
 ${readingTransition('integrity')}
-<section>${h('Explore the complete PERIOD Code')}${p(content.book)}${link(periodBook.url, "Explore the book on Jim's website")}</section>${top()}</article>
+<section>${h('Explore the complete PERIOD Code')}${p(content.book)}${link(periodBook.url, "Explore the book on Jim's website")}<p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p></section>${top()}</article>
 <article id="record" class="integrity-record" aria-label="Riley and Maya's fictional record">
 ${h(copy.title)}<p class="lead">${escape(copy.lead)}</p>${p(copy.intro)}
 <section class="integrity-setup">${h('The situation')}${p(copy.setup)}

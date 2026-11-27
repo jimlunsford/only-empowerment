@@ -280,6 +280,19 @@ export function executionTeaching(surface: ExecutionSurface = 'app'): ExecutionN
               ),
               n(
                 'p',
+                {},
+                n(
+                  'a',
+                  {
+                    href: 'https://www.amazon.com/dp/B0HR68MLGR',
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  },
+                  'Paperback & Kindle on Amazon (new tab)',
+                ),
+              ),
+              n(
+                'p',
                 { class: 'execution-related' },
                 a(surface === 'app' ? '#/' : '/read/index.html', 'Choose another framework'),
               ),

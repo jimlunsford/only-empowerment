@@ -43,7 +43,7 @@ ${lesson.sections.map((s) => `<section id="${s.id}">${h(s.title)}${s.paragraphs.
 <section class="empowerment-exit">${h(lesson.practiceTitle)}${p(lesson.practiceDescription)}<div class="empowerment-links no-print">${link('/#/period/empowerment/conversation', lesson.practiceLink + ' (requires JavaScript)')}${link('#conversation', lesson.readingLink)}</div></section>
 <section>${h(lesson.cardTitle)}${p(lesson.cardNote)}<p class="no-print">${link('/#/period/standard', lesson.cardLink + ' (requires JavaScript)')}</p></section>
 ${readingTransition('empowerment')}
-<section>${h(lesson.bookTitle)}${p(lesson.bookNote)}<p class="no-print">${link(periodBook.url, lesson.bookLink)}</p></section></article>
+<section>${h(lesson.bookTitle)}${p(lesson.bookNote)}<p class="no-print">${link(periodBook.url, lesson.bookLink)}</p><p class="no-print"><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p></section></article>
 <article class="empowerment-conversation" aria-label="Mara and Dev's fictional conversation">
 <h2 id="conversation">${escape(c.title)}</h2><p class="lead">${escape(c.deck)}</p>${p(c.intro)}
 <p>All three replies follow. They are alternatives to the same offer, not a sequence of events.</p>

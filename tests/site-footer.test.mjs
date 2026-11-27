@@ -1,3 +1,8 @@
+import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import bookLinkChanges from './fixtures/book-links-changes.json' with { type: 'json' };
+import { beforeBookLinksSource } from './book-links-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { staticFooter } from '../scripts/site-footer.ts';
@@ -21,7 +26,7 @@ test('footer keeps exact founder links and separates app links from script-free 
   assert.match(html, /href="\/read\/privacy.html">Privacy &amp; source/);
   assert.match(html, /aria-label="Your practice"/);
   assert.match(html, /href="\/#\/period\/standard">Optional Standard Card/);
-  assert.match(html, /About The PERIOD Code book and Optional Standard Card require JavaScript/);
+  assert.match(html, /Optional Standard Card requires JavaScript/);
   assert.doesNotMatch(
     html,
     /footer-meta|footer-software|footer-education|Application software:|Existing work|#\/tools|#\/saved|#\/approach/,
@@ -53,4 +58,31 @@ test('dirty or unidentified previews cannot claim an exact published source; met
   const html = privacyReading(true, { ...build, source: 'https://example.test/"<bad>' });
   assert.ok(!html.includes('<bad>'));
   assert.ok(html.includes('&quot;&lt;bad&gt;'));
+});
+
+test('Books footer uses the canonical catalog URL and safe new-tab attributes', () => {
+  assert.match(
+    staticFooter(),
+    /<a href="https:\/\/jimlunsford.com\/books\/" target="_blank" rel="noopener noreferrer">Books \(new tab\)<\/a>/,
+  );
+  assert.doesNotMatch(staticFooter(), /About The PERIOD Code book/);
+});
+
+test('book-link preservation pins every changed source and rejects incidental edits', () => {
+  for (const [path, change] of Object.entries(bookLinkChanges)) {
+    const source = readFileSync(path, 'utf8');
+    const original = execFileSync(
+      'git',
+      ['show', '46918ff1b305aa26e96f8cc0e2c241a073dbef32:' + path],
+      { encoding: 'utf8' },
+    );
+    assert.equal(createHash('sha256').update(source).digest('hex'), change.afterSha256, path);
+    assert.equal(beforeBookLinksSource(source, path), original, path);
+    for (const altered of [
+      source + '\n',
+      source.replace('amazon', 'unexpected').replace('Books (new tab)', 'Unexpected link'),
+    ]) {
+      if (altered !== source) assert.notEqual(beforeBookLinksSource(altered, path), original, path);
+    }
+  }
 });

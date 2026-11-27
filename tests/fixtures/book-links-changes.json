@@ -1,0 +1,290 @@
+{
+  "scripts/discipline-reading.ts": {
+    "beforeSha256": "dc4b09bbf6d064fcf9e2f8a3fda49c1a20a79648740c7eb1ce2776f4328e9116",
+    "afterSha256": "03c94286dae91f743626571b3406bac3b0f386f29bcb0b324401ff2b1a75de52",
+    "edits": [
+      {
+        "start": 2857,
+        "end": 3087,
+        "before": "<section>${p(lesson.bookDescription)}${link(periodBook.url, lesson.bookLink)}</section>\n",
+        "after": "<section>${p(lesson.bookDescription)}${link(periodBook.url, lesson.bookLink)}<p><a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p></section>\n"
+      }
+    ]
+  },
+  "scripts/empowerment-reading.ts": {
+    "beforeSha256": "f93b7218f2c53a8f244ffbe436876199d6bd0f2c92e72364e48d850994d07f2a",
+    "afterSha256": "7128f03dd7efdd04007ce734b97f3f9afe3e93fd45b4e41132fa4d533c431e01",
+    "edits": [
+      {
+        "start": 3834,
+        "end": 4130,
+        "before": "<section>${h(lesson.bookTitle)}${p(lesson.bookNote)}<p class=\"no-print\">${link(periodBook.url, lesson.bookLink)}</p></section></article>\n",
+        "after": "<section>${h(lesson.bookTitle)}${p(lesson.bookNote)}<p class=\"no-print\">${link(periodBook.url, lesson.bookLink)}</p><p class=\"no-print\"><a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p></section></article>\n"
+      }
+    ]
+  },
+  "scripts/homepage-fallback.ts": {
+    "beforeSha256": "c19d0ef3f9e8e079db845a4581e2d2bba518ad36d6ff65202c9f96248a332279",
+    "afterSha256": "37c4c17f974eb853ef7757aa297f2d01fd6edd7d7fb5fc40766a212694b8789e",
+    "edits": [
+      {
+        "start": 3375,
+        "end": 3742,
+        "before": "<section class=\"home-book home-columns home-ruled\"><h2>${escape(c.bookHeading)}</h2><div>${p(c.book)}<a href=\"${escape(c.bookUrl)}\" rel=\"noreferrer\">${escape(c.bookLink)} <span aria-hidden=\"true\">\u2197</span></a></div></section>\n",
+        "after": "<section class=\"home-book home-columns home-ruled\"><h2>${escape(c.bookHeading)}</h2><div>${p(c.book)}<a href=\"${escape(c.bookUrl)}\" rel=\"noreferrer\">${escape(c.bookLink)} <span aria-hidden=\"true\">\u2197</span></a><p><a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p></div></section>\n"
+      }
+    ]
+  },
+  "scripts/integrity-reading.ts": {
+    "beforeSha256": "2f39e90ac4d07b6c1f511c98e760334f48f999f783fffe08b4569780e4d0f571",
+    "afterSha256": "306553fe41e545e2d256d46551a0a8dacd2d4facef09d910c001f8b6d3268909",
+    "edits": [
+      {
+        "start": 3018,
+        "end": 3316,
+        "before": "<section>${h('Explore the complete PERIOD Code')}${p(content.book)}${link(periodBook.url, \"Explore the book on Jim's website\")}</section>${top()}</article>\n",
+        "after": "<section>${h('Explore the complete PERIOD Code')}${p(content.book)}${link(periodBook.url, \"Explore the book on Jim's website\")}<p><a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p></section>${top()}</article>\n"
+      }
+    ]
+  },
+  "scripts/period-fallback.ts": {
+    "beforeSha256": "2c332b508c3f59d9a75d1f17a71025a3909b97056415219907d195ccf8b4e465",
+    "afterSha256": "d697890c50afa1e4d2b47ba1d57901fe944f928dfaa85ca15780928606b635e4",
+    "edits": [
+      {
+        "start": 3202,
+        "end": 3502,
+        "before": "    <section class=\"no-print\">${h2(book.heading)}${book.paragraphs.map(p).join('')}<a href=\"${book.url}\" rel=\"noreferrer\">${escape(book.label)}</a></section>\n",
+        "after": "    <section class=\"no-print\">${h2(book.heading)}${book.paragraphs.map(p).join('')}<a href=\"${book.url}\" rel=\"noreferrer\">${escape(book.label)}</a><p><a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p></section>\n"
+      }
+    ]
+  },
+  "scripts/purpose-fallback.ts": {
+    "beforeSha256": "aacbfbdc2467738b8c8a04bc4c5dc5040f94bcee02f8e1c99b6715e60b3831c5",
+    "afterSha256": "5a76feb0856fe53d7a301a08c8cfa1344ba4c3e4cd6f62fd8a48053f4195fc36",
+    "edits": [
+      {
+        "start": 1440,
+        "end": 1718,
+        "before": "    ${h(purposeBook.heading)}${p(purposeBook.description)}<a href=\"${periodBook.url}\" rel=\"noreferrer\">${escape(purposeBook.label)}</a>\n",
+        "after": "    ${h(purposeBook.heading)}${p(purposeBook.description)}<a href=\"${periodBook.url}\" rel=\"noreferrer\">${escape(purposeBook.label)}</a><p><a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p>\n"
+      }
+    ]
+  },
+  "scripts/rebuild-fallback.ts": {
+    "beforeSha256": "9c8bd6661729dc29a8072413e8c354932a064f2700e2a4efeffa8f31364d6a8b",
+    "afterSha256": "69042992fa19c4fc51d0eaca2ec1f3f8dcacaab53d15944cb305b4350b5aee52",
+    "edits": [
+      {
+        "start": 3946,
+        "end": 4383,
+        "before": "  return `<section class=\"rebuild-guide\" id=\"rebuild-reading\" aria-label=\"How to Rebuild Yourself, complete teaching\"><div id=\"/rebuild\" tabindex=\"-1\"><div class=\"wrap all-reading\" ${target('index')}><div ${target('complete')}>${body}${frameworkBridges('rebuild')}</div></div></div></section>`;\n",
+        "after": "  return `<section class=\"rebuild-guide\" id=\"rebuild-reading\" aria-label=\"How to Rebuild Yourself, complete teaching\"><div id=\"/rebuild\" tabindex=\"-1\"><div class=\"wrap all-reading\" ${target('index')}><div ${target('complete')}>${body}<p><a href=\"https://www.amazon.com/dp/B0HQVNBCWP\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p>${frameworkBridges('rebuild')}</div></div></div></section>`;\n"
+      }
+    ]
+  },
+  "scripts/resilience-reading.ts": {
+    "beforeSha256": "849a0ede67792bba139848ef85ec1a1e92a4a7315ebc325a75255a11d394a3d8",
+    "afterSha256": "1bbeb1a9fc71b923cd2636affad9512683c055c00aa7ad558cdd7d4bd2b832dd",
+    "edits": [
+      {
+        "start": 2822,
+        "end": 3046,
+        "before": "${section.id === 'L12' ? link(periodBook.url, section.cta) : ''}</section>`,\n",
+        "after": "${section.id === 'L12' ? link(periodBook.url, section.cta) + '<p><a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p>' : ''}</section>`,\n"
+      }
+    ]
+  },
+  "scripts/site-footer.ts": {
+    "beforeSha256": "32a68fd706f5a91578afb847a96cdd1d1e9861768a670ee2e05ffa8e460bbf19",
+    "afterSha256": "be1b22fe31ccfded0ead16dd80d8437145ac09485ce79dd6d55d5f3d08b81147",
+    "edits": [
+      {
+        "start": 1847,
+        "end": 2339,
+        "before": "<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/read/index.html', 'All reading editions') + link('/#teaching-order', 'The PERIOD Code') + link('/read/rebuild.html', 'How to Rebuild Yourself') + link('/read/loop.html', 'The Discipline Loop') + link('/read/execution.html', 'Pure Execution Mode') + link('/#/period/book', 'About The PERIOD Code book')}${link('/read/privacy.html', 'Privacy & source')}</nav>\n",
+        "after": "<nav class=\"footer-group\" aria-label=\"About this site\"><h2>About this site</h2>${link('/read/index.html', 'All reading editions') + link('/#teaching-order', 'The PERIOD Code') + link('/read/rebuild.html', 'How to Rebuild Yourself') + link('/read/loop.html', 'The Discipline Loop') + link('/read/execution.html', 'Pure Execution Mode')}<a href=\"${escape(founderLinks.books)}\" target=\"_blank\" rel=\"noopener noreferrer\">Books (new tab)</a>${link('/read/privacy.html', 'Privacy & source')}</nav>\n"
+      },
+      {
+        "start": 2581,
+        "end": 2704,
+        "before": "<p class=\"footer-app-note\">About The PERIOD Code book and Optional Standard Card require JavaScript. Privacy &amp; source and these readings do not.</p>\n",
+        "after": "<p class=\"footer-app-note\">Optional Standard Card requires JavaScript. Privacy &amp; source and these readings do not.</p>\n"
+      }
+    ]
+  },
+  "scripts/standalone-reading.ts": {
+    "beforeSha256": "ae2d3c43b6fc556112f2fde14f174140d96029913b3834a709d3d1e784724c9c",
+    "afterSha256": "3e9b19b2a94fb627c8e3f9aa25f3f62b8588cd4a2685260f81ce5f0eddccc3de",
+    "edits": [
+      {
+        "start": 4130,
+        "end": 4375,
+        "before": "    '<div class=\"period-learning period-reading\">' + standaloneLesson(reading) + '</div>',\n",
+        "after": "    '<div class=\"period-learning period-reading\">' +\n      standaloneLesson(reading) +\n      '<p><a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">Paperback &amp; Kindle on Amazon (new tab)</a></p></div>',\n"
+      }
+    ]
+  },
+  "src/Discipline.tsx": {
+    "beforeSha256": "7fc3812c6ccdd466f28103c95a366465a6c96eb3581bc0080b2dfdd9d24a322a",
+    "afterSha256": "f77af45298098673bb19b10b500732a04cfaaf0a32c6fcad7a06b53da84a15c9",
+    "edits": [
+      {
+        "start": 3856,
+        "end": 4116,
+        "before": "",
+        "after": "          <p>\n            <a\n              href=\"https://www.amazon.com/dp/B0HMM8MNQD\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n            >\n              Paperback &amp; Kindle on Amazon (new tab)\n            </a>\n          </p>\n"
+      }
+    ]
+  },
+  "src/Empowerment.tsx": {
+    "beforeSha256": "5e69688d0ffd5fea452f541622b1564c422a4538e3df677c345f8ae745428a65",
+    "afterSha256": "a79b74133e3ecaf2681240f1de9578ea6d0e89e5c5cf52ee7f3e21cf3739fc4e",
+    "edits": [
+      {
+        "start": 7728,
+        "end": 8006,
+        "before": "",
+        "after": "            <p>\n              <a\n                href=\"https://www.amazon.com/dp/B0HMM8MNQD\"\n                target=\"_blank\"\n                rel=\"noopener noreferrer\"\n              >\n                Paperback &amp; Kindle on Amazon (new tab)\n              </a>\n            </p>\n"
+      }
+    ]
+  },
+  "src/Execution.tsx": {
+    "beforeSha256": "ac62c512443c542bc4cb572c794a08a4857d000d38ee7cbc029482bb1fbd846d",
+    "afterSha256": "8cfd04bb2fda653518648ea945f0c4d2b97f7550260ca205452d5c5b8429da8f",
+    "edits": [
+      {
+        "start": 15390,
+        "end": 15693,
+        "before": "",
+        "after": "                  </a>{' '}\n                  \u00b7{' '}\n                  <a\n                    href=\"https://www.amazon.com/dp/B0HR68MLGR\"\n                    target=\"_blank\"\n                    rel=\"noopener noreferrer\"\n                  >\n                    Paperback &amp; Kindle on Amazon (new tab)\n"
+      }
+    ]
+  },
+  "src/Integrity.tsx": {
+    "beforeSha256": "eb67cdf1ddad7135889dfa7cf7cae83d3ac4e511feeaedd1d9d76b2fa16dd3ce",
+    "afterSha256": "2ea07467e634bfad7c920aa0ccea0f665f37b4bf49051341043cd6a2980942e0",
+    "edits": [
+      {
+        "start": 3835,
+        "end": 4095,
+        "before": "",
+        "after": "          <p>\n            <a\n              href=\"https://www.amazon.com/dp/B0HMM8MNQD\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n            >\n              Paperback &amp; Kindle on Amazon (new tab)\n            </a>\n          </p>\n"
+      }
+    ]
+  },
+  "src/PeriodHomepage.tsx": {
+    "beforeSha256": "e340deda50152bec4213896f26115daf2a8ec6337d2159a1c73a8f1dc842fa15",
+    "afterSha256": "145898f42d8e12984efe883f68a165c28a230f259e55737dd7d42eabc97013ee",
+    "edits": [
+      {
+        "start": 3943,
+        "end": 4203,
+        "before": "",
+        "after": "          <p>\n            <a\n              href=\"https://www.amazon.com/dp/B0HMM8MNQD\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n            >\n              Paperback &amp; Kindle on Amazon (new tab)\n            </a>\n          </p>\n"
+      }
+    ]
+  },
+  "src/PeriodLearning.tsx": {
+    "beforeSha256": "311578e12f28025fe8321a08b03b93365b0ae1113748d908f3a54dc673ae2385",
+    "afterSha256": "a3e5c3295dbedc1f27709f5cdc10648bff7700245104b291a833bb2dcce711b8",
+    "edits": [
+      {
+        "start": 8294,
+        "end": 8489,
+        "before": "",
+        "after": "        <p>\n          <a href=\"https://www.amazon.com/dp/B0HMM8MNQD\" target=\"_blank\" rel=\"noopener noreferrer\">\n            Paperback &amp; Kindle on Amazon (new tab)\n          </a>\n        </p>\n"
+      }
+    ]
+  },
+  "src/Purpose.tsx": {
+    "beforeSha256": "9387d17fb5da7c527f3c8f4bc8fff2dc4036055e98426f47c572b7b4bd171dee",
+    "afterSha256": "351bc4558a6152a2508468af968dbeca7e138a871d3e611828d1644727a217c9",
+    "edits": [
+      {
+        "start": 4101,
+        "end": 4361,
+        "before": "",
+        "after": "          <p>\n            <a\n              href=\"https://www.amazon.com/dp/B0HMM8MNQD\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n            >\n              Paperback &amp; Kindle on Amazon (new tab)\n            </a>\n          </p>\n"
+      }
+    ]
+  },
+  "src/Rebuild.tsx": {
+    "beforeSha256": "58e5ad60d2ab9fe32700f29f3248e61a976b89e0f3ccdb5c806daf8112d26897",
+    "afterSha256": "de9acdec01d1ccb14a6b7ec4b50b8440560905ddc2a04b2b6a2765b08e80c110",
+    "edits": [
+      {
+        "start": 5834,
+        "end": 6165,
+        "before": "",
+        "after": "        {(section === 'end' || section === 'complete') && (\n          <p>\n            <a\n              href=\"https://www.amazon.com/dp/B0HQVNBCWP\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n            >\n              Paperback &amp; Kindle on Amazon (new tab)\n            </a>\n          </p>\n        )}\n"
+      }
+    ]
+  },
+  "src/Resilience.tsx": {
+    "beforeSha256": "c278d1758f0522e0255b13d0d9daebd5248218ec2e729442a6b4c329eb2cb8fe",
+    "afterSha256": "c7d81dd13ce81758d33ed65931cf8255f6add4bac00c6385ece75289d7d2794b",
+    "edits": [
+      {
+        "start": 4428,
+        "end": 4945,
+        "before": "                  <a href={periodBook.url} rel=\"noreferrer\">\n                    {section.cta}\n                  </a>\n",
+        "after": "                  <>\n                    <a href={periodBook.url} rel=\"noreferrer\">\n                      {section.cta}\n                    </a>\n                    <p>\n                      <a\n                        href=\"https://www.amazon.com/dp/B0HMM8MNQD\"\n                        target=\"_blank\"\n                        rel=\"noopener noreferrer\"\n                      >\n                        Paperback &amp; Kindle on Amazon (new tab)\n                      </a>\n                    </p>\n                  </>\n"
+      }
+    ]
+  },
+  "src/execution-view.ts": {
+    "beforeSha256": "d7c2bf5cd25fe7cf06ae44e60d638e5606e7da5ff27279057e1e18887e5f13fa",
+    "afterSha256": "52530f66475d4acccc386a0e5699467e0124c8ac8513c60c7307d872accdefeb",
+    "edits": [
+      {
+        "start": 9564,
+        "end": 9953,
+        "before": "",
+        "after": "                {},\n                n(\n                  'a',\n                  {\n                    href: 'https://www.amazon.com/dp/B0HR68MLGR',\n                    target: '_blank',\n                    rel: 'noopener noreferrer',\n                  },\n                  'Paperback & Kindle on Amazon (new tab)',\n                ),\n              ),\n              n(\n                'p',\n"
+      }
+    ]
+  },
+  "src/loop-view.ts": {
+    "beforeSha256": "bf027cd1a7c90e289411497f399627494560148f1534e54ee05a545fdb59a0e5",
+    "afterSha256": "c5267763f7cbb0231b46b9fc034d3fb14806c415240de644137cc4c415f5b0e4",
+    "edits": [
+      {
+        "start": 7270,
+        "end": 7665,
+        "before": "",
+        "after": "                'p',\n                {},\n                node(\n                  'a',\n                  {\n                    href: 'https://www.amazon.com/dp/B0HQXLMHF5',\n                    target: '_blank',\n                    rel: 'noopener noreferrer',\n                  },\n                  'Paperback & Kindle on Amazon (new tab)',\n                ),\n              ),\n              node(\n"
+      }
+    ]
+  },
+  "src/main.tsx": {
+    "beforeSha256": "67850c36dde00265caae4395153e435d3d82006c5e16b16efe65fafb5614d654",
+    "afterSha256": "4e3a67973cac7355c668aceffd6da2cef52e4ba017a321a6ad17d157359e2347",
+    "edits": [
+      {
+        "start": 0,
+        "end": 54,
+        "before": "",
+        "after": "import { founderLinks } from './site-footer-content';\n"
+      },
+      {
+        "start": 19151,
+        "end": 19261,
+        "before": "          <a href=\"#/period/book\" aria-current={path === '/period/book' ? 'page' : undefined}>\n            About The PERIOD Code book\n",
+        "after": "          <a href={founderLinks.books} target=\"_blank\" rel=\"noopener noreferrer\">\n            Books (new tab)\n"
+      }
+    ]
+  },
+  "src/site-footer-content.ts": {
+    "beforeSha256": "545858916b71617fee538bf5d13ee5d25f40d4f0ef7e38582ff4d7d4a85e4402",
+    "afterSha256": "b9daa34072dc9014390c74dfc1f793fe57f9b54bceae6423ddf5d696e63df4c1",
+    "edits": [
+      {
+        "start": 342,
+        "end": 385,
+        "before": "",
+        "after": "  books: 'https://jimlunsford.com/books/',\n"
+      }
+    ]
+  }
+}

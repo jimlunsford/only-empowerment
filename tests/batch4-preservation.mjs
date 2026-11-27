@@ -1,3 +1,4 @@
+import { beforeBookLinksReading } from './book-links-preservation.mjs';
 import { beforeBatch5Source } from './batch5-preservation.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -20,6 +21,7 @@ export function beforeBatch4Source(source, path) {
   return change && sha(source) === change.afterSha256 ? reverse(source, change) : source;
 }
 export function beforeBatch4Reading(html) {
+  html = beforeBookLinksReading(html);
   const change = Object.values(readings).find((entry) => sha(html) === entry.afterSha256);
   return change ? reverse(html, change) : html;
 }

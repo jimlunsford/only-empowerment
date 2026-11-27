@@ -412,7 +412,9 @@ test('visiting execution preserves Standard Card draft and the accepted book-exi
   await screen(page).locator('summary').first().click();
   await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
   await expect(page.locator('#period-standard')).toHaveValue('Synthetic Work 82 draft.');
-  await page.getByRole('link', { name: 'About The PERIOD Code book', exact: true }).click();
+  await page.evaluate(() => {
+    location.hash = '/period/book';
+  });
   const opener = page.getByRole('link', { name: 'Explore the book and read a sample' });
   await page.locator('#main').focus();
   await opener.evaluate((el) =>

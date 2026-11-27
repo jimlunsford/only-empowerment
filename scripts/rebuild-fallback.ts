@@ -85,5 +85,5 @@ export function rebuildFallback() {
     )
     .replaceAll('<h1', '<h2')
     .replaceAll('</h1>', '</h2>');
-  return `<section class="rebuild-guide" id="rebuild-reading" aria-label="How to Rebuild Yourself, complete teaching"><div id="/rebuild" tabindex="-1"><div class="wrap all-reading" ${target('index')}><div ${target('complete')}>${body}${frameworkBridges('rebuild')}</div></div></div></section>`;
+  return `<section class="rebuild-guide" id="rebuild-reading" aria-label="How to Rebuild Yourself, complete teaching"><div id="/rebuild" tabindex="-1"><div class="wrap all-reading" ${target('index')}><div ${target('complete')}>${body}<p><a href="https://www.amazon.com/dp/B0HQVNBCWP" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p>${frameworkBridges('rebuild')}</div></div></div></section>`;
 }
