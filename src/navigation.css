@@ -406,3 +406,51 @@
     outline-color: Highlight;
   }
 }
+
+/* Batch 5: shared editorial presentation; native print rules remain independent. */
+@media screen {
+  .site-shell {
+    background: var(--editorial-paper);
+  }
+  .site-shell :is(.site-header, .site-main, .site-footer) {
+    max-width: var(--editorial-container);
+  }
+  .site-shell .period-review-notice {
+    background: var(--editorial-surface);
+    font-size: var(--editorial-label-size);
+    line-height: var(--editorial-label-leading);
+    padding-block: var(--editorial-local-padding);
+  }
+  .site-shell.period-shell .site-header .period-local-navigation,
+  .site-shell .rebuild-guide .rebuild-approval,
+  .site-shell .rebuild-guide .breadcrumb,
+  .loop-section-nav,
+  .workshop-position {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 1.5rem;
+    padding-block: var(--editorial-local-padding);
+    margin-block: 0;
+    border: 0;
+    border-bottom: 1px solid var(--editorial-line);
+    font-family: var(--font-body);
+    font-size: var(--editorial-label-size);
+    line-height: var(--editorial-label-leading);
+    color: var(--editorial-muted);
+  }
+  .site-shell.period-shell .site-header .period-local-navigation {
+    border-top: 1px solid var(--editorial-line);
+    border-bottom: 0;
+  }
+  .site-shell.period-shell .site-header .period-local-navigation a,
+  .rebuild-guide :is(.rebuild-approval, .breadcrumb) a,
+  .loop-experience .loop-section-nav a,
+  .workshop .workshop-position a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0.25rem;
+    font-size: inherit;
+  }
+}

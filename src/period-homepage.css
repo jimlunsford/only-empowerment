@@ -427,3 +427,47 @@
     display: block;
   }
 }
+
+/* Batch 5: shared editorial presentation; native print rules remain independent. */
+@media screen {
+  .period-shell .homepage h1,
+  #educational-fallback .homepage .home-hero > h2 {
+    font-size: var(--editorial-h1);
+    line-height: var(--editorial-title-leading);
+    letter-spacing: var(--editorial-title-tracking);
+  }
+  .period-shell .homepage h2 {
+    font-size: var(--editorial-h2);
+    line-height: var(--editorial-heading-leading);
+  }
+  #app .site-shell.period-shell .home-hero,
+  .period-shell .home-hero {
+    padding-block: var(--editorial-hero-space);
+  }
+  .period-shell .home-hero,
+  .period-shell .home-columns {
+    gap: var(--editorial-gap);
+  }
+  .period-shell .home-ruled {
+    padding-block: var(--editorial-section-space);
+  }
+  .period-shell .home-hero-copy .lead,
+  .period-shell .home-situation {
+    font-size: var(--editorial-subtitle);
+    line-height: var(--editorial-label-leading);
+  }
+  .period-shell .homepage .button {
+    min-height: var(--editorial-button-height);
+    padding: var(--editorial-button-padding);
+    font-size: var(--editorial-button-size);
+    line-height: var(--editorial-button-leading);
+  }
+  .period-shell .home-comparison > section {
+    padding: var(--editorial-panel-padding);
+    border: 1px solid var(--editorial-line);
+    border-radius: var(--editorial-radius);
+  }
+  .period-shell .home-standard {
+    background: var(--editorial-surface);
+  }
+}

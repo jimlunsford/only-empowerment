@@ -691,3 +691,37 @@ select:focus-visible {
   overflow-wrap: anywhere;
   min-width: 0;
 }
+
+/* Batch 5: shared editorial presentation; native print rules remain independent. */
+:root {
+  --editorial-paper: #f7f3eb;
+  --editorial-surface: #e5ebe2;
+  --editorial-white: #fffdf8;
+  --editorial-forest: #173c34;
+  --editorial-muted: #52615a;
+  --editorial-line: #c9cec4;
+  --editorial-control-border: #738177;
+  --editorial-clay: #98422e;
+  --editorial-hover: #28574b;
+  --editorial-container: 1248px;
+  --editorial-content: 1200px;
+  --editorial-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --editorial-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --editorial-title-leading: 1.06;
+  --editorial-heading-leading: 1.18;
+  --editorial-title-tracking: -0.035em;
+  --editorial-subtitle: clamp(1.1875rem, 2vw, 1.375rem);
+  --editorial-label-size: 0.875rem;
+  --editorial-label-leading: 1.5;
+  --editorial-section-space: clamp(1.75rem, 3vw, 2.5rem);
+  --editorial-hero-space: clamp(1.75rem, 4vw, 3rem);
+  --editorial-grid: minmax(0, 0.76fr) minmax(0, 1.5fr);
+  --editorial-gap: clamp(1.5rem, 5vw, 4.5rem);
+  --editorial-panel-padding: clamp(1.25rem, 3vw, 2rem);
+  --editorial-radius: 3px;
+  --editorial-local-padding: 0.5rem;
+  --editorial-button-size: 1rem;
+  --editorial-button-leading: 1.4;
+  --editorial-button-padding: 0.65rem 1rem;
+  --editorial-button-height: 44px;
+}

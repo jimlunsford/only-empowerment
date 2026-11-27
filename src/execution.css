@@ -516,3 +516,101 @@
     margin-block: 0.6rem;
   }
 }
+
+/* Batch 5: shared editorial presentation; native print rules remain independent. */
+@media screen {
+  .execution-experience,
+  .workshop {
+    color: var(--editorial-forest);
+    max-width: var(--editorial-content);
+  }
+  .workshop {
+    padding-top: 0;
+  }
+  .workshop h1,
+  .execution-intro :is(h1, h2) {
+    font-size: var(--editorial-h1);
+    line-height: var(--editorial-title-leading);
+    letter-spacing: var(--editorial-title-tracking);
+  }
+  .workshop h2,
+  .execution-section > :is(h2, [data-section-heading]) {
+    font-size: var(--editorial-h2);
+    line-height: var(--editorial-heading-leading);
+  }
+  .workshop-purpose {
+    font-size: var(--editorial-subtitle);
+    line-height: var(--editorial-label-leading);
+  }
+  .workshop .workshop-kicker {
+    font-size: var(--editorial-label-size);
+    line-height: var(--editorial-label-leading);
+    margin-block: 0;
+    padding-top: var(--editorial-local-padding);
+  }
+  .workshop-facts,
+  .workshop-feedback,
+  .execution-practice {
+    background: var(--editorial-surface);
+    border: 1px solid var(--editorial-line);
+    border-radius: var(--editorial-radius);
+    padding: var(--editorial-panel-padding);
+  }
+  .workshop-facts > p:first-child,
+  .workshop-feedback > p:first-child {
+    margin-top: 0;
+  }
+  .workshop-facts > p:last-child,
+  .workshop-feedback > p:last-child {
+    margin-bottom: 0;
+  }
+  .workshop-guide {
+    border-top: 1px solid var(--editorial-line);
+    padding-top: var(--editorial-local-padding);
+  }
+  .workshop-navigation {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.75rem 1rem;
+    border-color: var(--editorial-line);
+  }
+  .workshop-navigation a,
+  .workshop-demonstration > button {
+    display: inline-flex;
+    flex: 0 1 auto;
+    max-width: 100%;
+    min-height: var(--editorial-button-height);
+    padding: var(--editorial-button-padding);
+    border: 1px solid var(--editorial-control-border);
+    border-radius: var(--editorial-radius);
+    font-size: var(--editorial-button-size);
+    line-height: var(--editorial-button-leading);
+    font-weight: 600;
+  }
+  .workshop-navigation a span {
+    font-size: var(--editorial-label-size);
+    line-height: var(--editorial-label-leading);
+  }
+  .workshop-navigation .workshop-continue,
+  .workshop-demonstration > button {
+    background: var(--editorial-forest);
+    color: var(--editorial-white);
+    border-color: var(--editorial-forest);
+  }
+  .workshop-navigation a:hover {
+    background: var(--editorial-surface);
+  }
+  .workshop-navigation .workshop-continue:hover,
+  .workshop-demonstration > button:hover {
+    background: var(--editorial-hover);
+  }
+  .execution-section {
+    padding-block: var(--editorial-section-space);
+    border-color: var(--editorial-line);
+  }
+  @media (max-width: 380px) {
+    .workshop-navigation {
+      align-items: flex-start;
+    }
+  }
+}

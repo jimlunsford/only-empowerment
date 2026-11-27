@@ -1859,3 +1859,36 @@
 .native-select {
   display: contents;
 }
+
+/* Batch 5: shared editorial presentation; native print rules remain independent. */
+@media screen {
+  .period-shell {
+    --paper: var(--editorial-paper);
+    --white: var(--editorial-white);
+    --ink: var(--editorial-forest);
+    --muted: var(--editorial-muted);
+    --sage: var(--editorial-surface);
+    --line: var(--editorial-line);
+    --accent: var(--editorial-clay);
+    --border: var(--editorial-control-border);
+  }
+  .period-shell .button {
+    min-height: var(--editorial-button-height);
+    padding: var(--editorial-button-padding);
+    border-color: var(--editorial-control-border);
+    border-radius: var(--editorial-radius);
+    font-size: var(--editorial-button-size);
+    line-height: var(--editorial-button-leading);
+  }
+  .period-shell .button.primary {
+    border-color: var(--editorial-forest);
+  }
+  .period-shell .button.primary:hover {
+    background: var(--editorial-hover);
+    filter: none;
+  }
+  .period-shell .button.secondary:hover {
+    background: var(--editorial-surface);
+    filter: none;
+  }
+}
