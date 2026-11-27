@@ -1,0 +1,1622 @@
+{
+  "src/Execution.tsx": {
+    "beforeSha256": "305cdd515cc9ba7e426cbc12819e4291b8bd133c36a286d3aa63814130f58892",
+    "afterSha256": "f190204222491a4bc69c450eb536dff32f076fad31b25a82c6813a3223e538c0",
+    "edits": [
+      {
+        "start": 3770,
+        "end": 3770,
+        "before": "hea",
+        "after": ""
+      },
+      {
+        "start": 3771,
+        "end": 3773,
+        "before": "er",
+        "after": "iv"
+      },
+      {
+        "start": 3790,
+        "end": 3793,
+        "before": "he",
+        "after": "loc"
+      },
+      {
+        "start": 3794,
+        "end": 3796,
+        "before": "di",
+        "after": "l-"
+      },
+      {
+        "start": 3797,
+        "end": 3799,
+        "before": "g",
+        "after": "av"
+      },
+      {
+        "start": 4507,
+        "end": 4609,
+        "before": "",
+        "after": "</div>\n        <div class=\"workshop-editorial\">\n          <header class=\"workshop-heading\">\n          "
+      },
+      {
+        "start": 4692,
+        "end": 4694,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 4719,
+        "end": 4721,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 4727,
+        "end": 4729,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 4798,
+        "end": 4800,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 4813,
+        "end": 4815,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 4855,
+        "end": 4857,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 4955,
+        "end": 4957,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 4959,
+        "end": 4977,
+        "before": "",
+        "after": "\n                 "
+      },
+      {
+        "start": 5017,
+        "end": 5035,
+        "before": "",
+        "after": "\n                 "
+      },
+      {
+        "start": 5051,
+        "end": 5069,
+        "before": "",
+        "after": "\n                 "
+      },
+      {
+        "start": 5095,
+        "end": 5112,
+        "before": "",
+        "after": "\n                "
+      },
+      {
+        "start": 5114,
+        "end": 5116,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5190,
+        "end": 5192,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5197,
+        "end": 5199,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5227,
+        "end": 5229,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5234,
+        "end": 5236,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5257,
+        "end": 5259,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5269,
+        "end": 5271,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5319,
+        "end": 5321,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5349,
+        "end": 5351,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5437,
+        "end": 5439,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5473,
+        "end": 5475,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5486,
+        "end": 5488,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5589,
+        "end": 5591,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5652,
+        "end": 5654,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5752,
+        "end": 5754,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5757,
+        "end": 5759,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5823,
+        "end": 5825,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5856,
+        "end": 5858,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5862,
+        "end": 5864,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5899,
+        "end": 5901,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5959,
+        "end": 5961,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 5983,
+        "end": 5985,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6097,
+        "end": 6099,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6145,
+        "end": 6147,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6152,
+        "end": 6154,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6186,
+        "end": 6188,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6205,
+        "end": 6207,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6210,
+        "end": 6212,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6244,
+        "end": 6246,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6350,
+        "end": 6352,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6360,
+        "end": 6362,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6394,
+        "end": 6396,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6451,
+        "end": 6453,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6535,
+        "end": 6537,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6554,
+        "end": 6556,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6654,
+        "end": 6656,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6723,
+        "end": 6725,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6744,
+        "end": 6746,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6748,
+        "end": 6750,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6860,
+        "end": 6862,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6872,
+        "end": 6874,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 6915,
+        "end": 6917,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7022,
+        "end": 7024,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7080,
+        "end": 7082,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7115,
+        "end": 7117,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7123,
+        "end": 7125,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7224,
+        "end": 7226,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7248,
+        "end": 7250,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7319,
+        "end": 7321,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7344,
+        "end": 7346,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7349,
+        "end": 7351,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7388,
+        "end": 7390,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7393,
+        "end": 7395,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7428,
+        "end": 7430,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7532,
+        "end": 7534,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7609,
+        "end": 7611,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7645,
+        "end": 7647,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7653,
+        "end": 7655,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7769,
+        "end": 7771,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7824,
+        "end": 7826,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7834,
+        "end": 7836,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7894,
+        "end": 7896,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 7921,
+        "end": 7923,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8006,
+        "end": 8008,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8061,
+        "end": 8063,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8065,
+        "end": 8067,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8138,
+        "end": 8140,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8170,
+        "end": 8172,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8274,
+        "end": 8276,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8285,
+        "end": 8287,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8341,
+        "end": 8343,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8346,
+        "end": 8348,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8396,
+        "end": 8398,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8402,
+        "end": 8404,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8427,
+        "end": 8429,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8496,
+        "end": 8498,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8530,
+        "end": 8532,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8608,
+        "end": 8610,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8652,
+        "end": 8654,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8660,
+        "end": 8662,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8728,
+        "end": 8730,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8737,
+        "end": 8739,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8774,
+        "end": 8776,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8789,
+        "end": 8791,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8902,
+        "end": 8904,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8929,
+        "end": 8931,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8975,
+        "end": 8977,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 8980,
+        "end": 8982,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9037,
+        "end": 9039,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9043,
+        "end": 9045,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9100,
+        "end": 9102,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9188,
+        "end": 9190,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9195,
+        "end": 9197,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9236,
+        "end": 9238,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9244,
+        "end": 9246,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9287,
+        "end": 9289,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9297,
+        "end": 9299,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9372,
+        "end": 9374,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9388,
+        "end": 9390,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9465,
+        "end": 9467,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9503,
+        "end": 9505,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9614,
+        "end": 9616,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9618,
+        "end": 9620,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9680,
+        "end": 9682,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9702,
+        "end": 9704,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9799,
+        "end": 9801,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9811,
+        "end": 9813,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9874,
+        "end": 9876,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9885,
+        "end": 9887,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9960,
+        "end": 9962,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 9990,
+        "end": 9992,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 10073,
+        "end": 10075,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 10077,
+        "end": 10079,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 10163,
+        "end": 10165,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 10217,
+        "end": 10219,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 10234,
+        "end": 11500,
+        "before": "",
+        "after": ".map((entry) => (\n                            <section>\n                              <h3>{entry.label}</h3>\n                              <Outcome option={entry} />\n                            </section>\n                          ))}\n                        </section>\n                      )}\n                    </>\n                  )}\n                </section>\n              )}\n              {id === 'compare' &&\n                ['event', 'event-wait', 'event-close'].map((key) => {\n                  const decision = workshopById(key);\n                  const selected = decision.options!.find((entry) => entry.id === choices[key]);\n                  return (\n                    <section class=\"workshop-review\" aria-label={decision.title}>\n                      <h2>{decision.title}</h2>\n                      <p>\n                        <strong>{selected ? 'Your choice: ' : 'No choice in this session.'}</strong>\n                        {selected?.label}\n                      </p>\n                      {selected && <Outcome option={selected} />}\n                      <p>{decision.explanation}</p>\n                      <details>\n                        <summary>Compare all options for this decision</summary>\n                        {decision.options!"
+      },
+      {
+        "start": 11749,
+        "end": 11749,
+        "before": "section>\n                    )}\n                  </>\n                )}\n              </section>\n            )}\n            {id === 'compare' &&\n              ['event', 'event-wait', 'event-close'].map((key) => {\n                const decision = workshopById(key);\n                const selected = decision.options!.find((entry) => entry.id === choices[key]);\n                return (\n                  <section class=\"workshop-review\" aria-label={decision.title}>\n                    <h2>{decision.title}</h2>\n                    <p>\n                      <strong>{selected ? 'Your choice: ' : 'No choice in this session.'}</strong>\n                      {selected?.label}\n                    </p>\n                    {selected && <Outcome option={selected} />}\n                    <p>{decision.explanation}</p>\n                    <",
+        "after": ""
+      },
+      {
+        "start": 11760,
+        "end": 11760,
+        "before": "                    <summary>Compare all options for this decision</summary>\n                      {decision.options!.map((entry) => (\n                        <section>\n                          <h3>{entry.label}</h3>\n                          <Outcome option={entry} />\n                        </section>\n                      ))}\n                    </details>\n",
+        "after": ""
+      },
+      {
+        "start": 11852,
+        "end": 11854,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 11865,
+        "end": 11867,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 11900,
+        "end": 11902,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 11906,
+        "end": 11908,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 11969,
+        "end": 11971,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 11975,
+        "end": 11977,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12090,
+        "end": 12092,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12171,
+        "end": 12173,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12178,
+        "end": 12180,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12203,
+        "end": 12205,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12319,
+        "end": 12321,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12402,
+        "end": 12404,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12409,
+        "end": 12411,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12443,
+        "end": 12445,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12462,
+        "end": 12464,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12467,
+        "end": 12469,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12520,
+        "end": 12522,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12526,
+        "end": 12528,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12643,
+        "end": 12645,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12669,
+        "end": 12671,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12713,
+        "end": 12715,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12722,
+        "end": 12724,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12837,
+        "end": 12839,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12884,
+        "end": 12886,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12912,
+        "end": 12914,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 12921,
+        "end": 12923,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13037,
+        "end": 13039,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13087,
+        "end": 13089,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13094,
+        "end": 13096,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13127,
+        "end": 13129,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13132,
+        "end": 13134,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13240,
+        "end": 13242,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13269,
+        "end": 13271,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13276,
+        "end": 13278,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13378,
+        "end": 13380,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13390,
+        "end": 13392,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13438,
+        "end": 13440,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13519,
+        "end": 13521,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13526,
+        "end": 13528,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13548,
+        "end": 13550,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13612,
+        "end": 13614,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13617,
+        "end": 13619,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13643,
+        "end": 13645,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13735,
+        "end": 13737,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13802,
+        "end": 13804,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13809,
+        "end": 13811,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13831,
+        "end": 13833,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13905,
+        "end": 13907,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13910,
+        "end": 13912,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 13931,
+        "end": 13933,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14008,
+        "end": 14010,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14014,
+        "end": 14016,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14115,
+        "end": 14117,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14157,
+        "end": 14159,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14253,
+        "end": 14255,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14260,
+        "end": 14262,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14293,
+        "end": 14295,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14298,
+        "end": 14300,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14400,
+        "end": 14402,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14409,
+        "end": 14411,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14464,
+        "end": 14466,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14501,
+        "end": 14503,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14580,
+        "end": 14582,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14587,
+        "end": 14589,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14663,
+        "end": 14665,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14690,
+        "end": 14692,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14695,
+        "end": 14697,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14752,
+        "end": 14754,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14859,
+        "end": 14861,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14863,
+        "end": 14865,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14934,
+        "end": 14936,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14941,
+        "end": 14943,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14983,
+        "end": 14985,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 14989,
+        "end": 14991,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15011,
+        "end": 15013,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15106,
+        "end": 15108,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15127,
+        "end": 15129,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15133,
+        "end": 15135,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15244,
+        "end": 15246,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15278,
+        "end": 15280,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15285,
+        "end": 15287,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15334,
+        "end": 15336,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15412,
+        "end": 15414,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15457,
+        "end": 15459,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15463,
+        "end": 15465,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15577,
+        "end": 15579,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15655,
+        "end": 15655,
+        "before": " Leaving",
+        "after": ""
+      },
+      {
+        "start": 15671,
+        "end": 15681,
+        "before": "",
+        "after": "   Leaving"
+      },
+      {
+        "start": 15769,
+        "end": 15771,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15776,
+        "end": 15778,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15801,
+        "end": 15803,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15899,
+        "end": 15901,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15918,
+        "end": 15920,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15952,
+        "end": 15954,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 15961,
+        "end": 15978,
+        "before": "",
+        "after": ">\n          </div"
+      }
+    ]
+  },
+  "src/Rebuild.tsx": {
+    "beforeSha256": "e4d7361098048e901f1bb6c2511502fbc88594148825b669b392ef67ae049448",
+    "afterSha256": "8ce243be66819a3e34a1f4ac8717f8d26ba70c79154f31a7b6e52470be0597a7",
+    "edits": [
+      {
+        "start": 2374,
+        "end": 2460,
+        "before": "",
+        "after": "div class=\"framework-home-hero\">\n        <div class=\"framework-home-copy\">\n          <"
+      },
+      {
+        "start": 2496,
+        "end": 2500,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2597,
+        "end": 2601,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2674,
+        "end": 2678,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2682,
+        "end": 2686,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2778,
+        "end": 2778,
+        "before": " what is",
+        "after": ""
+      },
+      {
+        "start": 2788,
+        "end": 2800,
+        "before": "",
+        "after": "     what is"
+      },
+      {
+        "start": 2861,
+        "end": 2865,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2870,
+        "end": 2874,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2890,
+        "end": 2894,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2937,
+        "end": 2941,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2970,
+        "end": 2974,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 2981,
+        "end": 2985,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 3020,
+        "end": 3024,
+        "before": "",
+        "after": "    "
+      },
+      {
+        "start": 3029,
+        "end": 3046,
+        "before": "",
+        "after": "        </div>\n  "
+      },
+      {
+        "start": 3119,
+        "end": 3121,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3155,
+        "end": 3157,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3162,
+        "end": 3164,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3220,
+        "end": 3222,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3241,
+        "end": 3243,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3283,
+        "end": 3285,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3358,
+        "end": 3360,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3365,
+        "end": 3367,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3395,
+        "end": 3397,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3401,
+        "end": 3403,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3423,
+        "end": 3425,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3429,
+        "end": 3442,
+        "before": "",
+        "after": "v>\n      </di"
+      },
+      {
+        "start": 3627,
+        "end": 3643,
+        "before": "",
+        "after": "div>\n          <"
+      },
+      {
+        "start": 3693,
+        "end": 3695,
+        "before": "",
+        "after": "  "
+      },
+      {
+        "start": 3730,
+        "end": 3745,
+        "before": "",
+        "after": ">\n        </div"
+      }
+    ]
+  },
+  "src/execution.css": {
+    "beforeSha256": "ee9500d062288e046c25472a2545e0f1dce76328573e4e3c318e8a0fabbc59f1",
+    "afterSha256": "dd376c5ab7853f4e7f1031b090fd510afddb4f1f638ccf334e253db18765dc31",
+    "edits": [
+      {
+        "start": 13403,
+        "end": 16154,
+        "before": "",
+        "after": "\n/* Batch 6: one local bar, a cover-aligned roadmap and compact two-line controls. */\n@media screen {\n  .workshop .workshop-local-nav {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n    justify-content: space-between;\n    gap: 0.25rem 1.5rem;\n    padding-block: var(--editorial-local-padding);\n    border-bottom: 1px solid var(--editorial-line);\n    font-size: var(--editorial-label-size);\n    line-height: var(--editorial-label-leading);\n    color: var(--editorial-muted);\n  }\n  .workshop .workshop-local-nav .workshop-kicker {\n    margin: 0;\n    padding: 0;\n    font-size: inherit;\n  }\n  .workshop .workshop-local-nav .workshop-position {\n    flex: 1 1 auto;\n    justify-content: space-between;\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: inherit;\n  }\n  .workshop .workshop-local-nav a {\n    font-size: inherit;\n    line-height: inherit;\n    min-height: 44px;\n  }\n  .workshop .workshop-navigation {\n    align-items: flex-start;\n  }\n  .workshop .workshop-navigation a {\n    padding-block: 0.375rem;\n    line-height: 1.2;\n    justify-content: center;\n  }\n  .workshop .workshop-navigation a span {\n    line-height: 1.2;\n  }\n  .workshop[data-workshop='welcome'] .workshop-editorial {\n    display: grid;\n    grid-template-columns: var(--editorial-hero-grid);\n    column-gap: var(--editorial-gap);\n    align-items: start;\n    padding-block: var(--editorial-hero-space);\n  }\n  .workshop[data-workshop='welcome'] .workshop-heading {\n    grid-column: 1;\n    grid-row: 1;\n    min-width: 0;\n    margin: 0 0 1.5rem;\n  }\n  .workshop[data-workshop='welcome'] h1 {\n    margin-top: 0;\n  }\n  .workshop[data-workshop='welcome'] .workshop-purpose {\n    margin-bottom: 0;\n  }\n  .workshop[data-workshop='welcome'] .workshop-layout {\n    display: contents;\n  }\n  .workshop[data-workshop='welcome'] .workshop-main {\n    grid-column: 1;\n    grid-row: 2;\n  }\n  .workshop[data-workshop='welcome'] .workshop-guide {\n    grid-column: 2;\n    grid-row: 1 / span 2;\n    min-width: 0;\n    border: 1px solid var(--editorial-line);\n    border-radius: var(--editorial-radius);\n    background: var(--editorial-surface);\n    padding: var(--editorial-panel-padding);\n  }\n  .workshop[data-workshop='welcome'] .workshop-guide-title {\n    margin-top: 0;\n    font-family: var(--font-display);\n    font-size: var(--editorial-h2);\n    line-height: var(--editorial-heading-leading);\n    font-weight: 400;\n  }\n  .workshop[data-workshop='welcome'] .workshop-guide li {\n    border-top: 1px solid var(--editorial-line);\n  }\n  @media (max-width: 768px) {\n    .workshop[data-workshop='welcome'] .workshop-editorial {\n      display: block;\n    }\n    .workshop[data-workshop='welcome'] .workshop-guide {\n      margin-top: var(--editorial-section-space);\n    }\n  }\n}\n"
+      }
+    ]
+  },
+  "src/loop.css": {
+    "beforeSha256": "acfead5d3ca5d3b5225e4fff856fdac3d80adb92586842ea96f96f69c55ec76f",
+    "afterSha256": "169240732c4711b80fb0b56e0b9ba157f4c1d7543002df21256ae6fa63e93a85",
+    "edits": [
+      {
+        "start": 10139,
+        "end": 11620,
+        "before": "",
+        "after": "\n/* Batch 6: a forest cover panel and a bounded section-jump strip. */\n@media screen {\n  .loop-hero {\n    grid-template-columns: var(--editorial-hero-grid);\n  }\n  .loop-hero > div > .loop-kicker {\n    margin-top: 0;\n  }\n  .loop-hero .loop-cycle {\n    background: var(--editorial-forest);\n    color: var(--editorial-paper);\n    border-color: var(--editorial-forest);\n  }\n  .loop-hero .loop-cycle > .loop-kicker {\n    font-family: var(--font-display);\n    font-size: var(--editorial-h2);\n    font-weight: 400;\n    line-height: var(--editorial-heading-leading);\n    margin: 0 0 1rem;\n  }\n  .loop-hero .loop-cycle li {\n    border-bottom: 0;\n    border-top: 1px solid var(--editorial-anchor-line);\n  }\n  .loop-hero .loop-cycle a {\n    font-family: var(--font-display);\n    font-size: 1.25rem;\n    font-weight: 400;\n    text-decoration: none;\n  }\n  .loop-hero .loop-cycle a:hover {\n    text-decoration: underline;\n  }\n  .loop-hero .loop-cycle-return {\n    border-left: 0;\n    border-top: 1px solid var(--editorial-anchor-line);\n    padding: 1rem 0 0;\n    margin-bottom: 0;\n  }\n  .loop-hero .loop-cycle a:focus-visible {\n    outline-color: var(--editorial-paper);\n  }\n  .loop-experience .loop-section-nav {\n    border-block: 1px solid var(--editorial-line);\n  }\n  @media (max-width: 768px) {\n    .loop-hero {\n      grid-template-columns: minmax(0, 1fr);\n    }\n  }\n  @media (forced-colors: active) {\n    .loop-hero .loop-cycle a:focus-visible {\n      outline-color: Highlight;\n    }\n  }\n}\n"
+      }
+    ]
+  },
+  "src/period-homepage.css": {
+    "beforeSha256": "038e8f081eca007358feb3a31a9790c7bd88d60e6f01e94e7129e0d12b9e4097",
+    "afterSha256": "f231b6b819240c385fe085ba91139107714d67224b7f2e51761c599d8d78e7b4",
+    "edits": [
+      {
+        "start": 10561,
+        "end": 13539,
+        "before": "",
+        "after": "\n/* Batch 6: the framework hub shares the cover and ruled-section architecture. */\n@media screen {\n  .framework-hub .framework-home-hero {\n    display: grid;\n    grid-template-columns: var(--editorial-hero-grid);\n    gap: var(--editorial-gap);\n    align-items: start;\n    padding-bottom: var(--editorial-hero-space);\n  }\n  .framework-home-copy,\n  .framework-hub .framework-home-hero > * {\n    min-width: 0;\n  }\n  .framework-hub .framework-hub-intro > .framework-kicker {\n    margin-top: 0;\n  }\n  .framework-hub .framework-chooser {\n    background: var(--editorial-forest);\n    color: var(--editorial-paper);\n    border: 1px solid var(--editorial-forest);\n    border-radius: var(--editorial-radius);\n    padding: var(--editorial-panel-padding);\n  }\n  .framework-hub .framework-chooser h2 {\n    color: inherit;\n    font-size: var(--editorial-h2);\n    font-weight: 400;\n    line-height: var(--editorial-heading-leading);\n    margin: 0 0 1rem;\n  }\n  .framework-hub .framework-chooser ul {\n    display: block;\n    margin: 0;\n  }\n  .framework-hub .framework-chooser li {\n    border-top: 1px solid var(--editorial-anchor-line);\n  }\n  .framework-hub .framework-chooser a {\n    color: inherit;\n    padding-block: 0.75rem;\n    text-decoration: none;\n  }\n  .framework-hub .framework-chooser a span {\n    font-family: var(--font-display);\n    font-size: 1.25rem;\n    font-weight: 400;\n  }\n  .framework-hub .framework-chooser a:hover {\n    text-decoration: underline;\n  }\n  .framework-hub .framework-chooser a:focus-visible {\n    outline: 3px solid var(--editorial-paper);\n    outline-offset: 4px;\n  }\n  .framework-hub .framework-orientation {\n    display: grid;\n    grid-template-columns: var(--editorial-grid);\n    gap: var(--editorial-gap);\n    max-width: none;\n    margin: 0;\n    border-top: 1px solid var(--editorial-line);\n    padding-block: var(--editorial-section-space);\n  }\n  .framework-hub .framework-orientation h2 {\n    font-size: var(--editorial-h2);\n    font-weight: 400;\n    line-height: var(--editorial-heading-leading);\n    margin: 0;\n  }\n  .framework-hub .framework-orientation > div > :first-child {\n    margin-top: 0;\n  }\n  .framework-hub .framework-orientation > div > :last-child {\n    margin-bottom: 0;\n  }\n  .framework-hub .framework-options {\n    border-top: 1px solid var(--editorial-line);\n    padding-top: var(--editorial-section-space);\n    margin-top: 0;\n  }\n  .framework-hub .framework-options article {\n    display: flex;\n    flex-direction: column;\n    align-items: flex-start;\n  }\n  .framework-hub .framework-options article > a {\n    margin-top: auto;\n  }\n  .framework-hub .framework-options article > p:last-of-type {\n    margin-bottom: 1.5rem;\n  }\n  @media (max-width: 768px) {\n    .framework-hub .framework-home-hero,\n    .framework-hub .framework-orientation {\n      grid-template-columns: minmax(0, 1fr);\n    }\n  }\n  @media (forced-colors: active) {\n    .framework-hub .framework-chooser a:focus-visible {\n      outline-color: Highlight;\n    }\n  }\n}\n"
+      }
+    ]
+  },
+  "src/style.css": {
+    "beforeSha256": "147ccb52c0f5c8f367a08f779dc564b71b8b0ceac6e06b018b13f82285d3884e",
+    "afterSha256": "cda845d654450034b94d1d6a281f2224df77bd15184202ba230acc84e70f3c06",
+    "edits": [
+      {
+        "start": 12792,
+        "end": 12971,
+        "before": "",
+        "after": "\n/* Batch 6: anchor-panel dividers match the Rebuild editorial reference. */\n:root {\n  --editorial-anchor-line: #638175;\n  --editorial-hero-grid: minmax(0, 1fr) minmax(0, 1fr);\n}\n"
+      }
+    ]
+  }
+}

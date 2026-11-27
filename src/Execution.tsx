@@ -105,7 +105,7 @@ export function Execution() {
   return (
     <>
       <article class="execution-screen workshop" data-workshop={id}>
-        <header class="workshop-heading">
+        <div class="workshop-local-nav">
           <p class="workshop-kicker">Pure Execution Mode · Guided workshop</p>
           <div class="workshop-position">
             {screen.stage ? (
@@ -122,256 +122,264 @@ export function Execution() {
               Complete reading and print edition (new tab)
             </a>
           </div>
-          <h1 id={legacy || location.hash.slice(1)} tabIndex={-1} ref={title}>
-            {screen.title}
-          </h1>
-          <p class="workshop-purpose">{screen.purpose}</p>
-          {legacy && (
-            <p class="workshop-legacy">
-              This earlier section link now opens the related workshop screen.{' '}
-              <a href={'/read/execution.html#' + legacy} target="_blank" rel="noopener noreferrer">
-                Read the original section in full (new tab)
-              </a>
-              .
-            </p>
-          )}
-        </header>
-        <div class="workshop-layout">
-          <div class="workshop-main">
-            <section class="workshop-facts" aria-label="The situation">
-              <p>{screen.facts}</p>
-            </section>
-            {id === 'event-wait' && <p class="workshop-carry">{eventCarry(choices)}</p>}
-            {id === 'recover' && takeoverChoice?.next === 'recover' && (
-              <p class="workshop-carry">Your earlier move: {takeoverChoice.label}</p>
-            )}
-            {screen.teaching.map((paragraph) => (
-              <p>{paragraph}</p>
-            ))}
-            {id === 'welcome' && (
-              <p class="workshop-origin">
-                {workshopOrigin}{' '}
-                <a href="/read/execution.html#why" target="_blank" rel="noopener noreferrer">
-                  Read the foundation (new tab)
+        </div>
+        <div class="workshop-editorial">
+          <header class="workshop-heading">
+            <h1 id={legacy || location.hash.slice(1)} tabIndex={-1} ref={title}>
+              {screen.title}
+            </h1>
+            <p class="workshop-purpose">{screen.purpose}</p>
+            {legacy && (
+              <p class="workshop-legacy">
+                This earlier section link now opens the related workshop screen.{' '}
+                <a
+                  href={'/read/execution.html#' + legacy}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read the original section in full (new tab)
                 </a>
                 .
               </p>
             )}
-            {screen.action && (
-              <section class="workshop-demonstration" aria-label="Demonstrated action">
-                <button
-                  type="button"
-                  aria-expanded={!!demonstrations[id]}
-                  aria-controls="workshop-demonstration-result"
-                  onClick={() => {
-                    setDemonstrations((old) => ({ ...old, [id]: !old[id] }));
-                    feedbackRequested.current = !demonstrations[id];
-                  }}
-                >
-                  {demonstrations[id] ? 'Hide the demonstrated result' : screen.action.label}
-                </button>
-                {demonstrations[id] && (
-                  <div class="workshop-feedback" id="workshop-demonstration-result">
-                    <h2 tabIndex={-1} ref={feedback}>
-                      What changed
-                    </h2>
-                    <p class="workshop-consequence">{screen.action.result}</p>
-                    <h3>What remains</h3>
-                    <p>{screen.action.remains}</p>
-                  </div>
-                )}
+          </header>
+          <div class="workshop-layout">
+            <div class="workshop-main">
+              <section class="workshop-facts" aria-label="The situation">
+                <p>{screen.facts}</p>
               </section>
-            )}
-            {screen.options && (
-              <section class="workshop-decision" aria-labelledby="workshop-question">
-                <h2 id="workshop-question" ref={question} tabIndex={-1}>
-                  {screen.question}
-                </h2>
-                <div class="workshop-options" role="group" aria-labelledby="workshop-question">
-                  {screen.options.map((entry) => (
-                    <button
-                      type="button"
-                      aria-label={entry.label}
-                      aria-pressed={option?.id === entry.id}
-                      onClick={() => choose(entry.id)}
-                    >
-                      <span>{entry.label}</span>
-                      {option?.id === entry.id && (
-                        <span class="workshop-selected" aria-hidden="true">
-                          Selected
-                        </span>
-                      )}
-                    </button>
-                  ))}
-                </div>
-                {option && !screen.deferred && (
-                  <div class="workshop-feedback">
-                    <h2 ref={feedback} tabIndex={-1}>
-                      What this choice does
-                    </h2>
-                    <Outcome option={option} />
-                  </div>
-                )}
-                {option && (
-                  <button class="workshop-text-button" type="button" onClick={reconsider}>
-                    Reconsider this decision
+              {id === 'event-wait' && <p class="workshop-carry">{eventCarry(choices)}</p>}
+              {id === 'recover' && takeoverChoice?.next === 'recover' && (
+                <p class="workshop-carry">Your earlier move: {takeoverChoice.label}</p>
+              )}
+              {screen.teaching.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+              {id === 'welcome' && (
+                <p class="workshop-origin">
+                  {workshopOrigin}{' '}
+                  <a href="/read/execution.html#why" target="_blank" rel="noopener noreferrer">
+                    Read the foundation (new tab)
+                  </a>
+                  .
+                </p>
+              )}
+              {screen.action && (
+                <section class="workshop-demonstration" aria-label="Demonstrated action">
+                  <button
+                    type="button"
+                    aria-expanded={!!demonstrations[id]}
+                    aria-controls="workshop-demonstration-result"
+                    onClick={() => {
+                      setDemonstrations((old) => ({ ...old, [id]: !old[id] }));
+                      feedbackRequested.current = !demonstrations[id];
+                    }}
+                  >
+                    {demonstrations[id] ? 'Hide the demonstrated result' : screen.action.label}
                   </button>
-                )}
-                {screen.deferred ? (
-                  <p>
-                    <a href={workshopHref('compare')}>
-                      Skip practice and compare the reasoning now
-                    </a>
-                  </p>
-                ) : (
-                  <>
-                    <button
-                      class="workshop-text-button"
-                      type="button"
-                      aria-expanded={!!revealed[id]}
-                      aria-controls="workshop-comparison"
-                      onClick={() => setRevealed((old) => ({ ...old, [id]: !old[id] }))}
-                    >
-                      {revealed[id]
-                        ? 'Hide comparison'
-                        : 'Compare every option and read the explanation'}
-                    </button>
-                    {revealed[id] && (
-                      <section
-                        id="workshop-comparison"
-                        class="workshop-comparison"
-                        aria-label="Compare the reasoning"
+                  {demonstrations[id] && (
+                    <div class="workshop-feedback" id="workshop-demonstration-result">
+                      <h2 tabIndex={-1} ref={feedback}>
+                        What changed
+                      </h2>
+                      <p class="workshop-consequence">{screen.action.result}</p>
+                      <h3>What remains</h3>
+                      <p>{screen.action.remains}</p>
+                    </div>
+                  )}
+                </section>
+              )}
+              {screen.options && (
+                <section class="workshop-decision" aria-labelledby="workshop-question">
+                  <h2 id="workshop-question" ref={question} tabIndex={-1}>
+                    {screen.question}
+                  </h2>
+                  <div class="workshop-options" role="group" aria-labelledby="workshop-question">
+                    {screen.options.map((entry) => (
+                      <button
+                        type="button"
+                        aria-label={entry.label}
+                        aria-pressed={option?.id === entry.id}
+                        onClick={() => choose(entry.id)}
                       >
-                        <h2>The responsibility decides</h2>
-                        <p>{screen.explanation}</p>
-                        {screen.options.map((entry) => (
+                        <span>{entry.label}</span>
+                        {option?.id === entry.id && (
+                          <span class="workshop-selected" aria-hidden="true">
+                            Selected
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  {option && !screen.deferred && (
+                    <div class="workshop-feedback">
+                      <h2 ref={feedback} tabIndex={-1}>
+                        What this choice does
+                      </h2>
+                      <Outcome option={option} />
+                    </div>
+                  )}
+                  {option && (
+                    <button class="workshop-text-button" type="button" onClick={reconsider}>
+                      Reconsider this decision
+                    </button>
+                  )}
+                  {screen.deferred ? (
+                    <p>
+                      <a href={workshopHref('compare')}>
+                        Skip practice and compare the reasoning now
+                      </a>
+                    </p>
+                  ) : (
+                    <>
+                      <button
+                        class="workshop-text-button"
+                        type="button"
+                        aria-expanded={!!revealed[id]}
+                        aria-controls="workshop-comparison"
+                        onClick={() => setRevealed((old) => ({ ...old, [id]: !old[id] }))}
+                      >
+                        {revealed[id]
+                          ? 'Hide comparison'
+                          : 'Compare every option and read the explanation'}
+                      </button>
+                      {revealed[id] && (
+                        <section
+                          id="workshop-comparison"
+                          class="workshop-comparison"
+                          aria-label="Compare the reasoning"
+                        >
+                          <h2>The responsibility decides</h2>
+                          <p>{screen.explanation}</p>
+                          {screen.options.map((entry) => (
+                            <section>
+                              <h3>{entry.label}</h3>
+                              <Outcome option={entry} />
+                            </section>
+                          ))}
+                        </section>
+                      )}
+                    </>
+                  )}
+                </section>
+              )}
+              {id === 'compare' &&
+                ['event', 'event-wait', 'event-close'].map((key) => {
+                  const decision = workshopById(key);
+                  const selected = decision.options!.find((entry) => entry.id === choices[key]);
+                  return (
+                    <section class="workshop-review" aria-label={decision.title}>
+                      <h2>{decision.title}</h2>
+                      <p>
+                        <strong>{selected ? 'Your choice: ' : 'No choice in this session.'}</strong>
+                        {selected?.label}
+                      </p>
+                      {selected && <Outcome option={selected} />}
+                      <p>{decision.explanation}</p>
+                      <details>
+                        <summary>Compare all options for this decision</summary>
+                        {decision.options!.map((entry) => (
                           <section>
                             <h3>{entry.label}</h3>
                             <Outcome option={entry} />
                           </section>
                         ))}
-                      </section>
-                    )}
-                  </>
+                      </details>
+                      <a href={workshopHref(key)}>Revisit this decision</a>
+                    </section>
+                  );
+                })}
+              {id === 'your-responsibility' && (
+                <p>
+                  <a href="/read/execution.html#miss" target="_blank" rel="noopener noreferrer">
+                    Read the complete explanation of repair after a miss (new tab)
+                  </a>
+                  .{' '}
+                  <a href="/read/execution.html#daily" target="_blank" rel="noopener noreferrer">
+                    Read about ordinary responsibilities, support and rest (new tab)
+                  </a>
+                  .
+                </p>
+              )}
+              {id === 'reference' && (
+                <p>
+                  <a href="/read/execution.html#change" target="_blank" rel="noopener noreferrer">
+                    Changed plans (new tab)
+                  </a>{' '}
+                  ·{' '}
+                  <a href="/read/execution.html#miss" target="_blank" rel="noopener noreferrer">
+                    Missed commitments (new tab)
+                  </a>{' '}
+                  ·{' '}
+                  <a href="/read/execution.html#daily" target="_blank" rel="noopener noreferrer">
+                    Support and daily use (new tab)
+                  </a>
+                </p>
+              )}
+              <p class="workshop-status" role="status" aria-live="polite" aria-atomic="true">
+                {announcement}
+              </p>
+              <nav class="workshop-navigation" aria-label="Workshop screen navigation">
+                {back ? (
+                  <a href={workshopHref(back)}>
+                    Back <span>{workshopById(back).title}</span>
+                  </a>
+                ) : (
+                  <a href="#/">All frameworks</a>
                 )}
-              </section>
-            )}
-            {id === 'compare' &&
-              ['event', 'event-wait', 'event-close'].map((key) => {
-                const decision = workshopById(key);
-                const selected = decision.options!.find((entry) => entry.id === choices[key]);
-                return (
-                  <section class="workshop-review" aria-label={decision.title}>
-                    <h2>{decision.title}</h2>
-                    <p>
-                      <strong>{selected ? 'Your choice: ' : 'No choice in this session.'}</strong>
-                      {selected?.label}
-                    </p>
-                    {selected && <Outcome option={selected} />}
-                    <p>{decision.explanation}</p>
-                    <details>
-                      <summary>Compare all options for this decision</summary>
-                      {decision.options!.map((entry) => (
-                        <section>
-                          <h3>{entry.label}</h3>
-                          <Outcome option={entry} />
-                        </section>
-                      ))}
-                    </details>
-                    <a href={workshopHref(key)}>Revisit this decision</a>
-                  </section>
-                );
-              })}
-            {id === 'your-responsibility' && (
-              <p>
-                <a href="/read/execution.html#miss" target="_blank" rel="noopener noreferrer">
-                  Read the complete explanation of repair after a miss (new tab)
-                </a>
-                .{' '}
-                <a href="/read/execution.html#daily" target="_blank" rel="noopener noreferrer">
-                  Read about ordinary responsibilities, support and rest (new tab)
-                </a>
-                .
-              </p>
-            )}
-            {id === 'reference' && (
-              <p>
-                <a href="/read/execution.html#change" target="_blank" rel="noopener noreferrer">
-                  Changed plans (new tab)
-                </a>{' '}
-                ·{' '}
-                <a href="/read/execution.html#miss" target="_blank" rel="noopener noreferrer">
-                  Missed commitments (new tab)
-                </a>{' '}
-                ·{' '}
-                <a href="/read/execution.html#daily" target="_blank" rel="noopener noreferrer">
-                  Support and daily use (new tab)
-                </a>
-              </p>
-            )}
-            <p class="workshop-status" role="status" aria-live="polite" aria-atomic="true">
-              {announcement}
-            </p>
-            <nav class="workshop-navigation" aria-label="Workshop screen navigation">
-              {back ? (
-                <a href={workshopHref(back)}>
-                  Back <span>{workshopById(back).title}</span>
-                </a>
-              ) : (
-                <a href="#/">All frameworks</a>
+                {next ? (
+                  <a class="workshop-continue" href={workshopHref(next)}>
+                    Continue <span>{workshopById(next).title}</span>
+                  </a>
+                ) : (
+                  <a href="#/">Choose another framework</a>
+                )}
+              </nav>
+              {(screen.stage === 2 || screen.stage === 3) && (
+                <p>
+                  <a href={workshopHref(screen.stage === 2 ? 'access' : 'event')}>
+                    Skip this practice and continue to{' '}
+                    {screen.stage === 2 ? 'changed facts' : 'independent work'}
+                  </a>
+                </p>
               )}
-              {next ? (
-                <a class="workshop-continue" href={workshopHref(next)}>
-                  Continue <span>{workshopById(next).title}</span>
-                </a>
-              ) : (
-                <a href="#/">Choose another framework</a>
-              )}
-            </nav>
-            {(screen.stage === 2 || screen.stage === 3) && (
+              {workshopBridges[id] && <p class="workshop-bridge">{workshopBridges[id]}</p>}
+            </div>
+            <aside class="workshop-guide">
+              <nav aria-label="Workshop stages">
+                <p class="workshop-guide-title">The workshop</p>
+                <ol>
+                  {workshopStages.map((stage, index) => (
+                    <li>
+                      <a
+                        href={workshopHref(stage.entry)}
+                        aria-current={screen.stage === index + 1 ? 'step' : undefined}
+                      >
+                        <span>{stage.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+                <a href={workshopHref('reference')}>The five steps at a glance</a>
+              </nav>
               <p>
-                <a href={workshopHref(screen.stage === 2 ? 'access' : 'event')}>
-                  Skip this practice and continue to{' '}
-                  {screen.stage === 2 ? 'changed facts' : 'independent work'}
-                </a>
+                Move at your own pace. Continue is always available. Choosing an option does not
+                advance the screen.
               </p>
-            )}
-            {workshopBridges[id] && <p class="workshop-bridge">{workshopBridges[id]}</p>}
+              <details class="workshop-session">
+                <summary>Choices, refresh and restart</summary>
+                <p>{workshopSessionCopy}</p>
+                <p>
+                  Browser Back and Forward restore screens within an active workshop. Changing an
+                  earlier independent decision clears the later decisions that depended on it.
+                  Leaving for another framework or the reading edition ends this workshop session.
+                </p>
+              </details>
+              <button type="button" class="workshop-text-button" onClick={restart}>
+                Restart workshop
+              </button>
+            </aside>
           </div>
-          <aside class="workshop-guide">
-            <nav aria-label="Workshop stages">
-              <p class="workshop-guide-title">The workshop</p>
-              <ol>
-                {workshopStages.map((stage, index) => (
-                  <li>
-                    <a
-                      href={workshopHref(stage.entry)}
-                      aria-current={screen.stage === index + 1 ? 'step' : undefined}
-                    >
-                      <span>{stage.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
-              <a href={workshopHref('reference')}>The five steps at a glance</a>
-            </nav>
-            <p>
-              Move at your own pace. Continue is always available. Choosing an option does not
-              advance the screen.
-            </p>
-            <details class="workshop-session">
-              <summary>Choices, refresh and restart</summary>
-              <p>{workshopSessionCopy}</p>
-              <p>
-                Browser Back and Forward restore screens within an active workshop. Changing an
-                earlier independent decision clears the later decisions that depended on it. Leaving
-                for another framework or the reading edition ends this workshop session.
-              </p>
-            </details>
-            <button type="button" class="workshop-text-button" onClick={restart}>
-              Restart workshop
-            </button>
-          </aside>
         </div>
       </article>
       <div class="execution-print">{renderExecutionNode(executionTeaching('print'))}</div>

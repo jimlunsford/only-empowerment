@@ -471,3 +471,107 @@
     background: var(--editorial-surface);
   }
 }
+
+/* Batch 6: the framework hub shares the cover and ruled-section architecture. */
+@media screen {
+  .framework-hub .framework-home-hero {
+    display: grid;
+    grid-template-columns: var(--editorial-hero-grid);
+    gap: var(--editorial-gap);
+    align-items: start;
+    padding-bottom: var(--editorial-hero-space);
+  }
+  .framework-home-copy,
+  .framework-hub .framework-home-hero > * {
+    min-width: 0;
+  }
+  .framework-hub .framework-hub-intro > .framework-kicker {
+    margin-top: 0;
+  }
+  .framework-hub .framework-chooser {
+    background: var(--editorial-forest);
+    color: var(--editorial-paper);
+    border: 1px solid var(--editorial-forest);
+    border-radius: var(--editorial-radius);
+    padding: var(--editorial-panel-padding);
+  }
+  .framework-hub .framework-chooser h2 {
+    color: inherit;
+    font-size: var(--editorial-h2);
+    font-weight: 400;
+    line-height: var(--editorial-heading-leading);
+    margin: 0 0 1rem;
+  }
+  .framework-hub .framework-chooser ul {
+    display: block;
+    margin: 0;
+  }
+  .framework-hub .framework-chooser li {
+    border-top: 1px solid var(--editorial-anchor-line);
+  }
+  .framework-hub .framework-chooser a {
+    color: inherit;
+    padding-block: 0.75rem;
+    text-decoration: none;
+  }
+  .framework-hub .framework-chooser a span {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+  .framework-hub .framework-chooser a:hover {
+    text-decoration: underline;
+  }
+  .framework-hub .framework-chooser a:focus-visible {
+    outline: 3px solid var(--editorial-paper);
+    outline-offset: 4px;
+  }
+  .framework-hub .framework-orientation {
+    display: grid;
+    grid-template-columns: var(--editorial-grid);
+    gap: var(--editorial-gap);
+    max-width: none;
+    margin: 0;
+    border-top: 1px solid var(--editorial-line);
+    padding-block: var(--editorial-section-space);
+  }
+  .framework-hub .framework-orientation h2 {
+    font-size: var(--editorial-h2);
+    font-weight: 400;
+    line-height: var(--editorial-heading-leading);
+    margin: 0;
+  }
+  .framework-hub .framework-orientation > div > :first-child {
+    margin-top: 0;
+  }
+  .framework-hub .framework-orientation > div > :last-child {
+    margin-bottom: 0;
+  }
+  .framework-hub .framework-options {
+    border-top: 1px solid var(--editorial-line);
+    padding-top: var(--editorial-section-space);
+    margin-top: 0;
+  }
+  .framework-hub .framework-options article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .framework-hub .framework-options article > a {
+    margin-top: auto;
+  }
+  .framework-hub .framework-options article > p:last-of-type {
+    margin-bottom: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    .framework-hub .framework-home-hero,
+    .framework-hub .framework-orientation {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  @media (forced-colors: active) {
+    .framework-hub .framework-chooser a:focus-visible {
+      outline-color: Highlight;
+    }
+  }
+}

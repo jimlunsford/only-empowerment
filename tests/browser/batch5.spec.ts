@@ -78,7 +78,7 @@ test('shared surfaces and compact two-line workshop actions retain accessible na
     await page.goto(route);
     const panel = page.locator(surface).first();
     expect(await panel.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
-      'rgb(229, 235, 226)',
+      route === '/#/loop' ? 'rgb(23, 60, 52)' : 'rgb(229, 235, 226)',
     );
     expect(await panel.evaluate((el) => getComputedStyle(el).borderLeftWidth)).toBe('1px');
     expect(

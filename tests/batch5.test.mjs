@@ -1,3 +1,4 @@
+import { beforeBatch6Source } from './batch6-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -19,7 +20,7 @@ test('Batch 5 reverses only pinned visual additions and preserves original print
     'src/style.css',
   ]);
   for (const [path, change] of Object.entries(changes)) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeBatch6Source(readFileSync(path, 'utf8'), path);
     const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
     assert.equal(sha(source), change.afterSha256, path);
     assert.equal(beforeBatch5Source(source, path), original, path);
