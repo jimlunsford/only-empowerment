@@ -234,3 +234,159 @@
     gap: 0;
   }
 }
+
+/* Batch 5: shared editorial presentation. Preserve the standalone reader's
+   established font metrics and geometry for script-free fragment restoration. */
+@media screen {
+  body:not(.native-rebuild) {
+    .rebuild-guide {
+      --paper: var(--editorial-paper);
+      --white: var(--editorial-white);
+      --deep: var(--editorial-forest);
+      --pine: var(--editorial-forest);
+      --ink: var(--editorial-forest);
+      --muted: var(--editorial-muted);
+      --line: var(--editorial-line);
+      --light-line: var(--editorial-line);
+      --tint: var(--editorial-surface);
+      --rust: var(--editorial-clay);
+      --serif: var(--font-display);
+      --sans: var(--font-body);
+      padding-top: 0;
+    }
+    .rebuild-guide :is(.wrap, .rebuild-approval, .rebuild-footlinks) {
+      width: 100%;
+      max-width: var(--editorial-content);
+    }
+    .rebuild-guide :is(.cover, .modulehero, .endhero) {
+      padding-block: var(--editorial-hero-space);
+      gap: var(--editorial-gap);
+    }
+    .rebuild-guide .cover {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+    .rebuild-guide .covertext {
+      padding-top: 0;
+    }
+    .rebuild-guide :is(.cover, .modulehero, .endhero) h1 {
+      font-size: var(--editorial-h1);
+      line-height: var(--editorial-title-leading);
+      letter-spacing: var(--editorial-title-tracking);
+      max-width: 14ch;
+    }
+    .rebuild-guide :is(.introbody, .sectionhead, .closing, .synopsis, .book, .plate) h2 {
+      font-size: var(--editorial-h2);
+      line-height: var(--editorial-heading-leading);
+    }
+    .rebuild-guide :is(.introbody, .module-list, .closing) {
+      padding-block: var(--editorial-section-space);
+    }
+    .rebuild-guide :is(.introbody, .sectionhead, .closing) {
+      grid-template-columns: var(--editorial-grid);
+      gap: var(--editorial-gap);
+    }
+    .rebuild-guide :is(.coverlead, .modulehero .lead, .endhero .lead) {
+      font-size: var(--editorial-subtitle);
+      line-height: var(--editorial-label-leading);
+    }
+    .rebuild-guide :is(.brow, .over),
+    .framework-kicker {
+      font-size: var(--editorial-label-size);
+      line-height: var(--editorial-label-leading);
+      letter-spacing: normal;
+      text-transform: none;
+    }
+    .rebuild-guide .plate {
+      padding: var(--editorial-panel-padding);
+      border: 1px solid var(--editorial-forest);
+      border-radius: var(--editorial-radius);
+    }
+    .rebuild-guide .plate h2 {
+      color: var(--editorial-paper);
+    }
+    .rebuild-guide :is(.mainaction, .smallaction) {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--editorial-button-height);
+      padding: var(--editorial-button-padding);
+      font-size: var(--editorial-button-size);
+      line-height: var(--editorial-button-leading);
+      border-radius: var(--editorial-radius);
+      font-weight: 600;
+    }
+    .rebuild-guide :is(.mainaction, .smallaction):hover {
+      background: var(--editorial-hover);
+      color: var(--editorial-white);
+    }
+    .rebuild-guide .subaction {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--editorial-button-height);
+      padding: var(--editorial-button-padding);
+      font-size: var(--editorial-button-size);
+      line-height: var(--editorial-button-leading);
+      border: 1px solid var(--editorial-control-border);
+      border-radius: var(--editorial-radius);
+      text-decoration: none;
+    }
+    .rebuild-guide .subaction:hover {
+      background: var(--editorial-surface);
+    }
+    .framework-hub {
+      max-width: var(--editorial-content);
+      padding: var(--editorial-hero-space) 0;
+      color: var(--editorial-forest);
+    }
+    .framework-hub-intro h1 {
+      font-size: var(--editorial-h1);
+      line-height: var(--editorial-title-leading);
+      letter-spacing: var(--editorial-title-tracking);
+      font-weight: 400;
+    }
+    .framework-options h2 {
+      font-size: var(--editorial-h2);
+      line-height: var(--editorial-heading-leading);
+      font-weight: 400;
+    }
+    .framework-options article {
+      background: var(--editorial-surface);
+      border: 1px solid var(--editorial-line);
+      border-radius: var(--editorial-radius);
+      padding: var(--editorial-panel-padding);
+    }
+    .framework-options article > a {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--editorial-button-height);
+      padding: var(--editorial-button-padding);
+      background: var(--editorial-forest);
+      border: 1px solid var(--editorial-forest);
+      border-radius: var(--editorial-radius);
+      font-size: var(--editorial-button-size);
+      line-height: var(--editorial-button-leading);
+      font-weight: 600;
+    }
+    .framework-options article > a:hover {
+      background: var(--editorial-hover);
+    }
+    /* Preserve the compact situation chooser above the fold on phones. */
+    @media (max-width: 768px) {
+      .framework-hub {
+        padding-top: 1rem;
+      }
+      .framework-hub-intro h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+      .rebuild-guide :is(.cover, .introbody, .sectionhead, .closing) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    /* Match the PERIOD fallback hero despite this stylesheet loading later. */
+    #educational-fallback .homepage .home-hero > h2 {
+      font-size: var(--editorial-h1);
+      line-height: var(--editorial-title-leading);
+      letter-spacing: var(--editorial-title-tracking);
+    }
+  }
+}

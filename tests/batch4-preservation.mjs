@@ -1,3 +1,4 @@
+import { beforeBatch5Source } from './batch5-preservation.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/batch4-changes.json' with { type: 'json' };
@@ -14,6 +15,7 @@ function reverse(source, change) {
 // Only exact Batch 4 bytes reverse. Unknown bytes pass through to the historical
 // guards and fail there; batch4.test independently pins every current source.
 export function beforeBatch4Source(source, path) {
+  source = beforeBatch5Source(source, path);
   const change = changes[path];
   return change && sha(source) === change.afterSha256 ? reverse(source, change) : source;
 }
