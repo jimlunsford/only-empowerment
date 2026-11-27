@@ -92,7 +92,7 @@ test('shared surfaces and compact two-line workshop actions retain accessible na
   await expect(
     page.locator('.workshop-navigation').getByRole('link', { name: 'All frameworks', exact: true }),
   ).toBeVisible();
-  await page.locator('.workshop-continue').click();
+  await page.locator('.workshop-navigation .workshop-continue').click();
   const actions = page.locator('.workshop-navigation a');
   for (const action of await actions.all()) {
     expect((await action.boundingBox())!.width).toBeLessThan(400);

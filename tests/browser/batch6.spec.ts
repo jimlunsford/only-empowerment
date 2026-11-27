@@ -122,7 +122,7 @@ test('forest anchors keep contrast, visible keyboard focus and section-jump divi
   }
 });
 
-test('Execution has one compact local bar and compact accessible controls without changing workshop navigation', async ({
+test('Execution keeps its landing reading link and compact inner navigation controls', async ({
   page,
 }) => {
   test.setTimeout(120000);
@@ -131,14 +131,15 @@ test('Execution has one compact local bar and compact accessible controls withou
     await page.goto('/#/execution');
     await page.evaluate(() => document.fonts.ready);
     const bar = page.locator('.workshop-local-nav');
-    await expect(bar).toContainText('Pure Execution Mode · Guided workshop');
-    await expect(bar).toContainText('Start here or choose a stage');
-    if (width === 1440) expect((await bar.boundingBox())!.height).toBeLessThanOrEqual(62);
+    await expect(bar).toHaveCount(0);
+    await expect(page.locator('.workshop-guide')).toContainText(
+      'Complete reading and print edition (new tab)',
+    );
     for (const link of await page.locator('.workshop-navigation a').all()) {
       expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44);
       expect((await link.boundingBox())!.height).toBeLessThanOrEqual(52);
     }
-    await expect(page.locator('.workshop-continue')).toHaveAccessibleName(
+    await expect(page.locator('.workshop-navigation .workshop-continue')).toHaveAccessibleName(
       'Continue Identify the Next Move',
     );
     await expect(
@@ -147,12 +148,16 @@ test('Execution has one compact local bar and compact accessible controls withou
         .getByRole('link', { name: 'All frameworks', exact: true }),
     ).toHaveAttribute('href', '#/');
     await page.keyboard.press('Tab');
-    await page.locator('.workshop-continue').focus();
+    await page.locator('.workshop-navigation .workshop-continue').focus();
     expect(
-      await page.locator('.workshop-continue').evaluate((el) => getComputedStyle(el).outlineStyle),
+      await page
+        .locator('.workshop-navigation .workshop-continue')
+        .evaluate((el) => getComputedStyle(el).outlineStyle),
     ).toBe('solid');
     await page.keyboard.press('Enter');
     await expect(page.getByRole('heading', { level: 1 })).toBeFocused();
+    await expect(bar).toContainText('Pure Execution Mode · Guided workshop');
+    if (width === 1440) expect((await bar.boundingBox())!.height).toBeLessThanOrEqual(62);
     await expect(page.locator('.workshop-position')).toContainText('Stage 1 of 4');
     await expect(page.locator('.workshop-navigation a').first()).toHaveAccessibleName(
       'Back Pure Execution Mode',

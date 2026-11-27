@@ -516,3 +516,16 @@
     }
   }
 }
+
+/* Batch 7: align the unlabeled cover and source follow-on with their columns. */
+@media screen {
+  .loop-hero > div > :is(h1, h2) {
+    margin-top: 0;
+  }
+  .loop-section > .framework-bridges {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+}

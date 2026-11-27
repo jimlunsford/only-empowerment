@@ -102,52 +102,113 @@ export function Execution() {
       'Workshop restarted. Previous choices and open explanations have been cleared.',
     );
   };
+  const guide = (
+    <aside class="workshop-guide">
+      <nav aria-label="Workshop stages">
+        <p class="workshop-guide-title">The workshop</p>
+        <ol>
+          {workshopStages.map((stage, index) => (
+            <li>
+              <a
+                href={workshopHref(stage.entry)}
+                aria-current={screen.stage === index + 1 ? 'step' : undefined}
+              >
+                <span>{stage.title}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+        <a href={workshopHref('reference')}>The five steps at a glance</a>
+      </nav>
+      {id === 'welcome' && (
+        <a href="/read/execution.html" target="_blank" rel="noopener noreferrer">
+          Complete reading and print edition (new tab)
+        </a>
+      )}
+      <p>
+        Move at your own pace. Continue is always available. Choosing an option does not advance the
+        screen.
+      </p>
+      <details class="workshop-session">
+        <summary>Choices, refresh and restart</summary>
+        <p>{workshopSessionCopy}</p>
+        <p>
+          Browser Back and Forward restore screens within an active workshop. Changing an earlier
+          independent decision clears the later decisions that depended on it. Leaving for another
+          framework or the reading edition ends this workshop session.
+        </p>
+      </details>
+      <button type="button" class="workshop-text-button" onClick={restart}>
+        Restart workshop
+      </button>
+    </aside>
+  );
   return (
     <>
       <article class="execution-screen workshop" data-workshop={id}>
-        <div class="workshop-local-nav">
-          <p class="workshop-kicker">Pure Execution Mode · Guided workshop</p>
-          <div class="workshop-position">
-            {screen.stage ? (
-              <span>
-                Stage {screen.stage} of 4 ·{' '}
-                {id === 'recover'
-                  ? 'Return to the work'
-                  : `Screen ${position} of ${stageScreens.length}`}
-              </span>
-            ) : (
-              <span>{id === 'welcome' ? 'Start here or choose a stage' : 'Field reference'}</span>
-            )}
-            <a href="/read/execution.html" target="_blank" rel="noopener noreferrer">
-              Complete reading and print edition (new tab)
-            </a>
+        {id !== 'welcome' && (
+          <div class="workshop-local-nav">
+            <p class="workshop-kicker">Pure Execution Mode · Guided workshop</p>
+            <div class="workshop-position">
+              {screen.stage ? (
+                <span>
+                  Stage {screen.stage} of 4 ·{' '}
+                  {id === 'recover'
+                    ? 'Return to the work'
+                    : `Screen ${position} of ${stageScreens.length}`}
+                </span>
+              ) : (
+                <span>{id === 'welcome' ? 'Start here or choose a stage' : 'Field reference'}</span>
+              )}
+              <a href="/read/execution.html" target="_blank" rel="noopener noreferrer">
+                Complete reading and print edition (new tab)
+              </a>
+            </div>
           </div>
-        </div>
+        )}
         <div class="workshop-editorial">
-          <header class="workshop-heading">
-            <h1 id={legacy || location.hash.slice(1)} tabIndex={-1} ref={title}>
-              {screen.title}
-            </h1>
-            <p class="workshop-purpose">{screen.purpose}</p>
-            {legacy && (
-              <p class="workshop-legacy">
-                This earlier section link now opens the related workshop screen.{' '}
-                <a
-                  href={'/read/execution.html#' + legacy}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Read the original section in full (new tab)
-                </a>
-                .
-              </p>
-            )}
-          </header>
+          <div class={id === 'welcome' ? 'workshop-hero' : undefined}>
+            <header class="workshop-heading">
+              <h1 id={legacy || location.hash.slice(1)} tabIndex={-1} ref={title}>
+                {screen.title}
+              </h1>
+              <p class="workshop-purpose">{screen.purpose}</p>
+              {id === 'welcome' && (
+                <div class="workshop-hero-actions">
+                  <a class="workshop-continue" href={workshopHref('identify')}>
+                    Continue: Identify the Next Move
+                  </a>
+                  <a href="#/">All frameworks</a>
+                </div>
+              )}
+              {legacy && (
+                <p class="workshop-legacy">
+                  This earlier section link now opens the related workshop screen.{' '}
+                  <a
+                    href={'/read/execution.html#' + legacy}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Read the original section in full (new tab)
+                  </a>
+                  .
+                </p>
+              )}
+            </header>
+            {id === 'welcome' && guide}
+          </div>
           <div class="workshop-layout">
-            <div class="workshop-main">
+            {id === 'welcome' && (
               <section class="workshop-facts" aria-label="The situation">
                 <p>{screen.facts}</p>
               </section>
+            )}
+            <div class="workshop-main">
+              {id !== 'welcome' && (
+                <section class="workshop-facts" aria-label="The situation">
+                  <p>{screen.facts}</p>
+                </section>
+              )}
               {id === 'event-wait' && <p class="workshop-carry">{eventCarry(choices)}</p>}
               {id === 'recover' && takeoverChoice?.next === 'recover' && (
                 <p class="workshop-carry">Your earlier move: {takeoverChoice.label}</p>
@@ -345,40 +406,7 @@ export function Execution() {
               )}
               {workshopBridges[id] && <p class="workshop-bridge">{workshopBridges[id]}</p>}
             </div>
-            <aside class="workshop-guide">
-              <nav aria-label="Workshop stages">
-                <p class="workshop-guide-title">The workshop</p>
-                <ol>
-                  {workshopStages.map((stage, index) => (
-                    <li>
-                      <a
-                        href={workshopHref(stage.entry)}
-                        aria-current={screen.stage === index + 1 ? 'step' : undefined}
-                      >
-                        <span>{stage.title}</span>
-                      </a>
-                    </li>
-                  ))}
-                </ol>
-                <a href={workshopHref('reference')}>The five steps at a glance</a>
-              </nav>
-              <p>
-                Move at your own pace. Continue is always available. Choosing an option does not
-                advance the screen.
-              </p>
-              <details class="workshop-session">
-                <summary>Choices, refresh and restart</summary>
-                <p>{workshopSessionCopy}</p>
-                <p>
-                  Browser Back and Forward restore screens within an active workshop. Changing an
-                  earlier independent decision clears the later decisions that depended on it.
-                  Leaving for another framework or the reading edition ends this workshop session.
-                </p>
-              </details>
-              <button type="button" class="workshop-text-button" onClick={restart}>
-                Restart workshop
-              </button>
-            </aside>
+            {id !== 'welcome' && guide}
           </div>
         </div>
       </article>

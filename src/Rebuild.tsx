@@ -62,7 +62,6 @@ export function FrameworkHome() {
       <div class="framework-home-hero">
         <div class="framework-home-copy">
           <header class="framework-hub-intro">
-            <p class="framework-kicker">Only Empowerment • Founding learning experiences</p>
             <h1 tabIndex={-1}>A place to learn how to live differently.</h1>
             <p>
               Work through a complete philosophy, examine decisions in real situations, and take
@@ -82,6 +81,9 @@ export function FrameworkHome() {
               <li key={item.id}>
                 <a href={'#/' + item.id}>
                   {item.situation} <span>{item.title}</span>
+                  <span class="framework-chooser-arrow" aria-hidden="true">
+                    →
+                  </span>
                 </a>
               </li>
             ))}
@@ -127,10 +129,7 @@ export function FrameworkHome() {
           <a href="#/execution">Explore Pure Execution Mode</a>
         </article>
       </div>
-      <p class="framework-stage">
-        Development review: these experiences are being evaluated here before any public release. No
-        account or submission of private answers is required.
-      </p>
+      <p class="framework-stage">No account or submission of private answers is required.</p>
     </div>
   );
 }
@@ -144,10 +143,11 @@ export function RebuildGuide({ section }: { section: RebuildSection }) {
 
   return (
     <section class="rebuild-guide">
-      <div class="rebuild-approval">
-        <span>Development concept, not a published book edition</span>
-        <a href="#/rebuild">How to Rebuild Yourself</a>
-      </div>
+      {section !== 'index' && (
+        <div class="rebuild-approval">
+          <a href="#/rebuild">How to Rebuild Yourself</a>
+        </div>
+      )}
       <div class="wrap">
         {rebuildTrees[section].map((node) => renderTeachingNode(node, selectedNote, section))}
       </div>

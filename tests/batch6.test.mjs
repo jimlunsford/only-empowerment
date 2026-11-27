@@ -1,3 +1,4 @@
+import { beforeBatch7Source } from './batch7-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -18,7 +19,7 @@ test('Batch 6 pins layout-only changes, preserving teaching, controls and print 
     'src/style.css',
   ]);
   for (const [path, change] of Object.entries(changes)) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeBatch7Source(readFileSync(path, 'utf8'), path);
     const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
     assert.equal(sha(source), change.afterSha256, path);
     assert.equal(beforeBatch6Source(source, path), original, path);
@@ -45,7 +46,8 @@ test('Batch 6 leaves reading generators, content, focus modality and framework l
     .split('\n');
   for (const path of paths.filter((path) => !changes[path]))
     assert.equal(
-      readFileSync(path).equals(execFileSync('git', ['show', base + ':' + path])),
+      beforeBatch7Source(readFileSync(path, 'utf8'), path) ===
+        execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' }),
       true,
       path,
     );

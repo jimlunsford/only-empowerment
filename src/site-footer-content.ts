@@ -37,10 +37,10 @@ export function footerEducation(source: EducationSource) {
 }
 export function footerBuildNotice(build?: FooterBuild) {
   if (!build)
-    return { text: 'Local preview. Exact corresponding source is not identified.', source: null };
+    return { text: 'Exact corresponding source is not identified for this build.', source: null };
   if (build.dirty)
     return {
-      text: `v${build.version} · local changes · base ${build.commit.slice(0, 7)}. This local preview includes changes not represented by the base commit; exact corresponding source is not published.`,
+      text: `v${build.version} · local changes · base ${build.commit.slice(0, 7)}. This build includes changes not represented by the base commit; exact corresponding source is not published.`,
       source: null,
     };
   return { text: `v${build.version} · source ${build.commit.slice(0, 7)}`, source: build.source };
