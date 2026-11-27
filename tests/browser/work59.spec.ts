@@ -117,7 +117,8 @@ test('all framework links remain available inside PERIOD while the local teachin
     const local = page.getByRole('navigation', { name: 'Main navigation' });
     {
       await openSiteMenu(page);
-      await expect(local.getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
+      if (route === '/period') await expect(local).toHaveCount(0);
+      else await expect(local.getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
     }
     await expect(
       page.getByRole('contentinfo').getByRole('navigation', { name: 'About this site' }),

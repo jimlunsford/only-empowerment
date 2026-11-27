@@ -89,9 +89,9 @@ function Privacy() {
           </p>
           {__STAGING__ && (
             <p>
-              The staging policy rotates daily and retains up to 14 rotated logs. Provider logs and
-              backup retention are separate; this is not a promise that all infrastructure copies
-              disappear after 14 days.
+              The request-log policy rotates daily and retains up to 14 rotated logs. Provider logs
+              and backup retention are separate; this is not a promise that all infrastructure
+              copies disappear after 14 days.
             </p>
           )}
           <p>Answers are not included in ordinary application requests by design.</p>
@@ -299,53 +299,58 @@ function App() {
           <a href="#/execution">Pure Execution Mode</a>
         </nav>
       )}
-      <nav aria-label="Main navigation" class={editorial ? 'period-local-navigation' : undefined}>
-        {editorial ? (
-          <>
-            <a
-              href="#/period/why"
-              aria-current={
-                path === '/period/why' ||
-                location.hash === '#/period/why' ||
-                location.hash === '#why-period'
-                  ? 'location'
-                  : undefined
-              }
-            >
-              Why PERIOD?
-            </a>
-            <a
-              href="#/period/teaching-order"
-              aria-current={
-                (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&
-                path !== '/period/standard' &&
-                path !== '/period/book' &&
-                path !== '/period/why'
-                  ? 'location'
-                  : undefined
-              }
-            >
-              Explore the values
-            </a>
-          </>
-        ) : (
-          <>
-            <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
-              Frameworks
-            </a>
-            <a href="#/period">The PERIOD Code</a>
-            <a href="#/rebuild" aria-current={path.startsWith('/rebuild') ? 'location' : undefined}>
-              How to Rebuild Yourself
-            </a>
-            <a href="#/loop" aria-current={path.startsWith('/loop') ? 'location' : undefined}>
-              The Discipline Loop
-            </a>
-            <a href="#/execution" aria-current={path === '/execution' ? 'location' : undefined}>
-              Pure Execution Mode
-            </a>
-          </>
-        )}
-      </nav>
+      {(!editorial || path !== '/period') && (
+        <nav aria-label="Main navigation" class={editorial ? 'period-local-navigation' : undefined}>
+          {editorial ? (
+            <>
+              <a
+                href="#/period/why"
+                aria-current={
+                  path === '/period/why' ||
+                  location.hash === '#/period/why' ||
+                  location.hash === '#why-period'
+                    ? 'location'
+                    : undefined
+                }
+              >
+                Why PERIOD?
+              </a>
+              <a
+                href="#/period/teaching-order"
+                aria-current={
+                  (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&
+                  path !== '/period/standard' &&
+                  path !== '/period/book' &&
+                  path !== '/period/why'
+                    ? 'location'
+                    : undefined
+                }
+              >
+                Explore the values
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="#/" aria-current={path === '/' ? 'page' : undefined}>
+                Frameworks
+              </a>
+              <a href="#/period">The PERIOD Code</a>
+              <a
+                href="#/rebuild"
+                aria-current={path.startsWith('/rebuild') ? 'location' : undefined}
+              >
+                How to Rebuild Yourself
+              </a>
+              <a href="#/loop" aria-current={path.startsWith('/loop') ? 'location' : undefined}>
+                The Discipline Loop
+              </a>
+              <a href="#/execution" aria-current={path === '/execution' ? 'location' : undefined}>
+                Pure Execution Mode
+              </a>
+            </>
+          )}
+        </nav>
+      )}
     </>
   );
   return (

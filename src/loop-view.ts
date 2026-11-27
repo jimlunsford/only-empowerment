@@ -79,7 +79,6 @@ export function loopTeaching(surface: LoopSurface = 'app'): LoopNode {
       node(
         'div',
         {},
-        node('p', { class: 'loop-kicker' }, 'The Discipline Loop · Reinforcement'),
         node(surface === 'root' ? 'h2' : 'h1', { tabIndex: -1 }, 'The Discipline Loop'),
         paragraph('By Jim Lunsford'),
         node('p', { class: 'loop-deck' }, 'Build proof when pressure returns.'),

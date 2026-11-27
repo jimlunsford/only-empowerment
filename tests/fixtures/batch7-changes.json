@@ -1,0 +1,284 @@
+{
+  "docs/work53-source/index.html": {
+    "beforeSha256": "b165c1374581229816ec4a7ac85bf2d86bcac90bc7f99d261224d047feada469",
+    "afterSha256": "a2ee682d0d4b5b4038e4c0022997ba89e06a5696253839cc07dee58eb3adeb88",
+    "edits": [
+      {
+        "start": 0,
+        "end": 5590,
+        "before": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"referrer\" content=\"no-referrer\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; script-src 'none'; img-src 'none'; font-src 'none'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'\"><title>Field guide | How to Rebuild Yourself</title><link rel=\"stylesheet\" href=\"field-guide.css\"></head><body><a class=\"skip\" href=\"#content\">Skip to content</a><header class=\"mast\"><div class=\"wrap\"><a href=\"index.html\" class=\"brand\"><i aria-hidden=\"true\"></i>Only Empowerment</a><nav aria-label=\"Guide navigation\"><a href=\"index.html#destinations\">Contents</a><a href=\"index.html#order\">The order</a><a href=\"all.html\">Print edition</a></nav></div></header><main class=\"wrap\" id=\"content\" tabindex=\"-1\"><div class=\"cover\"><div class=\"covertext\"><p class=\"brow\">Field guide</p><h1>How to Rebuild Yourself</h1><p class=\"byline\">By Jim Lunsford</p><p class=\"coverlead\">Start with what your days keep making room for.</p><div class=\"actionline\"><a href=\"line.html\" class=\"mainaction\">Draw the line</a><a class=\"subaction\" href=\"#destinations\">Choose a starting point</a></div></div><aside class=\"plate\" id=\"order\" aria-labelledby=\"ord-h\"><h2 id=\"ord-h\">The rebuilding order</h2><ol><li><a href=\"line.html\"><span>Raise the standard.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"structure.html\"><span>Build the structure.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"structure.html\"><span>Repeat the action.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"#/loop?section=part-2\"><span>Produce the proof.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"#/loop?section=part-3\"><span>Rebuild self-trust.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"#/loop?section=part-4\"><span>Stabilize identity.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"#/loop?section=part-5\"><span>Reduce negotiation.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"help.html\"><span>Own the life.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li></ol><p>Steps 4 to 7 are the Discipline Loop at work: action creates proof, proof rebuilds self-trust, self-trust stabilizes identity, and stable identity reduces negotiation. Each link opens that part of the Loop.</p><a class=\"plate-link\" href=\"all.html#order-links\">How the parts connect</a></aside></div><section class=\"introbody\" id=\"begin\"><h2>Where rebuilding starts</h2><div class=\"prose\"><p>You can know exactly what needs to change and still live the same Tuesday over again. Maybe a loss has forced you to look. Maybe the bills are paid and the people at your table have learned to talk around the back of your phone. You can start with either one.</p><p>Look for one part of the pattern you can answer for. Give it a standard you can keep on an ordinary day. What you actually do with that standard gives you something to stand on the next time life gets hard.</p><p class=\"chain\">A line gives the day a direction. A workable day lets you repeat the action. Repetition gives your word a record you can believe. As that record changes how you see yourself, an old bargain can lose its hold. You can carry the decision yourself and keep the help you need.</p><p>Start where the work is for you. If you already know the line and keep missing it, look at the shape of your day. If you have kept it for a while and still doubt your word, look at what the record can carry.</p></div></section><section class=\"module-list\" id=\"destinations\"><div class=\"sectionhead\"><h2>Find your starting point</h2><p>Go straight to the question you’re living with.</p></div><ol class=\"lessonlinks\"><li><a href=\"line.html\"><span>Draw the line<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">What have you learned to let slide?</span></a></li><li><a href=\"structure.html\"><span>Give the standard a place<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">Where does your promise fit when the day changes?</span></a></li><li><a href=\"return.html\"><span>Return after a miss<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">What still needs putting right after you tell the truth?</span></a></li><li><a href=\"trust.html\"><span>Know what you can count on<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">How much weight can your own word carry?</span></a></li><li><a href=\"negotiation.html\"><span>Decide what stays settled<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">Which part of the decision keeps coming back up for a vote?</span></a></li><li><a href=\"help.html\"><span>Keep help in the picture<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">What responsibility can you carry with the help you need?</span></a></li></ol></section><section class=\"closing\"><h2>Build a Life You Do Not Want to Escape</h2><div class=\"prose\"><p>What has your work made it possible to stay for?</p><div class=\"actionline\"><a href=\"end.html\" class=\"smallaction\">Take it into your day</a></div></div></section></main><footer class=\"foot\"><div class=\"wrap\"><div><strong>How to Rebuild Yourself</strong><small class=\"credit\">Proposed adaptation for founder review</small></div><a href=\"index.html#destinations\">Back to contents</a></div></footer></body></html>",
+        "after": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"referrer\" content=\"no-referrer\"><meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'none'; style-src 'self'; script-src 'none'; img-src 'none'; font-src 'none'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'\"><title>Field guide | How to Rebuild Yourself</title><link rel=\"stylesheet\" href=\"field-guide.css\"></head><body><a class=\"skip\" href=\"#content\">Skip to content</a><header class=\"mast\"><div class=\"wrap\"><a href=\"index.html\" class=\"brand\"><i aria-hidden=\"true\"></i>Only Empowerment</a><nav aria-label=\"Guide navigation\"><a href=\"index.html#destinations\">Contents</a><a href=\"index.html#order\">The order</a><a href=\"all.html\">Print edition</a></nav></div></header><main class=\"wrap\" id=\"content\" tabindex=\"-1\"><div class=\"cover\"><div class=\"covertext\"><h1>How to Rebuild Yourself</h1><p class=\"byline\">By Jim Lunsford</p><p class=\"coverlead\">Start with what your days keep making room for.</p><div class=\"actionline\"><a href=\"line.html\" class=\"mainaction\">Draw the line</a><a class=\"subaction\" href=\"#destinations\">Choose a starting point</a></div></div><aside class=\"plate\" id=\"order\" aria-labelledby=\"ord-h\"><h2 id=\"ord-h\">The rebuilding order</h2><ol><li><a href=\"line.html\"><span>Raise the standard.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"structure.html\"><span>Build the structure.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"structure.html\"><span>Repeat the action.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"#/loop?section=part-2\"><span>Produce the proof.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"#/loop?section=part-3\"><span>Rebuild self-trust.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"#/loop?section=part-4\"><span>Stabilize identity.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"#/loop?section=part-5\"><span>Reduce negotiation.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li><li><a href=\"help.html\"><span>Own the life.</span><span class=\"arrow\" aria-hidden=\"true\">↗</span></a></li></ol><p>Steps 4 to 7 are the Discipline Loop at work: action creates proof, proof rebuilds self-trust, self-trust stabilizes identity, and stable identity reduces negotiation. Each link opens that part of the Loop.</p><a class=\"plate-link\" href=\"all.html#order-links\">How the parts connect</a></aside></div><section class=\"introbody\" id=\"begin\"><h2>Where rebuilding starts</h2><div class=\"prose\"><p>You can know exactly what needs to change and still live the same Tuesday over again. Maybe a loss has forced you to look. Maybe the bills are paid and the people at your table have learned to talk around the back of your phone. You can start with either one.</p><p>Look for one part of the pattern you can answer for. Give it a standard you can keep on an ordinary day. What you actually do with that standard gives you something to stand on the next time life gets hard.</p><p class=\"chain\">A line gives the day a direction. A workable day lets you repeat the action. Repetition gives your word a record you can believe. As that record changes how you see yourself, an old bargain can lose its hold. You can carry the decision yourself and keep the help you need.</p><p>Start where the work is for you. If you already know the line and keep missing it, look at the shape of your day. If you have kept it for a while and still doubt your word, look at what the record can carry.</p></div></section><section class=\"module-list\" id=\"destinations\"><div class=\"sectionhead\"><h2>Find your starting point</h2><p>Go straight to the question you’re living with.</p></div><ol class=\"lessonlinks\"><li><a href=\"line.html\"><span>Draw the line<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">What have you learned to let slide?</span></a></li><li><a href=\"structure.html\"><span>Give the standard a place<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">Where does your promise fit when the day changes?</span></a></li><li><a href=\"return.html\"><span>Return after a miss<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">What still needs putting right after you tell the truth?</span></a></li><li><a href=\"trust.html\"><span>Know what you can count on<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">How much weight can your own word carry?</span></a></li><li><a href=\"negotiation.html\"><span>Decide what stays settled<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">Which part of the decision keeps coming back up for a vote?</span></a></li><li><a href=\"help.html\"><span>Keep help in the picture<span class=\"arrow\" aria-hidden=\"true\">↗</span></span><span class=\"sub\">What responsibility can you carry with the help you need?</span></a></li></ol></section><section class=\"closing\"><h2>Build a Life You Do Not Want to Escape</h2><div class=\"prose\"><p>What has your work made it possible to stay for?</p><div class=\"actionline\"><a href=\"end.html\" class=\"smallaction\">Take it into your day</a></div></div></section></main><footer class=\"foot\"><div class=\"wrap\"><div><strong>How to Rebuild Yourself</strong><small class=\"credit\">Proposed adaptation for founder review</small></div><a href=\"index.html#destinations\">Back to contents</a></div></footer></body></html>"
+      }
+    ]
+  },
+  "scripts/privacy-reading.ts": {
+    "beforeSha256": "5373e8ee49e945657c87b7f9fa51628aaa9cc793359e0904196c1a0315d8d0b8",
+    "afterSha256": "9b42638d26c29f97fc182ecceb23e60c10e04e6ef3c4bd21cb20d5c57b30b730",
+    "edits": [
+      {
+        "start": 3301,
+        "end": 3459,
+        "before": "${staging ? '<p>The staging policy rotates daily and retains up to 14 rotated logs. Provider logs and backup retention are separate.</p>' : ''}</section>\n",
+        "after": "${staging ? '<p>The request-log policy rotates daily and retains up to 14 rotated logs. Provider logs and backup retention are separate.</p>' : ''}</section>\n"
+      }
+    ]
+  },
+  "src/Execution.tsx": {
+    "beforeSha256": "f190204222491a4bc69c450eb536dff32f076fad31b25a82c6813a3223e538c0",
+    "afterSha256": "ac62c512443c542bc4cb572c794a08a4857d000d38ee7cbc029482bb1fbd846d",
+    "edits": [
+      {
+        "start": 3674,
+        "end": 5167,
+        "before": "",
+        "after": "  const guide = (\n    <aside class=\"workshop-guide\">\n      <nav aria-label=\"Workshop stages\">\n        <p class=\"workshop-guide-title\">The workshop</p>\n        <ol>\n          {workshopStages.map((stage, index) => (\n            <li>\n              <a\n                href={workshopHref(stage.entry)}\n                aria-current={screen.stage === index + 1 ? 'step' : undefined}\n              >\n                <span>{stage.title}</span>\n              </a>\n            </li>\n          ))}\n        </ol>\n        <a href={workshopHref('reference')}>The five steps at a glance</a>\n      </nav>\n      {id === 'welcome' && (\n        <a href=\"/read/execution.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Complete reading and print edition (new tab)\n        </a>\n      )}\n      <p>\n        Move at your own pace. Continue is always available. Choosing an option does not advance the\n        screen.\n      </p>\n      <details class=\"workshop-session\">\n        <summary>Choices, refresh and restart</summary>\n        <p>{workshopSessionCopy}</p>\n        <p>\n          Browser Back and Forward restore screens within an active workshop. Changing an earlier\n          independent decision clears the later decisions that depended on it. Leaving for another\n          framework or the reading edition ends this workshop session.\n        </p>\n      </details>\n      <button type=\"button\" class=\"workshop-text-button\" onClick={restart}>\n        Restart workshop\n      </button>\n    </aside>\n  );\n"
+      },
+      {
+        "start": 5254,
+        "end": 6057,
+        "before": "        <div class=\"workshop-local-nav\">\n          <p class=\"workshop-kicker\">Pure Execution Mode · Guided workshop</p>\n          <div class=\"workshop-position\">\n            {screen.stage ? (\n              <span>\n                Stage {screen.stage} of 4 ·{' '}\n                {id === 'recover'\n                  ? 'Return to the work'\n                  : `Screen ${position} of ${stageScreens.length}`}\n              </span>\n            ) : (\n              <span>{id === 'welcome' ? 'Start here or choose a stage' : 'Field reference'}</span>\n            )}\n            <a href=\"/read/execution.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n              Complete reading and print edition (new tab)\n            </a>\n",
+        "after": "        {id !== 'welcome' && (\n          <div class=\"workshop-local-nav\">\n            <p class=\"workshop-kicker\">Pure Execution Mode · Guided workshop</p>\n            <div class=\"workshop-position\">\n              {screen.stage ? (\n                <span>\n                  Stage {screen.stage} of 4 ·{' '}\n                  {id === 'recover'\n                    ? 'Return to the work'\n                    : `Screen ${position} of ${stageScreens.length}`}\n                </span>\n              ) : (\n                <span>{id === 'welcome' ? 'Start here or choose a stage' : 'Field reference'}</span>\n              )}\n              <a href=\"/read/execution.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n                Complete reading and print edition (new tab)\n              </a>\n            </div>\n"
+      },
+      {
+        "start": 6074,
+        "end": 6085,
+        "before": "        </div>\n",
+        "after": "        )}\n"
+      },
+      {
+        "start": 6126,
+        "end": 7341,
+        "before": "          <header class=\"workshop-heading\">\n            <h1 id={legacy || location.hash.slice(1)} tabIndex={-1} ref={title}>\n              {screen.title}\n            </h1>\n            <p class=\"workshop-purpose\">{screen.purpose}</p>\n            {legacy && (\n              <p class=\"workshop-legacy\">\n                This earlier section link now opens the related workshop screen.{' '}\n                <a\n                  href={'/read/execution.html#' + legacy}\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                >\n                  Read the original section in full (new tab)\n                </a>\n                .\n              </p>\n            )}\n          </header>\n",
+        "after": "          <div class={id === 'welcome' ? 'workshop-hero' : undefined}>\n            <header class=\"workshop-heading\">\n              <h1 id={legacy || location.hash.slice(1)} tabIndex={-1} ref={title}>\n                {screen.title}\n              </h1>\n              <p class=\"workshop-purpose\">{screen.purpose}</p>\n              {id === 'welcome' && (\n                <div class=\"workshop-hero-actions\">\n                  <a class=\"workshop-continue\" href={workshopHref('identify')}>\n                    Continue: Identify the Next Move\n                  </a>\n                  <a href=\"#/\">All frameworks</a>\n                </div>\n              )}\n              {legacy && (\n                <p class=\"workshop-legacy\">\n                  This earlier section link now opens the related workshop screen.{' '}\n                  <a\n                    href={'/read/execution.html#' + legacy}\n                    target=\"_blank\"\n                    rel=\"noopener noreferrer\"\n                  >\n                    Read the original section in full (new tab)\n                  </a>\n                  .\n                </p>\n              )}\n            </header>\n            {id === 'welcome' && guide}\n          </div>\n"
+      },
+      {
+        "start": 7381,
+        "end": 7416,
+        "before": "            <div class=\"workshop-main\">\n",
+        "after": "            {id === 'welcome' && (\n"
+      },
+      {
+        "start": 7553,
+        "end": 7805,
+        "before": "",
+        "after": "            )}\n            <div class=\"workshop-main\">\n              {id !== 'welcome' && (\n                <section class=\"workshop-facts\" aria-label=\"The situation\">\n                  <p>{screen.facts}</p>\n                </section>\n              )}\n"
+      },
+      {
+        "start": 16728,
+        "end": 16768,
+        "before": "            <aside class=\"workshop-guide\">\n              <nav aria-label=\"Workshop stages\">\n                <p class=\"workshop-guide-title\">The workshop</p>\n                <ol>\n                  {workshopStages.map((stage, index) => (\n                    <li>\n                      <a\n                        href={workshopHref(stage.entry)}\n                        aria-current={screen.stage === index + 1 ? 'step' : undefined}\n                      >\n                        <span>{stage.title}</span>\n                      </a>\n                    </li>\n                  ))}\n                </ol>\n                <a href={workshopHref('reference')}>The five steps at a glance</a>\n              </nav>\n              <p>\n                Move at your own pace. Continue is always available. Choosing an option does not\n                advance the screen.\n              </p>\n              <details class=\"workshop-session\">\n                <summary>Choices, refresh and restart</summary>\n                <p>{workshopSessionCopy}</p>\n                <p>\n                  Browser Back and Forward restore screens within an active workshop. Changing an\n                  earlier independent decision clears the later decisions that depended on it.\n                  Leaving for another framework or the reading edition ends this workshop session.\n                </p>\n              </details>\n              <button type=\"button\" class=\"workshop-text-button\" onClick={restart}>\n                Restart workshop\n              </button>\n            </aside>\n",
+        "after": "            {id !== 'welcome' && guide}\n"
+      }
+    ]
+  },
+  "src/Rebuild.tsx": {
+    "beforeSha256": "8ce243be66819a3e34a1f4ac8717f8d26ba70c79154f31a7b6e52470be0597a7",
+    "afterSha256": "58e5ad60d2ab9fe32700f29f3248e61a976b89e0f3ccdb5c806daf8112d26897",
+    "edits": [
+      {
+        "start": 2496,
+        "end": 2496,
+        "before": "            <p class=\"framework-kicker\">Only Empowerment • Founding learning experiences</p>\n",
+        "after": ""
+      },
+      {
+        "start": 3251,
+        "end": 3375,
+        "before": "",
+        "after": "                  <span class=\"framework-chooser-arrow\" aria-hidden=\"true\">\n                    →\n                  </span>\n"
+      },
+      {
+        "start": 5141,
+        "end": 5235,
+        "before": "      <p class=\"framework-stage\">\n        Development review: these experiences are being evaluated here before any public release. No\n        account or submission of private answers is required.\n      </p>\n",
+        "after": "      <p class=\"framework-stage\">No account or submission of private answers is required.</p>\n"
+      },
+      {
+        "start": 5561,
+        "end": 5714,
+        "before": "      <div class=\"rebuild-approval\">\n        <span>Development concept, not a published book edition</span>\n        <a href=\"#/rebuild\">How to Rebuild Yourself</a>\n      </div>\n",
+        "after": "      {section !== 'index' && (\n        <div class=\"rebuild-approval\">\n          <a href=\"#/rebuild\">How to Rebuild Yourself</a>\n        </div>\n      )}\n"
+      }
+    ]
+  },
+  "src/execution.css": {
+    "beforeSha256": "dd376c5ab7853f4e7f1031b090fd510afddb4f1f638ccf334e253db18765dc31",
+    "afterSha256": "3f7b904e85aca70b618c4e6aadbad2c03b3be52aac031f53fbcb8502214b4483",
+    "edits": [
+      {
+        "start": 14562,
+        "end": 14704,
+        "before": "  .workshop[data-workshop='welcome'] .workshop-editorial {\n",
+        "after": "}\n\n/* Batch 7: the landing cover and body share the editorial grids. */\n@media screen {\n  .workshop[data-workshop='welcome'] .workshop-hero {\n"
+      },
+      {
+        "start": 14778,
+        "end": 14809,
+        "before": "    column-gap: var(--editorial-gap);\n",
+        "after": "    gap: var(--editorial-gap);\n"
+      },
+      {
+        "start": 14881,
+        "end": 14933,
+        "before": "",
+        "after": "    border-bottom: 1px solid var(--editorial-line);\n"
+      },
+      {
+        "start": 14994,
+        "end": 14994,
+        "before": "    grid-column: 1;\n    grid-row: 1;\n",
+        "after": ""
+      },
+      {
+        "start": 15012,
+        "end": 15027,
+        "before": "    margin: 0 0 1.5rem;\n",
+        "after": "    margin: 0;\n"
+      },
+      {
+        "start": 15096,
+        "end": 15096,
+        "before": "  .workshop[data-workshop='welcome'] .workshop-purpose {\n    margin-bottom: 0;\n  }\n  .workshop[data-workshop='welcome'] .workshop-layout {\n    display: contents;\n  }\n  .workshop[data-workshop='welcome'] .workshop-main {\n    grid-column: 1;\n    grid-row: 2;\n  }\n",
+        "after": ""
+      },
+      {
+        "start": 15151,
+        "end": 15151,
+        "before": "    grid-column: 2;\n    grid-row: 1 / span 2;\n",
+        "after": ""
+      },
+      {
+        "start": 15169,
+        "end": 15216,
+        "before": "    border: 1px solid var(--editorial-line);\n",
+        "after": "    border: 1px solid var(--editorial-forest);\n"
+      },
+      {
+        "start": 15260,
+        "end": 15336,
+        "before": "    background: var(--editorial-surface);\n",
+        "after": "    background: var(--editorial-forest);\n    color: var(--editorial-paper);\n"
+      },
+      {
+        "start": 15616,
+        "end": 15876,
+        "before": "",
+        "after": "  .workshop[data-workshop='welcome'] .workshop-guide > a {\n    margin-bottom: 1rem;\n  }\n  .workshop[data-workshop='welcome'] .workshop-guide li,\n  .workshop[data-workshop='welcome'] .workshop-guide details {\n    border-color: var(--editorial-anchor-line);\n  }\n"
+      },
+      {
+        "start": 15934,
+        "end": 17455,
+        "before": "    border-top: 1px solid var(--editorial-line);\n",
+        "after": "    border-top: 1px solid var(--editorial-anchor-line);\n  }\n  .workshop[data-workshop='welcome'] .workshop-guide .workshop-text-button {\n    color: inherit;\n  }\n  .workshop[data-workshop='welcome'] .workshop-guide :is(a, button, summary):focus-visible {\n    outline-color: var(--editorial-paper);\n  }\n  .workshop[data-workshop='welcome'] .workshop-layout {\n    grid-template-columns: var(--editorial-grid);\n    gap: var(--editorial-gap);\n    align-items: start;\n    padding-block: var(--editorial-section-space);\n  }\n  .workshop[data-workshop='welcome'] .workshop-main > p:first-child {\n    margin-top: 0;\n  }\n  .workshop-hero-actions {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 0.75rem 1rem;\n    margin-top: 1.5rem;\n  }\n  .workshop .workshop-hero-actions a {\n    display: inline-flex;\n    align-items: center;\n    min-height: var(--editorial-button-height);\n    padding: var(--editorial-button-padding);\n    border: 1px solid var(--editorial-control-border);\n    border-radius: var(--editorial-radius);\n    font-size: var(--editorial-button-size);\n    line-height: var(--editorial-button-leading);\n    font-weight: 600;\n    text-decoration: none;\n  }\n  .workshop .workshop-hero-actions .workshop-continue {\n    background: var(--editorial-forest);\n    color: var(--editorial-white);\n    border-color: var(--editorial-forest);\n  }\n  .workshop-hero-actions a:hover {\n    background: var(--editorial-surface);\n  }\n  .workshop .workshop-hero-actions .workshop-continue:hover {\n    background: var(--editorial-hover);\n"
+      },
+      {
+        "start": 17489,
+        "end": 17613,
+        "before": "    .workshop[data-workshop='welcome'] .workshop-editorial {\n      display: block;\n",
+        "after": "    .workshop[data-workshop='welcome'] :is(.workshop-hero, .workshop-layout) {\n      grid-template-columns: minmax(0, 1fr);\n"
+      },
+      {
+        "start": 17619,
+        "end": 17785,
+        "before": "    .workshop[data-workshop='welcome'] .workshop-guide {\n      margin-top: var(--editorial-section-space);\n",
+        "after": "  }\n  @media (forced-colors: active) {\n    .workshop[data-workshop='welcome'] .workshop-guide :is(a, button, summary):focus-visible {\n      outline-color: Highlight;\n"
+      }
+    ]
+  },
+  "src/loop-view.ts": {
+    "beforeSha256": "d238ee189a8fd3b33b48f79c594dbc7dc0b7bca96932cb1cafb454791c2e42e4",
+    "afterSha256": "bf027cd1a7c90e289411497f399627494560148f1534e54ee05a545fdb59a0e5",
+    "edits": [
+      {
+        "start": 2662,
+        "end": 2662,
+        "before": "        node('p', { class: 'loop-kicker' }, 'The Discipline Loop · Reinforcement'),\n",
+        "after": ""
+      }
+    ]
+  },
+  "src/loop.css": {
+    "beforeSha256": "169240732c4711b80fb0b56e0b9ba157f4c1d7543002df21256ae6fa63e93a85",
+    "afterSha256": "0297e058337be4760e4336e826cf9d0fcd2fb89cc60887d656712fe20f077d0a",
+    "edits": [
+      {
+        "start": 11620,
+        "end": 11930,
+        "before": "",
+        "after": "\n/* Batch 7: align the unlabeled cover and source follow-on with their columns. */\n@media screen {\n  .loop-hero > div > :is(h1, h2) {\n    margin-top: 0;\n    margin-bottom: 1rem;\n  }\n  .loop-section > .framework-bridges {\n    width: 100%;\n    max-width: none;\n    margin-inline: 0;\n    padding-inline: 0;\n  }\n}\n"
+      }
+    ]
+  },
+  "src/main.tsx": {
+    "beforeSha256": "47ed1f0722553f38d9d5fc1d23486e329f8b1a8da2fb84c7f2e9501a870edad7",
+    "afterSha256": "67850c36dde00265caae4395153e435d3d82006c5e16b16efe65fafb5614d654",
+    "edits": [
+      {
+        "start": 4231,
+        "end": 4472,
+        "before": "              The staging policy rotates daily and retains up to 14 rotated logs. Provider logs and\n              backup retention are separate; this is not a promise that all infrastructure copies\n              disappear after 14 days.\n",
+        "after": "              The request-log policy rotates daily and retains up to 14 rotated logs. Provider logs\n              and backup retention are separate; this is not a promise that all infrastructure\n              copies disappear after 14 days.\n"
+      },
+      {
+        "start": 14228,
+        "end": 16066,
+        "before": "      <nav aria-label=\"Main navigation\" class={editorial ? 'period-local-navigation' : undefined}>\n        {editorial ? (\n          <>\n            <a\n              href=\"#/period/why\"\n              aria-current={\n                path === '/period/why' ||\n                location.hash === '#/period/why' ||\n                location.hash === '#why-period'\n                  ? 'location'\n                  : undefined\n              }\n            >\n              Why PERIOD?\n            </a>\n            <a\n              href=\"#/period/teaching-order\"\n              aria-current={\n                (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&\n                path !== '/period/standard' &&\n                path !== '/period/book' &&\n                path !== '/period/why'\n                  ? 'location'\n                  : undefined\n              }\n            >\n              Explore the values\n            </a>\n          </>\n        ) : (\n          <>\n            <a href=\"#/\" aria-current={path === '/' ? 'page' : undefined}>\n              Frameworks\n            </a>\n            <a href=\"#/period\">The PERIOD Code</a>\n            <a href=\"#/rebuild\" aria-current={path.startsWith('/rebuild') ? 'location' : undefined}>\n              How to Rebuild Yourself\n            </a>\n            <a href=\"#/loop\" aria-current={path.startsWith('/loop') ? 'location' : undefined}>\n              The Discipline Loop\n            </a>\n            <a href=\"#/execution\" aria-current={path === '/execution' ? 'location' : undefined}>\n              Pure Execution Mode\n            </a>\n          </>\n        )}\n      </nav>\n",
+        "after": "      {(!editorial || path !== '/period') && (\n        <nav aria-label=\"Main navigation\" class={editorial ? 'period-local-navigation' : undefined}>\n          {editorial ? (\n            <>\n              <a\n                href=\"#/period/why\"\n                aria-current={\n                  path === '/period/why' ||\n                  location.hash === '#/period/why' ||\n                  location.hash === '#why-period'\n                    ? 'location'\n                    : undefined\n                }\n              >\n                Why PERIOD?\n              </a>\n              <a\n                href=\"#/period/teaching-order\"\n                aria-current={\n                  (location.hash === '#/period/teaching-order' || path.startsWith('/period/')) &&\n                  path !== '/period/standard' &&\n                  path !== '/period/book' &&\n                  path !== '/period/why'\n                    ? 'location'\n                    : undefined\n                }\n              >\n                Explore the values\n              </a>\n            </>\n          ) : (\n            <>\n              <a href=\"#/\" aria-current={path === '/' ? 'page' : undefined}>\n                Frameworks\n              </a>\n              <a href=\"#/period\">The PERIOD Code</a>\n              <a\n                href=\"#/rebuild\"\n                aria-current={path.startsWith('/rebuild') ? 'location' : undefined}\n              >\n                How to Rebuild Yourself\n              </a>\n              <a href=\"#/loop\" aria-current={path.startsWith('/loop') ? 'location' : undefined}>\n                The Discipline Loop\n              </a>\n              <a href=\"#/execution\" aria-current={path === '/execution' ? 'location' : undefined}>\n                Pure Execution Mode\n              </a>\n            </>\n          )}\n        </nav>\n      )}\n"
+      }
+    ]
+  },
+  "src/period-homepage.css": {
+    "beforeSha256": "f231b6b819240c385fe085ba91139107714d67224b7f2e51761c599d8d78e7b4",
+    "afterSha256": "fd4dbf3927a8f1413994e1df3469ebe055ce07cfaee46c5ab393e8c05ee77458",
+    "edits": [
+      {
+        "start": 13539,
+        "end": 14023,
+        "before": "",
+        "after": "\n/* Batch 7: an unlabeled opening and a quiet direction cue on each choice. */\n@media screen {\n  .framework-hub .framework-hub-intro h1 {\n    margin-top: 0;\n  }\n  .framework-hub .framework-chooser a {\n    position: relative;\n    padding-right: 2rem;\n  }\n  .framework-hub .framework-chooser .framework-chooser-arrow {\n    position: absolute;\n    right: 0;\n    top: 50%;\n    transform: translateY(-50%);\n    font-family: var(--font-body);\n    font-size: 1.1rem;\n    opacity: 0.8;\n  }\n}\n"
+      }
+    ]
+  },
+  "src/rebuild-app.css": {
+    "beforeSha256": "b883c0e0c2a14e9c711c739d8d96b89c77b10ad170c868a0a505c8dee1538a28",
+    "afterSha256": "450cf3c9f140846f12f338bea81446b873bf08f62539c2bbdd638e8558576dce",
+    "edits": [
+      {
+        "start": 11193,
+        "end": 11443,
+        "before": "",
+        "after": "\n/* Batch 7: landing titles start at the shared distance below the global header. */\n@media screen {\n  body:not(.native-rebuild) .framework-hub {\n    padding-top: var(--editorial-hero-space);\n  }\n  .rebuild-guide .cover h1 {\n    margin-top: 0;\n  }\n}\n"
+      }
+    ]
+  },
+  "src/rebuild-content.ts": {
+    "beforeSha256": "fdebb49b40042fefed69f91198b0d08c040be94edcc0899d7a926c45eca83003",
+    "afterSha256": "0242831ccbb3431383075a07ba81d182474d43a69f815a92ddf2fb91bef4822b",
+    "edits": [
+      {
+        "start": 307,
+        "end": 307,
+        "before": "            { tag: 'p', attrs: { class: 'brow' }, children: ['Field guide'] },\n",
+        "after": ""
+      }
+    ]
+  },
+  "src/site-footer-content.ts": {
+    "beforeSha256": "ace7fe87734dcaa7b5b6e4311dbb33151d002879dc5ff9168643d620d5536e6b",
+    "afterSha256": "545858916b71617fee538bf5d13ee5d25f40d4f0ef7e38582ff4d7d4a85e4402",
+    "edits": [
+      {
+        "start": 1734,
+        "end": 1833,
+        "before": "    return { text: 'Local preview. Exact corresponding source is not identified.', source: null };\n",
+        "after": "    return { text: 'Exact corresponding source is not identified for this build.', source: null };\n"
+      },
+      {
+        "start": 1865,
+        "end": 2059,
+        "before": "      text: `v${build.version} · local changes · base ${build.commit.slice(0, 7)}. This local preview includes changes not represented by the base commit; exact corresponding source is not published.`,\n",
+        "after": "      text: `v${build.version} · local changes · base ${build.commit.slice(0, 7)}. This build includes changes not represented by the base commit; exact corresponding source is not published.`,\n"
+      }
+    ]
+  }
+}

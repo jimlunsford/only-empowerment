@@ -25,7 +25,10 @@ const go = async (page: Page, id: string) => {
   await page.goto('/' + workshopHref(id));
   await expect(screen(page)).toHaveAttribute('data-workshop', id);
 };
-const next = (page: Page) => screen(page).getByRole('link', { name: /^Continue/ });
+const next = (page: Page) =>
+  screen(page)
+    .locator('.workshop-navigation')
+    .getByRole('link', { name: /^Continue/ });
 
 test('workshop is primary from home, both headers, footer and native reading', async ({ page }) => {
   await page.goto('/');
@@ -70,9 +73,11 @@ test('every screen supports direct entry, title, refresh and unforced Continue',
       s.id === 'welcome' ? '/execution' : '/execution/' + s.id,
     );
     await expect(heading(page)).toBeFocused();
-    expect(
-      (await screen(page).locator('.workshop-position').boundingBox())!.y,
-    ).toBeGreaterThanOrEqual(0);
+    if (s.id === 'welcome') await expect(screen(page).locator('.workshop-position')).toHaveCount(0);
+    else
+      expect(
+        (await screen(page).locator('.workshop-position').boundingBox())!.y,
+      ).toBeGreaterThanOrEqual(0);
     await expect(page).toHaveTitle(s.title + ' | Only Empowerment');
     await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
     await page.reload();

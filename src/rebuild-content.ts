@@ -9,7 +9,6 @@ export const rebuildTrees = {
           tag: 'div',
           attrs: { class: 'covertext' },
           children: [
-            { tag: 'p', attrs: { class: 'brow' }, children: ['Field guide'] },
             { tag: 'h1', attrs: { tabindex: '-1' }, children: ['How to Rebuild Yourself'] },
             { tag: 'p', attrs: { class: 'byline' }, children: ['By Jim Lunsford'] },
             {

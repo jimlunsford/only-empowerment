@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 for (const width of [320, 390, 1366])
-  test(`Loop hero focus clears the kicker at ${width}px on entry and keyboard return`, async ({
+  test(`Loop hero focus clears the header at ${width}px on entry and keyboard return`, async ({
     page,
   }, info) => {
     await page.setViewportSize({ width, height: 1000 });
@@ -9,23 +9,23 @@ for (const width of [320, 390, 1366])
     async function clearance(entry: string) {
       await expect(heading).toBeFocused();
       await page.evaluate(() => document.fonts.ready);
-      // Keep the actual focused element while showing the preceding kicker for review.
-      await page.locator('.loop-hero').evaluate((e) => e.scrollIntoView());
+      // Keep actual heading focus while showing the header above the eyebrow-free hero.
+      await page.evaluate(() => scrollTo(0, 0));
       const geometry = await heading.evaluate((e) => {
         const h = e.getBoundingClientRect();
-        const kicker = e.previousElementSibling!.getBoundingClientRect();
+        const header = document.querySelector('.site-header')!.getBoundingClientRect();
         const style = getComputedStyle(e);
         const outlineWidth = parseFloat(style.outlineWidth);
         const outlineOffset = parseFloat(style.outlineOffset);
         return {
           focused: document.activeElement === e,
           headingTop: h.top,
-          kickerBottom: kicker.bottom,
+          headerBottom: header.bottom,
           outlineWidth,
           outlineOffset,
           outlineStyle: style.outlineStyle,
           outlineColor: style.outlineColor,
-          clearance: h.top - outlineWidth - outlineOffset - kicker.bottom,
+          clearance: h.top - outlineWidth - outlineOffset - header.bottom,
           overflow: document.documentElement.scrollWidth > innerWidth,
         };
       });

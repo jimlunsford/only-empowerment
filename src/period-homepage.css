@@ -575,3 +575,23 @@
     }
   }
 }
+
+/* Batch 7: an unlabeled opening and a quiet direction cue on each choice. */
+@media screen {
+  .framework-hub .framework-hub-intro h1 {
+    margin-top: 0;
+  }
+  .framework-hub .framework-chooser a {
+    position: relative;
+    padding-right: 2rem;
+  }
+  .framework-hub .framework-chooser .framework-chooser-arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+}

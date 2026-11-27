@@ -390,3 +390,13 @@
     }
   }
 }
+
+/* Batch 7: landing titles start at the shared distance below the global header. */
+@media screen {
+  body:not(.native-rebuild) .framework-hub {
+    padding-top: var(--editorial-hero-space);
+  }
+  .rebuild-guide .cover h1 {
+    margin-top: 0;
+  }
+}
