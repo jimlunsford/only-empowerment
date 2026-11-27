@@ -1,3 +1,4 @@
+import { beforeBookLinksSource } from './book-links-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -18,7 +19,7 @@ test('Batch 7 accepts only exact scoped presentation and notice edits', () => {
     .split('\n');
   for (const path of paths) {
     const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
-    const source = readFileSync(path, 'utf8');
+    const source = beforeBookLinksSource(readFileSync(path, 'utf8'), path);
     if (changes[path]) {
       assert.equal(sha(source), changes[path].afterSha256, path);
       assert.equal(beforeBatch7Source(source, path), original, path);

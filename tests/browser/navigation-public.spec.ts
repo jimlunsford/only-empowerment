@@ -129,7 +129,7 @@ test('all public and retired hash routes retain educational navigation without l
       'The Discipline Loop',
       'Pure Execution Mode',
       'All reading editions (new tab)',
-      'About The PERIOD Code book',
+      'Books (new tab)',
       'Privacy & source',
     ]);
     await expect(footer(page).getByRole('navigation', { name: 'Existing work' })).toHaveCount(0);

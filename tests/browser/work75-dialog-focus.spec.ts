@@ -65,7 +65,9 @@ test('Work75 cancelled book exit returns to the actual link without discarding t
 }) => {
   await page.goto('/#/period/standard');
   await page.locator('#period-standard').fill('A private synthetic standard.');
-  await page.getByRole('link', { name: 'About The PERIOD Code book', exact: true }).click();
+  await page.evaluate(() => {
+    location.hash = '/period/book';
+  });
   const opener = page.getByRole('link', { name: 'Explore the book and read a sample' });
   for (const action of ['escape', 'cancel']) {
     await pointerWithoutFocus(page, opener);

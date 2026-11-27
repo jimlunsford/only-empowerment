@@ -120,6 +120,15 @@ export function PeriodHomepage({ sequence }: { sequence: ComponentChildren }) {
           <a href={c.bookUrl} rel="noreferrer">
             {c.bookLink} <span aria-hidden="true">↗</span>
           </a>
+          <p>
+            <a
+              href="https://www.amazon.com/dp/B0HMM8MNQD"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Paperback &amp; Kindle on Amazon (new tab)
+            </a>
+          </p>
         </div>
       </section>
       <aside class="home-access home-ruled" aria-label="Reading and privacy">

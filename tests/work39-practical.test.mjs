@@ -146,7 +146,7 @@ test('all teaching, exact invitations, four examples and N02 are available witho
   assert.equal(root.split('id="reading-standard-card" tabindex="-1"').length, 2);
   assert.match(staticFooter(), /href="\/#reading-standard-card">Use the standard on paper<\/a>/);
   assert.match(staticFooter(), /href="\/#\/period\/standard">Optional Standard Card<\/a>/);
-  assert.match(staticFooter(), /Optional Standard Card require JavaScript/);
+  assert.match(staticFooter(), /Optional Standard Card requires JavaScript/);
   assert.ok(staticFooter().includes(context.footer));
   assert.match(
     readFileSync('src/use-route.ts', 'utf8'),

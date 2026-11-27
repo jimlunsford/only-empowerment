@@ -233,6 +233,11 @@ export function PeriodBook({ standalone = false }: { standalone?: boolean }) {
         <a href={book.url} rel="noreferrer">
           {book.label} <span aria-hidden="true">↗</span>
         </a>
+        <p>
+          <a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">
+            Paperback &amp; Kindle on Amazon (new tab)
+          </a>
+        </p>
         {standalone && (
           <p>
             <a href="#/period/values/ownership">Keep exploring Ownership</a>

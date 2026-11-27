@@ -85,7 +85,9 @@ export function ownershipReading(build?: FooterBuild, staging = true) {
     .replaceAll('href="#why-period"', 'href="/#why-period"');
   return shell(
     'Ownership, complete text-only lesson and practice',
-    '<div class="period-learning period-reading">' + standaloneLesson(reading) + '</div>',
+    '<div class="period-learning period-reading">' +
+      standaloneLesson(reading) +
+      '<p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p></div>',
     '/read/resilience.css',
     build,
     'period',

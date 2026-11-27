@@ -38,7 +38,7 @@ ${content.lesson
 ${section.id === 'L08' ? link('#pressure-notes', section.cta) + p(section.hint) : ''}
 ${section.id === 'L09' ? `<ol class="resilience-connections">${content.values.map(([name, text]) => `<li>${h(name, 3)}${p(text)}</li>`).join('')}</ol>` : ''}
 ${section.id === 'L11' ? link('/#/period/standard', section.cta + ' (requires JavaScript)') : ''}
-${section.id === 'L12' ? link(periodBook.url, section.cta) : ''}</section>`,
+${section.id === 'L12' ? link(periodBook.url, section.cta) + '<p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p>' : ''}</section>`,
   )
   .join('')}
 </article>

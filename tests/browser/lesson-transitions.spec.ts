@@ -192,10 +192,9 @@ test('a Standard Card draft survives the full transition path and retains its ex
   await expect(page.locator('#period-nextApplication')).toHaveValue(
     'SYNTHETIC: Correct the next update.',
   );
-  await page
-    .getByRole('contentinfo')
-    .getByRole('link', { name: 'About The PERIOD Code book' })
-    .click();
+  await page.evaluate(() => {
+    location.hash = '/period/book';
+  });
   await page.locator('main a[href="https://jimlunsford.com/period-code/"]').click();
   await expect(page.getByRole('dialog')).toContainText('Your card is only in this tab');
   await page.getByRole('button', { name: 'Stay here' }).click();

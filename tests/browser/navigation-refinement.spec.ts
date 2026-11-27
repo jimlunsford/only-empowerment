@@ -154,10 +154,9 @@ test('footer card entry preserves context, existing drafts and guarded book exit
       'SYNTHETIC WORK30: Preserve my exact draft.',
     );
   }
-  await page
-    .getByRole('contentinfo')
-    .getByRole('link', { name: 'About The PERIOD Code book' })
-    .click();
+  await page.evaluate(() => {
+    location.hash = '/period/book';
+  });
   await page.locator('main a[href="https://jimlunsford.com/period-code/"]').click();
   await expect(page.getByRole('dialog')).toContainText('Your card is only in this tab');
   await page.getByRole('button', { name: 'Stay here' }).click();

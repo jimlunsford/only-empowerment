@@ -1,3 +1,4 @@
+import { founderLinks } from './site-footer-content';
 import { LegacyDataRemoval } from './LegacyDataRemoval';
 import { SiteNotices } from './SiteNotices';
 import { SourceNotice } from './SourceNotice';
@@ -447,8 +448,8 @@ function App() {
           <a href="/read/index.html" target="_blank" rel="noopener noreferrer">
             All reading editions (new tab)
           </a>
-          <a href="#/period/book" aria-current={path === '/period/book' ? 'page' : undefined}>
-            About The PERIOD Code book
+          <a href={founderLinks.books} target="_blank" rel="noopener noreferrer">
+            Books (new tab)
           </a>
           <a href="#/privacy" aria-current={path === '/privacy' ? 'page' : undefined}>
             Privacy &amp; source

@@ -104,6 +104,15 @@ export function DisciplineLesson({ openCard }: { openCard: () => void }) {
           <a class="discipline-text-link no-print" href={periodBook.url} rel="noreferrer">
             {lesson.bookLink}
           </a>
+          <p>
+            <a
+              href="https://www.amazon.com/dp/B0HMM8MNQD"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Paperback &amp; Kindle on Amazon (new tab)
+            </a>
+          </p>
         </section>
         <p class="source-note">{periodExercise.source}</p>
       </article>

@@ -228,6 +228,15 @@ export function EmpowermentLesson({ openCard }: { openCard: () => void }) {
             <a class="empowerment-text-link" href={periodBook.url} rel="noreferrer">
               {lesson.bookLink}
             </a>
+            <p>
+              <a
+                href="https://www.amazon.com/dp/B0HMM8MNQD"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Paperback &amp; Kindle on Amazon (new tab)
+              </a>
+            </p>
           </section>
           <FrameworkLinks current="period" />
           <p class="source-note">{empowermentAttribution}</p>

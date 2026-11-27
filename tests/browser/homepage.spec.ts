@@ -41,7 +41,10 @@ test('approved copy, always-visible comparison, privacy and exact attribution', 
   await expect(page.locator('.home-access')).toContainText(
     "The card's draft stays only in the open tab",
   );
-  await expect(page.locator('.home-book a')).toHaveAttribute('href', c.bookUrl);
+  await expect(page.locator('.home-book a[href="' + c.bookUrl + '"]')).toHaveAttribute(
+    'href',
+    c.bookUrl,
+  );
   await expect(page.locator('.founder-copyright')).toHaveText(
     'Copyright © Jim Lunsford. All rights reserved. A Phoenix 2:33 LLC Project.',
   );

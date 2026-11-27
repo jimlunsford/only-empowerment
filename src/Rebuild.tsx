@@ -150,6 +150,17 @@ export function RebuildGuide({ section }: { section: RebuildSection }) {
       )}
       <div class="wrap">
         {rebuildTrees[section].map((node) => renderTeachingNode(node, selectedNote, section))}
+        {(section === 'end' || section === 'complete') && (
+          <p>
+            <a
+              href="https://www.amazon.com/dp/B0HQVNBCWP"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Paperback &amp; Kindle on Amazon (new tab)
+            </a>
+          </p>
+        )}
       </div>
       {section === 'end' && <FrameworkLinks current="rebuild" />}
       <nav class="rebuild-footlinks" aria-label="Rebuilding framework navigation">
