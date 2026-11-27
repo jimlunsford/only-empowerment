@@ -151,13 +151,19 @@
   },
   "src/Execution.tsx": {
     "beforeSha256": "ac62c512443c542bc4cb572c794a08a4857d000d38ee7cbc029482bb1fbd846d",
-    "afterSha256": "8cfd04bb2fda653518648ea945f0c4d2b97f7550260ca205452d5c5b8429da8f",
+    "afterSha256": "631e432182bb66667f5a11a11fe282e17c3ece4b3cfe1f77047e7d856048a0de",
     "edits": [
       {
         "start": 15390,
         "end": 15693,
         "before": "",
         "after": "                  </a>{' '}\n                  \u00b7{' '}\n                  <a\n                    href=\"https://www.amazon.com/dp/B0HR68MLGR\"\n                    target=\"_blank\"\n                    rel=\"noopener noreferrer\"\n                  >\n                    Paperback &amp; Kindle on Amazon (new tab)\n"
+      },
+      {
+        "start": 17012,
+        "end": 17589,
+        "before": "",
+        "after": "              {id === 'welcome' && (\n                <p>\n                  <a href=\"/read/execution.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n                    Open the complete reading edition (new tab)\n                  </a>{' '}\n                  \u00b7{' '}\n                  <a\n                    href=\"https://www.amazon.com/dp/B0HR68MLGR\"\n                    target=\"_blank\"\n                    rel=\"noopener noreferrer\"\n                  >\n                    Paperback &amp; Kindle on Amazon (new tab)\n                  </a>\n                </p>\n              )}\n"
       }
     ]
   },
@@ -211,13 +217,19 @@
   },
   "src/Rebuild.tsx": {
     "beforeSha256": "58e5ad60d2ab9fe32700f29f3248e61a976b89e0f3ccdb5c806daf8112d26897",
-    "afterSha256": "de9acdec01d1ccb14a6b7ec4b50b8440560905ddc2a04b2b6a2765b08e80c110",
+    "afterSha256": "df0fa491b9095c119b28fa2fc72633ab01f5fccc25a874a0b012df4d32ec3fdb",
     "edits": [
       {
         "start": 5834,
         "end": 6165,
         "before": "",
         "after": "        {(section === 'end' || section === 'complete') && (\n          <p>\n            <a\n              href=\"https://www.amazon.com/dp/B0HQVNBCWP\"\n              target=\"_blank\"\n              rel=\"noopener noreferrer\"\n            >\n              Paperback &amp; Kindle on Amazon (new tab)\n            </a>\n          </p>\n        )}\n"
+      },
+      {
+        "start": 6607,
+        "end": 6822,
+        "before": "",
+        "after": "        {section === 'index' && (\n          <a href=\"https://www.amazon.com/dp/B0HQVNBCWP\" target=\"_blank\" rel=\"noopener noreferrer\">\n            Paperback &amp; Kindle on Amazon (new tab)\n          </a>\n        )}\n"
       }
     ]
   },
