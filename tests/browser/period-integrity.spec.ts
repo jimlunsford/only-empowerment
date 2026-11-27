@@ -1,5 +1,6 @@
 import { periodLinkName, lessonLinkName } from './helpers/period-link-name';
 import { openSiteMenu } from './helpers/site-menu';
+import { expectReadingNavigation } from './helpers/reading-navigation';
 import { homepage } from '../../src/period-homepage-content';
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
@@ -394,9 +395,8 @@ test('direct static reading survives disabled, blocked and failing application s
     const css = await context.request.get(baseURL! + '/read/integrity.css');
     expect(css.status()).toBe(200);
     expect(css.headers()['content-type']).toContain('text/css');
-    await expect(page.locator('script,details,summary,input,textarea,select,button')).toHaveCount(
-      0,
-    );
+    await expectReadingNavigation(page);
+    await expect(page.locator('details,summary,input,textarea,select,button')).toHaveCount(0);
     for (const note of copy.notes)
       for (const text of [note.fact, note.explanation, note.replacement, note.action, note.limit])
         await expect(page.getByText(text, { exact: true })).toBeVisible();
