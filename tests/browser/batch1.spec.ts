@@ -114,7 +114,10 @@ for (const width of [320, 1366])
         'font-family',
         /Source Serif/,
       );
-      await expect(main.locator('p').first()).toHaveCSS('font-family', /Source Sans/);
+      await expect(main.locator(route === '/#/rebuild' ? '.introbody p' : 'p').first()).toHaveCSS(
+        'font-family',
+        /Source Sans/,
+      );
       expect(
         await page.evaluate(() =>
           [...document.fonts].some(

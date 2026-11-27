@@ -521,6 +521,7 @@
 @media screen {
   .loop-hero > div > :is(h1, h2) {
     margin-top: 0;
+    margin-bottom: 1rem;
   }
   .loop-section > .framework-bridges {
     width: 100%;

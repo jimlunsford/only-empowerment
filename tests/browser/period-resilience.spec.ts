@@ -240,12 +240,15 @@ test('keyboard selection, local routes, Back and Forward preserve reading positi
   await expect(page.getByRole('status')).toHaveText('');
 });
 
-test('homepage stays oriented to Ownership and the same-page five-lesson path reaches Resilience from Purpose', async ({
+test('homepage stays oriented to Ownership and the six-value teaching path reaches Resilience from Purpose', async ({
   page,
 }) => {
   await page.goto('/#/period');
   await expect(page.getByText(homepage.lead, { exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
+  await expect(page.getByRole('navigation', { name: 'Main navigation' })).toHaveCount(0);
+  await page.locator('.home-continue a').click();
+  await expect(page.locator('h1')).toBeFocused();
   {
     await openSiteMenu(page);
     await page
@@ -258,6 +261,8 @@ test('homepage stays oriented to Ownership and the same-page five-lesson path re
   await expect(
     page.getByRole('navigation', { name: 'PERIOD teaching order' }).getByRole('link'),
   ).toHaveText(['Ownership', 'Purpose', 'Resilience', 'Integrity', 'Discipline', 'Empowerment']);
+  await page.goBack();
+  await expect(page).toHaveURL(/#\/period\/values\/ownership$/);
   {
     await openSiteMenu(page);
     await page
@@ -265,6 +270,7 @@ test('homepage stays oriented to Ownership and the same-page five-lesson path re
       .getByRole('link', { name: 'Explore the values' })
       .click();
   }
+  await expect(page.locator('[id="/period/teaching-order"]')).toBeFocused();
   await page
     .getByRole('navigation', { name: 'PERIOD teaching order' })
     .getByRole('link', { name: periodLinkName('Purpose') })

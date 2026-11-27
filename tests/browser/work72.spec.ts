@@ -154,8 +154,12 @@ for (const width of [1440, 768, 390, 320])
           const r = h.getBoundingClientRect(),
             s = getComputedStyle(h);
           const footprint = parseFloat(s.outlineWidth) + parseFloat(s.outlineOffset);
+          // Landing H1 has no eyebrow; practice retains its preceding teaching label.
+          const preceding = h.closest('.loop-hero')
+            ? document.querySelector('.site-header')!
+            : h.previousElementSibling!;
           return {
-            above: r.top - footprint - h.previousElementSibling!.getBoundingClientRect().bottom,
+            above: r.top - footprint - preceding.getBoundingClientRect().bottom,
             below: h.nextElementSibling!.getBoundingClientRect().top - r.bottom - footprint,
             outlineWidth: parseFloat(s.outlineWidth),
             outlineOffset: parseFloat(s.outlineOffset),

@@ -65,12 +65,18 @@ test('first moment and Why PERIOD support direct entry, keyboard, repetition, re
     await visibleTarget(page, id);
     await page.reload();
     await visibleTarget(page, id);
-    if (label !== c.start) await openSiteMenu(page);
+    if (label !== c.start) {
+      await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
+      await openSiteMenu(page);
+    }
     await page.getByRole('link', { name: label, exact: true }).focus();
     await page.keyboard.press('Enter');
     await visibleTarget(page, id);
     await page.evaluate(() => scrollTo(0, 0));
-    if (label !== c.start) await openSiteMenu(page);
+    if (label !== c.start) {
+      await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
+      await openSiteMenu(page);
+    }
     await page.getByRole('link', { name: label, exact: true }).click();
     await visibleTarget(page, id);
     await page.evaluate(() => scrollTo(0, 650));
@@ -103,7 +109,7 @@ test('modified anchor clicks retain native new-tab semantics without moving the 
   for (const label of [c.start, c.whyHeading, 'Explore the values']) {
     const context = await browser.newContext();
     const page = await context.newPage();
-    await page.goto(baseURL! + '/#/period');
+    await page.goto(baseURL! + (label === c.start ? '/#/period' : '/#/period/standard'));
     await page.bringToFront();
     if (label !== c.start) await openSiteMenu(page);
     const link = page.getByRole('link', { name: label, exact: true });
@@ -207,6 +213,10 @@ test('homepage navigation neither reads storage nor loses an existing Standard C
   const marker = '  SYNTHETIC Work 33\nMy words remain mine.  ';
   await page.locator('#period-standard').fill(marker);
   for (const label of ['Why PERIOD?', 'Explore the values']) {
+    if (label === 'Explore the values') {
+      await page.getByRole('link', { name: 'Optional Standard Card', exact: true }).click();
+      await expect(page.locator('#period-standard')).toHaveValue(marker);
+    }
     await openSiteMenu(page);
     await page
       .getByRole('navigation', { name: 'Main navigation' })

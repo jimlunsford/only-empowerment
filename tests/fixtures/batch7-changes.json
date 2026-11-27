@@ -199,13 +199,13 @@
   },
   "src/loop.css": {
     "beforeSha256": "169240732c4711b80fb0b56e0b9ba157f4c1d7543002df21256ae6fa63e93a85",
-    "afterSha256": "a8b92f8ad04527f8ccae10e640e1d00f8bac386323030a633408d7b4c0d787c1",
+    "afterSha256": "0297e058337be4760e4336e826cf9d0fcd2fb89cc60887d656712fe20f077d0a",
     "edits": [
       {
         "start": 11620,
-        "end": 11905,
+        "end": 11930,
         "before": "",
-        "after": "\n/* Batch 7: align the unlabeled cover and source follow-on with their columns. */\n@media screen {\n  .loop-hero > div > :is(h1, h2) {\n    margin-top: 0;\n  }\n  .loop-section > .framework-bridges {\n    width: 100%;\n    max-width: none;\n    margin-inline: 0;\n    padding-inline: 0;\n  }\n}\n"
+        "after": "\n/* Batch 7: align the unlabeled cover and source follow-on with their columns. */\n@media screen {\n  .loop-hero > div > :is(h1, h2) {\n    margin-top: 0;\n    margin-bottom: 1rem;\n  }\n  .loop-section > .framework-bridges {\n    width: 100%;\n    max-width: none;\n    margin-inline: 0;\n    padding-inline: 0;\n  }\n}\n"
       }
     ]
   },

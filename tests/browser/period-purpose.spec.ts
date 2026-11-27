@@ -218,9 +218,12 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   await page.goto('/#/period');
   {
     await openSiteMenu(page);
-    await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
+    await expect(mainNav(page)).toHaveCount(0);
   }
   await expect(page.getByRole('link', { name: 'Start with Ownership' })).toHaveClass(/primary/);
+  await page.locator('.home-continue a').click();
+  await expect(page.locator('h1')).toBeFocused();
+  await expect(mainNav(page).getByRole('link')).toHaveText(['Why PERIOD?', 'Explore the values']);
   {
     await openSiteMenu(page);
     await page

@@ -101,10 +101,10 @@ test('a native reading link chosen during reload survives enhancement and histor
 test('Forward into a section before its fonts settle keeps its intended focus and position', async ({
   page,
 }) => {
-  const first = '#/period/first-moment';
+  const first = '#/period/values/ownership';
   const why = '#/period/why';
   await page.goto('/' + first);
-  await expect(page.locator('[id="/period/first-moment"]')).toBeFocused();
+  await expect(page.locator('h1')).toHaveText('Ownership.');
   const fonts = Promise.withResolvers<void>();
   const requested = page.waitForRequest(/\.woff2$/);
   await page.route('**/*.woff2', async (route) => {
