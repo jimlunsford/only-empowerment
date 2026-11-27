@@ -725,3 +725,9 @@ select:focus-visible {
   --editorial-button-padding: 0.65rem 1rem;
   --editorial-button-height: 44px;
 }
+
+/* Batch 6: anchor-panel dividers match the Rebuild editorial reference. */
+:root {
+  --editorial-anchor-line: #638175;
+  --editorial-hero-grid: minmax(0, 1fr) minmax(0, 1fr);
+}

@@ -1,3 +1,4 @@
+import { beforeBatch6Source } from './batch6-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -37,7 +38,7 @@ test('Batch 4 pins every changed source and reverses only the approved bytes', (
     ].sort(),
   );
   for (const [path, change] of Object.entries(changes)) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeBatch6Source(readFileSync(path, 'utf8'), path);
     const original = execFileSync('git', ['show', base + ':' + path], { encoding: 'utf8' });
     assert.equal(sha(source), change.afterSha256, path);
     assert.equal(beforeBatch4Source(source, path), original, path);

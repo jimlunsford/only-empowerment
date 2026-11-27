@@ -59,35 +59,41 @@ export const rebuildSections: { id: RebuildSection; title: string }[] = [
 export function FrameworkHome() {
   return (
     <div class="framework-hub">
-      <header class="framework-hub-intro">
-        <p class="framework-kicker">Only Empowerment • Founding learning experiences</p>
-        <h1 tabIndex={-1}>A place to learn how to live differently.</h1>
-        <p>
-          Work through a complete philosophy, examine decisions in real situations, and take what is
-          useful into your own life. The work belongs to you.
-        </p>
-      </header>
-      <p class="framework-author">
-        {frameworkAuthor[0]}
-        <br />
-        {frameworkAuthor[1]}
-      </p>
-      <nav class="framework-chooser" aria-label="Start here if">
-        <h2>Start here if...</h2>
-        <ul>
-          {frameworkChoices.map((item) => (
-            <li key={item.id}>
-              <a href={'#/' + item.id}>
-                {item.situation} <span>{item.title}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div class="framework-home-hero">
+        <div class="framework-home-copy">
+          <header class="framework-hub-intro">
+            <p class="framework-kicker">Only Empowerment • Founding learning experiences</p>
+            <h1 tabIndex={-1}>A place to learn how to live differently.</h1>
+            <p>
+              Work through a complete philosophy, examine decisions in real situations, and take
+              what is useful into your own life. The work belongs to you.
+            </p>
+          </header>
+          <p class="framework-author">
+            {frameworkAuthor[0]}
+            <br />
+            {frameworkAuthor[1]}
+          </p>
+        </div>
+        <nav class="framework-chooser" aria-label="Start here if">
+          <h2>Start here if...</h2>
+          <ul>
+            {frameworkChoices.map((item) => (
+              <li key={item.id}>
+                <a href={'#/' + item.id}>
+                  {item.situation} <span>{item.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
       <section class="framework-orientation" aria-labelledby="framework-orientation-title">
         <h2 id="framework-orientation-title">{frameworkOrientation.heading}</h2>
-        <p>{frameworkOrientation.relationship}</p>
-        <p>{frameworkOrientation.choice}</p>
+        <div>
+          <p>{frameworkOrientation.relationship}</p>
+          <p>{frameworkOrientation.choice}</p>
+        </div>
       </section>
       <div class="framework-options">
         <article>
