@@ -18,7 +18,8 @@ const escape = (text: string) =>
     .replaceAll('"', '&quot;');
 const p = (text: string) => `<p>${escape(text)}</p>`;
 const h = (text: string, level = 2) => `<h${level}>${escape(text)}</h${level}>`;
-const link = (href: string, text: string) => `<a href="${href}">${escape(text)}</a>`;
+const link = (href: string, text: string) =>
+  `<a href="${href}"${href === periodBook.url ? ' target="_blank" rel="noopener noreferrer"' : ''}>${escape(text)}</a>`;
 const speaker = (label: string, text: string) =>
   `<div class="empowerment-speaker"><p class="empowerment-speaker-label">${escape(label)}</p><blockquote>${escape(text)}</blockquote></div>`;
 const agreement = (rows: readonly (readonly string[])[]) =>
@@ -37,7 +38,7 @@ export function empowermentReading(staging = true, metadata?: FooterBuild) {
 <main id="main" class="site-main empowerment-static" tabindex="-1" aria-label="Complete Empowerment reading">
 <nav class="no-print" aria-label="Earlier PERIOD reading">${link('/#reading-ownership', 'Read Ownership')}${link('/#reading-purpose', 'Read Purpose')}${link('/read/resilience.html', 'Read Resilience')}${link('/read/integrity.html', 'Read Integrity')}${link('/read/discipline.html', 'Read Discipline')}${link('/', 'Only Empowerment overview')}</nav>
 <nav class="no-print" aria-label="Within the complete reading">${link('#lesson', 'Lesson')}${link('#offer', 'Original offer')}${c.states.map((s) => link('#reply-' + s.id, s.label)).join('')}${link('#alternatives', 'Other responses')}${link('#conclusion', 'Conclusion')}</nav>
-<header id="lesson" class="empowerment-heading"><h1>${escape(lesson.title)}</h1><p class="lead">${escape(lesson.deck)}</p>${lesson.intro.map(p).join('')}</header>
+<header id="lesson" class="empowerment-heading"><p class="position">6 of 6 in the teaching order</p><h1>${escape(lesson.title)}</h1><p class="lead">${escape(lesson.deck)}</p>${lesson.intro.map(p).join('')}</header>
 <p class="small no-print">${escape(empowermentAvailability)}</p>
 <article class="empowerment-lesson" aria-label="Empowerment lesson">
 ${lesson.sections.map((s) => `<section id="${s.id}">${h(s.title)}${s.paragraphs.map(p).join('')}${'connections' in s ? agreement(s.connections.map((c) => [c.value, c.text])) : ''}${'after' in s ? s.after.map(p).join('') : ''}</section>`).join('')}

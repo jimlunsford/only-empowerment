@@ -96,7 +96,8 @@ test('Discipline and Privacy static editions retain the revised visible copy and
     privacy.indexOf('No accounts. No tracking') < privacy.indexOf('Your reading and practice'),
   );
   assert.ok(
-    privacy.indexOf('Requests and tracking') < privacy.indexOf('Records from the retired tools'),
+    privacy.indexOf('Requests and tracking') <
+      privacy.indexOf('If you used an earlier version of this site'),
   );
   assert.ok(privacy.includes('Confirm deletion of legacy data'));
   assert.ok(privacy.includes('Cancel is focused first'));

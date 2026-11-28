@@ -176,12 +176,10 @@ test('print credits follow the reading, including script loss and the optional c
   browser,
   baseURL,
 }) => {
-  const period =
-    'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.';
-  const rebuild =
-    'Based on How to Rebuild Yourself by Jim Lunsford. Educational adaptation by Only Empowerment.';
+  const period = 'An educational companion to The PERIOD Code by Jim Lunsford.';
+  const rebuild = 'An educational companion to How to Rebuild Yourself by Jim Lunsford.';
   const combined =
-    'Based on The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode by Jim Lunsford. Educational adaptation by Only Empowerment.';
+    'An educational companion to The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode by Jim Lunsford.';
   await page.emulateMedia({ media: 'print' });
   for (const [route, credit] of [
     ['/period/values/ownership', period],

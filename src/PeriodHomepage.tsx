@@ -117,7 +117,7 @@ export function PeriodHomepage({ sequence }: { sequence: ComponentChildren }) {
         <h2>{c.bookHeading}</h2>
         <div>
           <p>{c.book}</p>
-          <a href={c.bookUrl} rel="noreferrer">
+          <a href={c.bookUrl} target="_blank" rel="noopener noreferrer">
             {c.bookLink} <span aria-hidden="true">↗</span>
           </a>
           <p>

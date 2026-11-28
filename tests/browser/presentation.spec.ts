@@ -39,20 +39,13 @@ test('presentation mode keeps six lessons available without a review banner, pre
   expect(privacy).toContain('no server recovery, cross-device sync, or transfer between sites');
   expect(privacy).not.toContain('interaction preview');
   await expect(
-    page.getByRole('heading', { name: 'Analytics and tracking boundaries', exact: true }),
+    page.getByRole('heading', { name: 'Tracking and external services', exact: true }),
   ).toBeVisible();
+  expect(privacy).toContain('No accounts. No tracking. No cookies.');
   expect(privacy).toContain(
-    'Production is planned to use minimal aggregate site and product usage analytics.',
+    'uses no analytics, tracking cookies, session replay, heatmaps, or advertising profiles',
   );
-  expect(privacy).toContain('Google Analytics is not enabled in this build.');
-  expect(privacy).toContain(
-    'Standard Card text and residual legacy records are not sent to Google Analytics.',
-  );
-  expect(privacy).toContain(
-    'Written answers, artifact contents, copied text, and other user-authored private data are excluded.',
-  );
-  expect(privacy).not.toMatch(/No trackers|No accounts or analytics|never uses analytics/i);
-
+  expect(privacy).not.toMatch(/in this build|Production is planned|Any future analytics/);
   expect(
     (
       await new AxeBuilder({ page })

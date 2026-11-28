@@ -280,9 +280,9 @@ export const empowermentContent = {
   },
 } as const;
 export const empowermentAvailability =
-  'All six values have full lessons. The numbers show teaching order, not completion. Return to any value as life requires.';
+  'The numbers show teaching order, not completion. Return to any value as life requires.';
 export const empowermentAttribution =
-  'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.';
+  'An educational companion to The PERIOD Code by Jim Lunsford.';
 export const empowermentNavigation = {
   homeLead:
     "Only Empowerment helps you put The PERIOD Code's six connected values to work in daily life, for free. Begin with Ownership or revisit any lesson, then explore how the values work together in ordinary decisions.",

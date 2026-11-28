@@ -154,9 +154,16 @@ test('all teaching, exact invitations, four examples and N02 are available witho
   );
 });
 
-test('same synthetic drafts preserve exact pre-Work 39 export bytes with absent, present and long support', () => {
+test('synthetic drafts preserve pre-Work 39 exports except the approved Batch C attribution', () => {
   for (const sample of exports)
-    assert.equal(periodCardText(sample.draft), sample.text, sample.name);
+    assert.equal(
+      periodCardText(sample.draft),
+      sample.text.replace(
+        'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
+        'An educational companion to The PERIOD Code by Jim Lunsford.',
+      ),
+      sample.name,
+    );
   const source = readFileSync('src/PeriodStandard.tsx', 'utf8');
   assert.ok(
     source.indexOf('<p>{context.takeaway}</p>') >

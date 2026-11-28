@@ -24,7 +24,7 @@ export function periodFallback() {
   const section = (value: { heading: string; paragraphs: readonly string[] }) =>
     `<h3>${escape(value.heading)}</h3>${value.paragraphs.map(p).join('')}`;
   return `${homepageFallback()}<div class="period-learning period-reading">
-    <h2 id="reading-ownership">Ownership</h2>${p(periodValues[0].role)}<h3>Meaning</h3>${p(lesson.meaning)}
+    <h2 id="reading-ownership">Ownership</h2><p class="position">1 of 6 in the teaching order</p>${p(periodValues[0].role)}<h3>Meaning</h3>${p(lesson.meaning)}
     ${section(foundation.whyFirst)}
     <h3>${escape(lesson.misconceptionHeading)}</h3>${p(lesson.misconception)}${foundation.responsibilityWithoutShame.paragraphs.map(p).join('')}
     ${section(foundation.explanation)}
@@ -43,6 +43,6 @@ export function periodFallback() {
     ${context.paperParagraphs.map(p).join('')}
     <div class="standard-paper-example-heading">${h2('Example standard card')}${p('An illustration, not your personal commitment.')}${p('Status: Chosen, not yet demonstrated')}</div>
     <h3>Value</h3>${p('Integrity')}<h3>My standard</h3>${p(exercise.example.standard)}<h3>Next situation and action</h3>${p(exercise.example.nextApplication)}<h3>Support or correction</h3>${p(exercise.example.returnPlan)}${p(exercise.exampleLesson)}${p(exercise.footnote)}<p class="source-note">${escape(exercise.source)}</p></section>
-    <section class="no-print">${h2(book.heading)}${book.paragraphs.map(p).join('')}<a href="${book.url}" rel="noreferrer">${escape(book.label)}</a><p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p></section>
+    <section class="no-print">${h2(book.heading)}${book.paragraphs.map(p).join('')}<a href="${book.url}" target="_blank" rel="noopener noreferrer">${escape(book.label)}</a><p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p></section>
   </div>`;
 }

@@ -1,0 +1,920 @@
+{
+  "periodFallback": {
+    "beforeSha256": "cd3f9dd1439a36a9958ff0f2117b618461fb3608dd05641deaae6661ea57499d",
+    "afterSha256": "af5a7136f437f7bfd28719d05e50aad9aff5a532f933fa70168be72b6186f1aa",
+    "edits": [
+      {
+        "start": 6980,
+        "end": 6986,
+        "before": "rel",
+        "after": "target"
+      },
+      {
+        "start": 6988,
+        "end": 7010,
+        "before": "",
+        "after": "_blank\" rel=\"noopener "
+      },
+      {
+        "start": 8285,
+        "end": 8337,
+        "before": "",
+        "after": " class=\"position\">1 of 6 in the teaching order</p><p"
+      },
+      {
+        "start": 27184,
+        "end": 27201,
+        "before": "",
+        "after": " class=\"position\""
+      },
+      {
+        "start": 35285,
+        "end": 35291,
+        "before": "rel",
+        "after": "target"
+      },
+      {
+        "start": 35293,
+        "end": 35315,
+        "before": "",
+        "after": "_blank\" rel=\"noopener "
+      },
+      {
+        "start": 46996,
+        "end": 47023,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 47056,
+        "end": 47056,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      },
+      {
+        "start": 47612,
+        "end": 47618,
+        "before": "rel",
+        "after": "target"
+      },
+      {
+        "start": 47620,
+        "end": 47642,
+        "before": "",
+        "after": "_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "homepageFallback": {
+    "beforeSha256": "d6137868283d7da92a5221e2b75647607c1db188b7e2e6f70f472abe66e82c7c",
+    "afterSha256": "21c93deac07127bb2df053a496f158af6262fec1224ca3c29fd60456c5432b52",
+    "edits": [
+      {
+        "start": 6980,
+        "end": 7010,
+        "before": "rel=\"",
+        "after": "target=\"_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "purposeFallback": {
+    "beforeSha256": "126f44412b044a6c03ed1dcda1d59337978b0a7109add047ccf7bf84c57fb470",
+    "afterSha256": "7db14c54bc2b54316956e4399797d8b5738ed32686fec41d94753efd57126695",
+    "edits": [
+      {
+        "start": 90,
+        "end": 107,
+        "before": "",
+        "after": " class=\"position\""
+      },
+      {
+        "start": 8191,
+        "end": 8197,
+        "before": "rel",
+        "after": "target"
+      },
+      {
+        "start": 8199,
+        "end": 8221,
+        "before": "",
+        "after": "_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "resilienceReading": {
+    "beforeSha256": "81d5cffbf8371ad88511c953e422d3be1c670ee216aa5cd902178163b1bbfb3d",
+    "afterSha256": "ba93b22c61b333cc09b434873a09929c71b6b1ad4b542d1c5036d2d3ed697980",
+    "edits": [
+      {
+        "start": 11925,
+        "end": 11967,
+        "before": "",
+        "after": "\" target=\"_blank\" rel=\"noopener noreferrer"
+      },
+      {
+        "start": 26794,
+        "end": 26821,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 26854,
+        "end": 26854,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      },
+      {
+        "start": 28076,
+        "end": 28114,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 28115,
+        "end": 28151,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 28275,
+        "end": 28302,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 28336,
+        "end": 28392,
+        "before": "Educational adaptation ",
+        "after": "<a href=\"https://jimlunsford.com/period-code/\" target=\"_"
+      },
+      {
+        "start": 28393,
+        "end": 28402,
+        "before": "y Only Empowerment. <a href",
+        "after": "lank\" rel"
+      },
+      {
+        "start": 28404,
+        "end": 28423,
+        "before": "https://jimlunsford.com/period-code/",
+        "after": "noopener noreferrer"
+      }
+    ]
+  },
+  "integrityReading": {
+    "beforeSha256": "95a8cce47adc1018f206d3f3d598b58678a3c5f2a8fb973b1a43226f7fe88ee2",
+    "afterSha256": "98e84dccccef8e36910194efe2ee7d7e5e63a771139848604a05356c9966edef",
+    "edits": [
+      {
+        "start": 1430,
+        "end": 1430,
+        "before": "All six values have full lessons. ",
+        "after": ""
+      },
+      {
+        "start": 14519,
+        "end": 14561,
+        "before": "",
+        "after": "\" target=\"_blank\" rel=\"noopener noreferrer"
+      },
+      {
+        "start": 24425,
+        "end": 24452,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 24485,
+        "end": 24485,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      },
+      {
+        "start": 25707,
+        "end": 25745,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 25746,
+        "end": 25782,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 25906,
+        "end": 25933,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 25967,
+        "end": 26023,
+        "before": "Educational adaptation ",
+        "after": "<a href=\"https://jimlunsford.com/period-code/\" target=\"_"
+      },
+      {
+        "start": 26024,
+        "end": 26033,
+        "before": "y Only Empowerment. <a href",
+        "after": "lank\" rel"
+      },
+      {
+        "start": 26035,
+        "end": 26054,
+        "before": "https://jimlunsford.com/period-code/",
+        "after": "noopener noreferrer"
+      }
+    ]
+  },
+  "disciplineReading": {
+    "beforeSha256": "4e5c96190883d1335f0abfa15e94eaabd3d0f5f89372fd9058f28cb6f713fbbd",
+    "afterSha256": "64a9ff9bc4239e1299d1306ef9003f48bb9eaf86fca6fed7a417749b329b47a1",
+    "edits": [
+      {
+        "start": 1051,
+        "end": 1103,
+        "before": "",
+        "after": "p class=\"position\">5 of 6 in the teaching order</p><"
+      },
+      {
+        "start": 1690,
+        "end": 1690,
+        "before": "All six values have full lessons. ",
+        "after": ""
+      },
+      {
+        "start": 13304,
+        "end": 13346,
+        "before": "",
+        "after": "\" target=\"_blank\" rel=\"noopener noreferrer"
+      },
+      {
+        "start": 26302,
+        "end": 26329,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 26362,
+        "end": 26362,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      },
+      {
+        "start": 27584,
+        "end": 27622,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 27623,
+        "end": 27659,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 27783,
+        "end": 27810,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 27844,
+        "end": 27900,
+        "before": "Educational adaptation ",
+        "after": "<a href=\"https://jimlunsford.com/period-code/\" target=\"_"
+      },
+      {
+        "start": 27901,
+        "end": 27910,
+        "before": "y Only Empowerment. <a href",
+        "after": "lank\" rel"
+      },
+      {
+        "start": 27912,
+        "end": 27931,
+        "before": "https://jimlunsford.com/period-code/",
+        "after": "noopener noreferrer"
+      }
+    ]
+  },
+  "empowermentReading": {
+    "beforeSha256": "53ab44165035dc17c3182842f71c8817f12040044e72b2598261b808b23766a6",
+    "afterSha256": "1df433dd1743cd977385ae4a5b82aa939a9df46f2bf0e57b1ede7a6764894f87",
+    "edits": [
+      {
+        "start": 1556,
+        "end": 1608,
+        "before": "",
+        "after": "p class=\"position\">6 of 6 in the teaching order</p><"
+      },
+      {
+        "start": 2157,
+        "end": 2157,
+        "before": "All six values have full lessons. ",
+        "after": ""
+      },
+      {
+        "start": 15313,
+        "end": 15355,
+        "before": "",
+        "after": "\" target=\"_blank\" rel=\"noopener noreferrer"
+      },
+      {
+        "start": 27244,
+        "end": 27271,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 27304,
+        "end": 27304,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      },
+      {
+        "start": 28526,
+        "end": 28564,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 28565,
+        "end": 28601,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 28725,
+        "end": 28752,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 28786,
+        "end": 28842,
+        "before": "Educational adaptation ",
+        "after": "<a href=\"https://jimlunsford.com/period-code/\" target=\"_"
+      },
+      {
+        "start": 28843,
+        "end": 28852,
+        "before": "y Only Empowerment. <a href",
+        "after": "lank\" rel"
+      },
+      {
+        "start": 28854,
+        "end": 28873,
+        "before": "https://jimlunsford.com/period-code/",
+        "after": "noopener noreferrer"
+      }
+    ]
+  },
+  "rebuildFallback": {
+    "beforeSha256": "5619a56f93798fd249dafd170e95976c9900352251029221afb86933948cd17e",
+    "afterSha256": "23f482e0fb13900fed1db87ef2ca146cb2b6893fac505c0892e1a1067af64578",
+    "edits": [
+      {
+        "start": 36194,
+        "end": 36346,
+        "before": "",
+        "after": "><p><a href=\"https://jimlunsford.com/how-to-rebuild-yourself/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit Jim Lunsford's book page (new tab)</a></p"
+      }
+    ]
+  },
+  "loopReading": {
+    "beforeSha256": "a85ee342e7b317294fd274a38215a6c107a2b5e9e92f3c10d94ab8154812abf2",
+    "afterSha256": "88d13bdd7bd4d1356e0e11c7f44205dfe11d214acbdb5d4807b98f5bc0538877",
+    "edits": [
+      {
+        "start": 8968,
+        "end": 9009,
+        "before": "In ",
+        "after": "<a href=\"/read/rebuild.html#negotiation\">"
+      },
+      {
+        "start": 9016,
+        "end": 9086,
+        "before": "",
+        "after": "’s settled boundary</a> concerns the decision you stop reopening; here"
+      },
+      {
+        "start": 9099,
+        "end": 9099,
+        "before": " concerns a settled boundary; here it",
+        "after": ""
+      },
+      {
+        "start": 9196,
+        "end": 9196,
+        "before": " <a href=\"/read/rebuild.html#negotiation\">Rebuild’s settled boundary</a>",
+        "after": ""
+      },
+      {
+        "start": 16872,
+        "end": 16908,
+        "before": "",
+        "after": "<a href=\"/read/rebuild.html#return\">"
+      },
+      {
+        "start": 16915,
+        "end": 16947,
+        "before": " teaches repair of",
+        "after": "’s repair teaching</a> addresses"
+      },
+      {
+        "start": 17027,
+        "end": 17027,
+        "before": " <a href=\"/read/rebuild.html#return\">Rebuild’s repair teaching</a>",
+        "after": ""
+      },
+      {
+        "start": 19763,
+        "end": 19791,
+        "before": "",
+        "after": "An educational companion to "
+      },
+      {
+        "start": 19793,
+        "end": 19810,
+        "before": "is educational companion is",
+        "after": "e Discipline Loop"
+      },
+      {
+        "start": 19812,
+        "end": 19827,
+        "before": "ased on",
+        "after": "y Jim Lunsford."
+      },
+      {
+        "start": 19832,
+        "end": 20117,
+        "before": "Discipline",
+        "after": "book develops the argument across desire, identity, the five-part mechanism, competing relief, recovery, common breaks, correction and continued reinforcement.</p><p>The lessons explain the full mechanism through practical examples. The scenarios are illustrations, not accounts of Jim"
+      },
+      {
+        "start": 20119,
+        "end": 20126,
+        "before": "oop by Jim Lunsford. The book develops the argument across desire, identity, the five-part mechanism, competing relief, recovery, common breaks, correction and continued reinforcement.</p><p>The companion uses new explanatory copy and illustrative scenarios. It teaches the full mechanism without reproducing the complete book. The five stage names and five failure-point headings retain the author&#39;s wording. The scenarios are constructed teaching examples, not Jim",
+        "after": "unsford"
+      },
+      {
+        "start": 40415,
+        "end": 40450,
+        "before": "All rights reserved. A <a href=\"http",
+        "after": "Software and educational adaptation"
+      },
+      {
+        "start": 40452,
+        "end": 40453,
+        "before": "//phoenix233.com/\">Phoenix 2:33 LLC</a> Project.</p>\n<div class=\"footer-print-urls\"><p>Based on The Discipline Loop by Jim Lunsford. Educational adaptation by Only Empowerment. <a href=\"https://jimlunsford.com/discipline-loop/\">https://jimlunsford.com/discipline-loop/</a></p><p>Software: <a href=\"https://www.gnu.org/licenses/agpl-3.0.html\">",
+        "after": " "
+      },
+      {
+        "start": 40470,
+        "end": 40903,
+        "before": "",
+        "after": ". Published books: all rights reserved. A <a href=\"https://phoenix233.com/\">Phoenix 2:33 LLC</a> Project.</p>\n<div class=\"footer-print-urls\"><p>An educational companion to The Discipline Loop by Jim Lunsford. <a href=\"https://jimlunsford.com/discipline-loop/\" target=\"_blank\" rel=\"noopener noreferrer\">https://jimlunsford.com/discipline-loop/</a></p><p>Software: <a href=\"https://www.gnu.org/licenses/agpl-3.0.html\">AGPL-3.0-or-later"
+      }
+    ]
+  },
+  "ownershipReading": {
+    "beforeSha256": "6e09f94ab470e4785b0c54053f8ab9ff4d545956f456e156aaf635f1b83813b8",
+    "afterSha256": "af2ad79d647be4f68b09f629136bf80433bb0d98d2638e186d74f07e731d5008",
+    "edits": [
+      {
+        "start": 1789,
+        "end": 1841,
+        "before": "",
+        "after": "><p class=\"position\">1 of 6 in the teaching order</p"
+      },
+      {
+        "start": 21972,
+        "end": 22010,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 22011,
+        "end": 22047,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 22171,
+        "end": 22198,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 22232,
+        "end": 22232,
+        "before": "Educational adaptation by Only Empowerment. ",
+        "after": ""
+      },
+      {
+        "start": 22277,
+        "end": 22319,
+        "before": "",
+        "after": "\" target=\"_blank\" rel=\"noopener noreferrer"
+      }
+    ]
+  },
+  "purposeReading": {
+    "beforeSha256": "10f0d2891030a3d57ff78552defbbcbc92825ef2fc785bebd403588eb0a96417",
+    "afterSha256": "165326063e605d302a4675bf9c28d7561b0fb6befe7a7a382ce38347f546eb19",
+    "edits": [
+      {
+        "start": 1846,
+        "end": 1863,
+        "before": "",
+        "after": " class=\"position\""
+      },
+      {
+        "start": 9949,
+        "end": 9955,
+        "before": "rel",
+        "after": "target"
+      },
+      {
+        "start": 9957,
+        "end": 9979,
+        "before": "",
+        "after": "_blank\" rel=\"noopener "
+      },
+      {
+        "start": 19937,
+        "end": 19975,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 19976,
+        "end": 20012,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 20136,
+        "end": 20163,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 20197,
+        "end": 20197,
+        "before": "Educational adaptation by Only Empowerment. ",
+        "after": ""
+      },
+      {
+        "start": 20242,
+        "end": 20284,
+        "before": "",
+        "after": "\" target=\"_blank\" rel=\"noopener noreferrer"
+      }
+    ]
+  },
+  "standardOnPaper": {
+    "beforeSha256": "d8d584bce7a00909a135a8d89e3818bcde50d4c4bd9c3dc7b48abdd07791e629",
+    "afterSha256": "6e8408266a04bdae3027e8509c559fcf9004920c4a0b4b44628cb8dc5036777c",
+    "edits": [
+      {
+        "start": 4700,
+        "end": 4727,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 4760,
+        "end": 4760,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      },
+      {
+        "start": 6003,
+        "end": 6041,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 6042,
+        "end": 6078,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 6202,
+        "end": 6229,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 6263,
+        "end": 6319,
+        "before": "Educational adaptation ",
+        "after": "<a href=\"https://jimlunsford.com/period-code/\" target=\"_"
+      },
+      {
+        "start": 6320,
+        "end": 6350,
+        "before": "y Only Empowerment. <a href=\"https://jimlunsford.com/period-code/",
+        "after": "lank\" rel=\"noopener noreferrer"
+      }
+    ]
+  },
+  "rebuildReading": {
+    "beforeSha256": "a87f0f127f5d649936f3a8783f8db615924222a2d507aab591e129cbdb94ec68",
+    "afterSha256": "ba1f9267240bb42a773b9489e2a0adedfc195cec91c1e6e3e4fcb3628634e638",
+    "edits": [
+      {
+        "start": 38215,
+        "end": 38367,
+        "before": "",
+        "after": "><p><a href=\"https://jimlunsford.com/how-to-rebuild-yourself/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit Jim Lunsford's book page (new tab)</a></p"
+      },
+      {
+        "start": 40222,
+        "end": 40257,
+        "before": "All rights reserved. A <a href=\"http",
+        "after": "Software and educational adaptation"
+      },
+      {
+        "start": 40259,
+        "end": 40260,
+        "before": "//phoenix233.com/\">Phoenix 2:33 LLC</a> Project.</p>\n<div class=\"footer-print-urls\"><p>Based on How to Rebuild Yourself by Jim Lunsford. Educational adaptation by Only Empowerment.</p><p>Software: <a href=\"https://www.gnu.org/licenses/agpl-3.0.html\">",
+        "after": " "
+      },
+      {
+        "start": 40277,
+        "end": 40576,
+        "before": "",
+        "after": ". Published books: all rights reserved. A <a href=\"https://phoenix233.com/\">Phoenix 2:33 LLC</a> Project.</p>\n<div class=\"footer-print-urls\"><p>An educational companion to How to Rebuild Yourself by Jim Lunsford.</p><p>Software: <a href=\"https://www.gnu.org/licenses/agpl-3.0.html\">AGPL-3.0-or-later"
+      }
+    ]
+  },
+  "readingIndex": {
+    "beforeSha256": "8bf24aba40c7e0b0701bb19cd91a8f4a3115af6a36c22a8d071bf88843d8925e",
+    "afterSha256": "aa255a23594279b99bec81faf8fe7e9a18f1986c854fdc708f5d6edddd19fa58",
+    "edits": [
+      {
+        "start": 4169,
+        "end": 4207,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 4208,
+        "end": 4244,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 4398,
+        "end": 4425,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 4528,
+        "end": 4622,
+        "before": " Educational adaptation",
+        "after": "</p><p class=\"rebuild-print-credit\" hidden>An educational companion to How to Rebuild Yourself"
+      },
+      {
+        "start": 4626,
+        "end": 4626,
+        "before": "Only Empowerment.</p><p class=\"rebuild-print-credit\" hidden>Based on How to Rebuild Yourself by ",
+        "after": ""
+      },
+      {
+        "start": 4638,
+        "end": 4638,
+        "before": ". Educational adaptation by Only Empowerment",
+        "after": ""
+      }
+    ]
+  },
+  "privacyReading": {
+    "beforeSha256": "35cc1eb3a54096de4f30844198f3c5e1689a409126a7997a47b4d69c101e1993",
+    "afterSha256": "db27af600f85ab3a2b8198d4de35312331a48055139d0ec4b66f78cb3d432889",
+    "edits": [
+      {
+        "start": 803,
+        "end": 940,
+        "before": " is en",
+        "after": ". No cookies. Nothing you enter is sent to Only Empowerment. Interactive choices and the optional Standard Card draft stay only in this t"
+      },
+      {
+        "start": 942,
+        "end": 959,
+        "before": "led in this",
+        "after": "'s memory, not in"
+      },
+      {
+        "start": 961,
+        "end": 963,
+        "before": "uild. You can read and practice ",
+        "after": "ro"
+      },
+      {
+        "start": 964,
+        "end": 1004,
+        "before": "ithout su",
+        "after": "ser storage. Reloading or closing the ta"
+      },
+      {
+        "start": 1005,
+        "end": 1005,
+        "before": "mitting personal answers. Interactive choices and the optional Standard Card draft stay only in this tab’s memory, not in browser storage. Reloading or closing",
+        "after": ""
+      },
+      {
+        "start": 1800,
+        "end": 1808,
+        "before": "can discard",
+        "after": "discards"
+      },
+      {
+        "start": 2824,
+        "end": 2824,
+        "before": "Google ",
+        "after": ""
+      },
+      {
+        "start": 2826,
+        "end": 3046,
+        "before": "alytics is not enabled in this build",
+        "after": "swers are not included in ordinary application requests. Deleting old site data does not delete hosting logs.</p>\n<p>Only Empowerment uses no analytics, tracking cookies, session replay, heatmaps, or advertising profiles"
+      },
+      {
+        "start": 3088,
+        "end": 3119,
+        "before": "",
+        "after": "Fonts are served by this site. "
+      },
+      {
+        "start": 3186,
+        "end": 3228,
+        "before": "",
+        "after": ", with no answer content added to the link"
+      },
+      {
+        "start": 3356,
+        "end": 3434,
+        "before": "",
+        "after": "; this is not a promise that all infrastructure copies disappear after 14 days"
+      },
+      {
+        "start": 3463,
+        "end": 3506,
+        "before": "Records from the retired tools",
+        "after": "If you used an earlier version of this site"
+      },
+      {
+        "start": 3515,
+        "end": 3526,
+        "before": "Earlier tools, Sa",
+        "after": "An earlier "
+      },
+      {
+        "start": 3528,
+        "end": 3568,
+        "before": "d ",
+        "after": "rsion may have saved records in this bro"
+      },
+      {
+        "start": 3569,
+        "end": 3593,
+        "before": "ork and Approach are retired",
+        "after": "ser profile on this site"
+      },
+      {
+        "start": 4308,
+        "end": 4323,
+        "before": "retired tools",
+        "after": "earlier version"
+      },
+      {
+        "start": 4324,
+        "end": 4325,
+        "before": "",
+        "after": "s"
+      },
+      {
+        "start": 4362,
+        "end": 4970,
+        "before": "",
+        "after": "><h2>Copy, print and device privacy</h2>\n<p>Copying puts the Standard Card on your device’s clipboard, which your operating system may sync. Printing or saving a PDF passes content to your browser and printing system. Clipboard copies, PDFs, printouts, screenshots, and backups are yours to manage and are not removed by deleting old site data.</p>\n<p>This is not encrypted private storage. Shared devices, browser extensions, browser recovery features, screenshots, and a compromised device or host can expose information. No website can prove privacy simply by publishing its source.</p></section>\n<section"
+      },
+      {
+        "start": 5072,
+        "end": 5100,
+        "before": "",
+        "after": " and educational adaptations"
+      },
+      {
+        "start": 5270,
+        "end": 5311,
+        "before": "The founder copyright statement does",
+        "after": "Rights reserved in the published books do"
+      },
+      {
+        "start": 5427,
+        "end": 5450,
+        "before": "is page identifies this ",
+        "after": "e source code is availa"
+      },
+      {
+        "start": 5451,
+        "end": 5468,
+        "before": "uild’s corresponding source",
+        "after": "le for inspection"
+      },
+      {
+        "start": 7125,
+        "end": 7163,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 7164,
+        "end": 7200,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 7323,
+        "end": 7381,
+        "before": ">Based on",
+        "after": " class=\"combined-print-credit\">An educational companion to"
+      },
+      {
+        "start": 7397,
+        "end": 7408,
+        "before": " ",
+        "after": ", How to Re"
+      },
+      {
+        "start": 7409,
+        "end": 7469,
+        "before": "",
+        "after": "uild Yourself, The Discipline Loop and Pure Execution Mode b"
+      },
+      {
+        "start": 7484,
+        "end": 7500,
+        "before": " Educational adaptation ",
+        "after": "</p><p class=\"re"
+      },
+      {
+        "start": 7501,
+        "end": 7556,
+        "before": "y Only Emp",
+        "after": "uild-print-credit\" hidden>An educational companion to H"
+      },
+      {
+        "start": 7558,
+        "end": 7595,
+        "before": "erment. <a href=\"https://jimlunsford.com/period-code/\">https://jimlunsford.com/period-code/</a>",
+        "after": " to Rebuild Yourself by Jim Lunsford."
+      }
+    ]
+  },
+  "executionReading": {
+    "beforeSha256": "609d79ac8156944e7f22b37a72e2fe34819233a10ddda97e76fdc145e69cff92",
+    "afterSha256": "aca2b96dda523435f6b6644966b9c0c822853bd923e8fe7b057453231b1e4c93",
+    "edits": [
+      {
+        "start": 63851,
+        "end": 63889,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 63890,
+        "end": 63926,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 64050,
+        "end": 64077,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 64113,
+        "end": 64113,
+        "before": ". Educational adaptation by Only Empowerment",
+        "after": ""
+      },
+      {
+        "start": 64169,
+        "end": 64211,
+        "before": "",
+        "after": " target=\"_blank\" rel=\"noopener noreferrer\""
+      }
+    ]
+  }
+}

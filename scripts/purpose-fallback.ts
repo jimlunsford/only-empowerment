@@ -23,14 +23,14 @@ export function purposeFallback() {
   const p = (text: string) => `<p>${escape(text)}</p>`;
   const h = (text: string, level = 3) => `<h${level}>${escape(text)}</h${level}>`;
   return `<section aria-label="Purpose linear reading" id="reading-purpose">
-    ${h('Purpose.', 2)}${p('2 of 6 in the teaching order')}${p('Give responsibility a direction.')}
+    ${h('Purpose.', 2)}<p class="position">2 of 6 in the teaching order</p>${p('Give responsibility a direction.')}
     <nav aria-label="Purpose reading links"><a href="#reading-purpose-evening">Explore one evening</a></nav>
     ${purposeLesson.map((part) => h(part.heading) + part.paragraphs.map(p).join('')).join('')}
     ${h('Purpose belongs to the whole Code')}${p(purposeConnected)}
     <ol>${purposeRelationships.map((item) => `<li>${h(item.value, 4)}${p(item.connection)}</li>`).join('')}</ol>
     ${h('A reminder is optional')}${p(purposeCardNote)}
     ${readingTransition('purpose', 3)}
-    ${h(purposeBook.heading)}${p(purposeBook.description)}<a href="${periodBook.url}" rel="noreferrer">${escape(purposeBook.label)}</a><p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p>
+    ${h(purposeBook.heading)}${p(purposeBook.description)}<a href="${periodBook.url}" target="_blank" rel="noopener noreferrer">${escape(purposeBook.label)}</a><p><a href="https://www.amazon.com/dp/B0HMM8MNQD" target="_blank" rel="noopener noreferrer">Paperback &amp; Kindle on Amazon (new tab)</a></p>
   </section>
   <section aria-label="Purpose evening linear reading" id="reading-purpose-evening">
     ${h(copy.title, 2)}${p(copy.lead)}${p(copy.intro)}

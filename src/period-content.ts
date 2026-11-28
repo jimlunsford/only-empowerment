@@ -166,7 +166,7 @@ export const periodExercise = {
     'The standard reaches the moment before the promise. Check your capacity, give an honest answer and follow through on what you agree. Those actions give your word weight. The card only names what you intend to do.',
   footnote:
     'This card records one behavior you intend to practice within the connected six-value Code. It does not show that the action has happened or that you have completed the Code. Return to the standard, make the correction when needed, and let your behavior provide the evidence.',
-  source: 'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
+  source: 'An educational companion to The PERIOD Code by Jim Lunsford.',
   exportNote:
     'Copies, clipboard sync, saved PDFs, and printouts are outside this site’s control. Clear draft removes only the words in this tab.',
 } as const;

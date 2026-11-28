@@ -101,7 +101,12 @@ export function DisciplineLesson({ openCard }: { openCard: () => void }) {
         <LessonTransition value="discipline" />
         <section>
           <p>{lesson.bookDescription}</p>
-          <a class="discipline-text-link no-print" href={periodBook.url} rel="noreferrer">
+          <a
+            class="discipline-text-link no-print"
+            href={periodBook.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {lesson.bookLink}
           </a>
           <p>

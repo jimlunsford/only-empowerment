@@ -1,7 +1,7 @@
 // Shared orientation and destinations for interactive and script-free editions.
 export const frameworkAuthor = [
-  "I'm Jim Lunsford, author of these four frameworks.",
-  'I write about values, rebuilding, discipline and putting decisions into action.',
+  'Four frameworks by Jim Lunsford.',
+  'His books explore values, rebuilding, discipline and putting decisions into action.',
 ] as const;
 export const frameworkChoices = [
   {

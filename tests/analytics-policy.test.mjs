@@ -3,20 +3,20 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 const read = (path) => readFileSync(path, 'utf8').replace(/\s+/g, ' ');
 
-test('current public copy separates production analytics intent from disabled builds', () => {
-  const copy = read('src/main.tsx');
-  assert.doesNotMatch(
-    copy,
-    /No trackers|No accounts or analytics|No analytics|never uses analytics/i,
+test('current public copy discloses no analytics or tracking without future speculation', () => {
+  const copy = read('src/privacy-content.ts');
+  assert.ok(copy.includes('No accounts. No tracking. No cookies.'));
+  assert.ok(
+    copy.includes(
+      'uses no analytics, tracking cookies, session replay, heatmaps, or advertising profiles',
+    ),
   );
-  for (const promise of [
-    '<h2>Analytics and tracking boundaries</h2>',
-    'Production is planned to use minimal aggregate site and product usage analytics.',
-    'Google Analytics is not enabled in this build.',
-    'Standard Card text and residual legacy records are not sent to Google Analytics.',
-    'Written answers, artifact contents, copied text, and other user-authored private data are excluded.',
-  ])
-    assert.ok(copy.includes(promise), promise);
+  assert.ok(copy.includes('No AI service or remote fonts are used.'));
+  for (const path of ['src/main.tsx', 'scripts/privacy-reading.ts']) {
+    const source = read(path);
+    assert.ok(source.includes('privacyTracking'));
+    assert.doesNotMatch(source, /in this build|Production is planned|Any future analytics/);
+  }
 });
 
 test('canonical policy preserves categorical content exclusions and activation gates', () => {

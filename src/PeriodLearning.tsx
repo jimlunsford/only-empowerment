@@ -230,7 +230,7 @@ export function PeriodBook({ standalone = false }: { standalone?: boolean }) {
         {book.paragraphs.map((p) => (
           <p key={p}>{p}</p>
         ))}
-        <a href={book.url} rel="noreferrer">
+        <a href={book.url} target="_blank" rel="noopener noreferrer">
           {book.label} <span aria-hidden="true">↗</span>
         </a>
         <p>

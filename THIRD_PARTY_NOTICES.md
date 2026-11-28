@@ -1,6 +1,6 @@
 # Third-party notices
 
-The application bundles Preact 10.29.8. Its license is reproduced below. The bounded PERIOD experience self-hosts unmodified Source Serif 4 and Source Sans 3 font files under the SIL Open Font License 1.1. Legacy tools retain system fonts. No stock imagery, icon library, or external framework article text is bundled. The OE favicon and wordmark are original project assets.
+The application bundles Preact 10.29.8. Its license is reproduced below. All four frameworks self-host unmodified Source Serif 4 and Source Sans 3 font files under the SIL Open Font License 1.1. No stock imagery, icon library, or external framework article text is bundled. The OE favicon and wordmark are original project assets.
 
 Build/test dependencies retain their respective licenses and are not part of the browser runtime. Exact dependency versions and integrity hashes are recorded in package-lock.json.
 

@@ -105,7 +105,7 @@ export function IntegrityLesson({ openCard }: { openCard: () => void }) {
         <section>
           <h2>Explore the complete PERIOD Code</h2>
           <p>{content.book}</p>
-          <a href={periodBook.url} rel="noreferrer">
+          <a href={periodBook.url} target="_blank" rel="noopener noreferrer">
             Explore the book on Jim's website
           </a>
           <p>

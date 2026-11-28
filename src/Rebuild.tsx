@@ -4,7 +4,7 @@ import { FrameworkLinks } from './FrameworkLinks';
 import type { ComponentChild } from 'preact';
 import { rebuildTrees } from './rebuild-content';
 import { loopHomeCopy } from './loop-content';
-import { frameworkOrientation } from './framework-home-content';
+import { frameworkOrientation, frameworkPositioning } from './framework-home-content';
 import { executionHomeCopy } from './execution-content';
 
 export type RebuildSection = keyof typeof rebuildTrees;
@@ -90,6 +90,7 @@ export function FrameworkHome() {
           </ul>
         </nav>
       </div>
+      <p class="framework-positioning">{frameworkPositioning}</p>
       <section class="framework-orientation" aria-labelledby="framework-orientation-title">
         <h2 id="framework-orientation-title">{frameworkOrientation.heading}</h2>
         <div>
@@ -169,6 +170,15 @@ export function RebuildGuide({ section }: { section: RebuildSection }) {
         <a href="/read/rebuild.html" target="_blank" rel="noopener noreferrer">
           Open the complete reading edition (new tab)
         </a>
+        {section === 'index' && (
+          <a
+            href="https://jimlunsford.com/how-to-rebuild-yourself/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Jim Lunsford's book page (new tab)
+          </a>
+        )}
         {section === 'index' && (
           <a href="https://www.amazon.com/dp/B0HQVNBCWP" target="_blank" rel="noopener noreferrer">
             Paperback &amp; Kindle on Amazon (new tab)

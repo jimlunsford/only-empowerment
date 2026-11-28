@@ -142,7 +142,7 @@ export const loopSections: LoopSection[] = [
       },
       {
         kind: 'paragraph',
-        text: 'In Rebuild, negotiation concerns a settled boundary; here it is the argument that repeated proof reduces. Execution applies that steadiness to the next move.',
+        text: 'Rebuild’s settled boundary concerns the decision you stop reopening; here, negotiation is the argument that repeated proof reduces. Execution applies that steadiness to the next move.',
         related: {
           label: 'Rebuild’s settled boundary',
           app: '#/rebuild/negotiation',
@@ -307,7 +307,7 @@ export const loopSections: LoopSection[] = [
       },
       {
         kind: 'paragraph',
-        text: 'Rebuild teaches repair of the missed responsibility; here, returning also restarts the reinforcing cycle.',
+        text: 'Rebuild’s repair teaching addresses the missed responsibility; here, returning also restarts the reinforcing cycle.',
         related: {
           label: 'Rebuild’s repair teaching',
           app: '#/rebuild/return',
@@ -363,11 +363,11 @@ export const loopSections: LoopSection[] = [
     blocks: [
       {
         kind: 'paragraph',
-        text: 'This educational companion is based on The Discipline Loop by Jim Lunsford. The book develops the argument across desire, identity, the five-part mechanism, competing relief, recovery, common breaks, correction and continued reinforcement.',
+        text: 'An educational companion to The Discipline Loop by Jim Lunsford. The book develops the argument across desire, identity, the five-part mechanism, competing relief, recovery, common breaks, correction and continued reinforcement.',
       },
       {
         kind: 'paragraph',
-        text: "The companion uses new explanatory copy and illustrative scenarios. It teaches the full mechanism without reproducing the complete book. The five stage names and five failure-point headings retain the author's wording. The scenarios are constructed teaching examples, not Jim's personal history.",
+        text: "The lessons explain the full mechanism through practical examples. The scenarios are illustrations, not accounts of Jim Lunsford's personal history.",
       },
       {
         kind: 'paragraph',

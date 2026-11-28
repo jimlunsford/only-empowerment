@@ -16,7 +16,8 @@ const escape = (text: string) =>
     .replaceAll('"', '&quot;');
 const p = (text: string) => `<p>${escape(text)}</p>`;
 const h = (text: string, level = 2) => `<h${level}>${escape(text)}</h${level}>`;
-const link = (href: string, text: string) => `<a href="${href}">${escape(text)}</a>`;
+const link = (href: string, text: string) =>
+  `<a href="${href}"${href === periodBook.url ? ' target="_blank" rel="noopener noreferrer"' : ''}>${escape(text)}</a>`;
 
 export function resilienceReading(staging = true, metadata?: FooterBuild) {
   const copy = content.activity;

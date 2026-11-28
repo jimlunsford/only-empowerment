@@ -65,10 +65,10 @@ test('Batch 4 Privacy leads with memory-only facts and preserves safe keyboard c
   page,
 }) => {
   await page.goto('/#/privacy');
-  await expect(page.locator('main')).toContainText('No accounts. No tracking is enabled');
-  const headings = await page.locator('main h2').allTextContents();
+  await expect(page.locator('main')).toContainText('No accounts. No tracking. No cookies.');
+  const headings = await page.locator('main h2, main h3').allTextContents();
   expect(headings.indexOf('Delete legacy tool data')).toBeGreaterThan(
-    headings.indexOf('Analytics and tracking boundaries'),
+    headings.indexOf('Tracking and external services'),
   );
   const trigger = page.getByRole('button', { name: 'Delete legacy tool data', exact: true });
   await trigger.focus();

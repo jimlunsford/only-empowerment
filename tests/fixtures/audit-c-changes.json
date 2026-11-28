@@ -1,0 +1,1388 @@
+{
+  "COPYRIGHT": {
+    "beforeSha256": "00391cc12d0f790ff54f1af190cbd2adb8cd379fe1dee06ebab061576b61e030",
+    "afterSha256": "91349d4241525deae8ffe86acec9963d499470b1e1003e868a04cda5ae1d8ffe",
+    "edits": [
+      {
+        "start": 695,
+        "end": 695,
+        "before": "Articles and other materials hosted on ",
+        "after": ""
+      },
+      {
+        "start": 698,
+        "end": 699,
+        "before": "",
+        "after": " "
+      },
+      {
+        "start": 707,
+        "end": 707,
+        "before": ".com are not licensed by\nthis repository",
+        "after": ""
+      },
+      {
+        "start": 710,
+        "end": 757,
+        "before": "soft",
+        "after": "published books remain separately copyrighted, "
+      },
+      {
+        "start": 758,
+        "end": 768,
+        "before": "are license merely because the application links\nto them. Their existin",
+        "after": "ith all ri"
+      },
+      {
+        "start": 769,
+        "end": 784,
+        "before": " terms remain applicable.\n\nNo trademark license or endorsement is granted for the Only Empowerment\nname, Jim Lunsford name, framework names, logos, or brand identity. This\nnotice does not narrow t",
+        "after": "hts\nreserved. T"
+      },
+      {
+        "start": 791,
+        "end": 934,
+        "before": " permissions ",
+        "after": "-3.0-or-later license covers the educational adaptations\nincluded here, not the complete books.\n\nArticles and other materials hosted on JimLuns"
+      },
+      {
+        "start": 937,
+        "end": 1277,
+        "before": "",
+        "after": "d.com are not licensed by\nthis repository's software license merely because the application links\nto them. Their existing terms remain applicable.\n\nNo trademark license or endorsement is granted for the Only Empowerment\nname, Jim Lunsford name, framework names, logos, or brand identity. This\nnotice does not narrow the AGPL permissions for"
+      }
+    ]
+  },
+  "THIRD_PARTY_NOTICES.md": {
+    "beforeSha256": "e826ac9a1db5e4d2e4a8029dc827138be8993c122906da59399a5b73fc079b5a",
+    "afterSha256": "a05f2737907b4ce96e846682241c466fff35c4f2148ffb80673ec10e64b1eee9",
+    "edits": [
+      {
+        "start": 96,
+        "end": 125,
+        "before": "The bounded PERIOD experience self-hosts",
+        "after": "All four frameworks self-host"
+      },
+      {
+        "start": 216,
+        "end": 216,
+        "before": ". Legacy tools retain system fonts",
+        "after": ""
+      }
+    ]
+  },
+  "public/COPYRIGHT.txt": {
+    "beforeSha256": "00391cc12d0f790ff54f1af190cbd2adb8cd379fe1dee06ebab061576b61e030",
+    "afterSha256": "91349d4241525deae8ffe86acec9963d499470b1e1003e868a04cda5ae1d8ffe",
+    "edits": [
+      {
+        "start": 695,
+        "end": 695,
+        "before": "Articles and other materials hosted on ",
+        "after": ""
+      },
+      {
+        "start": 698,
+        "end": 699,
+        "before": "",
+        "after": " "
+      },
+      {
+        "start": 707,
+        "end": 707,
+        "before": ".com are not licensed by\nthis repository",
+        "after": ""
+      },
+      {
+        "start": 710,
+        "end": 757,
+        "before": "soft",
+        "after": "published books remain separately copyrighted, "
+      },
+      {
+        "start": 758,
+        "end": 768,
+        "before": "are license merely because the application links\nto them. Their existin",
+        "after": "ith all ri"
+      },
+      {
+        "start": 769,
+        "end": 784,
+        "before": " terms remain applicable.\n\nNo trademark license or endorsement is granted for the Only Empowerment\nname, Jim Lunsford name, framework names, logos, or brand identity. This\nnotice does not narrow t",
+        "after": "hts\nreserved. T"
+      },
+      {
+        "start": 791,
+        "end": 934,
+        "before": " permissions ",
+        "after": "-3.0-or-later license covers the educational adaptations\nincluded here, not the complete books.\n\nArticles and other materials hosted on JimLuns"
+      },
+      {
+        "start": 937,
+        "end": 1277,
+        "before": "",
+        "after": "d.com are not licensed by\nthis repository's software license merely because the application links\nto them. Their existing terms remain applicable.\n\nNo trademark license or endorsement is granted for the Only Empowerment\nname, Jim Lunsford name, framework names, logos, or brand identity. This\nnotice does not narrow the AGPL permissions for"
+      }
+    ]
+  },
+  "scripts/discipline-reading.ts": {
+    "beforeSha256": "61e28dbf7ade4f828daf6de919ccef8c71cd60bd948148f1787dc925e60a0609",
+    "afterSha256": "c42d781dc334febcf7b736cdeaa957ce48dfacd04d699479b2361101cd32b6e8",
+    "edits": [
+      {
+        "start": 779,
+        "end": 781,
+        "before": "",
+        "after": "\n "
+      },
+      {
+        "start": 800,
+        "end": 878,
+        "before": "",
+        "after": "${href === periodBook.url ? ' target=\"_blank\" rel=\"noopener noreferrer\"' : ''}"
+      },
+      {
+        "start": 2144,
+        "end": 2196,
+        "before": "",
+        "after": "><p class=\"position\">5 of 6 in the teaching order</p"
+      }
+    ]
+  },
+  "scripts/empowerment-reading.ts": {
+    "beforeSha256": "cebf8ebed14927fb8fe5a43771cffce14945eb6e8022d130324c398c3382873c",
+    "afterSha256": "8a669b3411cf0058b88fec7db1bf5ff63f3d82a644cefafa0582d4342adcb69b",
+    "edits": [
+      {
+        "start": 825,
+        "end": 827,
+        "before": "",
+        "after": "\n "
+      },
+      {
+        "start": 846,
+        "end": 924,
+        "before": "",
+        "after": "${href === periodBook.url ? ' target=\"_blank\" rel=\"noopener noreferrer\"' : ''}"
+      },
+      {
+        "start": 3012,
+        "end": 3064,
+        "before": "",
+        "after": "><p class=\"position\">6 of 6 in the teaching order</p"
+      }
+    ]
+  },
+  "scripts/framework-links.ts": {
+    "beforeSha256": "11779d906a29f6787c8ad952f8dd3078b8451b517e50c3470060a6798794d2ca",
+    "afterSha256": "27d31736ea5b71c670134ff2e870f56782d32181a53c667d446763b548080acc",
+    "edits": [
+      {
+        "start": 78,
+        "end": 151,
+        "before": "",
+        "after": ".ts';\nimport { frameworkPositioning } from '../src/framework-home-content"
+      },
+      {
+        "start": 632,
+        "end": 700,
+        "before": "",
+        "after": "<p class=\"framework-positioning\">${escape(frameworkPositioning)}</p>"
+      }
+    ]
+  },
+  "scripts/homepage-fallback.ts": {
+    "beforeSha256": "37c4c17f974eb853ef7757aa297f2d01fd6edd7d7fb5fc40766a212694b8789e",
+    "afterSha256": "9149dd8070b63b7ac9aca0a973a847ab0f445bb4e299817ed4d462a588450ab2",
+    "edits": [
+      {
+        "start": 3507,
+        "end": 3537,
+        "before": "rel=\"",
+        "after": "target=\"_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "scripts/integrity-reading.ts": {
+    "beforeSha256": "1cec6e247801c67d33a4ab742a84eba1b6d7b267785b9fbc68b3f66a70dc47bd",
+    "afterSha256": "7192e9a5dba63bb0a071b022293d530e0a0c5573acf9a75fa6545ad5a13843b9",
+    "edits": [
+      {
+        "start": 799,
+        "end": 801,
+        "before": "",
+        "after": "\n "
+      },
+      {
+        "start": 820,
+        "end": 898,
+        "before": "",
+        "after": "${href === periodBook.url ? ' target=\"_blank\" rel=\"noopener noreferrer\"' : ''}"
+      }
+    ]
+  },
+  "scripts/period-fallback.ts": {
+    "beforeSha256": "d697890c50afa1e4d2b47ba1d57901fe944f928dfaa85ca15780928606b635e4",
+    "afterSha256": "a045826b26dceb2620e57e8386969363c7c94adc002d200427a0f5d92a7055e2",
+    "edits": [
+      {
+        "start": 1185,
+        "end": 1237,
+        "before": "",
+        "after": "><p class=\"position\">1 of 6 in the teaching order</p"
+      },
+      {
+        "start": 3359,
+        "end": 3365,
+        "before": "rel",
+        "after": "target"
+      },
+      {
+        "start": 3367,
+        "end": 3389,
+        "before": "",
+        "after": "_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "scripts/privacy-reading.ts": {
+    "beforeSha256": "2b727b8bb0b6fc3a7eba65c56e0be8567f03f896909682ef55a87c32e36000ed",
+    "afterSha256": "958ace81543bf9f90e1e7e7a1733354b63716d2a4c998f0751afd4b837fae4ad",
+    "edits": [
+      {
+        "start": 0,
+        "end": 77,
+        "before": "",
+        "after": "import { privacySummary, privacyTracking } from '../src/privacy-content.ts';\n"
+      },
+      {
+        "start": 1456,
+        "end": 1467,
+        "before": "No accounts. No tracking is enabled in this build. You can read and practice without submitting personal answers. Interact",
+        "after": "${escape(pr"
+      },
+      {
+        "start": 1469,
+        "end": 1472,
+        "before": "e choices and the optional ",
+        "after": "acy"
+      },
+      {
+        "start": 1473,
+        "end": 1481,
+        "before": "tandard Card draft stay only in this tab’s memory, not in browser storage. Reloading or closing clears them.",
+        "after": "ummary)}"
+      },
+      {
+        "start": 2263,
+        "end": 2271,
+        "before": "can discard",
+        "after": "discards"
+      },
+      {
+        "start": 3058,
+        "end": 3058,
+        "before": "Google ",
+        "after": ""
+      },
+      {
+        "start": 3060,
+        "end": 3189,
+        "before": "alytics is not enabled in this build. No AI ser",
+        "after": "swers are not included in ordinary application requests. Deleting old site data does not delete hosting logs.</p>\n<p>${escape(pri"
+      },
+      {
+        "start": 3190,
+        "end": 3197,
+        "before": "ice or remote fonts are used. External lin",
+        "after": "acyTrac"
+      },
+      {
+        "start": 3198,
+        "end": 3203,
+        "before": "s contact their destinations only when you choose them.",
+        "after": "ing)}"
+      },
+      {
+        "start": 3343,
+        "end": 3421,
+        "before": "",
+        "after": "; this is not a promise that all infrastructure copies disappear after 14 days"
+      },
+      {
+        "start": 3457,
+        "end": 3500,
+        "before": "Records from the retired tools",
+        "after": "If you used an earlier version of this site"
+      },
+      {
+        "start": 3509,
+        "end": 3520,
+        "before": "Earlier tools, Sa",
+        "after": "An earlier "
+      },
+      {
+        "start": 3522,
+        "end": 3562,
+        "before": "d ",
+        "after": "rsion may have saved records in this bro"
+      },
+      {
+        "start": 3563,
+        "end": 3587,
+        "before": "ork and Approach are retired",
+        "after": "ser profile on this site"
+      },
+      {
+        "start": 4302,
+        "end": 4317,
+        "before": "retired tools",
+        "after": "earlier version"
+      },
+      {
+        "start": 4318,
+        "end": 4319,
+        "before": "",
+        "after": "s"
+      },
+      {
+        "start": 4332,
+        "end": 4940,
+        "before": "",
+        "after": ".</p></section>\n<section><h2>Copy, print and device privacy</h2>\n<p>Copying puts the Standard Card on your device’s clipboard, which your operating system may sync. Printing or saving a PDF passes content to your browser and printing system. Clipboard copies, PDFs, printouts, screenshots, and backups are yours to manage and are not removed by deleting old site data.</p>\n<p>This is not encrypted private storage. Shared devices, browser extensions, browser recovery features, screenshots, and a compromised device or host can expose information. No website can prove privacy simply by publishing its source"
+      },
+      {
+        "start": 5252,
+        "end": 5252,
+        "before": " for this build",
+        "after": ""
+      },
+      {
+        "start": 5302,
+        "end": 5325,
+        "before": "is page identifies this ",
+        "after": "e source code is availa"
+      },
+      {
+        "start": 5326,
+        "end": 5343,
+        "before": "uild’s corresponding source",
+        "after": "le for inspection"
+      },
+      {
+        "start": 5809,
+        "end": 5821,
+        "before": "",
+        "after": ", 'combined'"
+      }
+    ]
+  },
+  "scripts/purpose-fallback.ts": {
+    "beforeSha256": "5a76feb0856fe53d7a301a08c8cfa1344ba4c3e4cd6f62fd8a48053f4195fc36",
+    "afterSha256": "5b6aa3d85a7006a9bdc9e4c6e853e957642a1d64e47e3b8c9a5b8eb86ba5bc10",
+    "edits": [
+      {
+        "start": 883,
+        "end": 903,
+        "before": "${p('",
+        "after": "<p class=\"position\">"
+      },
+      {
+        "start": 931,
+        "end": 935,
+        "before": "')}",
+        "after": "</p>"
+      },
+      {
+        "start": 1542,
+        "end": 1548,
+        "before": "rel",
+        "after": "target"
+      },
+      {
+        "start": 1550,
+        "end": 1572,
+        "before": "",
+        "after": "_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "scripts/rebuild-fallback.ts": {
+    "beforeSha256": "69042992fa19c4fc51d0eaca2ec1f3f8dcacaab53d15944cb305b4350b5aee52",
+    "afterSha256": "3e99e273826233ecabaf7c754a705451d2e565f7e89f2d71c5af45f8db75d9b0",
+    "edits": [
+      {
+        "start": 4180,
+        "end": 4332,
+        "before": "",
+        "after": "<p><a href=\"https://jimlunsford.com/how-to-rebuild-yourself/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit Jim Lunsford's book page (new tab)</a></p>"
+      }
+    ]
+  },
+  "scripts/resilience-reading.ts": {
+    "beforeSha256": "07e916d48c41b73e361b144ef4a0bbe561c47eeed15978c4898d6eeca4b96d05",
+    "afterSha256": "f4d36e880d4e3f76f3fae0f9ec1082d58ac7297d44a2e054d57e138690c4c8ac",
+    "edits": [
+      {
+        "start": 947,
+        "end": 949,
+        "before": "",
+        "after": "\n "
+      },
+      {
+        "start": 968,
+        "end": 1046,
+        "before": "",
+        "after": "${href === periodBook.url ? ' target=\"_blank\" rel=\"noopener noreferrer\"' : ''}"
+      }
+    ]
+  },
+  "scripts/site-footer.ts": {
+    "beforeSha256": "be1b22fe31ccfded0ead16dd80d8437145ac09485ce79dd6d55d5f3d08b81147",
+    "afterSha256": "f4548e29b385f0603d08c2dc7735b4bc91bc8dc7552026682230483cd24aa7be",
+    "edits": [
+      {
+        "start": 1104,
+        "end": 1142,
+        "before": "",
+        "after": "Software and educational adaptations: "
+      },
+      {
+        "start": 1143,
+        "end": 1179,
+        "before": "",
+        "after": "GPL-3.0-or-later. Published books: a"
+      },
+      {
+        "start": 1392,
+        "end": 1441,
+        "before": "' ' + li",
+        "after": "` <a href=\"${escape(education.url)}\" target=\"_bla"
+      },
+      {
+        "start": 1443,
+        "end": 1500,
+        "before": "(education.url, education.url)",
+        "after": "\" rel=\"noopener noreferrer\">${escape(education.url)}</a>`"
+      }
+    ]
+  },
+  "src/Discipline.tsx": {
+    "beforeSha256": "f77af45298098673bb19b10b500732a04cfaaf0a32c6fcad7a06b53da84a15c9",
+    "afterSha256": "f90ed21f961bb75a7854fe4bcf356db176cb2d4745822cfed81d16ef355f3e57",
+    "edits": [
+      {
+        "start": 3732,
+        "end": 3744,
+        "before": "",
+        "after": "\n           "
+      },
+      {
+        "start": 3782,
+        "end": 3794,
+        "before": "",
+        "after": "\n           "
+      },
+      {
+        "start": 3816,
+        "end": 3871,
+        "before": " rel=\"",
+        "after": "\n            target=\"_blank\"\n            rel=\"noopener "
+      },
+      {
+        "start": 3882,
+        "end": 3893,
+        "before": "",
+        "after": "\n          "
+      }
+    ]
+  },
+  "src/Empowerment.tsx": {
+    "beforeSha256": "a79b74133e3ecaf2681240f1de9578ea6d0e89e5c5cf52ee7f3e21cf3739fc4e",
+    "afterSha256": "45fc2b22dd9cfe5ce61afd79103b833cc19b027b98017fd83b3a8dfe6a4b1e9f",
+    "edits": [
+      {
+        "start": 7608,
+        "end": 7622,
+        "before": "",
+        "after": "\n             "
+      },
+      {
+        "start": 7652,
+        "end": 7666,
+        "before": "",
+        "after": "\n             "
+      },
+      {
+        "start": 7688,
+        "end": 7747,
+        "before": " rel=\"",
+        "after": "\n              target=\"_blank\"\n              rel=\"noopener "
+      },
+      {
+        "start": 7758,
+        "end": 7771,
+        "before": "",
+        "after": "\n            "
+      }
+    ]
+  },
+  "src/Execution.tsx": {
+    "beforeSha256": "487e49e79a7ed5990e0c1fcf29b5221c4abeadedaf497e4a8a8ab6e439e7605d",
+    "afterSha256": "f177d5c6c88d62b7bd22f8bf8181644ee9744752ed43bce65a046a55ae1ba15a",
+    "edits": [
+      {
+        "start": 15075,
+        "end": 15075,
+        "before": "\n                </p>\n              )}\n              {id === 'reference' && (\n                <p>\n                  <a href=\"/read/execution.html#change\" target=\"_blank\" rel=\"noopener noreferrer\">\n                    Changed plans (new tab)\n                  </a>{' '}\n                  ·{' '}\n                  <a href=\"/read/execution.html#miss\" target=\"_blank\" rel=\"noopener noreferrer\">\n                    Missed commitments (new tab)\n                  </a>{' '}\n                  ·{' '}\n                  <a href=\"/read/execution.html#daily\" target=\"_blank\" rel=\"noopener noreferrer\">\n                    Support and daily use (new tab)\n                  </a>{' '}\n                  ·",
+        "after": ""
+      },
+      {
+        "start": 15406,
+        "end": 15406,
+        "before": "<p class=\"workshop-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\">\n                ",
+        "after": ""
+      },
+      {
+        "start": 15407,
+        "end": 15415,
+        "before": "announcement}\n              </p>\n              <nav class=\"workshop-navigation\" aria-label=\"Workshop screen navigation\">\n                {back ? (\n                  <a h",
+        "after": "id === '"
+      },
+      {
+        "start": 15418,
+        "end": 15425,
+        "before": "={workshopHref(back)}>\n                    Back <span>{workshopById(back).title}</span>\n                  </a>\n                ) : (\n                  <a href=\"#/\">All frameworks</a>\n                )}\n                {next ? (\n                  <a class=\"workshop-continue\" href={workshopHref(next)}>\n                    Continue <span>{workshopById(next).title}</span>\n                  </a>\n                ) : (\n                  <a href=\"#/\">Choose another framework</a>\n                )}\n              </nav>\n              {(screen.stage === 2 || screen.stage === 3)",
+        "after": "erence'"
+      },
+      {
+        "start": 15477,
+        "end": 15587,
+        "before": "{",
+        "after": "\"/read/execution.html#change\" target=\"_blank\" rel=\"noopener noreferrer\">\n                    Changed plans (ne"
+      },
+      {
+        "start": 15588,
+        "end": 15592,
+        "before": "orkshopHref(screen.stage === 2 ? 'access' : 'event'",
+        "after": " tab"
+      },
+      {
+        "start": 15593,
+        "end": 15616,
+        "before": "}>\n                    Skip this practice and continue to",
+        "after": "\n                  </a>"
+      },
+      {
+        "start": 15640,
+        "end": 15641,
+        "before": "  ",
+        "after": "·"
+      },
+      {
+        "start": 15642,
+        "end": 15642,
+        "before": "screen.stage === 2 ? ",
+        "after": ""
+      },
+      {
+        "start": 15643,
+        "end": 15644,
+        "before": "changed facts' : 'independent work",
+        "after": " "
+      },
+      {
+        "start": 15666,
+        "end": 15674,
+        "before": "",
+        "after": "a href=\""
+      },
+      {
+        "start": 15675,
+        "end": 15679,
+        "before": "a>\n                <",
+        "after": "read"
+      },
+      {
+        "start": 15680,
+        "end": 15692,
+        "before": "p>\n              )}\n              {workshopBridges[id] && <p class=\"workshop-bridge\">{workshopBridges[id]}</p>}\n              {id === 'welco",
+        "after": "execution.ht"
+      },
+      {
+        "start": 15693,
+        "end": 15695,
+        "before": "e' && (\n                <p>\n                  <a href=\"/read/execution.ht",
+        "after": "l#"
+      },
+      {
+        "start": 15696,
+        "end": 15699,
+        "before": "l",
+        "after": "iss"
+      },
+      {
+        "start": 15764,
+        "end": 15770,
+        "before": "Open the",
+        "after": "Missed"
+      },
+      {
+        "start": 15774,
+        "end": 15904,
+        "before": "plete readin",
+        "after": "mitments (new tab)\n                  </a>{' '}\n                  ·{' '}\n                  <a href=\"/read/execution.html#daily\" tar"
+      },
+      {
+        "start": 15905,
+        "end": 15985,
+        "before": " edition",
+        "after": "et=\"_blank\" rel=\"noopener noreferrer\">\n                    Support and daily use"
+      },
+      {
+        "start": 16372,
+        "end": 18207,
+        "before": "",
+        "after": "  <p class=\"workshop-status\" role=\"status\" aria-live=\"polite\" aria-atomic=\"true\">\n                {announcement}\n              </p>\n              <nav class=\"workshop-navigation\" aria-label=\"Workshop screen navigation\">\n                {back ? (\n                  <a href={workshopHref(back)}>\n                    Back <span>{workshopById(back).title}</span>\n                  </a>\n                ) : (\n                  <a href=\"#/\">All frameworks</a>\n                )}\n                {next ? (\n                  <a class=\"workshop-continue\" href={workshopHref(next)}>\n                    Continue <span>{workshopById(next).title}</span>\n                  </a>\n                ) : (\n                  <a href=\"#/\">Choose another framework</a>\n                )}\n              </nav>\n              {(screen.stage === 2 || screen.stage === 3) && (\n                <p>\n                  <a href={workshopHref(screen.stage === 2 ? 'access' : 'event')}>\n                    Skip this practice and continue to{' '}\n                    {screen.stage === 2 ? 'changed facts' : 'independent work'}\n                  </a>\n                </p>\n              )}\n              {workshopBridges[id] && <p class=\"workshop-bridge\">{workshopBridges[id]}</p>}\n              {id === 'welcome' && (\n                <p>\n                  <a href=\"/read/execution.html\" target=\"_blank\" rel=\"noopener noreferrer\">\n                    Open the complete reading edition (new tab)\n                  </a>{' '}\n                  ·{' '}\n                  <a\n                    href=\"https://www.amazon.com/dp/B0HR68MLGR\"\n                    target=\"_blank\"\n                    rel=\"noopener noreferrer\"\n                  >\n                    Paperback &amp; Kindle on Amazon (new tab)\n                  </a>\n                </p>\n              )}\n            "
+      }
+    ]
+  },
+  "src/Integrity.tsx": {
+    "beforeSha256": "2ea07467e634bfad7c920aa0ccea0f665f37b4bf49051341043cd6a2980942e0",
+    "afterSha256": "919671261fa8045ca88671387f53acec823815078c34dee3c9fc61eed24061a4",
+    "edits": [
+      {
+        "start": 3756,
+        "end": 3786,
+        "before": "rel=\"",
+        "after": "target=\"_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "src/LegacyDataRemoval.tsx": {
+    "beforeSha256": "dbd71312a4cf172d4794d16afcff2099e68cb0d3209c92fd730bf98bfd3494d7",
+    "afterSha256": "c8baaa9207d627c7322b97db5a122e054f7fe0318648a019dcddaf53366eab48",
+    "edits": [
+      {
+        "start": 928,
+        "end": 929,
+        "before": "2",
+        "after": "3"
+      },
+      {
+        "start": 956,
+        "end": 957,
+        "before": "2",
+        "after": "3"
+      },
+      {
+        "start": 1001,
+        "end": 1019,
+        "before": "the retired tools",
+        "after": "an earlier version"
+      },
+      {
+        "start": 2239,
+        "end": 2254,
+        "before": "retired app",
+        "after": "earlier version"
+      },
+      {
+        "start": 2298,
+        "end": 2310,
+        "before": "",
+        "after": "\n           "
+      },
+      {
+        "start": 2319,
+        "end": 2319,
+        "before": "\n           ",
+        "after": ""
+      },
+      {
+        "start": 2390,
+        "end": 2402,
+        "before": "",
+        "after": "\n           "
+      },
+      {
+        "start": 2412,
+        "end": 2412,
+        "before": "\n           ",
+        "after": ""
+      },
+      {
+        "start": 2482,
+        "end": 2494,
+        "before": "",
+        "after": "\n           "
+      }
+    ]
+  },
+  "src/PeriodHomepage.tsx": {
+    "beforeSha256": "145898f42d8e12984efe883f68a165c28a230f259e55737dd7d42eabc97013ee",
+    "afterSha256": "be35dc2432b38da7e9900cdaa9c52924b09ae3675eaeacc81b871d39b784fcb9",
+    "edits": [
+      {
+        "start": 3851,
+        "end": 3881,
+        "before": "rel=\"",
+        "after": "target=\"_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "src/PeriodLearning.tsx": {
+    "beforeSha256": "a3e5c3295dbedc1f27709f5cdc10648bff7700245104b291a833bb2dcce711b8",
+    "afterSha256": "d23196e1117a369b690ee9330095ed2c9c6152c09d71ec872ff031099d790e35",
+    "edits": [
+      {
+        "start": 8206,
+        "end": 8236,
+        "before": "rel=\"",
+        "after": "target=\"_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "src/Purpose.tsx": {
+    "beforeSha256": "351bc4558a6152a2508468af968dbeca7e138a871d3e611828d1644727a217c9",
+    "afterSha256": "ef24c843d47432a05a7de29c6fa982fadd35fb9b61b84f1671a816a0732d147a",
+    "edits": [
+      {
+        "start": 4036,
+        "end": 4066,
+        "before": "rel=\"",
+        "after": "target=\"_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "src/Rebuild.tsx": {
+    "beforeSha256": "df0fa491b9095c119b28fa2fc72633ab01f5fccc25a874a0b012df4d32ec3fdb",
+    "afterSha256": "6e1ced58dafa74f0e03b4a2ea54c41a27e57d7569fbea7fd4bcfd4cae7501811",
+    "edits": [
+      {
+        "start": 327,
+        "end": 349,
+        "before": "",
+        "after": ", frameworkPositioning"
+      },
+      {
+        "start": 3496,
+        "end": 3562,
+        "before": "",
+        "after": ">\n      <p class=\"framework-positioning\">{frameworkPositioning}</p"
+      },
+      {
+        "start": 6741,
+        "end": 7013,
+        "before": "",
+        "after": "\n            href=\"https://jimlunsford.com/how-to-rebuild-yourself/\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n          >\n            Visit Jim Lunsford's book page (new tab)\n          </a>\n        )}\n        {section === 'index' && (\n          <a"
+      }
+    ]
+  },
+  "src/Resilience.tsx": {
+    "beforeSha256": "c7d81dd13ce81758d33ed65931cf8255f6add4bac00c6385ece75289d7d2794b",
+    "afterSha256": "03bdaf4f4c1cfbd73d4ee4ecca6bebf730aa2c3fc023d6a7b300f8fd096fc474",
+    "edits": [
+      {
+        "start": 4494,
+        "end": 4524,
+        "before": "rel=\"",
+        "after": "target=\"_blank\" rel=\"noopener "
+      }
+    ]
+  },
+  "src/SiteNotices.tsx": {
+    "beforeSha256": "d9b1151b2cd1afd6e54fcf6b4daafbed43da554384c4b027c6352061eb3b62d2",
+    "afterSha256": "205fed445826baecd771121767ee36d33585c4b4ed656f25b53da35e90147f31",
+    "edits": [
+      {
+        "start": 489,
+        "end": 533,
+        "before": "All rights reserved. A{' '}\n        <a href={founderLinks.company}>Phoenix 2",
+        "after": "Software and educational\n        adaptations"
+      },
+      {
+        "start": 534,
+        "end": 535,
+        "before": "33 LLC</a> Project.\n      </p>\n      <div class=\"footer-print-urls\">\n        <p>\n          {education.text}\n          {education.url && (\n            <>\n              {' '}\n              <a href={education.url}>{education.url}</a>\n            </>\n          )}\n        </p>\n        <p>\n          Software: <a href=\"https://www.gnu.org/licenses/agpl-3.0.html\">",
+        "after": " "
+      },
+      {
+        "start": 552,
+        "end": 635,
+        "before": "</a>. No\n          warrant",
+        "after": ". Published books: all rights reserved. A{' '}\n        <a href={founderLinks.compan"
+      },
+      {
+        "start": 636,
+        "end": 780,
+        "before": ".\n        </p>\n        {state.source",
+        "after": "}>Phoenix 2:33 LLC</a> Project.\n      </p>\n      <div class=\"footer-print-urls\">\n        <p>\n          {education.text}\n          {education.url"
+      },
+      {
+        "start": 796,
+        "end": 1176,
+        "before": "",
+        "after": "  <>\n              {' '}\n              <a href={education.url} target=\"_blank\" rel=\"noopener noreferrer\">\n                {education.url}\n              </a>\n            </>\n          )}\n        </p>\n        <p>\n          Software: <a href=\"https://www.gnu.org/licenses/agpl-3.0.html\">AGPL-3.0-or-later</a>. No\n          warranty.\n        </p>\n        {state.source && (\n          "
+      }
+    ]
+  },
+  "src/SourceNotice.tsx": {
+    "beforeSha256": "848fbb6ebbeb28792b4f852e7c3014ced139659af36b9b5865ff0d6524aac31a",
+    "afterSha256": "ea680b2d3051811ca46b47c755767642d21aa2a41e5e6111f18b37ee224df47c",
+    "edits": [
+      {
+        "start": 308,
+        "end": 331,
+        "before": "is page identifies the corresponding source for this ",
+        "after": "e source code is availa"
+      },
+      {
+        "start": 332,
+        "end": 349,
+        "before": "uild",
+        "after": "le for inspection"
+      },
+      {
+        "start": 374,
+        "end": 399,
+        "before": "\n        inspect intended",
+        "after": " inspect intended\n       "
+      },
+      {
+        "start": 475,
+        "end": 475,
+        "before": "\n       ",
+        "after": ""
+      },
+      {
+        "start": 490,
+        "end": 498,
+        "before": "",
+        "after": "\n       "
+      },
+      {
+        "start": 847,
+        "end": 847,
+        "before": " for this build",
+        "after": ""
+      }
+    ]
+  },
+  "src/framework-home-content.ts": {
+    "beforeSha256": "4f47a90f42dee2325c90b1591fdc1395ad08face954ef5acc362dc4e321f139f",
+    "afterSha256": "3c5b89eb58a71032b1d3222658630dc6b9ed25bf367edb6f570b3099a5e3fbe5",
+    "edits": [
+      {
+        "start": 692,
+        "end": 1118,
+        "before": "",
+        "after": "\nexport const frameworkPositioning =\n  \"Only Empowerment is free to use, with no accounts, no tracking, and nothing you enter leaving your browser. Each framework is a complete, self-contained companion to one of Jim Lunsford's four published books, built so anyone can learn the ideas and put them to work without buying anything first. Direct links to the books are included if you want them, but no purchase is required.\";\n"
+      }
+    ]
+  },
+  "src/framework-navigation.ts": {
+    "beforeSha256": "3e2ce47bfb775f8f07aee61802e6306a3a1dc6f526341534082308a4338ad780",
+    "afterSha256": "00be04196d6262a589cbfaacdc4a0ae6622662c72bbf7abf274843301801c1b9",
+    "edits": [
+      {
+        "start": 116,
+        "end": 125,
+        "before": "\"I'",
+        "after": "'Four fra"
+      },
+      {
+        "start": 126,
+        "end": 135,
+        "before": "",
+        "after": "eworks by"
+      },
+      {
+        "start": 148,
+        "end": 162,
+        "before": ", author of these four framewor",
+        "after": ".',\n  'His boo"
+      },
+      {
+        "start": 164,
+        "end": 172,
+        "before": ".\",\n  'I write about",
+        "after": " explore"
+      }
+    ]
+  },
+  "src/loop-content.ts": {
+    "beforeSha256": "5f499c78da8f6f72603725cd879f2e95955e2052068c97cfe1d2eda4c83fdfa8",
+    "afterSha256": "f4f98a37e929a227d6a860d3f0e9ae590d3ea0e7cccbfafd103cec5f32ccef44",
+    "edits": [
+      {
+        "start": 7877,
+        "end": 7877,
+        "before": "In ",
+        "after": ""
+      },
+      {
+        "start": 7884,
+        "end": 7886,
+        "before": ", negotiation concerns a",
+        "after": "’s"
+      },
+      {
+        "start": 7903,
+        "end": 7944,
+        "before": "",
+        "after": " concerns the decision you stop reopening"
+      },
+      {
+        "start": 7950,
+        "end": 7963,
+        "before": " it",
+        "after": ", negotiation"
+      },
+      {
+        "start": 16770,
+        "end": 16798,
+        "before": " teaches repair of",
+        "after": "’s repair teaching addresses"
+      },
+      {
+        "start": 19567,
+        "end": 19594,
+        "before": "This educational companion is based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 19861,
+        "end": 19868,
+        "before": "companion uses new",
+        "after": "lessons"
+      },
+      {
+        "start": 19874,
+        "end": 19876,
+        "before": "natory copy and illustrative scenarios. It teaches",
+        "after": "in"
+      },
+      {
+        "start": 19896,
+        "end": 19922,
+        "before": "without reproducing the complete book",
+        "after": "through practical examples"
+      },
+      {
+        "start": 19928,
+        "end": 19971,
+        "before": "",
+        "after": "scenarios are illustrations, not accounts o"
+      },
+      {
+        "start": 19972,
+        "end": 19981,
+        "before": "ive stage names and ",
+        "after": " Jim Luns"
+      },
+      {
+        "start": 19982,
+        "end": 19985,
+        "before": "ive failure-point headings retain the author's wording. The scenarios are constructed teaching examples, not Jim",
+        "after": "ord"
+      }
+    ]
+  },
+  "src/loop-view.ts": {
+    "beforeSha256": "c5267763f7cbb0231b46b9fc034d3fb14806c415240de644137cc4c415f5b0e4",
+    "afterSha256": "9fe50eafcacfe40a8c658921ac74728d3855acda2eba35581d9dce524d6b0d87",
+    "edits": [
+      {
+        "start": 5086,
+        "end": 5153,
+        "before": "",
+        "after": "const index = block.text.indexOf(block.related.label);\n            "
+      },
+      {
+        "start": 5227,
+        "end": 5436,
+        "before": "",
+        "after": ".slice(0, index),\n              anchor(\n                surface === 'app' ? block.related.app : block.related.reading,\n                block.related.label,\n              ),\n              block.text.slice(index"
+      },
+      {
+        "start": 5439,
+        "end": 5439,
+        "before": "' ',\n              anchor(\n                surface === 'app' ? ",
+        "after": ""
+      },
+      {
+        "start": 5453,
+        "end": 5455,
+        "before": "app : ",
+        "after": "la"
+      },
+      {
+        "start": 5456,
+        "end": 5461,
+        "before": "lock.related.readi",
+        "after": "el.le"
+      },
+      {
+        "start": 5463,
+        "end": 5465,
+        "before": ",\n                block.related.label,\n              ",
+        "after": "th"
+      }
+    ]
+  },
+  "src/main.tsx": {
+    "beforeSha256": "694582e924d4f9aa4cb709ae3b6cdaaf009bc42157fee494848b26290bc8fbb4",
+    "afterSha256": "98cfea1abe0283c20a89d4533b4d5c0eb391d739e0dc9cde134853180ee85722",
+    "edits": [
+      {
+        "start": 0,
+        "end": 69,
+        "before": "",
+        "after": "import { privacySummary, privacyTracking } from './privacy-content';\n"
+      },
+      {
+        "start": 2422,
+        "end": 2425,
+        "before": "\n          No accounts. No tracking is enabled in this build. You can read and practice without\n          submitting personal answers. Interact",
+        "after": "{pr"
+      },
+      {
+        "start": 2427,
+        "end": 2430,
+        "before": "e choices and the optional ",
+        "after": "acy"
+      },
+      {
+        "start": 2431,
+        "end": 2436,
+        "before": "tandard Card draft sta",
+        "after": "ummar"
+      },
+      {
+        "start": 2437,
+        "end": 2438,
+        "before": "\n          only in this tab’s memory, not in browser storage. Reloading or closing clears them.\n        ",
+        "after": "}"
+      },
+      {
+        "start": 3226,
+        "end": 3244,
+        "before": "never enters Saved ",
+        "after": "does not enter bro"
+      },
+      {
+        "start": 3245,
+        "end": 3245,
+        "before": "ork or brow",
+        "after": ""
+      },
+      {
+        "start": 3257,
+        "end": 3257,
+        "before": "\n           ",
+        "after": ""
+      },
+      {
+        "start": 3270,
+        "end": 3282,
+        "before": "",
+        "after": "\n           "
+      },
+      {
+        "start": 3291,
+        "end": 3299,
+        "before": "can discard",
+        "after": "discards"
+      },
+      {
+        "start": 3951,
+        "end": 3959,
+        "before": "legacy tool",
+        "after": "old site"
+      },
+      {
+        "start": 4460,
+        "end": 4516,
+        "before": "Anal",
+        "after": "Tracking and external services</h2>\n          <p>{privac"
+      },
+      {
+        "start": 4517,
+        "end": 4518,
+        "before": "tics and t",
+        "after": "T"
+      },
+      {
+        "start": 4525,
+        "end": 4526,
+        "before": " boundaries</h2>\n          <p>\n            Google Analytics is not enabled in this build. Production is planned to use minimal\n            aggregate site and product usage analytics. Your written answers, Saved work records,\n            Standard Card text, and clipboard contents are excluded. We will update this page before\n            activating analytics.\n          </p>\n          <p>\n            Any future analytics would be limited to approved, content-free site usage. Retiring the\n            tools does not authorize new tracking or collection of old records.\n          </p>\n          <p>\n            Standard Card text and residual legacy records are not sent to Google Analytics. Written\n            answers, artifact contents, copied text, and other user-authored private data are\n            excluded.\n          </p>\n          <p>\n            Only Empowerment does not use session replay, heatmaps, advertising personalization,\n            remarketing, Google Signals, User-ID, or user-provided data for analytics. It does not\n            build behavioral advertising profiles.\n          </p>\n          <p>\n            No AI service or remote fonts are used. Links to JimLunsford.com and GitHub open those\n            sites only when you choose them, with no answer content added to the link.\n          ",
+        "after": "}"
+      },
+      {
+        "start": 4982,
+        "end": 4990,
+        "before": "legacy tool",
+        "after": "old site"
+      },
+      {
+        "start": 5436,
+        "end": 5437,
+        "before": "Records ",
+        "after": "I"
+      },
+      {
+        "start": 5438,
+        "end": 5479,
+        "before": "rom the retired tools",
+        "after": " you used an earlier version of this site"
+      },
+      {
+        "start": 5511,
+        "end": 5591,
+        "before": "",
+        "after": "An earlier version may have saved records in this browser profile on this site. "
+      },
+      {
+        "start": 5593,
+        "end": 5692,
+        "before": "e earlier tools and Saved work are retired",
+        "after": "is\n            application does not open, read, list, change, or automatically delete those records"
+      },
+      {
+        "start": 5693,
+        "end": 5693,
+        "before": " Records saved with an older version may\n            still remain in this browser profile on this site.\n          </p>\n          <p>",
+        "after": ""
+      },
+      {
+        "start": 5708,
+        "end": 5709,
+        "before": "is application does not open, read, list, change, or automatically delete old saved\n            records. Visiting a lesson, navigating the site, or reloading leaves them alone. The\n           ",
+        "after": "e"
+      },
+      {
+        "start": 6010,
+        "end": 6010,
+        "before": "\n           ",
+        "after": ""
+      },
+      {
+        "start": 6014,
+        "end": 6095,
+        "before": "re is",
+        "after": "y\n            remain on their original site origin (scheme, host, and port), with"
+      },
+      {
+        "start": 6115,
+        "end": 6127,
+        "before": "",
+        "after": "\n           "
+      },
+      {
+        "start": 6191,
+        "end": 6191,
+        "before": "        <p>\n            Browser data belongs to its original site origin (scheme, host, and port). A future\n            private or offline copy on another origin would not automatically recover records saved\n            here. Retiring public access does not make previously published GitHub history private.\n          </p>\n        </section>\n",
+        "after": ""
+      },
+      {
+        "start": 6219,
+        "end": 6238,
+        "before": "",
+        "after": ">\n        </section"
+      },
+      {
+        "start": 19406,
+        "end": 19418,
+        "before": " === ",
+        "after": ".startsWith("
+      },
+      {
+        "start": 19430,
+        "end": 19431,
+        "before": "",
+        "after": ")"
+      },
+      {
+        "start": 19563,
+        "end": 19586,
+        "before": "",
+        "after": "' || path === '/privacy"
+      }
+    ]
+  },
+  "src/period-content.ts": {
+    "beforeSha256": "c84343e81ad25aba55b8d948bc7a02ec1e66186938d163049cec6caf40884a0f",
+    "afterSha256": "d2661d864b425f73a4be9b1ca6c6d9237b6f15f1106ee8a4d391670faf4ea8b2",
+    "edits": [
+      {
+        "start": 12409,
+        "end": 12436,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 12469,
+        "end": 12469,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      }
+    ]
+  },
+  "src/period-empowerment-content.ts": {
+    "beforeSha256": "76fbc50072336343a7666a0b3aa81e200c8150d6c9a4f245d2413bc8247a43c9",
+    "afterSha256": "2d5e86a317727b9a1710ff7ddc1ec9a1fcce30ab66e86023015bedfd31f23a34",
+    "edits": [
+      {
+        "start": 24229,
+        "end": 24342,
+        "before": "",
+        "after": "The numbers show teaching order, not completion. Return to any value as life requires.';\nexport const empowerment"
+      },
+      {
+        "start": 24343,
+        "end": 24347,
+        "before": "ll six values have full lessons. The num",
+        "after": "ttri"
+      },
+      {
+        "start": 24348,
+        "end": 24359,
+        "before": "ers show teaching order, not completion. Return to any value as life requires.';\nexport const empowerment",
+        "after": "ution =\n  '"
+      },
+      {
+        "start": 24360,
+        "end": 24386,
+        "before": "ttribution =\n  'Based on",
+        "after": "n educational companion to"
+      },
+      {
+        "start": 24419,
+        "end": 24419,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      }
+    ]
+  },
+  "src/period-integrity-content.ts": {
+    "beforeSha256": "eae8f203b63d410a6eeca16ea10a334b5c84563e8e83aedf90c424c1830de867",
+    "afterSha256": "c44a2d7a89e27bb500dbbd0b38f095b3b98cafa31917ca68ac00d3e056ff361a",
+    "edits": [
+      {
+        "start": 13009,
+        "end": 13038,
+        "before": "\n    'Based on",
+        "after": " 'An educational companion to"
+      },
+      {
+        "start": 13070,
+        "end": 13070,
+        "before": ". Educational adaptation by Only Empowerment",
+        "after": ""
+      }
+    ]
+  },
+  "src/period-resilience-content.ts": {
+    "beforeSha256": "f1dec867869d5fbda7039518e2578ccadddb0643e812ef1a7356ac0d730ee121",
+    "afterSha256": "04b32f03a2e85ef04c7205c40f02e1a5dacee6cbc48441f89e000061a318856d",
+    "edits": [
+      {
+        "start": 22859,
+        "end": 22888,
+        "before": "\n    'Based on",
+        "after": " 'An educational companion to"
+      },
+      {
+        "start": 22921,
+        "end": 22921,
+        "before": " Educational adaptation by Only Empowerment.",
+        "after": ""
+      }
+    ]
+  },
+  "src/site-footer-content.ts": {
+    "beforeSha256": "b9daa34072dc9014390c74dfc1f793fe57f9b54bceae6423ddf5d696e63df4c1",
+    "afterSha256": "8cba9732a4cb19b07964e31a79649e890ee5a40d5e03d9260945a9e81ebf0db6",
+    "edits": [
+      {
+        "start": 223,
+        "end": 224,
+        "before": "All rights reserved. A Phoenix 2:33 LLC Project.';\nexport const founderLinks = {\n  author: 'https://jimlunsford.com/',\n  books: 'https://jimlunsford.com/books/',\n  company: 'https://phoenix233.com/',\n};\nexport const s",
+        "after": "S"
+      },
+      {
+        "start": 231,
+        "end": 261,
+        "before": "Notice = {\n  copyright: 'Application software: Copyright (C) 2026 Jim Lunsford. Licensed under ',\n  license: '",
+        "after": " and educational adaptations: "
+      },
+      {
+        "start": 278,
+        "end": 680,
+        "before": "",
+        "after": ". Published books: all rights reserved. A Phoenix 2:33 LLC Project.';\nexport const founderLinks = {\n  author: 'https://jimlunsford.com/',\n  books: 'https://jimlunsford.com/books/',\n  company: 'https://phoenix233.com/',\n};\nexport const softwareNotice = {\n  copyright:\n    'Application software and educational adaptations: Copyright (C) 2026 Jim Lunsford. Licensed under ',\n  license: 'AGPL-3.0-or-later"
+      },
+      {
+        "start": 779,
+        "end": 780,
+        "before": "The founder copyr",
+        "after": "R"
+      },
+      {
+        "start": 784,
+        "end": 820,
+        "before": " statement does",
+        "after": "s reserved in the published books do"
+      },
+      {
+        "start": 1155,
+        "end": 1182,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 1218,
+        "end": 1218,
+        "before": ". Educational adaptation by Only Empowerment",
+        "after": ""
+      },
+      {
+        "start": 1339,
+        "end": 1366,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 1402,
+        "end": 1402,
+        "before": ". Educational adaptation by Only Empowerment",
+        "after": ""
+      },
+      {
+        "start": 1663,
+        "end": 1690,
+        "before": "Based on",
+        "after": "An educational companion to"
+      },
+      {
+        "start": 1716,
+        "end": 1716,
+        "before": ". Educational adaptation by Only Empowerment",
+        "after": ""
+      }
+    ]
+  },
+  "src/privacy-content.ts": {
+    "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "afterSha256": "3ea2ab0a9a59d87efea9e03fbd6a0f3a5dd52a77a80230839bf88663e2b41188",
+    "edits": [
+      {
+        "start": 0,
+        "end": 598,
+        "before": "",
+        "after": "export const privacySummary =\n  \"No accounts. No tracking. No cookies. Nothing you enter is sent to Only Empowerment. Interactive choices and the optional Standard Card draft stay only in this tab's memory, not in browser storage. Reloading or closing the tab clears them.\";\nexport const privacyTracking =\n  'Only Empowerment uses no analytics, tracking cookies, session replay, heatmaps, or advertising profiles. No AI service or remote fonts are used. Fonts are served by this site. External links contact their destinations only when you choose them, with no answer content added to the link.';\n"
+      }
+    ]
+  }
+}

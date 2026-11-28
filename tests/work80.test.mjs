@@ -237,10 +237,10 @@ test('approved shared wording is exact and the Loop availability paragraph links
   );
   assert.equal(
     footerEducation('combined').text,
-    'Based on The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode by Jim Lunsford. Educational adaptation by Only Empowerment.',
+    'An educational companion to The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode by Jim Lunsford.',
   );
   assert.deepEqual(footerEducation('execution'), {
-    text: 'Based on Pure Execution Mode by Jim Lunsford. Educational adaptation by Only Empowerment.',
+    text: 'An educational companion to Pure Execution Mode by Jim Lunsford.',
     url: 'https://jimlunsford.com/pure-execution-mode/',
   });
 });

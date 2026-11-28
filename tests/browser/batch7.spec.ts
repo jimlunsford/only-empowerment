@@ -137,9 +137,7 @@ test('readings omit obsolete notices while preserving privacy disclosures and pr
     await page.goto(route);
     await expect(page.locator('body')).not.toContainText(obsolete);
     if (route.includes('privacy')) {
-      await expect(page.locator('body')).toContainText(
-        'No accounts. No tracking is enabled in this build.',
-      );
+      await expect(page.locator('body')).toContainText('No accounts. No tracking. No cookies.');
       await expect(page.locator('body')).toContainText('14 rotated logs');
     }
   }
