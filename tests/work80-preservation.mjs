@@ -6,7 +6,6 @@ import changes from './fixtures/work80-integration.json' with { type: 'json' };
 const sha = (text) => createHash('sha256').update(text).digest('hex');
 // Reverse only checksum-pinned Work 80 integration edits before historical guards.
 // Some historical adapters compose; the exact accepted base is idempotent.
-// work80.test.mjs separately requires every current file to match its new hash.
 export function beforeWork80Source(source, path) {
   source = beforeBatch1Source(source, path);
   const change = changes[path];
