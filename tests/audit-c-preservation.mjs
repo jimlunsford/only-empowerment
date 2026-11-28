@@ -1,3 +1,4 @@
+import { beforeAuditDSource } from './audit-d-preservation.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/audit-c-changes.json' with { type: 'json' };
@@ -15,7 +16,7 @@ function reverse(source, change) {
 }
 // Exact Batch C bytes only. Unknown edits remain visible to historical guards.
 export function beforeAuditCSource(source, path) {
-  return reverse(source, changes[path]);
+  return reverse(beforeAuditDSource(source, path), changes[path]);
 }
 export function beforeAuditCReading(html) {
   return reverse(

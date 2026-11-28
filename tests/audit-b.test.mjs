@@ -1,4 +1,5 @@
 import auditCChanges from './fixtures/audit-c-changes.json' with { type: 'json' };
+import auditDChanges from './fixtures/audit-d-changes.json' with { type: 'json' };
 import { beforeAuditCSource } from './audit-c-preservation.mjs';
 import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import test from 'node:test';
@@ -66,9 +67,10 @@ test('Batch B accepts only pinned fixes and preserves all other source, copy, st
     .split('\n');
   paths.push('public/read/navigation.js');
   for (const path of paths) {
-    const source = auditCChanges[path]
-      ? Buffer.from(beforeAuditCSource(readFileSync(path, 'utf8'), path))
-      : readFileSync(path);
+    const source =
+      auditCChanges[path] || auditDChanges[path]
+        ? Buffer.from(beforeAuditCSource(readFileSync(path, 'utf8'), path))
+        : readFileSync(path);
     const original =
       path === 'public/read/navigation.js'
         ? Buffer.from('')

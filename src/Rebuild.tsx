@@ -1,4 +1,5 @@
 import { h } from 'preact';
+import { useRef } from 'preact/hooks';
 import { frameworkAuthor, frameworkChoices } from './framework-navigation';
 import { FrameworkLinks } from './FrameworkLinks';
 import type { ComponentChild } from 'preact';
@@ -23,6 +24,7 @@ function renderTeachingNode(
   node: TeachingNode,
   selectedNote: string,
   section: RebuildSection,
+  insideInternalLink = false,
 ): ComponentChild {
   if (typeof node === 'string') return node;
   const attrs = { ...node.attrs };
@@ -40,10 +42,14 @@ function renderTeachingNode(
   // The same public URL also identifies a selected Line note on reload/history.
   if (typeof attrs.href === 'string' && /^#[a-z][a-z0-9-]*$/.test(attrs.href))
     attrs.href = '#/rebuild/' + section + '?section=' + attrs.href.slice(1);
+  const internalLink =
+    insideInternalLink ||
+    (node.tag === 'a' && typeof attrs.href === 'string' && /^(#|\/(?!\/))/.test(attrs.href));
+  if (internalLink && attrs.class === 'arrow') return null;
   return h(
     node.tag,
     attrs,
-    node.children.map((child) => renderTeachingNode(child, selectedNote, section)),
+    node.children.map((child) => renderTeachingNode(child, selectedNote, section, internalLink)),
   );
 }
 
@@ -136,6 +142,7 @@ export function FrameworkHome() {
 }
 
 export function RebuildGuide({ section }: { section: RebuildSection }) {
+  const status = useRef<HTMLParagraphElement>(null);
   const directNote =
     section === 'line'
       ? /^#\/rebuild\/line\?section=(note-[1-4])$/.exec(location.hash)?.[1]
@@ -143,12 +150,29 @@ export function RebuildGuide({ section }: { section: RebuildSection }) {
   const selectedNote = directNote || 'note-1';
 
   return (
-    <section class="rebuild-guide">
-      {section !== 'index' && (
-        <div class="rebuild-approval">
-          <a href="#/rebuild">How to Rebuild Yourself</a>
-        </div>
-      )}
+    <section
+      class="rebuild-guide"
+      onChange={(event) => {
+        const input = event.target;
+        if (
+          input instanceof HTMLInputElement &&
+          (input.type === 'radio' || input.type === 'checkbox') &&
+          status.current
+        ) {
+          const label = input.labels?.[0]?.textContent?.trim();
+          // Announce the native CSS view without rerendering its uncontrolled inputs.
+          if (label)
+            status.current.textContent = `${input.checked ? 'Showing' : 'Hidden'}: ${label}.`;
+        }
+      }}
+    >
+      <p
+        class="sr-only no-print"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        ref={status}
+      />
       <div class="wrap">
         {rebuildTrees[section].map((node) => renderTeachingNode(node, selectedNote, section))}
         {(section === 'end' || section === 'complete') && (

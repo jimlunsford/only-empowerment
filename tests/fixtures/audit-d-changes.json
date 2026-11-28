@@ -1,0 +1,410 @@
+{
+  "src/Rebuild.tsx": {
+    "beforeSha256": "6e1ced58dafa74f0e03b4a2ea54c41a27e57d7569fbea7fd4bcfd4cae7501811",
+    "afterSha256": "798933d8c88a1cb2b9974f02e767ea89db0eba75d3d6455ef3b53ebdd226de01",
+    "edits": [
+      {
+        "start": 25,
+        "end": 64,
+        "before": "",
+        "after": "';\nimport { useRef } from 'preact/hooks"
+      },
+      {
+        "start": 965,
+        "end": 995,
+        "before": "",
+        "after": "  insideInternalLink = false,\n"
+      },
+      {
+        "start": 1855,
+        "end": 2058,
+        "before": "",
+        "after": "const internalLink =\n    insideInternalLink ||\n    (node.tag === 'a' && typeof attrs.href === 'string' && /^(#|\\/(?!\\/))/.test(attrs.href));\n  if (internalLink && attrs.class === 'arrow') return null;\n  "
+      },
+      {
+        "start": 2173,
+        "end": 2187,
+        "before": "",
+        "after": ", internalLink"
+      },
+      {
+        "start": 5709,
+        "end": 5762,
+        "before": "",
+        "after": "status = useRef<HTMLParagraphElement>(null);\n  const "
+      },
+      {
+        "start": 5964,
+        "end": 5970,
+        "before": "",
+        "after": "\n     "
+      },
+      {
+        "start": 5992,
+        "end": 5992,
+        "before": ">",
+        "after": ""
+      },
+      {
+        "start": 5999,
+        "end": 5999,
+        "before": "{secti",
+        "after": ""
+      },
+      {
+        "start": 6001,
+        "end": 6016,
+        "before": "",
+        "after": "Change={(event)"
+      },
+      {
+        "start": 6017,
+        "end": 6017,
+        "before": "!",
+        "after": ""
+      },
+      {
+        "start": 6018,
+        "end": 6042,
+        "before": "",
+        "after": "> {\n        const input "
+      },
+      {
+        "start": 6044,
+        "end": 6066,
+        "before": "'",
+        "after": "event.target;\n        "
+      },
+      {
+        "start": 6067,
+        "end": 6068,
+        "before": "ndex' &&",
+        "after": "f"
+      },
+      {
+        "start": 6079,
+        "end": 6081,
+        "before": "<d",
+        "after": "  "
+      },
+      {
+        "start": 6082,
+        "end": 6086,
+        "before": "v",
+        "after": "nput"
+      },
+      {
+        "start": 6087,
+        "end": 6093,
+        "before": "",
+        "after": "instan"
+      },
+      {
+        "start": 6094,
+        "end": 6108,
+        "before": "",
+        "after": "eof HTMLInputE"
+      },
+      {
+        "start": 6109,
+        "end": 6109,
+        "before": "ass=\"r",
+        "after": ""
+      },
+      {
+        "start": 6110,
+        "end": 6117,
+        "before": "build-approval\">",
+        "after": "ment &&"
+      },
+      {
+        "start": 6128,
+        "end": 6146,
+        "before": "<",
+        "after": "(input.type === 'r"
+      },
+      {
+        "start": 6147,
+        "end": 6151,
+        "before": "",
+        "after": "dio'"
+      },
+      {
+        "start": 6152,
+        "end": 6172,
+        "before": "",
+        "after": "|| input.type === 'c"
+      },
+      {
+        "start": 6173,
+        "end": 6173,
+        "before": "r",
+        "after": ""
+      },
+      {
+        "start": 6174,
+        "end": 6176,
+        "before": "f=\"#/re",
+        "after": "ck"
+      },
+      {
+        "start": 6177,
+        "end": 6177,
+        "before": "uild\">H",
+        "after": ""
+      },
+      {
+        "start": 6178,
+        "end": 6181,
+        "before": "w",
+        "after": "x')"
+      },
+      {
+        "start": 6182,
+        "end": 6184,
+        "before": "to Rebuild Yourself</a>",
+        "after": "&&"
+      },
+      {
+        "start": 6193,
+        "end": 6296,
+        "before": "<",
+        "after": "  status.current\n        ) {\n          const label = input.labels?.[0]?.textContent?.trim();\n          "
+      },
+      {
+        "start": 6297,
+        "end": 6315,
+        "before": "d",
+        "after": "/ Announce the nat"
+      },
+      {
+        "start": 6317,
+        "end": 6512,
+        "before": "",
+        "after": "e CSS view without rerendering its uncontrolled inputs.\n          if (label)\n            status.current.textContent = `${input.checked ? 'Showing' : 'Hidden'}: ${label}.`;\n        }\n      }}\n    "
+      },
+      {
+        "start": 6520,
+        "end": 6651,
+        "before": ")",
+        "after": "<p\n        class=\"sr-only no-print\"\n        role=\"status\"\n        aria-live=\"polite\"\n        aria-atomic=\"true\"\n        ref={status"
+      },
+      {
+        "start": 6652,
+        "end": 6661,
+        "before": "",
+        "after": "\n      />"
+      }
+    ]
+  },
+  "src/focus-modality.css": {
+    "beforeSha256": "3f8b2d6ed43cbe8c1e942fd1bdfa01e54db18dc7f986ed117ca554389a01f230",
+    "afterSha256": "5d0e962127151625c284b8f251aa55ce226235e3dd024adc704383564448920e",
+    "edits": [
+      {
+        "start": 179,
+        "end": 312,
+        "before": "",
+        "after": ":is([data-focus-modality='initial'], [data-focus-modality='keyboard'])\n    #app\n    h1[tabindex='-1']:not(.workshop h1):focus,\n  html"
+      },
+      {
+        "start": 348,
+        "end": 358,
+        "before": "",
+        "after": "p .worksho"
+      },
+      {
+        "start": 539,
+        "end": 641,
+        "before": "",
+        "after": "  html[data-focus-modality='initial'] #app .workshop h1[tabindex='-1']:focus {\n    outline: none;\n  }\n"
+      },
+      {
+        "start": 693,
+        "end": 826,
+        "before": "",
+        "after": ":is([data-focus-modality='initial'], [data-focus-modality='keyboard'])\n    #app\n    h1[tabindex='-1']:not(.workshop h1):focus,\n  html"
+      },
+      {
+        "start": 862,
+        "end": 872,
+        "before": "",
+        "after": "p .worksho"
+      }
+    ]
+  },
+  "src/focus-modality.ts": {
+    "beforeSha256": "fc18c4119b8644b106f61dd883903cfb358a6997a12a630c87cb287774153bac",
+    "afterSha256": "bf1a4d0fad30a70a351da5a4e53ff6a6dc3cfdb90caca84c118c91b37b34ca53",
+    "edits": [
+      {
+        "start": 488,
+        "end": 491,
+        "before": "an",
+        "after": "is "
+      },
+      {
+        "start": 492,
+        "end": 492,
+        "before": " ass",
+        "after": ""
+      },
+      {
+        "start": 496,
+        "end": 498,
+        "before": "ve-",
+        "after": "nc"
+      },
+      {
+        "start": 499,
+        "end": 499,
+        "before": "echnology",
+        "after": ""
+      },
+      {
+        "start": 501,
+        "end": 502,
+        "before": "",
+        "after": "r"
+      },
+      {
+        "start": 503,
+        "end": 504,
+        "before": "cus",
+        "after": "m"
+      },
+      {
+        "start": 505,
+        "end": 505,
+        "before": "rem",
+        "after": ""
+      },
+      {
+        "start": 506,
+        "end": 506,
+        "before": "i",
+        "after": ""
+      },
+      {
+        "start": 508,
+        "end": 518,
+        "before": "visi",
+        "after": "actual key"
+      },
+      {
+        "start": 519,
+        "end": 523,
+        "before": "le",
+        "after": "oard"
+      },
+      {
+        "start": 524,
+        "end": 526,
+        "before": "un",
+        "after": "ac"
+      },
+      {
+        "start": 528,
+        "end": 528,
+        "before": "l p",
+        "after": ""
+      },
+      {
+        "start": 529,
+        "end": 529,
+        "before": "i",
+        "after": ""
+      },
+      {
+        "start": 530,
+        "end": 530,
+        "before": "ter use",
+        "after": ""
+      },
+      {
+        "start": 564,
+        "end": 569,
+        "before": "keybo",
+        "after": "initi"
+      },
+      {
+        "start": 570,
+        "end": 571,
+        "before": "rd",
+        "after": "l"
+      }
+    ]
+  },
+  "src/loop.css": {
+    "beforeSha256": "0297e058337be4760e4336e826cf9d0fcd2fb89cc60887d656712fe20f077d0a",
+    "afterSha256": "0cd9d9ef99de41fef2faa03119d0ce7c54d539fd8540ad6ff65485d489cfb22f",
+    "edits": [
+      {
+        "start": 4320,
+        "end": 4334,
+        "before": "s",
+        "after": "var(--font-bod"
+      },
+      {
+        "start": 4335,
+        "end": 4336,
+        "before": "stem-ui, sans-serif",
+        "after": ")"
+      },
+      {
+        "start": 4390,
+        "end": 4397,
+        "before": "Ge",
+        "after": "var(--f"
+      },
+      {
+        "start": 4398,
+        "end": 4402,
+        "before": "rg",
+        "after": "nt-d"
+      },
+      {
+        "start": 4403,
+        "end": 4406,
+        "before": "",
+        "after": "spl"
+      },
+      {
+        "start": 4407,
+        "end": 4409,
+        "before": ", serif",
+        "after": "y)"
+      }
+    ]
+  },
+  "src/reading.css": {
+    "beforeSha256": "552cda352d5626d5f09ea7771b304742a063d5f3538d803164dc7551505f4450",
+    "afterSha256": "47b005dcac3dd7e224d0d96fd7f37d7eef189d542b22086bd51a9e71b90ea38c",
+    "edits": [
+      {
+        "start": 115,
+        "end": 514,
+        "before": "",
+        "after": "> .period-reading {\n    max-width: 70ch;\n    margin-inline: auto;\n  }\n  body #main :is(p, li, dd, blockquote) {\n    max-inline-size: 70ch;\n  }\n  body.native-rebuild,\n  body.native-rebuild :is(.site-header, .site-footer, .site-footer .footer-group h2) {\n    font-family: var(--font-body);\n  }\n  body.native-rebuild .standalone-reading-heading {\n    font-family: var(--font-display);\n  }\n  body #main "
+      },
+      {
+        "start": 567,
+        "end": 745,
+        "before": "",
+        "after": "@media screen and (max-width: 359px) {\n  body #main.empowerment-static h1 {\n    font-size: 2.25rem;\n    overflow-wrap: anywhere;\n    word-break: normal;\n    hyphens: none;\n  }\n}\n"
+      }
+    ]
+  },
+  "vite.config.ts": {
+    "beforeSha256": "f4e54ed7dd8871b82e693fddbb7a3a0fe5170f8883fb49302fb28ee24b167d8a",
+    "afterSha256": "200d955eb8f77ad2c6266bfa12b3b89848f9c0e4c3314392ff8d393c907cc13d",
+    "edits": [
+      {
+        "start": 2411,
+        "end": 2429,
+        "before": "",
+        "after": ".css', 'src/period"
+      }
+    ]
+  }
+}

@@ -1,16 +1,25 @@
 /* Limit the browser fallback to scripted app headings. Native controls keep
    their own :focus-visible rules, and print never receives a focus outline. */
 @media screen {
-  html[data-focus-modality='keyboard'] #app h1[tabindex='-1']:focus {
+  html:is([data-focus-modality='initial'], [data-focus-modality='keyboard'])
+    #app
+    h1[tabindex='-1']:not(.workshop h1):focus,
+  html[data-focus-modality='keyboard'] #app .workshop h1[tabindex='-1']:focus {
     outline: 3px solid #946014;
     outline-offset: 5px;
   }
   html[data-focus-modality='pointer'] #app h1[tabindex='-1']:focus {
     outline: none;
   }
+  html[data-focus-modality='initial'] #app .workshop h1[tabindex='-1']:focus {
+    outline: none;
+  }
 }
 @media screen and (forced-colors: active) {
-  html[data-focus-modality='keyboard'] #app h1[tabindex='-1']:focus {
+  html:is([data-focus-modality='initial'], [data-focus-modality='keyboard'])
+    #app
+    h1[tabindex='-1']:not(.workshop h1):focus,
+  html[data-focus-modality='keyboard'] #app .workshop h1[tabindex='-1']:focus {
     outline-color: Highlight;
   }
 }

@@ -8,8 +8,8 @@ export function trackFocusModality() {
   const pointer = () => {
     root.dataset.focusModality = 'pointer';
   };
-  // Direct entry and assistive-technology focus remain visible until pointer use.
-  root.dataset.focusModality = 'keyboard';
+  // Direct entry is distinct from an actual keyboard action.
+  root.dataset.focusModality = 'initial';
   document.addEventListener('keydown', keyboard, true);
   document.addEventListener('pointerdown', pointer, true);
   return () => {
