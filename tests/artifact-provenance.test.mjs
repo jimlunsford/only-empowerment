@@ -24,8 +24,33 @@ function verify(dir) {
       .sort(),
   );
   for (const [hash, file] of entries) assert.equal(digest(readFileSync(join(dir, file))), hash);
-  for (const file of ['LICENSE.txt', 'COPYRIGHT.txt', 'THIRD_PARTY_NOTICES.txt', 'build.json'])
+  for (const file of [
+    'LICENSE.txt',
+    'COPYRIGHT.txt',
+    'THIRD_PARTY_NOTICES.txt',
+    'build.json',
+    '404.html',
+    '404.css',
+  ])
     assert.ok(entries.some(([, name]) => name === file));
+  const errorPage = readFileSync(join(dir, '404.html'), 'utf8');
+  assert.match(errorPage, /href="\/"/);
+  assert.match(errorPage, /href="\/read\/index.html"/);
+  assert.doesNotMatch(errorPage, /<script\b|\u2014/i);
+  const stylesheet = readFileSync(join(dir, '404.css'), 'utf8');
+  const assets = [
+    ...[...errorPage.matchAll(/<link\b[^>]*href="([^"]+)"/g)].map((match) => match[1]),
+    ...[...stylesheet.matchAll(/url\(['"]?([^'"\)]+)['"]?\)/g)].map((match) => match[1]),
+  ];
+  assert.ok(assets.length >= 4);
+  for (const asset of assets) {
+    assert.match(asset, /^\/(?!\/)/);
+    assert.ok(
+      entries.some(([, name]) => name === asset.slice(1)),
+      asset,
+    );
+    assert.ok(readFileSync(join(dir, asset.slice(1))).length > 0, asset);
+  }
   return { manifest, metadata: JSON.parse(readFileSync(join(dir, 'build.json'), 'utf8')) };
 }
 test('preserved production bytes and staging rebuild have complete independent manifests and the same source identity', () => {

@@ -37,11 +37,24 @@ for (const presentation of ['staging', 'production']) {
         .join('\n');
       assert.equal(metadata.presentation, presentation);
       assert.equal(metadata.version, JSON.parse(readFileSync('package.json', 'utf8')).version);
+      assert.equal(metadata.version, '1.0.0');
       const staging = presentation === 'staging';
       assert.ok(
         html.includes(`name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"`),
       );
       assert.equal(robots, staging ? 'User-agent: *\nDisallow: /\n' : 'User-agent: *\nAllow: /\n');
+      const readings = readdirSync(join(out, 'read')).filter((name) => name.endsWith('.html'));
+      assert.ok(readings.includes('index.html') && readings.length > 1);
+      for (const name of ['index.html', ...readings.map((name) => `read/${name}`)]) {
+        const document = readFileSync(join(out, name), 'utf8');
+        const robotsTags = document.match(/<meta\b[^>]*name="robots"[^>]*>/gi) || [];
+        if (staging) {
+          assert.equal(robotsTags.length, 1, name);
+          assert.match(robotsTags[0], /content="noindex, nofollow"/, name);
+        } else {
+          for (const tag of robotsTags) assert.doesNotMatch(tag, /noindex|nofollow/i, name);
+        }
+      }
       const fallback = html.match(
         /<div id="educational-fallback"[^>]*>([\s\S]*?)<\/main><footer/,
       )[1];
