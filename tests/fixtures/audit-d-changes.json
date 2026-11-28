@@ -199,7 +199,7 @@
   },
   "src/focus-modality.css": {
     "beforeSha256": "3f8b2d6ed43cbe8c1e942fd1bdfa01e54db18dc7f986ed117ca554389a01f230",
-    "afterSha256": "06fa31aeef33b276839dc3f70a4200f6b18fc204d4daedce75b7272b759860c1",
+    "afterSha256": "5d0e962127151625c284b8f251aa55ce226235e3dd024adc704383564448920e",
     "edits": [
       {
         "start": 179,
@@ -208,40 +208,28 @@
         "after": ":is([data-focus-modality='initial'], [data-focus-modality='keyboard'])\n    #app\n    h1[tabindex='-1']:not(.workshop h1):focus,\n  html"
       },
       {
-        "start": 350,
-        "end": 360,
+        "start": 348,
+        "end": 358,
         "before": "",
-        "after": ".workshop "
+        "after": "p .worksho"
       },
       {
-        "start": 383,
-        "end": 391,
-        "before": "",
-        "after": "-visible"
-      },
-      {
-        "start": 547,
-        "end": 649,
+        "start": 539,
+        "end": 641,
         "before": "",
         "after": "  html[data-focus-modality='initial'] #app .workshop h1[tabindex='-1']:focus {\n    outline: none;\n  }\n"
       },
       {
-        "start": 701,
-        "end": 834,
+        "start": 693,
+        "end": 826,
         "before": "",
         "after": ":is([data-focus-modality='initial'], [data-focus-modality='keyboard'])\n    #app\n    h1[tabindex='-1']:not(.workshop h1):focus,\n  html"
       },
       {
-        "start": 872,
-        "end": 882,
+        "start": 862,
+        "end": 872,
         "before": "",
-        "after": ".workshop "
-      },
-      {
-        "start": 905,
-        "end": 913,
-        "before": "",
-        "after": "-visible"
+        "after": "p .worksho"
       }
     ]
   },

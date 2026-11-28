@@ -4,7 +4,7 @@
   html:is([data-focus-modality='initial'], [data-focus-modality='keyboard'])
     #app
     h1[tabindex='-1']:not(.workshop h1):focus,
-  html[data-focus-modality='keyboard'] #app .workshop h1[tabindex='-1']:focus-visible {
+  html[data-focus-modality='keyboard'] #app .workshop h1[tabindex='-1']:focus {
     outline: 3px solid #946014;
     outline-offset: 5px;
   }
@@ -19,7 +19,7 @@
   html:is([data-focus-modality='initial'], [data-focus-modality='keyboard'])
     #app
     h1[tabindex='-1']:not(.workshop h1):focus,
-  html[data-focus-modality='keyboard'] #app .workshop h1[tabindex='-1']:focus-visible {
+  html[data-focus-modality='keyboard'] #app .workshop h1[tabindex='-1']:focus {
     outline-color: Highlight;
   }
 }
