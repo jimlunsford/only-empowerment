@@ -221,10 +221,10 @@
   white-space: nowrap;
 }
 .native-loop {
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-body);
 }
 .native-loop :is(h1, h2, h3, h4) {
-  font-family: Georgia, serif;
+  font-family: var(--font-display);
 }
 .native-loop .loop-reading-note {
   max-width: 75ch;

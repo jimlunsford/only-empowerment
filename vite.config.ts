@@ -51,7 +51,7 @@ const rebuildStyles = () =>
     // the fallback for this document. The interactive app retains font swapping.
     .replaceAll('font-display: swap;', 'font-display: optional;');
 const loopStyles = () =>
-  ['src/style.css', 'src/navigation.css', 'src/site-footer.css', 'src/loop.css']
+  ['src/style.css', 'src/period.css', 'src/navigation.css', 'src/site-footer.css', 'src/loop.css']
     .concat('src/reading.css')
     .map((path) => readFileSync(path, 'utf8'))
     .join('\n');

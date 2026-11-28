@@ -1,3 +1,4 @@
+import { beforeAuditDSource } from './audit-d-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -49,7 +50,7 @@ test('Batch C source edits reverse exactly and leave layout, behavior, deploymen
     .trim()
     .split('\n');
   for (const path of [...paths, 'src/privacy-content.ts']) {
-    const source = read(path);
+    const source = beforeAuditDSource(read(path), path);
     const original =
       path === 'src/privacy-content.ts'
         ? ''
