@@ -391,7 +391,7 @@
   },
   "src/reading.css": {
     "beforeSha256": "552cda352d5626d5f09ea7771b304742a063d5f3538d803164dc7551505f4450",
-    "afterSha256": "06c0379616062cb3f1f9a18bd18e00f6eeaeac77377e45540bf98294391ecd37",
+    "afterSha256": "47b005dcac3dd7e224d0d96fd7f37d7eef189d542b22086bd51a9e71b90ea38c",
     "edits": [
       {
         "start": 115,
@@ -401,9 +401,9 @@
       },
       {
         "start": 567,
-        "end": 743,
+        "end": 745,
         "before": "",
-        "after": "@media screen and (max-width: 359px) {\n  body #main.empowerment-static h1 {\n    font-size: 2.25rem;\n    overflow-wrap: normal;\n    word-break: normal;\n    hyphens: none;\n  }\n}\n"
+        "after": "@media screen and (max-width: 359px) {\n  body #main.empowerment-static h1 {\n    font-size: 2.25rem;\n    overflow-wrap: anywhere;\n    word-break: normal;\n    hyphens: none;\n  }\n}\n"
       }
     ]
   },

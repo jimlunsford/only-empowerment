@@ -21,7 +21,7 @@
 @media screen and (max-width: 359px) {
   body #main.empowerment-static h1 {
     font-size: 2.25rem;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
     word-break: normal;
     hyphens: none;
   }
