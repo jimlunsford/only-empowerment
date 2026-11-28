@@ -1,3 +1,4 @@
+import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import homepagePositioningChanges from './fixtures/homepage-positioning-band-changes.json' with { type: 'json' };
 import editorialChanges from './fixtures/editorial-e1-e3-changes.json' with { type: 'json' };
 import auditCChanges from './fixtures/audit-c-changes.json' with { type: 'json' };
@@ -69,6 +70,10 @@ test('Batch B accepts only pinned fixes and preserves all other source, copy, st
     .split('\n');
   paths.push('public/read/navigation.js');
   for (const path of paths) {
+    if (path === '.github/workflows/ci.yml') {
+      assertApprovedCiWorkflow(readFileSync(path, 'utf8'));
+      continue;
+    }
     const source =
       auditCChanges[path] ||
       auditDChanges[path] ||

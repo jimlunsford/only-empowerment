@@ -1,3 +1,4 @@
+import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -47,6 +48,10 @@ test('E1-E3 accepts only six pinned source edits and rejects unknown changes', (
     .trim()
     .split('\n');
   for (const path of paths) {
+    if (path === '.github/workflows/ci.yml') {
+      assertApprovedCiWorkflow(readFileSync(path, 'utf8'));
+      continue;
+    }
     const source = readFileSync(path, 'utf8');
     assert.equal(beforeEditorialSource(source, path), original(path), path);
     if (changes[path]) {
