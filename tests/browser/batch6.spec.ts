@@ -140,7 +140,7 @@ test('Execution keeps its landing reading link and compact inner navigation cont
       expect((await link.boundingBox())!.height).toBeLessThanOrEqual(52);
     }
     await expect(page.locator('.workshop-navigation .workshop-continue')).toHaveAccessibleName(
-      'Continue Identify the Next Move',
+      'Continue Why & The Bargain',
     );
     await expect(
       page
@@ -158,7 +158,7 @@ test('Execution keeps its landing reading link and compact inner navigation cont
     await expect(page.getByRole('heading', { level: 1 })).toBeFocused();
     await expect(bar).toContainText('Pure Execution Mode · Guided workshop');
     if (width === 1440) expect((await bar.boundingBox())!.height).toBeLessThanOrEqual(62);
-    await expect(page.locator('.workshop-position')).toContainText('Stage 1 of 4');
+    await expect(page.locator('.workshop-position')).toContainText('Foundation · Before Stage 1');
     await expect(page.locator('.workshop-navigation a').first()).toHaveAccessibleName(
       'Back Pure Execution Mode',
     );
