@@ -5,7 +5,11 @@ import { FrameworkLinks } from './FrameworkLinks';
 import type { ComponentChild } from 'preact';
 import { rebuildTrees } from './rebuild-content';
 import { loopHomeCopy } from './loop-content';
-import { frameworkOrientation, frameworkPositioning } from './framework-home-content';
+import {
+  frameworkOrientation,
+  frameworkPositioning,
+  frameworkPositioningHeading,
+} from './framework-home-content';
 import { executionHomeCopy } from './execution-content';
 
 export type RebuildSection = keyof typeof rebuildTrees;
@@ -96,7 +100,12 @@ export function FrameworkHome() {
           </ul>
         </nav>
       </div>
-      <p class="framework-positioning">{frameworkPositioning}</p>
+      <section class="framework-positioning-band" aria-labelledby="framework-positioning-title">
+        <h2 id="framework-positioning-title">{frameworkPositioningHeading}</h2>
+        <div>
+          <p class="framework-positioning">{frameworkPositioning}</p>
+        </div>
+      </section>
       <section class="framework-orientation" aria-labelledby="framework-orientation-title">
         <h2 id="framework-orientation-title">{frameworkOrientation.heading}</h2>
         <div>

@@ -124,13 +124,13 @@ export default defineConfig({
               '<h1>Only Empowerment</h1>' +
               '<p>Explore complete educational experiences from The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode.</p>' +
               frameworkChooser() +
-              '<section aria-labelledby="framework-orientation-title"><h2 id="framework-orientation-title">' +
+              '<section class="framework-orientation" aria-labelledby="framework-orientation-title"><h2 id="framework-orientation-title">' +
               escapeLoop(frameworkOrientation.heading) +
-              '</h2><p>' +
+              '</h2><div><p>' +
               escapeLoop(frameworkOrientation.relationship) +
               '</p><p>' +
               escapeLoop(frameworkOrientation.choice) +
-              '</p></section>' +
+              '</p></div></section>' +
               '<p><a href="#teaching-order">Explore The PERIOD Code</a> or ' +
               '<a href="/read/rebuild.html">read How to Rebuild Yourself</a> or <a href="/read/loop.html">read The Discipline Loop</a> or <a href="/read/execution.html">read Pure Execution Mode</a>.</p></section>' +
               periodFallback()

@@ -1,3 +1,4 @@
+import homepagePositioningChanges from './fixtures/homepage-positioning-band-changes.json' with { type: 'json' };
 import editorialChanges from './fixtures/editorial-e1-e3-changes.json' with { type: 'json' };
 import auditCChanges from './fixtures/audit-c-changes.json' with { type: 'json' };
 import auditDChanges from './fixtures/audit-d-changes.json' with { type: 'json' };
@@ -69,7 +70,10 @@ test('Batch B accepts only pinned fixes and preserves all other source, copy, st
   paths.push('public/read/navigation.js');
   for (const path of paths) {
     const source =
-      auditCChanges[path] || auditDChanges[path] || editorialChanges[path]
+      auditCChanges[path] ||
+      auditDChanges[path] ||
+      editorialChanges[path] ||
+      homepagePositioningChanges[path]
         ? Buffer.from(beforeAuditCSource(readFileSync(path, 'utf8'), path))
         : readFileSync(path);
     const original =
