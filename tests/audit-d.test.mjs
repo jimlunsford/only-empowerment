@@ -1,3 +1,4 @@
+import { beforeHomepagePositioningSource } from './homepage-positioning-preservation.mjs';
 import { beforeEditorialReading } from './editorial-e1-e3-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -57,7 +58,7 @@ test('Batch D permits only pinned layout and accessibility edits and preserves t
     .trim()
     .split('\n');
   for (const path of paths) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeHomepagePositioningSource(readFileSync(path, 'utf8'), path);
     const original = execFileSync('git', ['show', base + ':' + path], {
       encoding: 'utf8',
       maxBuffer: 5 * 1024 * 1024,

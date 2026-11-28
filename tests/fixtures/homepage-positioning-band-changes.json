@@ -1,0 +1,188 @@
+{
+  "src/Rebuild.tsx": {
+    "beforeSha256": "798933d8c88a1cb2b9974f02e767ea89db0eba75d3d6455ef3b53ebdd226de01",
+    "afterSha256": "87e8b92e5cdfe6de4e9b8d8c212c61405f270df270612ce9efb821eff08cb650",
+    "edits": [
+      {
+        "start": 345,
+        "end": 347,
+        "before": "",
+        "after": "\n "
+      },
+      {
+        "start": 369,
+        "end": 371,
+        "before": "",
+        "after": "\n "
+      },
+      {
+        "start": 392,
+        "end": 394,
+        "before": "",
+        "after": ",\n"
+      },
+      {
+        "start": 395,
+        "end": 425,
+        "before": "",
+        "after": " frameworkPositioningHeading,\n"
+      },
+      {
+        "start": 3827,
+        "end": 4022,
+        "before": "",
+        "after": "section class=\"framework-positioning-band\" aria-labelledby=\"framework-positioning-title\">\n        <h2 id=\"framework-positioning-title\">{frameworkPositioningHeading}</h2>\n        <div>\n          <"
+      },
+      {
+        "start": 4079,
+        "end": 4111,
+        "before": "",
+        "after": ">\n        </div>\n      </section"
+      }
+    ]
+  },
+  "src/framework-home-content.ts": {
+    "beforeSha256": "3c5b89eb58a71032b1d3222658630dc6b9ed25bf367edb6f570b3099a5e3fbe5",
+    "afterSha256": "a54d01f80644a2f3ad393c1b4468d2720cc94a31af520a36a85a1fea603521bd",
+    "edits": [
+      {
+        "start": 1118,
+        "end": 1179,
+        "before": "",
+        "after": "\nexport const frameworkPositioningHeading = \"Why it's free\";\n"
+      }
+    ]
+  },
+  "src/period-homepage.css": {
+    "beforeSha256": "fd4dbf3927a8f1413994e1df3469ebe055ce07cfaee46c5ab393e8c05ee77458",
+    "afterSha256": "01a8888616a3cabee6e97e4adae5a8b49ba6f61163a3ce1c96d0dff210a91567",
+    "edits": [
+      {
+        "start": 12167,
+        "end": 12171,
+        "before": "",
+        "after": ":is("
+      },
+      {
+        "start": 12193,
+        "end": 12223,
+        "before": "",
+        "after": ", .framework-positioning-band)"
+      },
+      {
+        "start": 12483,
+        "end": 12487,
+        "before": "",
+        "after": ":is("
+      },
+      {
+        "start": 12509,
+        "end": 12539,
+        "before": "",
+        "after": ", .framework-positioning-band)"
+      },
+      {
+        "start": 12690,
+        "end": 12694,
+        "before": "",
+        "after": ":is("
+      },
+      {
+        "start": 12716,
+        "end": 12746,
+        "before": "",
+        "after": ", .framework-positioning-band)"
+      },
+      {
+        "start": 12810,
+        "end": 12814,
+        "before": "",
+        "after": ":is("
+      },
+      {
+        "start": 12836,
+        "end": 12866,
+        "before": "",
+        "after": ", .framework-positioning-band)"
+      },
+      {
+        "start": 13460,
+        "end": 13464,
+        "before": "",
+        "after": ":is("
+      },
+      {
+        "start": 13486,
+        "end": 13516,
+        "before": "",
+        "after": ", .framework-positioning-band)"
+      },
+      {
+        "start": 14193,
+        "end": 14421,
+        "before": "",
+        "after": "\n@media screen {\n  .framework-hub > .framework-chooser + .framework-positioning-band {\n    margin-top: var(--editorial-hero-space);\n  }\n  .framework-hub .framework-positioning {\n    max-width: 70ch;\n    line-height: 1.65;\n  }\n}\n"
+      }
+    ]
+  },
+  "scripts/framework-links.ts": {
+    "beforeSha256": "27d31736ea5b71c670134ff2e870f56782d32181a53c667d446763b548080acc",
+    "afterSha256": "bc79dd1150b0c8718b19788ae1c0f494f56d4192c75d8989a4340413ff907d25",
+    "edits": [
+      {
+        "start": 92,
+        "end": 94,
+        "before": "",
+        "after": "\n "
+      },
+      {
+        "start": 115,
+        "end": 117,
+        "before": "",
+        "after": ",\n"
+      },
+      {
+        "start": 118,
+        "end": 148,
+        "before": "",
+        "after": " frameworkPositioningHeading,\n"
+      },
+      {
+        "start": 667,
+        "end": 842,
+        "before": "",
+        "after": "section class=\"framework-positioning-band\" aria-labelledby=\"framework-positioning-title\"><h2 id=\"framework-positioning-title\">${escape(frameworkPositioningHeading)}</h2><div><"
+      },
+      {
+        "start": 908,
+        "end": 924,
+        "before": "",
+        "after": "></div></section"
+      }
+    ]
+  },
+  "vite.config.ts": {
+    "beforeSha256": "200d955eb8f77ad2c6266bfa12b3b89848f9c0e4c3314392ff8d393c907cc13d",
+    "afterSha256": "1187b7cbf84c330262c8d18f013d2fe298522a6a6038171bfedac69c52605d74",
+    "edits": [
+      {
+        "start": 4583,
+        "end": 4613,
+        "before": "",
+        "after": "class=\"framework-orientation\" "
+      },
+      {
+        "start": 4776,
+        "end": 4781,
+        "before": "",
+        "after": "><div"
+      },
+      {
+        "start": 4951,
+        "end": 4957,
+        "before": "",
+        "after": "></div"
+      }
+    ]
+  }
+}

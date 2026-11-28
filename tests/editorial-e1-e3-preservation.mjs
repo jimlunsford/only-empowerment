@@ -1,3 +1,4 @@
+import { beforeHomepagePositioningSource } from './homepage-positioning-preservation.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/editorial-e1-e3-changes.json' with { type: 'json' };
@@ -14,7 +15,7 @@ function reverse(source, change) {
 }
 // Only the exact E1-E3 candidate reverses. Unknown edits remain visible to historical guards.
 export function beforeEditorialSource(source, path) {
-  return reverse(source, changes[path]);
+  return reverse(beforeHomepagePositioningSource(source, path), changes[path]);
 }
 export function beforeEditorialReading(html) {
   return reverse(
