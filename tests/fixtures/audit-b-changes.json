@@ -1,0 +1,308 @@
+{
+  "scripts/discipline-reading.ts": {
+    "beforeSha256": "03c94286dae91f743626571b3406bac3b0f386f29bcb0b324401ff2b1a75de52",
+    "afterSha256": "61e28dbf7ade4f828daf6de919ccef8c71cd60bd948148f1787dc925e60a0609",
+    "edits": [
+      {
+        "start": 0,
+        "end": 56,
+        "before": "",
+        "after": "import { withReadingNavigation } from './site-menu.ts';\n"
+      },
+      {
+        "start": 822,
+        "end": 923,
+        "before": "// Build-time export of the approved visitor copy. All three patterns, no scripts.\n",
+        "after": "// Build-time export of the approved visitor copy. All three patterns remain usable without scripts.\n"
+      },
+      {
+        "start": 1064,
+        "end": 1112,
+        "before": "  return `<!doctype html>\n",
+        "after": "  return withReadingNavigation(`<!doctype html>\n"
+      },
+      {
+        "start": 4610,
+        "end": 4729,
+        "before": "</article><p class=\"source-note\">${escape(periodExercise.source)}</p></main>${staticFooter(metadata)}</body></html>`;\n",
+        "after": "</article><p class=\"source-note\">${escape(periodExercise.source)}</p></main>${staticFooter(metadata)}</body></html>`);\n"
+      }
+    ]
+  },
+  "scripts/empowerment-reading.ts": {
+    "beforeSha256": "7128f03dd7efdd04007ce734b97f3f9afe3e93fd45b4e41132fa4d533c431e01",
+    "afterSha256": "cebf8ebed14927fb8fe5a43771cffce14945eb6e8022d130324c398c3382873c",
+    "edits": [
+      {
+        "start": 0,
+        "end": 56,
+        "before": "",
+        "after": "import { withReadingNavigation } from './site-menu.ts';\n"
+      },
+      {
+        "start": 1498,
+        "end": 1546,
+        "before": "  return `<!doctype html>\n",
+        "after": "  return withReadingNavigation(`<!doctype html>\n"
+      },
+      {
+        "start": 5980,
+        "end": 6129,
+        "before": "</article>${frameworkBridges('period')}<p class=\"source-note\">${escape(empowermentAttribution)}</p></main>${staticFooter(metadata)}</body></html>`;\n",
+        "after": "</article>${frameworkBridges('period')}<p class=\"source-note\">${escape(empowermentAttribution)}</p></main>${staticFooter(metadata)}</body></html>`);\n"
+      }
+    ]
+  },
+  "scripts/integrity-reading.ts": {
+    "beforeSha256": "306553fe41e545e2d256d46551a0a8dacd2d4facef09d910c001f8b6d3268909",
+    "afterSha256": "1cec6e247801c67d33a4ab742a84eba1b6d7b267785b9fbc68b3f66a70dc47bd",
+    "edits": [
+      {
+        "start": 0,
+        "end": 56,
+        "before": "",
+        "after": "import { withReadingNavigation } from './site-menu.ts';\n"
+      },
+      {
+        "start": 1032,
+        "end": 1080,
+        "before": "  return `<!doctype html>\n",
+        "after": "  return withReadingNavigation(`<!doctype html>\n"
+      },
+      {
+        "start": 5573,
+        "end": 5690,
+        "before": "</article><p class=\"source-note\">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`;\n",
+        "after": "</article><p class=\"source-note\">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`);\n"
+      }
+    ]
+  },
+  "scripts/privacy-reading.ts": {
+    "beforeSha256": "9b42638d26c29f97fc182ecceb23e60c10e04e6ef3c4bd21cb20d5c57b30b730",
+    "afterSha256": "2b727b8bb0b6fc3a7eba65c56e0be8567f03f896909682ef55a87c32e36000ed",
+    "edits": [
+      {
+        "start": 0,
+        "end": 56,
+        "before": "",
+        "after": "import { withReadingNavigation } from './site-menu.ts';\n"
+      },
+      {
+        "start": 640,
+        "end": 688,
+        "before": "  return `<!doctype html>\n",
+        "after": "  return withReadingNavigation(`<!doctype html>\n"
+      },
+      {
+        "start": 5249,
+        "end": 5296,
+        "before": "</main>${staticFooter(build)}</body></html>`;\n",
+        "after": "</main>${staticFooter(build)}</body></html>`);\n"
+      }
+    ]
+  },
+  "scripts/resilience-reading.ts": {
+    "beforeSha256": "1bbeb1a9fc71b923cd2636affad9512683c055c00aa7ad558cdd7d4bd2b832dd",
+    "afterSha256": "07e916d48c41b73e361b144ef4a0bbe561c47eeed15978c4898d6eeca4b96d05",
+    "edits": [
+      {
+        "start": 0,
+        "end": 56,
+        "before": "",
+        "after": "import { withReadingNavigation } from './site-menu.ts';\n"
+      },
+      {
+        "start": 1099,
+        "end": 1147,
+        "before": "  return `<!doctype html>\n",
+        "after": "  return withReadingNavigation(`<!doctype html>\n"
+      },
+      {
+        "start": 5044,
+        "end": 5161,
+        "before": "</article><p class=\"source-note\">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`;\n",
+        "after": "</article><p class=\"source-note\">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`);\n"
+      }
+    ]
+  },
+  "scripts/site-menu.ts": {
+    "beforeSha256": "611a534ff8f292dca94d527bf9a57957055014c702e5f844148a3e20a0f924cc",
+    "afterSha256": "9417f2aa6da27df945230b603972c8279dcb33c96004e9cd081b54150b4109cd",
+    "edits": [
+      {
+        "start": 165,
+        "end": 454,
+        "before": "",
+        "after": "export function withReadingNavigation(html: string) {\n  return html\n    .replace(\"default-src 'none';\", \"default-src 'none'; script-src 'self';\")\n    .replace(\n      '</head>',\n      '<link rel=\"icon\" href=\"/favicon.svg\"><script defer src=\"/read/navigation.js\"></script></head>',\n    );\n}\n"
+      },
+      {
+        "start": 508,
+        "end": 554,
+        "before": "  return html.replace(\n",
+        "after": "  return withReadingNavigation(html).replace(\n"
+      }
+    ]
+  },
+  "src/Execution.tsx": {
+    "beforeSha256": "631e432182bb66667f5a11a11fe282e17c3ece4b3cfe1f77047e7d856048a0de",
+    "afterSha256": "487e49e79a7ed5990e0c1fcf29b5221c4abeadedaf497e4a8a8ab6e439e7605d",
+    "edits": [
+      {
+        "start": 1427,
+        "end": 1577,
+        "before": "",
+        "after": "  const restartPending = useRef(false);\n  const restartMessage =\n    'Workshop restarted. Previous choices and open explanations have been cleared.';\n"
+      },
+      {
+        "start": 2409,
+        "end": 2532,
+        "before": "    setAnnouncement('');\n",
+        "after": "    setAnnouncement(restartPending.current && id === 'welcome' ? restartMessage : '');\n    restartPending.current = false;\n"
+      },
+      {
+        "start": 3690,
+        "end": 3737,
+        "before": "",
+        "after": "    restartPending.current = id !== 'welcome';\n"
+      },
+      {
+        "start": 3849,
+        "end": 3886,
+        "before": "    setAnnouncement(\n      'Workshop restarted. Previous choices and open explanations have been cleared.',\n    );\n",
+        "after": "    setAnnouncement(restartMessage);\n"
+      },
+      {
+        "start": 5148,
+        "end": 5330,
+        "before": "          framework or the reading edition ends this workshop session.\n",
+        "after": "          framework or opening the reading edition in this tab ends this workshop session. Opening\n          the reading edition in a new tab preserves your active workshop choices.\n"
+      }
+    ]
+  },
+  "src/LoopPractice.tsx": {
+    "beforeSha256": "0e9454c7110a890809cc7c38b654e3e474ebe1ca1cfa1a8ef854d27585ff7fe3",
+    "afterSha256": "a5af32faacc82459dd2bdb5ac41344bd5ae2fab1f87872dda3f41635a753464e",
+    "edits": [
+      {
+        "start": 639,
+        "end": 956,
+        "before": "  const choose = (option: number) => setSelection((old) => chooseLoopOutcome(old, option));\n",
+        "after": "  const choose = (option: number) => {\n    if (location.hash === '#/loop/practice?state=miss') {\n      // Normalize the public entry without routing or serializing private choices.\n      history.replaceState(history.state, '', '#/loop/practice');\n    }\n    setSelection((old) => chooseLoopOutcome(old, option));\n  };\n"
+      },
+      {
+        "start": 1503,
+        "end": 1692,
+        "before": "    const leave = () => setSelection(initialLoopSelection(entry));\n",
+        "after": "    const leave = () =>\n      setSelection(\n        initialLoopSelection(\n          location.hash === '#/loop/practice?state=miss' ? 'miss' : loopScenario.initialState,\n        ),\n      );\n"
+      }
+    ]
+  },
+  "src/execution-workshop-content.ts": {
+    "beforeSha256": "7b0ce97c7cdcea57d2470508dfd3c54c032470756d27d3ae3834a9fa343bc4a9",
+    "afterSha256": "9bb9a2ddaf099e1df1d4148b48f24de15d53b93811c59020f0381c22acf95308",
+    "edits": [
+      {
+        "start": 20841,
+        "end": 20929,
+        "before": "        label: 'Prepare matching page and notice text, then send both together.',\n",
+        "after": "        label: 'Hold back the requests while polishing matching page and notice text.',\n"
+      },
+      {
+        "start": 20950,
+        "end": 21073,
+        "before": "          'You spend the remaining time matching both versions. The page still shows the old time, and neither person has received the correction.',\n",
+        "after": "          'While you polish both versions, the page still shows the old time and neither person receives the correction.',\n"
+      },
+      {
+        "start": 23182,
+        "end": 23250,
+        "before": "        label: 'Wait for access before involving the organizer.',\n",
+        "after": "        label: 'Wait for access before taking any further action.',\n"
+      },
+      {
+        "start": 23271,
+        "end": 23408,
+        "before": "          'The page remains wrong and the available attendee notice route is left unused.',\n",
+        "after": "          'You take no further action through the available notice route. The page remains wrong, and no attendee notice is confirmed.',\n"
+      },
+      {
+        "start": 23646,
+        "end": 23766,
+        "before": "          'Send the correction to the owner again and give them time to publish before requesting a notice.',\n",
+        "after": "          'Send the correction to the owner and wait for the page update before taking any further action on notices.',\n"
+      },
+      {
+        "start": 23787,
+        "end": 23914,
+        "before": "          'The owner has the correction again. Attendee notices still wait on a separate page update that has not been confirmed.',\n",
+        "after": "          'The owner has the correction. You take no further action on the notice while the page update remains unconfirmed.',\n"
+      },
+      {
+        "start": 25233,
+        "end": 25739,
+        "before": "      'For this final decision, the routes reconnect: assume the organizer was contacted and asked to send the notice, even if you chose \u201cWait for access before involving the organizer\u201d or otherwise left that request undone. That contact is assumed here, not work performed by your earlier choice. The organizer has now sent the accurate attendee notice and confirmed it. The site owner says they will update the page, but the page still shows the old time. Your publishing access remains unavailable.',\n",
+        "after": "      'For this final decision, the routes reconnect: assume the organizer was contacted and asked to send the notice, even if you chose \u201cWait for access before taking any further action\u201d or otherwise left that request undone. That contact is assumed here, not work performed by your earlier choice. The organizer has now sent the accurate attendee notice and confirmed it. The site owner says they will update the page, but the page still shows the old time. Your publishing access remains unavailable.',\n"
+      },
+      {
+        "start": 33758,
+        "end": 33920,
+        "before": "      return 'From your first move: you prepared matching page and notice text. The owner and organizer have not received the requests.';\n",
+        "after": "      return 'From your first move: you held back the requests to polish matching page and notice text. The owner and organizer have not received the requests.';\n"
+      }
+    ]
+  },
+  "src/loop-practice-content.ts": {
+    "beforeSha256": "8499c7f8ffeae24af069102fe01e43d48c8541ce8003f532676d9dc84f7b9c7a",
+    "afterSha256": "3dcb84a9b7605f49269da088229dc06b7ca482829b0fecffe913216cc3214749",
+    "edits": [
+      {
+        "start": 12424,
+        "end": 12509,
+        "before": "          label: 'Capacity is limited; arrange help or a return',\n",
+        "after": "          label: 'Explore changed conditions: too little sleep now limits capacity',\n"
+      },
+      {
+        "start": 12776,
+        "end": 13176,
+        "before": "        'In this illustration, you acknowledge the missed agreement without excuses, address the immediate task and restore the small minimum. You address the break you identified before the next reset.',\n",
+        "after": "        'In this illustration, you acknowledge the missed agreement without excuses. If you arrived here needing sleep, you protect that rest first and arrange agreed help or a later return when able. The task stays open until that help or a safe return restores the small minimum. With capacity available, you address the task directly. You address the break you identified before the next reset.',\n"
+      }
+    ]
+  },
+  "src/main.tsx": {
+    "beforeSha256": "4e3a67973cac7355c668aceffd6da2cef52e4ba017a321a6ad17d157359e2347",
+    "afterSha256": "694582e924d4f9aa4cb709ae3b6cdaaf009bc42157fee494848b26290bc8fbb4",
+    "edits": [
+      {
+        "start": 9636,
+        "end": 10133,
+        "before": "",
+        "after": "  useLayoutEffect(() => {\n    const closeMenu = (event: KeyboardEvent) => {\n      if (event.key !== 'Escape' || event.defaultPrevented) return;\n      const menu = document.querySelector<HTMLDetailsElement>('#app .site-menu[open]');\n      if (!menu) return;\n      event.preventDefault();\n      menu.open = false;\n      menu.querySelector('summary')?.focus();\n    };\n    document.addEventListener('keydown', closeMenu);\n    return () => document.removeEventListener('keydown', closeMenu);\n  }, []);\n"
+      }
+    ]
+  },
+  "src/rebuild-app.css": {
+    "beforeSha256": "450cf3c9f140846f12f338bea81446b873bf08f62539c2bbdd638e8558576dce",
+    "afterSha256": "d7dd494f5ef64f81047ff79f70cfcfa1bdb8d5e39a3e684e38b819a22ac74a29",
+    "edits": [
+      {
+        "start": 3373,
+        "end": 3411,
+        "before": "  .rebuild-guide .rebuild-footlinks,\n  .framework-hub {\n",
+        "after": "  .rebuild-guide .rebuild-footlinks {\n"
+      }
+    ]
+  },
+  "public/read/navigation.js": {
+    "beforeSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "afterSha256": "bd30c3e15dbfa7a4170e605bf5cf7c39fbd25b86a75d418a3621772b36051420",
+    "edits": [
+      {
+        "start": 0,
+        "end": 2035,
+        "before": "",
+        "after": "// Optional reading navigation only. Teaching, links and printing work without it.\n(() => {\n  let revision = 0;\n  const cancelPending = () => revision++;\n  const pageReady =\n    document.readyState === 'complete'\n      ? Promise.resolve()\n      : new Promise((resolve) => window.addEventListener('load', resolve, { once: true }));\n\n  const alignFragment = () => {\n    const current = ++revision;\n    const hash = location.hash;\n    let target;\n    try {\n      target = document.getElementById(decodeURIComponent(hash.slice(1)));\n    } catch {\n      return;\n    }\n    if (!target || !hash) return;\n    const heading =\n      target.id === 'main' || target.matches('h1,h2,h3,h4,h5,h6')\n        ? target\n        : target.closest('h1,h2,h3,h4,h5,h6') ||\n          target.querySelector('h1,h2,h3,h4,h5,h6') ||\n          target;\n    if (!heading.hasAttribute('tabindex')) heading.tabIndex = -1;\n    const align = () => {\n      if (current !== revision || location.hash !== hash || !heading.isConnected) return;\n      heading.focus({ preventScroll: true });\n      heading.scrollIntoView({ block: 'start', behavior: 'instant' });\n    };\n    align();\n    // Initial layout discovers the needed fonts. Recheck after fonts and document\n    // resources settle, without moving a reader who has already taken control.\n    void Promise.all([pageReady, document.fonts.ready]).then(() => {\n      requestAnimationFrame(() => requestAnimationFrame(align));\n    });\n  };\n\n  for (const event of ['pointerdown', 'keydown', 'wheel', 'touchstart'])\n    document.addEventListener(event, cancelPending, { passive: true });\n  window.addEventListener('pagehide', cancelPending);\n  window.addEventListener('hashchange', alignFragment);\n  document.addEventListener('keydown', (event) => {\n    if (event.key !== 'Escape' || event.defaultPrevented) return;\n    const menu = document.querySelector('.site-menu[open]');\n    if (!menu) return;\n    event.preventDefault();\n    menu.open = false;\n    menu.querySelector('summary')?.focus();\n  });\n  alignFragment();\n})();\n"
+      }
+    ]
+  }
+}

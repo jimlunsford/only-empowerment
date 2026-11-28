@@ -1,3 +1,5 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
+import { beforeAuditBSource } from './audit-b-preservation.mjs';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
@@ -42,10 +44,13 @@ test('script-free Privacy preserves exact source, license, no warranty, checksum
     assert.match(html, /href="\/SHA256SUMS"/);
     assert.match(
       html,
-      /default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'/,
+      /default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'/,
     );
     assert.ok(html.includes(staging ? 'noindex, nofollow' : 'index, follow'));
-    assert.doesNotMatch(html, /<script|Internal review|Not a production release|The footer links/);
+    assert.doesNotMatch(
+      withoutReadingNavigation(html),
+      /<script|Internal review|Not a production release|The footer links/,
+    );
   }
 });
 test('dirty or unidentified previews cannot claim an exact published source; metadata is escaped', () => {
@@ -70,7 +75,7 @@ test('Books footer uses the canonical catalog URL and safe new-tab attributes', 
 
 test('book-link preservation pins every changed source and rejects incidental edits', () => {
   for (const [path, change] of Object.entries(bookLinkChanges)) {
-    const source = readFileSync(path, 'utf8');
+    const source = beforeAuditBSource(readFileSync(path, 'utf8'), path);
     const original = execFileSync(
       'git',
       ['show', '46918ff1b305aa26e96f8cc0e2c241a073dbef32:' + path],

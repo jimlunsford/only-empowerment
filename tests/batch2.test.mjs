@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import { beforeBatch3Source } from './batch3-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -74,7 +75,10 @@ test('reading copy, sibling bridges and four-framework navigation stay script in
       assert.ok(part.includes(`href="${item.reading}">${item.title}</a>`));
   }
   for (const html of [index, loopReading(), executionReading()]) {
-    assert.doesNotMatch(html, /<script|\sonclick=|<input|<textarea|<form/);
+    assert.doesNotMatch(
+      withoutReadingNavigation(html),
+      /<script|\sonclick=|<input|<textarea|<form/,
+    );
     const body = html.replace(/<header class="site-header">[\s\S]*?<\/header>/, '');
     assert.doesNotMatch(
       body,

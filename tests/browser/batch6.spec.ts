@@ -182,7 +182,7 @@ test('editorial layout tolerates enlarged text and keeps print presentation inde
     await page.evaluate(() => (document.documentElement.style.fontSize = '200%'));
     await fit(page);
     await page.emulateMedia({ media: 'print' });
-    if (route === '/') await expect(page.locator('.framework-hub')).toBeHidden();
+    if (route === '/') await expect(page.locator('.framework-hub')).toBeVisible();
     if (route === '/#/loop') {
       await expect(page.locator('.loop-hero .loop-cycle')).toBeHidden();
       expect(

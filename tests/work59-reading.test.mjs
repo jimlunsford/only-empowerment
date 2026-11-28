@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -22,7 +23,7 @@ test('Work59 static index exposes all six complete lessons, Rebuild and paper in
   for (const value of values) assert.ok(html.includes('href="/read/' + value + '.html"'));
   for (const path of ['/read/rebuild.html', '/read/standard.html', '/read/privacy.html'])
     assert.ok(html.includes('href="' + path + '"'));
-  assert.doesNotMatch(html, /<script|<input|<textarea|<button|onload=/i);
+  assert.doesNotMatch(withoutReadingNavigation(html), /<script|<input|<textarea|<button|onload=/i);
 });
 
 test('Work59 standalone Ownership and Purpose use original approved teachings with full examples', () => {
@@ -38,7 +39,7 @@ test('Work59 standalone Ownership and Purpose use original approved teachings wi
   assert.match(purpose, /Direction in this example/);
   assert.doesNotMatch(purpose, /id="reading-ownership-practice"/);
   for (const html of [ownership, purpose])
-    assert.doesNotMatch(html, /<script|<textarea|<button|<input/i);
+    assert.doesNotMatch(withoutReadingNavigation(html), /<script|<textarea|<button|<input/i);
 });
 
 test('Work59 Rebuild static edition contains every source alternative without unrelated PERIOD text', () => {
@@ -56,14 +57,14 @@ test('Work59 Rebuild static edition contains every source alternative without un
     assert.ok(html.includes('href="#' + station + '-example"'));
   assert.ok(html.includes('id="/rebuild/trust"'));
   assert.doesNotMatch(html, /class="homepage"/);
-  assert.doesNotMatch(html, /<script|<textarea|<button|<input/i);
+  assert.doesNotMatch(withoutReadingNavigation(html), /<script|<textarea|<button|<input/i);
 });
 
 test('Work59 paper aid works independently of the Standard Card editor', () => {
   const html = standardOnPaper();
   assert.match(html, /<h1>Use the standard on paper<\/h1>/);
   assert.match(html, /Example standard card/);
-  assert.doesNotMatch(html, /<script|<textarea|<button|<input/i);
+  assert.doesNotMatch(withoutReadingNavigation(html), /<script|<textarea|<button|<input/i);
   assert.match(html, /id="reading-standard-card"/);
   const privacy = privacyReading();
   assert.match(privacy, /href="\/read\/index.html"/);

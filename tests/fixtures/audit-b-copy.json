@@ -1,0 +1,42 @@
+[
+  {
+    "before": "Capacity is limited; arrange help or a return",
+    "after": "Explore changed conditions: too little sleep now limits capacity"
+  },
+  {
+    "before": "In this illustration, you acknowledge the missed agreement without excuses, address the immediate task and restore the small minimum. You address the break you identified before the next reset.",
+    "after": "In this illustration, you acknowledge the missed agreement without excuses. If you arrived here needing sleep, you protect that rest first and arrange agreed help or a later return when able. The task stays open until that help or a safe return restores the small minimum. With capacity available, you address the task directly. You address the break you identified before the next reset."
+  },
+  {
+    "before": "Prepare matching page and notice text, then send both together.",
+    "after": "Hold back the requests while polishing matching page and notice text."
+  },
+  {
+    "before": "You spend the remaining time matching both versions. The page still shows the old time, and neither person has received the correction.",
+    "after": "While you polish both versions, the page still shows the old time and neither person receives the correction."
+  },
+  {
+    "before": "Wait for access before involving the organizer.",
+    "after": "Wait for access before taking any further action."
+  },
+  {
+    "before": "The page remains wrong and the available attendee notice route is left unused.",
+    "after": "You take no further action through the available notice route. The page remains wrong, and no attendee notice is confirmed."
+  },
+  {
+    "before": "Send the correction to the owner again and give them time to publish before requesting a notice.",
+    "after": "Send the correction to the owner and wait for the page update before taking any further action on notices."
+  },
+  {
+    "before": "The owner has the correction again. Attendee notices still wait on a separate page update that has not been confirmed.",
+    "after": "The owner has the correction. You take no further action on the notice while the page update remains unconfirmed."
+  },
+  {
+    "before": "For this final decision, the routes reconnect: assume the organizer was contacted and asked to send the notice, even if you chose “Wait for access before involving the organizer” or otherwise left that request undone. That contact is assumed here, not work performed by your earlier choice. The organizer has now sent the accurate attendee notice and confirmed it. The site owner says they will update the page, but the page still shows the old time. Your publishing access remains unavailable.",
+    "after": "For this final decision, the routes reconnect: assume the organizer was contacted and asked to send the notice, even if you chose “Wait for access before taking any further action” or otherwise left that request undone. That contact is assumed here, not work performed by your earlier choice. The organizer has now sent the accurate attendee notice and confirmed it. The site owner says they will update the page, but the page still shows the old time. Your publishing access remains unavailable."
+  },
+  {
+    "before": "From your first move: you prepared matching page and notice text. The owner and organizer have not received the requests.",
+    "after": "From your first move: you held back the requests to polish matching page and notice text. The owner and organizer have not received the requests."
+  }
+]

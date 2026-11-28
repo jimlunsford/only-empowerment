@@ -1,3 +1,4 @@
+import { beforeAuditBCopy } from './audit-b-preservation.mjs';
 import { beforeBookLinksReading } from './book-links-preservation.mjs';
 import { beforeBatch5Source } from './batch5-preservation.mjs';
 import assert from 'node:assert/strict';
@@ -26,6 +27,7 @@ export function beforeBatch4Reading(html) {
   return change ? reverse(html, change) : html;
 }
 export function beforeBatch4Copy(value) {
+  value = beforeAuditBCopy(value);
   if (typeof value === 'string')
     return (
       {

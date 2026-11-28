@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import { periodFallback } from '../scripts/period-fallback.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -101,7 +102,10 @@ test('script-free reading contains every teaching string and real in-page links'
     assert.ok(html.includes(escape(rendered)), rendered);
   }
   assert.match(html, /href="\/#teaching-order">Review all six values<\/a>/);
-  assert.doesNotMatch(html, /<script|<details|<input|<button|\shidden|aria-live/);
+  assert.doesNotMatch(
+    withoutReadingNavigation(html),
+    /<script|<details|<input|<button|\shidden|aria-live/,
+  );
   for (const id of [
     'lesson',
     'offer',

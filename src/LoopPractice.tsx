@@ -13,7 +13,13 @@ export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
   const [selection, setSelection] = useState(() => initialLoopSelection(entry));
   const heading = useRef<HTMLHeadingElement>(null);
   const state = loopScenario.states[selection.state];
-  const choose = (option: number) => setSelection((old) => chooseLoopOutcome(old, option));
+  const choose = (option: number) => {
+    if (location.hash === '#/loop/practice?state=miss') {
+      // Normalize the public entry without routing or serializing private choices.
+      history.replaceState(history.state, '', '#/loop/practice');
+    }
+    setSelection((old) => chooseLoopOutcome(old, option));
+  };
   const reset = () => {
     if (location.hash === '#/loop/practice?state=miss') {
       // Replace the public entry address, not the private choice history.
@@ -27,7 +33,12 @@ export function LoopPractice({ entry = 'pressure' }: { entry?: LoopStateId }) {
   };
   useLayoutEffect(() => {
     // Also discard choices when a whole document leaves via the back/forward cache.
-    const leave = () => setSelection(initialLoopSelection(entry));
+    const leave = () =>
+      setSelection(
+        initialLoopSelection(
+          location.hash === '#/loop/practice?state=miss' ? 'miss' : loopScenario.initialState,
+        ),
+      );
     window.addEventListener('pagehide', leave);
     return () => window.removeEventListener('pagehide', leave);
   }, [entry]);

@@ -1,3 +1,4 @@
+import { withReadingNavigation } from './site-menu.ts';
 import { readingTransition } from './lesson-transition.ts';
 import { staticFooter } from './site-footer.ts';
 import type { FooterBuild } from '../src/site-footer-content.ts';
@@ -18,7 +19,7 @@ const top = () => `<p class="integrity-back-top">${link('#top', 'Back to top')}<
 
 export function integrityReading(staging = true, metadata?: FooterBuild) {
   const copy = content.case;
-  return `<!doctype html>
+  return withReadingNavigation(`<!doctype html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
@@ -58,5 +59,5 @@ ${h('What the record shows', 3)}${p(note.fact)}${h('Why it matters', 3)}${p(note
 <section id="correction" class="integrity-correction">${h('A correction that reaches the same audience')}<blockquote>${escape(copy.correction)}</blockquote>${p(copy.correction_note)}</section>
 <section id="continuation" class="integrity-continuation">${h(copy.continuation_title)}${copy.continuation.map(p).join('')}${p(copy.evidence)}</section>
 <section class="integrity-limits">${h("What remains outside Riley's control")}${p(copy.limits)}${p(copy.closure)}${p(copy.bridge)}${link('/read/discipline.html', 'Continue to Discipline')}${link('#lesson', 'Return to Integrity')}</section>${top()}
-</article><p class="source-note">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`;
+</article><p class="source-note">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`);
 }

@@ -150,7 +150,7 @@ test('Batch 4 Loop history stays private and direct entry retains the complete f
   await expect(page.locator('.loop-scenario')).toContainText(
     'Did you avoid the task, expand it beyond what you could sustain, hide the miss, or use it to condemn the whole effort?',
   );
-  await expect(page).toHaveURL(/state=miss$/);
+  await expect(page).toHaveURL(/#\/loop\/practice$/);
   await page.getByRole('button', { name: 'Reset example', exact: true }).click();
   await expect(page.locator('.loop-scenario')).toHaveAttribute('data-state', 'pressure');
 });

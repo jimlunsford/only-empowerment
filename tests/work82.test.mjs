@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import { beforeBatch2Source } from './batch2-preservation.mjs';
 import test from 'node:test';
@@ -112,7 +113,7 @@ test('Work82 every option, demonstration and continuation is available without J
     }
     for (const value of [workshopOrigin, ...Object.values(workshopBridges)])
       assert.ok(text.includes(value));
-    assert.doesNotMatch(html, /<script|<input|<textarea|<form/);
+    assert.doesNotMatch(withoutReadingNavigation(html), /<script|<input|<textarea|<form/);
   }
   for (const [legacy, id] of Object.entries(legacyWorkshopMap)) {
     assert.equal(executionRoute('/execution?section=' + legacy), '/execution');

@@ -305,7 +305,7 @@ export const loopScenario: LoopScenario = {
           next: 'correction',
         },
         {
-          label: 'Capacity is limited; arrange help or a return',
+          label: 'Explore changed conditions: too little sleep now limits capacity',
           next: 'rest',
         },
         {
@@ -318,7 +318,7 @@ export const loopScenario: LoopScenario = {
     correction: {
       heading: 'Correction is evidence of a return',
       body: [
-        'In this illustration, you acknowledge the missed agreement without excuses, address the immediate task and restore the small minimum. You address the break you identified before the next reset.',
+        'In this illustration, you acknowledge the missed agreement without excuses. If you arrived here needing sleep, you protect that rest first and arrange agreed help or a later return when able. The task stays open until that help or a safe return restores the small minimum. With capacity available, you address the task directly. You address the break you identified before the next reset.',
         'The kitchen is usable again. The miss remains part of the record. Someone else may still be frustrated, and trust may need time. What you have proved now is that you can return and begin repair.',
         'Repeated honest correction, alongside repeated follow-through, gives the next pressure point a different record to draw on.',
       ],

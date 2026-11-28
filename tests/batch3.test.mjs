@@ -50,7 +50,7 @@ test('Stage 4 alternatives vary strongest-answer position and preserve honest re
   );
   assert.match(
     workshopById('event-close').facts,
-    /assume the organizer was contacted.*Wait for access before involving the organizer.*not work performed by your earlier choice/,
+    /assume the organizer was contacted.*Wait for access before taking any further action.*not work performed by your earlier choice/,
   );
   assert.match(
     eventCarry({ event: 'announce' }),

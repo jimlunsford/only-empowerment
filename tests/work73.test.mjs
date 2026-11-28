@@ -1,3 +1,4 @@
+import { withoutReadingNavigation } from './reading-navigation-contract.mjs';
 import { beforeBatch3Source } from './batch3-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -131,6 +132,6 @@ test('transfer wording is exact, optional, fictional and included after the four
     for (const text of Object.values(loopTransfer)) assert.ok(html.includes(escapeLoop(text)));
     assert.ok(html.indexOf(loopTransfer.heading) > html.indexOf('What will I do if I miss?'));
     assert.match(html, /Optional reflection.*fictional situation/);
-    assert.doesNotMatch(html, /<form|<input|<textarea|<script/);
+    assert.doesNotMatch(withoutReadingNavigation(html), /<form|<input|<textarea|<script/);
   }
 });

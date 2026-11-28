@@ -38,6 +38,9 @@ export function Execution() {
   const question = useRef<HTMLHeadingElement>(null);
   const title = useRef<HTMLHeadingElement>(null);
   const feedbackRequested = useRef(false);
+  const restartPending = useRef(false);
+  const restartMessage =
+    'Workshop restarted. Previous choices and open explanations have been cleared.';
   const option = screen.options?.find((entry) => entry.id === choices[id]);
   const stageScreens = workshopScreens.filter(
     (entry) => entry.stage === screen.stage && entry.id !== 'recover',
@@ -59,7 +62,8 @@ export function Execution() {
     return () => window.removeEventListener('pagehide', clear);
   }, []);
   useLayoutEffect(() => {
-    setAnnouncement('');
+    setAnnouncement(restartPending.current && id === 'welcome' ? restartMessage : '');
+    restartPending.current = false;
     feedbackRequested.current = false;
   }, [id]);
   useLayoutEffect(() => {
@@ -95,12 +99,11 @@ export function Execution() {
   };
   const restart = () => {
     clear();
+    restartPending.current = id !== 'welcome';
     location.hash = '/execution';
     title.current?.focus({ preventScroll: true });
     window.scrollTo(0, 0);
-    setAnnouncement(
-      'Workshop restarted. Previous choices and open explanations have been cleared.',
-    );
+    setAnnouncement(restartMessage);
   };
   const guide = (
     <aside class="workshop-guide">
@@ -135,7 +138,8 @@ export function Execution() {
         <p>
           Browser Back and Forward restore screens within an active workshop. Changing an earlier
           independent decision clears the later decisions that depended on it. Leaving for another
-          framework or the reading edition ends this workshop session.
+          framework or opening the reading edition in this tab ends this workshop session. Opening
+          the reading edition in a new tab preserves your active workshop choices.
         </p>
       </details>
       <button type="button" class="workshop-text-button" onClick={restart}>

@@ -5,7 +5,7 @@ test('Stage 4 waiting choice leads to an explicitly assumed organizer contact', 
 }) => {
   await page.goto('/#/execution/event-wait');
   await page
-    .getByRole('button', { name: 'Wait for access before involving the organizer.', exact: true })
+    .getByRole('button', { name: 'Wait for access before taking any further action.', exact: true })
     .click();
   await page
     .locator('.execution-screen')

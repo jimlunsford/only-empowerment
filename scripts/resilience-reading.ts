@@ -1,3 +1,4 @@
+import { withReadingNavigation } from './site-menu.ts';
 import { readingTransition } from './lesson-transition.ts';
 import { staticFooter } from './site-footer.ts';
 import type { FooterBuild } from '../src/site-footer-content.ts';
@@ -19,7 +20,7 @@ const link = (href: string, text: string) => `<a href="${href}">${escape(text)}<
 
 export function resilienceReading(staging = true, metadata?: FooterBuild) {
   const copy = content.activity;
-  return `<!doctype html>
+  return withReadingNavigation(`<!doctype html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="${staging ? 'noindex, nofollow' : 'index, follow'}"><meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
@@ -62,5 +63,5 @@ ${note.id === 'missed' ? `<section class="resilience-return">${h(copy.returnTitl
   )
   .join('')}
 ${p(copy.closing)}<section class="resilience-close">${h(ui.closeHeading)}${p(ui.close)}${link('#resilience-lesson', 'Return to Resilience')}${p(integrityContent.navigation.resilience_bridge) + link('/read/integrity.html', 'Continue to Integrity')}</section>
-</article><p class="source-note">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`;
+</article><p class="source-note">${escape(content.attribution)}</p></main>${staticFooter(metadata)}</body></html>`);
 }

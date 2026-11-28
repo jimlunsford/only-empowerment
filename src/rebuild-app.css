@@ -133,8 +133,7 @@
     outline: none;
   }
   .rebuild-guide .rebuild-approval,
-  .rebuild-guide .rebuild-footlinks,
-  .framework-hub {
+  .rebuild-guide .rebuild-footlinks {
     display: none;
   }
 }

@@ -394,9 +394,9 @@ export const workshopScreens: WorkshopScreen[] = [
     options: [
       {
         id: 'polish',
-        label: 'Prepare matching page and notice text, then send both together.',
+        label: 'Hold back the requests while polishing matching page and notice text.',
         consequence:
-          'You spend the remaining time matching both versions. The page still shows the old time, and neither person has received the correction.',
+          'While you polish both versions, the page still shows the old time and neither person receives the correction.',
         reasoning:
           'Consistent wording is useful, but the correction is already accurate. Send the essential facts now so the people with authority can act before the event; polish can follow.',
       },
@@ -437,18 +437,18 @@ export const workshopScreens: WorkshopScreen[] = [
     options: [
       {
         id: 'wait-only',
-        label: 'Wait for access before involving the organizer.',
+        label: 'Wait for access before taking any further action.',
         consequence:
-          'The page remains wrong and the available attendee notice route is left unused.',
+          'You take no further action through the available notice route. The page remains wrong, and no attendee notice is confirmed.',
         reasoning:
           'One blocked route does not block every appropriate action. The organizer can address the information people need while the page correction remains open.',
       },
       {
         id: 'close',
         label:
-          'Send the correction to the owner again and give them time to publish before requesting a notice.',
+          'Send the correction to the owner and wait for the page update before taking any further action on notices.',
         consequence:
-          'The owner has the correction again. Attendee notices still wait on a separate page update that has not been confirmed.',
+          'The owner has the correction. You take no further action on the notice while the page update remains unconfirmed.',
         reasoning:
           'Letting one person finish can avoid duplicate work, but the page and attendee notice are different tasks. With the event approaching, making one depend on the other risks leaving attendees uninformed.',
       },
@@ -474,7 +474,7 @@ export const workshopScreens: WorkshopScreen[] = [
     title: 'One correction is confirmed',
     purpose: 'Name what is complete and what remains.',
     facts:
-      'For this final decision, the routes reconnect: assume the organizer was contacted and asked to send the notice, even if you chose “Wait for access before involving the organizer” or otherwise left that request undone. That contact is assumed here, not work performed by your earlier choice. The organizer has now sent the accurate attendee notice and confirmed it. The site owner says they will update the page, but the page still shows the old time. Your publishing access remains unavailable.',
+      'For this final decision, the routes reconnect: assume the organizer was contacted and asked to send the notice, even if you chose “Wait for access before taking any further action” or otherwise left that request undone. That contact is assumed here, not work performed by your earlier choice. The organizer has now sent the accurate attendee notice and confirmed it. The site owner says they will update the page, but the page still shows the old time. Your publishing access remains unavailable.',
     teaching: [],
     question: 'What is your next response?',
     deferred: true,
@@ -631,7 +631,7 @@ export function eventCarry(choices: WorkshopChoices): string {
     case 'request':
       return 'From your first move: the owner and organizer received your requests. Neither has confirmed a correction.';
     case 'polish':
-      return 'From your first move: you prepared matching page and notice text. The owner and organizer have not received the requests.';
+      return 'From your first move: you held back the requests to polish matching page and notice text. The owner and organizer have not received the requests.';
     case 'announce':
       return 'From your first move: the owner received an access request, but not the replacement text. The organizer has not received a notice request.';
     default:
