@@ -212,14 +212,14 @@ function CaseBody({ note, expanded = false }: { note: PressureNote; expanded?: b
         </section>
       </div>
       <div class="resilience-responses">
-        {note.responses.map((response, index) =>
+        {note.responses.map((response) =>
           expanded ? (
             <section key={response.title}>
               <h3>{response.title}</h3>
               <p>{response.text}</p>
             </section>
           ) : (
-            <details key={response.title} open={index === 0}>
+            <details key={response.title}>
               <summary>{response.title}</summary>
               <p>{response.text}</p>
             </details>

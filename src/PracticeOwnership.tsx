@@ -120,7 +120,7 @@ export function PracticeOwnership({
                     <p class="practice-rationale">{item.explanation}</p>
                   </details>
                 ))}
-                <details open class="practice-honest">
+                <details class="practice-honest">
                   <summary>{copy.honestTitle}</summary>
                   <blockquote>{honestMessage(session.communication)}</blockquote>
                   <p class="practice-rationale">{condition.explanation}</p>

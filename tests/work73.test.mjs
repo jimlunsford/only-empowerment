@@ -120,11 +120,11 @@ test('transfer wording is exact, optional, fictional and included after the four
   assert.equal(loopTransfer.heading, 'Apply the Loop somewhere else');
   assert.equal(
     loopTransfer.scenario,
-    'A coworker is waiting for an update you promised. The task is unfinished. You can send an honest update now, or wait until the result looks better.',
+    'A person has set aside ten minutes to practice guitar after dinner. The guitar is within reach, but a difficult chord makes another tutorial more appealing than practicing. Time and capacity are available. The temptation is to keep learning about the work without attempting it.',
   );
   assert.equal(
     loopTransfer.reflection,
-    'Identify the pressure, the standard and the action that would create real evidence. Then consider what changes if communication is unavailable.',
+    'Identify the pressure, the standard and the action that would create real evidence. Trace what repeating that action could mean for self-trust, identity and the next difficult practice. Then consider what changes if an unexpected caregiving responsibility takes that time, or if a practice is simply missed. What would an honest adjustment or return look like?',
   );
   const closing = loopSections.find((s) => s.id === 'reflection');
   assert.equal(closing.blocks.filter((b) => b.text.endsWith('?')).length, 4);

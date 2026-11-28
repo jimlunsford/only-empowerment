@@ -38,10 +38,9 @@ async function checkCase(region: Locator, note: PressureNote, expanded = false) 
     note.review,
   ])
     await expect(region.getByText(text, { exact: true })).toBeVisible();
-  for (const [index, response] of note.responses.entries()) {
+  for (const response of note.responses) {
     await expect(region.getByText(response.title, { exact: true })).toBeVisible();
-    if (expanded || index === 0)
-      await expect(region.getByText(response.text, { exact: true })).toBeVisible();
+    if (expanded) await expect(region.getByText(response.text, { exact: true })).toBeVisible();
     else await expect(region.getByText(response.text, { exact: true })).not.toBeVisible();
   }
 }
@@ -143,10 +142,10 @@ test('case disclosures are independent, reset on a changed condition and leave c
 }) => {
   await page.goto(pressurePath);
   const responses = page.locator('.resilience-current .resilience-responses details');
-  await expect(responses.nth(0)).toHaveAttribute('open', '');
+  await expect(responses.nth(0)).not.toHaveAttribute('open', '');
   await expect(responses.nth(1)).not.toHaveAttribute('open', '');
   await expect(responses.nth(2)).not.toHaveAttribute('open', '');
-  for (const index of [1, 2]) {
+  for (const index of [0, 1, 2]) {
     await responses.nth(index).locator('summary').focus();
     await page.keyboard.press('Enter');
     await expect(responses.nth(index).locator('summary')).toBeFocused();
@@ -163,17 +162,13 @@ test('case disclosures are independent, reset on a changed condition and leave c
     await select(page).selectOption(note.id);
     await expect(reading).toHaveAttribute('open', '');
     await checkCase(page.locator('.resilience-current'), note);
-    for (const [index, response] of note.responses.entries()) {
+    for (const response of note.responses) {
       const details = page
         .locator('.resilience-current details')
         .filter({ has: page.getByText(response.title, { exact: true }) });
-      expect(await details.evaluate((element) => (element as HTMLDetailsElement).open)).toBe(
-        index === 0,
-      );
-      if (index > 0) {
-        await details.locator('summary').press('Enter');
-        await expect(details.getByText(response.text, { exact: true })).toBeVisible();
-      }
+      expect(await details.evaluate((element) => (element as HTMLDetailsElement).open)).toBe(false);
+      await details.locator('summary').press('Enter');
+      await expect(details.getByText(response.text, { exact: true })).toBeVisible();
     }
   }
   await reading.locator(':scope > summary').press('Space');

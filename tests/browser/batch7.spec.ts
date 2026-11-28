@@ -74,7 +74,7 @@ test('Execution cover has working actions, forest roadmap and a separate asymmet
     ).toHaveAttribute('href', '/read/execution.html');
     await expect(
       page.locator('.workshop-navigation').getByRole('link', { name: /^Continue/ }),
-    ).toHaveAttribute('href', '#/execution/identify');
+    ).toHaveAttribute('href', '#/execution/foundation');
     expect(
       (
         await new AxeBuilder({ page })
@@ -83,7 +83,7 @@ test('Execution cover has working actions, forest roadmap and a separate asymmet
       ).violations,
     ).toEqual([]);
     await page.keyboard.press('Tab');
-    const start = hero.getByRole('link', { name: 'Continue: Identify the Next Move', exact: true });
+    const start = hero.getByRole('link', { name: 'Continue: Why & The Bargain', exact: true });
     await start.focus();
     await page.keyboard.press('Enter');
     await expect(page.getByRole('heading', { level: 1 })).toBeFocused();

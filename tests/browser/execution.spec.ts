@@ -349,7 +349,7 @@ for (const width of [320, 390, 1366])
       if (s.action)
         await screen(page).getByRole('button', { name: s.action.label, exact: true }).click();
       await fits(page);
-      if (['welcome', 'take-over', 'access', 'event', 'compare'].includes(s.id))
+      if (['welcome', 'foundation', 'take-over', 'access', 'event', 'compare'].includes(s.id))
         await page.screenshot({
           path: info.outputPath('workshop-' + s.id + '-' + width + '.png'),
           fullPage: true,
@@ -381,7 +381,16 @@ test('keyboard, reduced motion, forced colors, understandable feedback and axe c
       .evaluate((el) => getComputedStyle(el).outlineStyle),
   ).not.toBe('none');
   await page.emulateMedia({ forcedColors: 'none' });
-  for (const id of ['welcome', 'switch', 'take-over', 'access', 'event', 'compare', 'reference']) {
+  for (const id of [
+    'welcome',
+    'foundation',
+    'switch',
+    'take-over',
+    'access',
+    'event',
+    'compare',
+    'reference',
+  ]) {
     await go(page, id);
     const s = workshopById(id);
     if (s.options && !s.deferred)

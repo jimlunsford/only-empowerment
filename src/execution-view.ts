@@ -125,7 +125,7 @@ export function workshopTranscript(surface: ExecutionSurface): ExecutionNode {
   return n(
     'section',
     { class: 'execution-workshop-transcript' },
-    n(h2, {}, 'Guided workshop: every decision and consequence'),
+    n(h2, { id: id('outcomes'), tabIndex: -1 }, 'Workshop outcomes'),
     n(
       'p',
       {},
@@ -219,6 +219,16 @@ export function executionTeaching(surface: ExecutionSurface = 'app'): ExecutionN
         a('/read/execution.html', 'Read or print the complete experience'),
       ),
     ),
+    ...(surface === 'reading'
+      ? [
+          n(
+            'nav',
+            { class: 'execution-entry-links', 'aria-label': 'Reading sections' },
+            a('#why', 'Explanation'),
+            a('#workshop-outcomes', 'Workshop outcomes'),
+          ),
+        ]
+      : []),
     n(
       'nav',
       { class: 'execution-contents', 'aria-label': 'On this page' },

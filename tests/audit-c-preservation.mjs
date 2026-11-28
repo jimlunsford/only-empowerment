@@ -1,3 +1,4 @@
+import { beforeEditorialReading } from './editorial-e1-e3-preservation.mjs';
 import { beforeAuditDSource } from './audit-d-preservation.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
@@ -19,6 +20,7 @@ export function beforeAuditCSource(source, path) {
   return reverse(beforeAuditDSource(source, path), changes[path]);
 }
 export function beforeAuditCReading(html) {
+  html = beforeEditorialReading(html);
   return reverse(
     html,
     Object.values(readings).find((change) => sha(html) === change.afterSha256),
