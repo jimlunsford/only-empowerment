@@ -1,3 +1,4 @@
+import { beforeEditorialReading } from './editorial-e1-e3-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -99,6 +100,6 @@ test('D1 preserves exact static main markup, including all teaching, outcomes, a
   assert.equal(Object.keys(readings).length, 13);
   for (const [name, html] of Object.entries(readings)) {
     const main = html.slice(html.indexOf('<main'), html.indexOf('</main>') + 7);
-    assert.equal(sha(main), readingHashes[name], name);
+    assert.equal(sha(beforeEditorialReading(main)), readingHashes[name], name);
   }
 });

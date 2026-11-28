@@ -166,7 +166,7 @@ test('D2 Execution pointer and keyboard navigation preserve focus with the appro
 }) => {
   await page.goto('/#/execution');
   const title = page.locator('.workshop h1');
-  await page.locator('.workshop-navigation a[href="#/execution/identify"]').click();
+  await page.locator('.workshop-navigation a[href="#/execution/foundation"]').click();
   await expect(title).toBeFocused();
   await expect(title).toHaveCSS('outline-style', 'none');
   const back = page.locator('.workshop-navigation a[href="#/execution"]');

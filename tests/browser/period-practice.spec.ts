@@ -118,14 +118,17 @@ test('reflection precedes independently accessible comparisons and no response b
 }) => {
   await page.goto('/#/period/practice/responses');
   const details = page.locator('.practice-responses > details');
-  for (const index of [0, 1, 3]) await expect(details.nth(index)).not.toHaveAttribute('open', '');
-  await expect(details.nth(2)).toHaveAttribute('open', '');
+  for (const detail of await details.all()) {
+    await expect(detail).not.toHaveAttribute('open', '');
+    await expect(detail.locator('p').first()).not.toBeVisible();
+  }
   const prompt = await page.locator('.practice-reflection').boundingBox();
   const first = await details.first().boundingBox();
   expect(prompt!.y + prompt!.height).toBeLessThan(first!.y);
   await details.first().locator('summary').focus();
   await page.keyboard.press('Enter');
   await details.nth(1).locator('summary').click();
+  await details.nth(2).locator('summary').press('Enter');
   await details.last().locator('summary').click();
   for (let index = 0; index < 4; index++)
     await expect(details.nth(index)).toHaveAttribute('open', '');

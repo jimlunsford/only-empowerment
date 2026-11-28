@@ -1,9 +1,11 @@
+import { beforeEditorialSource } from './editorial-e1-e3-preservation.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/audit-d-changes.json' with { type: 'json' };
 const sha = (source) => createHash('sha256').update(source).digest('hex');
 // Reverse only exact Batch D bytes. Every unknown edit remains visible to prior guards.
 export function beforeAuditDSource(source, path) {
+  source = beforeEditorialSource(source, path);
   const change = changes[path];
   if (!change || sha(source) !== change.afterSha256) return source;
   for (const edit of [...change.edits].reverse()) {

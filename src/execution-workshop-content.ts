@@ -57,6 +57,31 @@ export const workshopScreens: WorkshopScreen[] = [
     ],
     sources: ['M02', 'M03', 'M04', 'M05', 'M06', 'M24', 'M43'],
     baseline: ['why-gap', 'why-origin', 'why-standard', 'why-judgment', 'method-tools'],
+    next: 'foundation',
+  },
+  {
+    id: 'foundation',
+    stage: 0,
+    title: 'Why & The Bargain',
+    purpose: 'A sound decision still needs action.',
+    facts:
+      'Pure Execution Mode exists for the gap between knowing what a responsibility requires and doing the work. The standard gives the action its purpose; being busy is not enough.',
+    teaching: [
+      'The bargain begins when discomfort keeps reopening a settled decision: after one more easy job, after more planning, when the mood improves. If the facts still support the action, another round of debate only leaves the responsibility waiting.',
+      'Judgment comes first. Missing information, consent or safe access changes the next move. A request is not agreement, and determination cannot supply another person’s permission.',
+      'Capacity matters. Help, rest, a smaller workable action or a stop may be the responsible response. Repeated difficulty calls for a closer look at the barrier and appropriate support, not a verdict on someone’s worth.',
+      'After a missed commitment, repair means naming the miss, asking what can still be put right and carrying out a workable agreement. An apology does not perform the repair. Repair cannot require forgiveness or renewed access.',
+    ],
+    sources: ['M02', 'M04', 'M05', 'M09', 'M15', 'M17', 'M34', 'M35', 'M36', 'M37'],
+    baseline: [
+      'why-gap',
+      'why-standard',
+      'why-judgment',
+      'hesitation-capacity',
+      'miss-repair',
+      'miss-refusal',
+    ],
+    back: 'welcome',
     next: 'identify',
   },
   {
@@ -77,7 +102,7 @@ export const workshopScreens: WorkshopScreen[] = [
     },
     sources: ['M10', 'M12', 'M24', 'M25'],
     baseline: ['method-identify', 'method-scope'],
-    back: 'welcome',
+    back: 'foundation',
     next: 'negotiation',
   },
   {
@@ -131,6 +156,7 @@ export const workshopScreens: WorkshopScreen[] = [
     facts:
       'Saturday: the complete borrowed set is ready. The owner needs it before Sunday evening. You can return it at four on Sunday, but that time has not been agreed.',
     teaching: [
+      'Stack the Wins means connecting completed actions: gathering the set makes the handoff request possible, and an agreed handoff makes the return possible.',
       'Send a specific request through your agreed contact channel: “The complete set is ready. Can I bring it back at four tomorrow?” The sent request is real. Permission to arrive at four is still missing.',
       'While the answer is pending, attend to other appropriate responsibilities. Reopening the message does not create agreement. Follow up if the approaching deadline requires it.',
     ],
@@ -153,6 +179,7 @@ export const workshopScreens: WorkshopScreen[] = [
     facts:
       'Sunday: the owner agreed to receive the complete set at four. The arrangement still holds, and you can safely make the return. Leaving now is inconvenient, but no relevant fact has changed.',
     teaching: [
+      'Repeat Daily means bringing the method back to the next real obligation, here carrying yesterday’s arrangement into today’s return, without inventing another return tomorrow.',
       'Carry the agreement into today. Stop postponing the departure and return the complete set at the agreed time. Yesterday’s preparation made this possible. It did not perform today’s return.',
       'The five steps are a connected response, not five rigid gates. Each new action still needs judgment. Repeated follow-through gives your word evidence even when doubt remains.',
     ],
@@ -182,11 +209,11 @@ export const workshopScreens: WorkshopScreen[] = [
     options: [
       {
         id: 'shelf',
-        label: 'Finish the shelf, then deal with the return.',
+        label: 'Finish this section of the shelf so it will be easier to focus on the return.',
         consequence:
           'The shelf is tidier. The borrowed set remains scattered, and no handoff is arranged.',
         reasoning:
-          'The shelf is a real job, but these facts do not make it necessary for the return. You used the available time without advancing the responsibility that is waiting.',
+          'Finishing a nearby job can feel like clearing the way. Here, the shelf does not block the tools. The available time went into an easier finish while the promised return waited.',
         next: 'recover',
       },
       {
@@ -200,15 +227,16 @@ export const workshopScreens: WorkshopScreen[] = [
       },
       {
         id: 'prepare',
-        label: 'Open the garage and write a return reminder, then stop.',
-        consequence: 'Access is available and a reminder exists. The set is still unchecked.',
+        label: 'Make a return checklist and reserve a better time to gather everything tomorrow.',
+        consequence:
+          'A checklist and a later time are recorded. The set is still scattered and unchecked.',
         reasoning:
-          'A reminder may support later work. Here, you already have safe access and suitable time. Preparation has replaced the gathering you could carry out now.',
+          'Planning can support the work, but safe access, suitable time and capacity are already available. The checklist postpones the check that could happen now and leaves less time to resolve a missing item.',
         next: 'recover',
       },
     ],
     explanation:
-      'Use the responsibility to judge the move. Gathering the complete set advances the return. Tidying an unrelated shelf does not, and a reminder leaves the selected work unperformed.',
+      'Use the responsibility to judge the move. Gathering the complete set advances the return. Tidying an unrelated shelf does not, and a checklist leaves the selected work unperformed.',
     sources: ['M12', 'M16', 'M20', 'M24', 'M25'],
     baseline: ['method-tools', 'method-scope', 'method-progress'],
     back: 'repeat',
@@ -222,17 +250,17 @@ export const workshopScreens: WorkshopScreen[] = [
     facts:
       'The tools are still unchecked. The owner asks whether the complete set will be back before Sunday evening. There is still time to gather it safely and arrange the return.',
     teaching: [
-      'An unrelated job or a reminder did not remove the promise. You do not need a new declaration. You need to return to the useful work and give an accurate answer.',
+      'An unrelated job or a checklist did not remove the promise. The useful next move is to return to the work and give an accurate answer.',
     ],
     question: 'How will you answer and follow through?',
     options: [
       {
         id: 'promise',
-        label: 'Say the tools are ready so the owner can stop worrying.',
+        label: 'Confirm that everything is on track and leave the check on tomorrow’s list.',
         consequence:
-          'The owner is told the set is ready, but it has not been checked. They are planning from an unsupported claim.',
+          'The owner receives reassurance before the set has been checked. Any missing item or delay is still unknown.',
         reasoning:
-          'Reassurance cannot supply the missing check. Correct the claim, gather the set and report what the facts support.',
+          'A confident update can feel considerate, but it hides the unfinished check. State what is known, check the set and correct any reassurance the facts do not support.',
       },
       {
         id: 'check',
@@ -262,18 +290,19 @@ export const workshopScreens: WorkshopScreen[] = [
     options: [
       {
         id: 'deliver',
-        label: 'Plan to leave it at the owner’s door at four.',
-        consequence: 'You have a convenient drop-off plan, but no permission for that arrangement.',
+        label: 'Keep four as the drop-off time unless the owner asks for something different.',
+        consequence:
+          'The proposed time is treated as settled while the owner’s agreement is still missing.',
         reasoning:
-          'Silence does not authorize a drop-off. The return must respect the owner’s answer and property, not just your preferred finish time.',
+          'An unanswered proposal is not an arrangement the owner must opt out of. Confirm the handoff before acting on it; silence supplies neither consent nor permission for an unattended drop-off.',
       },
       {
         id: 'done',
-        label: 'Mark the return handled because the request is sent.',
+        label: 'Clear the return from the task list and let the owner’s reply bring it back up.',
         consequence:
           'Your request is complete. The tools remain with you and the return is still open.',
         reasoning:
-          'Naming the whole job finished hides its dependency and the delivery still owed. Give the request its proper credit without inflating it.',
+          'Clearing a sent request can feel organized, but the return still needs agreement and delivery. Keep the unresolved commitment visible so a missing reply does not become a missed handoff.',
       },
       {
         id: 'wait',
@@ -305,11 +334,11 @@ export const workshopScreens: WorkshopScreen[] = [
     options: [
       {
         id: 'old-plan',
-        label: 'Keep the original time and leave the tools outside.',
+        label: 'Offer to leave the set at four and proceed unless the owner objects.',
         consequence:
-          'The tools would sit unattended on a shared pavement without an agreed recipient. Arriving at four does not complete the handoff.',
+          'An unattended drop-off is proposed, but the plan treats silence as permission. The tools could be left on a shared pavement without an agreed recipient.',
         reasoning:
-          'Agreement to receive the tools in person did not authorize an unattended drop-off. Confirm a new arrangement with the owner.',
+          'Offering an alternative is useful. Acting before it is accepted is not a completed agreement. The earlier consent covered an in-person handoff; confirm a new arrangement before leaving the set.',
       },
       {
         id: 'revise',
@@ -321,11 +350,11 @@ export const workshopScreens: WorkshopScreen[] = [
       },
       {
         id: 'abandon',
-        label: 'Wait until next week because the original plan fell through.',
+        label: 'Wait for the owner to suggest another time before sending more messages.',
         consequence:
           'The tools remain with you while the owner’s need this evening goes unanswered.',
         reasoning:
-          'The failed arrangement does not cancel the return. Explain the limit and seek a workable option now; do not silently grant yourself an extension.',
+          'Avoiding unnecessary messages can be considerate, but the owner has offered to arrange a new handoff and needs the set tonight. Send a workable proposal through that route instead of leaving the next move unassigned.',
       },
     ],
     explanation:
@@ -349,11 +378,11 @@ export const workshopScreens: WorkshopScreen[] = [
     options: [
       {
         id: 'force',
-        label: 'Move the obstruction alone to keep the promised time.',
+        label: 'Spend a few minutes finding a way to shift it alone before asking anyone to help.',
         consequence:
-          'You try to shift an unstable load above shoulder height without assistance. Keeping the time does not remove the risk of it falling toward you.',
+          'The help request is delayed while solo workarounds are considered. The load remains unstable above shoulder height and still tilts toward the person moving it.',
         reasoning:
-          'Keeping the time does not justify ignoring the obstacle. Stop that effort and seek appropriate assistance.',
+          'Self-reliance does not make this load safe to move alone. Stop the unsafe effort, request appropriate help and tell the owner that the timing may need to change.',
       },
       {
         id: 'help',
@@ -365,11 +394,12 @@ export const workshopScreens: WorkshopScreen[] = [
       },
       {
         id: 'silence',
-        label: 'Rest and leave the owner expecting the agreed handoff.',
+        label:
+          'Pause until help is confirmed, then send the owner one update with a firm new time.',
         consequence:
           'You stop the effort, but the owner still expects a return you may not be able to make.',
         reasoning:
-          'Rest can be appropriate without being earned. Where contact is available, an affected commitment still needs an honest update and adjustment.',
+          'A complete answer may feel more useful than an uncertain update, but the owner needs to know the current limit. Needed rest remains legitimate. Where contact is available, explain the uncertainty now and agree on revised timing when it is known.',
       },
     ],
     explanation:

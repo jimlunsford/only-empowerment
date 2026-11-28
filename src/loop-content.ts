@@ -433,15 +433,15 @@ export const loopStages = [
 ] as const;
 export const loopBookUrl = 'https://jimlunsford.com/discipline-loop/';
 
-// Exact D72-05 copy. Separate from the accepted teaching and scenario graph.
+// E2 transfer reflection. Separate from the complete teaching and scenario graph.
 export const loopTransfer = {
   heading: 'Apply the Loop somewhere else',
   optional:
     'Optional reflection. This is a fictional situation. Think it through or use your own paper privately. There is no answer to submit.',
   scenario:
-    'A coworker is waiting for an update you promised. The task is unfinished. You can send an honest update now, or wait until the result looks better.',
+    'A person has set aside ten minutes to practice guitar after dinner. The guitar is within reach, but a difficult chord makes another tutorial more appealing than practicing. Time and capacity are available. The temptation is to keep learning about the work without attempting it.',
   reflection:
-    'Identify the pressure, the standard and the action that would create real evidence. Then consider what changes if communication is unavailable.',
+    'Identify the pressure, the standard and the action that would create real evidence. Trace what repeating that action could mean for self-trust, identity and the next difficult practice. Then consider what changes if an unexpected caregiving responsibility takes that time, or if a practice is simply missed. What would an honest adjustment or return look like?',
 } as const;
 export const loopHomeCopy =
   'Wanting change can start the work. Repeated action gives you a reason to trust yourself. Learn how pressure becomes a choice, action becomes evidence, and correction keeps one miss from becoming the next pattern.';

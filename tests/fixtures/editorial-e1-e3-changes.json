@@ -1,0 +1,266 @@
+{
+  "src/Execution.tsx": {
+    "beforeSha256": "f177d5c6c88d62b7bd22f8bf8181644ee9744752ed43bce65a046a55ae1ba15a",
+    "afterSha256": "48fa22b18c912b7a23263d675a518ed34634d493d9eb9419a6b3a1b2db15eafc",
+    "edits": [
+      {
+        "start": 4042,
+        "end": 4218,
+        "before": "",
+        "after": "        <a\n          href={workshopHref('foundation')}\n          aria-current={id === 'foundation' ? 'step' : undefined}\n        >\n          Why &amp; The Bargain\n        </a>\n"
+      },
+      {
+        "start": 6256,
+        "end": 6395,
+        "before": "                <span>{id === 'welcome' ? 'Start here or choose a stage' : 'Field reference'}</span>\n",
+        "after": "                <span>\n                  {id === 'foundation' ? 'Foundation · Before Stage 1' : 'Field reference'}\n                </span>\n"
+      },
+      {
+        "start": 7071,
+        "end": 7205,
+        "before": "                  <a class=\"workshop-continue\" href={workshopHref('identify')}>\n                    Continue: Identify the Next Move\n",
+        "after": "                  <a class=\"workshop-continue\" href={workshopHref('foundation')}>\n                    Continue: Why &amp; The Bargain\n"
+      }
+    ]
+  },
+  "src/execution-workshop-content.ts": {
+    "beforeSha256": "9bb9a2ddaf099e1df1d4148b48f24de15d53b93811c59020f0381c22acf95308",
+    "afterSha256": "91090d0d42033c131335403dcc71dcea4084f407399d99305901ba49c7e5d4e5",
+    "edits": [
+      {
+        "start": 3257,
+        "end": 4790,
+        "before": "",
+        "after": "    next: 'foundation',\n  },\n  {\n    id: 'foundation',\n    stage: 0,\n    title: 'Why & The Bargain',\n    purpose: 'A sound decision still needs action.',\n    facts:\n      'Pure Execution Mode exists for the gap between knowing what a responsibility requires and doing the work. The standard gives the action its purpose; being busy is not enough.',\n    teaching: [\n      'The bargain begins when discomfort keeps reopening a settled decision: after one more easy job, after more planning, when the mood improves. If the facts still support the action, another round of debate only leaves the responsibility waiting.',\n      'Judgment comes first. Missing information, consent or safe access changes the next move. A request is not agreement, and determination cannot supply another person’s permission.',\n      'Capacity matters. Help, rest, a smaller workable action or a stop may be the responsible response. Repeated difficulty calls for a closer look at the barrier and appropriate support, not a verdict on someone’s worth.',\n      'After a missed commitment, repair means naming the miss, asking what can still be put right and carrying out a workable agreement. An apology does not perform the repair. Repair cannot require forgiveness or renewed access.',\n    ],\n    sources: ['M02', 'M04', 'M05', 'M09', 'M15', 'M17', 'M34', 'M35', 'M36', 'M37'],\n    baseline: [\n      'why-gap',\n      'why-standard',\n      'why-judgment',\n      'hesitation-capacity',\n      'miss-repair',\n      'miss-refusal',\n    ],\n    back: 'welcome',\n"
+      },
+      {
+        "start": 5785,
+        "end": 5809,
+        "before": "    back: 'welcome',\n",
+        "after": "    back: 'foundation',\n"
+      },
+      {
+        "start": 8337,
+        "end": 8500,
+        "before": "",
+        "after": "      'Stack the Wins means connecting completed actions: gathering the set makes the handoff request possible, and an agreed handoff makes the return possible.',\n"
+      },
+      {
+        "start": 9760,
+        "end": 9944,
+        "before": "",
+        "after": "      'Repeat Daily means bringing the method back to the next real obligation, here carrying yesterday’s arrangement into today’s return, without inventing another return tomorrow.',\n"
+      },
+      {
+        "start": 11546,
+        "end": 11642,
+        "before": "        label: 'Finish the shelf, then deal with the return.',\n",
+        "after": "        label: 'Finish this section of the shelf so it will be easier to focus on the return.',\n"
+      },
+      {
+        "start": 11780,
+        "end": 11970,
+        "before": "          'The shelf is a real job, but these facts do not make it necessary for the return. You used the available time without advancing the responsibility that is waiting.',\n",
+        "after": "          'Finishing a nearby job can feel like clearing the way. Here, the shelf does not block the tools. The available time went into an easier finish while the promised return waited.',\n"
+      },
+      {
+        "start": 12495,
+        "end": 12713,
+        "before": "        label: 'Open the garage and write a return reminder, then stop.',\n        consequence: 'Access is available and a reminder exists. The set is still unchecked.',\n",
+        "after": "        label: 'Make a return checklist and reserve a better time to gather everything tomorrow.',\n        consequence:\n          'A checklist and a later time are recorded. The set is still scattered and unchecked.',\n"
+      },
+      {
+        "start": 12732,
+        "end": 12947,
+        "before": "          'A reminder may support later work. Here, you already have safe access and suitable time. Preparation has replaced the gathering you could carry out now.',\n",
+        "after": "          'Planning can support the work, but safe access, suitable time and capacity are already available. The checklist postpones the check that could happen now and leaves less time to resolve a missing item.',\n"
+      },
+      {
+        "start": 13005,
+        "end": 13195,
+        "before": "      'Use the responsibility to judge the move. Gathering the complete set advances the return. Tidying an unrelated shelf does not, and a reminder leaves the selected work unperformed.',\n",
+        "after": "      'Use the responsibility to judge the move. Gathering the complete set advances the return. Tidying an unrelated shelf does not, and a checklist leaves the selected work unperformed.',\n"
+      },
+      {
+        "start": 13705,
+        "end": 13849,
+        "before": "      'An unrelated job or a reminder did not remove the promise. You do not need a new declaration. You need to return to the useful work and give an accurate answer.',\n",
+        "after": "      'An unrelated job or a checklist did not remove the promise. The useful next move is to return to the work and give an accurate answer.',\n"
+      },
+      {
+        "start": 13959,
+        "end": 14053,
+        "before": "        label: 'Say the tools are ready so the owner can stop worrying.',\n",
+        "after": "        label: 'Confirm that everything is on track and leave the check on tomorrow’s list.',\n"
+      },
+      {
+        "start": 14074,
+        "end": 14195,
+        "before": "          'The owner is told the set is ready, but it has not been checked. They are planning from an unsupported claim.',\n",
+        "after": "          'The owner receives reassurance before the set has been checked. Any missing item or delay is still unknown.',\n"
+      },
+      {
+        "start": 14214,
+        "end": 14392,
+        "before": "          'Reassurance cannot supply the missing check. Correct the claim, gather the set and report what the facts support.',\n",
+        "after": "          'A confident update can feel considerate, but it hides the unfinished check. State what is known, check the set and correct any reassurance the facts do not support.',\n"
+      },
+      {
+        "start": 15747,
+        "end": 15963,
+        "before": "        label: 'Plan to leave it at the owner’s door at four.',\n        consequence: 'You have a convenient drop-off plan, but no permission for that arrangement.',\n",
+        "after": "        label: 'Keep four as the drop-off time unless the owner asks for something different.',\n        consequence:\n          'The proposed time is treated as settled while the owner’s agreement is still missing.',\n"
+      },
+      {
+        "start": 15982,
+        "end": 16184,
+        "before": "          'Silence does not authorize a drop-off. The return must respect the owner’s answer and property, not just your preferred finish time.',\n",
+        "after": "          'An unanswered proposal is not an arrangement the owner must opt out of. Confirm the handoff before acting on it; silence supplies neither consent nor permission for an unattended drop-off.',\n"
+      },
+      {
+        "start": 16221,
+        "end": 16319,
+        "before": "        label: 'Mark the return handled because the request is sent.',\n",
+        "after": "        label: 'Clear the return from the task list and let the owner’s reply bring it back up.',\n"
+      },
+      {
+        "start": 16454,
+        "end": 16654,
+        "before": "          'Naming the whole job finished hides its dependency and the delivery still owed. Give the request its proper credit without inflating it.',\n",
+        "after": "          'Clearing a sent request can feel organized, but the return still needs agreement and delivery. Keep the unresolved commitment visible so a missing reply does not become a missed handoff.',\n"
+      },
+      {
+        "start": 18169,
+        "end": 18256,
+        "before": "        label: 'Keep the original time and leave the tools outside.',\n",
+        "after": "        label: 'Offer to leave the set at four and proceed unless the owner objects.',\n"
+      },
+      {
+        "start": 18277,
+        "end": 18443,
+        "before": "          'The tools would sit unattended on a shared pavement without an agreed recipient. Arriving at four does not complete the handoff.',\n",
+        "after": "          'An unattended drop-off is proposed, but the plan treats silence as permission. The tools could be left on a shared pavement without an agreed recipient.',\n"
+      },
+      {
+        "start": 18462,
+        "end": 18669,
+        "before": "          'Agreement to receive the tools in person did not authorize an unattended drop-off. Confirm a new arrangement with the owner.',\n",
+        "after": "          'Offering an alternative is useful. Acting before it is accepted is not a completed agreement. The earlier consent covered an in-person handoff; confirm a new arrangement before leaving the set.',\n"
+      },
+      {
+        "start": 19129,
+        "end": 19220,
+        "before": "        label: 'Wait until next week because the original plan fell through.',\n",
+        "after": "        label: 'Wait for the owner to suggest another time before sending more messages.',\n"
+      },
+      {
+        "start": 19352,
+        "end": 19582,
+        "before": "          'The failed arrangement does not cancel the return. Explain the limit and seek a workable option now; do not silently grant yourself an extension.',\n",
+        "after": "          'Avoiding unnecessary messages can be considerate, but the owner has offered to arrange a new handoff and needs the set tonight. Send a workable proposal through that route instead of leaving the next move unassigned.',\n"
+      },
+      {
+        "start": 20705,
+        "end": 20805,
+        "before": "        label: 'Move the obstruction alone to keep the promised time.',\n",
+        "after": "        label: 'Spend a few minutes finding a way to shift it alone before asking anyone to help.',\n"
+      },
+      {
+        "start": 20826,
+        "end": 20999,
+        "before": "          'You try to shift an unstable load above shoulder height without assistance. Keeping the time does not remove the risk of it falling toward you.',\n",
+        "after": "          'The help request is delayed while solo workarounds are considered. The load remains unstable above shoulder height and still tilts toward the person moving it.',\n"
+      },
+      {
+        "start": 21018,
+        "end": 21193,
+        "before": "          'Keeping the time does not justify ignoring the obstacle. Stop that effort and seek appropriate assistance.',\n",
+        "after": "          'Self-reliance does not make this load safe to move alone. Stop the unsafe effort, request appropriate help and tell the owner that the timing may need to change.',\n"
+      },
+      {
+        "start": 21702,
+        "end": 21814,
+        "before": "        label: 'Rest and leave the owner expecting the agreed handoff.',\n",
+        "after": "        label:\n          'Pause until help is confirmed, then send the owner one update with a firm new time.',\n"
+      },
+      {
+        "start": 21954,
+        "end": 22213,
+        "before": "          'Rest can be appropriate without being earned. Where contact is available, an affected commitment still needs an honest update and adjustment.',\n",
+        "after": "          'A complete answer may feel more useful than an uncertain update, but the owner needs to know the current limit. Needed rest remains legitimate. Where contact is available, explain the uncertainty now and agree on revised timing when it is known.',\n"
+      }
+    ]
+  },
+  "src/execution-view.ts": {
+    "beforeSha256": "52530f66475d4acccc386a0e5699467e0124c8ac8513c60c7307d872accdefeb",
+    "afterSha256": "cd78ecce84473b868855c42ca61efca43e82de2556a51621f2dc252525a6dba5",
+    "edits": [
+      {
+        "start": 4182,
+        "end": 4252,
+        "before": "    n(h2, {}, 'Guided workshop: every decision and consequence'),\n",
+        "after": "    n(h2, { id: id('outcomes'), tabIndex: -1 }, 'Workshop outcomes'),\n"
+      },
+      {
+        "start": 7466,
+        "end": 7752,
+        "before": "",
+        "after": "    ...(surface === 'reading'\n      ? [\n          n(\n            'nav',\n            { class: 'execution-entry-links', 'aria-label': 'Reading sections' },\n            a('#why', 'Explanation'),\n            a('#workshop-outcomes', 'Workshop outcomes'),\n          ),\n        ]\n      : []),\n"
+      }
+    ]
+  },
+  "src/loop-content.ts": {
+    "beforeSha256": "f4f98a37e929a227d6a860d3f0e9ae590d3ea0e7cccbfafd103cec5f32ccef44",
+    "afterSha256": "9a33b7c64602e7cdc59dbc8c16f27ec5db24b8c784cb010e5a44823776dd9179",
+    "edits": [
+      {
+        "start": 21762,
+        "end": 21845,
+        "before": "// Exact D72-05 copy. Separate from the accepted teaching and scenario graph.\n",
+        "after": "// E2 transfer reflection. Separate from the complete teaching and scenario graph.\n"
+      },
+      {
+        "start": 22082,
+        "end": 22368,
+        "before": "    'A coworker is waiting for an update you promised. The task is unfinished. You can send an honest update now, or wait until the result looks better.',\n",
+        "after": "    'A person has set aside ten minutes to practice guitar after dinner. The guitar is within reach, but a difficult chord makes another tutorial more appealing than practicing. Time and capacity are available. The temptation is to keep learning about the work without attempting it.',\n"
+      },
+      {
+        "start": 22382,
+        "end": 22750,
+        "before": "    'Identify the pressure, the standard and the action that would create real evidence. Then consider what changes if communication is unavailable.',\n",
+        "after": "    'Identify the pressure, the standard and the action that would create real evidence. Trace what repeating that action could mean for self-trust, identity and the next difficult practice. Then consider what changes if an unexpected caregiving responsibility takes that time, or if a practice is simply missed. What would an honest adjustment or return look like?',\n"
+      }
+    ]
+  },
+  "src/PracticeOwnership.tsx": {
+    "beforeSha256": "89fc66c886f207751057afc3a9f4282270f39510f2d340ed4cf1356cbbb21735",
+    "afterSha256": "750d6e84594a33d2b387f672c424c1ddf2111d8228b6c31f22fcd3bb6f951a00",
+    "edits": [
+      {
+        "start": 4670,
+        "end": 4720,
+        "before": "                <details open class=\"practice-honest\">\n",
+        "after": "                <details class=\"practice-honest\">\n"
+      }
+    ]
+  },
+  "src/Resilience.tsx": {
+    "beforeSha256": "03bdaf4f4c1cfbd73d4ee4ecca6bebf730aa2c3fc023d6a7b300f8fd096fc474",
+    "afterSha256": "f9e14e731b2bfaba32f21244ec65ec35f730a77ced5265ced5ad0e02729b4072",
+    "edits": [
+      {
+        "start": 7168,
+        "end": 7210,
+        "before": "        {note.responses.map((response, index) =>\n",
+        "after": "        {note.responses.map((response) =>\n"
+      },
+      {
+        "start": 7392,
+        "end": 7435,
+        "before": "            <details key={response.title} open={index === 0}>\n",
+        "after": "            <details key={response.title}>\n"
+      }
+    ]
+  }
+}

@@ -109,6 +109,12 @@ export function Execution() {
     <aside class="workshop-guide">
       <nav aria-label="Workshop stages">
         <p class="workshop-guide-title">The workshop</p>
+        <a
+          href={workshopHref('foundation')}
+          aria-current={id === 'foundation' ? 'step' : undefined}
+        >
+          Why &amp; The Bargain
+        </a>
         <ol>
           {workshopStages.map((stage, index) => (
             <li>
@@ -162,7 +168,9 @@ export function Execution() {
                     : `Screen ${position} of ${stageScreens.length}`}
                 </span>
               ) : (
-                <span>{id === 'welcome' ? 'Start here or choose a stage' : 'Field reference'}</span>
+                <span>
+                  {id === 'foundation' ? 'Foundation · Before Stage 1' : 'Field reference'}
+                </span>
               )}
               <a href="/read/execution.html" target="_blank" rel="noopener noreferrer">
                 Complete reading and print edition (new tab)
@@ -179,8 +187,8 @@ export function Execution() {
               <p class="workshop-purpose">{screen.purpose}</p>
               {id === 'welcome' && (
                 <div class="workshop-hero-actions">
-                  <a class="workshop-continue" href={workshopHref('identify')}>
-                    Continue: Identify the Next Move
+                  <a class="workshop-continue" href={workshopHref('foundation')}>
+                    Continue: Why &amp; The Bargain
                   </a>
                   <a href="#/">All frameworks</a>
                 </div>
