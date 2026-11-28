@@ -153,7 +153,12 @@ test('new guidance leaves exact clipboard fallback, draft reuse, clearing and pr
   await populate(page);
   await page.getByRole('button', { name: 'Copy my card' }).click();
   await expect(page.locator('#period-copy')).toBeFocused();
-  await expect(page.locator('#period-copy')).toHaveValue(samples[1].text);
+  await expect(page.locator('#period-copy')).toHaveValue(
+    samples[1].text.replace(
+      'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
+      'An educational companion to The PERIOD Code by Jim Lunsford.',
+    ),
+  );
   await expect(page.locator('.copy-status')).toHaveText(
     'Copy was blocked. Select and copy the text below.',
   );

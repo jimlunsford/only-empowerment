@@ -85,7 +85,7 @@ test('the complete approved lesson stands alone and the header offers six full l
     .getByRole('link', { name: content.lesson.nextLink, exact: true })
     .click();
   await expect(page.locator('h1')).toHaveText('Empowerment.');
-  await expect(page.getByRole('main')).toContainText('All six values have full lessons.');
+  await expect(page.getByRole('main')).toContainText('6 of 6 in the teaching order');
   await expect(page.getByRole('main')).not.toContainText(
     'full Empowerment lesson is not yet available',
   );

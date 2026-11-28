@@ -219,7 +219,7 @@ test('every script-free footer leads to working license and exact source without
       await expect(page.locator('.source-information a[href="/LICENSE.txt"]')).toBeVisible();
       if (!build.dirty)
         await expect(
-          page.getByRole('link', { name: 'Corresponding source for this build', exact: true }),
+          page.getByRole('link', { name: 'Corresponding source', exact: true }),
         ).toHaveAttribute('href', build.source);
       expect((await request.get('/LICENSE.txt')).status()).toBe(200);
       expect((await request.get('/SHA256SUMS')).status()).toBe(200);

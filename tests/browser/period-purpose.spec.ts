@@ -275,7 +275,7 @@ test('six-value navigation preserves Ownership practice and identifies every ful
   await expect(page.locator('h1')).toHaveText('Discipline.');
   await page.goto('/#/period/values/empowerment');
   await expect(page.locator('h1')).toHaveText('Empowerment.');
-  await expect(page.getByRole('main')).toContainText('All six values have full lessons.');
+  await expect(page.getByRole('main')).toContainText('6 of 6 in the teaching order');
   await expect(page.getByRole('main')).not.toContainText('not yet available');
 });
 
