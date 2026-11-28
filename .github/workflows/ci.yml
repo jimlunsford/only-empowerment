@@ -4,6 +4,9 @@ on:
     branches: [main]
     tags: ['v*']
   pull_request:
+  schedule:
+    # Sunday night in America/Indianapolis (22:17 EST / 23:17 EDT).
+    - cron: '17 3 * * 1'
   workflow_dispatch:
     inputs:
       verify_staging:
@@ -22,6 +25,12 @@ on:
         description: 'Independently expected exact tag; empty for an untagged development build'
         type: string
         default: ''
+# PRs and main pushes use Chromium; manual, weekly, and release-tag runs use all projects.
+env:
+  PLAYWRIGHT_BROWSERS: >-
+    ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || github.ref_type == 'tag') && 'chromium firefox webkit' || 'chromium' }}
+  PLAYWRIGHT_PROJECTS: >-
+    ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' || github.ref_type == 'tag') && '--project=chromium --project=mobile-chromium --project=firefox --project=webkit' || '--project=chromium --project=mobile-chromium' }}
 permissions:
   contents: read
 concurrency:
@@ -41,6 +50,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .nvmrc
+          cache: npm
       - name: Validate tagged release state
         if: github.ref_type == 'tag'
         run: npm run check:release
@@ -52,9 +62,9 @@ jobs:
         env:
           OE_RELEASE_BUILD: '1'
           OE_PRESENTATION: production
-      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npx playwright install --with-deps $PLAYWRIGHT_BROWSERS
       - name: Verify production-intended presentation
-        run: npx playwright test tests/browser/presentation.spec.ts tests/browser/shell.spec.ts --output test-results/production
+        run: npx playwright test tests/browser/presentation.spec.ts tests/browser/shell.spec.ts $PLAYWRIGHT_PROJECTS --output test-results/production
         env:
           OE_PRESENTATION: production
       - name: Preserve verified production artifact before rebuilding dist
@@ -111,14 +121,15 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version-file: .nvmrc
+          cache: npm
       - run: npm ci
       - name: Download the staging build verified by the unit/build job
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: only-empowerment-staging-${{ github.event.pull_request.head.sha || github.sha }}
           path: dist/
-      - run: npx playwright install --with-deps chromium firefox webkit
-      - run: npm run test:e2e -- --shard=${{ matrix.shard }}/4 --output test-results/staging
+      - run: npx playwright install --with-deps $PLAYWRIGHT_BROWSERS
+      - run: npm run test:e2e -- $PLAYWRIGHT_PROJECTS --shard=${{ matrix.shard }}/4 --output test-results/staging
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

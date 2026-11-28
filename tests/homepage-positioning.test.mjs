@@ -1,3 +1,4 @@
+import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
@@ -36,6 +37,10 @@ test('homepage positioning accepts only pinned band edits and preserves all othe
     .trim()
     .split('\n');
   for (const path of paths) {
+    if (path === '.github/workflows/ci.yml') {
+      assertApprovedCiWorkflow(readFileSync(path, 'utf8'));
+      continue;
+    }
     const source = readFileSync(path, 'utf8');
     const original = execFileSync('git', ['show', base + ':' + path], {
       encoding: 'utf8',

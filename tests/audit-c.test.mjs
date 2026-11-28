@@ -1,3 +1,4 @@
+import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import { beforeAuditDSource } from './audit-d-preservation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -50,6 +51,10 @@ test('Batch C source edits reverse exactly and leave layout, behavior, deploymen
     .trim()
     .split('\n');
   for (const path of [...paths, 'src/privacy-content.ts']) {
+    if (path === '.github/workflows/ci.yml') {
+      assertApprovedCiWorkflow(readFileSync(path, 'utf8'));
+      continue;
+    }
     const source = beforeAuditDSource(read(path), path);
     const original =
       path === 'src/privacy-content.ts'

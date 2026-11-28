@@ -1,3 +1,4 @@
+import { assertApprovedCiWorkflow } from './ci-workflow-preservation.mjs';
 import { beforeHomepagePositioningSource } from './homepage-positioning-preservation.mjs';
 import { beforeEditorialReading } from './editorial-e1-e3-preservation.mjs';
 import test from 'node:test';
@@ -58,6 +59,10 @@ test('Batch D permits only pinned layout and accessibility edits and preserves t
     .trim()
     .split('\n');
   for (const path of paths) {
+    if (path === '.github/workflows/ci.yml') {
+      assertApprovedCiWorkflow(readFileSync(path, 'utf8'));
+      continue;
+    }
     const source = beforeHomepagePositioningSource(readFileSync(path, 'utf8'), path);
     const original = execFileSync('git', ['show', base + ':' + path], {
       encoding: 'utf8',
