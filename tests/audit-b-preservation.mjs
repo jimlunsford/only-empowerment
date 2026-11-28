@@ -1,3 +1,8 @@
+import {
+  beforeAuditCSource,
+  beforeAuditCReading,
+  beforeAuditCCopy,
+} from './audit-c-preservation.mjs';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import changes from './fixtures/audit-b-changes.json' with { type: 'json' };
@@ -5,6 +10,7 @@ import copy from './fixtures/audit-b-copy.json' with { type: 'json' };
 const sha = (source) => createHash('sha256').update(source).digest('hex');
 // Historical guards accept only the exact Batch B source bytes pinned here.
 export function beforeAuditBSource(source, path) {
+  source = beforeAuditCSource(source, path);
   const change = changes[path];
   if (!change || sha(source) !== change.afterSha256) return source;
   for (const edit of [...change.edits].reverse()) {
@@ -15,6 +21,7 @@ export function beforeAuditBSource(source, path) {
   return source;
 }
 export function beforeAuditBCopy(value) {
+  value = beforeAuditCCopy(value);
   if (typeof value === 'string') return copy.find((edit) => edit.after === value)?.before ?? value;
   if (Array.isArray(value)) return value.map(beforeAuditBCopy);
   if (value && typeof value === 'object')
@@ -24,6 +31,7 @@ export function beforeAuditBCopy(value) {
   return value;
 }
 export function beforeAuditBReading(html) {
+  html = beforeAuditCReading(html);
   const escape = (text) =>
     text
       .replaceAll('&', '&amp;')

@@ -17,7 +17,8 @@ const escape = (text: string) =>
     .replaceAll('"', '&quot;');
 const p = (text: string) => `<p>${escape(text)}</p>`;
 const h = (text: string, level = 2) => `<h${level}>${escape(text)}</h${level}>`;
-const link = (href: string, text: string) => `<a href="${href}">${escape(text)}</a>`;
+const link = (href: string, text: string) =>
+  `<a href="${href}"${href === periodBook.url ? ' target="_blank" rel="noopener noreferrer"' : ''}>${escape(text)}</a>`;
 
 // Build-time export of the approved visitor copy. All three patterns remain usable without scripts.
 export function disciplineReading(staging = true, metadata?: FooterBuild) {
@@ -31,7 +32,7 @@ export function disciplineReading(staging = true, metadata?: FooterBuild) {
 <body class="period-shell"><a class="skip-link" href="#main">Skip to content</a>
 <main id="main" class="site-main discipline-static" tabindex="-1" aria-label="Complete Discipline reading">
 <nav id="top" class="no-print" aria-label="Discipline reading links">${link('/', 'Only Empowerment overview')}${link('/read/integrity.html', 'Read Integrity')}${link('#comparison', lesson.readingLink)}</nav>
-<header class="discipline-heading"><h1 id="lesson">${escape(lesson.title)}</h1><p class="lead">${escape(lesson.deck)}</p>${lesson.intro.map(p).join('')}</header>
+<header class="discipline-heading"><p class="position">5 of 6 in the teaching order</p><h1 id="lesson">${escape(lesson.title)}</h1><p class="lead">${escape(lesson.deck)}</p>${lesson.intro.map(p).join('')}</header>
 <p class="small no-print">${escape(disciplineAvailability)}</p>
 <article class="discipline-lesson" aria-label="Discipline lesson">
 ${lesson.sections.map((section) => `<section id="discipline-${section.id}">${h(section.title)}${section.paragraphs.map(p).join('')}</section>`).join('')}

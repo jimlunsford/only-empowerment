@@ -20,9 +20,9 @@ export function LegacyDataRemoval() {
   }
   return (
     <section class="local-delete">
-      <h2>Delete legacy tool data</h2>
+      <h3>Delete legacy tool data</h3>
       <p>
-        Remove records saved by the retired tools from this browser profile on this site, including
+        Remove records saved by an earlier version from this browser profile on this site, including
         unreadable or unsupported records. This control does not open or display them. Close any
         older tool tabs first; an older tab could save data again.
       </p>
@@ -48,9 +48,10 @@ export function LegacyDataRemoval() {
           onConfirm={remove}
         >
           <p>
-            All records under the retired app’s browser-storage keys on this site will be removed,
-            including unreadable or unsupported records. The app cannot undo this. Unrelated
-            browser-storage keys will be left alone. Close older tool tabs before continuing.
+            All records under the earlier version’s browser-storage keys on this site will be
+            removed, including unreadable or unsupported records. The app cannot undo this.
+            Unrelated browser-storage keys will be left alone. Close older tool tabs before
+            continuing.
           </p>
           <p>
             The separate memory-only PERIOD Standard Card draft will not be cleared. Clipboard

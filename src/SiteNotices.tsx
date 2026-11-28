@@ -12,7 +12,8 @@ export function SiteNotices({ build, source }: { build: FooterBuild; source: Edu
   return (
     <div class="footer-provenance footer-notices">
       <p class="founder-copyright">
-        Copyright © <a href={founderLinks.author}>Jim Lunsford</a>. All rights reserved. A{' '}
+        Copyright © <a href={founderLinks.author}>Jim Lunsford</a>. Software and educational
+        adaptations: AGPL-3.0-or-later. Published books: all rights reserved. A{' '}
         <a href={founderLinks.company}>Phoenix 2:33 LLC</a> Project.
       </p>
       <div class="footer-print-urls">
@@ -21,7 +22,9 @@ export function SiteNotices({ build, source }: { build: FooterBuild; source: Edu
           {education.url && (
             <>
               {' '}
-              <a href={education.url}>{education.url}</a>
+              <a href={education.url} target="_blank" rel="noopener noreferrer">
+                {education.url}
+              </a>
             </>
           )}
         </p>

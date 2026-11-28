@@ -118,7 +118,7 @@ export function ResilienceLesson({ openCard }: { openCard: () => void }) {
                 )}
                 {section.id === 'L12' && (
                   <>
-                    <a href={periodBook.url} rel="noreferrer">
+                    <a href={periodBook.url} target="_blank" rel="noopener noreferrer">
                       {section.cta}
                     </a>
                     <p>

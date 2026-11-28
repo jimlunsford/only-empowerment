@@ -40,7 +40,7 @@ test('script-free Privacy preserves exact source, license, no warranty, checksum
     assert.ok(html.includes(build.source));
     assert.match(html, /href="\/LICENSE.txt">AGPL-3.0-or-later/);
     assert.match(html, /No warranty/);
-    assert.match(html, /does not limit these software permissions/);
+    assert.match(html, /do not limit these software permissions/);
     assert.match(html, /href="\/SHA256SUMS"/);
     assert.match(
       html,

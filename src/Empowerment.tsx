@@ -225,7 +225,12 @@ export function EmpowermentLesson({ openCard }: { openCard: () => void }) {
           <section>
             <h2>{lesson.bookTitle}</h2>
             <p>{lesson.bookNote}</p>
-            <a class="empowerment-text-link" href={periodBook.url} rel="noreferrer">
+            <a
+              class="empowerment-text-link"
+              href={periodBook.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {lesson.bookLink}
             </a>
             <p>

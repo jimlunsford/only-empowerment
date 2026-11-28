@@ -231,7 +231,9 @@ test('standalone no-JavaScript rebuilding PDF prints only the intended framework
       await expect(page.locator('#rebuild-reading .flatstate:visible')).toHaveCount(22);
       await expect(page.locator('.period-learning:visible')).toHaveCount(0);
       await expect(
-        page.getByText('Based on How to Rebuild Yourself by Jim Lunsford.', { exact: false }),
+        page.getByText('An educational companion to How to Rebuild Yourself by Jim Lunsford.', {
+          exact: false,
+        }),
       ).toBeVisible();
       for (const format of ['A4', 'Letter'] as const)
         await page.pdf({

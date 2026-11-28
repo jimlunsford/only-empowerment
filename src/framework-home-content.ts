@@ -8,3 +8,6 @@ export const frameworkOrientation = {
   choice:
     "Start where you need to. You don't have to complete one framework to benefit from another.",
 } as const;
+
+export const frameworkPositioning =
+  "Only Empowerment is free to use, with no accounts, no tracking, and nothing you enter leaving your browser. Each framework is a complete, self-contained companion to one of Jim Lunsford's four published books, built so anyone can learn the ideas and put them to work without buying anything first. Direct links to the books are included if you want them, but no purchase is required.";

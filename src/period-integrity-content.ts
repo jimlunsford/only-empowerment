@@ -114,8 +114,7 @@ export const integrityContent = {
   availability: 'Discipline is next in the teaching order.',
   card: 'If you want a reminder, name one honest behavior on an optional Standard Card and copy or print it. Keep it where you can return to it before a promise or a correction. The card cannot make your conduct truthful. What you do next can.',
   book: 'The book develops the origins of The PERIOD Code, its six values and their deliberate order. This free lesson offers a practical way to understand Integrity. You can use it without buying anything.',
-  attribution:
-    'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
+  attribution: 'An educational companion to The PERIOD Code by Jim Lunsford.',
   case: {
     title: "When the record doesn't match.",
     lead: 'Read the claim. Examine the facts. Follow the correction into action.',

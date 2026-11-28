@@ -46,7 +46,7 @@ test('approved copy, always-visible comparison, privacy and exact attribution', 
     c.bookUrl,
   );
   await expect(page.locator('.founder-copyright')).toHaveText(
-    'Copyright © Jim Lunsford. All rights reserved. A Phoenix 2:33 LLC Project.',
+    'Copyright © Jim Lunsford. Software and educational adaptations: AGPL-3.0-or-later. Published books: all rights reserved. A Phoenix 2:33 LLC Project.',
   );
   expect(
     (

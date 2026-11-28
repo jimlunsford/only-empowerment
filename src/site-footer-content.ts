@@ -2,29 +2,30 @@ import { periodExercise, periodBook } from './period-content.ts';
 
 export type FooterBuild = { version: string; commit: string; source: string; dirty: boolean };
 export const founderCopyright =
-  'Copyright © Jim Lunsford. All rights reserved. A Phoenix 2:33 LLC Project.';
+  'Copyright © Jim Lunsford. Software and educational adaptations: AGPL-3.0-or-later. Published books: all rights reserved. A Phoenix 2:33 LLC Project.';
 export const founderLinks = {
   author: 'https://jimlunsford.com/',
   books: 'https://jimlunsford.com/books/',
   company: 'https://phoenix233.com/',
 };
 export const softwareNotice = {
-  copyright: 'Application software: Copyright (C) 2026 Jim Lunsford. Licensed under ',
+  copyright:
+    'Application software and educational adaptations: Copyright (C) 2026 Jim Lunsford. Licensed under ',
   license: 'AGPL-3.0-or-later',
   permissions:
-    '. You may use, modify, and redistribute it under that license. No warranty. The founder copyright statement does not limit these software permissions.',
+    '. You may use, modify, and redistribute it under that license. No warranty. Rights reserved in the published books do not limit these software permissions.',
 };
 export type EducationSource = 'period' | 'rebuild' | 'loop' | 'execution' | 'combined';
 export function footerEducation(source: EducationSource) {
   if (source === 'period') return { text: periodExercise.source, url: periodBook.url };
   if (source === 'execution')
     return {
-      text: 'Based on Pure Execution Mode by Jim Lunsford. Educational adaptation by Only Empowerment.',
+      text: 'An educational companion to Pure Execution Mode by Jim Lunsford.',
       url: 'https://jimlunsford.com/pure-execution-mode/',
     };
   if (source === 'loop')
     return {
-      text: 'Based on The Discipline Loop by Jim Lunsford. Educational adaptation by Only Empowerment.',
+      text: 'An educational companion to The Discipline Loop by Jim Lunsford.',
       url: 'https://jimlunsford.com/discipline-loop/',
     };
   const titles =
@@ -32,7 +33,7 @@ export function footerEducation(source: EducationSource) {
       ? 'How to Rebuild Yourself'
       : 'The PERIOD Code, How to Rebuild Yourself, The Discipline Loop and Pure Execution Mode';
   return {
-    text: `Based on ${titles} by Jim Lunsford. Educational adaptation by Only Empowerment.`,
+    text: `An educational companion to ${titles} by Jim Lunsford.`,
     url: null,
   };
 }

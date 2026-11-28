@@ -145,14 +145,16 @@ export function loopTeaching(surface: LoopSurface = 'app'): LoopNode {
               ),
             );
           if (block.related) {
+            const index = block.text.indexOf(block.related.label);
             return node(
               'p',
               {},
-              block.text + ' ',
+              block.text.slice(0, index),
               anchor(
                 surface === 'app' ? block.related.app : block.related.reading,
                 block.related.label,
               ),
+              block.text.slice(index + block.related.label.length),
             );
           }
           if (block.executionLink) {

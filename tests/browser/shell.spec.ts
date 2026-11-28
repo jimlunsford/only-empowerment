@@ -97,9 +97,7 @@ test('Privacy & source and metadata identify the same build', async ({ page, req
   await expect(page.locator('.source-information')).toContainText('No warranty');
   if (!metadata.dirty)
     await expect(
-      page
-        .locator('.source-information')
-        .getByRole('link', { name: 'Corresponding source for this build' }),
+      page.locator('.source-information').getByRole('link', { name: 'Corresponding source' }),
     ).toHaveAttribute('href', metadata.source);
 });
 

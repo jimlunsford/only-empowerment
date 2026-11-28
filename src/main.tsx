@@ -1,3 +1,4 @@
+import { privacySummary, privacyTracking } from './privacy-content';
 import { founderLinks } from './site-footer-content';
 import { LegacyDataRemoval } from './LegacyDataRemoval';
 import { SiteNotices } from './SiteNotices';
@@ -49,11 +50,7 @@ function Privacy() {
   return (
     <div class="narrow legacy-info">
       <PageIntro title="Your answers are not ours to collect.">
-        <p>
-          No accounts. No tracking is enabled in this build. You can read and practice without
-          submitting personal answers. Interactive choices and the optional Standard Card draft stay
-          only in this tab’s memory, not in browser storage. Reloading or closing clears them.
-        </p>
+        <p>{privacySummary}</p>
       </PageIntro>
       <div class="privacy-facts">
         <section>
@@ -72,8 +69,8 @@ function Privacy() {
           <h2>What stays in the page</h2>
           <p>
             The optional PERIOD Standard Card keeps its draft only in application session memory in
-            this open tab during in-site navigation. It never enters Saved work or browser storage.
-            Reloading or closing can discard it; copy or print anything you want to keep.
+            this open tab during in-site navigation. It does not enter browser storage. Reloading or
+            closing discards it; copy or print anything you want to keep.
           </p>
         </section>
         <section>
@@ -86,7 +83,7 @@ function Privacy() {
           </p>
           <p>
             Hosting systems keep operational request logs. Retention depends on the host, provider,
-            and backup policies; deleting legacy tool data does not delete those logs.
+            and backup policies; deleting old site data does not delete those logs.
           </p>
           {__STAGING__ && (
             <p>
@@ -98,31 +95,8 @@ function Privacy() {
           <p>Answers are not included in ordinary application requests by design.</p>
         </section>
         <section>
-          <h2>Analytics and tracking boundaries</h2>
-          <p>
-            Google Analytics is not enabled in this build. Production is planned to use minimal
-            aggregate site and product usage analytics. Your written answers, Saved work records,
-            Standard Card text, and clipboard contents are excluded. We will update this page before
-            activating analytics.
-          </p>
-          <p>
-            Any future analytics would be limited to approved, content-free site usage. Retiring the
-            tools does not authorize new tracking or collection of old records.
-          </p>
-          <p>
-            Standard Card text and residual legacy records are not sent to Google Analytics. Written
-            answers, artifact contents, copied text, and other user-authored private data are
-            excluded.
-          </p>
-          <p>
-            Only Empowerment does not use session replay, heatmaps, advertising personalization,
-            remarketing, Google Signals, User-ID, or user-provided data for analytics. It does not
-            build behavioral advertising profiles.
-          </p>
-          <p>
-            No AI service or remote fonts are used. Links to JimLunsford.com and GitHub open those
-            sites only when you choose them, with no answer content added to the link.
-          </p>
+          <h2>Tracking and external services</h2>
+          <p>{privacyTracking}</p>
         </section>
         <section>
           <h2>Copy and print are your choice</h2>
@@ -130,7 +104,7 @@ function Privacy() {
             Copying puts the Standard Card on your device’s clipboard. Your operating system may
             sync that clipboard. Printing or saving a PDF passes content to your browser and
             printing system. Clipboard copies, PDFs, printouts, screenshots, and device backups are
-            yours to manage and are not removed by deleting legacy tool data.
+            yours to manage and are not removed by deleting old site data.
           </p>
         </section>
         <section>
@@ -142,28 +116,20 @@ function Privacy() {
           </p>
         </section>
         <section>
-          <h2>Records from the retired tools</h2>
+          <h2>If you used an earlier version of this site</h2>
           <p>
-            The earlier tools and Saved work are retired. Records saved with an older version may
-            still remain in this browser profile on this site.
-          </p>
-          <p>
-            This application does not open, read, list, change, or automatically delete old saved
-            records. Visiting a lesson, navigating the site, or reloading leaves them alone. The
-            deletion control below accesses only the old storage keys after you confirm.
+            An earlier version may have saved records in this browser profile on this site. This
+            application does not open, read, list, change, or automatically delete those records.
+            The deletion control below accesses only the old storage keys after you confirm.
           </p>
           <p>
             Old records are not encrypted by this application. Someone using this browser profile,
-            an extension, or an older copy of the application may still be able to access them.
-            There is no server recovery, cross-device sync, or transfer between sites.
+            an extension, or an older copy of the application may still be able to access them. They
+            remain on their original site origin (scheme, host, and port), with no server recovery,
+            cross-device sync, or transfer between sites.
           </p>
-          <p>
-            Browser data belongs to its original site origin (scheme, host, and port). A future
-            private or offline copy on another origin would not automatically recover records saved
-            here. Retiring public access does not make previously published GitHub history private.
-          </p>
+          <LegacyDataRemoval />
         </section>
-        <LegacyDataRemoval />
         <SourceNotice build={__BUILD__} />
       </div>
     </div>
@@ -508,11 +474,11 @@ function App() {
           source={
             path.startsWith('/rebuild')
               ? 'rebuild'
-              : path === '/execution'
+              : path.startsWith('/execution')
                 ? 'execution'
                 : path.startsWith('/loop')
                   ? 'loop'
-                  : path === '/'
+                  : path === '/' || path === '/privacy'
                     ? 'combined'
                     : 'period'
           }

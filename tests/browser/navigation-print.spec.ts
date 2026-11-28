@@ -29,11 +29,16 @@ test('Work 30 A4 and Letter exports preserve six lessons, separate card and scri
     await expect(target.locator('.footer-notices')).toHaveCount(1);
     const text = await target.locator('body').innerText();
     expect(
-      text.match(/Copyright © Jim Lunsford\. All rights reserved\. A Phoenix 2:33 LLC Project\./g),
+      text.match(
+        /Copyright © Jim Lunsford\. Software and educational adaptations: AGPL-3\.0-or-later\. Published books: all rights reserved\. A Phoenix 2:33 LLC Project\./g,
+      ),
     ).toHaveLength(1);
+    // The root edition also prints Loop's About the source paragraph.
+    // All other editions retain exactly one document attribution.
     expect(
-      text.match(/Educational adaptation by Only Empowerment\./g)?.length ?? 0,
-    ).toBeLessThanOrEqual(1);
+      text.match(/An educational companion to .+? by Jim Lunsford\./g)?.length ?? 0,
+      name,
+    ).toBe(name === 'root-reading' ? 2 : 1);
     expect(text.length).toBeGreaterThan(180);
     for (const format of ['A4', 'Letter'] as const) {
       const filename = `work30-${name}-${format}.pdf`;

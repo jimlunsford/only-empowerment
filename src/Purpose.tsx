@@ -114,7 +114,7 @@ export function PurposeLesson({ openCard }: { openCard: () => void }) {
         <section class="purpose-book no-print">
           <h2>{purposeBook.heading}</h2>
           <p>{purposeBook.description}</p>
-          <a href={periodBook.url} rel="noreferrer">
+          <a href={periodBook.url} target="_blank" rel="noopener noreferrer">
             {purposeBook.label}
           </a>
           <p>

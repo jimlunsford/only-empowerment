@@ -309,6 +309,5 @@ export const resilienceContent = {
   homeLead:
     "Only Empowerment helps you put The PERIOD Code's six connected values to work in daily life, for free. Begin with Ownership, give responsibility direction through Purpose, and explore how Resilience protects that direction under pressure.",
   availability: empowermentAvailability,
-  attribution:
-    'Based on The PERIOD Code by Jim Lunsford. Educational adaptation by Only Empowerment.',
+  attribution: 'An educational companion to The PERIOD Code by Jim Lunsford.',
 } as const;
