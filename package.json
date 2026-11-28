@@ -1,6 +1,6 @@
 {
   "name": "only-empowerment",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0",
   "private": true,
   "license": "AGPL-3.0-or-later",
   "type": "module",
@@ -17,7 +17,9 @@
     "verify": "npm run test && npm run build && npm run test:e2e",
     "format": "prettier --write src scripts tests *.ts *.json .github/workflows/*.yml",
     "format:check": "prettier --check src scripts tests *.ts *.json .github/workflows/*.yml",
-    "check:release": "node scripts/release-state.mjs"
+    "check:release": "node scripts/release-state.mjs",
+    "build:production": "OE_PRESENTATION=production npm run build",
+    "build:staging": "OE_PRESENTATION=staging npm run build"
   },
   "dependencies": {
     "preact": "10.29.8"

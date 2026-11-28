@@ -1,0 +1,38 @@
+{
+  "package.json": {
+    "beforeSha256": "4ad0b5d95c73169558978cf8345097642c4f449f87a3a3be0dd6f6249f22972f",
+    "afterSha256": "8cdb79c09882b074c1f1da665fcbf2a8ebfb8619c2225a3dcdb455cbdf37d309",
+    "edits": [
+      {
+        "start": 51,
+        "end": 51,
+        "before": "-rc.3",
+        "after": ""
+      },
+      {
+        "start": 748,
+        "end": 878,
+        "before": "",
+        "after": ",\n    \"build:production\": \"OE_PRESENTATION=production npm run build\",\n    \"build:staging\": \"OE_PRESENTATION=staging npm run build\""
+      }
+    ]
+  },
+  "package-lock.json": {
+    "beforeSha256": "9fe5614b508c02bb88b3f2c695718c7534d5b11167d80f89ec50ca47967c2ead",
+    "afterSha256": "3c2da74023f144172d05255fa675e440ad06595b59fd591f5c5c4c99fd638fc5",
+    "edits": [
+      {
+        "start": 51,
+        "end": 51,
+        "before": "-rc.3",
+        "after": ""
+      },
+      {
+        "start": 181,
+        "end": 181,
+        "before": "-rc.3",
+        "after": ""
+      }
+    ]
+  }
+}

@@ -2,6 +2,8 @@
 
 Status: staging deployed and verified on 2026-09-16. See STAGING-ACCEPTANCE-2026-09-16.md for exact commit, evidence, and limitations. The steps below are the operating standard; the ops/ first-deployment and recovery scripts are historical, narrowly pinned scripts and must not be rerun as a general updater.
 
+For current build commands, manifest-only candidate synchronization, branded 404 handling and the replacement static Nginx snippet, see [Production build and static deployment](PRODUCTION-BUILD.md). That procedure also documents the blocked staging mode and supersedes the historical scripts for new artifacts.
+
 Target: dev.onlyempowerment.com. Production apex and www remain untouched. Use current VPS source rules; no parallel backup or server-management system.
 
 ## Inspection gate
